@@ -1,0 +1,138 @@
+% SVN info for this file
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+
+\chapter{Proprietà varie ed eventuali}
+\labelAppendix{proprietà}
+
+\begin{introduction}
+‘‘La Matematica consiste di fatti veri riguardanti oggetti immaginari.''
+\begin{flushright}
+	\textsc{Philip Davis e Reuben Hersh,} matematici immaginari con opinioni vere.
+\end{flushright}
+\end{introduction}
+
+Riportiamo alcune proprietà utili per il lettore.
+\section{Immagine e controimmagine}
+Data una funzione $\funz{f}{X}{Y}$, per ogni sottoinsieme $A\subseteq X$ e $B\subseteq Y$ valgono le seguenti proprietà:
+\begin{center}
+	\begin{tabular}{l|l}
+	\multicolumn{1}{c|}{\textbf{Immagine}} 	& \multicolumn{1}{c}{\textbf{Controimmagine}}\\ \hline
+	$f(X)\subseteq Y$				& $f^{-1}(Y) = X$ 	\\ 
+	$f(f^{-1}(Y)) = f(X)$			& $f^{-1}(f(X))= X$ \\
+	$f(f^{-1}(B)) \subseteq B$ \footnotemark{}	& $f^{-1}(f(A)) \supseteq A$ \footnotemark{}	\\
+	$f(f^{-1}(B)) = B \cap f(X)$	& $(f \mid_A)^{-1}(B) = A \cap f^{-1}(B)$											\\
+	$f(f^{-1}(f(A))) = f(A)$		& $f^{-1}(f(f^{-1}(B))) = f^{-1}(B)$											\\
+	$f(A) = \emptyset \iff A = \emptyset$	&  $f^{-1}(B) = \emptyset \iff B \subseteq Y \setminus f(X)$					\\
+	$f(A) \supseteq B \iff \exists C \subseteq A \colon f(C) = B$ & $f^{-1}(B) \supseteq A \iff f(A) \subseteq B$\\
+	$f(A) \supseteq f(X \setminus A) \iff f(A) = f(X)$ & $f^{-1}(B) \supseteq f^{-1}(Y \setminus B) \iff f^{-1}(B) = X$\\
+	$f(X \setminus A) \supseteq f(X) \setminus f(A)$ & $f^{-1}(Y \setminus B) = X \setminus f^{-1}(B)$ \\
+	$f(A \cup f^{-1}(B)) \subseteq f(A) \cup B$ & $f^{-1}(f(A) \cup B) \supseteq A \cup f^{-1}(B)$ \\
+	$f(A \cap f^{-1}(B)) = f(A) \cap B$ & $f^{-1}(f(A) \cap B) \supseteq A \cap f^{-1}(B)$ \\
+	\multicolumn{2}{c}{$f(A) \cap B = \emptyset \iff A \cap f^{-1}(B) = \emptyset$}
+\end{tabular}
+\addtocounter{footnote}{-2}
+\stepcounter{footnote}\footnotetext{Uguale se $B\subseteq f(X)$, cioè se $f$ \textit{suriettiva}.}
+\stepcounter{footnote}\footnotetext{Uguale se $f$ \textit{iniettiva}.}	
+\end{center}
+
+Date le funzioni $\funz{f}{X}{Y}$ e $\funz{f}{Y}{Z}$, valgono le seguenti proprietà:
+\begin{itemize}
+	\item $(g \circ f)(A) = g(f(A))$
+	\item $(g \circ f)^{-1}(C) = f^{-1}(g^{-1}(C))$
+\end{itemize}
+Data una funzione $\funz{f}{X}{Y}$ e dati i sottoinsiemi $A_1,\ A_2\subseteq X$ e $B_1,\ B_2\subseteq Y$ valgono le seguenti proprietà:
+\begin{center}
+	\begin{tabular}{l|l}
+		\multicolumn{1}{c|}{\textbf{Immagine}} 	& \multicolumn{1}{c}{\textbf{Controimmagine}}\\ \hline
+		$A_1 \subseteq A_2 \implies f(A_1) \subseteq f(A_2)$	& $B_1 \subseteq B_2 \implies f^{-1}(B_1) \subseteq f^{-1}(B_2)$ 	\\ 
+		$f(A_1 \cup A_2) = f(A_1) \cup f(A_2)$	& $f^{-1}(B_1 \cup B_2) = f^{-1}(B_1) \cup f^{-1}(B_2)$ \\
+		$f(A_1 \cap A_2) \subseteq f(A_1) \cap f(A_2)$ \footnotemark{}	& $f^{-1}(B_1 \cap B_2) = f^{-1}(B_1) \cap f^{-1}(B_2)$	\\
+		$f(A_1 \setminus A_2) \supseteq f(A_1) \setminus f(A_2)$  \footnotemark{} & $f^{-1}(B_1 \setminus B_2) = f^{-1}(B_1) \setminus f^{-1}(B_2)$
+	\end{tabular}
+\addtocounter{footnote}{-2}
+\stepcounter{footnote}\footnotetext{\label{note1}Uguale se $f$ \textit{iniettiva}.}
+\stepcounter{footnote}\footnotetext{Si veda \ref{note1}.}
+\end{center}
+Data una funzione $\funz{f}{X}{Y}$ e date le famiglie di sottoinsiemi $\{A_i\}\subseteq\setpart{X}$ e $\{B_i\}\subseteq\setpart{Y}$ (con $I$ un insieme di indici anche \textit{infinito} o \textit{non numerabile}) valgono le seguenti proprietà:
+\begin{center}
+	\begin{tabular}{l|l}
+		\multicolumn{1}{c|}{\textbf{Immagine}} 	& \multicolumn{1}{c}{\textbf{Controimmagine}}\\ \hline
+		$\displaystyle f\left(\bigcup_{i\in I}A_i\right) = \bigcup_{i\in I} f(A_i)$	& $\displaystyle f^{-1}\left(\bigcup_{i\in I}B_i\right) = \bigcup_{i\in I} f^{-1}(B_i)$ 	\\ 
+		$\displaystyle f\left(\bigcap_{i\in I}A_i\right) \subseteq \bigcap_{i\in I} f(A_i)$ \footnotemark{}	& $\displaystyle f^{-1}\left(\bigcap_{i\in I}B_i\right) = \bigcap_{i\in I} f^{-1}(B_i)$
+	\end{tabular}
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{Si veda \ref{note1}.}
+\end{center}
+\section{Inversa di una matrice 2×2}
+Data la matrice $A$:
+	\begin{equation*}
+	A=\left(\begin{array}{cc}
+		a & b \\
+		c & d
+	\end{array}\right)
+\end{equation*}
+Con $\det A\neq 0$, la sua inversa è:
+\begin{equation*}
+	A^{-1}=\frac{1}{\det A}\left(\begin{array}{cc}
+		d & -b \\
+		-c & a
+	\end{array}\right)
+\end{equation*}
+\section{Invarianti topologici più comuni}
+\begin{multicols}{2}
+	\textls{\textsc{\textcolor{reddo}{Cardinalità}}}
+	\begin{itemize}
+		\item \textbf{Cardinalità} $\vert X\vert$ dello spazio $X$.
+		\item \textbf{Cardinalità} $\vert \topo\vert$ della topologia.
+	\end{itemize}
+\textls{\textsc{\textcolor{reddo}{Assiomi di separazione}}}
+\begin{itemize}
+	\item \textbf{T1}: per ogni coppia di punti distinti $x$ e $y$ c'è un intorno aperto contenente $x$ ma non $y$; alternativamente, tutti i punti sono chiusi.
+	\item \textbf{T2} o \textbf{Hausdorff}: per ogni coppia di punti distinti $x$ e $y$ esistono due intorni disgiunti. Spazi di \textbf{Hausdorff} sono sempre \textbf{T1}.
+	\item \textbf{Discreta}: ogni sottoinsieme è aperto.
+\end{itemize}
+\textls{\textsc{\textcolor{reddo}{Assiomi di numerabilità}}}
+\begin{itemize}
+	\item \textbf{Separabile}: lo spazio contiene un sottoinsieme denso numerabile.
+	\item \textbf{Primo numerabile}: ogni punto ha un sistema fondamentale di intorni numerabile.
+	\item \textbf{Secondo numerabile}: la topologia ha una base di cardinalità numerabile. Spazi secondo numerabili sono sempre separabili e primi numerabili.
+\end{itemize}
+\textls{\textsc{\textcolor{reddo}{Connessione}}}
+\begin{itemize}
+	\item \textbf{Connesso}: gli unici aperti e chiusi sono il vuoto e lo spazio stesso; alternativamente, lo spazio \textit{non} è l'unione di una coppia di aperti/chiusi non vuoti e disgiunti.
+	\item \textbf{Connesso per archi}: per ogni coppia di punti $x,\ y$ c'è un cammino $\funz{\alpha}{\left[0,\ 1\right]}{X}$ (con $\alpha\left(0\right)=x$ e $\alpha\left(1\right)=y$). Spazi \textbf{c.p.a.} sono sempre connessi.
+	\item \textbf{Semplicemente connesso}: spazio \textbf{c.p.a.} il cui gruppo fondamentale è banale.
+	\item \textbf{Contraibile}: spazio con tipo di omotopia di un punto; alternativamente, l'identità $Id_X$ è omotopica ad una funzione costante. Ogni spazio contraibile è semplicemente connesso.
+\end{itemize}
+\textls{\textsc{\textcolor{reddo}{Compattezza}}}
+\begin{itemize}
+	\item \textbf{Compatto}: ogni ricoprimento aperto ammette un sottoricoprimento finito.
+	\item \textbf{Compatto per successioni}: ogni successione ha una sottosuccessione convergente.
+\end{itemize}
+\textls{\textsc{\textcolor{reddo}{Metrica}}}
+\begin{itemize}
+	\item \textbf{Metrico}: la topologia è indotta da una distanza; alternativamente, è omeomorfo ad uno spazio metrico.
+\end{itemize}
+\end{multicols}
+\section{Invarianti omotopici più comuni}
+Tutti gli invarianti omotopici sono anche invarianti per omeomorfismi.
+\begin{multicols}{2}
+\begin{itemize}
+	\item \textbf{Connesso per archi}.
+	\item \textbf{Semplicemente connesso}.
+	\item Se gli spazi sono \textbf{c.p.a.}, i \textbf{gruppi fondamentali} sono \textit{isomorfi}. Se non sono \textit{c.p.a.}, $\gruf{X}{x_0}$ è omeomorfo a $\gruf{Y}{y_0}$ con $\funz{f}{\left(X,\ x_0\right)}{\left(Y,\ f\left(x_0\right)\right)}$ equivalenza omotopica.
+\end{itemize}
+\end{multicols}
+\section{Invarianti proiettivi}
+\begin{multicols}{2}
+\begin{itemize}
+	\item \textbf{Birapporto di quattro punti}.
+	\item \textbf{Grado di una conica}.
+	\item \textbf{Irriducibilità di una conica}.
+	\item \textbf{Conica degenere}.
+\end{itemize}	
+\end{multicols}
