@@ -75,6 +75,9 @@
 \RequirePackage{tikz-cd}
 \RequirePackage{fancyhdr}
 \RequirePackage[absolute]{textpos}
+
+\RequirePackage{calc}
+
 \RequirePackage{preamble/quiver}
 \RequirePackage{preamble/comment}
 \RequirePackage{preamble/nexus}
@@ -1983,3 +1986,6 @@ headformat={\NAME\, \NUMBER\small\bfseries\scshape\textcolor{black}{.\, - \NOTE}
 	\thispagestyle{empty}%
 	\addtocounter{page}{-1}%
 	\newpage}
+
+%%%
+\newcommand{\squarequal}{\ensuremath{\ \framebox[\widthof{.=}]{\rule{0pt}{0.5em}=}\ }}
