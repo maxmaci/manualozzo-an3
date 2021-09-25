@@ -6,7 +6,7 @@
 {$LastChangedBy$}
 
 \chapter{Convergenza di funzioni}
-\labelChapter{Connessocompatto}
+\labelChapter{convergenzafunzioni}
 
 \begin{introduction}
 	‘‘BEEP BOOP QUESTA È UNA CITAZIONE.''
@@ -163,7 +163,7 @@ Abbiamo così verificato la convergenza richiesta.
 	\lim_{n\to +\infty}\left(\sup_{\textcolor{redill}{x\in \left[0,1\right]}}\frac{x^n}{n}\right)=\lim_{n\to +\infty}\frac{1}{n}=0
 	\end{equation*}
 \end{solution}
-\section{Criterio di Cauchy per la convergenza uniforme}
+\subsection{Criterio di Cauchy per la convergenza uniforme}
 Come nel caso delle successioni numeriche, esiste un \textbf{criterio di Cauchy} per la convergenza uniforme.
 \begin{theorema}[Criterio di Cauchy per la convergenza uniforme.]~{}\\
 	Siano $\funz{f_n}{A\subseteq\realset}{\realset}$. Allora
@@ -175,7 +175,7 @@ Come nel caso delle successioni numeriche, esiste un \textbf{criterio di Cauchy}
 \begin{observe}
 Il criterio di Cauchy è un \textit{risultato teorico molto importante}, in quanto permette di mostrare la convergenza uniforme di una successione di funzioni \textit{senza sapere} quale sia il limite come invece è necessario nella definizione di convergenza, in modo analogo a ciò che succede con il criterio di Cauchy per le successioni numeriche.
 \end{observe}
-\section{Generalizzazioni della convergenza uniforme}
+\subsection{Generalizzazioni della convergenza uniforme}
 Prima di tutto, ricordiamo le definizioni di norma e spazio normato.
 \begin{define}[Spazio normato e norma.]~{}\\
 	Uno \textbf{spazio normato}\index{spazio!normato} è una coppia $\left(X,\ \norm{\cdot}\right)$ dove $X$ è un spazio vettoriale su $\kamp$ reale o complesso e $\funz{\lvert\lvert\cdot\rvert\rvert}{X}{\realset^+}$ è una funzione detta \textbf{norma}\index{norma}, cioè tale che $\forall x,\ y\in X,\ \lambda\in\kamp$ essa soddisfi le seguenti proprietà:
@@ -188,7 +188,7 @@ Prima di tutto, ricordiamo le definizioni di norma e spazio normato.
 \begin{observe}
 	Ogni spazio normato è anche uno spazio metrico se consideriamo la \textbf{metrica indotta dalla norma}\index{metrica!indotta dalla norma}, cioè la funzione data da $\mvf{d}{x}{y}\coloneqq\norm{x-y}$.
 \end{observe}
-Generalizzare la definizione di convergenza uniforme considerando $\funz{f_n,\ f}{A}{Y}$, con $A$ \textit{insieme qualsiasi} e $Y$ uno spazio \textit{normato}. Se vogliamo che valga anche il criterio di Cauchy è necessario che $Y$ sia \textit{anche} uno spazio \textbf{completo}.
+Generalizziamo ora la definizione di convergenza uniforme considerando $\funz{f_n,\ f}{A}{Y}$, con $A$ \textit{insieme qualsiasi} e $Y$ uno spazio \textit{normato}; se vogliamo che valga anche il criterio di Cauchy è necessario che $Y$ sia \textit{anche} uno spazio \textbf{completo}.
 \begin{define}[Successione di Cauchy.]~{}\\
 		Una successione $v_n\in X$ è \textbf{di Cauchy}\index{successione di Cauchy} in $X$ se
 	\begin{equation}
@@ -201,7 +201,7 @@ Generalizzare la definizione di convergenza uniforme considerando $\funz{f_n,\ f
 \begin{observe}
 	Una successione convergente è \textit{sempre} di Cauchy, ma in generale \textit{non tutte} le successioni di Cauchy convergono. L'implicazione opposta è vera solo se lo spazio è completo.
 \end{observe}
-Possiamo allora, date queste condizioni, riformulare la convergenza uniforme nella maniera seguente.
+Possiamo ora, date queste nuove ipotesi, riformulare la convergenza uniforme.
 \begin{define}[Convergenza uniforme.]~{}\\
 		Siano $\funz{f_n,\ f}{A}{Y}$ con $A$ insieme qualsiasi e $Y$ spazio normato (completo). Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$ \textcolor{redill}{\textbf{su} $A$} se
 	\begin{equation}
@@ -211,7 +211,7 @@ Possiamo allora, date queste condizioni, riformulare la convergenza uniforme nel
 \begin{digression}
 	Volendo è possibile generalizzare ulteriormente parlando di convergenza uniforme per funzioni a valori in semplici \textbf{spazi metrici} (completi), sostituendo a $\norm{f_n\left(x\right)-f\left(x\right)}<\epsilon$ la condizione $\mvf{d}{f_n\left(x\right)}{f\left(x\right)}<\epsilon$. Nei nostri studi non affronteremo ciò e ci limiteremo a considerare il caso di spazi normati (completi).
 \end{digression}
-\section{Convergenza uniforme e convergenza puntuale}
+\section{Convergenza puntuale}
 Durante gli studi di \textsc{Calcolo delle probabilità e statistica} si è parlato di tre tipi di convergenze di successioni di variabili aleatorie: la \textbf{convergenza in probabilità}, la \textbf{convergenza quasi certa} e la \textbf{convergenza in legge} (o in distribuzione). Consideriamo ora quest'ultima, di cui riportiamo la definizione.
 \begin{define}[Convergenza in legge]~{}\\
 	Dato $\left(\Omega,\ \mathcal{M},\ \mathbb{P}\right)$ spazio di probabilità, $\funz{X_n,\ X}{\Omega}{\realset}$ variabili aleatorie e le due corrispettive \textit{funzioni di distribuzione}
@@ -224,17 +224,23 @@ allora si dice che $X_n$ converge a $X$ \textbf{in legge}\index{convergenza!in l
 	\lim_{n\to\infty}F_n\left(x\right)=F\left(x\right),\ \forall x\in\realset\ \text{punto di continuità di }F.
 \end{equation}
 \end{define}
-Quello che abbiamo appena scritta non è altro che il caso applicato agli \textit{studi probabilistici} della \textbf{convergenza puntuale}\index{convergenza!puntuale} di una successione ad una funzione limite nel punto $x$.\\
+Quello che abbiamo appena scritta non è altro che il caso applicato agli \textit{studi probabilistici} della \textbf{convergenza puntuale} di una successione ad una funzione limite nel punto $x$.
+\begin{define}[Convergenza puntuale.]~{}\\
+	Siano $\funz{f_n,\ f}{A}{Y}$ con $A$ insieme qualsiasi e $Y$ spazio normato (completo). $f_n$ converge a $f$ \textbf{puntualmente}\index{convergenza!puntuale} in ogni punto di $A$ se
+	\begin{equation}
+		\forall x\in A\ \forall \epsilon>0\ \exists N=N\left(\epsilon,x\right)\colon\forall n\geq N\ \norm{f_n\left(x\right)-f\left(x\right)}<\epsilon
+	\end{equation}
+\end{define}
 Confrontiamo qui $\funz{f_n,\ f}{A\subseteq R}{\realset}$:
 \begin{enumerate}
 	\item $f_n$ converge a $f$ \textbf{uniformemente} su $A$ se
-	\begin{equation}
-		\forall \epsilon>0\ \exists N=N\left(\epsilon\right)\colon\forall n\geq N\ \abs{f-_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in A
-	\end{equation}
+	\begin{equation*}
+		\forall \epsilon>0\ \exists N=N\left(\epsilon\right)\colon\forall n\geq N\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in A
+	\end{equation*}
 	\item $f_n$ converge a $f$ \textbf{puntualmente} in ogni punto di $A$ se
-	\begin{equation}
-		\forall x\in A \forall \epsilon>0\ \exists N=N\left(\epsilon,x\right)\colon\forall n\geq N\ \abs{f-_n\left(x\right)-f\left(x\right)}<\epsilon
-	\end{equation}
+	\begin{equation*}
+		\forall x\in A\ \forall \epsilon>0\ \exists N=N\left(\epsilon,x\right)\colon\forall n\geq N\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
+	\end{equation*}
 \end{enumerate}
 Il quantificatore esistenziale $\exists$ implica che ciò che esiste dipende da tutto ciò che lo precede: nella convergenza puntuale $N$ non dipende dal solo $\epsilon$ come così capita nella \textbf{convergenza uniforme}, ma anche da $x$. La convergenza uniforme è più restrittiva rispetto alla puntuale.
 \begin{observe}
