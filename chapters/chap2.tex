@@ -175,6 +175,21 @@ Come nel caso delle successioni numeriche, esiste un \textbf{criterio di Cauchy}
 \begin{observe}
 Il criterio di Cauchy è un \textit{risultato teorico molto importante}, in quanto permette di mostrare la convergenza uniforme di una successione di funzioni \textit{senza sapere} quale sia il limite come invece è necessario nella definizione di convergenza, in modo analogo a ciò che succede con il criterio di Cauchy per le successioni numeriche.
 \end{observe}
+\subsection{Visualizzazione della convergenza uniforme}
+Siamo abituati alle successioni numeriche $v_n$ ed eventualmente a studiare il loro andamento in modo grafico, rappresentando sulle ascisse il numero $n$ e sulle ordinate il valore $v_n$. Nel caso di successioni di funzioni l'argomento è una funzione, quindi per studiarle può essere utile proprio disegnare i grafici degli $f_n$ e come convergono verso $f$.\\
+Come appare \textit{visivamente} la convergenza uniforme? Possiamo riscrivere la condizione della convergenza uniforme
+\begin{equation*}
+	\forall \epsilon>0\ \exists N=N\left(\epsilon\right)\ \forall n\geq N\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in A
+\end{equation*}
+come
+\begin{equation}
+	f\left(x\right)-\epsilon<f_n\left(x\right)<f\left(x\right)+\epsilon,\ \forall x\in A\text{ definitivamente}
+\end{equation}
+In altre parole, $f_n$ deve essere compresa nell'\textbf{intorno tubulare} di $f\left(x\right)$ definitivamente, nel senso che le $f_n$ devono stare in questo intorno per ogni $n$ sufficientemente grande (cioè $\forall n\geq N$).\\
+\textbf{[INSERIRE GRAFICO DELLA FUNZIONE IN INTORNO TUBOLARE.]}\\ % TO DO: inserire grafico
+\begin{define}[Intorno tubulare.]~{}\\
+Un \textbf{intorno tubulare}\index{intorno!tubulare} di larghezza $\epsilon$ di una curva è l'unione di tutti i dischi di raggio $\epsilon$ con centro un punto di una curva.
+\end{define}
 \subsection{Generalizzazioni della convergenza uniforme}
 Prima di tutto, ricordiamo le definizioni di norma e spazio normato.
 \begin{define}[Spazio normato e norma.]~{}\\
@@ -185,7 +200,7 @@ Prima di tutto, ricordiamo le definizioni di norma e spazio normato.
 		\item $\norm{x+y}\leq\norm{x}+\norm{y}$.
 	\end{enumerate}
 \end{define}
-\begin{observe}
+	\begin{observe}
 	Ogni spazio normato è anche uno spazio metrico se consideriamo la \textbf{metrica indotta dalla norma}\index{metrica!indotta dalla norma}, cioè la funzione data da $\mvf{d}{x}{y}\coloneqq\norm{x-y}$.
 \end{observe}
 Generalizziamo ora la definizione di convergenza uniforme considerando $\funz{f_n,\ f}{A}{Y}$, con $A$ \textit{insieme qualsiasi} e $Y$ uno spazio \textit{normato}; se vogliamo che valga anche il criterio di Cauchy è necessario che $Y$ sia \textit{anche} uno spazio \textbf{completo}.
@@ -233,11 +248,11 @@ Quello che abbiamo appena scritta non è altro che il caso applicato agli \texti
 \end{define}
 Confrontiamo qui $\funz{f_n,\ f}{A\subseteq R}{\realset}$:
 \begin{enumerate}
-	\item $f_n$ converge a $f$ \textbf{uniformemente} su $A$ se
+	\item \textbf{(CU)} $f_n$ converge a $f$ \textbf{uniformemente} su $A$ se
 	\begin{equation*}
 		\forall \epsilon>0\ \exists N=N\left(\epsilon\right)\colon\forall n\geq N\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in A
 	\end{equation*}
-	\item $f_n$ converge a $f$ \textbf{puntualmente} in ogni punto di $A$ se
+	\item \textbf{(CP)} $f_n$ converge a $f$ \textbf{puntualmente} in ogni punto di $A$ se
 	\begin{equation*}
 		\forall x\in A\ \forall \epsilon>0\ \exists N=N\left(\epsilon,x\right)\colon\forall n\geq N\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
 	\end{equation*}
@@ -257,3 +272,46 @@ Il quantificatore esistenziale $\exists$ implica che ciò che esiste dipende da 
 	\item Se $\displaystyle\sup_{x\in A}N\left(\epsilon\right)=+\infty$ allora \textit{non} c'è convergenza uniforme.
 \end{itemize}
 \end{observe}
+Dalle definizioni segue immediatamente che
+\begin{equation*}
+	f_n\text{ converge uniformemente a }f\text{ in }A\implies f_n\text{ converge puntualmente a }f\text{ in ogni punto di }A
+\end{equation*}
+ma in generale vale che la convergenza puntuale \textbf{NON} implica la convergenza uniforme.
+\begin{example}[Successione geometrica e convergenza puntuale.]~{}
+	Consideriamo la successione geometrica $f_n\left(x\right)=x^n,\ \forall n\geq 0$.\\
+	$\forall x\in\realset$ fissato si ha
+	\begin{equation*}
+		\lim_{n\to +\infty}x^n=
+		\begin{cases}
+			+\infty\quad\text{se }x>1
+			1\quad\text{se }x=1\\
+			0\quad\text{se }-1<x<1\\
+			\text{non esiste}\quad\text{se}x\leq 1
+		\end{cases}
+	\end{equation*}
+Allora $x^n$ converge puntualmente a
+\begin{equation*}
+	f\left(x\right)=
+	\begin{cases}
+	1\text{se }x=1\\
+	0\text{se }-1<x<1	
+	\end{cases}
+\end{equation*}
+in ogni punto di $\left(-1,1\right]$.
+\textbf{[INSERIRE GRAFICO FUNZIONE]} % TO DO: inserire grafico
+\end{example}
+Abbiamo provato precedentemente che $f_n\left(x\right)=x^n$ converge uniformemente a $f\equiv 0$ in ogni intervallo $\left[-a,a\right]\subsetneqq\left(-1,1\right),\ \forall a\in\left(0,1\right)$, ma \textit{non} converge uniformemente a $f=0$ in $\left(-1,1\right)$.\\
+Questo mostra che su $\left(-1,1\right)$ c'è convergenza puntuale ma non uniforme.
+\begin{observe}
+	Questo esempio mostra inotlre che la CP \textit{non} è sufficiente in generale per trasferire la continuità alla funzione limite.
+\end{observe}
+\section{Convergenza uniforme e puntuale nei confronti di limitatezza, continuità e integrabilità}
+Adesso studiamo il diverso comportamento delle due tipologie di convergenza viste rispetto alle proprietà enunciate nel titolo di questa sezione: se le funzioni $f_n$ della successione sono limitate/continue/integrabili, la funzione limite $f$ è limitata/continua/integrabile?
+\begin{proposition}
+Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
+\begin{enumerate}
+	\item $f_n$ limitato su $\left[a,b\right],\ \forall n\geq 1$.
+	\item $f_n$ converge uniformemente a $f$ su $\left[a,b\right]$.
+\end{enumerate}
+Allora $F$ è limitate su $\left[a,b\right]$.
+\end{proposition}
