@@ -5,244 +5,82 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Gruppi topologici}
-\labelChapter{gruppi topologici}
+\chapter{Serie di funzioni}
+\labelChapter{seriefunzioni}
 
 \begin{introduction}
-‘‘Di questi giorni, l'angelo della topologia e il diavolo dell'algebra astratta lottano per l'anima di ogni singola disciplina matematica.''
+	‘‘BEEP BOOP QUESTA È UNA CITAZIONE.''
 \begin{flushright}
-	\textsc{Hermann Weyl,} esorcista topologico.
+	\textsc{Marinobot,} dopo aver finito le citazioni stupide.
 \end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{A}{bbiamo} definito la struttura di \textit{spazio topologico} su un insieme con lo scopo principale di poter definire formalmente la \textit{continuità} di una funzione. Un altro tipo di struttura fondamentale per la Matematica è quella di \textit{gruppo}, un insieme dotato di una \textit{operazione binaria} che soddisfa le condizioni di chiusura, associatività, identità ed invertibilità.\\
-In questo capitolo studieremo il \textbf{gruppo topologico}, un oggetto matematico che è dotato contemporaneamente sia di una struttura di \textit{gruppo}, sia di una di \textit{spazio topologico}. In questo modo, potremo eseguire operazioni algebriche e parlare di continuità allo stesso tempo. Vedremo inoltre le relazioni fra alcune proprietà che abbiamo già visto e questo nuovo oggetto di studio.
-\section{Gruppi topologici}
-Conoscendo le strutture di \textit{gruppo} e \textit{spazio topologico} su un insieme, vogliamo vedere come possono essere \textit{compatibili} fra loro.
-\begin{define}[Gruppo topologico.]~{}\\
-	Un insieme $G$ si dice \textbf{gruppo topologico}\index{gruppo topologico} se:
-		\begin{itemize}
-			\item $G$ è un \textit{gruppo}.
-			\item $G$ è uno \textit{spazio topologico}.
-			\item L'\textit{operazione} e l'\textit{inverso} sono funzioni \textit{continue}:
-			\begin{equation}
-				\funztot \mu {G\times G} G {(x,\ y)} {x\cdot y}\qquad \funztot i G G x {x^{-1}}
-			\end{equation}
-		\end{itemize}
-	\vspace{-3mm}
+\lettrine[findent=1pt, nindent=0pt]{L}{e} Nel \refChapter{convergenzafunzioni} abbiamo iniziato a trattare la convergenza uniforme e puntuale di successioni di funzioni. Adesso passiamo a parlare di serie di funzioni.
+\textbf{[COMPLETARE]} % TO DO: completare l'intro
+\section{Serie in spazio normato}
+Innanzitutto, ricordiamo le definizioni di serie a valori reali e di convergenza (assoluta) di una serie a valore reali.
+\begin{define}[Serie a valori reali e convergenza di una serie.]~{}\\
+	Data una successione $x_n\in\realset$, $n\geq 0$, la \textbf{serie}\index{serie} $\displaystyle\sum_{k=0}^{+\infty}x_k$ è la somma di tutti gli elementi della successione.\\
+	Considerata la \textit{somma parziale}, o altresì detta \textbf{ridotta}\index{ridotta}
+	\begin{equation}
+		s_n=\sum_{k=0}^{n}x_k\quad\forall n\geq 0
+	\end{equation}
+si dice che la serie $\displaystyle\sum_{k=0}^{+\infty}x_k$ \textbf{converge}\index{convergenza!di una serie}\seeonlyindex{convergenza!di una serie}{convergenza!semplice} se converge la successione $s_n$; si pone in tal caso
+\begin{equation}
+	\sum_{k=0}^{+\infty}x_k=\lim_{n\to+\infty}s_n
+\end{equation}
 \end{define}
-Vediamo ora degli esempi noti di gruppi topologici.
-\begin{examples}~{}
-	\begin{itemize}
-		\item $\left( \realset^n, \ +\ , \ \eucl \right), \left( \complexset ^n, \ +\ , \ \eucl \right)$.
-		\item $\left( \realset^*, \ \cdot\ ,\ \eucl \right), \left( \realset^*, \ \cdot\ , \ \eucl \right)$ con la topologia indotta di sottospazio.
-		\item $\left( M_{n,m}(\realset),\ \cdot\ , \eucl \right)$ con la topologia indotta di sottospazio di $\realset^{n,m}$.
-	\end{itemize}
-\vspace{-3mm}
-\end{examples}
-\begin{observe}
-	I gruppi topologici $\gl (n,\realset )$ e $\gl (n, \complexset )$ sono aperti di $M_{n,n}\left(\kamp\right)$.\\
-	Considerata la funzione del \textit{determinante} $\funz \det {\realset^{n,n}} \realset$, essa è continua in quanto per calcolare il determinante si opera solo con somme e prodotti.\\
-	Si ha che $\gl(n, \realset)$ è il complementare dell'insieme delle matrici che hanno determinante nullo, il quale è un chiuso in quanto controimmagine di $\{0\}$ (chiuso in $\realset$) tramite una funzione continua.
-	\begin{equation*}
-		\gl(n, \realset)=M_{n,n}(\realset)\setminus\det^{-1}\left(\left\{0\right\}\right)
-	\end{equation*}Dunque tale gruppo topologico è aperto; analogamente vale per il caso con $\complexset$.
-\end{observe}
-Vediamo ora altri sottogruppi (moltiplicativi) di $M_{n,n}$:
-	\begin{itemize}
-		\item $\Sl$, dato da $\{\det A=1\} $, è il \textit{gruppo speciale lineare}\index{gruppo!speciale lineare}.
-		\item $\Or$, determinato dall'equazione $A^{t}A=I$, è il \textit{gruppo ortogonale}\index{gruppo!ortogonale}.
-		\item $\So=\Or\cap\Sl$ è il \textit{gruppo speciale ortogonale}\index{gruppo!speciale ortogonale}.
-		\item $\U$, determinato dall'equazione $A^{t}\overline{A}=I$, è il \textit{gruppo unitario}\index{gruppo!unitario}.
-		\item $\Su=\U\cap\Sl$ è il \textit{gruppo speciale unitario}\index{gruppo!speciale unitario}.
-	\end{itemize}
-Tutti questi sono gruppi topologici, in quanto le operazioni sulle matrici sono continue:
-	\begin{itemize}
-		\item \textit{Moltiplicazione matriciale}: continua perché definita tramite somme e prodotti di elementi delle matrici.
-		\item \textit{Inverso}: è una funzione che ad una matrice $A$ associa la sua inversa $A^{-1}$, ottenuta moltiplicando $\displaystyle \frac{1}{\det A}$ per una matrice ottenuta con particolari prodotti e somme di elementi della matrice $A$; per questo motivo è continua.
-	\end{itemize}
-\begin{observe}
-	Per i gruppi topologici in generale vale la \textit{moltiplicazione destra} e \textit{sinistra}:
-		\begin{gather*}
-			\funztot {L_h} G G g {hg} \text{   e   } \funztot {R_n}  G G g {gh} \\
-			(L_h)^{-1}=L_{h^{-1}} \text{   e   } (R_h)^{-1}=R_{h^{-1}}
-		\end{gather*}
-	In particolare sono omeomorfismi. Ne segue che un gruppo topologico è \textbf{omogeneo}:
-		\begin{gather*}
-			\forall g,\ h\in G \ \exists \funz \phi G G \text{ omeomorfismo}\ \colon \phi(g)=h
-		\end{gather*}
-	Infatti, basta porre $\phi=L_{hg^{-1}}$ oppure $\phi=R_{g^{-1}h}$.
-\end{observe}
-Il seguente teorema ci permette di caratterizzare i gruppi topologici di \textbf{Hausdorff} grazie alla chiusura dell'elemento neutro.
-\begin{theorema}[Gruppo topologico di Hausdorff se e solo se il neutro è chiuso.]~{}\\
-	Sia $G$ un gruppo topologico, $e\in G$ il suo elemento neutro, si ha che:
-		\begin{gather*}
-			G \ \text{di \textbf{Hausdorff}} \iff \{e\} \text{ chiuso }
-		\end{gather*}
-	\vspace{-6mm}
-\end{theorema}
-\begin{demonstration}~{}\\
-	$\impliesdx G$ di \textbf{Hausdorff} $\implies G \ \mathbf{T_1} \implies$ tutti i punti sono chiusi, in particolare anche $\{e\}$. \\
-	$\impliessx$ Per dimostrare che $G$ è di \textbf{Hausdorff} si utilizza la caratterizzazione con la diagonale chiusa:
-		\begin{gather*}
-			\funztot \phi {G\times G} G {(g,h)} {gh^{-1}} \qquad \begin{array}{ll}
-				(g,h)\in\Delta_G &\iff g=h\iff \phi\left( (g,h)\right)=gh^{-1}=e \\
-				&\implies \Delta_G =\phi^{-1}\left(\{e\}\right)
-			\end{array}
-		\end{gather*}
-	Per ipotesi $\{e\}$ è chiuso, quindi $\Delta_G$ è chiuso e dunque $G$ è di \textbf{Hausdorff}.
-\end{demonstration}
-
-\begin{observe}
-$\gl(n,\realset)$\textsc{ è sconnesso}.
-Esso è unione di due aperti non vuoti disgiunti; notando che le controimmagini di aperti tramite la funzione determinante \\ $\funz \det {\gl(n,\realset)} {\realset\setminus\{0\}}$ saranno aperti in quanto $\det$ è continua, si ha:
-		\begin{gather*}
-			\begin{array}{lcl}
-				\det^{-1} \left( (0,+\infty)\right) & = & \gl ^+ (n,\realset) \\
-				\det^{-1} \left( (-\infty,0)\right) & = & \gl ^- (n,\realset) \\
-			\end{array}
-		\implies \gl(n,\realset)=\gl^+(n,\realset) \amalg \gl^-(n,\realset)
-		\end{gather*}
-	\vspace{-3mm}
-\end{observe}
- Dimostriamo un lemma che generalizza il teorema \ref{unione sottospazi connessi} e che ci sarà utile nella dimostrazione successiva sulla connessione di alcuni gruppi topologici.
-\begin{lemming}[$Y$ connesso con fibre connesse tramite $f$ suriettiva aperta/chiusa implica $X$ connesso; Manetti, 4.18.]~{}\label{connessione e fibre}\\
-	Sia $\funz f X Y$ continua. Se $f$ è suriettiva aperta o chiusa, $Y$ è connesso e le fibre sono connesse, ovvero se $\forall y\in Y \ f^{-1}(y)$ è connesso, allora $X$ è connesso.
-\end{lemming}
-\begin{demonstration}
-	Supponiamo che $f$ sia aperta e consideriamo $A_1\neq\emptyset\neq A_2$ aperti (per $f$ chiusa si considerino dei chiusi e si procede in modo analogo) tale che $X=A_1\cup A_2$. Per dimostrare che $X$ è connesso mostriamo che $A_1\cap A_2\neq\emptyset$:
-		\begin{gather*}
-			\begin{array}{lcl}
-				f \text{ aperta } & \implies & f(A_1), f(A_2) \text{ aperti}\\
-				f \text{ suriettiva} & \implies & f(X)=Y \implies f(A_1\cup A_2)=f(A_1)\cup f(A_2)=Y \\
-				Y \text{ connesso } & \implies & f(A_1)\cap f(A_2)\neq\emptyset \implies \exists y_0\in f(A_1)\cap f(A_2) \implies \begin{cases}
-					f^{-1}(y_0) \cap A_1\neq \emptyset \\
-					f^{-1}(y_0) \cap A_2\neq \emptyset
-				\end{cases}
-			\end{array} \\
-				\begin{cases}
-					\left( f^{-1}(y_0)\cap A_1 \right)\cup \left( f^{-1}(y_0)\cap A_2 \right)=f^{-1}(y_0) \\
-					\text{Fibre connesse }
-				\end{cases}
-				 \begin{array}{ll}
-				 	\implies& f^{-1}(y_0)\cap A_1\cap A_2\neq\emptyset\implies\\
-				 	&\implies A_1\cap A_2\neq\emptyset
-				 \end{array}
-		\end{gather*}
-\vspace{-3mm}
-\end{demonstration}
-\begin{theorema}[$\protect\forall n\geq 1, {\gl^+(n,\realset)}$ e ${\gl(n,\complexset)}$ sono connessi.]
+\begin{define}[Convergenza assoluta.]~{}\\
+	Sia $x_n$ una successione a valori reali. La serie $\displaystyle\sum_{k=0}^{+\infty}x_k$ \textbf{converge assolutamente}\seeonlyindex{convergenza!totale}{convergenza!assoluta} in $\realset$ se converge la serie $\displaystyle\sum_{k=0}^{+\infty}\abs{x_k}$.
+\end{define}
+\begin{theorema}[Convergenza assoluta implica convergenza semplice.]~{}\\\label{teoremaassimplicasemplice}
+	Ogni serie di numeri reali assolutamente convergente è anche semplicemente convergente.
 \end{theorema}
 \begin{demonstration}
-	Si procede per induzione su $n$ per $\gl^+(n,\realset)$; il caso $\gl(n,\complexset)$ è analogo.\\
-	$\mathbf{n=1)}$ \ \ $\begin{cases}
-			\gl^+(1,\realset)=(0,+\infty) \\
-			\gl(n,\complexset)=\complexset\setminus\{0\}=\realset^2\setminus{0}
-		\end{cases}$ connessi.\\
-	$\mathbf{n>1)}$ \ \ Supponiamo ora che $\gl^+(n-1,\realset)$ sia connesso. Per dimostrare che $\gl(n,\realset)$ è connesso, cerchiamo una funzione continua e suriettiva da $\gl^+(n,\realset)$ ad un connesso che soddisfi le ipotesi del lemma precedente. A tal scopo, si considera la \textit{funzione prima colonna} che mappa una matrice $n\times n$ alla sua prima colonna:
-	\begin{equation*}
-		\funztot p {\realset^{n,n}} {\realset^n} A {p(A)}
-	\end{equation*}
-	Siccome $\realset^{n,n}=\realset^n\times\realset^{n,n-1}$ allora $p$ è una \textit{proiezione}, dunque per il punto 2 della proposizione \ref{topprodotto} è aperta. Restringiamo ora $p$ a $\gl^+(n,\realset)$:
-	\begin{equation*}
-		\funz p {\gl^+(n,\realset)} {\realset^n\setminus\{\mathbf{0}\}}
-	\end{equation*}
-	Che è una funzione continua, suriettiva e aperta perché restrizione di una funzione che ha tutte e tre queste proprietà; inoltre $\realset^n\setminus\{\mathbf{0}\}$ è connesso per $n>1$. Rimane soltanto da mostrare che le fibre sono tutte connesse: per far ciò è sufficiente mostrare che siano tutte omeomorfe ad una fibra connessa. Consideriamo:
-		\begin{gather*}
-			y_0=\begin{pmatrix}
-					1 \\ 0 \\ \vdots \\ 0
-				\end{pmatrix}\in \realset^n\setminus\{\mathbf{0}\} \implies p^{-1}	(y_0)=\begin{pmatrix}
-						1      & * & \cdots & *\\
-						0      &   &       &  \\
-						\vdots &   & A     &  \\
-						0      &   &       &
-					\end{pmatrix}
-		\end{gather*}
-	Con $(*,\dots, *)\in\realset^{n-1}$ arbitrario in quanto non influisce nel calcolo del determinante e con $A\in\gl^+(n-1,\realset)$. Segue che $p^{-1}(y_0)=\realset^{n-1}\times\gl^+(n-1,\realset)$, dunque $p^{-1}(y_0)$ è una fibra connessa visto che le due componenti lo sono per ipotesi.\\
-	Mostriamo ora che tutte le fibre sono omeomorfe a $p^{-1}(y_0)$. Sia $y\in\realset^n\setminus\{\mathbf{0}\}$ e sia $A\in\gl^+(n,\realset)$ tale per cui $p(A)=y$, cioè $y$ è la prima colonna di $A$.\\
-	In generale vale la relazione $p(AB)=Ap(B)$; inoltre, la moltiplicazione sinistra:
-	\begin{equation*}
-		\funztot {L_A} {\gl^+(n,\realset)} {\gl^+(n,\realset)} B {AB}
-	\end{equation*}
-	 Dimostriamo che vale $p^{-1}(y)=Ap^{-1}(y_0)=L_A\left( p^{-1}(y_0)\right)=$, in modo tale da avere tutte le fibre omeomorfe a $p^{-1}(y_0)$:
-	\begin{equation*}
-		\begin{array}{ll}
-			\includesx & \displaystyle \quad B\in p^{-1}(y_0) \implies B=\begin{pmatrix}
-				1	   & \cdots  & \cdot  \\
-				0 	   & \cdots  & \cdot   \\
-				\vdots & \ddots  & \vdots   \\
-				0      & \cdots  & \cdot
-			\end{pmatrix} \implies	p(AB)=Ap(B)=A\begin{psmallmatrix}
-				1 \\ 0 \\ \vdots \\ 0
-			\end{psmallmatrix}= p(A)=y\\
-			& \implies AB\in p^{-1}\left(y\right)\\
-			\includedx & \displaystyle \quad C\in p^{-1}(y) \implies C=\begin{pmatrix}
-				y & * & \cdots & *
-			\end{pmatrix}\\
-		&\text{Poniamo allora }  B=A^{-1}C:\\
-		&\begin{array}{ll}
-		p(B)&=p(A^{-1}C)=A^{-1}p(C)=A^{-1}y=A^{-1}p(A)=\\
-		&=p(A^{-1}A)=p(I)=y_0
-		\end{array}\\
-		&\text{Poiché } B\in p^{-1}(y_0)\text{, allora }C\in Ap^{-1}(y_0).
-		\end{array}
-		\end{equation*}
-	Siccome tutte le fibre sono tutte omeomorfe ad una fibra connessa, allora sono tutte connesse e valgono le ipotesi del lemma precedente, per cui $\gl^+(n,\realset)$ è connesso.
+	% TO DO: guarda moodle per la dimostrazione
 \end{demonstration}
-% LEZ 11
-\begin{corollary}[$\Sl{(n,\realset)}$ e $\Sl{(n,\complexset)}$ sono connessi.]
-\end{corollary}
-\begin{demonstration}
-	Siccome $\gl^+(n,\realset)$ e $\gl(n,\complexset)$ sono connessi, basta considerare la seguente funzione:
-		\begin{gather*}
-			\funztot f {\gl^+(n,\realset)} {\Sl(n,\realset)} A {
-				\begin{pmatrix}
-					\frac{a_{1,1}}{\det A} & a_{1,2} & \cdots  & a_{1,n} \\
-					\vdots                 & \vdots  & \ddots  & \vdots \\
-					\frac{a_{n,1}}{\det A} & a_{n,2} & \cdots  & a_{n,n}
-				\end{pmatrix}
-			}			
-		\end{gather*}
-	Siccome $f$ è continua e suriettiva e $\gl^+(n,\realset)$ è connesso allora $f(\gl^+)=\Sl$ è connesso.
-\end{demonstration}
-
-\begin{corollary}[$\Or$ \textit{non} è connesso.]
-\end{corollary}
-\begin{demonstration}
-	Siccome $\Or$ è sottogruppo di $\gl$ e la connessione è una proprietà topologica allora $\Or$ non è connesso. In particolare si può dividere in base a $\det =+1$ e $\det =-1$.
-\end{demonstration}
-
-\begin{theorema}[$\So{(n)}, \U{(n)}$ e $\Su{(n)}$ sono compatti e connessi.]
+\begin{observe}\label{convergenzaassolutadipendedacauchy}
+	Il teorema appena dimostrato è una conseguenza della \textbf{completezza} di $\realset$. Infatti, abbiamo usato il \textit{criterio di Cauchy}, che si basa sul fatto che le successioni di Cauchy convergono sempre in $\realset$ e quindi proprio per la completezza dei reali.
+\end{observe}
+Il viceversa del teorema appena dimostrato non è valido, come segue dal seguente controesempio.
+\begin{example}
+	Consideriamo la serie $\displaystyle\sum_{n=1}^{+\infty}\left(-1\right)^n\frac{1}{n}$: non converge assolutamente in quanto la serie, con gli elementi in modulo, diventa
+	\begin{equation*}
+		\sum_{n=1}^{+\infty}\abs{\left(-1\right)^n\frac{1}{n}}=\sum_{n=1}^{+\infty}\frac{1}{n}
+	\end{equation*}
+	che, essendo la \textbf{serie armonica}\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare maggiori dettagli sulle serie notevoli.}, non converge. Tuttavia, la serie semplice è una serie a segni alterni e poiché
+	\begin{itemize}
+		\item $\frac{1}{n}$ è decrescente $\forall n\geq 1$.
+		\item $\displaystyle\lim_{n\to+\infty}\frac{1}{n}=0$.
+	\end{itemize} 
+	per il \textit{criterio di Leibniz} la serie semplice converge. Pertanto, la convergenza semplice non implica la convergenza assoluta.
+\end{example}
+Prendiamo ora $x_n\in X$, con $X$ un insieme generico. Per generalizzare la definizione di serie convergente abbiamo bisogno che su $X$ si possano compiere i seguenti passaggi:
+\begin{itemize}
+	\item Poter definire $s_n$, cioè è necessario \textit{sommare} elementi di $X$.
+	\item Poter definire la \textit{convergenza} in $X$.
+\end{itemize}
+Se dotiamo l'insieme $X$ di una struttura di \textbf{spazio normato} possiamo generalizzare ad una serie generale le definizioni precedentemente enunciate per le serie a valori reali: infatti, se $X$ è spazio normato gode sia dell'essere uno spazio metrico (e quindi è spazio topologico di Hausdorff, il che permette di definire univocamente la convergenza della successione) sia dell'essere spazio vettoriale (che permette la somma di elementi).\\
+\begin{define}[Serie e convergenza di una serie.]~{}\\
+	Data una successione $x_n\in X$ spazio \textit{normato}, $n\geq 0$, la \textbf{serie}\index{serie} $\displaystyle\sum_{k=0}^{+\infty}x_k$ è la somma di tutti gli elementi della successione.\\
+	Considerata la \textit{somma parziale}, o altresì detta \textbf{ridotta}\index{ridotta}
+	\begin{equation}
+		s_n=\sum_{k=0}^{n}x_k\quad\forall n\geq 0
+	\end{equation}
+	si dice che la serie $\displaystyle\sum_{k=0}^{+\infty}x_k$ \textbf{converge}\index{convergenza!di una serie}\seeonlyindex{convergenza!di una serie}{convergenza!semplice} se converge la successione $s_n$; si pone in tal caso
+	\begin{equation}
+		\sum_{k=0}^{+\infty}x_k=\lim_{n\to+\infty}s_n
+	\end{equation}
+\end{define}
+\begin{define}[Convergenza totale o assoluta.]~{}\\
+	Sia $\left(X,\norm{\cdot}\right)$ spazio normato e $x_n$ una successione in $X$. La serie $\displaystyle\sum_{k=0}^{+\infty}x_k$ \textbf{converge totalmente}\index{convergenza!totale} o \textbf{assolutamente}\seeonlyindex{convergenza!totale}{convergenza!assoluta} in $X$ se converge la serie $\displaystyle\sum_{k=0}^{+\infty}\norm{x_k}$.
+\end{define}
+Dall'osservazione a pag. \pageref{convergenzaassolutadipendedacauchy} il teorema ‘‘Convergenza assoluta implica convergenza semplice'' (teorema \ref{teoremaassimplicasemplice}, pag. \pageref{teoremaassimplicasemplice}) necessita della \textit{completezza} dei reali. Per generalizzarlo ci basta lavorare in \textit{spazi normati completi}.
+\begin{theorema}[Convergenza totale o assoluta implica convergenza semplice.]~{}\\
+	Ogni serie in $X$ spazio normato completo totalmente convergente è anche semplicemente convergente.
 \end{theorema}
 \begin{demonstration}
-	Per dimostrare che sono \textit{compatti} essendo sottospazi di $\realset^{n,n}$ per il teorema \ref{compatto chiuso e limitato R^n} basta dimostrare che sono chiusi e limitati. In particolare essendo definiti tramite equazioni che sono luoghi di zeri di polinomi in $a_{ij}$ allora sono chiusi:
-		\begin{gather*}
-			\So(n):\begin{cases}
-					A^{t}A=I\\
-					\det A=1
-				\end{cases}, \ \
-			U(n): A^{t}\overline{A}=I, \ \
-			\Su(n): \begin{cases}
-				A^{t}\overline{A}=I\\
-				\det A=1
-			\end{cases}
-		\end{gather*}
-	Siccome $\Su(n)\subseteq \U(n)\subseteq \So(n)$ basta dimostrare che $\So(n)$ è limitato, usando la norma Euclidea su $\realset^{n,n}$:\footnote{La norma Euclidea di matrici $\realset^{n,n}$ corrisponde a visualizzare la matrice $A\in\realset^{n,n}$ come un vettore in $\realset^{n^2}$ e usare la norma Euclidea ben nota degli spazi vettoriali reali.}
-		\begin{gather*}
-			A\in\So(n) \implies \sum_{i=1}^n a_{ij}^2=1, \forall j=1,\dots,n \implies \sum_{i,j=1}^n a_{ij}^2=n \implies \So(n)\subseteq S_{\sqrt{n}}\subseteq\realset^{n,n}
-		\end{gather*}
-	Dove $S_{\sqrt{n}}$ è la sfera di raggio $\sqrt{n}$: dunque, $\So(n)$ è limitato. Ne segue che anche $\U(n)$ e $\Su(n)$ lo sono, dunque sono tutti chiusi e limitati in $\realset^{n,n}$ e quindi compatti.\\
-	Per dimostrare che sono \textit{connessi} si procede analogamente al teorema precedente usando il lemma \ref{connessione e fibre}. Consideriamo la funzione \textit{prima colonna} $\funz p {\So(n)} {S^{n-1}\subseteq \realset^n}$; essa è continua, suriettiva e chiusa in quanto è funzione da un compatto in un \textbf{Hausdorff}, e le sue fibre sono connesse:
-	\begin{equation*}
-		p^{-1}\left( \begin{psmallmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{psmallmatrix} \right) = \begin{psmallmatrix}
-			1      & 0 & \cdots & 0\\
-			0      &   &       &  \\
-			\vdots &   & A     &  \\
-			0      &   &       &
-		\end{psmallmatrix}
-	\end{equation*}
-Con $A\in \So(n-1)$, dunque per il lemma \ref{connessione e fibre} $\So(n)$ è connesso.
+	La dimostrazione è analoga a quella affrontata nel teorema  \ref{teoremaassimplicasemplice}, pag. \pageref{teoremaassimplicasemplice}: è sufficiente sostituire al valore assoluto $\abs{\cdot}$ la norma $\norm{\cdot}$.
 \end{demonstration}
+In generale, il problema della convergenza in spazi normati è \textit{inesplorato}, ma se lo spazio è \textit{completo} possiamo passare per la \textit{convergenza totale} e studiare una serie a valori reali tramite i \textit{criteri di convergenza}\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare maggiori dettagli sui criteri di convergenza delle serie a valori reali.} noti dall'\textsc{Analisi 1}.\\
 
-\begin{observe}
-	$\gl$ e $\Sl$ \textit{non} sono compatti perché non sono limitati, inoltre $\gl$ è aperto e non chiuso.
-\end{observe}
+Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(\left[a,b\right];\ \realset\right)$ delle funzioni continue su un intervallo compatto con la \textbf{metrica lagrangiana}\index{metrica!lagrangiana}:
