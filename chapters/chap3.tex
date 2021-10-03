@@ -16,7 +16,7 @@
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{L}{e} Nel \refChapter{convergenzafunzioni} abbiamo iniziato a trattare la convergenza uniforme e puntuale di successioni di funzioni. Adesso passiamo a parlare di serie di funzioni.
 \textbf{[COMPLETARE]} % TO DO: completare l'intro
-\section{Serie in spazio normato}
+\section{Serie in uno spazio normato}
 Innanzitutto, ricordiamo le definizioni di serie a valori reali e di convergenza (assoluta) di una serie a valore reali.
 \begin{define}[Serie a valori reali e convergenza di una serie.]~{}\\
 	Data una successione $x_n\in\realset$, $n\geq 0$, la \textbf{serie}\index{serie} $\displaystyle\sum_{k=0}^{+\infty}x_k$ è la somma di tutti gli elementi della successione.\\
@@ -36,7 +36,19 @@ si dice che la serie $\displaystyle\sum_{k=0}^{+\infty}x_k$ \textbf{converge}\in
 	Ogni serie di numeri reali assolutamente convergente è anche semplicemente convergente.
 \end{theorema}
 \begin{demonstration}
-	% TO DO: guarda moodle per la dimostrazione
+	Per dimostrare che la serie $\displaystyle\sum_{k=0}^{+\infty}x_k$ converge, per il \textit{Criterio di Cauchy per le serie}\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare maggiori dettagli sul criterio di Cauchy.} è sufficiente provare che
+	\begin{equation*}
+		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \abs{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\epsilon
+	\end{equation*}
+	Per ipotesi la serie $\displaystyle\sum_{k=0}^{+\infty}\abs{x_k}$ converge: per il Criterio di Cauchy, si ha
+	\begin{equation*}
+		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \abs{\abs{x_{n+1}}+\abs{x_{n+2}}+\ldots+\abs{x_{n+p}}}=\abs{x_{n+1}}+\abs{x_{n+2}}+\ldots+\abs{x_{n+p}}<\epsilon
+	\end{equation*}
+	D’altra parte, dalla disuguaglianza triangolare segue che
+	\begin{equation*}
+		\abs{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\abs{x_{n+1}}+\abs{x_{n+2}}+\ldots+\abs{x_{n+p}}<\epsilon,\ \forall n\in\naturalset,\ \forall p\in\naturalset
+	\end{equation*}
+Dalle ultime due relazioni si deduce immediatamente la prima relazione e dunque la tesi.
 \end{demonstration}
 \begin{observe}\label{convergenzaassolutadipendedacauchy}
 	Il teorema appena dimostrato è una conseguenza della \textbf{completezza} di $\realset$. Infatti, abbiamo usato il \textit{criterio di Cauchy}, che si basa sul fatto che le successioni di Cauchy convergono sempre in $\realset$ e quindi proprio per la completezza dei reali.
@@ -82,5 +94,112 @@ Dall'osservazione a pag. \pageref{convergenzaassolutadipendedacauchy} il teorema
 	La dimostrazione è analoga a quella affrontata nel teorema  \ref{teoremaassimplicasemplice}, pag. \pageref{teoremaassimplicasemplice}: è sufficiente sostituire al valore assoluto $\abs{\cdot}$ la norma $\norm{\cdot}$.
 \end{demonstration}
 In generale, il problema della convergenza in spazi normati è \textit{inesplorato}, ma se lo spazio è \textit{completo} possiamo passare per la \textit{convergenza totale} e studiare una serie a valori reali tramite i \textit{criteri di convergenza}\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare maggiori dettagli sui criteri di convergenza delle serie a valori reali.} noti dall'\textsc{Analisi 1}.\\
-
-Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(\left[a,b\right];\ \realset\right)$ delle funzioni continue su un intervallo compatto con la \textbf{metrica lagrangiana}\index{metrica!lagrangiana}:
+\section{Serie di funzioni}
+Consideriamo lo spazio  $X=\mathcal{C}\left(\left[a,b\right];\ \realset\right)=\mathcal{C}\left(\left[a,b\right]\right)$ delle funzioni continue su un intervallo compatto con la \textit{metrica lagrangiana}:
+\begin{equation*}
+	\mvf{d}{f}{g}=\max_{x\in\left[a,b\right]}\abs{f\left(x\right)-g\left(x\right)}
+\end{equation*}
+Una serie convergente $\displaystyle\sum_{k=0}^{+\infty}f_k$ in questo spazio si può quindi scrivere, per definizione, come
+\begin{equation*}
+	\sum_{k=0}^{+\infty}f_k=\lim_{n\to+\infty}\sum_{k=0}^{n}f_k=\lim_{n\to+\infty}S_n
+\end{equation*}
+dove $S_n$ è una successione di funzioni. Allora la condizione di convergenza di serie in $X$ si può formulare come
+\begin{equation*}
+	\sum_{k=0}^{+\infty}f_k\text{ converge in }\mathcal{C}\left(\left[a,b\right]\right)\iff S_n\text{ converge con metrica lagriangiana in}\mathcal{C}\left(\left[a,b\right]\right)
+\end{equation*}
+ossia
+\begin{equation*}
+	\sum_{k=0}^{+\infty}f_k\text{ converge in }\mathcal{C}\left(\left[a,b\right]\right)\iff S_n\text{ converge uniformemente in}\mathcal{C}\left(\left[a,b\right]\right)
+\end{equation*}
+Per la stessa osservazione fatte a pag. \pageref{convergenzalagrangianaeuniforme}, sezione \ref{convergenzalagrangianaeuniforme}, per parlare di convergenza uniforme non sono necessarie né la \textit{compattezza} di $\left[a,b\right]$ né la \textit{continuità} delle funzioni.\\
+Possiamo \textit{estendere} la definizione di convergenza di una serie di funzioni per
+\begin{equation*}
+	\funz{f_n}{A\subseteq \realset}{\realset}
+\end{equation*}
+con $A$ insieme contenuto nei reali o, ancora più in generale, per funzioni del tipo
+\begin{equation*}
+	\funz{f_n}{X}{Y}
+\end{equation*}
+dove $X$ è un \textit{insieme qualunque} e $Y$ è uno \textbf{spazio normato completo}.\\
+Studieremo quindi le \textbf{serie di funzioni}\index{serie!di funzioni} $\displaystyle\sum_{k=0}^{+\infty}f_k\left(x\right)$; per studiare la \textit{convergenza} di tali serie applicheremo le convergenze viste in precedenza alla \textit{successione delle ridotte} $\displaystyle S_n\left(x\right)=\sum_{k=0}^{n}f_k\left(x\right)$.
+\begin{define}[Convergenza di una serie di funzioni.]~{}\\
+	\begin{itemize}
+		\item \textbf{(CP)} La serie $\displaystyle\sum_{k=0}^{+\infty}f_k\left(x\right)$ \textbf{converge puntualmente} in $x\in A$ se $S_n\left(x\right)$ converge puntualmente in $x\in A$.
+		\item \textbf{(CU)} La serie $\displaystyle\sum_{k=0}^{+\infty}f_k\left(x\right)$ \textbf{converge uniformemente} in $x\in A$ se $S_n\left(x\right)$ converge uniformemente su $A$.
+	\end{itemize}
+\end{define}
+\section{Serie di funzioni nei confronti di limitatezza, continuità, integrabilità e differenziabilità}
+Ci poniamo ora il problema di studiare come si modificano i teoremi di limit\textit{atezza/continuità/integrabilità/integrabilità/derivabilità} visti nel \refChapter{convergenzafunzioni} nel caso delle \textit{serie di funzioni}.
+\subsection{Limitatezza}
+\begin{theorema}[Teorema di limitatezza per serie.]~{}\\
+	Siano $\displaystyle \funz{f_n}{A\subseteq\realset}{\realset},\ n\geq 1$ tali che
+	\begin{enumerate}
+		\item $f_n$ limitata su $A,\ \forall n\geq 1$.
+		\item $\displaystyle\sum_{n=0}^{+\infty}f_n$ converge \textit{uniformemente} a $f$ su $A$.
+	\end{enumerate}
+	Allora, posto $\displaystyle S\left(x\right)=\sum_{n=0}^{+\infty}f_n,\ \forall x\in A$, $S\left(x\right)$ è limitata su $A$.
+\end{theorema}
+\begin{demonstration}
+	Posto $\displaystyle S_n\left(x\right)=\sum_{k=0}^{n}f_k\left(x\right),\ \forall x\in A$, allora si ha:
+	\begin{itemize}
+		\item $S_n$ limitata su $A$, poiché le $f_k$ lo sono.
+		\item $S_n$ convergente uniformemente a $S$ su $A$.
+	\end{itemize}
+	Per il teorema di limitatezza per le successioni, $S$ è limitata su $A$.
+\end{demonstration}
+\subsection{Continuità}
+\begin{theorema}[Teorema di continuità per serie.]~{}\\
+	Siano $\funz{f_n}{A\subseteq\realset}{\realset},\ n\geq 1$ tali che
+	\begin{enumerate}
+		\item $f_n$ continua su $A,\ \forall n\geq 1$.
+		\item $\displaystyle\sum_{n=0}^{+\infty}f_n$ converge \textit{uniformemente} a $f$ su $A$.
+	\end{enumerate}
+	Allora, posto $\displaystyle S\left(x\right)=\sum_{n=0}^{+\infty}f_n,\ \forall x\in A$, $S\left(x\right)$ è continua su $A$.
+\end{theorema}
+\begin{demonstration}
+	Posto $\displaystyle S_n\left(x\right)=\sum_{k=0}^{n}f_k\left(x\right),\ \forall x\in A$, allora si ha:
+	\begin{itemize}
+		\item $S_n$ continua su $A$, poiché le $f_k$ lo sono.
+		\item $S_n$ convergente uniformemente a $S$ su $A$.
+	\end{itemize}
+	Per il teorema di continuità per le successioni, $S$ è continua su $A$.
+\end{demonstration}
+\subsection{Integrabilità e scambio tra integrale e serie}
+\begin{theorema}[Teorema di integrabilità per serie, scambio tra integrale e serie.]~{}\\
+	Sia $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
+	\begin{enumerate}
+		\item $f_n\in\mathcal{R}\left[a,b\right],\ \forall n\geq 1$.
+		\item $\displaystyle\sum_{n=0}^{+\infty}f_n$ converge \textit{uniformemente} a $f$ su $\left[a,b\right]$.
+	\end{enumerate}
+	Allora, posto $\displaystyle S\left(x\right)=\sum_{n=0}^{+\infty}f_n,\ \forall x\in \left[a,b\right]$:
+	\begin{enumerate}
+		\item $S\in\mathcal{R}\left[a,b\right]$.
+		\item Vale lo \textbf{scambio tra integrale e serie}\index{scambio tra integrale e serie}:
+		\begin{equation}
+			\int_{a}^{b}\sum_{k=0}^{+\infty}f_k\left(x\right)dx=\sum_{k=0}^{+\infty}\int_{a}^{b}f_k\left(x\right)dx
+		\end{equation}
+	\end{enumerate}
+\end{theorema}
+\begin{demonstration}
+	Posto $\displaystyle S_n\left(x\right)=\sum_{k=0}^{n}f_k\left(x\right),\ \forall x\in \left[a,b\right]$, allora si ha:
+	\begin{itemize}
+		\item $S_n\in\mathcal{R}\left[a,b\right]$, poiché le $f_k$ lo sono.
+		\item $S_n$ convergente \textit{uniformemente} a $S$ su $\left[a,b\right]$.
+	\end{itemize}
+	Per il teorema di integrabilità per le successioni:
+	\begin{itemize}
+		\item $S\in\mathcal{R}\left[a,b\right]$.
+		\item Vale il \textit{passaggio al limite sotto segno di integrale} per la successione delle ridotte, ossia
+		\begin{equation*}
+			\lim_{n\to+\infty}\int_{a}^{b}S_n\left(x\right)dx=\int_{a}^{b}S\left(x\right)dx
+		\end{equation*}
+		Poiché l'\textit{integrale di una somma finita} è uguale ad una \textit{somma finita di integrali}, il primo membro dell'equazione può essere riscritto come
+		\begin{equation*}
+			\lim_{n\to+\infty}\int_{a}^{b}\sum_{k=0}^{n}f_k\left(x\right)dx=\lim_{n\to+\infty}\sum_{k=0}^{n}\int_{a}^{b}f_k\left(x\right)dx=\sum_{k=0}^{+\infty}\int_{a}^{b}f_k\left(x\right)dx
+		\end{equation*}
+		e poiché $\displaystyle \int_{a}^{b}S\left(x\right)dx=\int_{a}^{b}\sum_{k=0}^{+\infty}f_k\left(x\right)dx$, otteniamo la tesi:
+		\begin{equation*}
+			\int_{a}^{b}\sum_{k=0}^{+\infty}f_k\left(x\right)dx=\sum_{k=0}^{+\infty}\int_{a}^{b}f_k\left(x\right)dx
+		\end{equation*}
+	\end{itemize}
+\end{demonstration}

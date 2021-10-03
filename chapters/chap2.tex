@@ -48,7 +48,7 @@ Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(
 \begin{equation*}
 	\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in\left[a,b\right]
 \end{equation*}
-\begin{observe}
+\begin{observe}\label{convergenzalagrangianaeuniforme}
 	La condizione, riscritta in questo modo, non solo \textit{non necessita} più dell'esistenza del \textit{massimo}, ma non è neanche necessario che l'intervallo sia \textit{compatto} o che la funzione sia \textit{continua}: questa è in realtà una relazione \textit{più generale} rispetto alla semplice convergenza nella metrica lagrangiana!
 \end{observe}
 \begin{define}[Convergenza uniforme.]~{}\\
@@ -165,7 +165,7 @@ Abbiamo così verificato la convergenza richiesta.
 \end{solution}
 \subsection{Criterio di Cauchy per la convergenza uniforme}
 Come nel caso delle successioni numeriche, esiste un \textbf{criterio di Cauchy} per la convergenza uniforme.
-\begin{theorema}[Criterio di Cauchy per la convergenza uniforme.]~{}\\
+\begin{theorema}[Criterio di Cauchy per la convergenza uniforme.]~{}\\\label{criteriodicauchyperconvergenzauniforme}
 	Siano $\funz{f_n}{A\subseteq\realset}{\realset}$. Allora
 	\begin{multline}
 		f_n\text{ converge uniformemente su }A \iff\\
@@ -311,7 +311,7 @@ Questo mostra che su $\left(-1,1\right)$ c'è convergenza puntuale ma non unifor
 \section{Convergenza uniforme e puntuale nei confronti di limitatezza, continuità, integrabilità e differenziabilità}
 Adesso studiamo il diverso comportamento delle due tipologie di convergenza viste rispetto alle proprietà enunciate nel titolo di questa sezione: se le funzioni $f_n$ della successione sono limitate/continue/integrabili/differenziabile, la funzione limite $f$ è limitata/continua/integrabile/differenziabile?
 \subsection{Limitatezza}
-\begin{theorema}[Teorema di limitatezza.]~{}\\
+\begin{theorema}[Teorema di limitatezza per successioni.]~{}\\
 Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
 \begin{enumerate}
 	\item $f_n$ limitata su $\left[a,b\right],\ \forall n\geq 1$.
@@ -378,7 +378,7 @@ Per ogni $n\geq1$ la funzione $f_n$ è limitata su $\left(0,1\right]$. Inoltre, 
 	La successione di funzioni \textit{limitate} $f_n$ converge quindi puntualmente $\forall x\in \left(0,1\right]$ alla funzione $\frac{1}{x}$ che \textbf{non} è limitata su $\left(0,1\right]$.
 \end{example}
 \subsection{Continuità}
-\begin{theorema}[Teorema di continuità.]~{}\\
+\begin{theorema}[Teorema di continuità per successioni.]~{}\\
 	Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
 	\begin{enumerate}
 		\item $f_n$ continua su $\left[a,b\right],\ \forall n\geq 1$.
@@ -408,7 +408,7 @@ Sappiamo che essa converge puntualmente in ogni punto di $[0,1]$ alla funzione l
 La successione di funzioni \textit{continue} $f_n$ converge quindi puntualmente per ogni $x\in[0,1]$ alla funzione $f$ che \textbf{non} è continua su $[0,1]$.
 \end{example}
 \subsection{Integrabilità e passaggio al limite sotto segno di integrale}
-\begin{theorema}[Teorema di integrabilità, passaggio al limite sotto segno di integrale.]~{}\\
+\begin{theorema}[Teorema di integrabilità per successioni, passaggio al limite sotto segno di integrale.]~{}\\
 	Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
 	\begin{enumerate}
 		\item $f_n\in\mathcal{R}\left[a,b\right],\ \forall n\geq 1$.
@@ -500,7 +500,7 @@ dunque su $[0,1]$ $f\left(x\right)=\lim_{n\to\infty}f_n\left(x\right)$ è una fu
 \end{example}
 \begin{example}
 	La convergenza uniforme \textit{non} è condizione sufficiente per il passaggio al limite sotto il segno di integrale nel caso in un intervallo \textit{illimitato}.
-	Sia $\funz{f_n}{\left[0,+\infty\right)}{\realset},\ n\geq1$, definita da
+	Sia $\funz{f_n}{\left[0,+\infty\right)}{\realset}$, $n\geq1$, definita da
 	\begin{equation*}
 		f_n\left(x\right)=\begin{cases}
 			\begin{array}{ll}
@@ -548,14 +548,14 @@ Date $\funz{f_n,f}{A\subseteq\realset}{\realset}$ con $f$ la funzione limite di 
 	\end{equation*}
 	O, in altre parole, il diagramma seguente è commutativo?
 	% https://q.uiver.app/?q=WzAsNCxbMCwwLCJmX24iXSxbMSwwLCJmJ19uIl0sWzAsMSwiXFxsaW1fe25cXHRvK1xcaW5mdHl9Zl9uIl0sWzEsMSwiXFxsaW1fe25cXHRvK1xcaW5mdHl9ZidfbiJdLFswLDEsIkQiXSxbMCwyLCJcXGxpbSIsMl0sWzEsM10sWzIsM11d
-	\[\begin{tikzcd}
-		{f_n} & {f'_n} \\
-		{\lim_{n\to+\infty}f_n} & {\lim_{n\to+\infty}f'_n}
-		\arrow["D", from=1-1, to=1-2]
-		\arrow["\lim"', from=1-1, to=2-1]
-		\arrow[from=1-2, to=2-2]
-		\arrow[from=2-1, to=2-2]
-	\end{tikzcd}\]
+\[\begin{tikzcd}
+	{f_n} & {f'_n} \\
+	{\textcolor{blueill}{\displaystyle\lim_{n\to+\infty}f_n}} & {\displaystyle\lim_{n\to+\infty}f'_n}
+	\arrow["D", from=1-1, to=1-2]
+	\arrow["\lim"', color={rgb,255:red,46;green,49;blue,146}, from=1-1, to=2-1]
+	\arrow["\lim", from=1-2, to=2-2]
+	\arrow["D"', color={rgb,255:red,46;green,49;blue,146}, from=2-1, to=2-2]
+\end{tikzcd}\]
 \end{enumerate}
 La risposta ad entrambe domande, a differenza di quanto ci si potrebbe aspettare dati i risultati su limitatezza/continuità/integrabilità, è \textbf{NO}, anche nel caso di \textit{convergenza uniforme}.
 \begin{example}
@@ -601,12 +601,12 @@ La risposta ad entrambe domande, a differenza di quanto ci si potrebbe aspettare
 	\end{itemize}
 \end{example}
 Esiste comunque un legame tra \textit{successioni di funzioni}, \textit{derivabilità} e convergenza uniforme; scopriamo che non è più la successione $f_n$ a convergere uniformemente, bensì sono le derivate $f'$ della successioni a doverlo fare.
-\begin{theorema}[Teorema di derivabilità.]~{}\\
+\begin{theorema}[Teorema di derivabilità per successioni.]~{}\\
 	Siano dati $\funz{f_n}{\left(a,b\right)}{\realset}$ tali che
 	\begin{enumerate}
 		\item $f_n$ derivabili su $\left(a,b\right)$.
 		\item $\exists c\in\left(a,b\right)\colon f_n\left(c\right)$ converge puntualmente.
-		\item $f'_n$ converge uniformemente su $\left(a,b\right)$ a $g$ su $\left(a,b\right)$.
+		\item $f'_n$ converge uniformemente a $g$ su $\left(a,b\right)$.
 	\end{enumerate}
 Allora
 \begin{enumerate}
@@ -614,10 +614,107 @@ Allora
 	\item $f$ è derivabile.
 	\item $f'\left(x\right)=g\left(x\right),\ \forall x\in \left(a,b\right)$, ossia
 	\begin{equation}
-		D\left(\lim_{n\to+\infty}f_n\left(x\right)\right)=\lim_{n\to+\infty}>f'_n\left(x\right).\ \forall x\in\left(a,b\right)
+		f'\left(x\right)=\lim_{n\to+\infty}f'_n\left(x\right),\ \forall x\in\left(a,b\right)
 	\end{equation}
 \end{enumerate}
 \end{theorema}
-\begin{demonstration}
-	% TO DO: prendere quella di Moodle + Pagani Salsa
+Per dimostrare il teorema, faremo uso di tre strumenti: il \textit{criterio di Cauchy per la convergenza uniforme} (teorema \ref{criteriodicauchyperconvergenzauniforme}, pag. \pageref{criteriodicauchyperconvergenzauniforme}), il \textit{teorema di scambio di limiti} e una conseguenza \textit{teorema di Lagrange}. Enunciamo questi ultimi due.
+\begin{theorema}[Teorema di scambio di limiti.]~{}\\
+	Dati $\funz{g_n,g}{I\subseteq \realset}{\realset}$ e $c$ punto di accumulazione di $I$, se
+	\begin{enumerate}
+		\item $g_n$ converge \textit{uniformemente} a $g$ su $I$
+		\item Per ogni $n \geq 1$ esiste $L_n\in\realset$ tale che
+		\begin{equation*}
+			\lim_{x\to c}g_n\left(x\right)=L_n
+		\end{equation*}
+	\end{enumerate}
+	Allora:
+	\begin{enumerate}
+		\item Esistono finiti
+		\begin{equation}
+				\lim_{x\to c}g\left(x\right),\qquad\lim_{n\to+\infty}L_n
+		\end{equation}
+		\item Vale la relazione
+		\begin{equation}
+			\lim_{x\to c}g\left(x\right)=\lim_{n\to+\infty}L_n
+		\end{equation}
+		ossia
+	\begin{equation}
+		\lim_{x\to c}\lim_{n\to+\infty}g_n\left(x\right)=\lim_{n\to+\infty}\lim_{x\to c}g_n\left(x\right)
+	\end{equation}
+	\end{enumerate}	
+\end{theorema}
+\begin{corollary}[Conseguenza al teorema di Lagrange.]~{}\\
+Sia $\funz{h}{\left(\alpha,\beta\right)\subseteq\realset}{\realset}$ derivabile in $\left(\alpha,\beta\right)$. Allora:
+\begin{equation}
+	\forall u,v\in\left(\alpha,\beta\right)\colon\abs{h\left(u\right)-h\left(v\right)}\leq\left(\sup_{x\in\left(\alpha,\beta\right)}\abs{h'\left(x\right)}\right)\abs{u-v}
+\end{equation}
+\end{corollary}
+\begin{demonstration} \textsc{(del Teorema di derivabilità per successioni.)}\\
+\begin{enumerate}
+	\item Dimostriamo la \textit{convergenza uniforme} di $f_n$ su $\left(a, b\right)$. Per il Criterio di Cauchy per la convergenza uniforme è sufficiente
+	dimostrare che
+	\begin{equation*}
+		\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon\forall n,m\geq N\ \sup_{x\in \left(a,b\right)}\abs{f_n\left(x\right)-f_m\left(x\right)}<\epsilon
+	\end{equation*}
+Sia $\epsilon>0$. Per ogni $x\in\left(a,b\right)$, preso $c$ come da ipotesi $2)$:
+\begin{equation*}
+	\abs{f_n\left(x\right)-f_m\left(x\right)}\leq \abs{f_n\left(x\right)-f_m\left(x\right)-\left(f_n\left(c\right)-f_m\left(c\right)\right)}+\abs{f_n\left(c\right)-f_m\left(c\right)}
+\end{equation*}
+Studiamo il \textit{primo addendo}. Per il \textit{corollario al teorema di Lagrange} si ha
+\begin{equation*}
+	\abs{f_n\left(x\right)-f_m\left(x\right)-\left(f_n\left(c\right)-f_m\left(c\right)\right)}\leq\left(\sup_{t\in\left(a,b\right)}\abs{x-c}\right)
+\end{equation*}
+Inoltre, poiché per ipotesi $3)$ $f'_n$ converge uniformemente su $\left(a,b\right)$, si ha per il criterio di Cauchy che
+\begin{equation*}
+	\forall \epsilon >0\ \exists N_1=N_1\left(\epsilon\right)\colon\forall n,m\geq N_1\ \sup_{x\in \left(a,b\right)}\abs{f'_n\left(x\right)-f'_m\left(x\right)}<\frac{\epsilon}{2\left(b-a\right)}
+\end{equation*}
+Segue dunque che
+\begin{align*}
+	\abs{f_n\left(x\right)-f_m\left(x\right)-\left(f_n\left(c\right)-f_m\left(c\right)\right)}&\leq\left(\sup_{t\in\left(a,b\right)}\abs{x-c}\right)\leq\\
+	&\leq\frac{\epsilon}{2\left(b-a\right)}\abs{x-c}\leq\frac{\epsilon}{2},\ \forall x\in\left(a,b\right),\ \forall n,m\geq N_1
+\end{align*}
+Per il secondo addendo, dato che per ipotesi $2)$ $f_n$ converge puntualmente in $c$, possiamo applicare il criterio di Cauchy per le successioni:
+\begin{equation*}
+		\forall \epsilon >0\ \exists N_2=N_2\left(\epsilon\right)\colon\forall n,m\geq N_2\ \abs{f_n\left(c\right)-f'_m\left(c\right)}<\frac{\epsilon}{2}
+\end{equation*}
+Posto $N=\max\left\{N_1,N_2\right\}$, per ogni $n,m\geq N$ si ha
+\begin{align*}
+	\abs{f_n\left(x\right)-f_m\left(x\right)}&\leq \abs{f_n\left(x\right)-f_m\left(x\right)-\left(f_n\left(c\right)-f_m\left(c\right)\right)}+\abs{f_n\left(c\right)-f_m\left(c\right)}<\\
+	&<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon,\ \forall x\in\left(a,b\right)
+\end{align*}
+	Da cui segue:
+	\begin{equation*}
+		\sup_{x\in\left(a,b\right)}\abs{f_n\left(x\right)-f_m\left(x\right)}<\epsilon,\ \forall n,m\geq N
+	\end{equation*}
+\item Denominiamo $f$ il limite \textit{puntuale} di $f_n$, che esiste e coincide con quello uniforme per la dimostrazione appena fatta al punto $1)$. Riscriviamo la tesi $2)$ e $3)$ nella seguente maniera:
+\begin{enumerate}
+	\setcounter{enumii}{1}
+	\item Per ogni $d\in\left(a,b\right)$ vale $\displaystyle\lim_{x\to d}\frac{f\left(x\right)-f\left(d\right)}{x-d}$
+	\item $\displaystyle\lim_{x\to d}\lim_{n\to+\infty}\frac{f_n\left(x\right)-f_n\left(d\right)}{x-d}=\lim_{n\to+\infty}\lim_{x\to d}\frac{f_n\left(x\right)-f_n\left(d\right)}{x-d}$.
+\end{enumerate}
+Verifichiamo le ipotesi del \textit{teorema di scambio dei limiti}:
+\begin{itemize}
+	\item $\displaystyle\lim_{x\to d}\frac{f_n\left(x\right)-f_n\left(d\right)}{x-d}$ esiste \textit{finito} in quanto per ipotesi $1)$ gli $f_n$ sono \textit{derivabili} su $\left(a,b\right)$.
+	\item $\frac{f_n\left(x\right)-f_n\left(d\right)}{x-d}$ conv\textit{erge uniformemente} su $\left(a,b\right)\setminus\left\{d\right\}$.\\
+	Infatti, per ogni $\epsilon>0$ e per ogni $x\in\left(a,b\right)\setminus\left\{d\right\}$ si ha, in virtù del \textit{corollario al teorema di Lagrange}
+	\begin{align*}
+		\abs{\frac{f_n\left(x\right)-f_n\left(d\right)}{x-d}-\frac{f_m\left(x\right)-f_m\left(d\right)}{x-d}}&\leq\abs{\frac{f_n\left(x\right)-f_m\left(x\right)-\left(f_n\left(d\right)-f_m\left(d\right)\right)}{x-d}}\leq\\
+		&\leq\sup_{t\in\left(a,b\right)}\abs{f'_n\left(t\right)-f'_m\left(t\right)}
+	\end{align*}
+Inoltre, si applica il \textit{criterio di Cauchy} alle successione $f'_n$: per ogni $\epsilon>0\ \exists N=N_0$ tale che per ogni $\forall n,m\geq N$ vale
+\begin{equation*}
+	\sup_{t\in\left(a,b\right)}\abs{f'_n\left(t\right)-f'_m\left(t\right)}<\epsilon
+\end{equation*}
+da cui segue
+\begin{equation*}
+	\abs{\frac{f_n\left(x\right)-f_n\left(d\right)}{x-d}-\frac{f_m\left(x\right)-f_m\left(d\right)}{x-d}}<\epsilon,\ \forall x\in\left(a,b\right)\setminus\left\{d\right\}
+\end{equation*}
+\end{itemize} 
+Per il \textit{criterio di Cauchy} sulla convergenza uniforme, c'è convergenza uniforme su $\left(a,b\right)\setminus\left\{d\right\}$. Il teorema di scambio dei limiti garantisce che il limite
+\begin{equation*}
+	\lim_{x\to d}\lim_{n\to+\infty}\frac{f_n\left(x\right)-f_n\left(d\right)}{x-d}\iff\lim_{x\to d}\frac{f\left(x\right)-f\left(d\right)}{x-d}
+\end{equation*}
+esiste \textit{finito} (tesi $2)$) e vale lo \textit{scambio di limite e derivata} (tesi $3)$).
+\end{enumerate}
 \end{demonstration}
