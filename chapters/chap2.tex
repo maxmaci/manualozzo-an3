@@ -71,19 +71,19 @@ Essa è equivalente a dire che
 \begin{equation*}
 	\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
 \end{equation*}
-Possiamo definire una successione $\displaystyle c_n\coloneqq\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\in\realset^+$. Allora la relazione sopra, per definizione di limite di una successione, è equivalente a $\displaystyle \lim_{n\to +\infty}c_n=0$, cioè
+Possiamo definire una successione $\displaystyle c_n\coloneqq\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\in\realset^+$. Allora la relazione sopra, per definizione di limite di una successione, è equivalente a $\displaystyle \lim_{n\to+\infty}c_n=0$, cioè
 \begin{equation*}
-\lim_{n\to +\infty}\left(\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
+\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
 \end{equation*}
 In conclusione abbiamo mostrato che % TO DO: fare riquadro attorno l'equazione successiva
 \begin{equation}
-	f_n\text{ converge uniformemente a }f\textcolor{redill}{\text{ in }A}\iff\lim_{n\to +\infty}\left(\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
+	f_n\text{ converge uniformemente a }f\textcolor{redill}{\text{ in }A}\iff\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
 \end{equation}
 \begin{example}\label{valoreassolutoesempioconvergenzaassoluta}
 	Proviamo che $f_n\left(x\right)=\sqrt{x^2+\frac{1}{n}}$ converge uniformemente a $f\left(x\right)=\abs{x}$ \textcolor{redill}{su $\realset$}.\\
 	Dobbiamo provare che
 	\begin{equation*}
-		\lim_{n\to +\infty}\left(\sup_{\textcolor{redill}{x\in \realset}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
+		\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in \realset}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
 	\end{equation*}
 	\begin{enumerate}
 		\item Calcoliamo il $\sup$ con $n$ \textit{fissato}:
@@ -98,7 +98,7 @@ In conclusione abbiamo mostrato che % TO DO: fare riquadro attorno l'equazione s
 		\end{equation*}
 	\item Calcoliamo il limite per $n\to +\infty$:
 	\begin{equation*}
-		\lim_{n\to +\infty}\left(\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=\lim_{n\to +\infty}\frac{1}{\sqrt{n}}=0
+		\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=\lim_{n\to+\infty}\frac{1}{\sqrt{n}}=0
 	\end{equation*}
 	\end{enumerate}
 Abbiamo così verificato la convergenza richiesta.
@@ -131,7 +131,7 @@ Abbiamo così verificato la convergenza richiesta.
 		\end{equation*}
 		Ora si ha
 		\begin{equation*}
-			\lim_{n\to +\infty}\left(\sup_{\textcolor{redill}{x\in \left[-a,a\right]}}\abs{x^n}\right)=\lim_{n\to +\infty}a^n=0
+			\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in \left[-a,a\right]}}\abs{x^n}\right)=\lim_{n\to+\infty}a^n=0
 		\end{equation*}
 		perché $a\in\left(0,1\right)$ e quindi $a^n$ è una successione geometrica convergente e pertanto il limite a $+\infty$ è sempre necessariamente 0.
 		\item In questo caso
@@ -140,7 +140,7 @@ Abbiamo così verificato la convergenza richiesta.
 		\end{equation*}
 		da cui
 		\begin{equation*}
-			\lim_{n\to +\infty}\left(\sup_{\textcolor{redill}{x\in\left(-1,1\right)}}\abs{x^n}\right)=1\neq 0
+			\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in\left(-1,1\right)}}\abs{x^n}\right)=1\neq 0
 		\end{equation*}
 	pertanto \textit{non} c'è convergenza uniforme su $\left(-1,1\right)$.
 	\end{enumerate}
@@ -152,7 +152,7 @@ Abbiamo così verificato la convergenza richiesta.
 \begin{solution}
 	Dimostriamo che
 	\begin{equation*}
-		\lim_{n\to +\infty}\left(\sup_{\textcolor{redill}{x\in \left[0,1\right]}}\abs{\frac{x^n}{n}-0}\right)=\lim_{n\to +\infty}\left(\sup_{\textcolor{redill}{x\in \left[0,1\right]}}\frac{x^n}{n}\right)=0
+		\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in \left[0,1\right]}}\abs{\frac{x^n}{n}-0}\right)=\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in \left[0,1\right]}}\frac{x^n}{n}\right)=0
 	\end{equation*}
 	Poiché
 	\begin{equation*}
@@ -160,7 +160,7 @@ Abbiamo così verificato la convergenza richiesta.
 	\end{equation*}
 	allora
 	\begin{equation*}
-	\lim_{n\to +\infty}\left(\sup_{\textcolor{redill}{x\in \left[0,1\right]}}\frac{x^n}{n}\right)=\lim_{n\to +\infty}\frac{1}{n}=0
+	\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in \left[0,1\right]}}\frac{x^n}{n}\right)=\lim_{n\to+\infty}\frac{1}{n}=0
 	\end{equation*}
 \end{solution}
 \subsection{Criterio di Cauchy per la convergenza uniforme}
@@ -282,7 +282,7 @@ ma in generale vale che la convergenza puntuale \textbf{NON} implica la converge
 	Consideriamo la successione geometrica $f_n\left(x\right)=x^n,\ \forall n\geq 0$.\\
 	$\forall x\in\realset$ fissato si ha
 	\begin{equation*}
-		\lim_{n\to +\infty}x^n=
+		\lim_{n\to+\infty}x^n=
 		\begin{cases}
 			\begin{array}{ll}
 				+\infty&\text{se }x>1\\
@@ -308,7 +308,7 @@ Questo mostra che su $\left(-1,1\right)$ c'è convergenza puntuale ma non unifor
 \begin{observe}
 	Questo esempio mostra inoltre che la CP \textit{non} è sufficiente in generale per trasferire la continuità alla funzione limite.
 \end{observe}
-\section{Convergenza uniforme e puntuale nei confronti di limitatezza, continuità, integrabilità e differenziabilità}
+\section{Proprietà di regolarità nel caso di convergenza uniforme e puntuale}
 Adesso studiamo il diverso comportamento delle due tipologie di convergenza viste rispetto alle proprietà enunciate nel titolo di questa sezione: se le funzioni $f_n$ della successione sono limitate/continue/integrabili/differenziabile, la funzione limite $f$ è limitata/continua/integrabile/differenziabile?
 \subsection{Limitatezza}
 \begin{theorema}[Teorema di limitatezza per successioni.]~{}\\
@@ -411,12 +411,12 @@ La successione di funzioni \textit{continue} $f_n$ converge quindi puntualmente 
 \begin{theorema}[Teorema di integrabilità per successioni, passaggio al limite sotto segno di integrale.]~{}\\
 	Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
 	\begin{enumerate}
-		\item $f_n\in\mathcal{R}\left[a,b\right],\ \forall n\geq 1$.
+		\item $f_n\in\mathcal{R}\left(\left[a,b\right]\right),\ \forall n\geq 1$.
 		\item $f_n$ converge uniformemente a $f$ su $\left[a,b\right]$.
 	\end{enumerate}
 	Allora
 	\begin{enumerate}
-		\item $f\in\mathcal{R}\left[a,b\right]$.
+		\item $f\in\mathcal{R}\left(\left[a,b\right]\right)$.
 		\item Vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio al limite sotto segno di integrale}:
 		\begin{equation}
 			\lim_{n\to+\infty}\int_{a}^{b}f_n\left(x\right)=\int_{a}^{b}lim_{n\to+\infty}f_n\left(x\right)dx=\int_{a}^{b}f\left(x\right)dx
@@ -433,7 +433,7 @@ Per quanto questo teorema ha una notevole importanza, ha un campo d'azione parti
 \end{equation*}
 Per ogni $x\geq 1$ osserviamo che $f_n(x)\sim \frac{n}{nx}$ per $n\to+\infty$, quindi si ha
 \begin{equation*}
-	\lim_{n\to +\infty}f_n\left(x\right)=\lim_{n\to +\infty}\frac{n}{nx}=\frac{1}{x}
+	\lim_{n\to+\infty}f_n\left(x\right)=\lim_{n\to+\infty}\frac{n}{nx}=\frac{1}{x}
 \end{equation*}
 Si ha quindi convergenza puntuale in ogni punto di $\left[1,+\infty\right)$ alla funzione $f(x)=\frac{1}{x}$. Inoltre, la convergenza è uniforme su $\left[1,+\infty\right)$: vale infatti
 \begin{equation*}
@@ -578,11 +578,11 @@ La risposta ad entrambe domande, a differenza di quanto ci si potrebbe aspettare
 		\begin{itemize}
 			\item $f_n$ converge \textbf{puntualmente} a $f\left(x\right)=0,\ \forall x\in\realset$:
 			\begin{equation*}
-				\lim_{n\to +\infty}f_n\left(x\right)=\lim_{n\to+\infty}\underbrace{\frac{1}{\sqrt{n}}}_{\to 0}\underbrace{\sin\left(nx\right)}_{\text{limitato}}=0,\ \forall x\in\realset
+				\lim_{n\to+\infty}f_n\left(x\right)=\lim_{n\to+\infty}\underbrace{\frac{1}{\sqrt{n}}}_{\to 0}\underbrace{\sin\left(nx\right)}_{\text{limitato}}=0,\ \forall x\in\realset
 			\end{equation*}
 			\item $f_n$ converge \textbf{uniformemente} a $f\left(x\right)=0,\ \forall x\in\realset$:
 			\begin{equation*}
-				\lim_{n\to +\infty}\left(\sup_{x\in\realset}\abs{f_n\left(x\right)-f\left(x\right)}\right)=\lim_{n\to+\infty}\left(\sup_{x\in\realset}\abs{\frac{\sin\left(nx\right)}{\sqrt{n}}}\right)=\lim_{n\to +\infty}\frac{1}{\sqrt{n}}=0
+				\lim_{n\to+\infty}\left(\sup_{x\in\realset}\abs{f_n\left(x\right)-f\left(x\right)}\right)=\lim_{n\to+\infty}\left(\sup_{x\in\realset}\abs{\frac{\sin\left(nx\right)}{\sqrt{n}}}\right)=\lim_{n\to+\infty}\frac{1}{\sqrt{n}}=0
 			\end{equation*}
 		\end{itemize}
 		Osserviamo che in entrambi i casi $f\left(x\right)=0$ su $\realset$: questa funzione è chiaramente derivabile e vale
@@ -642,7 +642,8 @@ Per dimostrare il teorema, faremo uso di tre strumenti: il \textit{criterio di C
 	\begin{equation}
 		\lim_{x\to c}\lim_{n\to+\infty}g_n\left(x\right)=\lim_{n\to+\infty}\lim_{x\to c}g_n\left(x\right)
 	\end{equation}
-	\end{enumerate}	
+	\end{enumerate}
+	
 \end{theorema}
 \begin{corollary}[Conseguenza al teorema di Lagrange.]~{}\\
 Sia $\funz{h}{\left(\alpha,\beta\right)\subseteq\realset}{\realset}$ derivabile in $\left(\alpha,\beta\right)$. Allora:
@@ -650,7 +651,7 @@ Sia $\funz{h}{\left(\alpha,\beta\right)\subseteq\realset}{\realset}$ derivabile 
 	\forall u,v\in\left(\alpha,\beta\right)\colon\abs{h\left(u\right)-h\left(v\right)}\leq\left(\sup_{x\in\left(\alpha,\beta\right)}\abs{h'\left(x\right)}\right)\abs{u-v}
 \end{equation}
 \end{corollary}
-\begin{demonstration} \textsc{(del Teorema di derivabilità per successioni.)}\\
+\begin{demonstration} \textsc{(del Teorema di derivabilità per successioni.)}
 \begin{enumerate}
 	\item Dimostriamo la \textit{convergenza uniforme} di $f_n$ su $\left(a, b\right)$. Per il Criterio di Cauchy per la convergenza uniforme è sufficiente
 	dimostrare che
@@ -715,6 +716,6 @@ Per il \textit{criterio di Cauchy} sulla convergenza uniforme, c'è convergenza 
 \begin{equation*}
 	\lim_{x\to d}\lim_{n\to+\infty}\frac{f_n\left(x\right)-f_n\left(d\right)}{x-d}\iff\lim_{x\to d}\frac{f\left(x\right)-f\left(d\right)}{x-d}
 \end{equation*}
-esiste \textit{finito} (tesi $2)$) e vale lo \textit{scambio di limite e derivata} (tesi $3)$).
+esiste \textit{finito} (tesi $2$) e vale lo \textit{scambio di limite e derivata} (tesi $3$).
 \end{enumerate}
 \end{demonstration}
