@@ -497,7 +497,6 @@ Quindi in questo caso la convergenza semplice della serie implica la convergenza
 		\item Se la serie converge assolutamente in ogni $z\in\partial B_R\left(0\right)$ (il bordo del disco), allora converge uniformemente sul disco chiuso $\overline{B_R\left(0\right)}$.
 	\end{enumerate}
 \end{theorema}
-\textbf{[INSERIRE IMMAGINE H]} % TO DO: inserire immagine
 \begin{demonstration} Per questa dimostrazione useremo il \textit{criterio di Weierstrass} enunciato nella sezione \ref{criteriodiweierstrass}, pag. \pageref{criteriodiweierstrass}.
 	\begin{enumerate}
 		\item Sia $H$ tale che $\overline{H}\subsetneqq B_R\left(0\right)$. Per il criterio di Weierstrass, per provare la convergenza uniforme su $H$ è sufficiente provare che esiste una successione $c_n$ tale che
@@ -505,24 +504,29 @@ Quindi in questo caso la convergenza semplice della serie implica la convergenza
 			\item $\abs{a_nz^n}\leq c_n,\ \forall z\in H$
 			\item $\displaystyle\sum_{n=0}^{+\infty}c_n$ converge.
 		\end{enumerate}
-	Poiché $H$ è solo \textit{strettamente contenuto} nel disco aperto di convergenza, possiamo scegliere $R'<R$ tale che $\overline{H}\subseteq B_{R'}\left(0\right)$, ossia $\abs{z}\leq R',\ \forall z\in H$.\\
-	\textbf{[INSERIRE IMMAGINE H CON BORDINO VERDE]} \\ % TO DO: inserire immagine
+\begin{minipage}{0.42\textwidth}
+	\includegraphics[trim=2cm 0cm 0cm 0cm, clip, scale=0.75]{images/discoconvergenzainsiemeH.pdf}
+\end{minipage}\hspace{-7mm}
+\begin{minipage}{0.53\textwidth}
+	Poiché $H$ è solo \textit{strettamente contenuto} nel disco aperto di convergenza, $\exists R'<R$ tale che si abbia $\overline{H}\subseteq B_{R'}\left(0\right)$, ossia $\abs{z}\leq R',\ \forall z\in H$.\\
 	Allora si ha, $\forall n\geq 0$ e $\forall z\in H$
 	\begin{equation*}
-		\abs{a_nz^n}=\abs{a_n}\abs{z}^n\leq \underbrace{\abs{a_n}\left(R'\right)^n}_{\text{non dipende da }z}
+		\abs{a_nz^n}=\abs{a_n}\abs{z}^n\leq \underbrace{\abs{a_n}\left(R'\right)^n}_{\stackrel{\text{non dipende}}{\text{da }z}}
 	\end{equation*}
+\end{minipage}\\
 	Inoltre, la serie $\displaystyle\sum_{n=0}^{+\infty}c_n=\sum_{n=0}^{+\infty}\abs{a_n}\left(R'\right)^n$ converge in quanto è la convergenza della serie di potenze per il punto $z=R'$, che è interno al disco di convergenza $B_R\left(0\right)$. Applicando il criterio di Weierstrass otteniamo la tesi.
 	\item Si ripete la dimostrazione sull'insieme $\overline{B_R\left(0\right)}$ con $R'=R$, considerando che la serie $\displaystyle\sum_{n=0}^{+\infty}\abs{a_n}R^n$ converge per ipotesi sulla convergenza sul bordo.
 	\end{enumerate}
 \end{demonstration}
-\begin{example}\textsc{Serie geometrica.}
+\begin{example}\textsc{Serie geometrica.}\\
 	Sulla \textit{serie geometrica} $\displaystyle\sum_{n=0}^{+\infty}z^n$ abbiamo già ricavato diverse informazioni: ha raggio di convergenza $R=1$ e \textit{non} c'è convergenza (assoluta) sul bordo. Studiamo ora la convergenza uniforme.
 	\begin{itemize}
 		\item Converge uniformemente su ogni insieme $H$ tale che $\overline{H}\subsetneqq B_1\left(0\right)$ per il teorema precedente.
 		\item Non avendo alcuna convergenza sul bordo, a priori non possiamo dare risultati generali sulla convergenza uniforme sulla base del teorema visto. Tuttavia, possiamo mostrare direttamente - grazie al fatto che la somma parziale e limite della serie geometrica è nota\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare maggiori dettagli sulla somma (parziale) della serie geometrica e come ricavarla.} -  che la serie non converge uniformemente sul disco aperto $B_1\left(0\right)$. Infatti
-		\begin{equation*}
-			\sup_{z\in B_1\left(0\right)}\abs{S_n\left(z\right)-S\left(z\right)}=\sup_{z\in B_1\left(0\right)}\abs{\frac{1-z^{n+1}}{1-z}-\frac{1}{1-z}}=\sup_{z\in B_1\left(0\right)}\abs{\frac{-z^{n+1}}{1-z}}=\sup_{z\in B_1\left(0\right)}\frac{\abs{z}^{n+1}}{\abs{1-z}}=+\infty,\ \forall n\geq 0
-		\end{equation*}
+		\begin{align*}
+			\sup_{z\in B_1\left(0\right)}\abs{S_n\left(z\right)-S\left(z\right)}&=\sup_{z\in B_1\left(0\right)}\abs{\frac{1-z^{n+1}}{1-z}-\frac{1}{1-z}}=\sup_{z\in B_1\left(0\right)}\abs{\frac{-z^{n+1}}{1-z}}=\\
+			&=\sup_{z\in B_1\left(0\right)}\frac{\abs{z}^{n+1}}{\abs{1-z}}=+\infty,\ \forall n\geq 0
+		\end{align*}
 		da cui
 		\begin{equation*}
 			\lim_{n\to+\infty}\left(\sup_{z\in B_1\left(0\right)}\abs{S_n\left(z\right)-S\left(z\right)}\right)=+\infty\neq 0
