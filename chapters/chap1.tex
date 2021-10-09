@@ -33,17 +33,17 @@ Il matematico indiano Srinivasa Aiyangar Ramanujan fornì come nota a margine no
 \end{equation*}
 Vedremo fra poco che anche l'approssimazione data dalla \textit{a)} è anch'essa lecita.\\
 Il motivo per cui diamo approssimazioni ma non formule esatte per la lunghezza dell'ellisse è dovuto al fatto che \textit{non esiste} una formula esplicita in termini di \textit{funzioni elementari}, bensì possiamo esprimerla soltanto come \textbf{somma di una serie}.
-\begin{theorema}[Lunghezza dell'ellisse di semiassi di lunghezza $a$ e $b$]~{}\\
+\begin{theorema}[Lunghezza dell'ellisse di semiassi di lunghezza $a$ e $b$.]~{}\\
 	Siano $a\geq b$ le lunghezze dei semiassi dell'ellisse e $e=e\left(a,b\right)=\frac{\sqrt{a^2-b^2}}{a}\in\left[0,1\right)$ l'\textbf{eccentricità}\index{eccentricità}; allora si ha
 	\begin{equation}
 		L\left(a,b\right)=2\pi a\sum_{j=0}^{+\infty}\frac{1}{1-2j}\left(\frac{\left(2j-1\right)!!}{\left(2j\right)!!}e^j\right)^2
 	\end{equation}
-dove $!!$ indica il \textbf{doppio fattoriale}\index{doppio fattoriale}:
+dove $!!$ indica il \textbf{doppio fattoriale}\index{fattoriale!doppio}:
 \begin{itemize}
 	\item $\left(-1\right)!!=0!!=1$
 	\item $\forall n\in\naturalset\quad n!!=\begin{cases}
 		n\cdot \left(n-2\right)\cdot \ldots \cdot 6 \cdot 4 \cdot 4 \cdot 2\text{ se }n>0\text{ è pari}\\
-		n\cdot \left(n-2\right)\cdot \ldots \cdot 5 \cdot 3 \cdot 2 \cdot 1\text{ se }n>0\text{ è dipari}\\
+		n\cdot \left(n-2\right)\cdot \ldots \cdot 5 \cdot 3 \cdot 2 \cdot 1\text{ se }n>0\text{ è dispari}\\
 	\end{cases}$
 \end{itemize}
 \end{theorema}
@@ -52,12 +52,16 @@ Il primo termine della serie fornisce l'approssimazione espressa nella risposta 
 	L\left(a,b\right)\approx 2\pi a
 \end{equation*}
 \subsection{La problematica dimostrazione della lunghezza dell'ellisse: la serie di Taylor}
+\begin{minipage}{0.49\textwidth}
+	\includegraphics[trim=0cm 2.25cm 0cm 0cm, clip, scale=0.65]{images/ellisse.pdf}
+\end{minipage}\hspace{-2mm}
+\begin{minipage}{0.50\textwidth}
 Dimostriamo finalmente la lunghezza dell'ellisse. Come è noto dal corso di \textsc{Analisi 2}, per una curva \textit{regolare} come l'ellisse è possibile calcolarne la lunghezza usando un'opportuna parametrizzazione.\\
-\textbf{[INSERIRE DISEGNO ELLISSE]}\\ % TO DO: disegno ellisse
 Poniamo $a\geq b$ le lunghezze dei semiassi ed $e=\frac{\sqrt{a^2-b^2}}{a}\in\left[0,1\right)$ l'eccentricità. Una parametrizzazione è
 \begin{equation*}
 	\vec{r}\left(t\right)=\left(a\sin t,\ b\cos t\right)\quad t\in\left[0, 2\pi\right]
 \end{equation*}
+\end{minipage}\\
 Allora
 \begin{align*}
 		L&=\int_{0}^{2\pi}\norm{\vec{r}'\left(t\right)}dt=\int_{0}^{2\pi}\norm{\left(a\cos t,\ -b\sin t\right)}dt=\int_{0}^{2\pi}\sqrt{a^2\cos^2t+b^2\sin^2t}dt=\\
@@ -89,7 +93,7 @@ Poichè $\left(1+x\right)^\alpha$ è una funzione di classe $\mathcal{C}^\infty$
 \begin{equation*}
 	P_{n,0}\left(x\right)=\sum_{j=0}^{n}\binom{\alpha}{j}x^j\quad\forall n\geq 0
 \end{equation*}
-con $\displaystyle\binom{\alpha}{j}$ il \textbf{coefficiente binomiale generalizzato}\index{coefficiente binomiale!generalizzato}\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare la definizione e le proprietà del binomiale generalizzato.}, allora l'approssimazione dell'integranda data dal polinomio di Taylor è proprio
+con $\displaystyle\binom{\alpha}{j}$ il \textbf{coefficiente binomiale generalizzato}\index{coefficiente binomiale!generalizzato}\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{coefficientebinomialgeneralizzato} è possibile trovare la definizione e le proprietà del binomiale generalizzato.}, allora l'approssimazione dell'integranda data dal polinomio di Taylor è proprio
 \begin{equation*}
 	\left(1+x\right)^{\nicefrac{1}{2}}\approx\sum_{j=0}^{n}\binom{\nicefrac{1}{2}}{j}x^j\quad\forall n\geq 0
 \end{equation*}
