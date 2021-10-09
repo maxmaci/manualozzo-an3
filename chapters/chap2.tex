@@ -52,9 +52,9 @@ Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(
 	La condizione, riscritta in questo modo, non solo \textit{non necessita} più dell'esistenza del \textit{massimo}, ma non è neanche necessario che l'intervallo sia \textit{compatto} o che la funzione sia \textit{continua}: questa è in realtà una relazione \textit{più generale} rispetto alla semplice convergenza nella metrica lagrangiana!
 \end{observe}
 \begin{define}[Convergenza uniforme.]~{}\\
-	Siano $\funz{f_n,\ f}{A\subseteq\realset}{\realset}$ con $A\subseteq R$ qualsiasi. Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$ \textcolor{redill}{\textbf{su} $A$} se
+	Siano $\funz{f_n,\ f}{A\subseteq\realset}{\realset}$ con $A\subseteq R$ qualsiasi. Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$\textbf{su} $A$ se
 \begin{equation}
-	\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \textcolor{redill}{\forall x\in A}
+	\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ forall x\in A
 \end{equation}
 \end{define}
 \begin{define}[Funzione limite.]~{}\\
@@ -69,36 +69,38 @@ Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(
 Ora passiamo da questa definizione ad una formulazione equivalente \textit{operativa}.
 Essa è equivalente a dire che
 \begin{equation*}
-	\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
+	\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
 \end{equation*}
-Possiamo definire una successione $\displaystyle c_n\coloneqq\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\in\realset^+$. Allora la relazione sopra, per definizione di limite di una successione, è equivalente a $\displaystyle \lim_{n\to+\infty}c_n=0$, cioè
+Possiamo definire una successione $\displaystyle c_n\coloneqq\sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}\in\realset^+$. Allora la relazione sopra, per definizione di limite di una successione, è equivalente a $\displaystyle \lim_{n\to+\infty}c_n=0$, cioè
 \begin{equation*}
-\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
+\lim_{n\to+\infty}\left(\sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
 \end{equation*}
-In conclusione abbiamo mostrato che % TO DO: fare riquadro attorno l'equazione successiva
+In conclusione abbiamo mostrato che
 \begin{equation}
-	f_n\text{ converge uniformemente a }f\textcolor{redill}{\text{ in }A}\iff\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
+	f_n\text{ converge uniformemente a }f\text{ in }A\iff\lim_{n\to+\infty}\left(\sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
 \end{equation}
 \begin{example}\label{valoreassolutoesempioconvergenzaassoluta}
-	Proviamo che $f_n\left(x\right)=\sqrt{x^2+\frac{1}{n}}$ converge uniformemente a $f\left(x\right)=\abs{x}$ \textcolor{redill}{su $\realset$}.\\
+	Proviamo che $f_n\left(x\right)=\sqrt{x^2+\frac{1}{n}}$ converge uniformemente a $f\left(x\right)=\abs{x}$ su $\realset$.\\
 	Dobbiamo provare che
 	\begin{equation*}
-		\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in \realset}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
+		\lim_{n\to+\infty}\left(\sup_{x\in \realset}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
 	\end{equation*}
 	\begin{enumerate}
 		\item Calcoliamo il $\sup$ con $n$ \textit{fissato}:
 		\begin{equation*}
-			\sup_{\textcolor{redill}{x\in \realset}}\abs{f_n\left(x\right)-f\left(x\right)}=\sup_{\textcolor{redill}{x\in \realset}}\abs{\sqrt{x^2+\frac{1}{n}}-\abs{x}}=\sup_{\textcolor{redill}{x\in \realset}}\left(\sqrt{x^2+\frac{1}{n}}-\abs{x}\right)
+			\sup_{x\in \realset}\abs{f_n\left(x\right)-f\left(x\right)}=\sup_{x\in \realset}\abs{\sqrt{x^2+\frac{1}{n}}-\abs{x}}=\sup_{x\in \realset}\left(\sqrt{x^2+\frac{1}{n}}-\abs{x}\right)
 		\end{equation*}
 		Per trovarlo tracciamo il grafico di $\phi_n\left(x\right)=\sqrt{x^2+\frac{1}{n}}-\abs{x}$ e cerchiamo il suo estremo superiore. Per parità della funzione ci basta fare le nostre considerazioni su $\left(0,+\infty\right)$ per poi disegnare il resto del grafico grazie alla simmetria assiale rispetto all'asse $y$; studiando opportunamente la derivata si ottiene il seguente grafico.\\
-		\textbf{[INSERIRE GRAFICO FUNZIONE]}\\ % TO DO: inserire grafico.
+\begin{center}
+	\includegraphics[trim=0cm 4cm 0cm 0cm, clip, scale=0.8]{images/grafico1.pdf}
+\end{center}
 		Segue chiaramente che
 		\begin{equation*}
-			\sup_{\textcolor{redill}{x\in \realset}}\phi_n\left(x\right)=\phi_n\left(0\right)=\frac{1}{\sqrt{n}}
+			\sup_{x\in \realset}\phi_n\left(x\right)=\phi_n\left(0\right)=\frac{1}{\sqrt{n}}
 		\end{equation*}
 	\item Calcoliamo il limite per $n\to +\infty$:
 	\begin{equation*}
-		\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in A}}\abs{f_n\left(x\right)-f\left(x\right)}\right)=\lim_{n\to+\infty}\frac{1}{\sqrt{n}}=0
+		\lim_{n\to+\infty}\left(\sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}\right)=\lim_{n\to+\infty}\frac{1}{\sqrt{n}}=0
 	\end{equation*}
 	\end{enumerate}
 Abbiamo così verificato la convergenza richiesta.
@@ -114,33 +116,43 @@ Abbiamo così verificato la convergenza richiesta.
 	\begin{enumerate}
 		\item Sia $a\in\left(0,1\right)$ fissato e consideriamo
 		\begin{equation*}
-			\abs{x^n-0}=\abs{x^n}\implies\sup_{\textcolor{redill}{x\in \left[-a,a\right]}}\abs{x^n-0}=\sup_{\textcolor{redill}{x\in \left[-a,a\right]}}\abs{x^n}
+			\abs{x^n-0}=\abs{x^n}\implies\sup_{x\in \left[-a,a\right]}\abs{x^n-0}=\sup_{x\in \left[-a,a\right]}\abs{x^n}
 		\end{equation*}
 		Qual è il grafico di $x^n$?\\
+		\begin{minipage}{0.75\textwidth}
+			\begin{itemize}
+				\item Se $n$ \textbf{pari}, è visivamente simile a quello di $x^2$.
+			\end{itemize}
+		\end{minipage}\hspace{-7mm}
+		\begin{minipage}{0.15\textwidth}
+			\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.5]{images/grafico2a.pdf}
+		\end{minipage}\\
+			\begin{minipage}{0.75\textwidth}
 		\begin{itemize}
-			\item Se $n$ \textbf{pari}, è visivamente simile a quello di $x^2$:\\
-			\textbf{[INSERIRE GRAFICO FUNZIONE]}\\ % TO DO: inserire grafico.
-			\item Se $n$ \textbf{dispari}, è visivamente simile a quello di $x^3$:\\
-			\textbf{[INSERIRE GRAFICO FUNZIONE]}\\ % TO DO: inserire grafico.
+			\item Se $n$ \textbf{dispari}, è visivamente simile a quello di $x^3$.
 		\end{itemize}
-		Tuttavia per $\abs{x^n},\ \forall n\geq 2$, che è una funzione pari, il grafico è visivamente simile a quello di $x^2$:\\
-		\textbf{[INSERIRE GRAFICO FUNZIONE]}\\ % TO DO: inserire grafico.
+	\end{minipage}\hspace{-7mm}
+	\begin{minipage}{0.15\textwidth}
+		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.5]{images/grafico2b.pdf}
+	\end{minipage}\\
+
+		Tuttavia per $\abs{x^n},\ \forall n\geq 2$, che è una funzione pari, il grafico è visivamente simile a quello di $x^2$.
 		Segue immediatamente che
 		\begin{equation*}
-			\sup_{\textcolor{redill}{x\in \left[-a,a\right]}}\abs{x^n}=a^n,\ \forall a\colon 0<a<1
+			\sup_{x\in \left[-a,a\right]}\abs{x^n}=a^n,\ \forall a\colon 0<a<1
 		\end{equation*}
 		Ora si ha
 		\begin{equation*}
-			\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in \left[-a,a\right]}}\abs{x^n}\right)=\lim_{n\to+\infty}a^n=0
+			\lim_{n\to+\infty}\left(\sup_{x\in \left[-a,a\right]}\abs{x^n}\right)=\lim_{n\to+\infty}a^n=0
 		\end{equation*}
 		perché $a\in\left(0,1\right)$ e quindi $a^n$ è una successione geometrica convergente e pertanto il limite a $+\infty$ è sempre necessariamente 0.
 		\item In questo caso
 		\begin{equation*}
-			\sup_{\textcolor{redill}{x\in\left(-1,1\right)}}\abs{x^n}=1,\ \forall n
+			\sup_{x\in\left(-1,1\right)}\abs{x^n}=1,\ \forall n
 		\end{equation*}
 		da cui
 		\begin{equation*}
-			\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in\left(-1,1\right)}}\abs{x^n}\right)=1\neq 0
+			\lim_{n\to+\infty}\left(\sup_{x\in\left(-1,1\right)}\abs{x^n}\right)=1\neq 0
 		\end{equation*}
 	pertanto \textit{non} c'è convergenza uniforme su $\left(-1,1\right)$.
 	\end{enumerate}
@@ -152,15 +164,15 @@ Abbiamo così verificato la convergenza richiesta.
 \begin{solution}
 	Dimostriamo che
 	\begin{equation*}
-		\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in \left[0,1\right]}}\abs{\frac{x^n}{n}-0}\right)=\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in \left[0,1\right]}}\frac{x^n}{n}\right)=0
+		\lim_{n\to+\infty}\left(\sup_{x\in \left[0,1\right]}\abs{\frac{x^n}{n}-0}\right)=\lim_{n\to+\infty}\left(\sup_{x\in \left[0,1\right]}\frac{x^n}{n}\right)=0
 	\end{equation*}
 	Poiché
 	\begin{equation*}
-		\sup_{\textcolor{redill}{x\in \left[0,1\right]}}\frac{x^n}{n}=\frac{x^n}{n}\mid_{x=1}=\frac{1}{n}
+		\sup_{x\in \left[0,1\right]}\frac{x^n}{n}=\frac{x^n}{n}\left.\right|_{x=1}\,=\frac{1}{n}
 	\end{equation*}
 	allora
 	\begin{equation*}
-	\lim_{n\to+\infty}\left(\sup_{\textcolor{redill}{x\in \left[0,1\right]}}\frac{x^n}{n}\right)=\lim_{n\to+\infty}\frac{1}{n}=0
+	\lim_{n\to+\infty}\left(\sup_{x\in \left[0,1\right]}\frac{x^n}{n}\right)=\lim_{n\to+\infty}\frac{1}{n}=0
 	\end{equation*}
 \end{solution}
 \subsection{Criterio di Cauchy per la convergenza uniforme}
@@ -218,9 +230,9 @@ Generalizziamo ora la definizione di convergenza uniforme considerando $\funz{f_
 \end{observe}
 Possiamo ora, date queste nuove ipotesi, riformulare la convergenza uniforme.
 \begin{define}[Convergenza uniforme.]~{}\\
-		Siano $\funz{f_n,\ f}{A}{Y}$ con $A$ insieme qualsiasi e $Y$ spazio normato (completo). Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$ \textcolor{redill}{\textbf{su} $A$} se
+		Siano $\funz{f_n,\ f}{A}{Y}$ con $A$ insieme qualsiasi e $Y$ spazio normato (completo). Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$ \textbf{su} $A$ se
 	\begin{equation}
-		\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \norm{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \textcolor{redill}{\forall x\in A}
+		\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \norm{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ forall x\in A
 	\end{equation}
 \end{define}
 \begin{digression}
