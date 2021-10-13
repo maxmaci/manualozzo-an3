@@ -177,7 +177,7 @@ Abbiamo così verificato la convergenza richiesta.
 \end{solution}
 \subsection{Criterio di Cauchy per la convergenza uniforme}
 Come nel caso delle successioni numeriche, esiste un \textbf{criterio di Cauchy} per la convergenza uniforme.
-\begin{theorema}[Criterio di Cauchy per la convergenza uniforme.]~{}\\\label{criteriodicauchyperconvergenzauniforme}
+\begin{theorema}[Criterio di Cauchy per la convergenza uniforme.]~{}\\\label{criteriodicauchyperconvergenzauniforme}\index{criterio!di Cauchy!per la convergenza uniforme}
 	Siano $\funz{f_n}{A\subseteq\realset}{\realset}$. Allora
 	\begin{multline}
 		f_n\text{ converge uniformemente su }A \iff\\
@@ -185,7 +185,7 @@ Come nel caso delle successioni numeriche, esiste un \textbf{criterio di Cauchy}
 	\end{multline}
 \end{theorema}
 \begin{observe}
-Il criterio di Cauchy è un \textit{risultato teorico molto importante}, in quanto permette di mostrare la convergenza uniforme di una successione di funzioni \textit{senza sapere} quale sia il limite come invece è necessario nella definizione di convergenza, in modo analogo a ciò che succede con il criterio di Cauchy per le successioni numeriche.
+Il criterio di Cauchy è un \textit{risultato teorico molto importante}, in quanto permette di mostrare la convergenza uniforme di una successione di funzioni \textit{senza sapere} quale sia il limite come invece è necessario nella definizione di convergenza, in modo analogo a ciò che succede con il criterio di Cauchy per le \textit{successioni numeriche}.
 \end{observe}
 \subsection{Visualizzazione della convergenza uniforme}
 Siamo abituati alle successioni numeriche $v_n$ ed eventualmente a studiare il loro andamento in modo grafico, rappresentando sulle ascisse il numero $n$ e sulle ordinate il valore $v_n$. Nel caso di successioni di funzioni l'argomento è una funzione, quindi per studiarle può essere utile proprio disegnare i grafici degli $f_n$ e come convergono verso $f$.\\
@@ -219,7 +219,7 @@ Prima di tutto, ricordiamo le definizioni di norma e spazio normato.
 \end{observe}
 Generalizziamo la definizione di convergenza uniforme considerando $\funz{f_n,\ f}{A}{Y}$, con $A$ \textit{insieme qualsiasi} e $Y$ uno spazio \textit{normato}; se vogliamo che valga anche il criterio di Cauchy è necessario che $Y$ sia \textit{anche} uno spazio \textbf{completo}.
 \begin{define}[Successione di Cauchy.]~{}\\
-		Una successione $v_n\in X$ è \textbf{di Cauchy}\index{successione di Cauchy} in $X$ se
+		Una successione $v_n\in X$ è \textbf{di Cauchy}\index{successione!di Cauchy} in $X$ se
 	\begin{equation}
 		\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n,m\geq N\ \mvf{d}{v_n}{v_m}<\epsilon
 	\end{equation}
@@ -231,7 +231,7 @@ Generalizziamo la definizione di convergenza uniforme considerando $\funz{f_n,\ 
 	Una successione convergente è \textit{sempre} di Cauchy, ma in generale \textit{non tutte} le successioni di Cauchy convergono. L'implicazione opposta è vera solo se lo spazio è completo.
 \end{observe}
 Possiamo ora, date queste nuove ipotesi, riformulare la convergenza uniforme.
-\begin{define}[Convergenza uniforme.]~{}\\
+\begin{define}[Convergenza uniforme, generalizzata.]~{}\\
 		Siano $\funz{f_n,\ f}{A}{Y}$ con $A$ insieme qualsiasi e $Y$ spazio normato (completo). Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$ \textbf{su} $A$ se
 	\begin{equation}
 		\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \norm{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in A

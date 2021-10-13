@@ -28,14 +28,14 @@
 	\begin{equation}
 		\binom{n}{j}=\frac{n!}{j!\left(n-j\right)!}
 	\end{equation}
-dove $!$ indica il il \textbf{fattoriale}\index{fattoriale}:
+dove $!$ indica il \textbf{fattoriale}\index{fattoriale}:
 \begin{itemize}
 	\item $\left(0\right)!=1$
 	\item $\forall n\in\naturalset\quad n!=n\cdot \left(n-1\right)\cdot \ldots \cdot 3 \cdot 2 \cdot 1$
 \end{itemize}
 Se $n<j$, allora poniamo $\displaystyle\binom{n}{j}=0$
 \end{define}
-Possiamo estendere la definizione del coefficiente binomiale sostituendo a $n$ e $j$ dei qualunque numeri complessi $\alpha$ e $\beta$ (purché non sia un intero negativo)  utilizzando la generalizzazione del fattoriale, la \textit{funzione Gamma di Eulero}. Vediamone la definizione con $\Re\left(\alpha\right)>0$.
+Possiamo estendere la definizione del coefficiente binomiale sostituendo a $n$ e $j$ dei qualunque numeri complessi $\alpha$ e $\beta$ (purché \textit{non} sia un intero negativo)  utilizzando la generalizzazione del fattoriale, la \textit{funzione Gamma di Eulero}. Vediamone la definizione con $\alpha$ tale che $\Re\left(\alpha\right)>0$.
 \begin{define}[Funzione Gamma di Eulero.]~{}\\
 	Dato $\alpha$ tale che $\Re\left(\alpha\right)>0$, definiamo la \textbf{funzione Gamma di Eulero}\index{funzione!Gamma di Eulero} in campo complesso come il prolungamento analitico dell'integrale improprio convergente
 	\begin{equation}
@@ -69,7 +69,7 @@ In realtà questa relazione si ottiene anche col coefficiente che abbiamo defini
 \begin{define}[Simbolo di Pochhammer o fattoriale crescente.]~{}\\
 	Dati $\alpha\in\complexset$, $j\in\naturalset$, il \textbf{simbolo di Pochhammer}\seeonlyindex{fattoriale!crescente}{simbolo di Pochhammer} o altresì detto \textbf{fattoriale crescente}\index{fattoriale!crescente} è il numero
 	\begin{equation}
-		\alpha^{\underline{j}}=\left(\alpha\right)_j\coloneqq\frac{\Gamma\left(\alpha+j\right)}{\Gamma\left(\alpha\right)}
+		\alpha^{\overline{j}}=\left(\alpha\right)_j\coloneqq\frac{\Gamma\left(\alpha+j\right)}{\Gamma\left(\alpha\right)}
 	\end{equation}
 	Questa equivale a
 	\begin{equation}
@@ -87,21 +87,21 @@ In realtà questa relazione si ottiene anche col coefficiente che abbiamo defini
 \end{equation}
 \end{define}
 \begin{attention}
-		La notazione $\left(\alpha\right)_j$, introdotta da Leo August Pochhammer, è talvolta usata anche per indicare il fattoriale \textit{decrescente} oltre che quello \textit{crescente}. Per evitare confusioni ulteriori, qui useremo solo la notazione introdotta da Knuth et al. % TO DO: inserire riferimento bibliografico.
+		La notazione $\left(\alpha\right)_j$, introdotta da Leo August Pochhammer, è talvolta usata anche per indicare il fattoriale \textit{decrescente} oltre che quello \textit{crescente}. Anche se useremo il simbolo di Pochammer solo per il fattoriale crescente, prediligeremo la notazione introdotta da Knuth et al. % TO DO: inserire riferimento bibliografico.
 \end{attention}
 Osserviamo che
 \begin{equation*}
-	\binom{\alpha}{j}=\frac{\Gamma\left(\alpha+1\right)}{j!\Gamma\left(\alpha-j+1\right)}=\frac{\alpha^{\underline{j}}}{j!}=\frac{\left(\alpha-j+1\right)_j}{j!}=\frac{\alpha\left(\alpha-1\right)\cdots\left(\alpha-j+1\right)}{j!}
+	\binom{\alpha}{j}=\frac{\Gamma\left(\alpha+1\right)}{j!\Gamma\left(\alpha-j+1\right)}=\frac{\alpha^{\underline{j}}}{j!}=\frac{\alpha\left(\alpha-1\right)\cdots\left(\alpha-j+1\right)}{j!}=\frac{\left(\alpha-j+1\right)^{\overline{j}}}{j!}=\frac{\left(\alpha-j+1\right)_j}{j!}
 \end{equation*}
 Allora possiamo considerare questa definizione operativa come la generalizzazione nel caso $\alpha\in\complexset$ e $j\in\naturalset$ del binomiale.
 \begin{define}[Coefficiente binomiale generalizzato, definizione operativa.]~{}\\
 	Dati $\alpha\in\complexset,\ j\in\naturalset$, si definisce il \textbf{coefficiente binomiale generalizzato}\index{coefficiente binomiale!generalizzato} il numero
 	\begin{equation}
-		\binom{\alpha}{j}=\frac{\left(\alpha-j+1\right)_j}{j!}=\frac{\alpha\left(\alpha-1\right)\cdots\left(\alpha-j+1\right)}{j!}
+		\binom{\alpha}{j}=\frac{\alpha^{\underline{j}}}{j!}=\frac{\left(\alpha-j+1\right)^{\overline{j}}}{j!}=\frac{\left(\alpha-j+1\right)_j}{j!}=\frac{\alpha\left(\alpha-1\right)\cdots\left(\alpha-j+1\right)}{j!}
 	\end{equation}
 \end{define}
 \begin{observe}
-	Se $\alpha<j$, con $\alpha\in\integerset$ e $j\in\naturalset$, si ha al numeratore il fattore $\left(\alpha-\alpha\right)$ e quindi $\displaystyle\binom{\alpha}{j}=0$.
+	Se $\alpha<j$, con $\alpha\in\integerset$ e $j\in\naturalset$, si ha al numeratore il fattore $\left(\alpha-\alpha\right)$ e quindi $\displaystyle\binom{\alpha}{j}=0$. Il 
 \end{observe}
 Valgono inoltre le seguenti proprietà, $\forall \alpha\in\complexset$:
 \begin{align}
@@ -109,3 +109,64 @@ Valgono inoltre le seguenti proprietà, $\forall \alpha\in\complexset$:
 	&\binom{\alpha}{k+1}=\binom{\alpha}{k}\frac{\alpha-k}{k+1}\\
 	&\binom{\alpha}{k-1}+\binom{\alpha}{k}=\binom{\alpha+1}{k}
 \end{align}
+\section{Capitolo 3: serie di funzioni}
+\subsection{Tanti criteri di Cauchy}\label{criteriodicauchy}
+Il \textbf{criterio di Cauchy}\index{criterio!di Cauchy} è un importante teorema che fornisce condizioni necessarie e sufficienti per la convergenza di una successione.
+\begin{theorema}[Criterio di Cauchy per le successioni.]~{}\\\index{criterio!di Cauchy!per le successioni}
+		Sia $v_n$ successione in $X$ spazio metrico \textit{completo}. Allora
+	\begin{multline}
+		v_n\text{ converge in }X \iff v_n\text{ è di Cauchy}\iff\\
+		\iff\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon\forall n,m\geq N\ \mvf{d}{v_n}{v_m}<\epsilon
+	\end{multline}
+\end{theorema}
+\begin{demonstration}~{}\\
+	$\impliesdx$Supponiamo che $v_n$ converge a $v\in X$, ovvero
+	\begin{equation*}
+		\forall \epsilon>0\exists N=N\left(\epsilon\right)\colon\forall n\geq N\mvf{d}{v_n}{v}<\frac{\epsilon}{2}
+	\end{equation*}
+	Prendiamo $n,m\geq N$. Per la disuguaglianza triangolare della metrica $d$ si ha
+	\begin{equation*}
+		\mvf{d}{v_n}{v_m}<\mvf{d}{v_n}{v}+\mvf{d}{v}{v_m}=\mvf{d}{v_n}{v}+\mvf{d}{v_m}{v}<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+	\end{equation*}
+	$\impliessx$Vale per la completezza dello spazio $X$.
+\end{demonstration}
+\begin{observe}
+	L'implicazione $\impliesdx$vale in generale su qualunque spazio metrico, mentre l'altra vale solo se lo spazio è completo. Per dimostrare che $X$ sia completo può essere utile utilizzare alcune delle seguenti proprietà\autocite{antucabertolottigeo2}:
+	\begin{itemize}
+		\item Una successione di Cauchy è \textit{convergente} se e solo se ha punti di accumulazione.
+		\item Una successione di Cauchy è \textit{convergente} se ha una \textit{sottosuccessione convergente}.
+		\item Se $X$ è spazio metrico \textit{compatto}, allora $X$ è spazio metrico \textit{completo}; non è vero il viceversa.
+	\end{itemize}
+\end{observe}
+\begin{intuit}
+	Possiamo vedere una successione di Cauchy come una successione che \textit{oscilla} sempre di meno, fino a posizionarsi su un valore relativamente costante, dove le oscillazioni fra due valori distinti della successione sono davvero piccole.
+\end{intuit}
+In termini matematici, possiamo formalizzare questa intuizione così: una oscillazione dopo l'$N$-esimo elemento è la più grande differenza fra due elementi della successione scelti arbitrariamente dopo l'$N$-esimo:
+\begin{equation*}
+	osc\left(N\right)\coloneqq\sup\left\{\mvf{d}{v_n}{v_m}\mid n,m\geq N\right\}
+\end{equation*}
+Allora una serie è di Cauchy se
+\begin{equation*}
+	\lim_{N\to+\infty}osc\left(N\right)=0
+\end{equation*}
+Questo ci permette di \textit{estendere} il criterio di Cauchy a situazione \textit{molto variegate} tra di loro dove bisogna studiare una convergenza, tutte \textit{accomunate} dall'idea che ‘‘portare l'oscillazione a \textit{zero} è equivalente alla convergenza''.\\
+Abbiamo visto nel \refChapter{convergenzafunzioni}, a pag. \pageref{criteriodicauchyperconvergenzauniforme} il criterio di Cauchy per la \textit{convergenza uniforme}; qui di seguito riportiamo quello per le successioni.
+\begin{corollary}[Criterio di Cauchy per le serie.]~{}\\\label{criteriodicauchyperleserie}\index{criterio!di Cauchy!per le serie}
+	Una serie $\displaystyle\sum_{n=0}^{+\infty}x_n$ in uno spazio \textit{normato completo} è convergente se e solo se
+	\begin{equation}
+		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \norm{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\epsilon
+	\end{equation}
+\end{corollary}
+\begin{demonstration}
+	Considerate le ridotte $\displaystyle s_n=\sum_{k=1}^{n}a_k$, la serie $\displaystyle\sum_{n=0}^{+\infty}x_n$ converge se e solo se la successione delle ridotte converge. Poiché $X$ è uno spazio completo, questo equivale a dire che la successione delle ridotte $s_n$ è di Cauchy, ossia
+	\begin{equation*}
+		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \norm{s_m-s_n}<\epsilon
+	\end{equation*}
+	Senza perdita di generalità poniamo $m=n+p$: la relazione qui sopra coincide con
+	\begin{equation*}
+		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \norm{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\epsilon
+	\end{equation*}
+	e quindi segue la tesi.
+\end{demonstration}
+% TO DO: continuare con altri criteri?
+% TO DO: riportare qui le definizioni di successione di Cauchy, spazio normato
