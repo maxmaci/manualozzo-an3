@@ -465,5 +465,62 @@ La tesi $2)$ appena dimostrata ci dice che la derivata $f'$ è una somma di seri
 \end{itemize}
 Ma anche $f''$ è una serie di potenze con raggio $R$: possiamo riapplicare il teorema su $f''$ e ammettere l'esistenza di $f'''$ come serie di potenze. Iterando il ragionamento, si trova che esiste $f^{\left(k\right)}\left(x\right),\ \forall x\in\left(-R,R\right),\ \forall k\geq 0$ e vale
 \begin{equation}
-	f^{\left(k\right)}\left(x\right)=\sum_{n=k}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k},\ \forall x\in\left(-R,R\right)
+	f^{\left(k\right)}\left(x\right)=\sum_{n=k}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\sum_{n=k}^{+\infty}\frac{n!}{\left(n-k\right)!}a_nx^{n-k},\ \forall x\in\left(-R,R\right)
 \end{equation}
+Esplicitiamo il primo termine di $f^{\left(k\right)}\left(x\right)$:
+\begin{equation*}
+	f^{\left(k\right)}\left(x\right)=k\left(k-1\right)\ldots\left(k-k+1\right)a_kx^0+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=k!a_k+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}
+\end{equation*}
+In $x=0$ otteniamo
+\begin{equation*}
+	f^{\left(k\right)}\left(0\right)=k!a_k+0=k!a_k
+\end{equation*}
+Da cui otteniamo una espressione del termine $a_k$ in funzione della derivata $k$-esima, supponendo che esiste tale derivata:
+\begin{equation}
+	a_k=\frac{f^{\left(k\right)}}{k!},\ \forall k\geq 0
+\end{equation}
+Riscriviamo questi risultati in un unico teorema.
+\begin{theorema}[Analiticità della somma di una serie di potenze.]~{}\\
+	Sia data la serie di potenze
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}a_nx^n,\ a_n\in\realset, x\in\realset
+	\end{equation*}
+con raggio di convergenza $R>0$ e sia $f$ la sua somma. Allora
+\begin{enumerate}
+	\item $f\in\mathcal{C}^{\infty}\left(\left(-R,R\right)\right)$.
+	\item La derivata $k$-esima è nella forma
+	\begin{equation}
+		f^{\left(k\right)}\left(x\right)=\sum_{n=k}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\sum_{n=k}^{+\infty}\frac{n!}{\left(n-k\right)!}a_nx^{n-k},\ \forall x\in\left(-R,R\right)
+	\end{equation}
+	\item Il coefficiente $a_k$ si può scrivere come
+	\begin{equation}
+		a_k=\frac{f^{\left(k\right)}}{k!},\ \forall k\geq 0
+	\end{equation}
+	\item $f$ è \textit{analitica} in $0$, ossia si può scrivere come una \textbf{serie di Taylor di }$f$\textbf{centrata in }$x=0$\index{serie!di Taylor}
+	\begin{equation}
+		f\left(x\right)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}}{k!}x^k,\ \forall x\in\left(-R,R\right)
+	\end{equation}
+\end{enumerate}
+\end{theorema}
+Diamo una definizione formale del termine ‘‘funzione analitica'' che abbiamo appena usato nel teorema.
+\begin{define}[Funzione analitica.]~{}\\
+	Sia $\funz{f}{U\subseteq \realset}{\realset}$ tale che $f\in\mathcal{C}^{\infty}\left(U\right)$.
+	\begin{enumerate}
+		\item Dato $x_0\in\ U$, $f$ si dice \textbf{analitica}\index{analitica} in $x_0$ se $\exists r_0>0$ tale che
+		\begin{equation*}
+			f\left(x\right)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k,\ \forall x\in\left(x_0-r_0,x_0+r_0\right)\subseteq U
+		\end{equation*}
+		\item f si dice \textbf{analitica in }$U$ se è analitica in ogni punto $x_0\in U$. In questo caso si scrive $f\in\mathcal{A}\left(U\right)$.
+	\end{enumerate}
+\end{define}
+Il problema della \textit{ricostruzione} di una funzione come somma della sua serie di Taylor, introdotto nello studio della lunghezza dell'ellisse nel \refChapter{ellipseintroduction}, si può anche formulare come
+\begin{center}
+	‘‘Ogni funzione $f\in\mathcal{C}^{\infty}\left(U\right)$ è anche analitica su $U$?''
+\end{center}
+ossia
+\begin{equation*}
+	f\in\mathcal{C}^{\infty}\left(U\right)\stackrel{?}{\implies}f\in\mathcal{A}\left(U\right)
+\end{equation*}
+In generale la risposta è \textbf{no}, come possiamo vedere nell'esempio successivo.
+% TO DO: controesempio su moodle
+Bisogna quindi capire sotto quali ipotesi ulteriori una funzione di classe $\mathcal{C}^{\infty}$ è anche analitica.
