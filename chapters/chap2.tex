@@ -25,10 +25,13 @@ Per poter trattare i problemi enunciati nel \refChapter{ellipseintroduction} dob
 		\item $\mvf{d}{x}{y}\leq\mvf{d}{x}{z}+\mvf{d}{z}{y}$.
 	\end{enumerate}
 \end{define}
-\begin{define}[Convergenza.]~{}\\
+% OLD \begin{define}[Convergenza.]~{}\\
+% più che convergenza metterei successione convergente rispetto a una distanza visto che dopo si fanno discorsi vari
+% NEW
+\begin{define}[Convergenza di successioni secondo la distanza.]~{}\\
 	Una successione $v_n\in X$ \textbf{converge}\index{convergenza!di una successione} in $X$ a $v\in X$ se
 	\begin{equation}
-		\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \mvf{d}{v_n}{v}<\epsilon
+		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \mvf{d}{v_n}{v}<\epsilon
 	\end{equation}
 \end{define}
 Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(\left[a,b\right];\ \realset\right)$ delle funzioni continue su un intervallo compatto con la \textbf{metrica lagrangiana}\index{metrica!lagrangiana}:
@@ -36,30 +39,33 @@ Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(
 	\mvf{d}{f}{g}=\max_{x\in\left[a,b\right]}\abs{f\left(x\right)-g\left(x\right)}
 \end{equation}
 \begin{observe}
-	La distanza è ben definita perché la funzione $\abs{f\left(x\right)-g\left(x\right)}$, essendo definita su $\left[a,b\right]$ compatto, ammette massimo per il teorema di Weierstrass.
+	La distanza è ben definita perché la funzione $\abs{f\left(x\right)-g\left(x\right)}$, essendo definita su $\left[a,b\right]$ compatto, non si considera solo l'estremo superiore ma ammette massimo per il teorema di Weierstrass.
 \end{observe}
 \begin{define}[Convergenza nella metrica lagrangiana.]~{}\\
-	Siano $f_n,\ f\in X$. $f_n$ converge a $f$ in $X$ se
+	Siano $f_n,\ f\in X$. Si dice che $f_n$ converge a $f$ in $X$ se
 	\begin{equation}
-		\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \max_{x\in\left[a,b\right]}\abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
+		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \max_{x\in\left[a,b\right]}\abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
 		\end{equation}
 	\end{define}
-	Questa relazione si può riscrivere come
+	Siccome vale per il massimo allora vale per qualsiasi $x$, quindi la relazione si può riscrivere come
 \begin{equation*}
-	\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in\left[a,b\right]
+	\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in\left[a,b\right]
 \end{equation*}
 \begin{observe}\label{convergenzalagrangianaeuniforme}
-	La condizione, riscritta in questo modo, non solo \textit{non necessita} più dell'esistenza del \textit{massimo}, ma non è neanche necessario che l'intervallo sia \textit{compatto} o che la funzione sia \textit{continua}: questa è in realtà una relazione \textit{più generale} rispetto alla semplice convergenza nella metrica lagrangiana!
+	La condizione, riscritta in questo modo, non solo \textit{non necessita} più dell'esistenza del \textit{massimo}, ma non è neanche necessario che l'intervallo sia \textit{compatto} o che le funzioni $f_n$ siano \textit{continue}: questa è in realtà una relazione \textit{più generale} rispetto alla semplice convergenza nella metrica lagrangiana!\\
+%NEW
+	Vedremo che nel caso di funzioni continue sui compatti la convergenza uniforme coincide con quella lagrangiana.
 \end{observe}
 \begin{define}[Convergenza uniforme.]~{}\\
 	Siano $\funz{f_n,\ f}{A\subseteq\realset}{\realset}$ con $A\subseteq R$ qualsiasi. Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$\textbf{su} $A$ se
 \begin{equation}
-	\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in A
+	\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in A
 \end{equation}
 \end{define}
 \begin{define}[Funzione limite.]~{}\\
 	Se $f_n$ converge uniformemente a $f$ su $A$, $f$ si dice \textbf{funzione limite}\index{funzione!limite}.
 \end{define}
+%OSS ho qualche dubbio che si dica funzione limite solo se la convergenza è uniforme
 \begin{observe}
 	Segue immediatamente dalla definizione che se $f_n$ converge uniformemente a $f$ su $A$, allora $\forall B\subseteq A$ si ha che $f_n$ converge uniformemente a $f$ su $B$.
 \end{observe}
@@ -67,11 +73,12 @@ Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(
 	È estremamente importante dire \textbf{dove} converge $f_n$: infatti, una stessa successione può convergere uniformemente su $A$, ma allo stesso tempo \textit{non convergere} uniformemente in un altro insieme $B$. Vedremo un esempio fondamentale a riguardo successivamente.
 \end{attention}
 Ora passiamo da questa definizione ad una formulazione equivalente \textit{operativa}.
-Essa è equivalente a dire che
+Se essa vale per qualsiasi $x$ in $A$, allora vale per il $\sup$ e viceversa, quindi è equivalente a dire che
 \begin{equation*}
-	\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N\ \sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
+	\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
 \end{equation*}
-Possiamo definire una successione $\displaystyle c_n\coloneqq\sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}\in\realset^+$. Allora la relazione sopra, per definizione di limite di una successione, è equivalente a $\displaystyle \lim_{n\to+\infty}c_n=0$, cioè
+
+Siccome il $\sup$ dipende da $n$, possiamo definire una successione $\displaystyle c_n\coloneqq\sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}\in\realset^+$. Allora la relazione sopra, per definizione di limite di una successione, è equivalente a $\displaystyle \lim_{n\to+\infty}c_n=0$, cioè
 \begin{equation*}
 \lim_{n\to+\infty}\left(\sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
 \end{equation*}
@@ -90,13 +97,13 @@ In conclusione abbiamo mostrato che
 		\begin{equation*}
 			\sup_{x\in \realset}\abs{f_n\left(x\right)-f\left(x\right)}=\sup_{x\in \realset}\abs{\sqrt{x^2+\frac{1}{n}}-\abs{x}}=\sup_{x\in \realset}\left(\sqrt{x^2+\frac{1}{n}}-\abs{x}\right)
 		\end{equation*}
-		Per trovarlo tracciamo il grafico di $\phi_n\left(x\right)=\sqrt{x^2+\frac{1}{n}}-\abs{x}$ e cerchiamo il suo estremo superiore. Per parità della funzione ci basta fare le nostre considerazioni su $\left(0,+\infty\right)$ per poi disegnare il resto del grafico grazie alla simmetria assiale rispetto all'asse $y$; studiando opportunamente la derivata si ottiene il seguente grafico.
+		Per trovarlo tracciamo il grafico di $\phi_n\left(x\right)=\abs{\sqrt{x^2+\frac{1}{n}}-\abs{x}}$ e cerchiamo il suo estremo superiore. Per parità della funzione ci basta fare le nostre considerazioni su $\left(0,+\infty\right)$ per poi disegnare il resto del grafico grazie alla simmetria assiale rispetto all'asse $y$; studiando opportunamente la derivata e il limite all'infinito si ottiene il seguente grafico.
 \begin{center}
 	\includegraphics[trim=0cm 4cm 0cm 0cm, clip, scale=0.8]{images/grafico1.pdf}
 \end{center}
 		Segue chiaramente che
 		\begin{equation*}
-			\sup_{x\in \realset}\phi_n\left(x\right)=\phi_n\left(0\right)=\frac{1}{\sqrt{n}}
+			\sup_{x\in \realset}\phi_n\left(x\right)=\phi_n\left(0\right)=\frac{1}{\sqrt{n}}\left( =c_n\right)
 		\end{equation*}
 	\item Calcoliamo il limite per $n\to +\infty$:
 	\begin{equation*}
@@ -105,7 +112,8 @@ In conclusione abbiamo mostrato che
 	\end{enumerate}
 Abbiamo così verificato la convergenza richiesta.
 \end{example}
-\begin{example}[Successione geometrica.]~{}\\
+%fINO A QUI
+\begin{example}{\textsc{Successione geometrica.}}~{}\\
 	Consideriamo $f_n\left(x\right)=x^n,\ \forall n\geq 0$. Allora:
 	\begin{enumerate}
 		\item $x^n$ converge uniformemente a $0$ su \textit{ogni} insieme $\left[-a,a\right],\ \forall a\colon 0<a<1$.
