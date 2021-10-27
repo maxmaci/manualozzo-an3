@@ -62,7 +62,7 @@ Per queste osservazioni l'insieme di convergenza della serie è un \textit{cerch
 	\begin{itemize}
 		\item $R=0$; in tal caso la serie converge \textit{solo} per $z=0$.
 		\item $R=+\infty$; in tal caso la serie converge \textit{per ogni} $z\in\complexset$.
-		\item $0<R<+\infty$; in base al teorema \ref{insiemediconvergenza}, pag. \ref{insiemediconvergenza}, la serie converge (assolutamente) per $\abs{z}<r$, \textit{non} converge per $\abs{z}<r$ e a priori non abbiamo \textit{alcuna informazione} per i punti $z$ sul \textit{bordo}, cioè tali che $\abs{z}=r$. L'\textit{insieme di convergenza} risulta essere un \textbf{cerchio aperto}\index{cerchio di convergenza} centrato nell'origine di raggio $R$, a cui si aggiungono eventualmente altri punti di convergenza sul \textit{bordo} (tutti, nessuno o solo alcuni).
+		\item $0<R<+\infty$; in base al teorema \ref{insiemediconvergenza}, pag. \ref{insiemediconvergenza}, la serie converge (assolutamente) per $\abs{z}<r$, \textit{non} converge per $\abs{z}>r$ e a priori non abbiamo \textit{alcuna informazione} per i punti $z$ sul \textit{bordo}, cioè tali che $\abs{z}=r$. L'\textit{insieme di convergenza} risulta essere un \textbf{cerchio aperto}\index{cerchio di convergenza} centrato nell'origine di raggio $R$, a cui si aggiungono eventualmente altri punti di convergenza sul \textit{bordo} (tutti, nessuno o solo alcuni).
 	\end{itemize}
 	\begin{center}
 		\includegraphics[trim=2.5cm 0.5cm 2.5cm 0cm, clip, scale=1]{images/discoconvergenza.pdf}
@@ -468,9 +468,10 @@ Ma anche $f''$ è una serie di potenze con raggio $R$: possiamo riapplicare il t
 	f^{\left(k\right)}\left(x\right)=\sum_{n=k}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\sum_{n=k}^{+\infty}\frac{n!}{\left(n-k\right)!}a_nx^{n-k},\ \forall x\in\left(-R,R\right)
 \end{equation}
 Esplicitiamo il primo termine di $f^{\left(k\right)}\left(x\right)$:
-\begin{equation*}
-	f^{\left(k\right)}\left(x\right)=k\left(k-1\right)\ldots\left(k-k+1\right)a_kx^0+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=k!a_k+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}
-\end{equation*}
+\begin{align*}
+	f^{\left(k\right)}\left(x\right)&=k\left(k-1\right)\ldots\left(k-k+1\right)a_kx^0+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\\
+	&=k!a_k+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}
+\end{align*}
 In $x=0$ otteniamo
 \begin{equation*}
 	f^{\left(k\right)}\left(0\right)=k!a_k+0=k!a_k
@@ -522,5 +523,327 @@ ossia
 	f\in\mathcal{C}^{\infty}\left(U\right)\stackrel{?}{\implies}f\in\mathcal{A}\left(U\right)
 \end{equation*}
 In generale la risposta è \textbf{no}, come possiamo vedere nell'esempio successivo.
+\begin{example}
+	Consideriamo la funzione
+	\begin{equation*}
+		f\left(x\right)=
+		\begin{cases}
+			\begin{array}{ll}
+				e^{-\frac{1}{x^2}}&\text{se }x\neq 0\\
+				0&\text{se }x=0
+			\end{array}
+		\end{cases}
+	\end{equation*}
+$f$ è certamente di classe $\mathcal{A}^{\infty}\left(\realset\setminus\left\{0\right\}\right)$; si verifica che esiste $f^{\left(k\right)}=0,\ \forall k\geq 0$ e che $f^{\left(k\right)}\in\mathcal{C}\left(\realset\right),\ \forall k\geq 0$, dunque $f\in\mathcal{C}\left(\realset\right)$:\\
+Tuttavia, $f\notin\mathcal{A}\left(\realset\right)$. Infatti, la serie di Taylor centrata in $x_0=0$ è
+\begin{equation*}
+	\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(0\right)}{k!}x^k=\sum_{k=0}^{+\infty}\frac{0}{k!}x^k\equiv 0
+\end{equation*}
+che converge ma \textit{non} a $f$, ossia $f\left(x\right)\neq 	\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(0\right)}{k!}x^k,\ \forall x\neq 0$.
+\end{example}
 % TO DO: controesempio su moodle
-Bisogna quindi capire sotto quali ipotesi ulteriori una funzione di classe $\mathcal{C}^{\infty}$ è anche analitica.
+Bisogna quindi capire sotto quali ipotesi ulteriori una funzione di classe $\mathcal{C}^{\infty}$ è anche analitica; cerchiamo a tal scopo una condizione \textit{sufficiente}.\\
+Riprendiamo il problema come era stato posto originalmente; approssimiamo $f$ con il \textit{polinomio} di Taylor, tenendo conto del \textit{resto} $R_n\left(x\right)$:
+\begin{equation*}
+	f\left(x\right)=\sum_{k=0}^{n}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k+R_n\left(x\right)
+\end{equation*}
+Per passare da questa approssimazione alla riscrittura di $f$ come \textit{serie} di Taylor è necessario ridurre il resto dell'approssimazione a zero al crescere dei termini del polinomio, ossia
+\begin{equation*}
+	\lim_{n\to+\infty}R_n\left(x\right)=0
+\end{equation*}
+Ricordiamo l'espressione del resto in \textit{forma di Lagrange}:
+\begin{equation*}
+	\exists \xi=\xi_{x,n}\colon R_n\left(x\right)=\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}
+\end{equation*}
+La condizione sufficiente che andremo ora a definire necessita di avere una informazione sulle derivate $f^{\left(n\right)}$ per $n$ \textit{sufficientemente grande}.
+\begin{theorema}[Condizione sufficiente di analiticità.]~{}\\\label{condizionesufficienteanaliticita}
+	Sia $\funz{f}{U\subseteq\realset}{\realset}$, $f\in\mathcal{C}^{\infty}\left(U\right)$ e sia $x_0\in U$. Se $\exists r_0>0,\ \exists M>0,\ \exists n_0>0$ tale che
+	\begin{equation}
+		\abs{f^{\left(n\right)}\left(x\right)}\leq\frac{Mn!}{r_0^n},\ \forall x\in\left(x_0-r_0,x_0+r_0\right),\ \forall n\geq n_0
+	\end{equation}
+	allora $f$ è \textit{analitica} in $x_0$ e vale
+	\begin{equation*}
+		f\left(x\right)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k,\ \forall x\in\left(x_0-r_0,x_0+r_0\right)
+	\end{equation*}
+\end{theorema}
+\begin{demonstration}
+	Sia $x\in\left(x_0-r_0,x_0+r_0\right)$ fissato. Dobbiamo provare che
+	\begin{equation*}
+		\lim_{n\to+\infty}R_n\left(x\right)=\lim_{n\to+\infty}\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}=0
+	\end{equation*}
+dove $\xi$ è ottenuto applicando la formula di Taylor con il resto in \textit{formula di Lagrange}. Poiché $\xi\in\left(x_0-r_0,x_0+r_0\right)$, per l'ipotesi di partenza si può stimare $f^{\left(n+1\right)}\left(\xi\right)$:
+\begin{align*}
+	0\leq \abs{\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}}&=\frac{\abs{f^{\left(n+1\right)}\left(\xi\right)}}{\left(n+1\right)!}\abs{x-x_0}^{n+1}\stackrel{\leq}{\forall n\geq n_0}\frac{\frac{M\Ccancel[red]{\left(n+1\right)!}}{r_0^{n+1}}}{\Ccancel[red]{\left(n+1\right)!}}\abs{x-x_0}^{n+1}=\\
+	&=M\frac{\abs{x-x_0}^{n+1}}{r_0^{n+1}}=M\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1}
+\end{align*}
+Abbiamo quindi ottenuto
+\begin{equation*}
+	0\leq \abs{R_n\left(x\right)}\leq M\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1},\ \forall n\geq n_0
+\end{equation*}
+Poiché $\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1}$ è una successione geometrica di ragione $\frac{\abs{x-x_0}}{r_0}\in\left(0,1\right)$, essa tende a $0$ per $n\to+\infty$: per il teorema del confronto abbiamo $\displaystyle\lim_{n\to+\infty}R_n\left(x\right)=0$.
+\end{demonstration}
+\begin{observe}\label{condizionesufficientederivatelimitate}
+	Questa condizione sufficiente si verifica anche se $\exists M>0, \exists r_0>0$ tale per cui
+	\begin{equation*}
+		\abs{f^{\left(n\right)}\left(x\right)}\leq M,\ \forall x\in\left(x_0-r_0,x_0+r_0\right),\ \forall n\geq 0
+	\end{equation*}
+Infatti, $\forall r_0>0$, per confronto di crescita si ha
+\begin{equation*}
+	\lim_{n\to+\infty}\frac{n!}{r_0^n}=+\infty
+\end{equation*}
+Dunque esiste sempre $n_0$ tale che $\forall n\geq n_0$ si ha $\frac{n!}{r_0^n}>1$. Segue allora
+\begin{equation*}
+	\abs{f^{\left(n\right)}\left(x\right)}\leq M<M\frac{n!}{r_0^n},\ \forall x\in\left(x_0-r_0, x_0+r_0\right),\ \forall n\geq n_0
+\end{equation*}
+\end{observe}
+\section{Esempi di funzioni analitiche}
+\begin{theorema}[Analiticità di {$e^x$}, {$\cos x$}, {$\sin x$}, {$\left(1+x\right)^\alpha$}.]~{}\\
+	Le funzioni $e^x$, $\cos x$, $\sin x$, $\left(1+x\right)^\alpha$ con $\alpha\in\realset$ sono analitiche in $x_0=0$ e vale
+	\begin{align}
+		e^x&=\sum_{k=0}^{+\infty}\frac{1}{k!}x^k,\ \forall x\in\realset\\
+		\sin x&=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k\right)!}x^{2k},\ \forall x\in\realset\\
+		\cos x&=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k+1\right)!}x^{2k+1},\ \forall x\in\realset\\
+		\left(1+x\right)^\alpha&=\sum_{k=0}^{+\infty}\binom{\alpha}{k}x^k,\ \forall x\in\left(-1,1\right),\ \forall \alpha\in\realset
+	\end{align}
+\end{theorema}
+\begin{attention}
+	L'ultima formula vale solo per $x\in\left(-1,1\right)$, indipendentemente dal dominio di $\left(1+x\right)^\alpha$. Ad esempio, se $\alpha=\frac{1}{3}$, $\left(1+x\right)^\alpha=\sqrt[3]{1+x}$ è definita su tutto $\realset$, però si può scrivere somma della sua serie di Taylor solo in $\left(-1,1\right)$; in altre parole, l'analiticità è una proprietà \textit{locale}.
+\end{attention}
+Le prime tre formule si dimostrano usando la condizione sufficiente precedentemente dimostrata. Per quanto riguarda la quarta formula, \textit{non} si riesce a verificare la validità di tale condizione, ma con un altro ragionamento si trova comunque l'analiticità. Questo mostra che la condizione scritta sopra è \textit{solo} sufficiente, ma \textit{non} necessaria per l'analiticità.
+\begin{demonstration}~{}
+	\begin{itemize}
+		\item $e^x$, $\sin x$, $\cos x$. È noto che
+		\begin{equation*}
+			\sum_{k=0}^{n}\frac{1}{k!}x^k\quad\sum_{k=0}^{n}\frac{\left(-1\right)^k}{\left(2k\right)!}x^{2k}\quad\sum_{k=0}^{n}\frac{\left(-1\right)^k}{\left(2k+1\right)!}x^{2k+1}
+		\end{equation*}
+		sono i polinomi di Taylor di $e^x,\ \cos x$ e $\sin x$ centrati in $x_0=0$. Per $n\to+\infty$ si ottengono le serie di Taylor
+		\begin{equation*}
+			\sum_{k=0}^{+\infty}\frac{1}{k!}x^k\quad\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k\right)!}x^{2k}\quad\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k+1\right)!}x^{2k+1}
+		\end{equation*}
+	Proviamo ora che valgono le uguaglianze scritte. Per dimostrare che valgono su tutto $\realset$ è sufficiente dimostrate che valgono su un intervallo del tipo $\left(-r_0, r_0\right)$ con $r_0>0$ arbitrario.\\
+	Sia allora $r_0>0$ fissato arbitrariamente e sia $x\in\left(-r_0, r_0\right)$. Proviamo che è vera la condizione a pag. \pageref{condizionesufficientederivatelimitate}, che sappiamo implicare la condizione sufficiente a pag. \pageref{condizionesufficienteanaliticita}. Vediamo i tre casi:
+	\begin{itemize}
+		\item $e^x$. La derivata di $f\left(x\right)=e^x$ è $f^{\left(n\right)}\left(x\right)=e^x$, quindi si ha
+		\begin{equation*}
+			\abs{f^{\left(n\right)}\left(x\right)}=e^x\leq e^{r_0}= M,\ \forall x\in\left(-r_0,r_0\right),\ \forall n\geq 0
+		\end{equation*}
+		\item $\cos x$, $\sin x$. Poiché le derivate di seno e coseno sono ciclicamente seno e coseno con opportuni segni, la derivata $n$-esima di $\cos x$ e $\sin x$ in modulo è sempre limitata da 1.
+		\begin{equation*}
+			\abs{f^{\left(n\right)}\left(x\right)}\leq 1 = M,\ \forall x\in\left(-r_0,r_0\right),\ \forall n\geq 0
+		\end{equation*}
+	\end{itemize}
+	Poiché la condizione è verificata su $\left(-r_0,r_0\right)$ e vale l'analiticità su tale intervallo, per l'arbitrarietà di $r_0$ l'analiticità si verifica su tutto $\realset$.
+	\item $\left(1+x\right)^\alpha$. Mostriamo innanzitutto che la serie di potenze $\displaystyle\sum_{n=0}^{+\infty}\binom{\alpha}{k}x^k$ converge $\forall x\in\left(-1,1\right)$, usando il criterio del rapporto:
+	\begin{align*}
+		R&=\lim_{n\to+\infty}\frac{\abs{a_n}}{\abs{a_{n+1}}}=\lim_{n\to+\infty}\frac{\abs{\alpha\left(\alpha-1\right)\ldots\left(\alpha-n+1\right)}}{n!}\frac{\left(n+1\right)!}{|\alpha\left(\alpha-1\right)\underbrace{\left(\alpha-\left(n+1\right)+1\right)}_{\alpha-n}|}=\\
+		&=\lim_{n\to+\infty}\frac{\abs{n+1}}{\abs{\alpha-n}}=\lim_{n\to+\infty}\frac{n+1}{n-\alpha}=1
+	\end{align*}
+	Adesso definiamo la funzione somma
+	\begin{equation*}
+		g_\alpha\left(x\right)=\sum_{n=0}^{+\infty}\binom{\alpha}{n}x^n,\ \forall x\in\left(-1,1\right)
+	\end{equation*}
+	Dobbiamo dimostrare che $g_\alpha\left(x\right)=\left(1+x\right)^{\alpha},\ \forall x\in\left(-1,1\right)$. Per la derivazione termine a termine abbiamo
+	\begin{align*}
+		g'_\alpha\left(x\right)&=\sum_{n=1}^{+\infty}n\binom{\alpha}{n}x^{n-1}=\sum_{n=1}^{+\infty}\frac{\alpha\left(\alpha-1\right)\ldots\left(\alpha-n+1\right)}{n!}nx^{n-1}=\\
+		&=\alpha\sum_{n=1}^{+\infty}\frac{\left(\alpha-1\right)\ldots\left(\alpha-1\left(n-1\right)+1\right)}{\left(n+1\right)!}x^{n-1}=\alpha\sum_{n=1}^{+\infty}\binom{\alpha-1}{n-1}x^{n-1}=\\
+		&\underrel[c]{n-1=m}{=}\alpha\sum_{m=0}^{+\infty}\binom{\alpha-1}{m}x^m=\alpha g_{\alpha-1}\left(x\right),\ \forall x\in\left(-1,1\right)
+	\end{align*}
+	Quindi $g'_{\alpha}\left(x\right)=\alpha g_{\alpha-1}\left(x\right),\ \forall x\in\left(-1,1\right)$. Osserviamo che
+	\begin{align*}
+		\left(1+x\right)g_{\alpha-1}\left(x\right)&=\sum_{n=0}^{+\infty}\binom{\alpha-1}{n}x^n+\sum_{n=0}^{+\infty}\binom{\alpha-1}{n}x^{n+1}=\\
+		&\underrel{n+1=m}{=}\sum_{n=0}^{+\infty}\binom{\alpha-1}{n}x^n+\sum_{m=1}^{+\infty}\binom{\alpha-1}{m-1}x^{m}=\\
+		&=1+\sum_{m=1}^{+\infty}\left[\binom{\alpha-1}{m}+\binom{\alpha-1}{m-1}\right]x^m=1+\sum_{m=1}^{+\infty}\binom{\alpha}{m}x^m
+	\end{align*}
+	Infatti, si ha
+	\begin{align*}
+		\binom{\alpha-1}{m}+\binom{\alpha-1}{m-1}&=\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-m+1\right)}{m!}+\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-\left(m-1\right)+1\right)}{\left(m-1\right)!}=\\
+		&=\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-\left(m-1\right)+1\right)}{\left(m-1\right)!}\frac{\left(\alpha\Ccancel[red]{-1-m+1+m}\right)}{m}=\frac{\alpha\left(\alpha-1\right)}{m}=\\
+		&=\frac{\alpha\left(\alpha-1\right)\ldots\left(\alpha-m+1\right)}{m!}=\binom{\alpha}{m}
+	\end{align*}
+Riassumendo, abbiamo ottenuto che
+\begin{equation*}
+	\left(1+x\right)g_{\alpha-1}\left(x\right)=g_\alpha\left(x\right)
+\end{equation*}
+Si ha
+\begin{equation*}
+	\begin{cases}
+		g'_{\alpha}\left(x\right)=\frac{\alpha}{\left(1+x\right)}g_{\alpha}\left(x\right)\\
+		g_{\alpha}\left(0\right)=1
+	\end{cases}
+\end{equation*}
+che è un \textit{problema di Cauchy} o altresì noto come un'\textit{equazione differenziale lineare} omogenea del I grado con dato iniziale, la cui soluzione è
+\begin{equation*}
+	g_{\alpha}\left(x\right)=e^{\alpha\int_{0}^{x}\frac{1}{1+t}dt}=e^{\alpha\log\left(1+x\right)}=\left(1+x\right)^{\alpha},\ \forall x\in\left(-1,1\right)
+\end{equation*}
+\end{itemize}
+\end{demonstration}
+\begin{digression}\textsc{\textbf{Uno sguardo al futuro: il caso complesso}}\\
+	In \textsc{Analisi Matematica 4} si riprenderà la questione della derivabilità in campo complesso, definendola e proseguendo con il problema di studiare l'analiticità delle funzioni in campo complesso.\\
+	Se in campo reale le funzioni \textit{analitiche} sono solo un piccolo sottoinsieme delle funzioni $\mathcal{C}^{\infty}\left(U\right)$, a loro volta un sottoinsieme stretto delle funzioni $\mathcal{C}^1\left(U\right),\ \mathcal{C}^2\left(U\right),\ \ldots$, a loro volta sottoinsieme delle funzioni \textit{derivabili} $D\left(U\right)$ e infine delle funzioni \textit{continue} $\mathcal{C}\left(U\right)$.\\
+	% TO DO: disegnare insieme di Eulero-Venn delle funzioni reali
+	In campo complesso abbiamo una sorpresa. Infatti, se la funzione è \textit{derivabile} una volta, lo è \textit{infinitamente} con continuità e sono anche \textit{analitiche}!
+	\begin{equation*}
+		D\left(U\right)=\mathcal{C}^1\left(U\right)=\ldots=\mathcal{C}^{\infty}\left(U\right)=\mathcal{A}
+	\end{equation*}
+\end{digression}
+\section{Funzioni esponenziale e logaritmo in campo complesso}
+\subsection{Funzione esponenziale in campo complesso}
+\begin{define}[Esponenziale in campo complesso.]~{}\\
+	L'\textbf{esponenziale in campo complesso}\index{esponenziale!in campo complesso} è la funzione definita $\forall z\in\complexset$ come
+	\begin{equation}
+		e^z\coloneqq\sum_{n=0}^{+\infty}\frac{z^n}{n!}
+	\end{equation}
+\end{define}
+\begin{demonstration}
+	Questa funzione è ben definita. Applichiamo alla serie di potenze $\displaystyle \sum_{n=0}^{+\infty}\frac{z^n}{n!}$ il criterio di d'Alembert:
+	\begin{equation*}
+		\lim_{n\to+\infty}\frac{\frac{1}{\left(n+1\right)!}}{\frac{1}{n!}}=\lim_{n\to+\infty}\frac{n!}{\left(n+1\right)!}=\lim_{n\to+\infty}\frac{1}{n+1}=0
+	\end{equation*}
+Segue che converge per ogni $z\in\complexset$.
+\end{demonstration}
+\begin{observe}
+	Ricordando che in campo reale vale la relazione
+	\begin{equation*}
+		e^z=\sum_{n=0}^{+\infty}\frac{x^n}{n!},\ \forall x\in\realset
+	\end{equation*}
+	si ricava che la funzione esponenziale definita in campo complesso coincide con la nota funzione esponenziale nel caso di $z=x\in\realset$.
+\end{observe}
+\begin{proposition}[Proprietà dell'esponenziale complesso.]~{}
+	\begin{enumerate}
+		\item $e^{z_1+z_2}=e^{z_1}e^{z_2},\ \forall z_1,\ z_2\in\complexset$
+		\item $e^z\neq 0,\ \forall z\in\complexset$.
+		\item $e^{-z}=\frac{1}{e^z},\ \forall z\in\complexset$.
+		\item Vale la \textbf{formula di Eulero}\index{formula!di Eulero}:
+		\begin{equation}
+			e^{iy}=\cos y+i\sin y,\ \forall y\in\realset
+		\end{equation}
+		\item $e^{x+iy}=e^{x}\left(\cos y+i\sin y\right),\ \forall x,y\in\realset$.
+		\item $\abs{e^z}=e^{\Re z},\ \arg\left(e^z\right)=\Im z+2k\pi,\ k\in\integerset,\ \forall z\in\complexset$.
+		\item $e^{z+2k\pi i}=e^z,\ \forall z\in\complexset, k\in\integerset$.
+	\end{enumerate}
+\end{proposition}
+\begin{demonstration}~{}\\
+\begin{enumerate}[label=\Roman*]
+\item Siano $z_1,\ z_2\in\complexset$. Dobbiamo provare che
+\begin{equation*}
+	\sum_{n=0}^{+\infty} \frac{(z_1+z_2)^n}{n!} =\sum_{n=0}^{+\infty} \frac{z_1^n}{n!} \cdot \sum_{n=0}^{+\infty} \frac{z_2^n}{n!}
+\end{equation*}
+Ricordiamo\footnote{Nelle ‘‘Note aggiuntive'', a pagina \ref{prodottosecondocauchy} è possibile trovare alcune informazioni sulla proprietà di prodotto (secondo Cauchy).} che, date due serie
+\begin{equation*}
+	\sum_{n=0}^{+\infty} \alpha_n,\quad \sum_{n=0}^{+\infty} \beta_n,\quad \alpha_n, \ \beta_n \in \complexset
+\end{equation*}
+il loro prodotto è la serie
+\begin{equation*}
+	\sum_{n=0}^{+\infty} \gamma_n,\ \text{dove }\gamma_n= \sum_{k=0}^{n} \alpha_k\ \beta_{n-k},\quad \forall \ n\geq 0
+\end{equation*}
+Nel caso in questione $\alpha_n=\frac{z_1^n}{n!},\quad \beta_n = \frac{z_2^n}{n!},\quad \forall \ n\geq 0$, dunque
+\begin{equation*}
+	\gamma_n= \sum_{k=0}^{n} \frac{z_1^k}{k!}\ \frac{z_2^{(n-k)}}{(n-k)!}=\sum_{k=0}^{n} \frac{z_1^k\, z_2^{(n-k)}}{k!(n-k)!},\quad \forall \ n\geq 0.
+\end{equation*}
+Osserviamo che vale
+\begin{equation*}
+	\frac{1}{k!(n-k)!}= \frac{1}{n!}\binom{n}{k},\quad \forall \ n\geq 0,\ 0\leq k\leq n.
+\end{equation*}
+Dalla formula del binomio di Newton, ricaviamo allora
+\begin{equation*}
+	\gamma_n= \sum_{k=0}^{n} \frac{z_1^k}{k!}\ \frac{z_2^{(n-k)}}{(n-k)!}=\frac{1}{n!}\, \sum_{k=0}^{n} \binom{n}{k}\, z_1^k\, z_2^{(n-k)} =\frac{(z_1+z_2)^n}{n!},\quad \forall \ n\geq 0
+\end{equation*}
+Abbiamo quindi ottenuto la tesi:
+\begin{equation*}
+	\sum_{n=0}^{+\infty} \frac{z_1^n}{n!} \cdot \sum_{n=0}^{+\infty} \frac{z_2^n}{n!}= \sum_{n=0}^{+\infty} \frac{(z_1+z_2)^n}{n!}
+\end{equation*}
+\item[I--III] Sia $z\in\complexset$ fissato. Applichiamo la formula dimostrata al punto I con $z_1=z$ e $z_2=-z$; otteniamo
+\begin{equation*}
+	e^{z-z}  = e^{z}e^{-z}\implies 1 = e^{z}e^{-z}
+\end{equation*}
+Da questo segue che $e^{-z} = \nicefrac{1}{e^z}$.
+\item[IV] Fissato $y\in\realset$, dalla definizione dell'esponenziale complesso segue che
+\begin{equation*}
+	e^{iy}=\sum_{n=0}^{+\infty}\frac{\left(iy\right)^n}{n!}=\sum_{n=0}^{+\infty}\frac{i^ny^n}{n!}
+\end{equation*}
+Riordiniamo i termini della serie separando i termini di posto pari e quelli di posto dispari\footnote{Per riordinare la serie come due ‘‘sottoserie'' senza che la somma venga modificata è necessaria la convergenza assoluta. Poiché ogni serie di potenze converge assolutamente all'interno del suo cerchio di convergenza, in questo caso non abbiamo problemi di riorganizzazione della serie. Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare alcune informazioni sul problema di riorganizzazione della serie.}, ottenendo
+\begin{equation*}
+	e^{iy}=\sum_{n=0}^{+\infty}\frac{i^{2k}y^{2k}}{\left(2k\right)!}+\sum_{n=0}^{+\infty}\frac{i^{2k+1}y^{2k+1}}{\left(2k+1\right)!}
+\end{equation*}
+Calcoliamo ora $i^{2k}$ e $i^{2k+1}$:
+\begin{itemize}
+	\item $i^{2k}=\left(i^2\right)^k=\left(-1\right)^k$.
+	\item $i^{2k+1}=i\left(i^2\right)^k=i\left(-1\right)^k$.
+\end{itemize}
+Allora
+\begin{equation*}
+	e^{iy}=\sum_{n=0}^{+\infty}\frac{\left(-1\right)^ky^{2k}}{\left(2k\right)!}+i\sum_{n=0}^{+\infty}\frac{\left(-1\right)^ky^{2k+1}}{\left(2k+1\right)!}
+\end{equation*}
+Ricordando che
+\begin{equation*}
+	\cos y=\sum_{n=0}^{+\infty}\frac{\left(-1\right)^ky^{2k}}{\left(2k\right)!}\quad
+	\sin y=\sum_{n=0}^{+\infty}\frac{\left(-1\right)^ky^{2k+1}}{\left(2k+1\right)!}
+\end{equation*}
+segue la tesi.
+\item[V] Sia $z=x+iy$, con $x,y\in\realset$. Dalla relazione provata in I segue che $e^{x+iy}=e^xe^{iy}$. Applicando la \textit{formula di Eulero}, si ha la tesi.
+\item[VI] Sia $z=x+iy$, con $x,y\in \realset$, ossia $x=\Re z e y=\Im z$. 
+La formula provata al punto V esprime il numero complesso $e^z$ in forma trigonometrica; da essa si ricava quindi immediatamente il risultato.
+\item[VII]  Siano $z\in \complexset$ e $k\in \integerset$. Dalla relazione provata al punto I segue che 
+\begin{equation*}
+	e^{z+2k\pi i}=e^{z}\, e^{2k\pi i}
+\end{equation*}
+Applicando la \textbf{formula di Eulero} si ricava immediatamente che 
+\begin{equation*}
+	e^{2k\pi i}=\cos 2k\pi +i\sin 2k\pi =1
+\end{equation*}
+e questo consente di concludere la tesi.
+\end{enumerate}
+\end{demonstration}
+\begin{observe}
+	Dalla relazione $e^{z+2k\pi i}=e^z,\ \forall z\in\complexset, k\in\integerset$ segue che in campo complesso la funzione esponenziale è \textbf{periodica} di periodo $2\pi i$.\\
+	% TO DO: disegnare numeri complessi con lo stesso esponenziale
+	Di conseguenza, in campo complesso la funzione esponenziale \textit{non} è invertibile.\\
+	L'\textit{invertibilità} è però garantita consentendo come inversa una \textit{funzione multivoca}.
+\end{observe}
+\begin{define}[Funzione multivoca.]~{}\\
+	Una \index{funzione!multivoca} è una \textit{relazione binaria seriale} che associa ad ogni valore $x$ nel dominio $X$ uno o più valori $y$ nel codominio $Y$.
+\end{define}
+\subsection{Funzione logaritmo in campo complesso}
+\begin{define}[Logaritmo in campo complesso.]~{}\\
+	Dato un numero complesso $z$, si chiamano \textbf{logaritmi complessi} di $z$, se esistono, i numeri complessi $w$ tali che
+	\begin{equation}
+		e^w=z
+	\end{equation}
+	L'insieme di tali numeri si indica con
+	\begin{equation}
+		\log z
+	\end{equation}
+\end{define}
+Proviamo ora che l'insieme dei logaritmi di $z$ è \textit{non vuoto} ed \textit{infinito} se $z\neq 0$.
+\begin{theorema}[Caratterizzazione dei logaritmi in campo complesso.]~{}\\
+	L'insieme dei logaritmi di un numero complesso $z$ è \textit{non vuoto} se e solo se $z\neq 0$. In questo caso esso è \textit{infinito} ed è costituito dai numeri complessi
+	\begin{equation}
+		\log z = \log \abs{z} + i (\arg z+2k\pi ),\quad k\in \integerset
+	\end{equation}
+\end{theorema}
+\begin{demonstration}
+Ricordiamo che, per definizione, i logaritmi di un numero complesso $z$ sono le soluzioni dell'equazione $e^w=z$. Dalle proprietà dell'esponenziale è noto che $e^w\neq 0$, per ogni numero complesso $w$; di conseguenza, l'equazione non ha soluzioni se $z=0$.\\
+Sia ora $z\neq 0$; posto $w=u+iv$, con $u,v\in \realset$, ricordiamo che
+\begin{equation*}
+	e^w=e^u\, (\cos v+i\sin v)
+\end{equation*}
+affinché questo numero sia uguale a $z$ si dovrà quindi avere
+\begin{equation*}
+	\abs{e^w}=e^u=\abs{z}\quad\text{e}\quad\arg(e^w)=v=\arg(z)+2k\pi
+\end{equation*}
+per qualche $k\in\integerset$. Otteniamo quindi
+\begin{equation*}
+	u=\log \abs{z}\in\realset
+\end{equation*}
+e dunque
+\begin{equation*}
+	w=\log \abs{z}+i(\arg(z)+2k\pi),\quad k\in \integerset
+\end{equation*}
+\end{demonstration}
+\begin{observe}
+Si presti attenzione al diverso significato del simbolo $\log$ nella formula caratterizzante il \textit{logaritmo complesso}: a \textit{primo membro} esso indica i \textit{logaritmi complessi} del numero $z$; a secondo membro, l'unico logaritmo reale del numero reale positivo $\abs{z}$.
+\end{observe}
+In figura sono rappresentati alcuni dei logaritmi complessi di un numero complesso \textit{non nullo} $z$.\\
+% TO DO: inserire immagine logaritmo
+Come si osserva dalla formula essi hanno tutti la \textit{stessa parte reale} e parti immaginarie che \textit{differiscono} per multipli di $2\pi$.
+% TO DO: inserire eserciziamoci

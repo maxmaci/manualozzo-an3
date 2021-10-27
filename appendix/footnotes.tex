@@ -131,7 +131,7 @@ Il \textbf{criterio di Cauchy}\index{criterio!di Cauchy} è un importante teorem
 	$\impliessx$Vale per la completezza dello spazio $X$.
 \end{demonstration}
 \begin{observe}
-	L'implicazione $\impliesdx$vale in generale su qualunque spazio metrico, mentre l'altra vale solo se lo spazio è completo. Per dimostrare che $X$ sia completo può essere utile utilizzare alcune delle seguenti proprietà\autocite{antucabertolottigeo2}:
+	L'implicazione $\impliesdx$vale in generale su qualunque spazio metrico, mentre l'altra vale solo se lo spazio è completo. Per dimostrare che $X$ sia completo può essere utile utilizzare alcune delle seguenti proprietà\footnote{Per approfondimenti si veda il Capitolo 6 di \cite{antucabertolotti:2021manualozzogeometria}.}:
 	\begin{itemize}
 		\item Una successione di Cauchy è \textit{convergente} se e solo se ha punti di accumulazione.
 		\item Una successione di Cauchy è \textit{convergente} se ha una \textit{sottosuccessione convergente}.
@@ -170,3 +170,157 @@ Abbiamo visto nel \refChapter{convergenzafunzioni}, a pag. \pageref{criteriodica
 \end{demonstration}
 % TO DO: continuare con altri criteri?
 % TO DO: riportare qui le definizioni di successione di Cauchy, spazio normato
+\subsection{Criteri di convergenza delle serie}\label{criteridiconvergenzaserie}
+Di seguito enunceremo diversi criteri utili per studiare la convergenza di una serie $\displaystyle\sum_{n=1}^{+\infty}a_n$.
+\begin{itemize}
+	\item \textbf{Limite del termine della successione.} (\textit{Criterio necessario}, $\realset$ o $\complexset$) Se la serie converge, allora $\displaystyle\lim_{n\to+\infty}a_n=0$. Per contronominale vale
+	\begin{equation}
+		\lim_{n\to+\infty}a_n\neq 0\implies\sum_{n=1}^{+\infty}a_n\text{ non converge}
+	\end{equation}
+	\item \textbf{Convergenza assoluta.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie $\displaystyle\sum_{n=1}^{+\infty}\abs{a_n}$ converge, allora si dice che la serie $\displaystyle\sum_{n=1}^{+\infty}a_n$ converge \textit{assolutamente} e inoltre essa converge anche semplicemente.
+	\item \textbf{Criterio del rapporto o di d'Alembert.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$)
+	% Sia $a_n$ definitivamente diverso da zero.
+	Se esiste $R$ tale che
+	\begin{equation}
+		\lim_{n\to+\infty}\abs{\frac{a_{n+1}}{a_n}}=R
+	\end{equation}
+	se $R<1$, la serie è \textit{assolutamente} convergente. Se $R>1$, la serie diverge. Se $R=1$, non abbiamo informazioni sulla convergenza.
+	\item \textbf{Criterio della radice o di Cauchy.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia
+	\begin{equation*}
+		R = \limsup_{n\to+\infty}\sqrt[n]{\abs{a_n}}
+	\end{equation*}
+	se $R<1$, la serie è \textit{assolutamente} convergente. Se $R>1$, la serie diverge. Se $R=1$, non abbiamo informazioni sulla convergenza.\\
+	Se una serie infinita converge o diverge col criterio della radice, lo stesso risultato si ottiene con il criterio del rapporto ma non vale il viceversa.
+	\item \textbf{Criterio dell'integrale.} (\textit{Criterio necessario e sufficiente}, $\realset$) Sia $\funz{f}{\left[1,+\infty\right)}{\realset_+}$ una funzione non-negativa e monotona decrescente tale per cui $f\left(n\right)=a_n$. Allora, posto
+	\begin{equation*}
+		\int_{1}^{+\infty}f\left(x\right)dx=\lim_{t\to\infty}\int_{1}^{t}f\left(x\right)dx
+	\end{equation*}
+	la serie $a_n$ converge se e solo se l'integrale converge.
+	\item \textbf{Criterio di confronto diretto.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie $\displaystyle\sum_{n=1}^{+\infty}b_n$ è una serie \textit{assolutamente} convergente e $\abs{a_n}<\abs{b_n}$ per $n$ sufficientemente largo, allora la serie $\displaystyle\sum_{n=1}^{+\infty}a_n$ converge \textit{assolutamente}.
+	\item \textbf{Criterio del confronto asintotico} (\textit{Criterio necessario e sufficiente}, $\realset$) Se $a_n,\ b_n>0,\ \forall n$, e il limite $\displaystyle\lim_{n\to+\infty}\frac{a_n}{b_n}$ esiste, è finito e diverso da zero, allora
+	\begin{center}
+		$\displaystyle\sum_{n=1}^{+\infty}a_n$ converge $\displaystyle\iff\sum_{n=1}^{+\infty}b_n$ converge.
+	\end{center}
+	\item \textbf{Criterio di condensazione di Cauchy.} (\textit{Criterio necessario e sufficiente}, $\realset$) Sia $a_n$ una successione non negativa e non crescente. Allora
+	\begin{center}
+		$\displaystyle\sum_{n=1}^{+\infty}a_n$ converge $\displaystyle\iff\sum_{n=1}^{+\infty}2^na_{2^n}$ converge.
+	\end{center}
+	Inoltre, nel caso di convergenza, si ha
+	\begin{equation*}
+		\sum_{n=1}^{+\infty}a_n<\sum_{n=1}^{+\infty}2^na_{2^n}<2\sum_{n=1}^{+\infty}a_n
+	\end{equation*}
+	\item \textbf{Criterio di Abel-Dirichlet.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia data la serie
+	\begin{equation}
+		\sum_{n=0}^{+\infty}a_nb_n,\quad a_n\in\complexset,\ b_n\in\realset
+	\end{equation}
+	Se
+	\begin{itemize}
+		\item $b_n>0$ è decrescente e infinitesima per $n\to+\infty$.
+		\item la successione delle somme parziali di $a_n$ è limitata, ossia
+		\begin{equation*}
+			\exists M>0\colon\abs{\sum_{n=0}^{+\infty}a_n}\leq M,\ \forall k\leq 0
+		\end{equation*}
+	\end{itemize}
+	allora la serie $\displaystyle\sum_{n=0}^{+\infty}a_nb_n$ converge (semplicemente).
+	\item \textbf{Criterio di Leibniz.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia data la serie
+		\begin{equation}
+		\sum_{n=0}^{+\infty}\left(-1\right)^na_n,\quad a_n\in\realset
+	\end{equation}
+	Se $a_n>0$ è decrescente ed infinitesima per $n\to+\infty$, allora la serie $\displaystyle\sum_{n=0}^{+\infty}\left(-1\right)^na_n$ converge (semplicemente).
+\end{itemize}
+\subsection{Serie a valori reali notevoli}\ref{serieavalorirealinotevoli}
+Di seguito enunceremo alcune serie a valori reali di particolare rilevanza.
+\begin{itemize}
+	\item \textbf{Serie geometrica.}
+	\begin{equation*}
+		\int_{n=0}^{+\infty}z^{n}
+	\end{equation*}	
+	La ridotta è uguale a
+	\begin{equation*}
+		s_n=\int_{k=0}^{n}z^{k}=\frac{1-z^{n+1}}{1-z}
+	\end{equation*}
+	La serie dunque converge se e solo se $\abs{z}<1$ e in tal caso converge a $\displaystyle\frac{1}{1-z}$.
+	\item \textbf{Serie armonica generalizzata.}
+	\begin{equation}
+		\sum_{n=1}^{+\infty}\frac{1}{n^p}
+	\end{equation}
+	converge se $p>1$ e diverge per $p\leq 1$; per $p=1$ abbiamo la \textbf{serie armonica}. Se $p>1$ la somma della serie armonica generalizzata, se vista in funzione di $p$, è  $\zeta\left(p\right)$, ossia la \textit{funzione zeta di Riemann} valutata in $p$.
+	\item \textbf{Serie logaritmica.}
+	\begin{equation}
+		\sum_{n=2}^{+\infty}\frac{1}{n\left(\log n\right)^p}
+	\end{equation}
+	per ogni numero reale positiva $p$. Diverge per $p\leq 1$, ma converge per ogni $p>1$.
+\end{itemize}
+\section{Capitolo 4: serie di potenze}
+\subsection{Il prodotto di serie (secondo Cauchy)}\label{prodottosecondocauchy}
+In questa sezioni ricordiamo la definizione ed alcune proprietà del prodotto di serie (secondo Cauchy), basandoci sul Capitolo 3 di \cite{rudin:1976principles}.\\
+Date le due serie
+\begin{equation*}
+	\sum_{n=0}^{+\infty} \alpha_n,\quad \sum_{n=0}^{+\infty} \beta_n,\quad \alpha_n, \ \beta_n \in \complexset
+\end{equation*}
+vogliamo definire il loro prodotto. L'idea alla base della definizione è quella di \textit{generalizzare} il prodotto di due \textit{polinomi}: è noto che, dati i polinomi 
+\begin{equation*}
+	\sum_{n=0}^{J} \alpha_n z^n,\quad \sum_{n=0}^{J} \beta_n z^n
+\end{equation*}
+il loro prodotto si scrive come
+\begin{equation*}
+	\sum_{n=0}^{2J} \gamma_n z^n\quad\text{con}\quad\gamma_n= \sum_{k=0}^{n} \alpha_k\beta_{n-k},\quad \forall \ n\geq 0
+\end{equation*}
+Possiamo estendere formalmente questa scrittura al caso di serie di potenze, ponendo
+\begin{equation*}
+	\sum_{n=0}^{+\infty} \alpha_n z^n \cdot \sum_{n=0}^{+\infty} \beta_n z^n = \sum_{n=0}^{+\infty} \gamma_n z^n
+\end{equation*}
+dove $\gamma_n$ è definito come precedentemente. Il risultato per $z=1$ suggerisce quindi come definire il prodotto delle serie iniziali.
+\begin{define}[Prodotto di serie (secondo Cauchy).]~{}\\
+	Date le serie
+	\begin{equation*}
+		\sum_{n=0}^{+\infty} \alpha_n,\quad \sum_{n=0}^{+\infty} \beta_n,\quad \alpha_n, \ \beta_n \in \complexset
+	\end{equation*}
+si definisce \textbf{prodotto secondo Cauchy}\index{prodotto!secondo Cauchy} la serie
+\begin{equation*}
+	\sum_{n=0}^{+\infty} \gamma_n\quad\text{con}\quad\gamma_n= \sum_{k=0}^{n} \alpha_k\beta_{n-k},\quad \forall \ n\geq 0
+\end{equation*}
+\end{define}
+Il problema principale sul prodotto di serie è quello della sua convergenza, a partire dalla convergenza delle serie iniziali: più precisamente, ci si chiede:
+
+\begin{center}
+	se le serie iniziali convergono rispettivamente a $\alpha$ e $\beta$, la serie prodotto converge a $\alpha\beta$?
+\end{center}
+In generale la risposta è \textbf{no}, come mostra il prossimo esempio.
+\begin{example}\textsc{Serie convergenti, aventi prodotto non convergente.}\\
+	Consideriamo la serie
+	\begin{equation*}
+		\sum_{n=0}^{+\infty} \frac{(-1)^n}{\sqrt{n+1}}
+	\end{equation*}
+	Applicando il criterio di Leibniz, si verifica facilmente che la serie converge. La serie prodotto della serie data per se stessa ha termine generale
+	\begin{equation*}
+		\gamma_n = \sum_{k=0}^n \frac{(-1)^k}{\sqrt{k+1}}\, \frac{(-1)^{n-k}}{\sqrt{n-k+1}} = (-1)^n \, \sum_{k=0}^n \frac{1}{\sqrt{(n-k+1)(k+1)}},\quad \forall \ n\geq 0.
+	\end{equation*}
+	Ora, si ha
+	\begin{equation*}
+		(n-k+1)(k+1)=\left(\frac{n}{2}+1\right)^2- \left(\frac{n}{2}-k\right)^2\leq \left(\frac{n}{2}+1\right)^2=\left(\frac{n+2}{2}\right)^2,\ \forall n\geq 0, \ 0\leq k\leq n
+	\end{equation*}
+	 Otteniamo quindi
+	 \begin{equation*}
+	 	\abs{\gamma_n}= \sum_{k=0}^n \frac{1}{\sqrt{(n-k+1)(k+1)}}\geq  \sum_{k=0}^n \frac{2}{n+2}=\frac{2(n+1)}{n+2},\quad \forall \ n\geq 0.
+	 \end{equation*}
+	 Questo prova che 
+ \begin{equation*}
+ 	\liminf_{n\to +\infty} \abs{\gamma_n}\geq \liminf_{n\to +\infty} \frac{2(n+1)}{n+2} = 2\implies \lim_{n\to +\infty} \abs{\gamma_n}\neq 0.
+ \end{equation*}
+Perciò si ha
+\begin{equation*}
+	\lim_{n\to +\infty} \gamma_n \neq 0
+\end{equation*}
+e quindi la serie prodotto non può convergere.
+\end{example}
+Osserviamo che nell'esempio riportato la serie iniziale \textit{converge semplicemente}, ma non \textit{assolutamente}; questo è il motivo per cui la serie prodotto \textit{non converge}. Infatti, in presenza della convergenza assoluta la serie prodotto \textit{converge}.
+\begin{theorema}[Prodotto di serie (secondo Cauchy) convergente se una serie converge assolutamente.]~{}\\
+	Siano date le due serie 
+	\begin{equation*}
+		\sum_{n=0}^{+\infty} \alpha_n,\quad \sum_{n=0}^{+\infty} \beta_n,\quad \alpha_n, \ \beta_n \in \complexset,
+	\end{equation*}
+	e si supponga che esse convergano a $\alpha$ e $\beta$, rispettivamente. 
+	Inoltre, si supponga che \textit{almeno una} di esse converga \textit{assolutamente}.
+	Allora, la loro serie prodotto converge a $\alpha \beta$.
+\end{theorema}
