@@ -16,9 +16,9 @@
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{S}{tudieremo} \textbf{[COMPLETARE]}
 % TO DO: completare intro
-\section{Il contesto storico: il problema delle discontinuità nell'integrale}
+\section{Il contesto storico: il problema delle discontinuità nell'integrale definito}
 Seppur tecniche per calcolare aree e volumi furono già introdotte dai matematici dell'antica Grecia, fu solo nel tardo XVII secolo che vennero sviluppati i principi dell'integrazione indipendentemente da Isaac Newton (1643-1727) e Gottfried Wilhelm Leibniz (1646-1716), i quali immaginarono l'area sotto una curva come una \textit{somma infinita} di rettangoli di \textit{larghezza infinitesima}.\\
-Nel corso dell'ottocento le ricerche dell'Analisi si sono concentrate principalmente su un aspetto dell'integrale definito di una funzione: \textit{quanti} possono essere i \textit{punti discontinuità} di una funzione
+Nel corso dell'Ottocento una buona parte delle ricerche dell'Analisi si concentrarono su un aspetto dell'integrale definito di una funzione: \textit{quanti} possono essere i \textit{punti discontinuità} di una funzione
 integrabile e, più in generale, quali \textit{classi} di funzioni sono integrabili?\\
 Augustin-Louis Cauchy (1789-1857) in \textit{Résumé des leçons données à	l’École Royale Polytechnique sur le calcul infinitésimal (1823)} definì l'integrale per funzioni continue o con al più un numero finito di discontinuità.\\
 Successivamente, fu Bernhard Riemann (1826-1866) nella sua \textit{Tesi di abilitazione all'insegnamento (1851-1852)} a estendere il concetto di integrale alle funzioni limitate e dare una caratterizzazione delle funzioni integrabili (ora dette \textbf{integrabili secondo Riemann}).
@@ -129,7 +129,7 @@ Allora $f^{-1}\left(A\right)\in\mathcal{M}\iff E\in\mathcal{M}$.
 \begin{observe}
 	La funzione caratteristica $\chi_{\rationalset\cap\left[0,1\right]}$ è la \textit{funzione di Dirichlet} vista nella sezione XXX, pag. XXX. % TO DO: inserire riferimento
 \end{observe}
-\begin{proposition}[Proprietà della funzioni misurabili.]~{}
+\begin{proposition}[Proprietà della funzioni misurabili.]~{}\label{funzionimisurabilicomplesse}
 	\begin{enumerate}
 		\item Sia $\left(X,\mathcal{M}\right)$ uno spazio misurabile e sia $\funz{f}{X}{\complexset}$, dove $\complexset$ ha la topologia Euclidea. Possiamo ‘‘scomporre'' la funzione a valori complessi come combinazione lineare di funzioni reali rispetto alla base $(1,i)$.
 		\begin{center}
@@ -149,7 +149,7 @@ Allora $f^{-1}\left(A\right)\in\mathcal{M}\iff E\in\mathcal{M}$.
 \end{proposition}
 \subsection{Caratterizzazione delle funzioni misurabili}
 In \textsc{Calcolo delle Probabilità} abbiamo dato una definizione di funzione misurabile $\funz{f}{\left(X,\mathcal{M}\right)}{Y}$ se la controimmagine tramite $f$ di un Borelliano è un insieme misurabile per $\mathcal{M}$. Vedremo ora come questa definizione è equivalente a quella data all'inizio della sezione.
-\begin{theorema}[Caratterizzazione delle funzioni misurabili.]~{}
+\begin{theorema}[Caratterizzazione delle funzioni misurabili.]~{}\label{caratterizzazionefunzionimisurabili}
 	\begin{enumerate}
 		\item $\funz{f}{\left(X,\mathcal{M}\right)}{Y}$ misurabile con $Y$ spazio topologico $\iff f^{-1}\left(B\right)\in\mathcal{M},\ \forall B$ borelliano di $Y$
 		\item Posto $\realset^{\ast}Y=\left[-\infty,+\infty\right]$, $\funz{f}{X}{\left[-\infty,+\infty\right]}$ misurabile $\iff f\left(\left(\alpha,+\infty\right)\right)\in\mathcal{M},\ \forall \alpha\in\realset$.
@@ -164,3 +164,251 @@ Che differenza c'è tra la definizione e le caratterizzazioni? In sostanza posso
 Da un punto di vista \textit{operativo} $\textcolor{red}{\circled{B}}$ non conviene per verificare che $f$ sia misurabile, perché i Borelliani sono molti di più.\\
 Tuttavia, $\textcolor{red}{\circled{B}}$ rispetto a  $\textcolor{red}{\circled{A}}$ informazioni che immediatamente non si avevano dalla definizione originale: sono misurabili non solo le controimmagini degli aperti, ma anche le controimmagini dei chiusi.\\
 Col caso $\textcolor{red}{\circled{C}}$ ci limitiamo ad operare in $\realset^{\ast}=\left[-\infty,+\infty\right]$, ma è sicuramente $\realset^{\ast}=\left[-\infty,+\infty\right]\realset^{\ast}=\left[-\infty,+\infty\right]$ è più vantaggioso rispetto ad $\textcolor{red}{\circled{A}}$.
+\subsection{Passaggio al limite per funzioni misurabili}
+Ci chiediamo se, date $f_n$ successione di funzioni misurabili che convengono ad una funzione $f$ in \textit{una qualche} convergenza, $f$ risulta essere ancora misurabile e se sì, con quale tipo di convergenza.\\
+A differenza di quanto visto col passaggio al limite della continuità, la risposta è affermativa anche sotto la sola ipotesi di \textit{convergenza puntuale}!\\
+Per dimostrarlo (e lo faremo per funzioni a valori in $\complexset$), abbiamo bisogno di alcuni risultati preliminari che riguardano $\sup$, $\inf$, $\limsup$, $\liminf$ di una successione di funzione. Per poter parlare di $\limsup$ e $\liminf$ abbiamo bisogno di avere il codomini della funzione in uno spazio $Y$ con ordinamento, pertanto ci porremo in  $\realset^{\ast}=\left[-\infty,+\infty\right]$, ossia le nostre funzioni saranno del tipo
+\begin{equation*}
+\funz{f}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}
+\end{equation*}
+\begin{define}[{$\sup$}, {$\inf$}, {$\limsup$} e {$\liminf$} di una successione di funzioni.]~{}\\
+\begin{gather*}
+	\left(\sup_{n\geq 1} f_n\right)\left(x\right)\coloneqq \sup_{n\geq 1}f_n\left(x\right),\ \forall x\in X\\
+	\left(\inf_{n\geq 1} f_n\right)\left(x\right)\coloneqq \inf_{n\geq 1}f_n\left(x\right),\ \forall x\in X\\
+	\left(\limsup_{n\to+\infty} f_n\right)\left(x\right)\coloneqq \limsup_{n\to+\infty}f_n\left(x\right),\ \forall x\in X\\
+	\left(\liminf_{n\to+\infty} f_n\right)\left(x\right)\coloneqq \liminf_{n\to+\infty}f_n\left(x\right),\ \forall x\in X
+\end{gather*}
+\end{define}
+\begin{proposition}[Misurabilità di {$\sup$}, {$\inf$}, {$\limsup$} e {$\liminf$} di una successione di funzioni misurabili.]~{}
+	Siano $ \left(X,\mathcal{M}\right)$ uno spazio misurabile e siano $\funz{f_n}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ misurabili.
+	Allora
+	\begin{equation*}
+		\sup_{n\geq 1} f_n\quad\inf_{n\geq 1} f_n\quad\limsup_{n\to\infty} f_n\quad\liminf_{n\to\infty} f_n
+	\end{equation*}
+\end{proposition}
+\begin{demonstration}~{}
+	\begin{enumerate}
+		\item Sia $g\left(x\right)=\sup_{n\geq 1} f_n\left(x\right),\ \forall x\in X$. Dobbiamo provare che $g$ sia misurabile, con $\funz{g}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$. Per la caratterizzazione delle funzioni misurabili (teorema \ref{caratterizzazionefunzionimisurabili}, pag. \pageref{caratterizzazionefunzionimisurabili}) è sufficiente dimostrare che $g^{-1}\left(\left(\alpha,+\infty\right)\right)\in\mathcal{M},\ \forall\alpha\in\realset$.\\
+		% SVOLGERE CALCOLO
+		Si prova che
+		\begin{equation*}
+			g^{-1}\left(\left(\alpha,+\infty\right)\right)=\bigcup_{n\geq 1}f_n^{-1}\left(\left(\alpha,+\infty\right)\right),\ \forall \alpha\in\realset
+		\end{equation*}
+	Poiché $f_n$ è misurabile si ha
+	\begin{equation*}
+		f_n^{-1}\left(\left(\alpha,+\infty\right)\right)\in\mathcal{M}
+	\end{equation*}
+ed essendo $\mathcal{M}$ una $\sigma$-algebra vale
+	\begin{equation*}
+	g^{-1}\left(\left(\alpha,+\infty\right)\right)=\bigcup_{n\geq 1}f_n^{-1}\left(\left(\alpha,+\infty\right)\right)\in\mathcal{M}
+	\end{equation*}
+	\item[2--3--4] Si riconducono al caso $1)$ perché
+	\begin{gather*}
+		\inf_{n\geq 1}f_n=-\left(\sup_{n\geq 1}\left(-f_n\right)\right)\\
+		\limsup_{n\to+\infty}f_n=\inf_{k\geq 1}\sup_{n\geq k}f_n\\
+		\liminf_{n\to+\infty}f_n=\sup_{k\geq 1}\inf_{n\geq k}f_n
+	\end{gather*}
+	\end{enumerate}
+\end{demonstration}
+\begin{corollary}[Passaggio al limite per funzioni misurabili in {$\complexset$}.]~{}\\
+	Sia $\left(X,\mathcal{M}\right)$ uno spazio misurabile e siano $\funz{f_n}{X}{\complexset}$.\\
+	Se $f_n$ sono misurabili ed esiste $\funz{f}{X}{\complexset}$ tale che
+	\begin{equation*}
+		\lim_{n\to+\infty}f_n\left(x\right)=f\left(x\right),\ \forall x\in X
+	\end{equation*}
+	allora $f$ è misurabile.
+\end{corollary}
+\begin{demonstration}
+	Riconduciamoci al caso reale per utilizzare la proposizione precedente. Posto
+	\begin{equation*}
+		f_n=u_n+iv_n\qquad f=u+iv
+	\end{equation*}
+dove
+\begin{equation*}
+	\begin{array}{ll}
+		\funz{u_n=\Re\left(f_n\right)}{X}{\realset}&\funz{v_n=\Im\left(f_n\right)}{X}{\realset}\\
+		\funz{u=\Re\left(f\right)}{X}{\realset}&\funz{v=\Im\left(f\right)}{X}{\realset}
+	\end{array}
+\end{equation*}
+Come visto nella proposizione \ref{funzionimisurabilicomplesse} (pag. \pageref{funzionimisurabilicomplesse}) $f_n$ misurabile implica che sia $u_n$ sia $v_n$ siano misurabili e, dal risultato precedente sulle funzioni a valori in $\realset^{\ast}$ si ha
+\begin{equation*}
+	\limsup_{n\to+\infty}u_n,\ \limsup_{n\to+\infty}v_n\text{ misurabili.}
+\end{equation*}
+D'latra parte si ha
+\begin{equation*}
+	\lim_{n\to+\infty}f_n\left(x\right)=f\left(x\right)\implies
+	\begin{cases}
+		\lim_{n\to+\infty}u_n\left(x\right)=u\left(x\right)
+		\lim_{n\to+\infty}v_n\left(x\right)=v\left(x\right)
+	\end{cases}
+\end{equation*}
+Poiché i limiti esistono si ha
+\begin{gather*}
+	\lim_{n\to+\infty}u_n=\limsup_{n\to+\infty}u_n=u\left(x\right)\\	\lim_{n\to+\infty}v_n=\limsup_{n\to+\infty}v_n=v\left(x\right)
+\end{gather*}
+Quindi $u\left(x\right)$ e $v\left(x\right)$ sono misurabili, pertanto anche $f=u+iv$ è misurabile.
+\end{demonstration}
+\section{Misura di Peano-Jordan}
+Negli stessi anni in cui si lavorò per espandere la classe di funzioni che ammettono integrale definito, diversi matematici lavorano su un'altra questione, quella della \textbf{misura} di un insieme.\\
+Chiaramente già dall'antichità erano note misure di figure ‘‘elementari'', come ad esempio la lunghezza e l'area di un poligono o il volume di certi solidi, spesso sulla base di principi come quello di \textit{esaustione}.\\
+Solo nel XIX secolo si cercò di formalizzare questi ragionamenti ed espandere il concetto di misura non soltanto a figure generiche, ma anche a più dimensioni fino ad arrivare ad una astrazione di tale concetto ad insiemi, indipendentemente dall'essere in $\realset^n$.\\
+Il primo ad introdurre un concetto di misura di un sottoinsieme della retta, del piano o delle spazio fu Giuseppe \textbf{Peano} (1858-1932). Nel suo Applicazioni geometriche del
+calcolo infinitesimale (1887), il matematico torinese ipotizza di ‘‘modernizzare'' il metodo di esaustione già citato in precedenza.
+Ad esempio, prendo un insieme limitato in $\realset^2$, ossia quello che all'epoca veniva denominato \textit{campo piano}, potremmo considerare dei poligoni che contengono tale insieme - che chiameremo \textit{poligoni esterni} - e dei poligoni che sono contenuti in tale insieme - i cosiddetti \textit{poligoni interni}.\\
+% TO DO: immagine poligoni e aree
+Se l'estremo inferiore dei poligoni esterni coincide con quello superiore di quelli interni, potremmo dire che l'insieme è misurabile e ha area pari a questo limite.
+Inoltre, Peano fornisce una condizione necessaria e sufficiente: la differenza tra i poligoni esterni ed interni deve essere piccola a piacere, ossia la frontiera dell'insieme (che chiaramente è contenuta nell'area di piano fra i poligoni esterni ed interni) dovrà avere misura nulla.\\
+Possono capitare anche insiemi che non ammettono area. Ad esempio, supponiamo di prendere tutti i punti a distanza \textit{razionale} $r\leq 1$ dall'origine, cioè infinite circonferenze di raggio razionale interne al disco di raggio 1.
+Chiaramente l'area interna è uguale a 0, mentre essendo l'insieme denso nel disco di raggio 1, ogni poligono che la contiene contiene il cerchio e quindi l'area esterna è $\geq 1$: essendo l'area interna e l'area esterna diverse, il poligono non ammette aree.\\
+La misura di Peano, per quanto innovativa, risente di alcuni problemi: parlare di poligoni o solidi poligonali è facile farlo in $\realset^2$ o $\realset^3$, ma non è generalizzabile in dimensioni maggiori: ad esempio, qual è la misura di un ipersolido poligonale di dimensione 4? Inoltre, la misura di Peano non è numerabilmente additiva, ossia un'unione \textit{infinita numerabile} di insiemi misurabili secondo Peano non è necessariamente ancora misurabile.
+Qualche anno dopo i lavori di Peano, il matematico francese Marie Camille \textbf{Jordan} (1838-1922) \textit{estende} il concetto di misura introdotta da Peano a una generica dimensione $n$, utilizzando invece che poligoni o solidi poligoni delle \textit{unioni di intervalli}, \textit{rettangoli} o, in generale, \textit{parallelepipedi} $n$-dimensionali, poiché questi hanno una misura ben nota!\\
+Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di parallelepipedi sono un \textit{caso particolare} di ipersolidi poligonali), in questo modo si risolve il \textit{primo problema} dei due problemi enunciati precedentemente; ciò nonostante, questa definizione non è ancora una misura numerabilmente-additiva.
+% QUI COMPILA
+\subsection{Definizione e osservazioni sulla misura di Peano-Jordan}
+\begin{define}[Parallelepipedo {$n$}-dimensionale]
+	Un \textbf{parallelepipedo}\index{parallelepipedo!$n$-dimensionale} $n$-dimensionale è un \textit{plurintervallo}, ossia come il prodotto cartesiano di $n$ intervalli:
+	\begin{equation}
+		P=\prod_{i=1}^{n}\left[a_i,b_i\right]\quad\text{con }-\infty < a_i < b_i < +\infty
+	\end{equation}
+	Posta la \textbf{lunghezza}\index{lunghezza!di un intervallo di un intervallo come
+		\begin{equation}
+			\mathcal{L}\left(\left[a_i,b_i\right]\right)=b_i-a_i
+		\end{equation}
+		la misura $n$-dimensionale del parallelepipedo è
+		\begin{equation}
+			V_n\left(P\right)=\prod_{i=1}^{n}\mathcal{L}\left(\left[a_i,b_i\right]\right)
+		\end{equation}
+	\end{define}
+	Introduciamo formalmente la misura esterna e la misura interna di un insieme limitato $A$ come estremi inferiori e superiori di un \textbf{insieme elementare}\index{insieme!elementare}, cioè un'unione finita di parallelepipedi:
+	\begin{itemize}
+		\item \textsc{Misura esterna}:\index{misura!esterna} \begin{equation}
+			m^X\left(A\right)=\inf\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\supseteq A\}
+		\end{equation}
+		\item \textsc{Misura interna}:\index{misura!interna}
+		\begin{equation}
+			m_X\left(A\right)=\inf\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\subseteq A\}
+		\end{equation}
+	\end{itemize}
+	In generale $m_X\left(A\right)\leq m^X\left(A\right)$.
+	\begin{define}[Misura di Peano-Jordan.]~{}
+		Un insieme limitato $A$ è \textbf{misurabile secondo Peano-Jordan}\index{misura!secondo Peano-Jordan} se $m^X\left(A\right)=m_X\left(A\right)$ e la \textbf{misura} (secondo P-J) dell'insieme è
+		\begin{equation}
+			m\left(A\right)=m^X\left(A\right)=m_X\left(A\right)
+		\end{equation}
+	\end{define}
+	\begin{proposition}[Criterio di misurabilità.]~{}\\
+		L'insieme limitato $A\subseteq \realset^n$ è misurabile per Peano-Jordan se e solo se $\forall \epsilon>0,\ \exists P\subseteq A, Q\supseteq A$ con $P,\ Q$ insiemi elementari tali che
+		\begin{equation}
+			m\left(Q\right)-m\left(P\right)\leq \epsilon
+		\end{equation}
+	\end{proposition}
+	Definito
+	\begin{equation}
+		\mathcal{M}=\{A\subseteq \realset^n\mid A\text{è P-J misurabile}\}
+	\end{equation}
+	essa è un'\textit{algebra}, \textit{ma} non una $\sigma$-algebra, cioè non è chiusa rispetto all'unione \textit{numerabile infinita}.
+	\begin{example}\textsc{Controesempio dell'additività numerabile della misura di Peano-Jordan.}\\
+		Consideriamo
+		\begin{equation*}
+			E=\rationalset\cap\left[0,1\right]=\bigcup_{n\geq 1}\{r_n\}
+		\end{equation*}
+		dove $\{r_n\}$ è un'enumerazione di razionali in $\left[0,1\right]$.\\
+		$\{r_n\}$ è un punto e dunque è misurabile con misura nulla, ma $\displaystyle\bigcup_{n\geq 1}\{r_n\}=E$ \textit{non} è misurabile, dato che
+		\begin{equation*}
+			\begin{cases}
+				m^X\left(E\right)=1\\
+				m_X\left(E\right)=0
+			\end{cases}
+		\end{equation*}
+	\end{example}
+	In altre parole, la misura secondo Peano-Jordan è additiva, ma non $\sigma$-additiva.
+	\begin{digression}
+		Il termine italiano ‘‘Misura di Peano-Jordan'' è improprio, in quanto essa non è una \textit{misura} nel senso \textit{moderno} del termine. Nell'Anglosfera lo stesso concetto viene chiamata ‘‘Jordan content''.
+	\end{digression}
+	\section{Misura secondo Lebesgue}
+	Per quanto innovativa, la misura di Peano-Jordan presenta alcuni notevoli problemi:
+	\begin{itemize}
+		\item É definita solo per \textit{insiemi limitati}.
+		\item Non è \textit{numerabilmente additività}: la misura di un'unione numerabilmente infinita di insiemi misurabili non è necessariamente misurabile.
+	\end{itemize}
+	Il concetto \textit{moderno} di misura di un sottoinsieme dello spazio $n$-dimensionale viene per la prima volta presentato in \textit{Intégrale, longueure, aire} (1902)
+	dal matematico francese Henri \textbf{Lebesgue} (1875-1941) nell'ambito dell'annoso problema delle discontinuità nell'integrale definito.\\
+	La costruzione della misura secondo Lebesgue inizia in modo analogo a quella di Peano-Jordan, definendo i \textit{parallelepipedi}; per poter definire la misurabilità di insiemi illimitati si ammettono parallelepipedi \textit{degeneri}.
+	\begin{define}[Parallelepipedo {$n$}-dimensionale]
+		Un \textbf{parallelepipedo}\index{parallelepipedo!$n$-dimensionale} $n$-dimensionale è un \textit{plurintervallo}, ossia come il prodotto cartesiano di $n$ intervalli eventualmente \textit{degeneri}:
+		\begin{equation}
+			P=\prod_{i=1}^{n}\left[a_i,b_i\right]\quad\text{con }-\infty \leq a_i \leq b_i \leq +\infty
+		\end{equation}
+		Posta la \textbf{lunghezza}\index{lunghezza!di un intervallo} di un intervallo come
+		\begin{equation}
+			\mathcal{L}\left(\left[a_i,b_i\right]\right)=
+			\begin{cases}
+				\begin{array}{ll}
+					b_i-a_i & \text{se }-\infty < a_i \leq b_i < +\infty\\
+					+\infty&\text{altrimenti}
+				\end{array}
+			\end{cases}
+		\end{equation}
+		la misura $n$-dimensionale del parallelepipedo è
+		\begin{equation}
+			V_n\left(P\right)=\prod_{i=1}^{n}\mathcal{L}\left(\left[a_i,b_i\right]\right)
+		\end{equation}
+		con la convenzione che $0\cdot \infty =0$.
+	\end{define}
+	\begin{observe}
+		Come mai $0\cdot \infty$ non è indeterminato, ma posto proprio uguale a 0?. Per capirlo, facciamo prima un esempio in dimensione 2; consideriamo il rettangolo degenere
+		\begin{equation*}
+			P=\{a_1\}\times\left(a_2,+\infty)
+		\end{equation*}
+		Esso è un sottoinsieme di $\realset^2$, ma ha chiaramente dimensione 1: seppur come semiretta ha una lunghezza ben definita (e in tal caso sarebbe infinita tale lunghezza), è ragionevole dire che come oggetto \textit{bidimensionale} abbia \textit{area} 0.\\
+		In altre parole, se almeno un intervallo che compone il parallelepipedo $n$-dimensionale ha lunghezza nulla, $P$ è da intendersi come elemento di dimensione $k$ in uno spazio $n$-dimensionale, con $k< n$; in questo caso la sua misura $n$\textit{-dimensionale} è nulla, anche se fosse \textit{illimitato} in diverse direzioni, da qui spiegato il perché di $0\cdot \infty =0$.
+	\end{observe}
+	A differenza di Peano-Jordan, Lebesgue definisce solamente la \textbf{misura esterna} dell'insieme:
+	\begin{equation*}
+		m^X\left(A\right)=\inf\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\supseteq A\}
+	\end{equation*}
+	Essa si può vedere come una funzione
+	\begin{equation}
+		\funz{m^X}{\setpart{\realset^n}}{\left[0,+\infty\right]}
+	\end{equation}
+	che gode delle seguenti proprietà:
+	\begin{itemize}
+		\item Se l'insieme è un parallelepipedo $n$-dimensionale, la misura esterna del parallelepipedo ovviamente coincide con la misura $n$-dimensionale di esso:
+		\begin{equation}
+			m^X\left(P\right)=V_n\left(P\right),\ \forall P\text{ parallelepipedo}
+		\end{equation}
+		\item È \textit{monotona}:
+		\begin{equation}
+			m^X\left(A\right)\leq m^X\left(B\right),\ \forall A\subseteq B
+		\end{equation}
+		\item È $\sigma$-\textit{sub-additiva}:
+		\begin{equation}
+			m^X\left(\bigcup_{n\geq 1}A_n\right)\leq \sum_{n\geq 1}m^X\left(A_n\right), \forall A_n\subseteq \realset^n
+		\end{equation}
+		\item È invariante per traslazioni:
+		\begin{equation}
+			m^X\left(A+\{x\}\right)=m^X\left(A\right),\ \forall x\in\realset^n,\ \forall A\subseteq\realset^n
+		\end{equation}
+	\end{itemize}
+	Osserviamo che per $m^X$ vale \textit{solo} la  $\sigma$-\textit{sub-additività}, ma non la $\sigma$-additività.
+	\begin{define}[Insieme misurabile secondo Lebesgue.]~{}\\
+		Un insieme $A\subseteq\realset^n$ è \textbf{misurabile secondo Lebesgue}se $\forall E\subseteq\realset^n$ vale
+		\begin{equation}
+			m-n^X\left(E\right)=m_n^X\left(E\cap A\right)+m_n^X\left(E\cap A^C\right)
+		\end{equation}
+	\end{define}
+	$E$ è un \textbf{insieme test}\index{insieme!test}: $A$ è misurabile se decompone bene $E$ in due sottoinsiemi misurabili.
+	% TO DO: inserire immagine
+	\begin{proposition}[Gli insiemi misurabili secondo Lebesgue sono una {$\sigma}$-algebra.]~{}\\
+		L'insieme
+		\begin{equation*}
+			\mathcal{L}\left(\realset^n\right)=\{A\subseteq \realset^n\mid A\text{è Lebesgue-misurabile}\}
+		\end{equation*}
+		è una $\sigma$-algebra.
+	\end{proposition}
+	\begin{define}[Misura secondo Lebesgue.]
+		La \textbf{misura secondo Lebesgue}\index{misura!secondo Lebesgue} è la restrizione della misura esterna a $\mathcal{L}\left(\realset^n\right)$:
+		\begin{equation}
+			m_n=m^X_n_{\vert \mathcal{L}\left(\realset^n\right)}\text{ ossia }\funz{}{\mathcal{L}\left(\realset^n\right)}{\left[0,+\infty\right]}
+		\end{equation}
+	\end{define}
