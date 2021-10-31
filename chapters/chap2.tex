@@ -25,10 +25,7 @@ Per poter trattare i problemi enunciati nel \refChapter{ellipseintroduction} dob
 		\item $\mvf{d}{x}{y}\leq\mvf{d}{x}{z}+\mvf{d}{z}{y}$.
 	\end{enumerate}
 \end{define}
-% OLD \begin{define}[Convergenza.]~{}\\
-% più che convergenza metterei successione convergente rispetto a una distanza visto che dopo si fanno discorsi vari
-% NEW
-\begin{define}[Convergenza di successioni secondo la distanza.]~{}\\
+\begin{define}[Convergenza di successioni secondo una distanza.]~{}\\
 	Una successione $v_n\in X$ \textbf{converge}\index{convergenza!di una successione} in $X$ a $v\in X$ se
 	\begin{equation}
 		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \mvf{d}{v_n}{v}<\epsilon
@@ -53,7 +50,6 @@ Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(
 \end{equation*}
 \begin{observe}\label{convergenzalagrangianaeuniforme}
 	La condizione, riscritta in questo modo, non solo \textit{non necessita} più dell'esistenza del \textit{massimo}, ma non è neanche necessario che l'intervallo sia \textit{compatto} o che le funzioni $f_n$ siano \textit{continue}: questa è in realtà una relazione \textit{più generale} rispetto alla semplice convergenza nella metrica lagrangiana!\\
-%NEW
 	Vedremo che nel caso di funzioni continue sui compatti la convergenza uniforme coincide con quella lagrangiana.
 \end{observe}
 \begin{define}[Convergenza uniforme.]~{}\\
@@ -63,9 +59,8 @@ Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(
 \end{equation}
 \end{define}
 \begin{define}[Funzione limite.]~{}\\
-	Se $f_n$ converge uniformemente a $f$ su $A$, $f$ si dice \textbf{funzione limite}\index{funzione!limite}.
+	Se $f_n$ converge a $f$ su $A$, $f$ si dice \textbf{funzione limite}\index{funzione!limite}.
 \end{define}
-%OSS ho qualche dubbio che si dica funzione limite solo se la convergenza è uniforme
 \begin{observe}
 	Segue immediatamente dalla definizione che se $f_n$ converge uniformemente a $f$ su $A$, allora $\forall B\subseteq A$ si ha che $f_n$ converge uniformemente a $f$ su $B$.
 \end{observe}
@@ -113,7 +108,6 @@ In conclusione abbiamo mostrato che
 	\end{enumerate}
 Abbiamo così verificato la convergenza richiesta.
 \end{example}
-%fINO A QUI
 \begin{example}\textsc{Successione geometrica.}~{}\\
 	Consideriamo $f_n\left(x\right)=x^n,\ \forall n\geq 0$. Allora:
 	\begin{enumerate}
@@ -177,9 +171,7 @@ Abbiamo così verificato la convergenza richiesta.
 	\end{equation*}
 	Poiché
 	\begin{equation*}
-		\sup_{x\in \left[0,1\right]}\frac{x^n}{n}=\frac{x^n}{n}\left.\right|_{x=1}\,=\frac{1}{n}
-%ALTERNATIVA
-%		\sup_{x\in \left[0,1\right]}\frac{x^n}{n}=\frac{x^n}{n}_{|_{x=1}}\,=\frac{1}{n}
+		\sup_{x\in \left[0,1\right]}\frac{x^n}{n}=\left.\frac{x^n}{n}\right\vert_{x=1}\,=\frac{1}{n}
 	\end{equation*}
 	allora
 	\begin{equation*}
@@ -246,7 +238,6 @@ Generalizziamo la definizione di convergenza uniforme considerando $\funz{f_n,\ 
 Possiamo ora, date queste nuove ipotesi, riformulare la convergenza uniforme.
 \begin{define}[Convergenza uniforme, generalizzata.]~{}\\
 		Siano $\funz{f_n,\ f}{A}{Y}$ con $A$ insieme qualsiasi e $Y$ spazio normato completo. Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$ \textbf{su} $A$ se
-%NOTA Dambrosioi ha specificato che per avere Cauchy lo spazio deve essere completo, quindi non è una condizione da mettere fra parentesi
 	\begin{equation}
 		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \norm{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in A
 	\end{equation}
@@ -298,10 +289,7 @@ Il quantificatore esistenziale $\exists$ implica che ciò che esiste dipende da 
 		\sup_{x\in A}N\left(\epsilon, x\right)
 	\end{equation*}
 \begin{itemize}
-%OLD
-%	\item Se $A$ è finito, allora $\displaystyle\sup_{x\in A}N\left(\epsilon\right)=\max_{x\in A}N\left(\epsilon\right)=N\left(\epsilon\right)$ e c'è convergenza uniforme.
-%NOTA non è A che deve essere finito, ma il sup. Al massimo A deve essere compatto per ammettere massimo per Weierstrass
-	\item Se è finito, allora $\displaystyle\sup_{x\in A}N\left(\epsilon\right)=\max_{x\in A}N\left(\epsilon\right)=N\left(\epsilon\right)$ e c'è convergenza uniforme.
+	\item Se $\displaystyle\sup_{x\in A}N\left(\epsilon\right)$ è finito, allora $\displaystyle\sup_{x\in A}N\left(\epsilon\right)=\max_{x\in A}N\left(\epsilon\right)=N\left(\epsilon\right)$ e c'è convergenza uniforme.
 	\item Se $\displaystyle\sup_{x\in A}N\left(\epsilon\right)=+\infty$ allora \textit{non} c'è convergenza uniforme.
 \end{itemize}
 \end{observe}
@@ -480,7 +468,6 @@ D'ora in avanti indicheremo con $\mathcal{R}\left(\left[a,b\right]\right)$ l'ins
 		\end{equation}
 	\end{enumerate}
 \end{theorema}
-%NEW
 \begin{observe}
 	Nel caso di un intervallo \textit{illimitato} la convergenza uniforme 
 	\begin{itemize}
@@ -490,30 +477,37 @@ D'ora in avanti indicheremo con $\mathcal{R}\left(\left[a,b\right]\right)$ l'ins
 	Inoltre la convergenza puntuale \textit{non} è condizione sufficiente per il passaggio al limite sotto il segno di integrale, nemmeno nel caso di un intervallo limitato.\\
 	Di seguito vedremo dei controesempi.
 \end{observe}
-%NOTA: personalmente metterei tutto in un unico esempio in cui enunciamo in un enumerate i titoletti e poi facciamo la dimostrazione con l'enumerate, anche ripetendo il numeretto volendo. Così è tutto più compatto quando si fa una sfogliata apposta per vedere quali tipi di controesempi ci sono e quali proprietà non valgono
-Vedremo la dimostrazione di una versione più generica del teorema quando parleremo degli integrali di Lebesgue.\\
-Per quanto questo teorema ha una notevole importanza, ha un campo d'azione particolarmente limitato. Infatti, anche cambiando leggermente le ipotesi non è più possibile affermare la tesi. Vediamo alcuni di questi controesempi.
-\begin{example}{\textsc{La convergenza uniforme \textit{non} è sufficiente per trasferire alla funzione limite l'integrabilità su un intervallo \textit{illimitato} } } ~{} \\
-	Consideriamo la successione di funzioni $\funz{f_n}{\left[1,+\infty\right)}{\realset}$ definite da
-\begin{equation*}
-	f_n(x)=\frac{n}{nx+x^2},\ \forall x\geq1, n\geq1 
-\end{equation*}
-Per ogni $x\geq 1$ osserviamo che $f_n(x)\sim \frac{n}{nx}$ per $n\to+\infty$, quindi si ha
-\begin{equation*}
-	\lim_{n\to+\infty}f_n\left(x\right)=\lim_{n\to+\infty}\frac{n}{nx}=\frac{1}{x}
-\end{equation*}
-Si ha quindi convergenza puntuale in ogni punto di $\left[1,+\infty\right)$ alla funzione $f(x)=\frac{1}{x}$. Inoltre, la convergenza è uniforme su $\left[1,+\infty\right)$: vale infatti
-\begin{equation*}
-	\abs{f_n(x)-f(x)}=\abs{\frac{n}{nx+x^2}-\frac{1}{x}}=\frac{1}{n+x}
-\end{equation*}
-per ogni $x\geq1$, $n\geq1$. Per \textit{monotonia}, si ha quindi
-\begin{equation*}
-	\sup_{x\geq 1}\abs{f_n(x)-f(x)}=\sup_{x\geq1}\frac{1}{n+x}=\frac{1}{n+1},\ \forall n\geq1
-\end{equation*}
-Deduciamo che
-\begin{equation*}
-	\lim_{n\to+\infty}\left(\sup_{x\geq1}\abs{f_n(x)-f(x)}\right)=\lim_{n\to+\infty}\frac{1}{n+1}=0
-\end{equation*}		
+Vedremo la dimostrazione di una versione più generica del teorema quando parleremo degli integrali di Lebesgue.
+\begin{examples}
+	Per quanto questo teorema ha una notevole importanza, ha un campo d'azione particolarmente limitato. Infatti, anche cambiando leggermente le ipotesi non è più possibile affermare la tesi. Vediamo alcuni di questi controesempi.
+	\begin{enumerate}
+		\item La convergenza \textbf{uniforme} \textit{non} è \textbf{sufficiente} per trasferire alla funzione limite l'integrabilità su un intervallo \textit{illimitato}.
+		\item La convergenza \textbf{uniforme} \textit{non} è condizione \textbf{necessaria} per il passaggio al limite sotto segno di integrale.
+		\item La convergenza \textbf{uniforme} \textit{non} è condizione \textbf{sufficiente} per il passaggio al limite sotto il segno di integrale nel caso in un intervallo \textit{illimitato}.
+		\item La convergenza \textbf{puntuale} \textit{non} è condizione \textbf{sufficiente} per il passaggio al limite sotto il segno di integrale, \textit{nemmeno} nel caso di un intervallo \textit{limitato}.
+	\end{enumerate}
+\textbf{\textsc{Dimostrazione.}}
+\begin{enumerate}[label=\Roman*]
+	\item 	Consideriamo la successione di funzioni $\funz{f_n}{\left[1,+\infty\right)}{\realset}$ definite da
+	\begin{equation*}
+		f_n(x)=\frac{n}{nx+x^2},\ \forall x\geq1, n\geq1 
+	\end{equation*}
+	Per ogni $x\geq 1$ osserviamo che $f_n(x)\sim \frac{n}{nx}$ per $n\to+\infty$, quindi si ha
+	\begin{equation*}
+		\lim_{n\to+\infty}f_n\left(x\right)=\lim_{n\to+\infty}\frac{n}{nx}=\frac{1}{x}
+	\end{equation*}
+	Si ha quindi convergenza puntuale in ogni punto di $\left[1,+\infty\right)$ alla funzione $f(x)=\frac{1}{x}$. Inoltre, la convergenza è uniforme su $\left[1,+\infty\right)$: vale infatti
+	\begin{equation*}
+		\abs{f_n(x)-f(x)}=\abs{\frac{n}{nx+x^2}-\frac{1}{x}}=\frac{1}{n+x}
+	\end{equation*}
+	per ogni $x\geq1$, $n\geq1$. Per \textit{monotonia}, si ha quindi
+	\begin{equation*}
+		\sup_{x\geq 1}\abs{f_n(x)-f(x)}=\sup_{x\geq1}\frac{1}{n+x}=\frac{1}{n+1},\ \forall n\geq1
+	\end{equation*}
+	Deduciamo che
+	\begin{equation*}
+		\lim_{n\to+\infty}\left(\sup_{x\geq1}\abs{f_n(x)-f(x)}\right)=\lim_{n\to+\infty}\frac{1}{n+1}=0
+	\end{equation*}		
 	da cui segue la convergenza uniforme su $\left[1,+\infty\right)$.
 	Osserviamo ora che per ogni $n\geq1$ si ha
 	\begin{equation*}
@@ -521,52 +515,26 @@ Deduciamo che
 	\end{equation*}
 	e dunque $f_n$ è integrabile in senso improprio su $[1,+\infty)$, per ogni $n\geq1$; la funzione limite $f(x)=\frac{1}{x}$ \textit{non} è invece integrabile in senso improprio su $[1,+\infty)$.\\
 	La successione di funzioni $f_n$ \textit{integrabili} su $[1,+\infty)$ converge quindi uniformemente su $[1,+\infty)$ alla funzione $f$ che \textbf{non} è integrabile su $[1,+\infty)$.
-\end{example}
-\begin{example}{\textsc{La convergenza uniforme \textit{non} è condizione necessaria per il passaggio al limite sotto segno di integrale.} } ~{}\\
-	Consideriamo la successione di funzioni $f_n\left(x\right)=x^n$ definite su $\left[0,1\right]$. Osserviamo che
+	\item 	Consideriamo la successione di funzioni $f_n\left(x\right)=x^n$ definite su $\left[0,1\right]$. Osserviamo che
 	\begin{equation*}
 		\lim_{n\to+\infty}\int_{0}^{1}x^ndx=\lim_{n\to+\infty}\left[\frac{1}{n+1}x^{n+1}\right]_{0}^{1}=\lim_{n\to+\infty}\frac{1}{n+1}=0
 	\end{equation*}
-Invece, sappiamo che $x^n$ converge puntualmente in ogni punto di $[0,1]$ alla funzione limite 
-\begin{equation*}
-	f\left(x\right)=
-	\begin{cases}
-		\begin{array}{ll}
-			0&\text{se }0\leq x < 1\\
-			1&\text{se }x=1
-		\end{array}
-	\end{cases}
-\end{equation*}
-dunque su $[0,1]$ $f\left(x\right)=\lim_{n\to\infty}f_n\left(x\right)$ è una funzione \textit{identicamente nulla} tranne un \textit{numero finito} di punti (in questo caso, uno soltanto). Allora
-\begin{equation*}
-	\int_{0}^{1}\lim_{n\to+\infty}x^ndx=\int_{0}^{1}0dx=0
-\end{equation*}
- $x^n$ non converge uniformemente su $\left[0,1\right]$, ma il passaggio al limite sotto segno di integrale si verifica comunque.
-\end{example}
-%OLD : c'è una ripetizione, l'ho lasciato per sicurezza
-%\begin{example}
-%	Consideriamo la successione di funzioni $f_n\left(x\right)=x^n$ definite su $\left[0,1\right]$. Osserviamo che
-%	\begin{equation*}
-%		\lim_{n\to+\infty}\int_{0}^{1}x^ndx=\lim_{n\to+\infty}\left[\frac{1}{n+1}x^{n+1}\right]_{0}^{1}=\lim_{n\to+\infty}\frac{1}{n+1}=0
-%	\end{equation*}
-%	Invece, sappiamo che $x^n$ converge puntualmente in ogni punto di $[0,1]$ alla funzione limite 
-%	\begin{equation*}
-%		f\left(x\right)=
-%		\begin{cases}
-%			\begin{array}{ll}
-%				0&\text{se }0\geq x < 1\\
-%				1<&\text{se }x=1
-%			\end{array}
-%		\end{cases}
-%	\end{equation*}
-%	dunque su $[0,1]$ $f\left(x\right)=\lim_{n\to\infty}f_n\left(x\right)$ è una funzione \textit{identicamente nulla} tranne un \textit{numero finito} di punti (in questo caso, uno soltanto). Allora
-%	\begin{equation*}
-%		\int_{0}^{1}\lim_{n\to+\infty}x^ndx=\int_{0}^{1}0dx=0
-%	\end{equation*}
-%	$x^n$ non converge uniformemente su $\left[0,1\right]$, ma il passaggio al limite sotto segno di integrale si verifica comunque.
-%\end{example}
-\begin{example}{\textsc{La convergenza uniforme \textit{non} è condizione sufficiente per il passaggio al limite sotto il segno di integrale nel caso in un intervallo \textit{illimitato}. } } ~{} \\
-	Sia $\funz{f_n}{\left[0,+\infty\right)}{\realset}$, $n\geq1$, definita da
+	Invece, sappiamo che $x^n$ converge puntualmente in ogni punto di $[0,1]$ alla funzione limite 
+	\begin{equation*}
+		f\left(x\right)=
+		\begin{cases}
+			\begin{array}{ll}
+				0&\text{se }0\leq x < 1\\
+				1&\text{se }x=1
+			\end{array}
+		\end{cases}
+	\end{equation*}
+	dunque su $[0,1]$ $\displaystyle f\left(x\right)=\lim_{n\to\infty}f_n\left(x\right)$ è una funzione \textit{identicamente nulla} tranne un \textit{numero finito} di punti (in questo caso, uno soltanto). Allora
+	\begin{equation*}
+		\int_{0}^{1}\lim_{n\to+\infty}x^ndx=\int_{0}^{1}0dx=0
+	\end{equation*}
+	$x^n$ non converge uniformemente su $\left[0,1\right]$, ma il passaggio al limite sotto segno di integrale si verifica comunque.
+	\item Sia $\funz{f_n}{\left[0,+\infty\right)}{\realset}$, $n\geq1$, definita da
 	\begin{equation*}
 		f_n\left(x\right)=\begin{cases}
 			\begin{array}{ll}
@@ -575,35 +543,33 @@ dunque su $[0,1]$ $f\left(x\right)=\lim_{n\to\infty}f_n\left(x\right)$ è una fu
 			\end{array}
 		\end{cases}
 	\end{equation*}
-Osserviamo che
-\begin{align*}
-	\lim_{n\to+\infty}\int_{0}^{+\infty}f_n\left(x\right)dx=&\lim_{n\to+\infty}\left[\int_{0}^{n}0dx+\int_{n}^{2n}\frac{1}{n}dx+\int_{2n}^{+\infty}0dx\right]=\lim_{n\to+\infty}\int_{n}^{2n}\frac{1}{n}dx=\\
-	=&\lim_{n\to+\infty}\left[\frac{x}{n}\right]_{n}^{2n}=\lim_{n\to+\infty}\frac{2n-n}{n}=\lim_{n\to+\infty}1=1
-\end{align*}
-Invece, si vede immediatamente che
+	Osserviamo che
+	\begin{align*}
+		\lim_{n\to+\infty}\int_{0}^{+\infty}f_n\left(x\right)dx=&\lim_{n\to+\infty}\left[\int_{0}^{n}0dx+\int_{n}^{2n}\frac{1}{n}dx+\int_{2n}^{+\infty}0dx\right]=\lim_{n\to+\infty}\int_{n}^{2n}\frac{1}{n}dx=\\
+		=&\lim_{n\to+\infty}\left[\frac{x}{n}\right]_{n}^{2n}=\lim_{n\to+\infty}\frac{2n-n}{n}=\lim_{n\to+\infty}1=1
+	\end{align*}
+	Invece, si vede immediatamente che
 	\begin{equation*}
-	\int_{0}^{+\infty}\lim_{n\to+\infty}f_n\left(x\right)dx=\int_{0}^{+\infty}0dx=0
-\end{equation*}
-Vediamo che $f_n$ converge uniformemente su $\left[0,+\infty\right)$ a $0$:
-\begin{gather*}
-	\sup_{x\in\left[0,+\infty\right)}\abs{f_n\left(x\right)-f\left(x\right)}=\frac{1}{n}\\
-	\lim_{n\to+\infty}\left(\sup_{x\in\left[0,+\infty\right)}\right)=\lim_{n\to+\infty}\frac{1}{n}=0
-\end{gather*}
-Anche aggiungendo al teorema l'ipotesi che $f\left(x\right)$ sia Riemann-integrabile (in questo caso ciò è verificato), il passaggio al limite sotto segno di integrale \textit{non} si verifica \textit{necessariamente} se l'intervallo è illimitato.
-\end{example}
-\begin{example}{\textsc{La convergenza puntuale \textit{non} è condizione sufficiente per il passaggio al limite sotto il segno di integrale, nemmeno nel caso di un intervallo limitato.} } ~{}\\
-	Consideriamo la successione di funzioni $f_n\left(x\right)=nx\left(1-x^2\right)^n$ definite su $\left[0,1\right]$. Osserviamo che
+		\int_{0}^{+\infty}\lim_{n\to+\infty}f_n\left(x\right)dx=\int_{0}^{+\infty}0dx=0
+	\end{equation*}
+	Vediamo che $f_n$ converge uniformemente su $\left[0,+\infty\right)$ a $0$:
+	\begin{gather*}
+		\sup_{x\in\left[0,+\infty\right)}\abs{f_n\left(x\right)-f\left(x\right)}=\frac{1}{n}\\
+		\lim_{n\to+\infty}\left(\sup_{x\in\left[0,+\infty\right)}\right)=\lim_{n\to+\infty}\frac{1}{n}=0
+	\end{gather*}
+	Anche aggiungendo al teorema l'ipotesi che $f\left(x\right)$ sia Riemann-integrabile (in questo caso ciò è verificato), il passaggio al limite sotto segno di integrale \textit{non} si verifica \textit{necessariamente} se l'intervallo è illimitato.
+	\item 	Consideriamo la successione di funzioni $f_n\left(x\right)=nx\left(1-x^2\right)^n$ definite su $\left[0,1\right]$. Osserviamo che
 	\begin{align*}
 		\lim_{n\to+\infty}\int_{0}^{1}nx\left(1-x^2\right)^ndx=&-\frac{1}{2}\lim_{n\to+\infty}\int_{0}^{1}n\left(-2x\right)\left(1-x^2\right)^n=\\
 		=&-\frac{1}{2}\lim_{n\to+\infty}n\left[\frac{1}{n+1}\left(1-x^2\right)^{n+1}\right]_{0}^{1}=\frac{1}{2}\lim_{n\to+\infty}\frac{n}{n+1}=\frac{1}{2}
 	\end{align*}
-Invece, osserviamo che, se abbiamo fissato $x$ rispetto alla $n$ allora $nx\left(1-x^2\right)^n=x\frac{\left(1-x^2\right)^n}{\frac{1}{n}}$ si può vedere come il rapporto di un esponenziale di ragione (in modulo) minore di 1 con il reciproco di un termine lineare, dunque per $n\to+\infty$ l'esponenziale tende a $0$ molto più velocemente di $\frac{1}{n}$: segue che
-%NOTA: sicuro che sia un'esponenziale e non una potenza?
+	Invece, osserviamo che, se abbiamo fissato $x$ rispetto alla $n$, allora $nx\left(1-x^2\right)^n=x\frac{\left(1-x^2\right)^n}{\frac{1}{n}}$ si può vedere come il rapporto di un esponenziale di ragione (in modulo) minore di 1 con il reciproco di un termine lineare, dunque per $n\to+\infty$ l'esponenziale tende a $0$ molto più velocemente di $\frac{1}{n}$: segue che
 	\begin{equation*}
-	\int_{0}^{1}\lim_{n\to+\infty}nx\left(1-x^2\right)^ndx=\int_{0}^{1}0dx=0
-\end{equation*}
-Per lo stesso ragionamento si vede che $f_n\left(x\right)$ converge puntualmente a $0$ per ogni punto di $\left[0,1\right]$, ma \textit{non} si verifica il passaggio al limite sotto segno di integrale.
-\end{example}
+		\int_{0}^{1}\lim_{n\to+\infty}nx\left(1-x^2\right)^ndx=\int_{0}^{1}0dx=0
+	\end{equation*}
+	Per lo stesso ragionamento si vede che $f_n\left(x\right)$ converge puntualmente a $0$ per ogni punto di $\left[0,1\right]$, ma \textit{non} si verifica il passaggio al limite sotto segno di integrale.
+\end{enumerate}
+\end{examples}
 \subsection{Derivabilità}
 Date $\funz{f_n,f}{A\subseteq\realset}{\realset}$ con $f$ la funzione limite di $f_n$ su $A$, possiamo porci due domande:
 \begin{enumerate}
