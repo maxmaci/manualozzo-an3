@@ -34,7 +34,7 @@ Dalla caratterizzazione di Riemann è evidente che affinché una funzione sia in
 \end{equation*}
 Dal teorema di \textit{Heine-Cantor} è noto che per le funzioni continue su $\left[a,b\right]$ questa oscillazione è arbitrariamente piccola se l’ampiezza dell’intervallo $I_i$ è
 sufficientemente piccola, mentre in generale non lo è.
-\begin{example}\textsc{La funzione di Dirichlet.}~{}
+\begin{example}\textsc{La funzione di Dirichlet.}\\
 	Consideriamo la funzione
 	\begin{equation}
 		f\left(x\right)=
@@ -75,7 +75,7 @@ La coppia $\left(X,\mathcal{M}\right)$ si dice \textbf{spazio misurabile}\index{
 \begin{example}
 	Ogni insieme è uno spazio misurabile, in quanto ammette almeno la $\sigma$-algebra triviale data da $\setpart{X}$.
 \end{example}
-\begin{define}[{$\sigma$}-algebra generata da una famiglia di sottoinsiemi.]~{}
+\begin{define}[{$\sigma$}-algebra generata da una famiglia di sottoinsiemi.]~{}\\
 	Data una famiglia $\mathcal{F}$ di sottoinsiemi di $X$, si dice $\sigma$-\textbf{algebra generata da} $\mathcal{F}$\index{{$\sigma$}-algebra!generata da una famiglia di sottoinsiemi} l'intersezione di \textit{tutte} le $\sigma$-algebre che contengono $\mathcal{F}$ ed è la più piccola $\sigma$-algebra che contiene $\mathcal{F}$.
 \end{define}
 \begin{example}
@@ -179,7 +179,7 @@ Per dimostrarlo (e lo faremo per funzioni a valori in $\complexset$), abbiamo bi
 	\left(\liminf_{n\to+\infty} f_n\right)\left(x\right)\coloneqq \liminf_{n\to+\infty}f_n\left(x\right),\ \forall x\in X
 \end{gather*}
 \end{define}
-\begin{proposition}[Misurabilità di {$\sup$}, {$\inf$}, {$\limsup$} e {$\liminf$} di una successione di funzioni misurabili.]~{}
+\begin{proposition}[Misurabilità di {$\sup$}, {$\inf$}, {$\limsup$} e {$\liminf$} di una successione di funzioni misurabili.]~{}\\
 	Siano $ \left(X,\mathcal{M}\right)$ uno spazio misurabile e siano $\funz{f_n}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ misurabili.
 	Allora
 	\begin{equation*}
@@ -265,12 +265,12 @@ Qualche anno dopo i lavori di Peano, il matematico francese Marie Camille \textb
 Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di parallelepipedi sono un \textit{caso particolare} di ipersolidi poligonali), in questo modo si risolve il \textit{primo problema} dei due problemi enunciati precedentemente; ciò nonostante, questa definizione non è ancora una misura numerabilmente-additiva.
 % QUI COMPILA
 \subsection{Definizione e osservazioni sulla misura di Peano-Jordan}
-\begin{define}[Parallelepipedo {$n$}-dimensionale]
-	Un \textbf{parallelepipedo}\index{parallelepipedo!$n$-dimensionale} $n$-dimensionale è un \textit{plurintervallo}, ossia come il prodotto cartesiano di $n$ intervalli:
+\begin{define}[Parallelepipedo {$n$}-dimensionale.]~{}\\
+	Un \textbf{parallelepipedo}\index{parallelepipedo} $n$-dimensionale è un \textit{plurintervallo}, ossia come il prodotto cartesiano di $n$ intervalli:
 	\begin{equation}
 		P=\prod_{i=1}^{n}\left[a_i,b_i\right]\quad\text{con }-\infty < a_i < b_i < +\infty
 	\end{equation}
-	Posta la \textbf{lunghezza}\index{lunghezza!di un intervallo di un intervallo come
+	Posta la \textbf{lunghezza}\index{lunghezza!di un intervallo} di un intervallo come
 		\begin{equation}
 			\mathcal{L}\left(\left[a_i,b_i\right]\right)=b_i-a_i
 		\end{equation}
@@ -282,15 +282,15 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 	Introduciamo formalmente la misura esterna e la misura interna di un insieme limitato $A$ come estremi inferiori e superiori di un \textbf{insieme elementare}\index{insieme!elementare}, cioè un'unione finita di parallelepipedi:
 	\begin{itemize}
 		\item \textsc{Misura esterna}:\index{misura!esterna} \begin{equation}
-			m^X\left(A\right)=\inf\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\supseteq A\}
+			m^X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\supseteq A\right\}
 		\end{equation}
 		\item \textsc{Misura interna}:\index{misura!interna}
 		\begin{equation}
-			m_X\left(A\right)=\inf\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\subseteq A\}
+			m_X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\subseteq A\right\}
 		\end{equation}
 	\end{itemize}
 	In generale $m_X\left(A\right)\leq m^X\left(A\right)$.
-	\begin{define}[Misura di Peano-Jordan.]~{}
+	\begin{define}[Misura di Peano-Jordan.]~{}\\
 		Un insieme limitato $A$ è \textbf{misurabile secondo Peano-Jordan}\index{misura!secondo Peano-Jordan} se $m^X\left(A\right)=m_X\left(A\right)$ e la \textbf{misura} (secondo P-J) dell'insieme è
 		\begin{equation}
 			m\left(A\right)=m^X\left(A\right)=m_X\left(A\right)
@@ -304,16 +304,16 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 	\end{proposition}
 	Definito
 	\begin{equation}
-		\mathcal{M}=\{A\subseteq \realset^n\mid A\text{è P-J misurabile}\}
+		\mathcal{M}=\left\{A\subseteq \realset^n\mid A\text{è P-J misurabile}\right\}
 	\end{equation}
 	essa è un'\textit{algebra}, \textit{ma} non una $\sigma$-algebra, cioè non è chiusa rispetto all'unione \textit{numerabile infinita}.
 	\begin{example}\textsc{Controesempio dell'additività numerabile della misura di Peano-Jordan.}\\
 		Consideriamo
 		\begin{equation*}
-			E=\rationalset\cap\left[0,1\right]=\bigcup_{n\geq 1}\{r_n\}
+			E=\rationalset\cap\left[0,1\right]=\bigcup_{n\geq 1}\left\{r_n\right\}
 		\end{equation*}
-		dove $\{r_n\}$ è un'enumerazione di razionali in $\left[0,1\right]$.\\
-		$\{r_n\}$ è un punto e dunque è misurabile con misura nulla, ma $\displaystyle\bigcup_{n\geq 1}\{r_n\}=E$ \textit{non} è misurabile, dato che
+		dove $\left\{r_n\right\}$ è un'enumerazione di razionali in $\left[0,1\right]$.\\
+		$\left\{r_n\right\}$ è un punto e dunque è misurabile con misura nulla, ma $\displaystyle\bigcup_{n\geq 1}\left\{r_n\right\}=E$ \textit{non} è misurabile, dato che
 		\begin{equation*}
 			\begin{cases}
 				m^X\left(E\right)=1\\
@@ -334,8 +334,8 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 	Il concetto \textit{moderno} di misura di un sottoinsieme dello spazio $n$-dimensionale viene per la prima volta presentato in \textit{Intégrale, longueure, aire} (1902)
 	dal matematico francese Henri \textbf{Lebesgue} (1875-1941) nell'ambito dell'annoso problema delle discontinuità nell'integrale definito.\\
 	La costruzione della misura secondo Lebesgue inizia in modo analogo a quella di Peano-Jordan, definendo i \textit{parallelepipedi}; per poter definire la misurabilità di insiemi illimitati si ammettono parallelepipedi \textit{degeneri}.
-	\begin{define}[Parallelepipedo {$n$}-dimensionale]
-		Un \textbf{parallelepipedo}\index{parallelepipedo!$n$-dimensionale} $n$-dimensionale è un \textit{plurintervallo}, ossia come il prodotto cartesiano di $n$ intervalli eventualmente \textit{degeneri}:
+	\begin{define}[Parallelepipedo {$n$}-dimensionale.]~{}\\
+		Un \textbf{parallelepipedo}\index{parallelepipedo} $n$-dimensionale è un \textit{plurintervallo}, ossia come il prodotto cartesiano di $n$ intervalli eventualmente \textit{degeneri}:
 		\begin{equation}
 			P=\prod_{i=1}^{n}\left[a_i,b_i\right]\quad\text{con }-\infty \leq a_i \leq b_i \leq +\infty
 		\end{equation}
@@ -356,16 +356,17 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 		con la convenzione che $0\cdot \infty =0$.
 	\end{define}
 	\begin{observe}
-		Come mai $0\cdot \infty$ non è indeterminato, ma posto proprio uguale a 0?. Per capirlo, facciamo prima un esempio in dimensione 2; consideriamo il rettangolo degenere
+		Come mai $0\cdot \infty$ non è lasciato indeterminato, ma posto proprio uguale a 0?. Per capirlo, facciamo prima un esempio in dimensione 2; consideriamo il rettangolo degenere
 		\begin{equation*}
-			P=\{a_1\}\times\left(a_2,+\infty)
+			P=\left\{a_1\right\}\times\left(a_2,+\infty\right)
 		\end{equation*}
-		Esso è un sottoinsieme di $\realset^2$, ma ha chiaramente dimensione 1: seppur come semiretta ha una lunghezza ben definita (e in tal caso sarebbe infinita tale lunghezza), è ragionevole dire che come oggetto \textit{bidimensionale} abbia \textit{area} 0.\\
+		Esso è un sottoinsieme di $\realset^2$, ma ha chiaramente dimensione 1: seppur come semiretta ha una lunghezza ben definita (e in tal caso sarebbe infinita tale lunghezza), è ragionevole dire che come oggetto \textit{bidimensionale} abbia \textit{area} $0$.\\
+		% TO DO: immagine di tale rettangolo
 		In altre parole, se almeno un intervallo che compone il parallelepipedo $n$-dimensionale ha lunghezza nulla, $P$ è da intendersi come elemento di dimensione $k$ in uno spazio $n$-dimensionale, con $k< n$; in questo caso la sua misura $n$\textit{-dimensionale} è nulla, anche se fosse \textit{illimitato} in diverse direzioni, da qui spiegato il perché di $0\cdot \infty =0$.
 	\end{observe}
 	A differenza di Peano-Jordan, Lebesgue definisce solamente la \textbf{misura esterna} dell'insieme:
 	\begin{equation*}
-		m^X\left(A\right)=\inf\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\supseteq A\}
+		m^X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\supseteq A\right\}
 	\end{equation*}
 	Essa si può vedere come una funzione
 	\begin{equation}
@@ -387,7 +388,7 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 		\end{equation}
 		\item È invariante per traslazioni:
 		\begin{equation}
-			m^X\left(A+\{x\}\right)=m^X\left(A\right),\ \forall x\in\realset^n,\ \forall A\subseteq\realset^n
+			m^X\left(A+\left\{x\right\}\right)=m^X\left(A\right),\ \forall x\in\realset^n,\ \forall A\subseteq\realset^n
 		\end{equation}
 	\end{itemize}
 	Osserviamo che per $m^X$ vale \textit{solo} la  $\sigma$-\textit{sub-additività}, ma non la $\sigma$-additività.
@@ -397,18 +398,18 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 			m-n^X\left(E\right)=m_n^X\left(E\cap A\right)+m_n^X\left(E\cap A^C\right)
 		\end{equation}
 	\end{define}
-	$E$ è un \textbf{insieme test}\index{insieme!test}: $A$ è misurabile se decompone bene $E$ in due sottoinsiemi misurabili.
+	$E$ è un \textbf{insieme test}\index{insieme!test} arbitrario: $A$ è misurabile se decompone bene $E$ in due sottoinsiemi misurabili $E\cap A$ e $E\cap A^C$.
 	% TO DO: inserire immagine
-	\begin{proposition}[Gli insiemi misurabili secondo Lebesgue sono una {$\sigma}$-algebra.]~{}\\
+	\begin{proposition}[Gli insiemi misurabili secondo Lebesgue sono una {$\sigma$}-algebra.]~{}\\
 		L'insieme
 		\begin{equation*}
-			\mathcal{L}\left(\realset^n\right)=\{A\subseteq \realset^n\mid A\text{è Lebesgue-misurabile}\}
+			\mathcal{L}\left(\realset^n\right)=\left\{A\subseteq \realset^n\mid A\text{ è Lebesgue-misurabile}\right\}
 		\end{equation*}
 		è una $\sigma$-algebra.
 	\end{proposition}
-	\begin{define}[Misura secondo Lebesgue.]
+	\begin{define}[Misura secondo Lebesgue.]~{}\\
 		La \textbf{misura secondo Lebesgue}\index{misura!secondo Lebesgue} è la restrizione della misura esterna a $\mathcal{L}\left(\realset^n\right)$:
 		\begin{equation}
-			m_n=m^X_n_{\vert \mathcal{L}\left(\realset^n\right)}\text{ ossia }\funz{}{\mathcal{L}\left(\realset^n\right)}{\left[0,+\infty\right]}
+			m_n={m^X_n}\vert_{ \mathcal{L}\left(\realset^n\right)}\text{ ossia}\funz{m_n}{\mathcal{L}\left(\realset^n\right)}{\left[0,+\infty\right]}
 		\end{equation}
 	\end{define}
