@@ -55,7 +55,8 @@ Allora
 \end{equation*}
 \end{example}
 Nel corso di \textsc{Analisi Matematica Uno} abbiamo dato la definizione di integrale secondo Riemann per le funzioni limitate.
-\section{$\sigma$-algebre}
+\section{Algebre e $\sigma$-algebre}
+% TO DO: definizione di Algebra 
 \begin{define}[{$\sigma$}-algebra, spazi e insiemi misurabili.]~{}\\
 	Sia $X$ insieme qualsiasi e $\mathcal{M}$ una famiglia di sottoinsiemi di $X$. $\mathcal{M}$ è una $\sigma$\textbf{-algebra} \index{{$\sigma$}-algebra} se soddisfa i seguenti assiomi:
 	\begin{enumerate}
@@ -282,24 +283,24 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 	Introduciamo formalmente la misura esterna e la misura interna di un insieme limitato $A$ come estremi inferiori e superiori di un \textbf{insieme elementare}\index{insieme!elementare}, cioè un'unione finita di parallelepipedi:
 	\begin{itemize}
 		\item \textsc{Misura esterna}:\index{misura!esterna} \begin{equation}
-			m^X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\supseteq A\right\}
+			m_{PJ}^X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\supseteq A\right\}
 		\end{equation}
 		\item \textsc{Misura interna}:\index{misura!interna}
 		\begin{equation}
-			m_X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\subseteq A\right\}
+			m_{PJ,X}\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\subseteq A\right\}
 		\end{equation}
 	\end{itemize}
 	In generale $m_X\left(A\right)\leq m^X\left(A\right)$.
 	\begin{define}[Misura di Peano-Jordan.]~{}\\
-		Un insieme limitato $A$ è \textbf{misurabile secondo Peano-Jordan}\index{misura!secondo Peano-Jordan} se $m^X\left(A\right)=m_X\left(A\right)$ e la \textbf{misura} (secondo P-J) dell'insieme è
+		Un insieme limitato $A$ è \textbf{misurabile secondo Peano-Jordan}\index{misura!secondo Peano-Jordan} se $m_{PJ}^X\left(A\right)=m_{PJ,X}\left(A\right)$ e la \textbf{misura} (secondo P-J) dell'insieme è
 		\begin{equation}
-			m\left(A\right)=m^X\left(A\right)=m_X\left(A\right)
+			m_{PJ}\left(A\right)=m_{PJ}^X\left(A\right)=m_{PJ,X}\left(A\right)
 		\end{equation}
 	\end{define}
 	\begin{proposition}[Criterio di misurabilità.]~{}\\
 		L'insieme limitato $A\subseteq \realset^n$ è misurabile per Peano-Jordan se e solo se $\forall \epsilon>0,\ \exists P\subseteq A, Q\supseteq A$ con $P,\ Q$ insiemi elementari tali che
 		\begin{equation}
-			m\left(Q\right)-m\left(P\right)\leq \epsilon
+			m_{PJ}\left(Q\right)-m_{PJ}\left(P\right)\leq \epsilon
 		\end{equation}
 	\end{proposition}
 	Definito
@@ -316,8 +317,8 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 		$\left\{r_n\right\}$ è un punto e dunque è misurabile con misura nulla, ma $\displaystyle\bigcup_{n\geq 1}\left\{r_n\right\}=E$ \textit{non} è misurabile, dato che
 		\begin{equation*}
 			\begin{cases}
-				m^X\left(E\right)=1\\
-				m_X\left(E\right)=0
+				m_{PJ}^X\left(E\right)=1\\
+				m_{PJ,X}\left(E\right)=0
 			\end{cases}
 		\end{equation*}
 	\end{example}
@@ -382,7 +383,7 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 		\begin{equation}
 			m^X\left(A\right)\leq m^X\left(B\right),\ \forall A\subseteq B
 		\end{equation}
-		\item È $\sigma$-\textit{sub-additiva}:
+		\item È $\sigma$-\textit{subadditiva}:
 		\begin{equation}
 			m^X\left(\bigcup_{n\geq 1}A_n\right)\leq \sum_{n\geq 1}m^X\left(A_n\right), \forall A_n\subseteq \realset^n
 		\end{equation}
@@ -391,7 +392,7 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 			m^X\left(A+\left\{x\right\}\right)=m^X\left(A\right),\ \forall x\in\realset^n,\ \forall A\subseteq\realset^n
 		\end{equation}
 	\end{itemize}
-	Osserviamo che per $m^X$ vale \textit{solo} la  $\sigma$-\textit{sub-additività}, ma non la $\sigma$-additività.
+	Osserviamo che per $m^X$ vale \textit{solo} la  $\sigma$-\textit{subadditività}, ma non la $\sigma$-additività.
 	\begin{define}[Insieme misurabile secondo Lebesgue.]~{}\\
 		Un insieme $A\subseteq\realset^n$ è \textbf{misurabile secondo Lebesgue}se $\forall E\subseteq\realset^n$ vale
 		\begin{equation}
@@ -413,3 +414,217 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 			m_n={m^X_n}\vert_{ \mathcal{L}\left(\realset^n\right)}\text{ ossia}\funz{m_n}{\mathcal{L}\left(\realset^n\right)}{\left[0,+\infty\right]}
 		\end{equation}
 	\end{define}
+\subsection{Insiemi misurabili secondo Lebesgue}
+La definizione data di insieme misurabile secondo Lebesgue non è particolarmente operativa, in quanto richiede di controllare che un generico insieme test decomponga bene l'insieme di cui verificarne la misurabilità. Vedremo questo principio successivamente; di seguito presentiamo alcune classi importanti di insiemi misurabili secondo Lebesgue.
+\begin{itemize}
+	\item \textsc{\textbf{Insiemi elementari:}} (unioni di) parallelepipedi, anche degeneri
+	\begin{gather*}
+		m_n\left(P\right)=V_n\left(P\right)\\
+		m_n\left(\bigcup_{i=1}^+\infty P_i\right)=\sum_{i=1}^{+\infty}V_n\left(P_i\right)
+	\end{gather*}
+In particolare:
+\begin{itemize}
+	\item Preso $P=\realset^n$, allora $m_n\left(\realset^n\right)=+\infty$.
+	\item Preso $P=\left\{x\right\},\ \forall x\in\realset^n$, allora $m_n\left(\left\{x\right\}\right)=0$.
+\end{itemize}
+\item \textsc{\textbf{Borelliani:}} $\mathcal{B}\left(\realset^n\right)\subsetneqq\mathcal{L}\left(\realset^n\right)$.\\
+Vedremo un esempio di un insieme misurabile \textit{non} Borelliano.
+% TO DO: aggiungere esempio quando ci sarà l'occasione.
+\item \textsc{\textbf{Tutti gli insiemi aventi misura \textit{esterna} nulla:}}
+\begin{equation*}
+	\forall A\subseteq \realset^n\ m_n^X\left(A\right)=0\implies A\in\mathcal{L}\left(\realset^n\right)\text{ e }m_n\left(A\right)=0
+\end{equation*}
+\end{itemize}
+
+\begin{demonstration}
+	Dobbiamo provare che $\forall E\subseteq \realset^n$
+	\begin{equation*}
+		m_n^X\left(E\right)=m_n^X\left(E\cap A\right)+m_n^X\left(E\cap A^C\right)
+	\end{equation*}
+	Ricordiamo che $m_n^X$ è $\sigma$-subadditiva e quindi finito-subadditiva, quindi
+	\begin{equation*}
+		E=\left(E\cap A\right)\cup \left(E\cap A^C\right)\implies m_n^X\left(E\right)\leq m_n^X\left(E\cap A\right)+m_n^X\left(E\cap A^C\right)
+	\end{equation*}
+	È sufficiente allora provare la disuguaglianza opposta. Osserviamo che $E\cap A^C\subseteq E$, dunque per monotonia di $m_n^X$ si ha
+	\begin{equation*}
+		m_n^X\left(E\right)\geq m_n^X\left(E\cap A^C\right)=m_n^X\left(E\cap A^C\right)+0=m_n^X\left(E\cap A^C\right)+m_n^X\left(E\cap A\right)
+	\end{equation*}
+	Infatti $E\cap A\subseteq A$ implica, per monotonia di $m_n^X$ che
+	\begin{equation*}
+		0\leq m_n^X\left(E\cap A\right)\leq m_n^X\left(A\right)=0
+	\end{equation*}
+	e quindi $m_n^X\left(E\right)\geq m_n^X\left(E\cap A^C\right)+m_n^X\left(E\cap A\right)$.
+\end{demonstration}
+\begin{attention}
+	\textbf{Non} tutti gli insiemi sono misurabili! Il seguente controesempio utilizza l'assioma della scelta e l'invarianza per traslazioni della misura di Lebesgue.
+	% TO DO: aggiungere esempio esercitazioni
+\end{attention}
+Nella teoria di Lebesgue hanno un ruolo importante gli insiemi di misura nulla: esplicitiamo il legame tra misura nulla e cardinalità.
+È noto che ogni singolo punto ha misura nulla; osserviamo che presa una famiglia di punti $\left\{x_n\right\}$ si ha
+\begin{equation*}
+	0\leq m_n\left(\bigcup_{n\geq 1}\left\{x_n\right\}\right)\leq \sum_{n\geq 1}m_n\left(\left\{x_n\right\}\right)=0
+\end{equation*}
+Ogni insieme \textbf{numerabile} è misurabile e ha misura nulla.
+\begin{example}
+	Posto $n=1$ (ossia consideriamo la misura in $\realset$), si ha
+	\begin{equation*}
+		m_1\left(\rationalset\right)=0,\ m_1\left(\rationalset\cap\left[0,1\right]\right)=0
+	\end{equation*}
+\end{example}
+Esistono anche insiemi di misura nulla con \textit{cardinalità del continuo}.
+\begin{example}\textsc{Insieme di Cantor.}~{}\\
+	% TO DO: inserire immagine
+Consideriamo l'intervallo $\left[0,1\right]$ e operiamo il seguente procedimento:
+\begin{itemize}
+	\item \textbf{Passo 1.} Prendiamo l'intervallo $\left[0,1\right]$, lo suddividiamo in tre sottointervalli di ugual lunghezza $I_1=\left[0,\nicefrac{1}{3}\right], I_2=\left[\frac{1}{3},\nicefrac{2}{3}\right],\ I_3=\left[\frac{2}{3},1\right]$ e rimuoviamo l'intervallo $I_2$, lasciando dunque gli intervalli $I_1$ e $I_2$.
+	\item \textbf{Passo 2.} Prendiamo ciascun intervallo che avevamo al passo 1 e lo suddividiamo in modo analogo in tre parti uguali e per ciascun intervallo eliminiamo il sottointervallo centrale, lasciando dunque 4 intervalli.
+	\item \textbf{Passo 3 e successivi.} Ripetiamo il procedimento del passo 2 con gli intervalli ottenuti nel passaggio precedente.
+\end{itemize}
+Sorprendentemente, dopo infiniti di questi passi ci sono ancora punti che rimangono e sono non numerabili! Abbiamo così costruito l'\textbf{insieme di Cantor}\index{insieme!di Cantor}: $x$ appartiene all'insieme di Cantor se, scritto in base 3, \textit{non} ha alcun 1 nella scrittura.\\
+Tuttavia, la sua lunghezza è nulla, dato che, considerati i vari passaggi dell'insieme di Cantor:
+\begin{itemize}
+	\item \textbf{Passo 0.} $C_0$ coincide con l'intervallo $\left[0,1\right]$: $\mathcal{L}\left(C_0\right)=1$
+	\item \textbf{Passo 1.} Togliamo un segmento di lunghezza $\nicefrac{1}{3}$ da un segmento di lunghezza $1$:\\ $\mathcal{L}\left(C_1\right)=\mathcal{L}\left(C_0\right)-\nicefrac{1}{3}=\nicefrac{2}{3}$
+	\item \textbf{Passo 2.} Togliamo dei segmento di lunghezza complessiva $\nicefrac{2}{9}$ da un'unione di segmenti di lunghezza $\nicefrac{2}{3}$:\\ $\mathcal{L}\left(C_2\right)=\mathcal{L}\left(C_1\right)-\nicefrac{2}{9}=\nicefrac{2}{3}$
+\end{itemize}
+% TO DO: finire spiegazione
+dopo infiniti passi arriviamo a $0$.
+\end{example}
+\subsection{Regolarità della misura di Lebesgue}
+Ora enunciamo una proprietà della misura di Lebesgue, detta \textbf{regolarità}\index{regolarità!della misura di Lebesgue}.
+\begin{theorema}[Regolarità della misura di Lebesgue.]~{}\label{regolaritàlebesgue}
+	Le seguenti affermazioni sono equivalenti:
+	\begin{enumerate}
+		\item $E\in\mathcal{L}\left(\realset^n\right)$.
+		\item $\forall \epsilon > 0\ \exists A_{\epsilon}$ aperto di $\realset^n$ tale che
+		\begin{itemize}
+			\item $E\subseteq A_{\epsilon}$.
+			\item $m^{X}_n\left(A_{\epsilon}\setminus E\right)<\epsilon$.
+		\end{itemize}
+	% TO DO: inserire immagine
+		\item $\exists B$ Borelliano di $\realset^n$ tale che
+	\begin{itemize}
+		\item $E\subseteq B$.
+		\item $m^{X}_n\left(B\setminus E\right)=0$.
+	\end{itemize}
+	% TO DO: inserire immagine
+	\item $\forall \epsilon > 0\ \exists C_{\epsilon}$ chiuso di $\realset^n$ tale che
+	\begin{itemize}
+		\item $E\supseteq C_{\epsilon}$.
+		\item $m^{X}_n\left(E\setminus C_{\epsilon}\right)<\epsilon$.
+	\end{itemize}
+	% TO DO: inserire immagine
+	\item $\exists D$ Borelliano di $\realset^n$ tale che
+	\begin{itemize}
+		\item $E\supseteq D$.
+		\item $m^{X}_n\left(E\setminus D\right)=0$.
+	\end{itemize}
+	% TO DO: inserire immagine
+	\end{enumerate}
+\end{theorema}
+\begin{demonstration}
+	% TO DO: recuperarla dal testo
+\end{demonstration}
+\subsection{Confronto tra la misura di Peano-Jordan e di Lebesgue}
+Come abbiamo visto, la misura di Peano-Jordan soddisfa solo alcune proprietà della misura in senso assiomatico, essendo $\sigma$-subadditiva, mentre la misura secondo Lebesgue è a tutti gli effetti una misura assiomatica moderna. Ci si può dunque chiedere se tali concetti sono incompatibili tra di loro oppure se c'è una qualche relazione tra di esse.\\
+È già noto che non tutti gli insiemi misurabili secondo Lebesgue lo sono secondo Peano-Jordan.
+\begin{example}
+	Consideriamo $E=\rationalset\cap\left[0,1\right]$.
+	\begin{itemize}
+		\item $E$ numerabile implica che $E$ è Lebesgue-misurabile e $m_1\left(E\right)=0$.
+		\item $E$ non è Peano-Jordan misurabile, in quanto
+		\begin{equation*}
+			m_{PJ}^{X}\left(E\right)=1\neq 0=m_{PJ,X}\left(E\right)
+		\end{equation*}
+	\end{itemize}
+\end{example}
+Invece, si vede banalmente che gli insiemi elementari, ossia le unioni di parallelepipedi $n$-dimensionali, sono misurabili sia secondo Lebesgue, sia secondo Peano-Jordan (a patto di fare un'unione finita di elementi); in particolare, le misure coincidono.
+\begin{gather*}
+	m_{PJ}\left(P\right)=m_n\left(P\right)=V_n\left(P\right)\\
+	m_{PJ}\left(\bigcup_{i=1}^{k}P_i\right)=m_n\left(\bigcup_{i=1}^{k}P_i\right)=\sum_{i=1}^{k}V_n\left(P_i\right)
+\end{gather*}
+Il seguente teorema ci afferma un risultato importante: \textit{tutti} gli insiemi misurabili secondo Peano-Jordan sono misurabili secondo Lebesgue e le misure in tal caso coincidono.
+\begin{theorema}[Equivalenza della misura di Peano-Jordan e Lebesgue.]~{}\\
+	Sia $E\subseteq\realset^n$ limitato. Allora
+	\begin{enumerate}
+		\item Se $E$ è Peano-Jordan misurabile allora $E$ è Lebesgue misurabile.
+		\item Se vale ciò, allora $m_{PJ}\left(E\right)=m_n\left(E\right)$.
+	\end{enumerate}
+\end{theorema}
+\begin{demonstration}
+	Dimostriamo il punto 1. Sia $E\subseteq \realset^n$ e Peano-Jordan misurabile. Per provare che $E$ è misurabile secondo Lebesgue usrermeo il teorema di regolarità visto a pag. \ref{regolaritàlebesgue}.\\
+	In particolare, proviamo che $\forall \epsilon >0\ \exists A_{\epsilon}$ aperto tale che
+	\begin{itemize}
+		\item $E\subseteq A_{\epsilon}$.
+		\item $m_n^{X}\left(A_{\epsilon}\setminus E\right)<\epsilon$.
+	\end{itemize}
+Sappiamo che $E$ è misurabile secondo Peano-Jordan, dunque per il criterio equivalente $\forall \epsilon >0 \ \exists A_{\epsilon},\ B_{\epsilon}$ unioni finite di parallelepipedi con $B_{\epsilon}\subseteq E\subseteq A_{\epsilon}$ tali che $m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon$. Allora l'insieme $A_{\epsilon}$ così definito è proprio quello che stavamo cercando. Noto innanzitutto che $A_{\epsilon}\setminus E\subseteq A_{\epsilon}\setminus B_{\epsilon}$, per monotonia della misura esterna otteniamo:
+\begin{equation*}
+	m_{n}^{X}\left(A_{\epsilon}\setminus E\right)<	m_{n}^{X}\left(A_{\epsilon}\setminus B_{\epsilon}\right)=m_{PJ}^X\left(A_{\epsilon}\setminus B_{\epsilon}\right)=m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon
+\end{equation*}
+\end{demonstration}
+\section{Generalizzazione del concetto di misura}
+% TO DO: il contesto storico
+\subsection{Definizione assiomarica di misura}
+\begin{define}[Misura e spazio di misura.]~{}\\
+	Dato $\left(X,\mathcal{M}\right)$ uno spazio misurabile, una funzione $\funz{\mu}{\mathcal{M}}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ è detta \textbf{misura}\index{misura} se soddisfa le seguenti proprietà:
+	\begin{itemize}
+		\item \textsc{\textbf{Non negatività:}} $\forall A\in\mathcal{M},\ \mu\left(A\right)\geq 0$.
+		\item \textsc{\textbf{Insieme vuoto nullo:}} $\mu\left(\emptyset\right)=0$.
+		\item $\sigma$-\textsc{\textbf{additività:}} $\forall A_n\in\mathcal{M}$ tali che $A_i\cap A_j=\emptyset\ \forall i\neq j$, allora
+		\begin{equation}
+			\mu\left(\coprod_{n\geq 1}A_n\right)=\sum_{n\geq 1}\mu\left(A_n\right)
+		\end{equation}
+	\end{itemize}
+	In tal caso la terna $\left(X,\mathcal{M},\mu\right)$ è detta \textbf{spazio di misura}\index{spazio!di misura}.
+	\begin{itemize}
+		\item $\mu$ si dice \textbf{finita}\index{misura!finita} se $\mu\left(X\right)<+\infty$.
+		\item $\mu$ si dice $\sigma$-\textbf{finita}\index{misura!$\sigma$-finita} se
+		\begin{itemize}
+			\item $\mu\left(X\right)=+\infty$.
+			\item $\displaystyle X=\bigcup_{n\geq 1}X_n$, con $X_n\in\mathcal{M}$ tale che $\mu\left(X_n\right)\leq +\infty$.
+		\end{itemize}
+	\end{itemize}
+\end{define}
+\begin{examples}\textsc{Spazi di misura.}
+	\begin{enumerate}
+		\item $\left(\realset^n,\mathcal{L}\left(\realset^n\right)\right)$ è spazio di misura con la \textbf{misura di Lebesgue}
+		\begin{equation}
+			\funz{m_n}{\mathcal{L}\left(\realset^n\right)}{\left[0,+\infty\right]}
+		\end{equation}
+		Osserviamo che $m_n$ è $\sigma$-finito perché $m_n\left(\realset^n\right)=+\infty$ con
+		\begin{equation*}
+			\realset^n=\bigcup_{n\geq 0}B_n\left(0\right)\quad\text{con }m_n\left(B_n\left(0\right)\right)<+\infty
+		\end{equation*}
+		\item Fissato $x_0\in X$ insieme qualunque, $\left(X,\setpart{X}\right)$ è spazio di misura con la funzione $\delta$ \textbf{di Dirac concentrata in} $x_0$\index{Delta di Dirac}:
+		\begin{equation}
+			\funztot{\delta}{\setpart{X}}{\left[0,+\infty\right]}{E}{\begin{cases}
+					\begin{array}{ll}
+						1&\text{se }x_0\in E\\
+						0&\text{se }x_0\notin E
+					\end{array}
+			\end{cases}}
+		\end{equation}
+		\item Preso $X$ insieme qualunque e scelti
+		\begin{itemize}
+			\item $\left\{x_n\right\}_{n\geq 0}$ una famiglia di elementi di $X$.
+			\item $p_n\geq 0, \forall n\geq 0$ dei \textbf{pesi}\index{peso}.
+		\end{itemize}
+	allora $\left(X,\setpart{X}\right)$ è spazio di misura con la \textbf{misura di conteggio pesata}\index{misura!di conteggio!pesata}:
+	\begin{equation}
+		\funztot{\mu}{\setpart{X}}{\left[0,+\infty\right]}{E}{\displaystyle\sum_{n\colon x_n\in E}p_n}
+	\end{equation}
+Se $\displaystyle\sum_{n\colon x_n\in E}p_n=1$ è una \textbf{misura di probabilità discreta}\index{misura!di probabilità discreta}, come la m.d.p. \textit{binomiale}, di \textit{Poisson}, ecc...\\
+\item Preso $X=\naturalset$, i punti $x_n=n, \forall n\geq 1$ e $p_n=1,\ \forall n\geq 1$, allora $\left(\naturalset,\setpart{\naturalset}\right)$ è spazio di misura con la \textbf{misura di conteggio semplice}\index{misura!di conteggio!semplice}, un caso particolare dell'esempio precedente:
+	\begin{equation}
+	\forall E\subseteq\naturalset,\ \mu\left(E\right)=\sum_{n\colon n\in E}1=\begin{cases}
+		\begin{array}{ll}
+			\# E&\text{se }E\text{ finito}\\
+			+\infty&\text{se }E\text{ infinito}
+		\end{array}
+	\end{cases}
+\end{equation}
+	\end{enumerate}
+\end{examples}
+
+
