@@ -24,6 +24,7 @@
 	\end{equation}
 	con $a_n$ numeri reali (eventualmente dipendenti da $n$) e $x,\ x_0\in A\subseteq\realset$, dove $x_0$ è dato.
 \end{define}
+%NOTA: che senso ha definirle in R se poi si passa subito a C?
 L'ambito naturale di studio delle serie di potenze è $\complexset$: da qui in poi considereremo la serie (con anche i suoi coefficienti) in campo complesso:
 \begin{equation}
 	\sum_{n=0}^{+\infty}a_n	\left(z-z_0\right)^n\qquad a_n,\ z\in\complexset
@@ -40,7 +41,7 @@ Ci interessa ora studiare in quale insieme di $\complexset$ tali serie convergon
 \begin{demonstration}
 	Sappiamo dalle ipotesi che la serie $\displaystyle\sum_{n=0}^{+\infty}a_nz_0^n$ è convergente, quindi per la condizione necessaria di convergenza il termine $a_nz_0^n$ tende a zero. Per definizione di limite significa che
 	\begin{equation*}
-		\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\in\naturalset\colon\forall n\geq N\ \abs{a_nz_0^n}<\epsilon
+		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\in\naturalset\colon\forall n\geq N,\ \abs{a_nz_0^n}<\epsilon
 	\end{equation*}
 	Scegliamo arbitrariamente $\epsilon = 1$, cioè $\exists N_1=N\left(1\right)\colon \forall n\geq N$ vale $\abs{a_nz_0^n}<1$.
 	Allora definitivamente vale
@@ -49,14 +50,15 @@ Ci interessa ora studiare in quale insieme di $\complexset$ tali serie convergon
 	\end{equation*}
 	Poiché per ipotesi $\abs{z}<\abs{z_0}$, vale $\abs{\frac{z}{z_0}}<1$ e quindi la serie geometrica $\displaystyle\sum_{n=0}^{+\infty}\abs{\frac{z}{z_0}}$ converge. Per il teorema di confronto segue che anche la serie $\displaystyle\sum_{n=0}^{+\infty}\abs{a_nz^n}$ è convergente e quindi $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge (assolutamente).
 \end{demonstration}
-Con questo non solo abbiamo dimostrato che se la serie di potenze converge in $z_0$ la serie converge in tutti i punti $z$ con $\abs{z}<\abs{z_0}$, ma implicitamente sappiamo anche che la serie \textit{non} converge in $z_0$ allora \textit{non} converge per $\abs{z}>\abs{z_0}$.\\
+Con questo non solo abbiamo dimostrato che se la serie di potenze converge in $z_0$ allora la serie converge in tutti i punti $z$ con $\abs{z}<\abs{z_0}$, ma implicitamente sappiamo anche che la serie \textit{non} converge in $z_0$ allora \textit{non} converge per $\abs{z}>\abs{z_0}$.\\
 Infatti, se in $z_0$ la serie non converge supponiamo per assurdo che esista $z^\ast$, con $\abs{z^\ast}>\abs{z_0}$, in cui la serie converge. Per il teorema appena dimostrato in tutti i punti $z$ con $\abs{z}<\abs{z^\ast}$ la serie di potenze converge, ma fra questi è compreso anche $z_0$ dove essa \textit{non} converge.
+%NOTA: non ho trovato questa parte sugli appunti ma mi sembra sensata
 \subsection{Il raggio di convergenza}
 Per queste osservazioni l'insieme di convergenza della serie è un \textit{cerchio} centrato nell'origine di un certo \textit{raggio} $R$. Diamo una definizione formale di questo raggio.
 \begin{define}[Cerchio e raggio di convergenza.]~{}\\
-	Preso $\displaystyle A=\left\{z\middle\vert\sum_{n=0}^{+\infty} a_n z^n \ \mbox{converge} \right\}\subseteq \complexset$ l'insieme di convergenza della serie di potenze centrata in $z_0=0$ e consideriamo l'insieme $E=\left\{\abs{z}\mid z\in A\right\}\subseteq\realset$ dato da tutti i moduli dei punti di convergenza della serie. Il \textbf{raggio di convergenza}\index{raggio di convergenza} è definito come
+	Prendiamo $\displaystyle A=\left\{z \ \middle\vert \ \sum_{n=0}^{+\infty} a_n z^n \ \mbox{converge} \right\}\subseteq \complexset$ l'insieme di convergenza della serie di potenze centrata in $z_0=0$ e consideriamo l'insieme $E=\left\{\abs{z}\mid z\in A\right\}\subseteq\realset$ dato da tutti i moduli dei punti di convergenza della serie. Il \textbf{raggio di convergenza}\index{raggio di convergenza} è definito come
 	\begin{equation*}
-		r\coloneqq\sup E=\sup\left\{\abs{z}\middle\vert\sum_{n=0}^{+\infty} a_n z^n \ \mbox{converge} \right\}
+		r\coloneqq\sup E=\sup\left\{\abs{z}\ \middle\vert \ \sum_{n=0}^{+\infty} a_n z^n \ \mbox{converge} \right\}
 	\end{equation*}
 	Esso può essere:
 	\begin{itemize}
@@ -69,8 +71,8 @@ Per queste osservazioni l'insieme di convergenza della serie è un \textit{cerch
 	\end{center}
 \end{define}
 Poiché sappiamo che la serie converge assolutamente per $\abs{z}<r$, lo studio del raggio di convergenza passa attraverso lo studio della serie assoluta associata $\displaystyle\sum_{n=0}^{+\infty}\abs{a_nz^n}$.\\
-Per determinare il raggio di convergenza, possiamo ad esempio usare la \textbf{legge di D’Alembert}\seeonlyindex{criterio!del rapporto}{legge!di D’Alembert} o detto anche \textit{criterio del rapporto}\index{criterio!del rapporto}, che ci fornisce una condizione \textit{sufficiente} su come determinare il raggio di convergenza.
-\begin{proposition}[Legge di D’Alembert o criterio del rapporto.]~{}\\
+Per determinare il raggio di convergenza, possiamo ad esempio usare il \textbf{criterio di D’Alembert}\seeonlyindex{criterio!del rapporto}{criterio!di D’Alembert} o detto anche \textit{criterio del rapporto}\index{criterio!del rapporto}, che ci fornisce una condizione \textit{sufficiente} su come determinare il raggio di convergenza.
+\begin{proposition}[Criterio di D’Alembert o del rapporto.]~{}\\
 	Data la serie $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$, se $a_n\neq 0$ definitivamente ed esiste il limite
 	\begin{equation*}
 		\lim_{n\to+\infty}\frac{\abs{a_{n+1}}}{\abs{a_{n}}}=L
@@ -83,8 +85,8 @@ Per determinare il raggio di convergenza, possiamo ad esempio usare la \textbf{l
 	\end{enumerate}
 \end{proposition}
 Questa proposizione ha il vantaggio di essere operativamente utile, ma ovviamente solo se valgono le ipotesi: non è scontato che il limite del rapporto sia ben definito!\\
-Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio della radice}\index{criterio!della radice} o altresì noto come \textbf{legge di Cauchy-Hadamard}\seeonlyindex{criterio!del rapporto}{legge!di Cauchy-Hadamard}.
-\begin{theorema}
+Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio della radice}\index{criterio!della radice} o altresì noto come \textbf{teorema di Cauchy-Hadamard}\seeonlyindex{criterio!del rapporto}{teorema!di Cauchy-Hadamard}.
+\begin{theorema}{\textsc{Teorema di Cauchy-Hadamard}}~{}\\
 	Sia data la serie di potenze
 	\begin{equation*}
 		\sum_{n=0}^{+\infty}a_nz^n
@@ -99,6 +101,7 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 		\item Se $0<\lambda<+\infty$, la serie converge $R=\frac{1}{\lambda}$.
 		\item Se $\lambda = +\infty$, la serie converge solo in $z=0$.
 	\end{enumerate}
+%PROBLEMA
 \end{theorema}
 \begin{observe}
 	I tre casi scritti esauriscono \textit{tutti} i casi possibili. Infatti, per la permanenza del segno del limsup\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} vale
@@ -106,7 +109,7 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 		\sqrt[n]{\abs{a_n}}\geq 0,\ \forall n\geq 0\implies\limsup_{n\to+\infty}\sqrt[n]{\abs{a_n}}\geq 0
 	\end{equation*}
 \end{observe}
-\begin{demonstration}\textsc{(della legge di Cauchy-Hadamard.)}~{}\\
+\begin{demonstration}\textsc{(del teorema di Cauchy-Hadamard.)}~{}\\
 	Partiamo dal dimostrare il punto $2)$: dobbiamo provare che $R=\frac{1}{\lambda}$, ossia
 	\begin{itemize}
 		\item Se $\abs{z}<\nicefrac{1}{\lambda}$, allora $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge.
