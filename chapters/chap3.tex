@@ -51,9 +51,7 @@ si dice che la serie $\displaystyle\sum_{k=0}^{+\infty}x_k$ \textbf{converge}\in
 Dalle ultime due relazioni si deduce immediatamente la prima relazione e dunque la tesi.
 \end{demonstration}
 \begin{observe}\label{convergenzaassolutadipendedacauchy}
-	Il teorema appena dimostrato è una conseguenza della \textbf{completezza} di $\realset$. Infatti, abbiamo usato il \textit{criterio di Cauchy}, che si basa sul fatto che le successioni di Cauchy convergono sempre in $\realset$ e quindi proprio per la completezza dei reali. 
-%NEW
-	\\
+	Il teorema appena dimostrato è una conseguenza della \textbf{completezza} di $\realset$. Infatti, abbiamo usato il \textit{criterio di Cauchy}, che si basa sul fatto che le successioni di Cauchy convergono sempre in $\realset$ e quindi proprio per la completezza dei reali.\\
 	Se lo spazio non è completo si ottiene solo che la successione delle ridotte è di Cauchy, e senza la completezza dello spazio non posso dire che convergono.
 \end{observe}
 Il viceversa del teorema appena dimostrato non è valido, come segue dal seguente controesempio.
@@ -96,7 +94,7 @@ Dall'osservazione a pag. \pageref{convergenzaassolutadipendedacauchy} il teorema
 \begin{demonstration}
 	La dimostrazione è analoga a quella affrontata nel teorema  \ref{teoremaassimplicasemplice}, pag. \pageref{teoremaassimplicasemplice}: è sufficiente sostituire al valore assoluto $\abs{\cdot}$ la norma $\norm{\cdot}$.
 \end{demonstration}
-In generale, il problema della convergenza in spazi normati è \textit{inesplorato}, ma se lo spazio è \textit{completo} possiamo passare per la \textit{convergenza totale} e studiare una serie a valori reali tramite i \textit{criteri di convergenza}\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{criteridiconvergenzaserie} è possibile trovare maggiori dettagli sui criteri di convergenza delle serie a valori reali.} noti dall'\textsc{Analisi Matematica 1}.\\
+In generale, il problema della convergenza in spazi normati è \textit{inesplorato}, ma se lo spazio è \textit{completo} possiamo passare per la \textit{convergenza totale} e studiare una serie a valori reali tramite i \textit{criteri di convergenza}\footnote{Nelle ‘‘Note aggiuntive'', a pag. \pageref{criteridiconvergenzaserie} è possibile trovare maggiori dettagli sui criteri di convergenza delle serie a valori reali.} noti dall'\textsc{Analisi Matematica 1}.\\
 \section{Serie di funzioni}
 Consideriamo lo spazio  $X=\mathcal{C}\left(\left[a,b\right];\ \realset\right)=\mathcal{C}\left(\left[a,b\right]\right)$ delle funzioni continue su un intervallo compatto con la \textit{metrica lagrangiana}:
 \begin{equation*}
@@ -125,10 +123,8 @@ con $A$ insieme contenuto nei reali o, ancora più in generale, per funzioni del
 \end{equation*}
 dove $X$ è un \textit{insieme qualunque} e $Y$ è uno \textbf{spazio normato completo}.\\
 Studieremo quindi in questo capitolo le \textbf{serie di funzioni}\index{serie!di funzioni} $\displaystyle\sum_{k=0}^{+\infty}f_k\left(x\right)$; per studiare la \textit{convergenza} di tali serie applicheremo le convergenze viste in precedenza alla \textit{successione delle ridotte} $\displaystyle S_n\left(x\right)=\sum_{k=0}^{n}f_k\left(x\right)$.
-%aggiunta così non si spezza l'uguaglianza :P
 \begin{define}[Convergenza di una serie di funzioni.]~{}\\
-%NEW
-	In queste definizioni la convergenza delle ridotte si trasferisce sulla convergenza della serie:
+In queste definizioni la convergenza delle ridotte si trasferisce sulla convergenza della serie:
 	\begin{itemize}
 		\item \textbf{(CP)} La serie $\displaystyle\sum_{k=0}^{+\infty}f_k\left(x\right)$ \textbf{converge puntualmente} in $x\in A$ se $S_n\left(x\right)$ converge puntualmente in $x\in A$.
 		\item \textbf{(CU)} La serie $\displaystyle\sum_{k=0}^{+\infty}f_k\left(x\right)$ \textbf{converge uniformemente} in $x\in A$ se $S_n\left(x\right)$ converge uniformemente su $A$.
@@ -180,8 +176,7 @@ Ci poniamo ora il problema di studiare come si modificano i teoremi di \textit{l
 	Per il teorema di limitatezza per le successioni, $S$ è limitata su $A$.
 \end{demonstration}
 \subsection{Continuità}
-%NEW
-Si ha che la continuità è del tutto analoga alla limitatezza.
+Notiamo immediatamente che il \textit{teorema di continuità per le serie} è del tutto analogo al \textit{teorema di limitatezza} appena dimostrato.
 \begin{theorema}[Teorema di continuità per serie.]~{}\\
 	Siano $\funz{f_n}{A\subseteq\realset}{\realset},\ n\geq 1$ tali che
 	\begin{enumerate}

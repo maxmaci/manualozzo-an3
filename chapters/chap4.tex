@@ -17,19 +17,14 @@
 \lettrine[findent=1pt, nindent=0pt]{L}{e} Nel \refChapter{convergenzafunzioni} abbiamo iniziato a trattare la convergenza uniforme e puntuale di successioni di funzioni. Adesso passiamo a parlare di serie di funzioni.
 \textbf{[COMPLETARE]} % TO DO: completare l'intro
 \section{Serie di potenze}\label{seriedipotenze}
-\begin{define}
+\begin{define}[Serie di potenze.]~{}\\
 	Una \textbf{serie di potenze}\index{serie!di potenze} è una serie di funzioni della forma
 	\begin{equation}
-		\sum_{n=0}^{+\infty}a_n	\left(x-x_0\right)^n
+		\sum_{n=0}^{+\infty}a_n	\left(z-z_0\right)^n
 	\end{equation}
-	con $a_n$ numeri reali (eventualmente dipendenti da $n$) e $x,\ x_0\in A\subseteq\realset$, dove $x_0$ è dato.
+	con $a_n$ numeri complessi (eventualmente dipendenti da $n$) e $z,\ z_0\in A\subseteq\complexset$, dove $z_0$ è dato.
 \end{define}
-%NOTA: che senso ha definirle in R se poi si passa subito a C?
-L'ambito naturale di studio delle serie di potenze è $\complexset$: da qui in poi considereremo la serie (con anche i suoi coefficienti) in campo complesso:
-\begin{equation}
-	\sum_{n=0}^{+\infty}a_n	\left(z-z_0\right)^n\qquad a_n,\ z\in\complexset
-\end{equation}
-dove $z\in A\subseteq\complexset$. Cambiando le variabili possiamo centrare la serie in $z_0=0$, cioè studiare la serie
+Cambiando le variabili possiamo \textit{centrare} la serie in $z_0=0$ e dunque studiare la serie
 \begin{equation}
 	\sum_{n=0}^{+\infty}a_nz^n=a_0+a_1z+a_2z^2+a_3z^3\ldots
 \end{equation}
@@ -51,8 +46,7 @@ Ci interessa ora studiare in quale insieme di $\complexset$ tali serie convergon
 	Poiché per ipotesi $\abs{z}<\abs{z_0}$, vale $\abs{\frac{z}{z_0}}<1$ e quindi la serie geometrica $\displaystyle\sum_{n=0}^{+\infty}\abs{\frac{z}{z_0}}$ converge. Per il teorema di confronto segue che anche la serie $\displaystyle\sum_{n=0}^{+\infty}\abs{a_nz^n}$ è convergente e quindi $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge (assolutamente).
 \end{demonstration}
 Con questo non solo abbiamo dimostrato che se la serie di potenze converge in $z_0$ allora la serie converge in tutti i punti $z$ con $\abs{z}<\abs{z_0}$, ma implicitamente sappiamo anche che la serie \textit{non} converge in $z_0$ allora \textit{non} converge per $\abs{z}>\abs{z_0}$.\\
-Infatti, se in $z_0$ la serie non converge supponiamo per assurdo che esista $z^\ast$, con $\abs{z^\ast}>\abs{z_0}$, in cui la serie converge. Per il teorema appena dimostrato in tutti i punti $z$ con $\abs{z}<\abs{z^\ast}$ la serie di potenze converge, ma fra questi è compreso anche $z_0$ dove essa \textit{non} converge.
-%NOTA: non ho trovato questa parte sugli appunti ma mi sembra sensata
+Infatti, se in $z_0$ la serie non converge supponiamo \textit{per assurdo} che esista $z^\ast$, con $\abs{z^\ast}>\abs{z_0}$, in cui la serie converge. Per il teorema appena dimostrato in tutti i punti $z$ con $\abs{z}<\abs{z^\ast}$ la serie di potenze converge, ma fra questi è compreso anche $z_0$ dove essa \textit{non} converge.
 \subsection{Il raggio di convergenza}
 Per queste osservazioni l'insieme di convergenza della serie è un \textit{cerchio} centrato nell'origine di un certo \textit{raggio} $R$. Diamo una definizione formale di questo raggio.
 \begin{define}[Cerchio e raggio di convergenza.]~{}\\
