@@ -38,11 +38,11 @@ si dice che la serie $\displaystyle\sum_{k=0}^{+\infty}x_k$ \textbf{converge}\in
 \begin{demonstration}
 	Per dimostrare che la serie $\displaystyle\sum_{k=0}^{+\infty}x_k$ converge, per il \textit{Criterio di Cauchy per le serie}\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{criteriodicauchy} è possibile trovare maggiori dettagli sui criteri di Cauchy.} è sufficiente provare che
 	\begin{equation*}
-		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \abs{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\epsilon
+		\forall \epsilon>0,\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset,\ \abs{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\epsilon
 	\end{equation*}
 	Per ipotesi la serie $\displaystyle\sum_{k=0}^{+\infty}\abs{x_k}$ converge: per il Criterio di Cauchy, si ha
 	\begin{equation*}
-		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \abs{\abs{x_{n+1}}+\abs{x_{n+2}}+\ldots+\abs{x_{n+p}}}=\abs{x_{n+1}}+\abs{x_{n+2}}+\ldots+\abs{x_{n+p}}<\epsilon
+		\forall \epsilon>0,\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset,\ \abs{\abs{x_{n+1}}+\abs{x_{n+2}}+\ldots+\abs{x_{n+p}}}=\abs{x_{n+1}}+\abs{x_{n+2}}+\ldots+\abs{x_{n+p}}<\epsilon
 	\end{equation*}
 	D’altra parte, dalla disuguaglianza triangolare segue che
 	\begin{equation*}
@@ -51,10 +51,13 @@ si dice che la serie $\displaystyle\sum_{k=0}^{+\infty}x_k$ \textbf{converge}\in
 Dalle ultime due relazioni si deduce immediatamente la prima relazione e dunque la tesi.
 \end{demonstration}
 \begin{observe}\label{convergenzaassolutadipendedacauchy}
-	Il teorema appena dimostrato è una conseguenza della \textbf{completezza} di $\realset$. Infatti, abbiamo usato il \textit{criterio di Cauchy}, che si basa sul fatto che le successioni di Cauchy convergono sempre in $\realset$ e quindi proprio per la completezza dei reali.
+	Il teorema appena dimostrato è una conseguenza della \textbf{completezza} di $\realset$. Infatti, abbiamo usato il \textit{criterio di Cauchy}, che si basa sul fatto che le successioni di Cauchy convergono sempre in $\realset$ e quindi proprio per la completezza dei reali. 
+%NEW
+	\\
+	Se lo spazio non è completo si ottiene solo che la successione delle ridotte è di Cauchy, e senza la completezza dello spazio non posso dire che convergono.
 \end{observe}
 Il viceversa del teorema appena dimostrato non è valido, come segue dal seguente controesempio.
-\begin{example}
+\begin{example}{\textsc{Convergenza semplice non implica convergenza assoluta}} ~{}\\
 	Consideriamo la serie $\displaystyle\sum_{n=1}^{+\infty}\left(-1\right)^n\frac{1}{n}$: non converge assolutamente in quanto la serie, con gli elementi in modulo, diventa
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}\abs{\left(-1\right)^n\frac{1}{n}}=\sum_{n=1}^{+\infty}\frac{1}{n}
@@ -73,7 +76,7 @@ Prendiamo ora $x_n\in X$, con $X$ un insieme generico. Per generalizzare la defi
 \end{itemize}
 Se dotiamo l'insieme $X$ di una struttura di \textbf{spazio normato} possiamo generalizzare ad una serie generale le definizioni precedentemente enunciate per le serie a valori reali: infatti, se $X$ è spazio normato gode sia dell'essere uno spazio metrico (e quindi è spazio topologico di Hausdorff, il che permette di definire univocamente la convergenza della successione) sia dell'essere spazio vettoriale (che permette la somma di elementi).\\
 \begin{define}[Serie e convergenza di una serie.]~{}\\
-	Data una successione $x_n\in X$ spazio \textit{normato}, $n\geq 0$, la \textbf{serie}\index{serie} $\displaystyle\sum_{k=0}^{+\infty}x_k$ è la somma di tutti gli elementi della successione.\\
+	Data una successione $x_n\in X$ in uno spazio \textit{normato}, $n\geq 0$, la \textbf{serie}\index{serie} $\displaystyle\sum_{k=0}^{+\infty}x_k$ è la somma di tutti gli elementi della successione.\\
 	Considerata la \textit{somma parziale}, o altresì detta \textbf{ridotta}\index{ridotta}
 	\begin{equation}
 		s_n=\sum_{k=0}^{n}x_k\quad\forall n\geq 0
@@ -121,8 +124,11 @@ con $A$ insieme contenuto nei reali o, ancora più in generale, per funzioni del
 	\funz{f_n}{X}{Y}
 \end{equation*}
 dove $X$ è un \textit{insieme qualunque} e $Y$ è uno \textbf{spazio normato completo}.\\
-Studieremo quindi le \textbf{serie di funzioni}\index{serie!di funzioni} $\displaystyle\sum_{k=0}^{+\infty}f_k\left(x\right)$; per studiare la \textit{convergenza} di tali serie applicheremo le convergenze viste in precedenza alla \textit{successione delle ridotte} $\displaystyle S_n\left(x\right)=\sum_{k=0}^{n}f_k\left(x\right)$.
+Studieremo quindi in questo capitolo le \textbf{serie di funzioni}\index{serie!di funzioni} $\displaystyle\sum_{k=0}^{+\infty}f_k\left(x\right)$; per studiare la \textit{convergenza} di tali serie applicheremo le convergenze viste in precedenza alla \textit{successione delle ridotte} $\displaystyle S_n\left(x\right)=\sum_{k=0}^{n}f_k\left(x\right)$.
+%aggiunta così non si spezza l'uguaglianza :P
 \begin{define}[Convergenza di una serie di funzioni.]~{}\\
+%NEW
+	In queste definizioni la convergenza delle ridotte si trasferisce sulla convergenza della serie:
 	\begin{itemize}
 		\item \textbf{(CP)} La serie $\displaystyle\sum_{k=0}^{+\infty}f_k\left(x\right)$ \textbf{converge puntualmente} in $x\in A$ se $S_n\left(x\right)$ converge puntualmente in $x\in A$.
 		\item \textbf{(CU)} La serie $\displaystyle\sum_{k=0}^{+\infty}f_k\left(x\right)$ \textbf{converge uniformemente} in $x\in A$ se $S_n\left(x\right)$ converge uniformemente su $A$.
@@ -138,8 +144,8 @@ Tuttavia, questa funzione richiede la conoscenza della \textit{somma} $S\left(z\
 \begin{proposition}[Criterio di Weierstrass.]~{}\\\label{criteriodiweierstrass}
 	Siano $\funz{f_n}{A\subseteq \complexset}{\complexset}$ tale che
 	\begin{enumerate}
-		\item $\forall n\ \exists c_n\in\realset\colon\ \abs{f_n\left(z\right)}\leq c_n,\ \forall z\in A$.
-		\item $\displaystyle\sum_{n=1}^{+\infty}c_n$ converge.
+		\item $\forall n\in \naturalset,\ \exists c_n\in\realset\colon\ \abs{f_n\left(z\right)}\leq c_n,\ \forall z\in A$.
+		\item $\displaystyle\sum_{n=1}^{+\infty}c_n$ converge (come serie numerica).
 	\end{enumerate}
 Allora $\displaystyle\sum_{n=1}^{+\infty}f_n\left(z\right)$ converge uniformemente in $A$.
 \end{proposition}
@@ -147,7 +153,7 @@ Allora $\displaystyle\sum_{n=1}^{+\infty}f_n\left(z\right)$ converge uniformemen
 	La dimostrazione utilizza il criterio di Cauchy per la convergenza uniforme.
 \end{observe}
 \begin{observe}\textsc{Significato del criterio.}\\
-	Le ipotesi $1)$ e $2)$ implicano immediatamente la convergenza puntuale della serie di potenze in ogni $z\in A$. Infatti, fissato $z$ ho la relazione $\abs{f_n\left(z\right)}\leq c_n$; da questo vale
+	Le ipotesi $1)$ e $2)$ implicano immediatamente la convergenza puntuale (assoluta) della serie di potenze in ogni $z\in A$. Infatti, fissato $z$ ho la relazione $\abs{f_n\left(z\right)}\leq c_n$; da questo vale
 	\begin{equation*}
 		\sum_{n=0}^{+\infty}\abs{f_n\left(z\right)}\leq \sum_{n=0}^{+\infty}c_n
 	\end{equation*}
@@ -166,7 +172,7 @@ Ci poniamo ora il problema di studiare come si modificano i teoremi di \textit{l
 	Allora, posto $\displaystyle S\left(x\right)=\sum_{n=0}^{+\infty}f_n,\ \forall x\in A$, $S\left(x\right)$ è limitata su $A$.
 \end{theorema}
 \begin{demonstration}
-	Posto $\displaystyle S_n\left(x\right)=\sum_{k=0}^{n}f_k\left(x\right),\ \forall x\in A$, allora si ha:
+	La strategia è passare per la successione delle ridotte. Posto $\displaystyle S_n\left(x\right)=\sum_{k=0}^{n}f_k\left(x\right),\ \forall x\in A$, allora si ha:
 	\begin{itemize}
 		\item $S_n$ limitata su $A$, poiché le $f_k$ lo sono.
 		\item $S_n$ convergente uniformemente a $S$ su $A$.
@@ -174,6 +180,8 @@ Ci poniamo ora il problema di studiare come si modificano i teoremi di \textit{l
 	Per il teorema di limitatezza per le successioni, $S$ è limitata su $A$.
 \end{demonstration}
 \subsection{Continuità}
+%NEW
+Si ha che la continuità è del tutto analoga alla limitatezza.
 \begin{theorema}[Teorema di continuità per serie.]~{}\\
 	Siano $\funz{f_n}{A\subseteq\realset}{\realset},\ n\geq 1$ tali che
 	\begin{enumerate}
@@ -183,6 +191,7 @@ Ci poniamo ora il problema di studiare come si modificano i teoremi di \textit{l
 	Allora, posto $\displaystyle S\left(x\right)=\sum_{n=0}^{+\infty}f_n,\ \forall x\in A$, $S\left(x\right)$ è continua su $A$.
 \end{theorema}
 \begin{demonstration}
+	La strategia è passare per la successione delle ridotte.
 	Posto $\displaystyle S_n\left(x\right)=\sum_{k=0}^{n}f_k\left(x\right),\ \forall x\in A$, allora si ha:
 	\begin{itemize}
 		\item $S_n$ continua su $A$, poiché le $f_k$ lo sono.
@@ -214,7 +223,7 @@ Ci poniamo ora il problema di studiare come si modificano i teoremi di \textit{l
 	\end{itemize}
 	Per il teorema di integrabilità per le successioni:
 	\begin{itemize}
-		\item $S\in\mathcal{R}\left(\left[a,b\right]\right)$.
+		\item $S\in\mathcal{R}\left(\left[a,b\right]\right)$ (somma di funzioni integrabili).
 		\item Vale il \textit{passaggio al limite sotto segno di integrale} per la successione delle ridotte, ossia
 		\begin{equation*}
 			\lim_{n\to+\infty}\int_{a}^{b}S_n\left(x\right)dx=\int_{a}^{b}S\left(x\right)dx
@@ -260,7 +269,7 @@ Verifichiamo le ipotesi:
 \begin{enumerate}
 	\item $S_n$ è derivabile su $\left(a,b\right)\, \forall n\geq 1$ perché lo sono le $f_k$ su $\left(a,b\right),\ \forall k\geq $.
 	\item $S_n\left(c\right)$ converge perché $\displaystyle\sum_{n=1}^{+\infty}f_n\left(c\right)$ converge per ipotesi.
-	\item $S'_n\left(x\right)=\sum_{k=1}^{n}f'_k\left(x\right)$ converge uniformemente su $\left(a,b\right)$ per ipotesi.
+	\item $S'_n\left(x\right)=\displaystyle\sum_{k=1}^{n}f'_k\left(x\right)$ converge uniformemente su $\left(a,b\right)$ per ipotesi.
 \end{enumerate}
 Allora per il teorema di derivazione per le successioni si ha che
 \begin{center}
@@ -268,10 +277,13 @@ Allora per il teorema di derivazione per le successioni si ha che
 \end{center}
 ossia, per definizione, che
 \begin{center}
-	$\sum_{n=1}^{+\infty}f\left(x\right)$ converge uniformemente su $\left(a,b\right)$
+	$\displaystyle\sum_{n=1}^{+\infty}f\left(x\right)$ converge uniformemente su $\left(a,b\right)$
 \end{center}
-Inoltre, definita $\displaystyle f\left(x\right)=\sum_{n=1}^{+\infty}f_n\left(x\right)=\lim_{n\to+\infty}S_n\left(x\right),\ \forall x\in\left(a,b\right)$, $f$ è derivabile su $\left(a,b\right)$ e
+Inoltre, definita la somma $\displaystyle f\left(x\right)=\sum_{n=1}^{+\infty}f_n\left(x\right)=\lim_{n\to+\infty}S_n\left(x\right),\ \forall x\in\left(a,b\right)$, si ha che $f$ è derivabile su $\left(a,b\right)$ e per il teorema di derivazione
 \begin{equation*}
 	f'\left(x\right)=\lim_{n\to+\infty}S'_n\left(x\right)=\lim_{n\to+\infty}\sum_{k=1}^{+\infty}f'_k\left(x\right)=\sum_{k=1}^{+\infty}f'_k\left(x\right),\ \forall x\in\left(a,b\right)
 \end{equation*}
 \end{demonstration}
+\begin{observe}
+	La derivazione termine a termine si può interpretare anche come "la derivata della serie è la serie delle derivate", estendendo così la regola delle somma \textit{finita} delle derivate.
+\end{observe}
