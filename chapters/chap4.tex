@@ -14,7 +14,7 @@
 		\textsc{Marinobot,} dopo aver finito le citazioni stupide.
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{L}{e} Nel \refChapter{convergenzafunzioni} abbiamo iniziato a trattare la convergenza uniforme e puntuale di successioni di funzioni. Adesso passiamo a parlare di serie di funzioni.
+\lettrine[findent=1pt, nindent=0pt]{L}{e} Nel \refChapterOnly{convergenzafunzioni} abbiamo iniziato a trattare la convergenza uniforme e puntuale di successioni di funzioni. Adesso passiamo a parlare di serie di funzioni.
 \textbf{[COMPLETARE]} % TO DO: completare l'intro
 \section{Serie di potenze}\label{seriedipotenze}
 \begin{define}[Serie di potenze.]~{}\\
@@ -352,7 +352,6 @@ Sia $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ una serie di potenze con $R>0$ il 
 	\end{minipage}\\
 	Per il teorema di continuità della funzione limite, $f$ è continua in $B_{R_0}\left(0\right)$ e dunque in $z_0$. 
 \end{demonstration}
-
 Questo risultato ci permette di parlare della convergenza sul disco aperto, ma se c'è qualche tipo di convergenza sul bordo, e quindi $f$ è definita anche su di esso, si può estendere la continuità di $f$ fino a tale frontiera? Studiamo due casi.
 \begin{corollary}[Proprietà di continuità per la somma di una serie di potenze, caso sul bordo con convergenza assoluta.]~{}\\
 	Sia data la serie di potenze $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ con raggio di convergenza $R>0$. Se la serie converge (assolutamente) su $\partial B_R\left(0\right)$ allora la serie è continua su $\overline{B_R\left(0\right)}$.
@@ -402,12 +401,14 @@ con $R>0$ il raggio di convergenza. Allora
 	\item $f$ è derivabile su $\left(-R,R\right)$
 	\item La derivata di $f$ è
 	\begin{equation}
-		f'\left(x\right)=\sum_{n=1 \footnote{Si parte per $n=1$ perché per $n=0$ non avrei $\frac{1}{x}$ definito in $x=0$ }} ^{+\infty}na_nx^{n-1}, \ \forall x\in\left(-R,R\right)
+		f'\left(x\right)=\sum_{n=1}^{+\infty}na_nx^{n-1}, \ \forall x\in\left(-R,R\right)
 	\end{equation}
-%NOTA: il footnote all'interno dell'equazione non mi piace tantissimo perché compare una a che sembra un simbolo (tra l'altro è esattamente la stessa a di prima), però non saprei dove altro appiccicarlo
 \end{enumerate}
 \end{theorema}
-Per dimostrare questo teorema useremo il teorema di derivabilità per serie di funzioni (teorema \ref{derivabilitatermineatermine}, pag. \pageref{derivabilitatermineatermine}, capitolo \refChapter{seriefunzioni}): poiché le ipotesi $1)$ e $2)$ sono banalmente verificate, dobbiamo contrarci sull'ipotesi $3)$, ovvero abbiamo bisogno di informazioni sulla convergenza uniforme della serie delle derivate $\displaystyle\sum_{n=1}^{+\infty}na_nx^{n-1}$; poiché la serie delle derivate è ancora una serie di potenze, allora ci basta studiare il raggio di convergenza.
+\begin{observe}
+	Nell'equazione della derivata di $f$ la sommatoria parte da $n=1$ in quanto il termine per $n=0$ è identicamente uguale a zero; inoltre, se così non fosse, il primo termine sarebbe $a_0\frac{1}{x}$, che non è definito in $x=0$, contraddicendo la prima delle due tesi.
+\end{observe}
+Per dimostrare questo teorema useremo il teorema di derivabilità per serie di funzioni (teorema \ref{derivabilitatermineatermine}, pag. \pageref{derivabilitatermineatermine}, capitolo \refChapterOnly{seriefunzioni}): poiché le ipotesi $1)$ e $2)$ sono banalmente verificate, dobbiamo contrarci sull'ipotesi $3)$, ovvero abbiamo bisogno di informazioni sulla convergenza uniforme della serie delle derivate $\displaystyle\sum_{n=1}^{+\infty}na_nx^{n-1}$; poiché la serie delle derivate è ancora una serie di potenze, allora ci basta studiare il raggio di convergenza.
 % TO DO: nelle Note extra a pagina XXX inserire il prodotto del lim sup
 \begin{lemming}[Convergenza della serie di derivate della serie di potenze.]~{}\\
 	Sia data la serie di potenze $\displaystyle\sum_{n=0}^{+\infty}a_nx^n$ e sia $R>0$ il suo raggio di convergenza. Allora la serie di potenze $\displaystyle\sum_{n=1}^{+\infty}na_nx^{n-1}$ ha lo stesso raggio di convergenza $R$.
@@ -515,7 +516,7 @@ Diamo una definizione formale del termine ‘‘funzione analitica'' che abbiamo
 		\item f si dice \textbf{analitica in }$U$ se è analitica in ogni punto $x_0\in U$. In questo caso si scrive $f\in\mathcal{A}\left(U\right)$.
 	\end{enumerate}
 \end{define}
-Il problema della \textit{ricostruzione} di una funzione come somma della sua serie di Taylor, introdotto nello studio della lunghezza dell'ellisse nel \refChapter{ellipseintroduction}, si può anche formulare come
+Il problema della \textit{ricostruzione} di una funzione come somma della sua serie di Taylor, introdotto nello studio della lunghezza dell'ellisse nel \refChapterOnly{ellipseintroduction}, si può anche formulare come
 \begin{center}
 	‘‘Ogni funzione $f\in\mathcal{C}^{\infty}\left(U\right)$ è anche analitica su $U$?''
 \end{center}
@@ -524,9 +525,8 @@ ossia
 	f\in\mathcal{C}^{\infty}\left(U\right)\stackrel{?}{\implies}f\in\mathcal{A}\left(U\right)
 \end{equation*}
 In generale la risposta è \textbf{no}, come possiamo vedere nell'esempio successivo.
-%NOTA: non funziona il titoletto nell'esempio
-\begin{example}[Controesempio funzione $\mathcal{C}^{\infty}$ ma non analitica] ~{}\\
-	Consideriamo la funzione
+\begin{example}\textsc{Controesempio funzione $\mathcal{C}^{\infty}$ ma non analitica.}\\
+Consideriamo la funzione
 	\begin{equation*}
 		f\left(x\right)=
 		\begin{cases}
@@ -536,14 +536,38 @@ In generale la risposta è \textbf{no}, come possiamo vedere nell'esempio succes
 			\end{array}
 		\end{cases}
 	\end{equation*}
-$f$ è certamente di classe $\mathcal{A}^{\infty}\left(\realset\setminus\left\{0\right\}\right)$; si verifica che esiste $f^{\left(k\right)}=0,\ \forall k\geq 0$ e che $f^{\left(k\right)}\in\mathcal{C}\left(\realset\right),\ \forall k\geq 0$, dunque $f\in\mathcal{C}\left(\realset\right)$:\\
+\begin{itemize}
+	\item $f$ è certamente di classe $\mathcal{A}^{\infty}\left(\realset\setminus\left\{0\right\}\right)$.
+	\item Dimostriamo che esiste $f^{\left(k\right)}\left(0\right),\ \forall k\geq 0$, che essa sia uguale a $0$ per ogni $k$ e che $f^{\left(k\right)}\in\mathcal{C}\left(\realset\right),\ \forall k\geq 0$.\\
+	Per far ciò, innanzitutto mostriamo per \textit{induzione} su $k$ che per ogni $k\geq 0$ esiste un polinomio $P_{3k}$ di grado $3k$ tale per cui
+	\begin{equation*}
+		f^{(k)}\left(x\right)=P_{3k}\left(x^{-1}\right)e^{-\frac{1}{x^2}},\ \forall x\neq 0
+	\end{equation*}
+La relazione è banalmente vera per $k=0$. quindi proviamo ora il passo induttivo: supponiamo che sia vera la relazione per ogni intero minore o uguale a $k$ e dimostriamo che è vera per $k+1$. A tal fine deriviamo la relazione corrispondente all'interno $k$, ottenendo
+\begin{equation*}
+	f^{(k+1)}(x)=-P'_{3k}(x^{-1})x^{-2}\, e^{-1/x^2}+2x^{-3} P_{3k}(x^{-1})\, e^{-1/x^2},\quad \forall \ x\neq 0
+\end{equation*}
+e dunque
+\begin{equation*}
+	f^{(k+1)}(x)=Q(x^{-1})\, e^{-1/x^2},\quad \forall \ x\neq 0,
+\end{equation*}
+dove
+\begin{equation*}
+	Q(u)=- u^2 P'_{3k}(u) +2u^3 P_{3k}(u),\quad \forall \ u\neq 0
+\end{equation*}
+Osserviamo che $P'_{3k}$ è un polinomio di grado $3k-1$; si ricava quindi che $u^2P'_{3k}\left(u\right)$ è un polinomio di grado $3k+1$, mentre $2u^3P_{3k}\left(u\right)$ è un polinomio di grado $3k+3$. Concludiamo che $Q$ è un polinomio di grado $3k+3=3\left(k+1\right)$, come richiesto.
+Utilizzando i confronti di crescita, dalla relazione appena mostrata si vede che
+\begin{equation*}
+\lim_{x\to 0} f^{(k)}(x)=\lim_{x\to 0} P_{3k}(x^{-1})\, e^{-1/x^2}=0,\quad \forall \ k\geq 0
+\end{equation*}
+e dunque esiste $f^{(k)}(0)$, per ogni $k\geq 0$, e si ha $f^{(k)}(0)=0$. Inoltre, la funzione $f^{(k)}$ è continua in $x=0$, per costruzione; concludiamo quindi che $f\in \mathcal{C}^{\infty}\left(\realset\right)$.
+\end{itemize}
 Tuttavia, $f\notin\mathcal{A}\left(\realset\right)$. Infatti, la serie di Taylor centrata in $x_0=0$ è
 \begin{equation*}
 	\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(0\right)}{k!}x^k=\sum_{k=0}^{+\infty}\frac{0}{k!}x^k\equiv 0
 \end{equation*}
-che converge ma \textit{non} a $f$, ossia $f\left(x\right)\neq 	\displaystyle \sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(0\right)}{k!}x^k,\ \forall x\neq 0$.
+che sì converge, ma \textit{non} a $f$, ossia $\displaystyle f\left(x\right)\neq \sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(0\right)}{k!}x^k,\ \forall x\neq 0$.
 \end{example}
-% TO DO: controesempio su moodle
 Bisogna quindi capire sotto quali ipotesi ulteriori una funzione di classe $\mathcal{C}^{\infty}$ è anche analitica, ovvero si può scrivere come somma della sua serie di Taylor: in particolare dobbiamo verificare che la seria innanzi tutto converga e che converga alla $f$ voluta (il che non è successo nell'esempio precedente). Cerchiamo a tal scopo una condizione \textit{sufficiente}.\\
 Riprendiamo il problema come era stato posto originalmente; approssimiamo $f$ con il \textit{polinomio} di Taylor, tenendo conto del \textit{resto} $R_n\left(x\right)$:
 \begin{equation*}
@@ -599,7 +623,43 @@ Dunque esiste sempre $n_0$ tale che $\forall n\geq n_0$ si ha $\frac{n!}{r_0^n}>
 	\abs{f^{\left(n\right)}\left(x\right)}\leq M<M\frac{n!}{r_0^n},\ \forall x\in\left(x_0-r_0,\ x_0+r_0\right),\ \forall n\geq n_0
 \end{equation*}
 \end{observe}
-\section{Esempi di funzioni analitiche}
+\subsection{Eserciziamoci! Funzioni analitiche e serie di Taylor}
+\begin{exercise}
+Sia data la serie di potenze
+\begin{equation*}
+	\sum_{n=0}^{+\infty} a_n x^n, \quad a_n\in \realset
+\end{equation*}
+Sia $R>0$ il suo raggio di convergenza e sia
+\begin{equation*}
+	f(x)=\sum_{n=0}^{+\infty} a_n x^n, \quad \forall \ x\in (-R,R)
+\end{equation*}	
+Provare che $f\in \mathcal{A}((-R,R))$.
+\end{exercise}
+\begin{solution}
+	La tesi da dimostrare è
+	\begin{equation*}
+		\forall \ x_0\in (-R,R) \quad \exists \ r_0>0\quad \exists \{b_n\}_{n\in \naturalset}: \quad f(x)=\sum_{n=0}^{+\infty} b_n (x-x_0)^n,\quad \forall \ x\in (x_0-r_0,x_0+r_0).
+	\end{equation*}
+Fissiamo $x_0\in\left(-R,R\right)$ e consideriamo $r_0\coloneqq R-\abs{x_0}>0$; $\forall x\in \left(x_0-r_0,x_0+r_0\right)$, applicando la formula del binomio di Newton si ricava
+\begin{equation*}
+	f(x)=\sum_{n=0}^{+\infty} a_n x^n=\sum_{n=0}^{+\infty} a_n (x-x_0+x_0)^n = \sum_{n=0}^{+\infty} a_n \sum_{k=0}^{n} \binom{n}{k} x_0^{n-k} (x-x_0)^k.
+\end{equation*}
+Possiamo scambiare l'ordine delle sommatorie in quanto la serie doppia
+\begin{equation*}
+	\sum_{n=0}^{+\infty} \sum_{k=0}^{n} \abs{a_n} \binom{n}{k} \abs{x_0}^{n-k} \abs{x-x_0}^k=\sum_{n=0}^{+\infty} \abs{a_n} (\abs{x-x_0}+\abs{x_0})^n
+\end{equation*}
+converge, infatti $\abs{x-x_0}+\abs{x_0}<r_0+\abs{x_0}=R$.\\
+Scambiamo allora l'ordine e cambiamo nome agli indici, ottenendo
+\begin{equation*}
+	f\left(x\right)=f(x)=\sum_{m=0}^{+\infty} \sum_{n=0}^{+\infty} a_{n+m} \binom{n+m}{n} x_0^{n} (x-x_0)^m=\sum_{m=0}^{+\infty} b_m (x-x_0)^m
+\end{equation*}
+con
+\begin{equation*}
+	b_m=\sum_{n=0}^{+\infty} a_{n+m} \binom{n+m}{n} x_0^{n}.
+\end{equation*}
+\end{solution}
+
+\subsection{Esempi di funzioni analitiche}
 \begin{theorema}[Analiticità di {$e^x$}, {$\cos x$}, {$\sin x$}, {$\left(1+x\right)^\alpha$}.]~{}\\
 	Le funzioni $e^x$, $\cos x$, $\sin x$, $\left(1+x\right)^\alpha$ con $\alpha\in\realset$ sono analitiche in $x_0=0$ e vale
 	\begin{align}
@@ -805,7 +865,7 @@ e questo consente di concludere la tesi.
 	L'\textit{invertibilità} è però garantita consentendo come inversa una \textit{funzione multivoca}.
 \end{observe}
 \begin{define}[Funzione multivoca.]~{}\\
-	Una \index{funzione!multivoca} è una \textit{relazione binaria seriale} che associa ad ogni valore $x$ nel dominio $X$ uno o più valori $y$ nel codominio $Y$.
+	Una \textbf{funzione multivoca}\index{funzione!multivoca} è una \textit{relazione binaria seriale} che associa ad ogni valore $x$ nel dominio $X$ uno o più valori $y$ nel codominio $Y$.
 \end{define}
 \subsection{Funzione logaritmo in campo complesso}
 \begin{define}[Logaritmo in campo complesso.]~{}\\
@@ -850,4 +910,9 @@ Si presti attenzione al diverso significato del simbolo $\log$ nella formula car
 In figura sono rappresentati alcuni dei logaritmi complessi di un numero complesso \textit{non nullo} $z$.\\
 % TO DO: inserire immagine logaritmo
 Come si osserva dalla formula essi hanno tutti la \textit{stessa parte reale} e parti immaginarie che \textit{differiscono} per multipli di $2\pi$.
-% TO DO: inserire eserciziamoci
+\subsection{Eserciziamoci! Funzioni esponenziale e logaritmo in campo complesso}
+\begin{exercise}
+	Il modulo del numero complesso $e^{iz}$, con $z\in\complexset$, è:
+\end{exercise}
+\begin{solution}
+\end{solution}
