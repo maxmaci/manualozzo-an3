@@ -5,548 +5,722 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Assiomi di numerabilità e successioni}
-\labelChapter{successioni}
+\chapter{Integrale di Lebesgue}
+\labelChapter{integraledilebesgue}
 
 \begin{introduction}
-‘‘Non ti ho tradito! Dico sul serio... Ero... rimasto senza benzina. Avevo una gomma a terra. Non avevo i soldi per prendere il taxi. La tintoria non mi aveva portato il tight. C'era il funerale di mia madre! Era crollata la casa! C'è stato un... terremoto! Una tremenda inondazione! Le cavallette! Non è stata colpa mia! Lo giuro su Dio!''
-\begin{flushright}
-	\textsc{Jake "Joliet" Blues,} The Blues Brothers.
-\end{flushright}
+	‘‘BEEP BOOP QUESTA È UNA CITAZIONE.''
+	\begin{flushright}
+		\textsc{Marinobot,} dopo aver finito le citazioni stupide.
+	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{D}{allo}  studio dell'\textit{Analisi} sono ben note le \textit{successioni} a valori reali e le loro proprietà. In questo capitolo porremo la nostra attenzione sulle \textbf{successioni} con codominio uno \textit{spazio topologico}. Inoltre, riprenderemo dal \autoref{chap:Connessocompatto} la trattazione dei \textit{compatti} per studiare la relazione che hanno con le successioni.\\
-Prima fare tutto ciò, tuttavia, abbiamo bisogno di introdurre degli \textbf{assiomi di numerabilità}, in modo da garantire l'esistenza di insiemi \textit{numerabili} di oggetti topologici; la maggior parte degli spazi topologici più comuni soddisfano almeno uno di questi assiomi.\\
-Il capitolo si conclude con un approfondimento delle successioni negli spazi metrici.
-\section{Numerabilità}
-\begin{define}[Insieme numerabile.]~{}\\
-Un insieme $X$ è \textbf{numerabile}\index{numerabile} o di \textit{cardinalità numerabile} se è finito oppure esiste una biezione tra l'insieme $X$ e i naturali $\naturalset$.
-\end{define}
-\begin{define}[Secondo assioma di numerabilità {(A base numerabile)}.]~{}\\
-Uno spazio topologico $X$ è \textbf{a base numerabile}\seeonlyindex{a base numerabile}{assioma di numerabilità!secondo} se esiste una base $\basis$ della topologia tale che $\basis$ sia di \textit{cardinalità numerabile}.
-Si dice anche che $X$ soddisfa il \textbf{{\small secondo assioma di numerabilità}}\index{assioma di numerabilità!secondo}.
-\end{define}
-\begin{define}[Primo assioma di numerabilità.]~{}\\
-Uno spazio topologico $X$ è \textit{primo numerabile}\seeonlyindex{primo numerabile}{assioma di numerabilità!primo} se ogni punto ammette un sistema fondamentale di intorni che sia numerabile. Si dice anche che $X$ soddisfa il \textbf{primo assioma di numerabilità}\index{assioma di numerabilità!primo}.
-\end{define}
-\begin{observes}~{}
+\lettrine[findent=1pt, nindent=0pt]{D}{allo} \textbf{[COMPLETARE.]}
+\section{I tre passi dell'integrale astratto di Lebesgue}
+La definizione che daremo \textit{non} è la stessa enunciata da Lebesgue, limitata alle funzioni \textit{da valori reali a valori reali}, bensì una generalizzazione avvenuta successivamente atta ad \textit{astrarre} (da qui il termine) il concetto di integrale a funzioni da uno spazio di misura a valori reali (estesi) o complessi.\\
+Premettiamo innanzitutto alcune osservazioni su come questa definizione si distinguerà da quella di \textit{integrale di Riemann}:
 \begin{enumerate}
-\item Il secondo assioma di numerabilità implica il primo.
-\item Se $X$ è finito, $X$ soddisfa sempre i due assiomi.
-\item Se $X$ è spazio metrico, $X$ è sempre \textit{primo numerabile}.
-\item Se $X$ è \textit{a base numerabile}, ogni sottospazio $Y$ di $X$ è \textit{a base numerabile}. In particolare $Y$ è primo numerabile.
-\item Se $X$ e $Y$ sono \textit{a base numerabile}, allora $X\times Y$ è \textit{a base numerabile}. In particolare $X\times Y$ è primo numerabile.
-\item Non è vero che il quoziente di $X$ spazio \textit{a base numerabile} (o \textit{primo numerabile}) è sempre \textit{a base numerabile} (o \textit{primo numerabile}).
+	\item La definizione si dà per funzioni definite su uno spazio di misura $\left(X,\mathcal{M},\mu\right)$, mentre per Riemann le funzioni erano definite su $\realset$ o al più su $\realset^n$.	
+	\item La definizione \textit{non} richiede alcuna ipotesi sulla misura di $X$, non distinguendo neanche casi tra misura finita e misura infinita.
 \end{enumerate}
-\vspace{-3mm}
-\end{observes}
-\begin{demonstration}~{}
-\begin{enumerate}[label=\Roman*]
-	\item Se $X$ ha base numerabile $\basis$ e $x\in X$, allora $\left\{A\in \basis\mid x\in A\right\}$ è un sistema fondamentali di intorni di $x$ ed è chiaramente numerabile.
-	\item Ogni base e sistema fondamentale di intorni contiene necessariamente un numero finito di elementi.
-	\item Preso $x\in X$, allora $\left\{B_{\nicefrac{1}{n}}\left(x\right)\right\}_{n\in\naturalset}$ è un sistema fondamentale di intorni ed è numerabile.
-	\item Se $\basis$ è una base numerabile per $X$, $\left\{A\cap Y\mid A\in \basis\right\}$ è base numerabile per $Y$.
-	\item Se $\basis_X$ è una base numerabile per $X$ e $\basis_Y$ base numerabile per $Y$, allora $\left\{A\times B\mid A\in \basis_X,\ B\in\basis_Y\right\}$ è base di $X\times Y$ numerabile: il prodotto cartesiano di due insiemi numerabili rimane numerabile.
-	\item La contrazione di $\integerset$ in $\realset$ ad un punto, cioè il quoziente $\nicefrac{\realset}{\integerset}$, non è primo numerabile né tanto meno a base numerabile, pur essendo $\realset$ a base numerabile in quanto metrico\footnote{Nelle ‘‘Note aggiuntive'', a pag. \pageref{dimostrazionenonnumerabilità}, si può trovare la dimostrazione di ciò.}.
-\end{enumerate}
-\vspace{-3mm}
-\end{demonstration}
-\begin{example}
-	$\realset$ con la topologia Euclidea è \textit{a base numerabile}. Infatti, presa:
-	\begin{equation*}
-		\basis=\left\{\left(a,\ b\right)\mid a,\ b\in \rationalset,\ a<b\right\}
-	\end{equation*}
-	\begin{itemize}
-		\item È numerabile (è definita con i razionali $\rationalset$, che sono numerabili)
-		\item È una base perché, dati $x,\ y\in\realset,\ x<y$:
-		\begin{equation*}
-			\left(x,\ y\right)=\bigcup_{\substack{a, b\in\rationalset\\x<a<b<y}}\left(a,\ b\right)
-		\end{equation*}
-	\end{itemize}
-\vspace{-6mm}
-\end{example}
-\begin{proposition}[Ogni ricoprimento aperto ammette un sottoricoprimento numerabile in spazio a base numerabile.]~{}\\
-Sia $X$ \textit{a base numerabile}. Allora ogni ricoprimento aperto di $X$ ammette un sottoricoprimento numerabile.
-\end{proposition}
-\begin{demonstration}
-Sia $\mathcal{A}$ un ricoprimento aperto di $X$, $\basis$ una base numerabile per $X$ e $x\in X$. Allora $\exists U_x\in\mathcal{A}$ tale che $x\in U_x$. Essendo $\basis$ base, $\exists B_x\in\basis$ tale che $x\in B_x\subseteq U_x$.\\
-Abbiamo così determinato un sottoinsieme numerabile della base $\basis$:
-\begin{equation*}
-\widetilde{\basis}\coloneqq\left\{B_x\mid x\in X\right\}
-\end{equation*}
-Allora esiste in particolare $E\subseteq X$ numerabile tale che:
-\begin{equation*}
-\widetilde{\basis}\coloneqq\left\{B_x\mid x\in E\right\}
-\end{equation*}
-Se consideriamo ora $\widetilde{\mathcal{A}}\coloneqq\left\{U_x\mid x\in E\right\}$, notiamo che:
+La definizione viene data per \textit{passaggi successivi}, utilizzando a partire dal passo 2 i passaggi precedenti. Supponiamo sempre di considerare funzioni con dominio un generico \textit{spazio di misura} $\left(X,\mathcal{M},\mu\right)$.
 \begin{itemize}
-	\item $\widetilde{\mathcal{A}}\subseteq \mathcal{A}$.
-	\item $\widetilde{\mathcal{A}}$ è numerabile perché lo è $E$.
-	\item $\displaystyle X=\bigcup_{B_x\in\widetilde{\basis}}B_x=\bigcup_{x\in E}B_x\subseteq \bigcup_{x\in E}U_x $.
+	\item \textbf{\textsc{Passo 1:}} definiamo l'integrale per funzioni $\funz{s}{X}{\left[0,+\infty\right)}$ \textbf{semplici}, misurabili e non negative.
+	\item \textbf{\textsc{Passo 2:}} definiamo l'integrale per funzioni
+	$\funz{f}{X}{\left[0,+\infty\right]}$ \textbf{misurabili}, non negativi.
+	\item \textbf{\textsc{Passo 3:}} definiamo l'integrale per funzioni $\funz{f}{X}{\complexset}$ \textbf{misurabili} e \textbf{[...]}. % + IPOTESOPOLA MISTERIOSA CHE DEFINIREMO PIù AVANTI
 \end{itemize}
-Segue che $\widetilde{\mathcal{A}}$ è un sottoricoprimento numerabile di $\mathcal{A}$.
-\end{demonstration}
-\begin{define}[Spazio separabile.]~{}\\
-Uno spazio topologico $X$ si dice \textbf{separabile}\index{spazio!separabile} se contiene un sottoinsieme $E$ \textit{denso} e \textit{numerabile}.
+Prima di passare ai passi qui sopra enunciati, dobbiamo definire cos'è una \textit{funzione semplice} e capire come mai sono così importanti per l'integrale di Lebesgue.
+\section{Funzioni semplici}
+\begin{define}[Funzione semplice.]~{}\\
+Una funzione $\funz{s}{\left(X,\mathcal{M}\right)}{\left[0,+\infty\right)}$, con $\left(X,\mathcal{M}\right)$ spazio misurabile, è detta \textbf{semplice}\index{funzione!semplice} se la sua immagine $S\left(X\right)$ è \textit{finita}.
 \end{define}
-\begin{examples}~{}
-	\begin{itemize}
-		\item Se $X$ è numerabile, allora è separabile perché l'insieme stesso è un sottoinsieme numerabile e denso.
-		\item $\realset^n$ con la topologia Euclidea è separabile perché si ha $E=\rationalset^n$ denso in $\realset^n$.
-	\end{itemize}
-\vspace{-3mm}
-\end{examples}
-\begin{lemming}[Base numerabile implica separabile.]~{}\label{basenumseparabile}\\
-Se $X$ è \textit{a base numerabile}, allora è \textit{separabile}.
-\end{lemming}
-\begin{demonstration}
-	Sia $\basis$ una base numerabile. Per ogni $U\in\basis$ sia $x_U\in U$ un punto e sia:
-	\begin{equation*}
-		E=\left\{x_U\mid U\in \basis\right\}
-	\end{equation*}
-\begin{itemize}
-	\item $E$ è numerabile perché lo è $\basis$: abbiamo preso un punto per ogni elemento della base numerabile.
-	\item $E$ è denso: se $A\subseteq X$ è aperto \textit{non} vuoto, allora $\exists U\in\basis$ tale che $x_u\in U\subseteq A\implies x_U\in A\implies E\cap A\neq \emptyset$.
-\end{itemize}
-\vspace{-3mm}
-\end{demonstration}
-\begin{proposition}[$X$ metrico a base numerabile se e solo se separabile.]~{}\\
-	Se $X$ è spazio metrico, $X$ è sempre primo numerabile ed è:
-	\begin{center}
-		\textit{a base numerabile} $\iff$ \textit{separabile}
-	\end{center}
-\vspace{-6mm}
-\end{proposition}
-\begin{demonstration}~{}\\
-$\impliesdx$Sempre vera per ogni spazio anche non metrico (lemma \ref{basenumseparabile}).\\
-$\impliessx$Sia $E\subseteq X$ sottoinsieme numerabile e denso e consideriamo:
+Se $s$ ha l'immagine finita di cardinalità $n$, allora esistono $n$ valori distinti $\alpha_1,\ldots,\alpha_n$  valori \textit{distinti} tali che
 \begin{equation*}
-	\basis=\left\{B_{\nicefrac{1}{n}}\left(e\right)\mid e\in E,\ n\in \naturalset\right\}
+	s\left(X\right)=\left\{\alpha_1,\ldots,\alpha_n\right\}
 \end{equation*}
-Questo insieme è numerabile: mostriamo che sia una base. Per far ciò fissiamo $U\subseteq X$ aperto e prendiamo $x\in U$: vogliamo trovare un aperto di $\basis$ contenuto in $U$ contenente $x$.\footnote{Gli elementi della base sono già aperti banalmente. Per l'arbitrarietà di $x$, troviamo un ricoprimento aperto di $U$ costituito da aperti di $\basis$ contenuto interamente in $U$, cioè $\displaystyle U=\bigcup_{i\in I}B_i$.}\\
-Sia $n\in\naturalset$ tale che $B_{\nicefrac{1}{n}}\left(x\right)\subseteq U$. Cerchiamo opportuni $e\in E,\ m\in\naturalset$ tale che:
-\begin{equation*}
-x\in B_{\nicefrac{1}{m}}\left(e\right)\subseteq B_{\nicefrac{1}{n}}\left(x\right)\subseteq U
-\end{equation*}
-Consideriamo la palla $B_{\nicefrac{1}{2n}}\left(x\right)$. Siccome $E$ è denso in $X$, $\exists e\in E\cap B_{\nicefrac{1}{2n}}\left(x\right)$.\\
-Prendiamo ora la balla $B_{\nicefrac{1}{2n}}\left(e\right)\in\basis$:
-\begin{itemize}
-	\item \textit{contiene} $x$ perché se $e\in B_{\nicefrac{1}{2n}}\left(x\right)\implies \mvf{d}{e}{x}<\frac{1}{2n}\implies x\in B_{\nicefrac{1}{2n}}\left(e\right)$
-	\item $B_{\nicefrac{1}{2n}}\left(e\right)\subseteq B_{\nicefrac{1}{n}}\left(x\right)\subseteq U$; infatti, preso $y\in B_{\nicefrac{1}{2n}}\left(e\right)$ si ha:
-	\begin{equation*}
-		\mvf{d}{x}{y}\leq \mvf{d}{x}{e}+\mvf{d}{e}{y}<\frac{1}{2n}+\frac{1}{2n}=\frac{1}{n}
-	\end{equation*}
-$\implies y\in B_{\nicefrac{1}{n}}\left(x\right) \subseteq U$.
-\end{itemize}
-Segue la tesi.
-\end{demonstration}
-\begin{example}
-	Si può vedere che $\realset^n$ è base numerabile anche perché è uno spazio metrico ed è separabile.
-\end{example}
-\begin{attention}
-Un insieme con una certa topologia può essere a base numerabile (o primo numerabile), ma non necessariamente rispetto ad un altra!
-\end{attention}
-\begin{example}
-\textsc{Retta di Sorgenfrey}\index{retta!di Sorgenfrey}.\\
-Consideriamo $X=\realset$ con la topologia avente come base:
+Se consideriamo $A_i=\left\{x\mid s\left(x\right)=\alpha_i\right\}=s^{-1}\left(\left\{\alpha_i\right\}\right)$, allora possiamo decomporre $s$ come ‘‘somma pesata'' delle funzioni caratteristiche degli insiemi $A_i$ nella cosiddetta \textbf{decomposizone standard di }$s$\index{decomposizione standard di una funzione semplice}:
 \begin{equation}
-\basis=\left\{\left[a,\ b\right)\mid a,\ b\in\realset,\ a<b\right\}
+	s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}
 \end{equation}
-Mostriamo $\basis$ è base per una topologia, è separabile, primo numerabile ma \textit{non} è a base numerabile.
-\begin{itemize}
-	\item \textbf{Base per una topologia}: usiamo il teorema delle basi (Manetti, 3.7), pag. \pageref{teoremabasi}.
-	\begin{enumerate}[label=\Roman*]
-		\item $\displaystyle X=\bigcup_{B\in \basis}B$ è ovvio.
-		\item Prendiamo $A=\left[a,\ b\right),\ B=\left[c,\ d\right)$ e consideriamo:
+\begin{proposition}[Una funzione semplice è misurabile se e solo se le controimmagini degli {$A_i$} sono misurabili.]~{}\\
+	$s$ funzione semplice è misurabile se e solo se $A_i$ è misurabile, $\forall i=1,\ \ldots,\ n$. 
+\end{proposition}
+\begin{demonstration}
+	% TO DO: inserire dimostrazione
+\end{demonstration}
+\begin{examples}~{} \label{funzionesemplice}
+	\begin{enumerate}
+		\item Sia $\left(X,\mathcal{M}\right)=\left(\realset,\mathcal{L}\left(\realset\right)\right)$ e consideriamo la funzione $\funz{s}{\realset}{\realset}$ come da grafico.
+		% TO DO: inserire grafico
+		Osserviamo che $s\left(X\right)=\left\{0,4,8\right\}$, dunque è semplice; le controimmagini dei valori $0$, $4$ e $8$ sono, rispettivamente:
 		\begin{equation*}
-			\forall x\in A\cap B=\left[\max\left\{a,\ b\right\},\ \min\left\{c,\ d\right\}\right)
+			\begin{array}{l}
+				A_1=s^{-1}\left(\left\{0\right\}\right)=\left(-\infty,-1\right]\cap\left[2,+\infty\right)\\
+				A_2=s^{-1}\left(\left\{4\right\}\right)=\left(-1,1\right]\\
+				A_3=s^{-1}\left(\left\{8\right\}\right)=\left(1,2\right)
+			\end{array}
 		\end{equation*}
-	Allora basta prendere $C=A\cap B\in\basis$ per soddisfare $x\in C\subseteq A\cap B$.
+	Pertanto la decomposizione standard di $s$ risulta
+	\begin{equation*}
+	s=0\chi_{\left(-\infty,-1\right]\cap\left[2,+\infty\right)}+4\chi_{\left(-1,1\right]}+8\chi_{\left(1,2\right)}=4\chi_{\left(-1,1\right]}+8\chi_{\left(1,2\right)}
+	\end{equation*}
+	\item La funzione di Dirichlet
+		\begin{equation}
+		s\left(x\right)=
+		\begin{cases}
+			\begin{array}{ll}
+				1&\text{se }x\in\left[0,1\right]\cap\rationalset\\
+				0&\text{se }x\in\left[0,1\right]\setminus\rationalset\\
+			\end{array}
+		\end{cases}
+	\end{equation}
+	è semplice perché $s\left(\left[0,1\right]\right)=\left\{0,1\right\}$ e infatti
+	\begin{equation*}
+		s=\chi_{\left[0,1\right]\cap\rationalset}
+	\end{equation*}
 	\end{enumerate}
-\item \textbf{Separabile}: $E=\rationalset$ è numerabile ed è denso perché vale sempre $\left[a,\ b\right)\cap \rationalset \neq \emptyset$, dunque ogni aperto non vuoto interseca $E$; segue che $X$ è separabile.
-\item \textbf{Primo numerabile}: s $a\in\realset$ allora $\left\{\left[a,\ a+\frac{1}{n}\right)\right\}_{n\in\naturalset}$ è un sistema fondamentale di intorni di $a$ numerabile. Preso $U$ intorno di $a$, $\exists b>a$ tale che $\left[a,\ b\right)\subseteq U$; inoltre, $\exists n\in\naturalset$ tale che $a+\frac{1}{n}<b$, cioè:
-\begin{equation*}
-\left[a,\ a+\frac{1}{n}\right)\subseteq\left[a,\ b\right)\subseteq U
-\end{equation*}
-\item \textbf{Non a base numerabile}: presa una base $\widetilde{\basis}$ per $X$, mostriamo che non è numerabile. Sia $x\in\realset$. Allora:
-\begin{equation*}
-\left[x,\ \infty\right)=\bigcup_{y>x}\left[x,\ y\right)
-\end{equation*}
-È aperto. In particolare, esiste un aperto dipendente dal punto $x$, cioè $U\left(x\right)=\left[x,\ b\right)\in\widetilde{\basis}$ (per un certo $b>x$) per cui $x\in U\left(x\right)\subseteq\left[x,\ \infty\right)$.\\
-Notiamo che se $x\neq y$, allora $U\left(x\right)\neq U\left(y\right)$: preso $y>x$, segue che $x\notin \left[y,\ \infty\right)\supseteq U\left(y\right)\implies x\notin U\left(y\right)\implies U\left(x\right)\neq U\left(y\right)$. L'applicazione:
-\begin{equation}
-\funztot{\ }{\realset}{\widetilde{\basis}}{x}{U\left(x\right)}
-\end{equation}
-\end{itemize}
-È iniettiva, dunque $\widetilde{\basis}$ non è in iniezione con i naturali e pertanto $\widetilde{\basis}$ \textit{non} è numerabile.
-\end{example}
-\begin{center}
-	\begin{tikzcd}
-		&  &  \text{Separabile} \arrow[color=red, lld, "\text{se }X\text{ è metrico}"' six, shift right, below] \\
-		\begin{array}{c}
-			\text{A base}\\\text{numerabile}
-		\end{array} \arrow[rrd, shift left, shorten >= -1em] \arrow[rru, shift right] &  &                                                                                      \\
-		&  & \begin{array}{c}
-			\text{Primo}\\\text{numerabile}\end{array}
-		\end{tikzcd}
-\end{center}
-\section{Successioni}
-\begin{define}[Successione.]~{}\\
-Una \textbf{successione}\index{successione} in uno spazio topologico $X$ è una funzione $\funz{a}{\naturalset}{X}$; la indichiamo anche con $\left\{a_n\right\}_{n\in\naturalset}=\left\{a_n\right\}$.
-\end{define}
-\begin{define}[Convergenza di una successione.]~{}\\
-Sia $\left\{a_n\right\}$ una successione in $X$. Diciamo che $\left\{a_n\right\}$ \textbf{converge}\index{convergenza} a $p\in X$ se $\forall U\in I\left(p\right)\ \exists n_0\in \naturalset\ \colon a_n\in U,\ \forall n\geq n_0$.
-\end{define}
-\begin{observe}
-	Se $X$ è di \textbf{Hausdorff}, una successione convergente ha un \textbf{unico}\index{limite!unicità} limite.
-\end{observe}
-\begin{demonstration}
-	Supponiamo che $\left\{a_n\right\}$ converga a $p$ e $q$. Mostriamo che $p=q$.\\
-	Siano $U\in I\left(p\right)$ e $V\in I\left(q\right)$.
-	\begin{itemize}
-		\item Siccome $\left\{a_n\right\}$ converge a $p$, $\exists n_0$ tale che $a_n\in U,\ \forall n\geq n_0$.
-		\item Siccome $\left\{a_n\right\}$ converge a $1$, $\exists n_1$ tale che $a_n\in V,\ \forall n\geq n_1$.
-	\end{itemize}
-Allora $a_n\in U\cap V\ \forall n\geq \max{n_0,\ n_1}\implies U\cap V\neq \emptyset\implies p=q$.\\
-L'ultima implicazione deriva dal fatto che $X$ è di \textbf{Hausdorff}. Infatti, se in \textbf{Hausdorff} $p\neq q\implies U\cap V = \emptyset$, vale anche la sua negazione: $U\cap V\neq \emptyset\implies p = q$.
-\end{demonstration}
-\begin{define}[Limite.]~{}\\
-Se $X$ è di \textbf{Hausdorff} e $\left\{a_n\right\}$ è convergente, ha senso parlare del \textbf{limite} della successione:
-\begin{equation}
-p=\lim_{n \to +\infty}a_n
-\end{equation}
-Se $X$ \textit{non} è di \textbf{Hausdorff}, la stessa successione può convergere a più punti, dunque non esiste il limite della successione.
-\end{define}
-\begin{examples}~{}
-	\begin{itemize}
-		\item Se $X$ ha la topologia banale $\topo=\left\{X,\ \emptyset\right\}$, l'unico intorno di qualunque punto è $X$. Allora ogni successione $\left\{a_n\right\}$ in $X$ converge sempre ad un qualunque punto $p$.
-		\item Se $X$ ha la topologia discreta, $\left\{a_n\right\}$ successione in $X$ converge a $p\iff \exists n_0\ \colon a_n=p,\ \forall n\geq n_0$, cioè se la successione è finitamente costante. Infatti, nella topologia discreta anche il singoletto $\left\{p\right\}$ è intorno di $p$, dunque eventualmente la successione avrà solo termini nel singoletto.
-	\end{itemize}
-\vspace{-3mm}
 \end{examples}
+\subsection{Approssimazione di funzioni misurabili non negative con funzioni semplici}
+Riprendendo l'idea di Lebesgue alla base del suo integrale, ci interessa studiare le funzioni passando attraverso la loro immagine. Si può ipotizzare di \textit{approssimare} tale funzione $f$ con una \textit{funzione semplice}: partizionando il codominio in opportuni intervalli individuati da quote fissate, se passiamo alle controimmagini possiamo sapere quali punti di $f$ sono contenuti nell'intervallo posto ad una certa quota e pertanto definire una funzione caratteristica che, come nelle \textit{carte topografiche a isoipse}, approssima la funzione $f$ per difetto.
+% TO DO: inserire grafico.
+\begin{theorema}[Approssimazione di funzioni misurabili non negative con funzioni semplici.]~{}\\
+	Sia $\left(X,\mathcal{M}\right)$ uno spazio misurabile e sia $\funz{f}{X}{\left[0,+\infty\right]}$ una funzione misurabile. Allora esiste una successione di funzioni semplici misurabili $\funz{s_n}{X}{\left[0,+\infty\right)}$ tale che
+	\begin{itemize}
+		\item $0\leq s_n\left(x\right)\leq s_{n+1}\left(x\right)\leq f\left(x\right),\ \forall x\in X,\ n\geq 1$.
+		\item $\displaystyle\lim_{n\to+\infty}s_n\left(x\right)=f\left(x\right),\ \forall x\in X$.
+	\end{itemize}
+\end{theorema}
 \begin{observe}
-Se $X$ spazio metrico:
-\begin{equation}
-	a_n\textsc{ converge a } p\iff \forall \epsilon>0\ \exists n_0\ \colon \mvf{d}{a_n}{p}<\epsilon,\ \forall n\geq n_0
-\end{equation}
-\vspace{-6mm}
+	La successione $s_n$ converge a $f$ puntualmente in modo \textit{monotono}.
 \end{observe}
-\begin{demonstration}~{}\\
-	$\impliesdx$$U=B_{\epsilon}\left(p\right)$ è l'intorno di convergenza che soddisfa l'implicazione.\\
-	$\impliessx$Sia $U\in I\left(p\right)$. Allora $\exists \epsilon\ \colon B_{\epsilon}\left(p\right)\subseteq U$. Ma allora, dato che per le ipotesi $\exists n_0\ \colon \mvf{d}{p}{a_n}<\epsilon,\ \forall n\geq n_0$, cioè $a_n\in B_{\epsilon}\left(p\right)\subseteq U\implies a_n\in U\forall n\geq n_0$.
-\end{demonstration}
-\subsection{Punti di accumulazione}
-\begin{define}[Punto di accumulazione per la successione.]~{}\\
-	Un punto $p\in X$ è \textbf{punto di accumulazione per la successione}\index{punto!di accumulazione!per una successione} $\left\{a_n\right\}$ se:
+\begin{demonstration}~{}
+	\begin{itemize}
+		\item \textbf{\textsc{Passo 1}: costruzione della successione $s_n$ e verifica della monotonia.}\\
+		Fissato $n\geq 1$, dividiamo $\left[0,+\infty\right)$ in $\left[0,n\right)$ e $\left[n,+\infty\right]$; dividiamo ulteriormente l'intervallo $\left[0,n\right)$ in $n2^n$ parti uguali
+		\begin{equation*}
+			\left[0,\frac{1}{2^n}\right)\quad\left[\frac{1}{2^n},\frac{2}{2^n}\right)\ldots\left[\frac{i-1}{2^n},\frac{i}{2^n}\right)\ldots\left[\frac{n2^n-1}{2^n},n\right),\ \forall i=1,\ \ldots,\ n2^n
+		\end{equation*}
+	Posto $E_{n,i}=f^{-1}\left(\left[\frac{i-1}{2^n},\frac{i}{2^n}\right)\right)$ e $F_n=f^{-1}\left(\left[n,+\infty\right]\right),\ \forall i=1,\ \ldots,\ n2^n$, si definisce
 	\begin{equation}
-		\forall U\in I\left(p\right),\ \forall N\in\naturalset\ \exists n\geq N\ \colon a_n\in U
+		s_n=\sum_{i=1}^{n2^n}\frac{i-1}{2^n}\chi_{E_{n,i}}+n\chi_{F_n}
 	\end{equation}
-\vspace{-6mm}
-\end{define}
-\begin{exercise}
-	Se $X$ è spazio metrico, allora:
-	\begin{equation}
-		p\textsc{ punto di accumulazione per } a_n\iff \forall \epsilon>0,\ \exists n_0\ \colon \mvf{d}{a_n}{p}<\epsilon,\ \forall n\geq n_0
-	\end{equation}
-\vspace{-6mm}
-\end{exercise}
-
-\begin{define}[Punto di accumulazione per il sottoinsieme e derivato.]~{}\\
-	Un punto $p\in X$ è \textbf{punto di accumulazione per il sottoinsieme}\index{punto!di accumulazione!per un sottoinsieme} $B\subseteq X$ se:
-	\begin{equation}
-		\forall U\in I\left(p\right),\ \exists b\in B \colon b\in U\setminus \left\{ p\right\}
-	\end{equation}
-L'insieme dei punti di accumulazione per il sottoinsieme $B$ è chiamato \textbf{derivato}\index{derivato} di $B$ e si indica con $B'$.
-\end{define}
-\begin{exercise}
-Data la successione $\left\{a_n\right\}$ in $X$ e definito $A\coloneqq \{a_n\mid n\in\naturalset\}$:
+Da questa costruzione segue che:
 \begin{itemize}
-\item $p\in X$ punto di accumulazione per la successione non è mai punto di accumulazione per l'insieme $A$.
-\item $p\in X$ punto di accumulazione per l'insieme $A$ in generale non è punto di accumulazione per la successione; se $X$ è metrico allora vale l'implicazione.
+	\item $s_n$ è semplice per $n$ fissato: è una combinazione lineare \textit{finita} di funzioni caratteristiche con pesi distinti.
+	\item È monotona al crescere di $n$:
+	\begin{equation*}
+		0\leq s_n\left(x\right)\leq s_{n+1}\left(x\right)\leq f\left(x\right) 
+	\end{equation*}
+	Intuitivamente, passando da $s_n$ a $s_{n+1}$:
+	\begin{itemize}
+		\item i nodi individuati in $s_n$ rimangono inalterati.
+		\item vengono aggiunti dei nodi intermedi dimezzando ogni intervallino $\left[\frac{i-1}{2^n},\frac{i}{2^n}\right)$.
+		\item vengono aggiunti dei nuovi nodi tra $n$ e $n+1$
+	\end{itemize}
+	Riducendo la dimensione di ciascun intervallino, l'approssimazione così definita risulta essere più raffinata del passo precedente.
+	% TO DO: inserire immagine.
 \end{itemize}
-\vspace{-3mm}
-\end{exercise}
-\subsection{Sottosuccessioni}
-\begin{define}[Sottosuccessione.]~{}\\
-Una \textbf{sottosuccessione}\index{successione!sottosuccessione} di $\left\{a_n\right\}$ è la composizione di $\funz{a}{\naturalset}{X}$ con un'applicazione \textit{strettamente crescente} $\funztot{k}{\naturalset}{\naturalset}{n}{k\left(n\right)}$. Si indica con $\left\{a_{k_n}\right\}$.
-\end{define}
-\begin{lemming}[Lemma delle successioni.]~{}\label{lemmatriangolino}\\
-${\textcolor{blue}{\circled{{\large \blacktriangle}}}}$ Sia $\left\{a_n\right\}$ una successione su $X$ e $p\in X$. Valgono le seguenti implicazioni:
-	\begin{equation}
-		\circled{1}\ \left\{a_n\right\}\text{ converge a }p
-	\end{equation}
+\item  \textbf{\textsc{Passo 2}: misurabilità di $s_n,\ \forall n\geq 1$.}\\
+Ricordiamo che, dati $s_i\geq 0$ e $A_i\in\mathcal{M},\ i=1,\ \ldots,\ k$ si ha
 \begin{equation*}
-	\begin{array}{ll}
-	\Downarrow
-\end{array}
+	s=\sum_{i=1}^{k}s_i\chi_{A_i}\text{ misurabile}\iff A_i\text{ misurabile}\forall i
 \end{equation*}
-\begin{equation}
-		\circled{2}\ \left\{a_n\right\}\text{ ha una sottosuccessione convergente a }p
-\end{equation}
+Gli intervalli di $\left[\frac{i-1}{2^n},\frac{i}{2^n}\right),\ \forall i=1,\ \ldots,\ n2^n$ e $\left[n,+\infty\right)$ sono Borelliani in $\left[0,+\infty\right]$; pertanto, le controimmagini $E_{n,i}$ e $F_n$ tramite $f$ funzione misurabile sono anch'esse misurabili in $X$.
+\item  \textbf{\textsc{Passo 3}: approssimazione nel senso della convergenza puntuale.}\\
+	Proviamo che vale la relazione
+	\begin{equation*}
+		\lim_{n\to+\infty}s_n\left(x\right)=f\left(x\right),\ \forall x\in\ X
+	\end{equation*}
+Fissiamo $x\in X$ e distinguiamo i casi.
+\begin{itemize}
+	\item \textbf{\textsc{Caso 1:}} $f\left(x\right)\in\left[0,+\infty\right)$.\\
+	Poiché $\floor{f\left(x\right)}\leq f\left(x\right)<\floor{f\left(x\right)}+1$, posto $N_x\coloneqq \floor{f\left(x\right)}+1$ si ha che
+	\begin{equation*}
+		f\left(x\right)< N_x\leq n,\ \forall n\geq N_x
+	\end{equation*}
+Pertanto, esiste $N_x\geq 1$ tale per cui $f\left(x\right)<n,\ \forall n\geq N_X$.\\
+Sulla base di ciò si ha che $f\left(x\right)\in\left[0,n\right),\ \forall n\geq N_x$ e dunque esiste $i\in\left\{0,\ldots,n2^n\right\}$ tale per cui
+\begin{equation*}
+	f\left(x\right)\in\left[\frac{i-1}{2^n},\frac{i}{2^n}\right)\implies x\in f^{-1}\left(\left[\frac{i-1}{2^n},\frac{i}{2^n}\right]\right)=E_{n,i}
+\end{equation*}
+Allora $s_n\left(x\right)=\frac{i-1}{2^n}$ perché
+\begin{gather*}
+	\chi_{E_{n,j}}\left(x\right)=\delta_{i,j}\\
+	\chi_{F_n}\left(x\right)\equiv 0
+\end{gather*}
+dove $\delta_{i,j}$ è il delta di Kronecker; segue che
+\begin{equation*}
+	0\leq s_n\left(x\right)=\frac{i-1}{2^n}\leq f\left(x\right)< \frac{i}{2^n}\implies 0\leq f\left(x\right)-s_n\left(x\right)<\frac{i}{2^n}
+\end{equation*}
+Passando al limite
+\begin{equation*}
+	0\leq \lim_{n\to+\infty}f\left(x\right)-s_n\left(x\right)\leq \lim_{n\to+\infty}\frac{i}{2^n}=0
+\end{equation*}
+Pertanto, per il teorema del confronto
+\begin{equation*}
+	\lim_{n\to+\infty}f\left(x\right)-s_n\left(x\right)=0\implies \lim_{n\to+\infty}s_n\left(x\right)=f\left(x\right)
+\end{equation*}
+\item \textbf{\textsc{Caso 2:}} $f\left(x\right)=+\infty$.\\
+Chiaramente
+\begin{equation*}
+	f\left(x\right)\in\left[n,+\infty\right],\ \forall n\geq 1\implies x\inf^{-1}\left(\left[n,+\infty\right]\right)=F_n
+\end{equation*}
+Allora $s_n\left(x\right)=n$ perché
+\begin{gather*}
+	\chi_{E_{n,j}}\left(x\right)\equiv 0\\
+	\chi_{F_n}\left(x\right)\equiv 1
+\end{gather*}
+Segue che
+\begin{equation*}
+	\lim_{n\to+\infty}s_n\left(x\right)=\lim_{n\to+\infty}n=+\infty=f\left(x\right)\implies \lim_{n\to+\infty}s_n\left(x\right)=f\left(x\right)
+\end{equation*}
+\end{itemize}
+\end{itemize}
+\end{demonstration}
+
+\section{Passo 1: funzioni semplici, misurabili, non negative}
+\begin{define}[Integrale di Lebesgue per funzioni semplici, misurabili, non negative.]~{}\\
+	Sia $\funz{s}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right)}$ funzione semplice, misurabile e non negativa che si decompone, dato $s\left(X\right)=\left\{\alpha_1,\ldots, \alpha_n\right\}$, nella forma standard
+	\begin{equation*}
+		s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}\quad A_i=s^{-1}\left(\left\{A_i\right\}\right)
+	\end{equation*}
+	Dato $E\in\mathcal{M}$, si definisce \textit{integrale esteso a $A$ di $s$ rispetto alla misura $\mu$} il valore
+	\begin{equation}
+		\int_{E}sd\mu\coloneqq\sum_{i=1}^{n}\alpha_i\mu\left(A_i\cap E\right)
+	\end{equation}
+	con la convenzione che se un termine di tale sommatoria è $0\cdot \infty$ allora tale termine sia uguale a $0$.
+	% TO DO: inserire grafico? 
+\end{define}
+\begin{observe}
+	$\mu\left(A_i\cap E\right)$ è ben definito in quanto $A_i\cap E$ è misurabile:
+	\begin{itemize}
+		\item $A_i$ sono misurabili $\forall i$ perché $s$ è misurabile per ipotesi.
+		\item $E$ è misurabile per ipotesi.
+		\item L'\textit{intersezione} è un'operazione chiusa nella $\sigma$-algebra $\mathcal{M}$
+	\end{itemize}
+\end{observe}
+\begin{observe}
+	Come mai poniamo convenzionalmente $0\cdot \infty=0$? L'integrale generalizza e astrae il calcolo dell'area sottesa ad una curva; se ho un intervallo di lunghezza infinita ma a quota zero, chiaramente l'area sottesa è uguale a zero.
+\end{observe}
+\begin{examples} Per il primo e secondo esempio riprendiamo le funzioni viste a pag. \pageref{funzionesemplice}.
+	\begin{enumerate}
+		\item Consideriamo la funzione del primo esempio, che ha dominio in $\left(\realset^n,\mathcal{L}\left(\realset\right),m_1\right)$ e calcoliamo l'integrale su $E=\realset$:
+		\begin{equation*}
+			\begin{array}{ll}
+				\displaystyle	\int_{\realset}sdm_1&=0m_1\left(\left(-\infty,-1\right]\cup\left[2,+\infty\right)\right)+4m_1\left(\left[-1,1\right]\right)+8m_2\left(\left(1,2\right)\right)=\\
+				&=0\cdot\left(+\infty\right)+4\cdot 2+8\cdot 1=16
+			\end{array}
+		\end{equation*}
+		\item Consideriamo la funzione di Dirichlet su $\left[0,1\right]$, che ha dominio in $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$  l'integrale su $E=\left[0,1\right]$:
+		\begin{equation*}
+			\int_{\left[0,1\right]}sdm_1=1\cdot m_1\left(\left[0,1\right]\cap\rationalset\right)+0\cdot m_1\left(\left[0,1\right]\setminus\rationalset\right)
+		\end{equation*}
+	Poiché
+	\begin{itemize}
+		\item $\left[0,1\right]\cap \rationalset$ è misurabile e si ha $m_1\left(\left[0,1\right]\cap \rationalset\right)=0$.
+		\item $m_1\left(\left[0,1\right]\setminus\rationalset\right)=m1\left(\left[0,1\right]\right)-m1\left(\left[0,1\right]\cap\rationalset\right)=1-0=1$
+	\end{itemize}
+	allora
+	\begin{equation*}
+		\int_{\left[0,1\right]}sdm_1=1\cdot 0+0\cdot 1=0
+	\end{equation*}
+\item Consideriamo $\left(X,\mathcal{M},\mu\right)=\left(\naturalset,\setpart{\naturalset},\mu_p\right)$ con $\mu_p$ la misura di conteggio di \textbf{Poisson} di parametro $\lambda>0$:\index{misura!di conteggio!di Poisson}.
+\begin{gather}
+	\mu_p\left(\left\{n\right\}\right)=e^{-\lambda}\frac{\lambda^n}{n!}, \forall n\geq 0\\
+	\mu_p\left(E\right)=\sum-{n\colon n\in E}e^{-\lambda}\frac{\lambda^n}{n!}, \forall E\subseteq \naturalset
+\end{gather}
+Definiamo $\funz{s}{\naturalset}{\left[0,+\infty\right)}$ come
+\begin{equation*}
+	s\left(n\right)=\begin{cases}
+		\begin{array}{ll}
+			1&\text{se }n=0,1\\
+			2&\text{se }n\geq 2
+		\end{array}
+	\end{cases}
+\end{equation*}
+La funzione $s$ è semplice, dato che $s\left(\naturalset\right)=\left\{1,2\right\}$, e
+\begin{equation*}
+	s=\chi_{\left\{0,1\right\}}+2\chi_{\left\{n\in\naturalset\mid n\geq 2\right\}}
+\end{equation*}
+Allora, posto $E=\naturalset$, l'integrale sul dominio è
 \begin{equation*}
 \begin{array}{ll}
-	\Downarrow &  \textcolor{red}{\circled{\ast}}
+	\displaystyle\int_{\naturalset}sd\mu_P&=1\cdot \mu_P\left(\left\{0,1\right\}\right)+2\mu_P\left(\left\{n\in\naturalset\mid n\geq 2\right\}\right)=\\
+	&\displaystyle=e^{-\lambda}\cdot 1+e^{-\lambda}\frac{\lambda}{1}+2\sum_{n\geq 2}e^{-\lambda}\frac{\lambda^n}{n!}=\\
+	&\displaystyle=e^{-\lambda}+\lambda e^{-\lambda}+2\sum_{n\geq 2}e^{-\lambda}\frac{\lambda^n}{n!}
 \end{array}
 \end{equation*}
-\begin{equation}
-	\circled{3}\ p\text{ è un punto di accumulazione per }\left\{a_n\right\}
-\end{equation}
-	\begin{equation*}
-	\begin{array}{ll}
-		\Downarrow & \textcolor{red}{\circled{\ast\ast}}
-	\end{array}
-\end{equation*}
-\begin{equation}
-	\circled{4}\ p\in\overline{A}\text{ dove }A=\left\{a_n\mid n\in \naturalset\right\}\subseteq X
-\end{equation}
-\vspace{-6mm}
-\end{lemming}
-\begin{demonstration}~{}\\
-$\circled{1}\implies\circled{2}$ La sottosuccessione convergente è la successione stessa.\\
-$\circled{2}\implies\circled{3}$ Sia $\left\{a_{k\left(n\right)}\right\}$ una sottosuccessione convergente a $p$ e sia $U\in I\left(p\right)$. \\
-Se $a_{k\left(n\right)}$ converge a $p$ si ha che $\exists n_0\ \colon a_{k\left(n\right)}\in U,\ \forall n\geq n_0$. Poiché $k\left(n\right)$ è strettamente crescente, $\exists n_1\ \colon k\left(n\right)\geq N,\ \forall n\geq n_1$. Allora preso:
-\begin{equation*}
-	n=\max\left\{n_0,\ n_1\right\}
-\end{equation*}
-Abbiamo che $a_{k\left(n\right)}\in U,\ k\left(n\right)\geq N$.\footnote{L'intorno $U$ è arbitrario.} Segue che $p$ è punto di accumulazione per $\left\{a_n\right\}$.\\
-$\circled{3}\implies\circled{4}$ $p\in \overline{A}\iff \forall U\in I\left(p\right)\ A\cap U\neq \emptyset$. Allora sia $U$ intorno di $p$: vogliamo che $U\cap A\neq \emptyset$. Essendo $p$ punto di accumulazione per $\left\{a_n\right\}$, $\exists n\ a_n\in U\implies U\cap A\neq \emptyset$.
-\end{demonstration}
-\begin{lemming}[In $X$ primo numerabile $a_n$ ha una sottosuccessione convergente a $p$ se $p$ di accumulazione per $a_n$.]~{}\label{primonumesucc}\\
-Sia $X$ \textit{primo numerabile}, $\left\{a_n\right\}$ successione in $X$ e $p\in X$. Allora vale anche il viceversa di $\textcolor{red}{\circled{\ast}}$, cioè:
-\begin{equation}
-	\left\{a_n\right\}\text{ ha una sottosuccessione convergente a }p\iff p\text{ è di accumulazione per }\left\{a_n\right\}
-\end{equation}
-\end{lemming}
-\begin{demonstration}~{}\\
-	$\impliesdx$Vale per $\textcolor{red}{\circled{\ast}}$.\\
-	$\impliessx$Sia $\left\{U_m\right\}_{m\in\naturalset}$ sistema fondamentale di intorni di $p$ numerabile per ipotesi ($X$ primo numerabile). Consideriamo i seguenti insiemi:
-	\begin{equation*}
-	\widetilde{U}_m\coloneqq U_1\cap\ldots \cap U_m,\quad \forall m\in \naturalset
-	\end{equation*}
-\begin{itemize}
-	\item $\widetilde{U}_m$ è intorno di $p$, in quanto intersezione \textit{finita} di intorni di $p$.
-	\item $\widetilde{U}_m=U_1\cap\ldots\cap U_m\supseteq U_1\cap\ldots\cap U_m\cap U_{m+1}=\widetilde{U}_{m+1}$.
-\end{itemize}
-Segue che $\left\{\widetilde{U}_m\right\}$ è ancora un sistema fondamentale di intorni (numerabile) di $p$, infatti, se $V$ è intorno di $p$, $\exists m\ \colon V\supseteq U_m\supseteq \widetilde{U}_m$.\\
-A meno di sostituire $U_m$ con $\widetilde{U}_m$, possiamo supporre che $U_1\supseteq U_2\supseteq U_3\supseteq \ldots$.\\
-Costruiamo una sottosuccessione di $\left\{a_n\right\}$ convergente a $p$. Sicuramente:
-\begin{itemize}
-	\item $\exists k\left(1\right)\in \naturalset\ \colon a_{k\left(1\right)}\in U_1$.
-	\item $\exists k\left(2\right)\geq k\left(1\right)+1\ \colon a_{k\left(2\right)}\in U_2$.
-\end{itemize}
-E così via: $\forall m\ \exists k\left(m\right)\geq k\left(m-1\right)+1$ tale che $a_{k\left(m\right)}\in U_m$, ottenendo una sottosuccessione $\left\{a_{k\left(m\right)}\right\}$. Notiamo in particolare che:
-\begin{center}
-\label{notasorridente} $\textcolor{blue}{{\large \smiley{}}}$ Se $m_2\geq m_1$, allora $a_{k\left(m_2\right)}\in U_{m_2}\subseteq U_{m_1}$.
-\end{center}
-Mostriamo che $\left\{a_{k\left(n\right)}\right\}$ converge a $p$.\\
-Sia $V$ intorno di $p$. Dal sistema fondamentale di intorni $\exists m_0$ tale che $U_{m_0}\subseteq V$. Da $\textcolor{blue}{{\large \smiley{}}}$ si ha che $\forall m\geq m_0\ a_{k\left(m\right)}\in U_{m_0}\subseteq V$.
-\end{demonstration}
-\begin{proposition}[Caratterizzazione della chiusura in termini di successioni.]~{}\\
-	Sia $X$ uno spazio topologico \textit{primo numerabile}. Sia $Y\subseteq X$ e $p\in X$. Sono equivalenti
-	\begin{itemize}
-		\item Esiste una successione in $Y$ convergente a $p$.
-		\item $p$ è di accumulazione per una successione in $Y$.
-		\item $p\in \overline{Y}$.
-	\end{itemize}
-\vspace{-3mm}
-\end{proposition}
-\begin{demonstration}~{}\\
-$\circled{1}\implies\circled{2}$ Non è necessario che $X$ sia primo numerabile, è immediato dal lemma \ref{lemmatriangolino} $\textcolor{blue}{\circled{{\large \blacktriangle}}}$ (pag. \pageref{lemmatriangolino}).\\
-$\circled{2}\implies\circled{3}$ Non è necessario che $X$ sia primo numerabile. Se $p$ di accumulazione per $\left\{a_n\right\}$ con $a_n\in y\ \forall n\implies A=\left\{a_n\mid n\in \naturalset\right\}\subseteq Y$. Allora segue dal lemma \ref{lemmatriangolino} $\textcolor{blue}{\circled{{\large \blacktriangle}}}$ (pag. \pageref{lemmatriangolino}) che $p\in A=\overline{\left\{a_n\mid n\in \naturalset\right\}}\subseteq \overline{Y}$ \\
-$\circled{3}\implies\circled{1}$ Sia $\left\{U_n\right\}$ un sistema fondamentale di intorni di $p$ tale che $U_n\supseteq U_{n+1}\ \forall n$. Allora:
-\begin{equation*}
-	p\in \overline{Y}\implies \forall n\ Y\cap U_n\neq\emptyset\implies\forall n\ \exists y_n\in Y\cap U_n
-\end{equation*}
-In modo analogo a $\textcolor{blue}{{\large \smiley{}}}$ (pag. \pageref{notasorridente}), se $n_2\geq n_1$, allora $y_{n_2}\in U_{n_2}\subseteq U_{n_1}$. Allora $\left\{y_n\right\}$ è una successione in $Y$, mostriamo che converge a $p$.\\
-Sia $V$ intorno di $p$. Dal sistema fondamentale di intorni $\exists n_0$ tale che $U_{n_0}\subseteq V$. Dal ragionamento analogo a $\textcolor{blue}{{\large \smiley{}}}$ si ha che $\forall n\geq n_0\ y_n\in U_{n_0}\subseteq V$.
-\end{demonstration}
-\begin{observe}\label{densitaesuccessioni}
-	Preso uno spazio topologico $X$ primo numerabile, se $Y\subseteq X$ è un sottoinsieme \textbf{denso} (cioè $\overline{Y}=X$) allora per la proposizione precedente ogni elemento $p\in X$ ammette una successione in $Y$ convergente al punto $p$.\\
-	In $\realset$, ciò comporta che ogni \textit{reale} può essere approssimato da una successione di soli \textit{razionali}, dato che $\overline{\rationalset}=\realset$.
-\end{observe}
-\section{Successioni e compatti}
-\begin{proposition}[‘‘Successione'' di compatti ; Manetti, 4.46.]~{}\label{compattocontenuto}\\
-Sia $X$ spazio topologico e sia $K_n\subseteq X,\ \forall n\in\naturalset$ un sottospazio chiuso, \textit{compatto} e non vuoto. Supponiamo inoltre che:
-\begin{equation*}
-K_n\supseteq K_{n+1}\ \forall n\implies K_1\supseteq K_2\supseteq K_3\supseteq \ldots
-\end{equation*}
-Allora: $\displaystyle\bigcap_{n\geq 1}K_n\neq\emptyset$.
-\end{proposition}
-\begin{demonstration}
-Iniziamo in $K_1$. Consideriamo $A_n\coloneqq K_1\setminus K_n$:
-\begin{itemize}
-	\item $K_n$ chiuso in $X\implies K_n$ chiuso in $K_1$. Allora $A_n$ è complementare di un chiuso, dunque aperto in $K_1\ \forall m\geq 1$.
-	\item $K_n\supseteq K_{n+1}\implies A_n\subseteq A_{n+1}\ \forall n\geq 1$.
-\end{itemize}
-Sia allora $N\in\naturalset$.
-\begin{equation*}
-	\bigcup_{n=1}^{N}A_n=A_N=K_1\setminus \underbrace{K_N}_{\neq\emptyset}\subsetneqq K_1
-\end{equation*}
-Nessuna unione \textit{finita} degli $A_n$ ricopre $K_1$, cioè $\displaystyle \bigcup_{n\in\naturalset}A_n\subsetneqq K_1$. Allora anche l'unione arbitraria degli $A_n$ \textit{non} copre $X$, altrimenti $\left\{A_n\right\}$ sarebbe un ricoprimento aperto di $K_1$ che \textit{non} ammette sottoricoprimento finito (assurdo, in quanto $K_1$ è \textit{compatto}!). Pertanto:
-\begin{equation*}
-\bigcup_{n\geq 1}A_n=\bigcup_{n\geq 1}K_1\setminus K_n=K_1\setminus \left(\bigcap_{n\geq 1}K_n\right)\subsetneqq K_1\implies \bigcap_{n\geq 1}K_n\neq\emptyset
-\end{equation*}
-\vspace{-6mm}
-\end{demonstration}
-\begin{lemming}[Ogni successione in un compatto ha punti di accumulazione.]~{}\\
-In uno spazio topologico \textit{compatto} $X$ ogni successione in $X$ ha punti di accumulazione.
-\end{lemming}
-\begin{demonstration}
-Sia	$\left\{a_n\right\}$ successione in $X$. Per definizione:
-\begin{center}
-$p\in X$ punto di accumulazione per $\left\{a_n\right\}\iff \forall U\in I\left(p\right),\ \forall N\in\naturalset\ \exists n\geq N\ \colon a_n\in U$
-\end{center}
-Per $N$ fissato sia $A_N\coloneqq \left\{a_n\mid n\geq N\right\}\subseteq X$. Allora:
-\begin{center}
-	$p\in X$ punto di accumulazione per $\displaystyle\left\{a_n\right\}\iff \forall U\in I\left(p\right),\ \forall N\in\naturalset\ U\cap A_N\neq\emptyset\iff \forall N\in\naturalset,\ p\in\overline{A}_N\coloneqq C_N$
-\end{center}
-Dunque $\displaystyle\left\{\text{punti di accumulazione di} \left\{a_n\right\}\right\}=\bigcap_{N\in\naturalset}C_N$ e:
- \begin{center}
- 	$\left\{a_n\right\}$ ha punti di accumulazione $\displaystyle\iff \bigcap_{N\in\naturalset}C_N\neq\emptyset$
- \end{center}
-\begin{itemize}
-	\item $A_B\neq \emptyset$ per definizione, dunque $C_N$ è un chiuso non vuoto.
-	\item $X$ è compatto, $C_N$ chiuso in $X$ compatto $\implies C_N$ \textit{compatto}.
-\end{itemize}
-Poiché $A_N=\left\{a_n\mid n\geq N\right\}\supseteq A_ {N+1}=\left\{a_n\mid n\geq N+1\right\}$, si ha:
-\begin{equation*}
-C_N=\overline{A_N}\supseteq \overline{A_{N+1}}=C_{N+1}
-\end{equation*}
-Abbiamo trovato una successione di compatti contenuto l'uno nel successivo. Allora per la proposizione \ref{compattocontenuto} (pag. \pageref{compattocontenuto}, \textsc{(Manetti, 4.46)}). si ha che $\displaystyle\bigcap_{n\geq 1}C_N\neq \emptyset$.
-Segue che esiste un punto di accumulazione per la successione.
-\end{demonstration}
-\subsection{Compattezza per successioni}
-\begin{define}[Compatto per successioni.]~{}\\
-Sia $X$ spazio topologico. $X$ si dice \textbf{compatto per successioni}\index{spazio!compatto!per successioni} se ogni successione ammette una sottosuccessione convergente.
-\end{define}
+	\end{enumerate}
+\end{examples}
 \begin{observe}
-Per il lemma \ref{lemmatriangolino} $\textcolor{blue}{\circled{{\large \blacktriangle}}}$ (pag. \pageref{lemmatriangolino}), se $X$ è compatto per successioni allora ogni successione in $X$ ha un punto di accumulazione.
+	La funzione di Dirichlet è una funzione \textit{non} integrabile secondo \textit{Riemann}, ma è integrabile secondo Lebesgue.
 \end{observe}
-\begin{lemming}[Compattezza e prima numerabilità.]~{}\\
-	Sia $X$ \textit{primo numerabile.} Allora:
-\begin{enumerate}
-	\item $X$ compatto per successioni $\iff $ ogni successione in $X$ ha un punto di accumulazione.
-	\item $X$ compatto $\implies$ $X$ compatto per successioni.
-\end{enumerate}
-\vspace{-3mm}
-\end{lemming}
-\begin{demonstration}~{}
-\begin{enumerate}[label=\Roman*]
-\item $\impliesdx$Vale per l'osservazione precedente.\\
-$\impliessx$Vale per il lemma \ref{primonumesucc}, pag. \pageref{primonumesucc}: se ogni successione ha un punto di accumulazione in $X$ primo numerabile, allora ogni sottosuccessione ammette una sottosuccessione convergente a $p$, cioè $X$ è compatto per successioni.
-\item Se $X$ è compatto, allora ogni successione in $X$ ha dei punti di accumulazione e per il punto $1)$ segue che $X$ è compatto per successioni.
-\end{enumerate}
-\vspace{-3mm}
+\subsection{{$\sigma$}-additività dell'integrale di funzioni semplici, misurabili, non negative rispetto al dominio}
+\begin{proposition}[{$\sigma$}-additività dell'integrale di funzioni semplici, misurabili, non negative rispetto al dominio.]~{}\\
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{s}{X}{\left[0,+\infty\right)}$ semplice misurabile \textit{non} negativa. Allora vale
+	\begin{equation}
+		\int_{\union_{n\geq 1}E_n}sd\mu=\sum_{n\geq 1}\int_{E_n}sd\mu,\ \forall E_n\in\mathcal{M}\colon E_i\cap E_j=\emptyset,\ \forall i\neq j
+	\end{equation}
+\end{proposition}
+Per dimostrare tale proprietà ci servirà un risultato sulle serie con \textit{doppi indici}.
+\begin{proposition}[Commutatività degli indici nelle serie doppie.]~{}\label{commutativitàindici}
+	\begin{itemize}
+		\item Se $a_{ij}\geq0\ \forall i,j$, allora
+		\begin{equation*}
+			\sum_{i=1}^{+\infty}\sum_{j=1}^{+\infty}a_{ij}=\sum_{j=1}^{+\infty}\sum_{i=1}^{+\infty}a_{ij}
+		\end{equation*}
+		\item Più in generale, se $\displaystyle\sum_{i=1}^{+\infty}\sum_{j=1}^{+\infty}\abs{a_{ij}}<+\infty$, allora vale la relazione precedente.
+	\end{itemize}
+\end{proposition}
+\begin{demonstration}\textsc{Della $\sigma$-additività dell'integrale rispetto al dominio.}\\
+	Siano $E_n\in\mathcal{M},\ E_i\cap E_j= \emptyset$ e sia $\displaystyle E=\cup_{n\geq 1} E_n$. Sia $\displaystyle s=\sum_{i=1}^{k}\alpha_i\chi_{A_i}$ la decomposizione standard di $s$ funzione semplice, dove $s\left(X\right)=\left\{\alpha_1,\ldots,\alpha_k\right\}$ e $A_i=s^{-1}\left(\left\{\alpha_i\right\}\right),\ \forall i=1,\ \ldots,\ k$. Si ha
+	\begin{equation*}
+		\int_Esd\mu=\sum_{i=1}^{k}\alpha_i\mu\left(A_i\cap E\right)\squarequal
+	\end{equation*}
+	Per $\sigma$-additività della misura $\mu$ vale
+	\begin{equation*}
+		\mu\left(A_i\cap E\right)=\sum_{j=1}^{+\infty}\mu\left(A\cap E_j\right)
+	\end{equation*}
+quindi
+\begin{equation*}
+	\squarequal \sum_{i=1}^{k}\alpha_i\sum_{j=1}^{+\infty}\mu\left(A_i\cap E_j\right)=\sum_{i=1}^{k}\sum_{j=1}^{+\infty}\underbrace{\alpha_i\mu\left(A_i\cap E_j\right)}_{\geq 0}=\sum_{j=1}^{+\infty}\sum_{i=1}^{k}\alpha_i\mu\left(A_i\cap E_j\right)=\sum_{j=1}^{+\infty}\int_{E_j}sd\mu
+\end{equation*}
 \end{demonstration}
-\begin{proposition}[Caratterizzazione della compattezza in termini di successioni]
-	Sia $X$ uno spazio topologico a base numerabile. Allora sono equivalenti:
+Vediamo il risultato appena dimostrato da un punto di vista differente. Possiamo considerare l'integrale di Lebesgue non solo come un \textit{funzionale} che, fissato un insieme misurabile $E\in\left(X,\mathcal{M},\mu\right)$, agisce sulla funzione $s$, bensì come una \textit{funzione d'insieme} in cui $s$ è fissata, mentre la variabile è l'insieme misurabile $E$:
+\begin{equation}
+	\funztot{\mu_s}{\mathcal{M}}{\left[0,+\infty\right]}{E}{\int_Esd\mu}
+\end{equation}
+L'uguaglianza ricavata dalla proposizione precedente 
+\begin{equation*}
+	\int_{\cup_{n\geq 1}E_n}sd\mu=\sum_{n\geq 1}\int_{E}sd\mu,\ \forall E_n\in\mathcal{M}\colon E_i\cap E_j=\emptyset,\ \forall i\neq j
+\end{equation*}
+si riscrive pertanto come
+\begin{equation*}
+	\mu_s\left(\bigcup_{n\geq 1}E_n\right)=\sum_{n\geq 1}\mu_s\left(E_n\right)
+\end{equation*}
+Pertanto, $\mu_s$ è una misura su $\mathcal{M}$.
+\section{Passo 2: funzioni a valori reali misurabili, non negative}
+Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right]}$ funzione misurabile e non negativa. Dato $E\in\mathcal{M}$, vogliamo definire l'\textit{integrale esteso ad E di $f$ rispetto alla misura $\mu$} utilizzando l'integrale delle funzioni semplici definito al passo 1. 
+\begin{define}[Integrale di Lebesgue per funzioni  a valori reali, misurabili, non negative.]~{}\\
+	Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right]}$ funzione misurabile e non negativa. Si definisce l'\textit{integrale esteso ad E di $f$ rispetto alla misura $\mu$} come
+	\begin{equation}
+		\int_Efd\mu\coloneqq\sup\left\{\int_Esd\mu\ \middle| \funz{s}{X}{\left[0,+\infty\right)}\text{ semplice, misurabile}\colon0\leq s\leq f\right\}
+	\end{equation}
+\end{define}
+\begin{observe}~{}
+	\begin{itemize}
+		\item L'insieme
+		\begin{equation*}
+			\left\{\int_Esd\mu\ \middle|\funz{s}{X}{\left[0,+\infty\right)}\text{ semplice, misurabile}\colon0\leq s\leq f\right\}\subseteq \left[0,+\infty\right]
+		\end{equation*} non è vuoto, in quanto contiene sempre $0=\int_E 0d\mu$.
+		\item $\int_Efd\mu\in\left[0,+\infty\right]$
+		\item Se $f$ è semplice allora si ritrova l'integrale definito al \textit{passo 1}.
+	\end{itemize}
+\end{observe}
+\begin{attention}~{}\\
+	\textbf{Ogni funzione misurabile \textit{non negativa} ammette integrale secondo Lebesgue.}\\
+	Questa notevole differenza rispetto all'integrale di Riemann è situa nella definizione. Se l'integrale di Riemann richiede che la somma inferiore e la somma superiore coincidono, quello di Lebesgue richiede solo l'esistenza del $\sup$: la prima condizione non si verifica sempre, mentre la seconda è sempre verificata in $\realset^{\ast}$.
+\end{attention}
+\begin{proposition}[Proprietà dell'integrale di Lebesgue per funzioni misurabili non negative.]~{}\\
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura.
 	\begin{enumerate}
-		\item $X$ compatto.
-		\item $X$ compatto per successioni
-		\item Ogni successione in $X$ ammette un punto di accumulazione.
+		\item \textbf{Monotonia rispetto alla funzione integranda:}\\
+		date $\funz{f,g}{X}{\left[0,+\infty\right]}$ misurabili, non negative tali per cui $f\leq g$, allora
+		\begin{equation}
+			\int_E fd\mu\leq \int_E gd\mu,\ \forall E\in\mathcal{M}
+		\end{equation}
+		\item \textbf{Monotonia rispetto al dominio della funzione integranda:}\\
+		dati $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, non negativa e $E,\ F\in\mathcal{M}$ tali per cui $E\subseteq F$, allora
+		\begin{equation}
+			\int_Efd\mu\leq \int_Fgd\mu
+		\end{equation}
+		\item \textbf{Linearità dell'integrale (prodotto per uno scalare):}\\
+		dati $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, non negativa e $c\geq 0$
+		\begin{equation}
+			\int_E cfd\mu=c\int_Efd\mu,\ \forall E\in\mathcal{M}
+		\end{equation}
+		\item \textbf{Ininfluenza degli insiemi di misura nulla sull'integrale:}\\
+		sia $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, non negativa; se $E\in\mathcal{M}$ con $\mu\left(E\right)=0$, allora
+		\begin{equation}
+			\int_Efd\mu=0
+		\end{equation}
+		\item \textbf{Integrazione sullo spazio intero:}\\
+		sia $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, non negativa; allora
+		\begin{equation}
+			\int_E fd\mu=c\int_Xf\chi_Ed\mu,\ \forall E\in\mathcal{M}
+		\end{equation}
 	\end{enumerate}
-\vspace{-3mm}
+\end{proposition}
+\subsection{Teorema della convergenza monotona}
+Il \textbf{teorema della convergenza monotona}\index{teorema!della convergenza monotona}, altresì noto come Teorema di Beppo-Levi (principalmente in Italia) o di Lebesgue, si inserisce nel filone dei risultati sul problema del \textit{passaggio al limite sotto segno di integrale} di cui abbiamo parlato per la prima volta nel \refChapterOnly{ellipseintroduction}.\\
+Abbiamo già visto (\refChapterOnly{seriefunzioni}, teorema \ref{passaggioallimitecontinuitàuniforme}, pag. \pageref{passaggioallimitecontinuitàuniforme}) che se una successione di funzioni $f_n$ Riemann-integrabili su un compatto converge uniformemente a $f$, allora $f$ è Riemann-integrabile e vale il passaggio al limite dell'integrale. Il teorema che dimostreremo, pur essendo applicabile solo a funzioni misurabili e monotone \textit{crescenti}, risulta avere diversi notevoli vantaggi rispetto al risultato basato sulla convergenza uniforme.
+\begin{theorema}[Teorema della convergenza monotona.]~{}\\
+	Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che
+	\begin{enumerate}
+		\item $f_n$ sono misurabili.
+		\item $\displaystyle\lim_{n\to+\infty}f_n\left(x\right)=f\left(x\right),\ \forall x\in X$.
+		\item $0\leq f_n\left(x\right)\leq f_{n+1}\left(x\right),\ \forall n\geq 1,\ \forall x\in X$.
+	\end{enumerate}
+allora
+\begin{enumerate}
+	\item $f$ è misurabile.
+	\item Vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio al limite sotto segno di integrale}:
+	\begin{equation}
+		\lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu\in\left[0,+\infty\right]
+	\end{equation}
+\end{enumerate}
+\end{theorema}
+\begin{observe}~{}
+	\begin{itemize}
+		\item L'uguaglianza della tesi è valida per ogni misura di $X$, anche infinita.
+		\item Il risultato è in generale \textit{falso} se $f_n\left(x\right)$ decresce rispetto ad $n,\ \forall x\in X$.
+	\end{itemize}
+\end{observe}
+\begin{example}\textsc{Controesempio con una successione di funzioni decrescenti.}\\
+	Sia $\left(X,\mathcal{M},\mu\right)=\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e $f_n\left(x\right)=\frac{1}{n},\ \forall x\in\realset$. Per ogni $x$ vale
+	\begin{itemize}
+		\item $f_n\left(x\right)$ decrescente rispetto ad $n$.
+		\item $\displaystyle\lim_{n\to+\infty}f_n\left(x\right)=0$
+	\end{itemize}
+Pertanto:
+\begin{align*}
+	\lim_{n\to+\infty}\int_{\realset}f_ndm_1=\lim_{n\to+\infty}\left(+\infty\right)&=+\infty\\
+	\int_{\realset}\left(\lim_{n\to+\infty}f_n\right)dm_1=\int_{\realset}0dm_1&=0
+\end{align*}
+\end{example}
+\begin{demonstration}\textsc{Del teorema della convergenza monotona.}
+	\begin{enumerate}[label=\Roman*]
+		\item $f$ è misurabile perché è limite puntuale di funzioni misurabili.
+		\item Osserviamo che $f$ misurabile e non negativa implica che
+		\begin{equation*}
+			\exists\int_Xfd\mu\in\left[0,+\infty\right]
+		\end{equation*}
+		Dalla monotonia data per ipotesi 3) segue, per monotonia dell'integrale rispetto alla funzione integranda, che
+	\begin{equation*}
+		0\leq\lefteqn{\underbrace{\phantom{\int_Xf_nd\mu\leq\int_Xf_{n+1}d\mu}}_{\textcolor{red}{\circled{\ast}}}}\int_Xf_nd\mu\leq
+		\overbrace{\int_Xf_{n+1}d\mu\leq \int_Xfd\mu}^{\textcolor{blue}{\circled{\ast}}}
+	\end{equation*}
+		Da $\textcolor{red}{\circled{\ast}}$ si nota come la successione
+	\begin{equation*}
+		\int_Xf_nd\mu\in\left[0,+\infty\right]
+	\end{equation*}
+		è crescente e quindi per il \textit{teorema sui limiti di successioni monotone} esiste il suo limite % TO DO: aggiungerlo nelle note?
+\begin{equation*}
+	\lim_{n\to+\infty}\int_Xf_nd\mu\in\left[0,+\infty\right]
+\end{equation*}
+Considerando $\textcolor{blue}{\circled{\ast}}$, per il \textit{teorema della permanenza del segno} si ottiene
+\begin{equation*}
+	\lim_{n\to+\infty}\int_Xf_nd\mu\leq \int_Xfd\mu
+\end{equation*}
+È sufficiente dimostrare che vale la disuguaglianza di verso opposto:
+\begin{equation*}
+	\lim_{n\to+\infty}\int_Xf_nd\mu\geq \int_Xfd\mu
+\end{equation*}
+Ricordiamo che per definizione
+\begin{equation*}
+	\int_Xfd\mu=\sup\left\{\int_Xsd\mu\middle| \funz{s}{X}{\left[0,+\infty\right)}\text{ semplice, misurabile}\colon0\leq s\leq f\right\}
+\end{equation*}
+Pertanto ci sarà sufficiente provare che
+\begin{equation*}
+	\lim_{n\to+\infty}\int_Xf_nd\mu\geq \int_Xsd\mu,\ \forall s\text{ funzione definita come sopra.}
+\end{equation*}
+Osserviamo che questa è vera se mostriamo che
+\begin{equation*}
+	\lim_{n\to+\infty}\int_Xf_nd\mu\geq c\int_Xsd\mu,\ \forall s\text{ funzione definita come sopra},\ \forall c\in\left(0,1\right)
+\end{equation*}
+Basterà infatti passare poi al limite per $c\to 1^{-}$ per ottenere la condizione cercata.\\
+Siano quindi $c\in\left(0,1\right)$ e $\funz{s}{X}{\left[0,+\infty\right]}$ semplice, misurabile e tale che $0\leq s\leq f$ su $X$. Per ogni $n\geq 1$ definiamo
+\begin{equation*}
+	E_n=\left\{x\in X\mid f_n\left(x\right)\geq cs\left(x\right)\right\}
+\end{equation*}
+Osserviamo che se $x\in\ E_n$, allora
+\begin{equation*}
+	f_n\left(x\right)\geq cs\left(x\right)\implies f_{n+1}\left(x\right)\geq f_n\left(x\right)\geq cs\left(x\right)\implies x\in E_{n+1},\ \forall n\geq 1
+\end{equation*}
+Cioè $E_n\subseteq E_{n+1},\ \forall n\geq 1$.
+% to do: inserire immagine insiemi concatenati
+Ora abbiamo
+\begin{equation*}
+	\int_Xf_nd\mu\geq \int_{E_n}f_nd\mu\geq \int_{E_n}csd\mu=c\int_Esd\mu=c\mu_s\left(E_n\right)
+\end{equation*}
+dove $\mu_s$ è la misura definita come 
+\begin{equation*}
+	\mu_s\left(E\right)=\int_Esd\mu
+\end{equation*}
+Abbiamo quindi ricavato che
+\begin{equation*}
+	\textcolor{green}{\circled{\ast}}\int_Xf_nd\mu\geq c\mu_s\left(E_n\right),\ \forall n\geq 1
+\end{equation*}
+Se $n\to+\infty$, essendo $\mu_S$ una misura $E_n$ una successione insiemistica crescente, per continuità della misura
+\begin{equation*}
+	\lim_{n\to+\infty}\mu_s\left(E_n\right)=\mu_s\left(\bigcup_{n\geq 1}E_n\right)
+\end{equation*}
+Passando al limite nella disequazione $\textcolor{green}{\circled{\ast}}$ otteniamo
+\begin{equation*}
+	\lim_{n\to+\infty}\int_Xf_nd\mu\geq c\mu_s\left(\bigcup_{n\geq 1}E_n\right)=c\int_{\bigcup_{n\geq 1}E_n}d\mu_s
+\end{equation*}
+Per concludere, proviamo che
+\begin{equation*}
+	\bigcup_{n\geq 1}E_n=X
+\end{equation*}
+Banalmente l'inclusione $\subseteq$ è verificata: per trovare l'altra si usa la convergenza puntuale di $f_n\left(x\right)$ e $f\left(x\right),\ \forall x\in X$.
+% TO DO: completare con l'esercizio.
+	\end{enumerate}
+\end{demonstration}
+\subsection{Additività dell'intergrale, scambio di integrale e serie}
+\begin{proposition}[Additività dell'integrale.]~{}\\
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e siano $\funz{f_1,\ \ldots,\ f_N}{X}{\left[0,+\infty\right]}$ funzioni misurabili. Allora
+	\begin{equation}
+		\int_X \left(\sum_{i=1}^{N}f_i\right)d\mu=\sum_{i=1}^{N}\int_Xf_id\mu
+	\end{equation}
+\end{proposition}
+\begin{observe}
+	\textit{Tutti} gli integrali nell'enunciato esistono (eventualmente infiniti) in quanto le $f_i$ sono funzioni misurabili non negative.
+\end{observe}
+\begin{demonstration}
+	Si prova per induzione su $N$. Il passo induttivo è immediato, pertanto proviamo la base dell'induzione ($N=2$): dimostriamo dunque che
+	\begin{equation*}
+		\int_X\left(f_1+f_2\right)d\mu=\int_Xf_1d\mu+\int_Xf_2d\mu
+	\end{equation*}
+		\begin{itemize}
+		\item \textbf{\textsc{Passo 1}:} proviamo il risultato nel caso di funzioni semplici $\funz{s,t}{X}{\left[0,+\infty\right)}$ misurabili. Esse si possono scrivere come
+		\begin{equation*}
+			\begin{array}{lll}
+				& \displaystyle s=\sum_{i=1}^{k}s_i\chi_{A_i} & \displaystyle t=\sum_{i=1}^n{k}t_j\chi_{B_j}\\
+				\text{dove}& \displaystyle s\left(X\right)=\left\{s_1,\ldots,s_k\right\}&\displaystyle t\left(X\right)=\left\{t_1,\ldots,t_n\right\}\\
+				&\displaystyle A_i=s^{-1}\left(\left\{s_i\right\}\right),\ i=1,\ldots,\ k&\displaystyle B_j=t^{-1}\left(\left\{t_j\right\}\right),\ j=1,\ldots,\ n\\
+			\end{array}
+		\end{equation*}
+	Consideriamo $E_{i,j}=A_i\cap B_j,\ \forall i,\ \ldots,\ k$ e $j=1,\ \ldots,\ n$: essi formano una nuova partizione di $X$ e, preso $x\in E_{ij}$, si ha
+	\begin{equation*}
+		\begin{cases}
+			s\left(x\right)=s_i\\
+			t\left(x\right)=t_j
+		\end{cases}
+	\end{equation*}
+% TO DO: inserire immagine
+	Questo significa che $s\left(x\right)+t\left(x\right)=s_i+t_j,\ \forall x\in E_{ij}$, ossia
+	\begin{equation*}
+		s+t=\sum_{i,j}\left(s_i+t_j\right)\chi_{E_{ij}}
+	\end{equation*}
+	Integriamo secondo Lebesgue:
+	\begin{equation*}
+		\int_X\left(s+t\right)d\mu=\sum_{i,j}\left(s_i+t_j\right)\mu\left(E_{ij}\right)=\sum_{i,j}s_i\mu\left(E_{ij}\right)+\sum_{i,j}t_j\mu\left(E_{ij}\right)=\int_Xsd\mu+\int_Xtd\mu
+	\end{equation*}
+	\item \textbf{\textsc{Passo 2}:} proviamo il risultato nel caso di funzioni $\funz{f_1,f_2}{X}{\left[0,+\infty\right)}$ misurabili.\\
+	È noto che:
+	\begin{itemize}
+		\item Esiste una successione di funzioni semplici misurabili $\funz{s_n}{X}{\left[0,+\infty\right]}$ tali che
+		\begin{itemize}
+			\item $0\leq s_n\left(x\right)\leq s_{n+1}\left(x\right)\leq f_1\left(x\right),\ \forall x\in X$.
+			\item $\displaystyle \lim_{n\to+\infty}s_n\left(x\right)=f_1\left(x\right),\ \forall x\in\ X$
+		\end{itemize}
+		\item Esiste una successione di funzioni semplici misurabili $\funz{t_n}{X}{\left[0,+\infty\right]}$ tali che
+		\begin{itemize}
+			\item $0\leq t_n\left(x\right)\leq t_{n+1}\left(x\right)\leq f_2\left(x\right),\ \forall x\in X$.
+			\item $\displaystyle \lim_{n\to+\infty}t_n\left(x\right)=f_2\left(x\right),\ \forall x\in\ X$
+		\end{itemize}
+	\end{itemize}
+	Di conseguenza si ha
+	\begin{align*}
+		0\leq \left(s_n+t_n\right)\left(x\right)\leq \left(s_{n+1}+t_{n+1}\right)\left(x\right)\leq\left(f_1+f_2\right)\left(x\right),\ \forall x\in\ X\\
+		\lim_{n\to+\infty}\left(s_n+t_n\right)\left(x\right)=\left(f_1+f_2\right)\left(x\right),\ \forall x\in\ X
+	\end{align*}
+	Integriamo secondo Lebesgue:
+	\begin{align*}
+		\int_X \left(f_1+f_2\right)d\mu&=\lim_{n\to+\infty}\int_X\left(s_n+t_n\right)d\mu=\\
+		&=\lim_{n\to+\infty}\left(\int_Xs_nd\mu+\int_Xt_nd\mu\right)=\lim_{n\to+\infty}\int_Xs_nd\mu+\lim_{n\to+\infty}\int_Xt_nd\mu=\\
+		&=\int_Xf_1d\mu+\int_Xf_2d\mu
+	\end{align*}
+		\end{itemize}
+	% TO DO: mettere note di pag. 88 appunti
+\end{demonstration}
+Una conseguenza immediata di questa proprietà è che per le successioni di funzioni misurabili non negative vale lo \textit{scambio di integrale e serie}.
+\begin{corollary}[Scambio tra integrale e serie per funzioni misurabili e non negative.]~{}\\
+Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura siano $\funz{f_n}{X}{\left[0,+\infty\right]},\ n\geq 1$ funzioni misurabili. Allora
+	\begin{equation}
+		\int_X\left(\sum_{n=1}^{+\infty}f_n\right)d\mu=\sum_{n=1}^{+\infty}\int_Xf_nd\mu
+	\end{equation}
+\end{corollary}
+\begin{demonstration}
+	Consideriamo la successione delle ridotte
+	\begin{equation*}
+		g_k\left(x\right)=\sum_{n=1}^{k}f_n\left(x\right),\ \forall x\in X
+	\end{equation*}
+	Ricordiamo che $g_k\left(x\right)$ è una successione crescente su $k$ per ogni $x\in X$, in quando $f_n\left(x\right)\geq 0$; poiché valgono le ipotesi del teorema della convergenza monotona sulla successione $g_k$, possiamo applicarlo.\\
+	Prima di farlo, osserviamo che per additività dell'integrale vale
+	\begin{equation*}
+		\int_X \sum_{n=1}^{k}f_n=\sum_{n=1}^{k}\int_X f_n
+	\end{equation*}
+	Noto ciò, dimostriamo facilmente il risultato desiderato: 
+	\begin{align*}
+		&\int \left(\lim_{k\to+\infty}g_k\right)d\mu=\lim_{k\to+\infty}\int_X g_kd\mu\\
+		&\implies \int \left(\lim_{k\to+\infty}\sum_{n=1}^{k}f_n\right)d\mu=\lim_{k\to+\infty}\int_X \sum_{n=1}^{k}f_nd\mu=\lim_{k\to+\infty}\sum_{n=1}^{k}\int_X f_n\\
+		&\implies \int_X\left(\sum_{n=1}^{+\infty}f_n\right)d\mu=\sum_{n=1}^{+\infty}\int_Xf_nd\mu
+	\end{align*}
+\end{demonstration}
+\subsection{Integrazione rispetto alla misura conteggio pesata}
+\begin{theorema}[Integrazione rispetto alla misura conteggio pesata.]~{}\\
+	Sia $\left(\naturalset,\setpart{\naturalset},\mu_p\right)$ spazio di misura dove $\mu_p$ è la \textit{misura conteggio pesata} definita da
+	\begin{align*}
+		\mu_p\left(\left\{n\right\}\right)=p_n,\ \forall n\geq 1\text{ con }p_n\geq 0\\
+		\mu_p\left(E\right)=\sum_{n\geq E}\mu_p\left(\left\{n\right\}\right),\ \forall E\subseteq \naturalset
+	\end{align*}
+Sia $\funz{f}{\naturalset}{\left[0,+\infty\right]}$. Allora si ha
+\begin{equation*}
+	\int_{\naturalset}fd\mu_p=\sum_{n\geq 1}f_np_n
+\end{equation*}
+In particolare, se $p_n=1,\ \forall n\geq 1$, si ha, indicata con $\mu^{\ast}$ la misura conteggio corrispondente,
+\begin{equation*}
+	\int_{\naturalset}fd\mu^{\ast}=\sum_{n\geq 1}f_n
+\end{equation*}
+\end{theorema}
+\begin{observe}
+	Nell'enunciato non è richiesta esplicitamente la misurabilità di $f$ in quanto ogni $\funz{f}{\left(\naturalset,\setpart{\naturalset}\right)}{\left[0,+\infty\right]}$ è \textit{sempre misurabile}. Infatti, $\forall A\subseteq \left[0,+\infty\right]$ aperto, la controimmagine $f^{-1}\left(A\right)$ è un sottoinsieme di $\naturalset$ e quindi $f^{-1}\left(A\right)\in \setpart{\naturalset}$.
+\end{observe}
+\begin{demonstration}
+	Osserviamo che $f$ è una successione
+	\begin{equation*}
+		\left\{f_n\right\}_{n\geq 1}=\left\{f_1,\ f_2,\ f_3,\ \ldots\right\}
+	\end{equation*}
+Per $k\geq 1$ definiamo $\funz{g^k}{\naturalset}{\left[0,+\infty\right]}$ mediante
+\begin{equation*}
+	g^k_n=g^k\left(n\right)=\begin{cases}
+		\begin{array}{ll}
+			f_n &\text{se }n\leq k\\
+			0 &\text{se }n>k
+		\end{array}
+	\end{cases}
+\end{equation*}
+Ad esempio:
+\begin{gather*}
+	\left\{g^1_n\right\}_{n\geq 1}=\left\{f_1,0,0,\ldots\right\}\\
+	\left\{g^2_n\right\}_{n\geq 1}=\left\{f_1,f_2,0,\ldots\right\}\\
+	\vdots
+	\left\{g^k_n\right\}_{n\geq 1}=\left\{f_1,f_2,\ldots,f_k,0\ldots\right\}\\
+\end{gather*}
+Si ha $\displaystyle\lim_{k\to+\infty}g^k\left(n\right)=f_n=f\left(n\right),\ \forall n\geq 1$, quindi $g^k$ converge puntualmente a $f$ in ogni $n\in\naturalset$. Inoltre, $\forall n\in\naturalset$, la successione $g^k_n$ soddisfa
+\begin{equation*}
+	g^{k+1}_n\geq g^k_n,\ \forall k\geq 1
+\end{equation*}
+Pertanto, $g^k$ è una successione che converge \textit{puntualmente} in modo \textit{monotona crescente} a $f$. Per il \textit{teorema della convergenza monotona}, si ha
+\begin{equation*}
+	\int_{\naturalset}fd\mu_p=\lim_{k\to+\infty}g^kd\mu_p
+\end{equation*}
+Per ogni $k\in\naturalset$ calcoliamo $\displaystyle\int_{\naturalset}g^kd\mu_p$. Osserviamo che $g^k\left(\naturalset\right)=\left\{f_1,\ldots,f_k,0\right\}$, quindi $g^k$ è \textit{semplice} avendo immagine finita. Allora
+\begin{equation*}
+	\left(g^k\right)^{-1}\left(\left\{f_n\right\}\right)=n,\ \forall n\in\naturalset,\ n\geq k\\
+	\left(g^k\right)^{-1}\left(\left\{0\right\}\right)=\left\{k+1,k+2,\ldots\right\}=A_0
+\end{equation*}
+Calcoliamo l'integrale:
+\begin{equation*}
+	\int_{\naturalset}d^kd\mu_p=\sum_{n=1}^{k}f_n\mu_p\left(\left\{n\right\}\right)+0\cdot \underbrace{\mu_p\left(A_0\right)}_{\substack{=0\ (\text{anche} \\ \text{nel caso } \\ 0\cdot \infty)}}=\sum_{n=!}^{k}f_np_n
+\end{equation*}
+Concludendo:
+\begin{equation*}
+	\int_{\naturalset}fd\mu_p=\lim_{k\to+\infty}\int_{\naturalset}g^kd\mu_p=\lim_{k\to+\infty}\sum_{n=1}^{k}f_np_n=\sum_{n=1}^{+\infty}f_np_n
+\end{equation*}
+\end{demonstration}
+% TO DO: mi viene un dubbio, il Rudin lo mette come corollario di questo teorema, ma noi l'abbiamo usato per la sigma additività... che ci è servita oer il teorema della convergenza monotona che ci è servito nel teorema di integrazione delle funzioni monotone. Non per sembrare Reddito Zero, ma o sbaglio qualcosa o c'è un non so che di ricorsivo in tutto ciò. Controllare che non ci sia qualche errore.
+Il seguente risultato, che abbiamo già incontrato a pag. \pageref{commutativitàindici} e che ci è servito per dimostrare la $\sigma$-additività dell'integrale di funzioni semplici rispetto al dominio, si può vedere come corollario dell'\textit{integrazione della misura conteggio semplice}, oltre che in modo \textit{elementare}. 
+\begin{corollary}[Commutatività degli indici nelle serie doppie.]~{}\\
+	Se $a_{ij}\geq0\ \forall i,j$, allora
+	\begin{equation*}
+		\sum_{i=1}^{+\infty}\sum_{j=1}^{+\infty}a_{ij}=\sum_{j=1}^{+\infty}\sum_{i=1}^{+\infty}a_{ij}
+	\end{equation*}
+\end{corollary}
+\subsection{Lemma di Fatou}
+\begin{lemming}[Lemma di Fatou.]~{}\\
+	Se $\funz{f_n}{X}{\left[0,+\infty\right]}$ sono misurabili, $\forall n$, allora
+	\begin{equation}
+		\int_X\left(\liminf_{n\to+\infty}f_nd\mu\right)d\mu\leq \liminf_{n\to+\infty}\int_Xf_nd\mu
+	\end{equation}
+\end{lemming}
+\begin{demonstration}
+	Posto $g_k\left(x\right)=\inf_{i\geq k}f_i\left(x\right)$ dove $k\geq 1,\ x\in X$, allora $g_k\leq f_k$ e quindi
+	\begin{equation*}
+		\int_Xg_kd\mu\leq \int_Xf_kd\mu
+	\end{equation*}
+Inoltre:
+\begin{itemize}
+	\item $0\leq g_k\left(x\right)\leq g_{k+1}\left(x\right),\ \forall x\in X$.
+	\item $g_k$ è misurabile, $\forall k\geq 1$.
+	\item $\displaystyle\lim_{n\to+\infty}g_k\left(x\right)=\liminf_{n\to+\infty}f_n\left(x\right)$ per caratterizzazione del $\liminf$.
+\end{itemize}
+Per il teorema della convergenza monotona
+\begin{equation*}
+	\lim_{k\to+\infty}\int_X g_kd\mu=\int_X\left(\liminf_{n\to+\infty}f_n\right)d\mu\leq \liminf_{n\to+\infty}\int_Xf_nd\mu
+\end{equation*}
+\end{demonstration}
+\begin{observe}~{}
+	\begin{itemize}
+		\item Poiché $f_n$ sono misurabili e non negative, anche $\liminf_{n\to+\infty}$ è misurabile e non negativo e pertanto il suo integrale secondo Lebesgue esiste sempre. 
+		\item Ci sono casi in cui vale \textit{soltanto} la disuguaglianza stretta.
+	\end{itemize}
+\end{observe}
+\begin{example}\textsc{Lemma di Fatou con disuguaglianza stretta, come l'esempio seguente.}\\
+	Sia $\left(X,\mathcal{M},\mu\right)=\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e $f_n\left(x\right)=\frac{1}{n}\chi_{\left[0,n\right]},\ \forall x\in\realset$.\\
+	% TO DO: immagine?
+	Si ha
+	\begin{equation*}
+		\liminf_{n\to+\infty}f_n\left(x\right)=\lim_{n\to+\infty}f_n\left(x\right)=0\\
+		\implies\int_{\realset}\left(\liminf_{n\to+\infty}f_n\right)dm_1=0
+	\end{equation*}
+	Mentre invece
+	\begin{equation*}
+		\liminf_{n\to+\infty}\int_{\realset}f_ndm_1=\liminf_{n\to+\infty}1=1
+	\end{equation*}
+\end{example}
+\subsection{{$\sigma$}-additività dell'integrale di funzioni misurabili non negative rispetto al dominio}
+\begin{proposition}[{$\sigma$}-additività dell'integrale rispetto al dominio.]~{}\\
+Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\left[0,+\infty\right]}$ funzione misurabile.
+Allora
+\begin{equation}
+	\int_{\bigcup_{n\geq 1}E_n}fd\mu=\sum_{n\geq 1}\int_{E_n}fd\mu,\ \forall E_n\in \mathcal{M}\colon E_i\cap E_j=\emptyset,\ \forall i\neq j
+\end{equation}
 \end{proposition}
 \begin{demonstration}
-Sappiamo già che $2)\iff 3)$ e $1)\implies 2)$ dal lemma precedente. Dobbiamo dimostrare $2)\implies 1)$. Dimostriamo per contronominale ($\neg 1)\implies \neg 2)$): se $X$ \textit{non} è compatto, allora $X$ non è compatto per successioni, cioè esiste una sottosuccessione in $X$ che \textit{non} ha alcuna sottosuccessione convergente.
-\begin{itemize}
-	\item $X$ \textit{non} compatto$\implies \exists \widetilde{\mathcal{A}}$ ricoprimento aperto di $X$ che \textit{non} ha sottoricoprimenti finiti.
-	\item $X$ a \textit{base numerabile} $\implies\exists\mathcal{A}$ sottoricoprimento di $\widetilde{\mathcal{A}}$ che sia numerabile.
-\end{itemize}
-Poiché ogni sottoricoprimento di $\mathcal{A}$ è anche un sottoricoprimento di $\widetilde{\mathcal{A}}$, significa che $\mathcal{A}$ \textit{non} ha sottoricoprimenti finiti. Definiamo $\mathcal{A}\coloneqq\left\{A_n\right\}_{n\in\naturalset}$.
-Allora:
-\begin{equation*}
-\forall n\in\naturalset\quad \bigcup_{j=1}^n A_j\subsetneqq X\implies \exists x_n\in X\setminus \bigcup_{j=1}^n A_j
-\end{equation*}
-Costruisco così una successione $\left\{x_n\right\}$ in $X$ tale per cui:
-\begin{center}
-	$\textcolor{red}{{\large \frownie{}}}$ $x_n\notin A_j\ \forall j\leq n$.
-\end{center}
-Mostriamo che $\left\{x_n\right\}$ non ha sottosuccessioni convergenti. Sia $\left\{x_{k\left(n\right)}\right\}$ una sottosuccessione arbitraria di $\left\{x_n\right\}$ e sia $p\in X$, mostriamo che essa non converga ad un qualunque $p$.\\
-\begin{itemize}
-	\item $\mathcal{A}$ è un ricoprimento di $X\implies \exists N\ \colon p\in A_N$
-	\item Da $\textcolor{red}{{\large \frownie{}}}$ abbiamo che $x_n \notin A_N \ \forall n\geq N$  (dato che $x_n \notin A_j \ \forall j\leq n$, in particolare in $A_N$ per ogni $n\geq N$); si ha allora $x_{k\left(n\right)}\notin A_n\ \forall n\ \colon k\left(n\right)\geq N$.
-\end{itemize}
-Essendo $k\left(n\right)$ crescente, $\exists n_0\ \colon k\left(n\right)\geq N\ \forall n\geq n_0$. Segue che se $n\geq n_0$ allora $x_{k\left(n\right)}\notin A_N$
-Poiché $A_N$ è intorno di $p$, segue che $\left\{x_{k\left(n\right)}\right\}$ non converge a $p$.
-\end{demonstration}
-\begin{theorema}[Spazio metrico compatto se e solo se compatto per successioni.]~{}\\
-Sia $X$ spazio metrico. Allora:
-\begin{equation}
-	X\text{ compatto}\iff X\text{ compatto per successioni}
-\end{equation}
-\vspace{-6mm}
-\end{theorema}
-\begin{center}
-\begin{tikzcd}
-	&  & \begin{array}{c}
-		\text{Compatto per}\\\text{successioni}
-	\end{array}  \arrow[color=red, lld, "X\text{ a base numerabile}"' sixslant2, shift right, shorten <= 0.5em] \arrow[dd] \arrow[color=red, lld, "X\text{ metrico}" sixslant1, shift right, below, shorten <= 0.5em] \\
-	\text{Compatto} \arrow[rrd, shift left, ] &  &                                                                                                                                                 \\
-	&  & \begin{array}{c}
-		\text{Ogni successione ha}\\\text{un punto di accumulazione}
-	\end{array} \arrow[color=red, uu, "\substack{\text{primo}\\\text{numerabile}}"' nine, shift right=4]
-\end{tikzcd}
-\end{center}
-\section{Spazi metrici completi}
-\begin{define}[Successione di Cauchy.]~{}\\
-	Sia $\left(X,\ d\right)$ uno spazio metrico. Una successione $\left\{a_n\right\}$ si dice \textbf{di Cauchy}\index{successione!di Cauchy} se:
-	\begin{equation}
-		\forall \epsilon>0\ \exists n_0\in\naturalset\ \colon \mvf{d}{a_n}{a_m}<\epsilon,\ \forall n,\ m\geq n_0
-	\end{equation}
-\vspace{-6mm}
-\end{define}
-\begin{define}[Spazio metrico completo.]~{}\\
-	Uno spazio metrico $\left(X,\ d\right)$ si dice \textbf{completo}\index{spazio!metrico!completo} {\small se ogni successione di Cauchy è convergente.}
-\end{define}
-\begin{observes}~{}
-	\begin{enumerate}
-		\item Ogni successione \textit{convergente} è di \textit{Cauchy}.
-		\item Una successione di Cauchy è \textit{convergente} se e solo se ha punti di accumulazione.
-		\item Una successione di Cauchy è \textit{convergente} se ha una \textit{sottosuccessione convergente}.
-		\item Se $X$ è \textit{compatto}, allora ogni successione di Cauchy è \textit{convergente}.
-		\item Se $X$ è spazio metrico \textit{compatto}, allora $X$ è spazio metrico \textit{completo}; non è vero il viceversa.
-	\end{enumerate}
-\vspace{-3mm}
-\end{observes}
-\begin{demonstration}~{}
-	\begin{enumerate}[label=\Roman*]
-		\item Se $a_n\to p$ per $n\to +\infty$ significa che:
-		\begin{equation*}
-			\forall \epsilon>0\ \exists n_0\in\naturalset\ \colon \mvf{d}{a_n}{p}<\epsilon,\ \forall n\geq n_0
-		\end{equation*}
-	Considerati $n,\ m\geq n_0$ si ha:
-	\begin{equation}
-		\mvf{d}{a_n}{a_m}\leq \mvf{d}{a_n}{p}+\mvf{d}{p}{a_n}< 2\epsilon
-	\end{equation}
-Per l'arbitrarietà di $\epsilon$ vale la convergenza.
-\item $\impliesdx$Sempre vera per \ref{lemmatriangolino} $\textcolor{blue}{\circled{{\large \blacktriangle}}}$ (pag. \pageref{lemmatriangolino}).\\
-$\impliessx$Sia $\left\{a_n\right\}$ una successione di Cauchy e sia $p$ un punto di accumulazione. Sia $\epsilon>0$: dalla definizione di successione di Cauchy $\exists n_0$ tale per cui $\mvf{d}{a_n}{a_m}<\epsilon\ \forall n,\ m\geq n_0$.\\
-Essendo $p$ di accumulazione, $\exists n_1\geq n_0$ tale per cui $\mvf{d}{p}{a_{n_1}}<\epsilon$. Allora, se $n\geq n_0$ si ha:
+	Posto $\displaystyle E\coloneqq \bigcup_{n\geq 1}E_n$, ricordiamo che
 	\begin{equation*}
-	\mvf{d}{a_n}{p}\leq \mvf{d}{a_n}{a_{n_1}}+\mvf{d}{a_{n_1}}{p}< 2\epsilon
-\end{equation*}
-Dunque $\left\{a_n\right\}$ converge a $p$.
-\item Poiché $X$ è metrico, $X$ è primo numerabile, dunque avere un punto di accumulazione è equivalente ad avere una sottosuccessione convergente.
-\item Se $X$ è compatto, ogni successione ha punti di accumulazione, in particolare quelle di Cauchy: per il punto $2)$ tutte le successioni di Cauchy risultano allora convergenti.
-\item Segue dal punto $4)$. Un controesempio del viceversa è $\mathbb{R}^n$, dato che è completo ma non è compatto (si veda il teorema seguente).
-\end{enumerate}
-\vspace{-3mm}
-\end{demonstration}
-\begin{theorema}[$\realset^n$ in top. Euclidea è spazio metrico completo.]~{}\\
-	$\realset^n$ in metrica Euclidea è uno spazio metrico completo.
-\end{theorema}
-\begin{demonstration}
-	Sia $\left\{a_n\right\}$ di Cauchy in $\realset^n$. Mostriamo che $\left\{a_n\right\}$ è eventualmente limitata\footnote{Supponendo chiaramente che la successione sia ben definita, ci interessa solamente che la successione sia limitata dopo un $n_0$: prima di ciò ho un numero finito di termini $a_0,\ \ldots,\ a_{n_0}<\infty$ e posso chiaramente prendere una palla (chiusa) che li contenga, ad esempio di raggio $M+1$ con $M$ definito come nella dimostrazione.}.\\
-	Poiché la successione di Cauchy è definita per ogni $\epsilon$, fissiamo $\epsilon=1$. Allora:
-	\begin{equation*}
-	\exists n_0\ \colon \labs a_n-a_m\rabs\leq 1\ \forall n,\ m\geq n_0
+		\int_Efd\mu=\int_X\left(f\chi_E\right)d\mu\text{ con }f\chi_E=\begin{cases}
+			\begin{array}{ll}
+				f&\text{su }E\\
+				0&\text{su }X\setminus E
+			\end{array}
+		\end{cases}
 	\end{equation*}
-Sia $M\coloneqq \max_{n_0,\ \ldots,\ n_0}\labs a_n\rabs$. Se $n\geq n_0$ si ha:
-\begin{equation*}
-\labs a_n\rabs=\labs a_n - a_{n_0}+ a_{n_0}\rabs=\leq \labs a_n - a_{n_0}\rabs+\labs a_{n_0}\rabs\leq 1+M
-\end{equation*}
-Questo significa che $\left\{a_n\right\}\subseteq\overline{B_{1+M}\left(0\right)}$. Questa palla chiusa è uno spazio metrico \textit{indotto} in $\realset^n$ e compatto, cioè è uno \textit{spazio metrico completo}. Allora la successione di Cauchy, trovandosi in uno spazio metrico completo, converge in esso, e dunque converge anche in $\realset^n$.
+Osserviamo che $\displaystyle \chi_E=\sum_{n\geq 1}\chi_{E_n}$ perché $\displaystyle E=\bigcup_{n\geq 1}E_n$ e $ E_i\cap E_j=\emptyset,\ \forall i\neq j$, pertanto
+\begin{align*}
+	\int_Efd\mu&=\int_X\left(f\chi_E\right)d\mu=\int_X\left(f\sum_{n\geq 1}f\chi_{E_n}d\mu\right)=\int_X\sum_{n\geq 1}\underbrace{\left(f\chi_{E_n}\right)}_{\geq 0}d\mu=\\
+	&=\sum_{n\geq 1}\int_Xf\chi_{E_n}d\mu=\sum_{g\geq 1}\int_{E_n}fd\mu
+\end{align*}
+% TO DO: inserire note pag. 93
 \end{demonstration}
-\begin{attention}
-La \textbf{completezza} \textit{non} è una proprietà topologica! Per esempio, $\realset$ e $\left(0,\ 1\right)$ con metrica Euclidea sono omeomorfi rispetto alla topologia indotta dalla metrica, ma $\realset$ abbiamo appena dimostrato che è completo, mentre $\left(0,\ 1\right)$ si può vedere che non lo è!
-\end{attention}
+\begin{observe}
+	Questo è il caso generale per \textit{funzioni misurabili} di un risultato precedentemente dimostrato per \textit{funzioni semplici}, misurabili, non negative. Notiamo che questo risultato richiede \textit{implicitamente} tale caso: infatti, nella dimostrazione abbiamo fatto uso del \textit{teorema della convergenza monotona}, che richiede la $\sigma$-additività rispetto al dominio delle funzioni semplici.
+\end{observe}
+\subsection{Misura di probabilità}
+Una conseguenza della $\sigma$-additività rispetto al dominio dell'integrale di Lebesgue è che, in modo analogo a come abbiamo visto per le funzioni semplici, possiamo costruire un \textit{nuovo spazio di misura} $\left(X,\mathcal{M},\mu_f\right)$ a partire da uno spazio di misura $\left(X,\mathcal{M},\mu\right)$ dato e una funzione $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile.
+\begin{corollary}[Misura indotta dalla funzione misurabile non negativa.]~{}\\
+Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile. Allora la funzione
+\begin{equation}
+	\funztot{\mu_f}{\mathcal{M}}{\left[0,+infty\right]}{E}{\int_Efd\mu}
+\end{equation}
+è una misura su $\mathcal{M}$, detta \textbf{misura di probabilità}\index{misura!di probabilità}.
+\end{corollary}
+\begin{example}
+	Consideriamo $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e prendiamo
+	\begin{equation*}
+		f\left(x\right)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall x\in\realset
+	\end{equation*}
+	La funzione è continua e dunque misurabile. La misura $\mu_f$ indotta è detta \textbf{misura di probabilità normale}\index{misura!di probabilità!normale}:
+	\begin{gather*}
+		\mu_f\left(E\right)=\int_E\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dm_1,\ \forall E\in\mathcal{L}\left(\realset\right)\\
+		\mu_f\left(\realset\right)=\int_{\realset}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dm_1=1
+	\end{gather*}
+\end{example}
+Se consideriamo lo spazio di misura $\left(\realset,\mathcal{L}\left(\realset\right),\mu_f\right)$ e una funzione $\funz{g}{\realset}{\left[0,+\infty\right]}$ misurabile, possiamo definire \begin{equation*}
+	\int_Egd\mu_f,\ \forall E\in\mathcal{L}\left(\realset\right)
+\end{equation*}
+Cos'è questo integrale?
+
