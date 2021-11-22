@@ -783,7 +783,7 @@ Segue che converge per ogni $z\in\complexset$.
 		\end{equation}
 		\item $e^{x+iy}=e^{x}\left(\cos y+i\sin y\right),\ \forall x,y\in\realset$.
 		\item $\abs{e^z}=e^{\Re z},\ \arg\left(e^z\right)=\Im z+2k\pi,\ k\in\integerset,\ \forall z\in\complexset$.
-		\item $e^{z+2k\pi i}=e^z,\ \forall z\in\complexset, k\in\integerset$.
+		\item $e^{z+2k\pi i}=e^z,\ \forall z\in\complexset,\ k\in\integerset$.
 	\end{enumerate}
 \end{proposition}
 \begin{demonstration}~{}\\
@@ -867,6 +867,23 @@ e questo consente di concludere la tesi.
 \begin{define}[Funzione multivoca.]~{}\\
 	Una \textbf{funzione multivoca}\index{funzione!multivoca} è una \textit{relazione binaria seriale} che associa ad ogni valore $x$ nel dominio $X$ uno o più valori $y$ nel codominio $Y$.
 \end{define}
+\subsubsection{Eserciziamoci! Funzione esponenziale in campo complesso}
+\begin{exercise}
+	\textit{Scegli la risposta corretta.} Il modulo del numero complesso $e^{iz}$, con $z\in\complexset$, è:
+	\begin{enumerate}[label=\alph*]
+		\item $e^{\Re z}$
+		\item $e^{-\Im z}$
+		\item $e^{\abs{z}}$
+		\item $e^{\Re z}$
+	\end{enumerate}
+\end{exercise}
+\begin{solution}
+	Per la proprietà $6$, dato $w\in\complexset$ $\abs{e^w}=e^{\Re w}$. Posto
+	\begin{equation*}
+		w=iz=i\left(\Re z + i \Im z\right)=-\Im z + i \Re z
+	\end{equation*}
+segue immediatamente che $\Re w=-\Im z$ e quindi $\abs{e^{iz}}=e^{-\Im z}$. La risposta corretta è \textbf{b}.
+\end{solution}
 \subsection{Funzione logaritmo in campo complesso}
 \begin{define}[Logaritmo in campo complesso.]~{}\\
 	Dato un numero complesso $z$, si chiamano \textbf{logaritmi complessi} di $z$, se esistono, i numeri complessi $w$ tali che
@@ -877,12 +894,16 @@ e questo consente di concludere la tesi.
 	\begin{equation}
 		\log z
 	\end{equation}
+o, per distinguerlo dal logaritmo reale, con
+\begin{equation}
+	\log_{\complexset} z
+\end{equation}
 \end{define}
 Proviamo ora che l'insieme dei logaritmi di $z$ è \textit{non vuoto} ed \textit{infinito} se $z\neq 0$.
 \begin{theorema}[Caratterizzazione dei logaritmi in campo complesso.]~{}\\
 	L'insieme dei logaritmi di un numero complesso $z$ è \textit{non vuoto} se e solo se $z\neq 0$. In questo caso esso è \textit{infinito} ed è costituito dai numeri complessi
 	\begin{equation}
-		\log_{\complexset} z = \log_\realset \abs{z} + i (\arg z+2k\pi ),\quad k\in \integerset
+		\log_{\complexset} z = \log_{\realset} \abs{z} + i (\arg z+2k\pi ),\quad k\in \integerset
 	\end{equation}
 \end{theorema}
 \begin{demonstration}
@@ -897,22 +918,33 @@ affinché questo numero sia uguale a $z$ si dovrà quindi avere
 \end{equation*}
 per qualche $k\in\integerset$. Otteniamo quindi
 \begin{equation*}
-	u=\log \abs{z}\in\realset
+	u=\log_{\realset} \abs{z}\in\realset
 \end{equation*}
 e dunque
 \begin{equation*}
-	w=\log \abs{z}+i(\arg(z)+2k\pi),\quad k\in \integerset
+	w=\log_{\realset}\abs{z}+i(\arg(z)+2k\pi),\quad k\in \integerset
 \end{equation*}
 \end{demonstration}
 \begin{observe}
-Si presti attenzione al diverso significato del simbolo $\log$ nella formula caratterizzante il \textit{logaritmo complesso}: a \textit{primo membro} esso indica i \textit{logaritmi complessi} del numero $z$; a secondo membro, l'unico logaritmo reale del numero reale positivo $\abs{z}$.
+Si presti attenzione al diverso significato del simbolo $\log$ nella formula caratterizzante il \textit{logaritmo complesso}: a \textit{primo membro} esso indica i \textit{logaritmi complessi} del numero $z$; a secondo membro, l'unico logaritmo reale del numero reale positivo $\abs{z}$. Per evitare confusioni, qui è stato indicato in pedice a quale logaritmo ci riferiamo.
 \end{observe}
 In figura sono rappresentati alcuni dei logaritmi complessi di un numero complesso \textit{non nullo} $z$.\\
 % TO DO: inserire immagine logaritmo
 Come si osserva dalla formula essi hanno tutti la \textit{stessa parte reale} e parti immaginarie che \textit{differiscono} per multipli di $2\pi$.
-\subsection{Eserciziamoci! Funzioni esponenziale e logaritmo in campo complesso}
+\subsubsection{Eserciziamoci! Funzione logaritmo in campo complesso}
 \begin{exercise}
-	Il modulo del numero complesso $e^{iz}$, con $z\in\complexset$, è:
+	\textit{Scegli la risposta corretta.} I logaritmi del numero complesso $-2i$ sono:
+	\begin{enumerate}[label=\alph*]
+		\item $\log 2 + i\left(-\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
+		\item $-\log 2 + i\left(\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
+		\item $\log 2 + i\left(\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
+		\item $-\log 2 + i\left(-\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
+	\end{enumerate}
 \end{exercise}
 \begin{solution}
+Applicando la formula caratterizzante il logaritmo complesso:
+\begin{equation*}
+	\log_{\complexset}\left(-2i\right)=\log_{\realset}\abs{-2i}+i\left(\arg\left(-2i\right)+2k\pi\right)=\log 2+i\left(-\frac{\pi}{2}+2k\pi\right),\ k\in\integerset
+\end{equation*}
+La risposta corretta è pertanto \textbf{a}.
 \end{solution}
