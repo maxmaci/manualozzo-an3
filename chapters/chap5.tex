@@ -162,9 +162,9 @@ Che differenza c'è tra la definizione e le caratterizzazioni? In sostanza posso
 	\textcolor{red}{\circled{B}}\quad f^{-1}\left(B\right)\in\mathcal{M},\ \forall B\text{ Borelliano di }Y\\
 	\textcolor{red}{\circled{C}}\quad f^{-1}\left(\left(\alpha,+\infty\right)\right)\in\mathcal{M},\ \forall \alpha\in\realset,\ \text{con }Y=\realset^{\ast}=\left[-\infty,+\infty\right]
 \end{gather*}
-Da un punto di vista \textit{operativo} $\textcolor{red}{\circled{B}}$ non conviene per verificare che $f$ sia misurabile, perché i Borelliani sono molti di più.\\
-Tuttavia, $\textcolor{red}{\circled{B}}$ rispetto a  $\textcolor{red}{\circled{A}}$ informazioni che immediatamente non si avevano dalla definizione originale: sono misurabili non solo le controimmagini degli aperti, ma anche le controimmagini dei chiusi.\\
-Col caso $\textcolor{red}{\circled{C}}$ ci limitiamo ad operare in $\realset^{\ast}=\left[-\infty,+\infty\right]$, ma è sicuramente $\realset^{\ast}=\left[-\infty,+\infty\right]\realset^{\ast}=\left[-\infty,+\infty\right]$ è più vantaggioso rispetto ad $\textcolor{red}{\circled{A}}$.
+Da un punto di vista \textit{operativo} $\textcolor{red}{\circled{B}}$ non conviene come metodo per verificare che $f$ sia misurabile: i Borelliani, pur avendo la \textit{stessa cardinalità} degli aperti, li contengono \textit{strettamente}\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare un approfondimento sulla relazione tra Borelliani, aperti e altre classi di insiemi.} e quindi bisogna verificare altri insiemi (come i chiusi) rispetto a quelli che si verificherebbero con la condizione $\textcolor{red}{\circled{A}}$.\\
+Tuttavia, $\textcolor{red}{\circled{B}}$ fornisce delle informazioni che immediatamente non si avevano dalla definizione originale: sono misurabili non solo le controimmagini degli aperti, ma anche le controimmagini dei chiusi.\\
+Col caso $\textcolor{red}{\circled{C}}$ ci limitiamo ad operare in $\realset^{\ast}=\left[-\infty,+\infty\right]$, ma è sicuramente più vantaggioso da applicare rispetto ad $\textcolor{red}{\circled{A}}$.
 \subsection{Passaggio al limite per funzioni misurabili}
 Ci chiediamo se, date $f_n$ successione di funzioni misurabili che convengono ad una funzione $f$ in \textit{una qualche} convergenza, $f$ risulta essere ancora misurabile e se sì, con quale tipo di convergenza.\\
 A differenza di quanto visto col passaggio al limite della continuità, la risposta è affermativa anche sotto la sola ipotesi di \textit{convergenza puntuale}!\\
@@ -614,7 +614,7 @@ Sappiamo che $E$ è misurabile secondo Peano-Jordan, dunque per il criterio equi
 	\begin{equation}
 		\funztot{\mu}{\setpart{X}}{\left[0,+\infty\right]}{E}{\displaystyle\sum_{n\colon x_n\in E}p_n}
 	\end{equation}
-Se $\displaystyle\sum_{n\colon x_n\in E}p_n=1$ è una \textbf{misura di probabilità discreta}\index{misura!di probabilità discreta}, come la m.d.p. \textit{binomiale}, di \textit{Poisson}, ecc...\\
+Se $\displaystyle\sum_{n\colon x_n\in E}p_n=1$, $\mu_p$ è una \textbf{misura di probabilità discreta}\index{misura!di probabilità discreta}, come la m.d.p. \textit{binomiale}, di \textit{Poisson}, ecc...\\
 \item Preso $X=\naturalset$, i punti $x_n=n, \forall n\geq 1$ e $p_n=1,\ \forall n\geq 1$, allora $\left(\naturalset,\setpart{\naturalset}\right)$ è spazio di misura con la \textbf{misura di conteggio semplice}\index{misura!di conteggio!semplice}, un caso particolare dell'esempio precedente:
 	\begin{equation}
 	\forall E\subseteq\naturalset,\ \mu\left(E\right)=\sum_{n\colon n\in E}1=\begin{cases}

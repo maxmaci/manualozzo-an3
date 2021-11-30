@@ -27,7 +27,7 @@ La definizione viene data per \textit{passaggi successivi}, utilizzando a partir
 	\item \textbf{\textsc{Passo 1:}} definiamo l'integrale per funzioni $\funz{s}{X}{\left[0,+\infty\right)}$ \textbf{semplici}, misurabili e non negative.
 	\item \textbf{\textsc{Passo 2:}} definiamo l'integrale per funzioni
 	$\funz{f}{X}{\left[0,+\infty\right]}$ \textbf{misurabili}, non negativi.
-	\item \textbf{\textsc{Passo 3:}} definiamo l'integrale per funzioni $\funz{f}{X}{\complexset}$ \textbf{misurabili} e \textbf{[...]}. % + IPOTESOPOLA MISTERIOSA CHE DEFINIREMO PIù AVANTI
+	\item \textbf{\textsc{Passo 3:}} definiamo l'integrale per funzioni $\funz{f}{X}{\complexset}$ \textbf{misurabili} e \textbf{integrabili}.
 \end{itemize}
 Prima di passare ai passi qui sopra enunciati, dobbiamo definire cos'è una \textit{funzione semplice} e capire come mai sono così importanti per l'integrale di Lebesgue.
 \section{Funzioni semplici}
@@ -43,10 +43,28 @@ Se consideriamo $A_i=\left\{x\mid s\left(x\right)=\alpha_i\right\}=s^{-1}\left(\
 	s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}
 \end{equation}
 \begin{proposition}[Una funzione semplice è misurabile se e solo se le controimmagini degli {$A_i$} sono misurabili.]~{}\\
-	$s$ funzione semplice è misurabile se e solo se $A_i$ è misurabile, $\forall i=1,\ \ldots,\ n$. 
+	Una funzione semplice $s$, scritta in decomposizione standard come
+	\begin{equation*}
+		s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}
+	\end{equation*}
+	è misurabile se e solo se gli insiemi $A_i=s^{-1}\left(\left\{\alpha_i\right\}\right)$ sono misurabili, $\forall i=1,\ \ldots,\ n$. 
 \end{proposition}
-\begin{demonstration}
-	% TO DO: inserire dimostrazione
+\begin{demonstration}~{}\\
+	Per definizione di funzione misurabile, $\funz{s}{\left(X,\mathcal{M}\right)}{\left[0,+\infty\right)}$ è misurabile se e solo se $\forall A\subseteq\left[0,+\infty\right)$ aperto, la controimmagine
+	\begin{equation*}
+		s^{-1}\left(A\right)=\bigcup_{\alpha_i\in A}s^{-1}\left(\left\{\alpha_i\right\}\right)=\bigcup_{i\colon \alpha_i\in A}A_i
+	\end{equation*}
+è misurabile in $X$.\\
+$\impliessx$ Poiché i valori $\alpha_i$, per definizione di $s$, sono finiti, per ogni $i$ possiamo considerare un intorno aperto $U\subseteq \left[0,+\infty\right)$ di $\alpha_i$ sufficientemente piccolo da non contenere alcun $a_j,\ \forall j\neq i$. Passando alla controimmagine
+\begin{equation*}
+	s^{-1}\left(U\right)=\bigcup_{k\colon \alpha_k\in U}A_k=A_i
+\end{equation*}
+per ipotesi sulla misurabilità di $s$ si ha che $A_i$ è misurabile, $\forall i$.\\
+$\impliesdx$ Preso $A\subseteq\left[0,+\infty\right)$ aperto, abbiamo visto come la controimmagine è unione finita degli $A_i$:
+	\begin{equation*}
+	s^{-1}\left(A\right)=\bigcup_{i\colon \alpha_i\in A}A_i
+\end{equation*}
+Poiché per ipotesi gli $A_i$ sono misurabili, allora $A$ è unione di insiemi misurabili e quindi è anch'esso misurabile.
 \end{demonstration}
 \begin{examples}~{} \label{funzionesemplice}
 	\begin{enumerate}
@@ -272,7 +290,7 @@ Per dimostrare tale proprietà ci servirà un risultato sulle serie con \textit{
 		\item Più in generale, se $\displaystyle\sum_{i=1}^{+\infty}\sum_{j=1}^{+\infty}\abs{a_{ij}}<+\infty$, allora vale la relazione precedente.
 	\end{itemize}
 \end{proposition}
-\begin{demonstration}\textsc{Della $\sigma$-additività dell'integrale rispetto al dominio.}\\
+\begin{demonstration}\textsc{(della $\sigma$-additività dell'integrale rispetto al dominio.)}\\
 	Siano $E_n\in\mathcal{M},\ E_i\cap E_j= \emptyset$ e sia $\displaystyle E=\cup_{n\geq 1} E_n$. Sia $\displaystyle s=\sum_{i=1}^{k}\alpha_i\chi_{A_i}$ la decomposizione standard di $s$ funzione semplice, dove $s\left(X\right)=\left\{\alpha_1,\ldots,\alpha_k\right\}$ e $A_i=s^{-1}\left(\left\{\alpha_i\right\}\right),\ \forall i=1,\ \ldots,\ k$. Si ha
 	\begin{equation*}
 		\int_Esd\mu=\sum_{i=1}^{k}\alpha_i\mu\left(A_i\cap E\right)\squarequal
@@ -301,7 +319,7 @@ si riscrive pertanto come
 Pertanto, $\mu_s$ è una misura su $\mathcal{M}$.
 \section{Passo 2: funzioni a valori reali misurabili, non negative}
 Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right]}$ funzione misurabile e non negativa. Dato $E\in\mathcal{M}$, vogliamo definire l'\textit{integrale esteso ad E di $f$ rispetto alla misura $\mu$} utilizzando l'integrale delle funzioni semplici definito al passo 1. 
-\begin{define}[Integrale di Lebesgue per funzioni  a valori reali, misurabili, non negative.]~{}\\
+\begin{define}[Integrale di Lebesgue per funzioni a valori reali, misurabili, non negative.]~{}\\
 	Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right]}$ funzione misurabile e non negativa. Si definisce l'\textit{integrale esteso ad E di $f$ rispetto alla misura $\mu$} come
 	\begin{equation}
 		\int_Efd\mu\coloneqq\sup\left\{\int_Esd\mu\ \middle| \funz{s}{X}{\left[0,+\infty\right)}\text{ semplice, misurabile}\colon0\leq s\leq f\right\}
@@ -388,7 +406,7 @@ Pertanto:
 	\int_{\realset}\left(\lim_{n\to+\infty}f_n\right)dm_1=\int_{\realset}0dm_1&=0
 \end{align*}
 \end{example}
-\begin{demonstration}\textsc{Del teorema della convergenza monotona.}
+\begin{demonstration}\textsc{(del teorema della convergenza monotona.)}
 	\begin{enumerate}[label=\Roman*]
 		\item $f$ è misurabile perché è limite puntuale di funzioni misurabili.
 		\item Osserviamo che $f$ misurabile e non negativa implica che
@@ -658,7 +676,7 @@ Per il teorema della convergenza monotona
 		\item Ci sono casi in cui vale \textit{soltanto} la disuguaglianza stretta.
 	\end{itemize}
 \end{observe}
-\begin{example}\textsc{Lemma di Fatou con disuguaglianza stretta, come l'esempio seguente.}\\
+\begin{example}\textsc{Lemma di Fatou con disuguaglianza stretta.}\\
 	Sia $\left(X,\mathcal{M},\mu\right)=\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e $f_n\left(x\right)=\frac{1}{n}\chi_{\left[0,n\right]},\ \forall x\in\realset$.\\
 	% TO DO: immagine?
 	Si ha
@@ -699,17 +717,17 @@ Osserviamo che $\displaystyle \chi_E=\sum_{n\geq 1}\chi_{E_n}$ perché $\display
 \begin{observe}
 	Questo è il caso generale per \textit{funzioni misurabili} di un risultato precedentemente dimostrato per \textit{funzioni semplici}, misurabili, non negative. Notiamo che questo risultato richiede \textit{implicitamente} tale caso: infatti, nella dimostrazione abbiamo fatto uso del \textit{teorema della convergenza monotona}, che richiede la $\sigma$-additività rispetto al dominio delle funzioni semplici.
 \end{observe}
-\subsection{Misura di probabilità}
+\subsection{Misura di probabilità} % TO DO: controllare che non stia dicendo una cazzata, è questa la definizione di misura di probabilità?
 Una conseguenza della $\sigma$-additività rispetto al dominio dell'integrale di Lebesgue è che, in modo analogo a come abbiamo visto per le funzioni semplici, possiamo costruire un \textit{nuovo spazio di misura} $\left(X,\mathcal{M},\mu_f\right)$ a partire da uno spazio di misura $\left(X,\mathcal{M},\mu\right)$ dato e una funzione $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile.
 \begin{corollary}[Misura indotta dalla funzione misurabile non negativa.]~{}\\
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile. Allora la funzione
 \begin{equation}
-	\funztot{\mu_f}{\mathcal{M}}{\left[0,+infty\right]}{E}{\int_Efd\mu}
+	\funztot{\mu_f}{\mathcal{M}}{\left[0,+\infty\right]}{E}{\int_Efd\mu}
 \end{equation}
 è una misura su $\mathcal{M}$, detta \textbf{misura di probabilità}\index{misura!di probabilità}.
 \end{corollary}
-\begin{example}
-	Consideriamo $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e prendiamo
+\begin{example}\label{gaussiana}
+	Consideriamo $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e prendiamo la \textbf{funzione gaussiana}\index{funzione!gaussiana}:
 	\begin{equation*}
 		f\left(x\right)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall x\in\realset
 	\end{equation*}
@@ -722,5 +740,246 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\le
 Se consideriamo lo spazio di misura $\left(\realset,\mathcal{L}\left(\realset\right),\mu_f\right)$ e una funzione $\funz{g}{\realset}{\left[0,+\infty\right]}$ misurabile, possiamo definire \begin{equation*}
 	\int_Egd\mu_f,\ \forall E\in\mathcal{L}\left(\realset\right)
 \end{equation*}
-Cos'è questo integrale?
-
+Cos'è questo integrale? La risposta tale quesito è il seguente teorema.
+\begin{theorema}[Integrale rispetto alla misura di probabilità.]~{}\\
+	Dato $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, consideriamo lo spazio di misura indotto $\left(X,\mathcal{M},\mu_f\right)$ con
+	\begin{equation*}
+		\funztot{\mu_f}{\mathcal{M}}{\left[0,+\infty\right]}{E}{\int_Efd\mu}
+	\end{equation*}
+	Sia $\funz{g}{X}{\left[0,+\infty\right]}$ misurabile. Allora
+	\begin{equation}
+		\int_Xgd\mu_f=\int_Xgfd\mu
+	\end{equation}
+\end{theorema}
+\begin{demonstration}
+	Innanzitutto, prima dimostriamo la proprietà per funzioni caratteristiche, poi per combinazioni lineari di esse (funzioni semplici), poi consideriamo il caso di una funzione $f$ misurabile non negativa, approssimandola co una successione di funzioni semplici misurabili.\\
+	\begin{enumerate}[label=\Roman*]
+		\item Sia $g=\chi_A$ con $A\in\mathcal{M}$ (pertanto $g$ è misurabile). Si ha
+		\begin{equation*}
+			\int_X\chi_Ad\mu_f=\int_A 1d\mu_f=1\mu_f\left(A\right)=\mu_f\left(A\right)\underset{\substack{\text{def.}\\\text{ di }\mu_f}}{=}\int_Afd\mu=\int_X\left(\chi_Afd\mu\right)
+		\end{equation*}
+		\item Sia $\funz{g}{X}{\left[0,+\infty\right)}$ misurabile semplice, scritta nella decomposizione standard come
+		\begin{equation*}
+			g=\sum_{i=1}^kg_i\chi_{A_i}\quad\text{con }g\left(X\right)=\left\{g_1,\ldots,g_k\right\}\text{ e }A_i=g^{-1}\left(\left\{g_i\right\}\right),\ i=1,\ \ldots,\ k
+		\end{equation*}
+	Allora
+	\begin{align*}
+			\int_Xgd\mu_f&=\int_X\left(\sum_{i=1}^kg_i\chi_A\right)d\mu_f)\sum_{i=1}^{k}g_i\int_X\chi_{A_i}d\mu_f\underset{\text{passo }1}{=}\sum_{i=1}^{k}g_i\int_X\chi_Afd\mu=\\
+			&=\int_X\underbrace{\sum_{i=1}^{k}g_i\chi_{A_i}}_{=g}fd\mu=\int_Xgfd\mu
+	\end{align*}
+	\item Consideriamo $\funz{g}{X}{\left[0,+\infty\right]}$ misurabile. È noto che esiste una successione $\funz{g_n}{X}{\left[0,+\infty\right)}$ di funzioni semplici misurabili tali
+	\begin{itemize}
+		\item $\displaystyle\lim_{n\to+\infty}g_n\left(x\right)=g\left(x\right),\ \forall x\in X$.
+		\item $g_{n+1}\left(x\right)\leq g_n\left(x\right),\ \forall x\in\ X,\ \forall n\geq 1$.
+	\end{itemize}
+Allora
+	\begin{equation*}
+	\int_Xgd\mu_f\underset{\substack{\text{thm. di}\\\text{convergenza}\\\text{monotona}}}{=}\lim_{n\to+\infty}\int_Xg_nd\mu_f\underset{\text{passo }2}{=}\lim_{n\to+\infty}\int_Xg_nfd\mu
+	\end{equation*}
+Osservando che
+\begin{itemize}
+	\item $\displaystyle\lim_{n\to+\infty}\left(g_nf\right)\left(x\right)=\left(gf\right)\left(x\right),\ \forall x\in X$.
+	\item $\left(g_{n+1}f\right)\left(x\right)\leq \left(g_nf\right)\left(x\right),\ \forall x\in\ X,\ \forall n\geq 1$.
+\end{itemize}
+possiamo concludere, per il teorema di convergenza monotona, che
+\begin{equation*}
+	\int_Xgd\mu_f=\int_X\left(gf\right)d\mu
+\end{equation*}
+	\end{enumerate}
+\end{demonstration}
+\begin{example}
+	Riprendiamo l'esempio a pag. \pageref{gaussiana}; la funzione gaussiana
+	\begin{equation*}
+		f\left(x\right)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall x\in X
+	\end{equation*}
+	in $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ implica la misura di probabilità ($\mu_f\left(X\right)=1$) normale
+	\begin{equation*}
+		\mu_f\left(E\right)=\int_E\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall E\in \mathcal{L}\left(\realset\right)
+	\end{equation*}
+la quale induce il nuovo spazio di misura $\left(\realset,\mathcal{L}\left(\realset\right),\mu_f\right)$. Se $\funz{g}{\realset}{\left[0,+\infty\right]}$ misurabile, allora
+\begin{equation*}
+	\int_\realset gd\mu_f=\int_\realset\frac{1}{\sqrt{2\pi}}g\left(x\right)e^{-\frac{x^2}{2}}dm_1
+\end{equation*}
+Osserviamo che per $g\left(x\right)=x^k$ quello che otteniamo integrando rispetto alla misura $\mu_f$ è il momento $k$-esimo di $f$.
+\end{example}
+\begin{observe}
+	Ricordiamo che se $\funz{f}{X}{\left[0,+\infty\right]}$ è misurabile, allora
+	\begin{equation*}
+		\mu_f\left(E\right)=\int_Efd\mu=0,\ \forall E\in\mathcal{M}\colon \mu\left(E\right)=0
+	\end{equation*}
+Riscriviamo questa relazione come
+\begin{equation*}
+	\forall E\in\mathcal{M}\colon\mu\left(E\right)=0\implies \mu_f\left(E\right)=0
+\end{equation*}
+Questo si esprime dice che $\mu_f$ è \textbf{assolutamente continua rispetto a }$\mu$ e si indica $\mu_f \ll \mu$.
+\end{observe}
+\begin{define}[Continuità assoluta.]~{}\\
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{\lambda}{X}{\left[0,+\infty\right]}$. $\lambda$ si dice \textbf{assolutamente continua rispetto a }$\mu$\index{continuità assoluta} se
+	\begin{equation}
+		\forall E\in\mathcal{M}\colon \mu\left(E\right)=0\implies \lambda\left(E\right)=0
+	\end{equation}
+e si indica come $\lambda \ll \mu$.
+\end{define}
+\begin{examples}~{}
+	\begin{itemize}
+		\item \textsc{Misura assolutamente continua.}\\
+		Se $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, $\mu_f$ definita precedentemente è assolutamente continua rispetto a $\mu$
+		\item \textsc{Misura non assolutamente continua.}\\
+		Sia $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e consideriamo la \textit{misura conteggio}
+		\begin{equation*}
+			\funztot{\lambda}{\mathcal{L}\left(\realset\right)}{\left[0,+\infty\right]}{E}{\begin{cases}
+					\begin{array}{ll}
+						\# E&\text{se }E\text{ è finito}\\
+						+\infty&\text{se }E\text{ è infinito}
+					\end{array}
+			\end{cases}}
+		\end{equation*}
+		$\lambda$ \textit{non} è assolutamente continua rispetto a $m_1$: infatti, preso $E=\left\{\overline{x}\right\}$, con $\overline{x}\in\realset$, si ha
+		\begin{equation*}
+			m_1\left(\left\{\overline{x}\right\}\right)=0\text{ ma }\lambda\left(\left\{\overline{x}\right\}\right)=1
+		\end{equation*}
+	\end{itemize}
+\end{examples}
+Diamo ora una caratterizzazione delle misure assolutamente continue finite.
+\begin{theorema}[Caratterizzazione delle misure ass. cont. finite.]~{}\\
+Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{\lambda}{\mathcal{M}}{\left[0,+\infty\right)}$ una misura \textit{finita}, ossia tale per cui $\lambda\left(X\right)<+\infty$.
+Allora
+\begin{equation}
+	\lambda\ll\mu\iff\forall \epsilon>0\exists\delta>0\colon\forall E\in\mathcal{M}\colon \mu\left(E\right)<\delta\implies \lambda\left(E\right)<\epsilon
+\end{equation}
+\end{theorema}
+Tra le misure assolutamente rispetto ad una misura $\mu$ ci sono le misure del tipo $\mu_f$ introdotte prima. Ci si potrebbe chiedere se ce ne sono altre: se $\mu$ è $\sigma$-finita, ossia se soddisfa
+\begin{equation*}
+	\mu\left(X\right)=+\infty\quad X=\bigcup_{n\geq 1}X_n,\ \mu\left(X_n\right)<+\infty
+\end{equation*}
+La risposta è \textit{no}, come si può vedere dal teorema seguente.
+\begin{theorema}[Teorema di Radon-Nicodym.]~{}\\
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura con $\mu$ misura $\sigma$-finita e sia $\funz{\lambda}{X}{\left[0,+\infty\right]}$ una misura. Allora
+	\begin{equation}
+		\lambda\ll\mu\iff \exists \funz{f}{X}{\left[0,+\infty\right]}\colon\lambda\left(E\right)=\int_Efd\mu,\ \forall E\in\mathcal{M}
+	\end{equation}
+\end{theorema}
+\section{Integrabilità}
+Ci stiamo avvicinando al terzo e ultimo passo dell'integrale di Lebesgue: lo scopo è quello di estendere la definizione per funzione \textit{a valori complessi}.\\
+Tuttavia, a differenza del passo 2, dove l'integrale può essere assumere valori in $\left[0,+\infty\right]$, l'insieme dei complessi $\complexset$ non contempla il valore $+\infty$; inoltre, come vedremo, la costruzione dell'integrale scelta può presentare delle forme di indecisione che non possiamo risolvere.\\
+Per proseguire, dobbiamo considerare una classe particolare di funzioni misurabili, le \textbf{funzioni integrabili}\index{funzione!integrabile}\seeonlyindex{funzione!integrabile}{integrabilità}.
+\begin{define}[Integrabilità.]~{}\\
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\complexset}$. La funzione $f$ si dice \textbf{integrabile} se
+	\begin{enumerate}
+		\item $f$ misurabile.
+		\item $\displaystyle\int_X\abs{f}d\mu<+\infty$ dove $\funz{\lvert f\rvert}{X}{\left[0,+\infty\right]}$
+	\end{enumerate}
+Indichiamo l'insieme delle funzioni integrabili come $\mathcal{L}^{1}\left(\mu\right)$.
+\end{define}
+\begin{observe}% TO DO: rendere seconda osservazione un attenzione
+	\begin{itemize}
+		\item Per definizione $f\in\mathcal{L}^{1}\left(\mu\right)\iff\abs{f}\in\mathcal{L}^{1}\left(\mu\right)$.
+		\item Nel caso particolare $\funz{f}{X}{\left[0,+\infty\right)}$, se $f$ è misurabile, allora esiste
+		\begin{equation*}
+			\int_Xfd\mu
+		\end{equation*}
+	finito o $+\infty$, dunque $\funz{f}{X}{\left[0,+\infty\right)}$ misurabile ammette \textit{sempre} integrale secondo Lebesgue, ma è integrabile solo se 
+	\begin{equation*}
+		\int_Xfd\mu<+\infty
+	\end{equation*}
+	\end{itemize}
+\end{observe}
+\begin{proposition}[Le funzioni integrabili formano uno spazio vettoriale.]~{}\\
+	$\mathcal{L}^1\left(\mu\right)$ è uno spazio vettoriale con le operazioni di somma di funzioni e prodotto di una funzione per uno scalare.
+\end{proposition}
+\begin{demonstration}
+	Siano $f,g\in\mathcal{L}^{1}\left(\mu\right),\ \alpha,\beta\in\complexset$. Allora:
+	\begin{enumerate}
+		\item $\alpha f+\beta g$ misurabile perché $f$ e $g$ sono misurabili.
+		\item
+		\begin{equation*}
+			\int_X\abs{\alpha f+\beta g}d\mu\leq \int_X\abs{\alpha}\abs{f}+\abs{\beta}\abs{g}d\mu=\abs{\alpha}\underbrace{\int_X\abs{f}d\mu}_{\substack{<+\infty\\\text{perché }\\f\text{ int.}}}+\underbrace{\abs{\beta}\int_X\abs{g}d\mu}_{\substack{<+\infty\\\text{perché }\\g\text{ int.}}}<+\infty
+		\end{equation*}
+	\end{enumerate}
+Pertanto $\alpha f+\beta g\in\mathcal{L}^{1}\left(\mu\right)$.
+\end{demonstration}
+\subsection{Decomposizione di una funzione a valori complessi in termini di funzioni a valori reali non negativi}
+Come fu utilizzato il passo 1 dell'integrale di Lebesgue per definire il passo 2, ci interessa utilizzare il secondo passo dell'integrale di Lebesgue per definire il terzo. Lo scopo quindi è di scomporre una generica funzione $\funz{f}{X}{\complexset}$ integrabile in una combinazione lineare di funzioni non negative ancora integrabili, in modo che il loro integrale sia definito. Per far ciò, consideriamo la \textit{parte reale} e \textit{immaginaria} di $f$:\\
+\begin{tabular}{ l l }
+	\quad{\scriptsize $\blacksquare $}\ \textbf{Parte reale:} & $\funz{u\coloneqq \Re f}{X}{\realset}$ \\
+	\quad{\scriptsize $\blacksquare $}\ \textbf{Parte immaginaria:} & $\funz{v\coloneqq \Im f}{X}{\realset}$  
+\end{tabular}\\
+In questo modo, abbiamo scomposto $f$ come una combinazione lineare di funzioni misurabili reali, ma possono assumere valori anche negativi. Decomponiamo ulteriormente $u$ e $v$ usando le \textit{parti positive} e \textit{parti negative}:\\
+\begin{tabular}{ l l }
+	\quad{\scriptsize $\blacksquare $}\ \textbf{Parte positiva di} $u$: & $u^{+}\coloneqq \max\left(u,0\right)\geq 0$ \\
+	\quad{\scriptsize $\blacksquare $}\ \textbf{Parte negativa di} $u$: & $u^{-}\coloneqq \max\left(-u,0\right)\geq 0$ \\
+	\quad{\scriptsize $\blacksquare $}\ \textbf{Parte positiva di} $v$: & $v^{+}\coloneqq \max\left(v,0\right)\geq 0$ \\
+	\quad{\scriptsize $\blacksquare $}\ \textbf{Parte negativa di} $v$: & $v^{-}\coloneqq \max\left(-v,0\right)\geq 0$ \\
+\end{tabular}\\
+Ottenendo così $u=u^{+}-u^{-}$ e $v=v^{+}-v^{-}$.\\ % TO DO: inserire grafico?
+Tornando quindi a $\funz{f}{X}{\complexset}$, possiamo ottenere $f$ come combinazione lineare di quattro funzioni reali \textit{non negative}.
+\begin{equation}
+	f=\left(\Re f\right)+i\left(\Im f\right)=\left(\left(\Re f\right)^{+}-\left(\Re f\right)^{-}\right)+i\left(\left(\Im\right)^{+}-\left(\Im\right)^{-}\right)
+\end{equation}
+Con la prossima proposizione dimostreremo che le funzioni qui definite sono tutte integrabili.
+\begin{proposition}[Integrabilità delle parti positive e negative delle parti reali e immaginarie.]~{}\\\label{integrabilitàpartiposnegrealimm}
+	Se $f\in\mathcal{L}^{1}\left(\mu\right)$, allora $\left(\Re f\right)^{\pm},\ \left(\Im f\right)^{\pm}\in\mathcal{L}^{1}\left(\mu\right)$.
+\end{proposition}
+\begin{demonstration}
+	% TO DO: add dimostrazione
+\end{demonstration}
+\section{Passo 3: funzioni complesse integrabili}
+Avendo enunciato tutte le premesse del caso, siamo nelle condizioni di enunciare il terzo passo dell'integrale di Lebesgue.
+\begin{define}[Integrale di Lebesgue per funzioni a valori complesse, integrabili.]~{}\\
+	Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\complexset}$ funzione \textit{integrabile}. Posto
+	\begin{equation*}
+		f=\left(\Re f\right)^{+}-\left(\Re f\right)^-+i\left[\left(\Im f\right)^{+}-\left(\Im f\right)^{-}\right]
+	\end{equation*}
+si definisce l'\textit{integrale esteso ad E di $f$ rispetto alla misura $\mu$} come
+\begin{equation}
+	\int_Efd\mu\coloneqq\int_E\left(\Re f\right)^{+}d\mu-\int_E\left(\Re f\right)^{-}+i\left(\int_E\left(\Im f\right)^{+}d\mu-\int_E\left(\Im f\right)^{-}d\mu\right)
+\end{equation}
+\end{define}
+\begin{observe}
+	L'ipotesi $f\in\mathcal{L}^{1}\left(\mu\right)$ implica, come dice la proposizione \ref{integrabilitàpartiposnegrealimm}, che $\left(\Re f\right)^{\pm}$, $\left(\Im_f\right)^{\pm}\in\mathcal{L}^1\left(\mu\right)$ e quindi vale
+	\begin{equation*}
+		\int_X\left(\Re f\right)^{\pm}d\mu<+\infty\quad \int_X\left(\Im f\right)^{\pm}d\mu<+\infty
+	\end{equation*}
+	Di conseguenza, tale integrale esiste finito in $\complexset$. Se infatti le quattro funzioni ottenute decomponendo $f$ non fossero integrabili, allora potrebbero capitare delle situazioni in cui \textit{due degli integrali} della scomposizione danno la \textit{forma indeterminata} $\infty-\infty$.
+\end{observe}
+\begin{proposition}[Proprietà dell'integrale di Lebesgue per funzioni a valori complessi.]~{}
+	\begin{enumerate}
+		\item \textbf{Linearità:}
+		\begin{equation}
+			\int_X\left(\alpha f+\beta g\right)d\mu=\alpha\int_Xfd\mu+\beta\int_Xgd\mu,\ \forall f,g\in\mathcal{L}^1\left(\mu\right),\ \forall\alpha,\ \beta\in\complexset
+		\end{equation}
+		\item \textbf{Monotonia rispetto al modulo:}
+		\begin{equation}
+			\abs{\int_Xfd\mu}\leq \int_X\abs{f}d\mu,\ \forall f\in\mathcal{L}^1\left(\mu\right)
+		\end{equation}
+	\item $\sigma$-\textbf{additività rispetto al dominio:} se $\displaystyle E=\bigcup_{n\geq 1}E_n,\ \forall E_n\in\mathcal{M}\colon E_i\cap E_j=\emptyset,\ \forall i\neq j$, allora
+	\begin{equation}
+		f\in\mathcal{L}^1\left(\mu\right)\implies \int_Efd\mu=\sum_{n\geq 1}\int_{E_n}fd\mu
+	\end{equation}
+\item \textbf{Assoluta continuità:}
+\begin{equation}
+	f\in\mathcal{L}^{1}\left(\mu\right)\implies \forall \epsilon>0,\ \exists \delta >0\colon\forall E\in\mathcal{M}\colon \mu\left(E\right)<\delta\implies\abs{\int_E fd\mu}<\epsilon
+\end{equation}
+in altre parole, l'integrale si può rendere arbitrariamente più piccolo in modulo a patto di integrare su un dominio di misura sufficientemente piccola.
+\end{enumerate}
+\end{proposition}
+\begin{demonstration}
+	Dimostriamo l'assoluta continuità (punto 4).\\
+	Consideriamo $\funz{f}{X}{\complexset}$ con $f\in\mathcal{L}^1\left(\mu\right)$; sappiamo che $f$ è misurabile e pertanto anche $\funz{\lvert f\rvert}{X}{\left[0,+\infty\right)}$ la è.\\
+	Consideriamo la misura
+	\begin{equation*}
+		\funztot{\mu_{|f|}}{\mathcal{M}}{\left[0,+\infty\right]}{E}{\int_E\abs{f}d\mu}
+	\end{equation*}
+Essa è assolutamente continua rispetto a $\mu$. Inoltre, $\mu_{\abs{f}}$ è finita perché $f\in\mathcal{L}^1\left(\mu\right)$ e quindi
+\begin{equation*}
+	\mu_{\abs{f}}\left(X\right)\int_X\abs{f}d\mu<+\infty
+\end{equation*}
+Per la caratterizzazione delle misure finite assolutamente continue rispetto a $\mu$ si ha
+\begin{equation*}
+	\forall \epsilon >0,\ \exists \delta > 0\colon E\in\mathcal{M},\ \mu\left(E\right)<\delta\implies \mu_{\abs{f}}\left(E\right)=\int_E\abs{f}d\mu<\epsilon
+\end{equation*}
+Si ha quindi
+\begin{equation*}
+	\forall \epsilon > 0,\ \exists \delta >0\colon \exists E\in\mathcal{M},\ \mu\left(E\right)<\delta\implies \abs{\int_Efd\mu}\underset{\substack{\text{prop. }2\\\text{dell'int.}}}{\leq}\int_E\abs{f}d\mu<\epsilon\implies \abs{\int_Efd\mu}<\epsilon
+\end{equation*}
+\end{demonstration}

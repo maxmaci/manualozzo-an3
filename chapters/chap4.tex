@@ -22,19 +22,23 @@
 	\begin{equation}
 		\sum_{n=0}^{+\infty}a_n	\left(z-z_0\right)^n
 	\end{equation}
-	con $a_n$ numeri complessi (eventualmente dipendenti da $n$) e $z,\ z_0\in A\subseteq\complexset$, dove $z_0$ è dato.
+	con $a_n$ numeri complessi (eventualmente dipendenti da $n$), $z_0\in\complexset$ dato e $z$ che varia in un insieme $A$ detto \textbf{insieme di convergenza}\index{insieme!di convergenza}, costituito da tutti i punti $z$ in cui la serie converge.
 \end{define}
 Cambiando le variabili possiamo \textit{centrare} la serie in $z_0=0$ e dunque studiare la serie
 \begin{equation}
 	\sum_{n=0}^{+\infty}a_nz^n=a_0+a_1z+a_2z^2+a_3z^3\ldots
 \end{equation}
 Chiaramente la serie così scritta converge in $z=0$ (o, se prendiamo la serie \textit{non} centrata nell'origine, in $z=z_0$), dato che la serie ha termini \textit{costantemente nulli} e quindi è banalmente convergente.\\
-Ci interessa ora studiare in quale insieme di $\complexset$ tali serie convergono. 
+Ci interessa ora studiare qual è l'insieme in $\complexset$ in cui tali serie convergono. 
 \begin{theorema}[Insieme di convergenza.]~{}\\\label{insiemediconvergenza}
 Se una serie di potenze converge in $z_0\in\complexset$, allora essa converge (assolutamente) in ogni punto $z$ con $\abs{z}<\abs{z_0}$.
 \end{theorema}
 \begin{demonstration}
-	Sappiamo dalle ipotesi che la serie $\displaystyle\sum_{n=0}^{+\infty}a_nz_0^n$ è convergente, quindi per la condizione necessaria di convergenza il termine $a_nz_0^n$ tende a zero. Per definizione di limite significa che
+	Sappiamo dalle ipotesi che la serie
+	\begin{equation*}
+		\displaystyle\sum_{n=0}^{+\infty}a_nz_0^n
+	\end{equation*}
+	è convergente, quindi per la condizione necessaria di convergenza il termine $a_nz_0^n$ tende a zero. Per definizione di limite significa che
 	\begin{equation*}
 		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\in\naturalset\colon\forall n\geq N,\ \abs{a_nz_0^n}<\epsilon
 	\end{equation*}
@@ -43,14 +47,30 @@ Se una serie di potenze converge in $z_0\in\complexset$, allora essa converge (a
 	\begin{equation*}
 		\abs{a_nz^n}=\abs{a_nz_0^n}\abs{\frac{z}{z_0}}^n\leq\abs{\frac{z}{z_0}}^n
 	\end{equation*}
-	Poiché per ipotesi $\abs{z}<\abs{z_0}$, vale $\abs{\frac{z}{z_0}}<1$ e quindi la serie geometrica $\displaystyle\sum_{n=0}^{+\infty}\abs{\frac{z}{z_0}}$ converge. Per il teorema di confronto segue che anche la serie $\displaystyle\sum_{n=0}^{+\infty}\abs{a_nz^n}$ è convergente e quindi $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge (assolutamente).
+	Poiché per ipotesi $\abs{z}<\abs{z_0}$, si ha $\abs{\frac{z}{z_0}}<1$ e quindi la serie geometrica
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}\abs{\frac{z}{z_0}}
+	\end{equation*}
+	converge. Per il criterio del confronto di serie segue che anche la serie
+	\begin{equation*}
+		\displaystyle\sum_{n=0}^{+\infty}\abs{a_nz^n}
+	\end{equation*}
+	è convergente e quindi
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}a_nz^n
+	\end{equation*}
+	converge (assolutamente).
 \end{demonstration}
-Con questo non solo abbiamo dimostrato che se la serie di potenze converge in $z_0$ allora la serie converge in tutti i punti $z$ con $\abs{z}<\abs{z_0}$, ma implicitamente sappiamo anche che la serie \textit{non} converge in $z_0$ allora \textit{non} converge per $\abs{z}>\abs{z_0}$.\\
-Infatti, se in $z_0$ la serie non converge supponiamo \textit{per assurdo} che esista $z^\ast$, con $\abs{z^\ast}>\abs{z_0}$, in cui la serie converge. Per il teorema appena dimostrato in tutti i punti $z$ con $\abs{z}<\abs{z^\ast}$ la serie di potenze converge, ma fra questi è compreso anche $z_0$ dove essa \textit{non} converge.
+Con questo non solo abbiamo dimostrato che se la serie di potenze converge in $z_0$ allora la serie converge in tutti i punti $z$ con $\abs{z}<\abs{z_0}$, ma implicitamente sappiamo anche che se la serie \textit{non} converge in $z_0$ allora \textit{non} converge per $\abs{z}>\abs{z_0}$.\\
+Infatti, se la serie non converge in $z_0$ supponiamo \textit{per assurdo} che esista $z^\ast$, con $\abs{z^\ast}>\abs{z_0}$, in cui la serie converge. Per il teorema appena dimostrato, in tutti i punti $z$ con $\abs{z}<\abs{z^\ast}$ la serie di potenze converge, ma fra questi è compreso anche $z_0$ dove essa \textit{non} converge.
 \subsection{Il raggio di convergenza}
 Per queste osservazioni l'insieme di convergenza della serie è un \textit{cerchio} centrato nell'origine di un certo \textit{raggio} $R$. Diamo una definizione formale di questo raggio.
 \begin{define}[Cerchio e raggio di convergenza.]~{}\\
-	Prendiamo $\displaystyle A=\left\{z \ \middle\vert \ \sum_{n=0}^{+\infty} a_n z^n \ \mbox{converge} \right\}\subseteq \complexset$ l'insieme di convergenza della serie di potenze centrata in $z_0=0$ e consideriamo l'insieme $E=\left\{\abs{z}\mid z\in A\right\}\subseteq\realset$ dato da tutti i moduli dei punti di convergenza della serie. Il \textbf{raggio di convergenza}\index{raggio di convergenza} è definito come
+	Prendiamo
+	\begin{equation*}
+		A=\left\{z \ \middle\vert \ \sum_{n=0}^{+\infty} a_n z^n \ \mbox{converge} \right\}\subseteq \complexset
+	\end{equation*}
+	l'insieme di convergenza della serie di potenze centrata in $z_0=0$ e consideriamo l'insieme $E=\left\{\abs{z}\mid z\in A\right\}\subseteq\realset$ dato da tutti i moduli dei punti di convergenza della serie. Il \textbf{raggio di convergenza}\index{raggio di convergenza} è definito come
 	\begin{equation*}
 		r\coloneqq\sup E=\sup\left\{\abs{z}\ \middle\vert \ \sum_{n=0}^{+\infty} a_n z^n \ \mbox{converge} \right\}
 	\end{equation*}
@@ -75,7 +95,7 @@ Per determinare il raggio di convergenza, possiamo ad esempio usare il \textbf{c
 	\begin{enumerate}
 		\item $L=0\implies R=+\infty$
 		\item $L=+\infty\implies R=0$
-		\item $0<L<+\infty\implies R=\frac{1}{L}$
+		\item $0<L<+\infty\implies R=\nicefrac{1}{L}$
 	\end{enumerate}
 \end{proposition}
 Questa proposizione ha il vantaggio di essere operativamente utile, ma ovviamente solo se valgono le ipotesi: non è scontato che il limite del rapporto sia ben definito!\\
@@ -92,7 +112,7 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 	Allora
 	\begin{enumerate}
 		\item Se $\lambda = 0$, la serie converge $\forall z\in\complexset$.
-		\item Se $0<\lambda<+\infty$, la serie converge $R=\frac{1}{\lambda}$.
+		\item Se $0<\lambda<+\infty$, la serie converge $R=\nicefrac{1}{\lambda}$.
 		\item Se $\lambda = +\infty$, la serie converge solo in $z=0$.
 	\end{enumerate}
 
@@ -104,61 +124,84 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 	\end{equation*}
 \end{observe}
 \begin{demonstration}\textsc{(del teorema di Cauchy-Hadamard.)}~{}\\
-	Partiamo dal dimostrare il punto $2)$: dobbiamo provare che $R=\frac{1}{\lambda}$, ossia
-	\begin{itemize}
-		\item[a.] Se $\abs{z}<\nicefrac{1}{\lambda}$, allora $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge.
-		\item[b.] Se $\abs{z}>\nicefrac{1}{\lambda}$, allora $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ \textit{non} converge.
-	\end{itemize}
-	La condizione (a.) infatti non basta per dimostrare che la convergenza è solo all'interno del cerchio. Proviamo ora le due tesi.
-	\begin{itemize}
-		\item[a.]	 Sia $z$ tale che $\abs{z}<\nicefrac{1}{\lambda}$. Se $z=0$ la serie banalmente converge perché ogni serie converge nel suo centro.\\
-		Se $z\neq 0$, vale $\lambda<\nicefrac{1}{\abs{z}}$; consideriamo allora $\lambda'$ tale che $\lambda<\lambda'<\nicefrac{1}{\abs{z}}$: poiché $\lambda'>\lambda$, per la caratterizzazione del massimo limite si ha
-		\begin{equation*}
-			\textcolor{red}{\circled{\ast}}\quad\exists N\colon\forall n\geq N,\ \sqrt[n]{\abs{a_n}}<\lambda'
-		\end{equation*}
-		Proviamo che $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge assolutamente usando il criterio del confronto.
-		\begin{equation*}
-			\abs{a_nz^n}=\abs{a_n}\abs{z^n}=\abs{a_n}\abs{z}^n\substack{<}_{\textcolor{red}{\circled{\ast}}} \left(\lambda'\right)^n\abs{z}^n=\left(\lambda'\abs{z}\right)^n,\ \forall n\geq N
-		\end{equation*}
-		Questo è il termine $n$-esimo della serie geometrica $\displaystyle\sum_{n=0}^{+\infty}\left(\lambda'\abs{z}\right)^n$ di ragione $\lambda'\abs{z}$.\\
-		Poiché $0<\lambda'\abs{z}<1$ per la scelta di $\lambda'$, la serie geometrica converge e quindi per il criterio del confronto converge anche la serie $\displaystyle\sum_{n=0}^{+\infty}\abs{a_nz^n}$ e dunque converge anche $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$.
-		\item[b.]	 Sia $z$ tale che $\abs{z}>\nicefrac{1}{\lambda}$. Per mostrare la non convergenza della serie proviamo che la condizione necessaria di convergenza non è soddisfatta, ovvero
-		\begin{equation*}
-			\lim_{n\to+\infty}a_nz^n\neq 0,\ \forall z\colon \abs{z}>\frac{1}{\lambda}
-		\end{equation*}
-		Per questo è sufficiente mostrare che
-		\begin{equation*}
-			\lim_{n\to+\infty}\abs{a_nz^n}\neq 0,\ \forall z\colon \abs{z}>\frac{1}{\lambda}
-		\end{equation*}
-		Notiamo che siamo passati da $\complexset$ a $\realset$ grazie alla norma, anche se in $\complexset$ ci trovavamo comunque in uno spazio metrico con la distanza indotta dal modulo.\\
-		Poiché $z\neq 0$, vale $\lambda>\nicefrac{1}{\abs{z}}$.	Consideriamo allora $\lambda''$ tale che $\nicefrac{1}{\abs{z}}<\lambda''<\lambda$: poiché $\lambda''<\lambda$, per la caratterizzazione del massimo limite si ha
-		\begin{equation*}
-			\textcolor{blue}{\circled{\ast}}\quad\exists n_k\to+\infty\colon\sqrt[n_k]{\abs{a_{n_k}}}>\lambda''
-		\end{equation*}
-		Si ha, lungo la sottosuccessione:
-		\begin{equation*}
-			\abs{a_{n_k}z^{n_k}}=\abs{a_n}{z}^{n_k}\substack{>}_{\textcolor{blue}{\circled{\ast}}} \left(\lambda''\right)^{n_k}\abs{z}^{n_k}=\left(\substack{\lambda''\abs{z}>1}_{\text{ per la scelta di }\lambda''}\right)^{n_k}>1,\ \forall n_k
-		\end{equation*}
-		Poiché esiste una sottosuccessione che è sempre maggiore di $1$, deve esistere un valore limite della successione $\abs{a_nz^n}$ maggiore o uguale a $1$. Ma allora
-		\begin{equation*}
-			\limsup_{n\to+\infty}\abs{a_nz^n}\geq 1\implies\lim_{n\to+\infty}\abs{a_nz^n}\neq 0
-		\end{equation*}
-	\end{itemize}
-	La dimostrazione del punto $1)$ è analoga alla prima parte della dimostrazione del punto $2)$. In questo caso, dobbiamo mostrare che la serie converge $\forall z\in\complexset$.\\ Se $z=0$, la serie banalmente converge, mentre se $z\neq 0$, si ha chiaramente che $0=\lambda<\nicefrac{1}{\abs{z}},\ \forall z\in\complexset\setminus\{0\}$. Consideriamo allora $\lambda'$ tale che $0<\lambda'<\nicefrac{1}{\abs{z}}$: poiché $\lambda'>0$, per la caratterizzazione del massimo limite si ha
+	\begin{enumerate}[label=\Roman*]
+		\item 	Partiamo dal dimostrare il punto $2)$: dobbiamo provare che $R=\frac{1}{\lambda}$, ossia
+		\begin{itemize}
+			\item[a.] Se $\abs{z}<\nicefrac{1}{\lambda}$, allora $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge.
+			\item[b.] Se $\abs{z}>\nicefrac{1}{\lambda}$, allora $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ \textit{non} converge.
+		\end{itemize}
+		Infatti, la condizione a. non basta per dimostrare che la convergenza è solo all'interno del cerchio. Proviamo ora le due tesi.
+		\begin{itemize}
+			\item[a.]	 Sia $z$ tale che $\abs{z}<\nicefrac{1}{\lambda}$. Se $z=0$ la serie banalmente converge perché ogni serie converge nel suo centro.\\
+			Se $z\neq 0$, vale $\lambda<\nicefrac{1}{\abs{z}}$; consideriamo allora $\lambda'$ tale che $\lambda<\lambda'<\nicefrac{1}{\abs{z}}$: poiché $\lambda'>\lambda$, per la caratterizzazione del massimo limite si ha
+			\begin{equation*}
+				\textcolor{red}{\circled{\ast}}\quad\exists N\colon\forall n\geq N,\ \sqrt[n]{\abs{a_n}}<\lambda'
+			\end{equation*}
+			Proviamo che $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge assolutamente usando il criterio del confronto.
+			\begin{equation*}
+				\abs{a_nz^n}=\abs{a_n}\abs{z^n}=\abs{a_n}\abs{z}^n\underset{\textcolor{red}{\circled{\ast}}}{<} \left(\lambda'\right)^n\abs{z}^n=\left(\lambda'\abs{z}\right)^n,\ \forall n\geq N
+			\end{equation*}
+			Questo è il termine $n$-esimo della serie geometrica
+			\begin{equation*}
+				\sum_{n=0}^{+\infty}\left(\lambda'\abs{z}\right)^n
+			\end{equation*}
+			di ragione $\lambda'\abs{z}$. Poiché $0<\lambda'\abs{z}<1$ per la scelta di $\lambda'$, la serie geometrica converge e quindi per il criterio del confronto converge anche la serie
+			\begin{equation*}
+				\sum_{n=0}^{+\infty}\abs{a_nz^n}
+			\end{equation*}
+			e dunque converge anche
+			\begin{equation*}
+				\sum_{n=0}^{+\infty}a_nz^n
+			\end{equation*}.
+			\item[b.] Sia $z$ tale che $\abs{z}>\nicefrac{1}{\lambda}$. Per mostrare la non convergenza della serie proviamo che la condizione necessaria di convergenza non è soddisfatta, ovvero
+			\begin{equation*}
+				\lim_{n\to+\infty}a_nz^n\neq 0,\ \forall z\colon \abs{z}>\frac{1}{\lambda}
+			\end{equation*}
+			Per questo è sufficiente mostrare che
+			\begin{equation*}
+				\lim_{n\to+\infty}\abs{a_nz^n}\neq 0,\ \forall z\colon \abs{z}>\frac{1}{\lambda}
+			\end{equation*}
+			Anche se $\complexset$ è uno spazio metrico con la distanza indotta dal modulo, siamo passati da $\complexset$ a $\realset$ col modulo in modo da utilizzare l'ipotesi del $\limsup$, la quale richiede uno spazio metrico ordinato (come è $\realset$).\\
+			Poiché $z\neq 0$, vale $\lambda>\nicefrac{1}{\abs{z}}$.	Consideriamo allora $\lambda''$ tale che $\nicefrac{1}{\abs{z}}<\lambda''<\lambda$: poiché $\lambda''<\lambda$, per la caratterizzazione del massimo limite si ha
+			\begin{equation*}
+				\textcolor{blue}{\circled{\ast}}\quad\exists n_k\to+\infty\colon\sqrt[n_k]{\abs{a_{n_k}}}>\lambda''
+			\end{equation*}
+			Si ha, lungo la sottosuccessione:
+			\begin{equation*}
+				\abs{a_{n_k}z^{n_k}}=\abs{a_n}{z}^{n_k}\underset{\textcolor{blue}{\circled{\ast}}}{>} \left(\lambda''\right)^{n_k}\abs{z}^{n_k}\underset{\substack{\text{per la}\\\text{scelta}\\\text{di }\lambda''}}{=}\left(\lambda''\abs{z}>1\right)^{n_k}>1,\ \forall n_k
+			\end{equation*}
+			Poiché esiste una sottosuccessione che è sempre maggiore di $1$, deve esistere un valore limite della successione $\abs{a_nz^n}$ maggiore o uguale a $1$. Ma allora
+			\begin{equation*}
+				\limsup_{n\to+\infty}\abs{a_nz^n}\geq 1\implies\lim_{n\to+\infty}\abs{a_nz^n}\neq 0
+			\end{equation*}
+		\end{itemize}
+	\item La dimostrazione del punto $1)$ è analoga alla prima parte della dimostrazione del punto $2)$. In questo caso, dobbiamo mostrare che la serie converge $\forall z\in\complexset$.\\ Se $z=0$, la serie banalmente converge, mentre se $z\neq 0$, si ha chiaramente che $0=\lambda<\nicefrac{1}{\abs{z}},\ \forall z\in\complexset\setminus\{0\}$. Consideriamo allora $\lambda'$ tale che $0<\lambda'<\nicefrac{1}{\abs{z}}$: poiché $\lambda'>0$, per la caratterizzazione del massimo limite si ha
 	\begin{equation*}
 		\textcolor{red}{\circled{\ast}}\quad\exists N\colon\forall n\geq N\ \sqrt[n]{\abs{a_n}}<\lambda'
 	\end{equation*}
 	Proviamo che $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge assolutamente usando il criterio del confronto.
 	\begin{equation*}
-		\abs{a_nz^n}=\abs{a_n}\abs{z^n}=\abs{a_n}\abs{z}^n\substack{<}_{\textcolor{red}{\circled{\ast}}} \left(\lambda'\right)^n\abs{z}^n=\left(\lambda'\abs{z}\right)^n,\ \forall n\geq N
+		\abs{a_nz^n}=\abs{a_n}\abs{z^n}=\abs{a_n}\abs{z}^n\underset{\textcolor{red}{\circled{\ast}}}{<} \left(\lambda'\right)^n\abs{z}^n=\left(\lambda'\abs{z}\right)^n,\ \forall n\geq N
 	\end{equation*}
-	Questo è il termine $n$-esimo della serie geometrica $\displaystyle\sum_{n=0}^{+\infty}\left(\lambda'\abs{z}\right)^n$ di ragione $\lambda'\abs{z}$.\\
-	Poiché $0<\lambda'\abs{z}<1$ per la scelta di $\lambda'$, la serie geometrica converge e quindi per il criterio del confronto converge anche la serie $\displaystyle\sum_{n=0}^{+\infty}\abs{a_nz^n}$ e dunque converge anche $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$. Poiché la scelta di $z$ è stata arbitraria, vale la tesi.\\
-	La dimostrazione del punto $1)$ è analoga alla seconda parte della dimostrazione del punto $2)$. In questo caso, dobbiamo mostrare che la serie converge solo in $z=0$.\\ Se $z=0$, la serie banalmente converge. Per mostrare la non convergenza della serie proviamo che la condizione necessaria di convergenza non è soddisfatta, ovvero
+	Questo è il termine $n$-esimo della serie geometrica
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}\left(\lambda'\abs{z}\right)^n
+	\end{equation*}
+	di ragione $\lambda'\abs{z}$. Poiché $0<\lambda'\abs{z}<1$ per la scelta di $\lambda'$, la serie geometrica converge e quindi per il criterio del confronto converge anche la serie
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}\abs{a_nz^n}
+	\end{equation*}
+	e dunque converge anche 
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}a_nz^n
+	\end{equation*}
+	Poiché la scelta di $z$ è stata \textit{arbitraria}, vale la tesi.
+	\item 
+	La dimostrazione del punto $3)$ è analoga alla seconda parte della dimostrazione del punto $2)$. In questo caso, dobbiamo mostrare che la serie converge solo nel punto $z=0$.\\ Se $z=0$, la serie banalmente converge. Per mostrare la \textit{non} convergenza della serie proviamo che la condizione necessaria di convergenza non è soddisfatta, ovvero
 	\begin{equation*}
 		\lim_{n\to+\infty}a_nz^n\neq 0,\ \forall z\neq 0
 	\end{equation*}
-	Questo è equivalente a mostrare che
+	Questo è equivalente\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare la dimostrazione di questo risultato.} a mostrare che
 	\begin{equation*}
 		\lim_{n\to+\infty}\abs{a_nz^n}\neq 0,\ \forall z\neq 0
 	\end{equation*}
@@ -168,13 +211,15 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 	\end{equation*}
 	Si ha, lungo la sottosuccessione:
 	\begin{equation*}
-		\abs{a_{n_k}z^{n_k}}=\abs{a_n}{z}^{n_k}\substack{>}_{\textcolor{blue}{\circled{\ast}}}\left(\lambda''\right)^{n_k}\abs{z}^{n_k}=\left(\substack{\lambda''\abs{z}}_{>1\text{ per la scelta di }\lambda''}\right)^{n_k}>1,\ \forall n_k
+		\abs{a_{n_k}z^{n_k}}=\abs{a_n}{z}^{n_k}\underset{\textcolor{blue}{\circled{\ast}}}{>}\left(\lambda''\right)^{n_k}\abs{z}^{n_k}\underset{\substack{\text{per la}\\\text{scelta}\\\text{di }\lambda''}}{=}\left(\lambda''\abs{z}>1\right)^{n_k}>1,\ \forall n_k
 	\end{equation*}
 	Poiché esiste una sottosuccessione che è sempre maggiore di $1$, deve esistere un valore limite della successione $\abs{a_nz^n}$ maggiore o uguale a $1$. Ma allora
 	\begin{equation*}
 		\limsup_{n\to+\infty}\abs{a_nz^n}\geq 1\implies\lim_{n\to+\infty}\abs{a_nz^n}\neq 0
 	\end{equation*}
 	La scelta di $z$ è arbitraria, purché $z$ sia diverso da zero; per questo motivo vale la tesi.
+	\end{enumerate}
+
 \end{demonstration}
 \section{Comportamento sul bordo}
 Consideriamo la serie di potenze
@@ -196,7 +241,7 @@ Mostriamo per ciascuno di essi un esempio.
 	\end{equation*}
 	Con la formula di D'Alembert vediamo che il raggio di convergenza è $R=1$. Infatti
 	\begin{equation*}
-		\lim_{n\to+\infty}\frac{\abs{a_{n+1}}}{\abs{a_{n}}}=\lim_{n\to+\infty}\frac{\left(n+1\right)^\alpha}{n^\alpha}=\lim_{n\to+\infty}\frac{n^\alpha\left(1+\frac{1}{n}\right)^\alpha}{n^\alpha}=\lim_{n\to+\infty}\left(1+\frac{1}{n}\right)^\alpha=1=\mathcal{l}\implies r=\frac{1}{\mathcal{l}}=1
+		\lim_{n\to+\infty}\frac{\abs{a_{n+1}}}{\abs{a_{n}}}=\lim_{n\to+\infty}\frac{\left(n+1\right)^\alpha}{n^\alpha}=\lim_{n\to+\infty}\frac{n^\alpha\left(1+\frac{1}{n}\right)^\alpha}{n^\alpha}=\lim_{n\to+\infty}\left(1+\frac{1}{n}\right)^\alpha=1=L\implies r=\frac{1}{L}=1
 	\end{equation*}
 	Per ogni $z\in\complexset$ tale che $\abs{z}=1$ la serie converge (assolutamente):
 	\begin{equation*}
@@ -210,9 +255,9 @@ Mostriamo per ciascuno di essi un esempio.
 		\sum_{n=1}^{+\infty}z^n
 	\end{equation*}
 	Poichè $a_n\equiv 1\ \forall n$, il criterio del rapporto ci fornisce come raggio di convergenza $R=1$.\\
-	Per ogni $z\in\complexset$ tale che $\abs{z}=1$ la serie \textit{non} converge: possiamo osservare che presa la successione $c_n\in\complexset$, vale\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare la dimostrazione di questo risultato.}
+	Per ogni $z\in\complexset$ tale che $\abs{z}=1$ la serie \textit{non} converge: ricordiamo che, presa la successione $c_n\in\complexset$, vale
 	\begin{equation*}
-		\lim_{n\to+\infty}\abs{c_n}\neq 0\implies\lim_{n\to+\infty}c_n\neq 0
+		\lim_{n\to+\infty}\abs{c_n}\neq 0\iff\lim_{n\to+\infty}c_n\neq 0
 	\end{equation*}
 	In questo caso:
 	\begin{equation*}
@@ -225,7 +270,7 @@ Mostriamo per ciascuno di essi un esempio.
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}\frac{z^n}{n^\alpha},\quad0<\alpha<1
 	\end{equation*}
-	L'applicazione del criterio del confronto è esattamente analogo a quello visto nel caso  e il raggio di convergenza è pertanto $R=1$.\\
+	L'applicazione del criterio del confronto è esattamente analogo a quello visto nel caso 1 e il raggio di convergenza è pertanto $R=1$.\\
 	Se $z=1$ la serie \textit{non} converge, dato che essa diventa una serie armonica generalizzata con $\alpha\leq1$:
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}\frac{1}{n^\alpha}
@@ -281,12 +326,12 @@ Anche se in generale non possiamo affermare a priori come converge sul bordo si 
 \section{Serie di potenze e convergenza uniforme}
 \begin{theorema}[Converge uniforme delle serie di potenze.]~{}\\\label{convergenzasottoinsiemeH}
 	Sia $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ una serie di potenze con raggio di convergenza $R\in\left(0,+\infty\right)$. Allora
-	\begin{enumerate}
+	\begin{enumerate} % TO DO: controllare se H deve essere relativamente compatto come dice Zucco, questo è quello scritto da Walter
 		\item La serie converge uniformemente su ogni insieme $H\subseteq\complexset$ tale che $\overline{H}\subsetneqq B_R\left(0\right)$, con $B_R\left(0\right)$ il disco aperto di convergenza, ovvero su qualsiasi insieme contenuto nel disco aperto tale che la sua chiusura non tocchi il bordo.
 		\item Se la serie converge assolutamente in ogni $z\in\partial B_R\left(0\right)$ (il bordo del disco), allora converge uniformemente sul disco chiuso $\overline{B_R\left(0\right)}$.
 	\end{enumerate}
 \end{theorema}
-\begin{demonstration} Per questa dimostrazione useremo il \textit{criterio di Weierstrass} enunciato nella sezione \ref{criteriodiweierstrass}, pag. \pageref{criteriodiweierstrass}.
+\begin{demonstration} Per questa dimostrazione useremo il \textit{criterio di Weierstrass} enunciato nel \refChapterOnly{seriefunzioni}, sezione \ref{criteriodiweierstrass}, pag. \pageref{criteriodiweierstrass}.
 	\begin{enumerate}
 		\item Sia $H$ tale che $\overline{H}\subsetneqq B_R\left(0\right)$. Per il criterio di Weierstrass, per provare la convergenza uniforme su $H$ è sufficiente provare che esiste una successione $c_n$ tale che
 		\begin{enumerate}
@@ -300,15 +345,27 @@ Anche se in generale non possiamo affermare a priori come converge sul bordo si 
 			Poiché $H$ è solo \textit{strettamente contenuto} nel disco aperto di convergenza, $\exists R'<R$ tale che si abbia $\overline{H}\subseteq B_{R'}\left(0\right)$, ossia $\abs{z}\leq R',\ \forall z\in H$.\\
 			Allora si ha, $\forall n\geq 0$ e $\forall z\in H$
 			\begin{equation*}
-				\abs{a_nz^n}=\abs{a_n}\abs{z}^n\leq \underbrace{\abs{a_n}\left(R'\right)^n}_{\text{$c_n$non dipende da }z}
+				\abs{a_nz^n}=\abs{a_n}\abs{z}^n\leq \underbrace{\abs{a_n}\left(R'\right)^n}_{\substack{\text{$c_n$ non}\\\text{dipende da }z}}
 			\end{equation*}
 		\end{minipage}\\
-		Inoltre, la serie $\displaystyle\sum_{n=0}^{+\infty}c_n=\sum_{n=0}^{+\infty}\abs{a_n}\left(R'\right)^n$ converge in quanto è la convergenza della serie di potenze per il punto $z=R'$, che è \textit{interno} al disco di convergenza $B_R\left(0\right)$. Applicando il criterio di Weierstrass otteniamo la tesi.
-		\item Si ripete la dimostrazione sull'insieme $\overline{B_R\left(0\right)}$ con $R'=R$, considerando che la serie $\displaystyle\sum_{n=0}^{+\infty}\abs{a_n}R^n$ converge per ipotesi sulla convergenza sul bordo.
+		Inoltre, la serie
+		\begin{equation*}
+			\sum_{n=0}^{+\infty}c_n=\sum_{n=0}^{+\infty}\abs{a_n}\left(R'\right)^n
+		\end{equation*}
+		converge in quanto è la convergenza della serie di potenze per il punto $z=R'$, che è \textit{interno} al disco di convergenza $B_R\left(0\right)$. Applicando il criterio di Weierstrass otteniamo la tesi.
+		\item Si ripete la dimostrazione sull'insieme $\overline{B_R\left(0\right)}$ con $R'=R$, considerando che la serie
+		\begin{equation*}
+			\sum_{n=0}^{+\infty}\abs{a_n}R^n
+		\end{equation*}
+		converge per ipotesi sulla convergenza sul bordo.
 	\end{enumerate}
 \end{demonstration}
 \begin{example}\textsc{Serie geometrica.}\\
-	Sulla \textit{serie geometrica} $\displaystyle\sum_{n=0}^{+\infty}z^n$ abbiamo già ricavato diverse informazioni: ha raggio di convergenza $R=1$ e \textit{non} c'è convergenza (assoluta) sul bordo, inoltre ne conosciamo la somma. Studiamo ora la convergenza uniforme.
+	Sulla \textit{serie geometrica}
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}z^n
+	\end{equation*}
+	abbiamo già ricavato diverse informazioni: ha raggio di convergenza $R=1$ e \textit{non} c'è convergenza (assoluta) sul bordo, inoltre ne conosciamo la somma. Studiamo ora la convergenza uniforme.
 	\begin{itemize}
 		\item Converge uniformemente su ogni insieme $H$ tale che $\overline{H}\subsetneqq B_1\left(0\right)$ per il teorema precedente.
 		\item Non avendo alcuna convergenza sul bordo, a priori non possiamo dare risultati generali sulla convergenza uniforme sulla base del teorema visto. Tuttavia, possiamo mostrare direttamente - grazie al fatto che la somma parziale e limite della serie geometrica è nota\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare maggiori dettagli sulla somma (parziale) della serie geometrica e come ricavarla.} -  che la serie non converge uniformemente sul disco aperto $B_1\left(0\right)$. Infatti
@@ -354,7 +411,11 @@ Sia $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ una serie di potenze con $R>0$ il 
 \end{demonstration}
 Questo risultato ci permette di parlare della convergenza sul disco aperto, ma se c'è qualche tipo di convergenza sul bordo, e quindi $f$ è definita anche su di esso, si può estendere la continuità di $f$ fino a tale frontiera? Studiamo due casi.
 \begin{corollary}[Proprietà di continuità per la somma di una serie di potenze, caso sul bordo con convergenza assoluta.]~{}\\
-	Sia data la serie di potenze $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ con raggio di convergenza $R>0$. Se la serie converge (assolutamente) su $\partial B_R\left(0\right)$ allora la serie è continua su $\overline{B_R\left(0\right)}$.
+	Sia data la serie di potenze
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}a_nz^n
+	\end{equation*}
+	con raggio di convergenza $R>0$. Se la serie converge (assolutamente) su $\partial B_R\left(0\right)$ allora la serie è continua su $\overline{B_R\left(0\right)}$.
 \end{corollary}
 \begin{demonstration}
 	Segue immediatamente ricordando che dalle ipotesi di convergenza assoluta sul bordo, sulla base del teorema \ref{convergenzasottoinsiemeH}, pag. \pageref{convergenzasottoinsiemeH}, vale la convergenza uniforme su $\overline{B_R\left(0\right)}$.
@@ -389,7 +450,7 @@ Abbiamo definito la funzione somma dal disco aperto $B_R\left(0\right)$ in campo
 \end{equation*}
 con raggio di convergenza $R>0$. In questo caso il cerchio di convergenza è un intervallo $\left(-R,R\right)$, con estremi eventualmente inclusi. La funzione somma risulta allora la funzione
 \begin{equation}
-	\funztot{f}{\left(-R,R\right)}{\realset}{x}{\sum_{n=0}^{+\infty}a_nx^n}
+	\funztot{f}{\left(-R,R\right)}{\realset}{x}{\displaystyle\sum_{n=0}^{+\infty}a_nx^n}
 \end{equation}
 \begin{theorema}[Derivabilità della somma di una serie di potenze.]~{}\\
 	Sia data
@@ -408,10 +469,22 @@ con $R>0$ il raggio di convergenza. Allora
 \begin{observe}
 	Nell'equazione della derivata di $f$ la sommatoria parte da $n=1$ in quanto il termine per $n=0$ è identicamente uguale a zero; inoltre, se così non fosse, il primo termine sarebbe $a_0\frac{1}{x}$, che non è definito in $x=0$, contraddicendo la prima delle due tesi.
 \end{observe}
-Per dimostrare questo teorema useremo il teorema di derivabilità per serie di funzioni (teorema \ref{derivabilitatermineatermine}, pag. \pageref{derivabilitatermineatermine}, capitolo \refChapterOnly{seriefunzioni}): poiché le ipotesi $1)$ e $2)$ sono banalmente verificate, dobbiamo contrarci sull'ipotesi $3)$, ovvero abbiamo bisogno di informazioni sulla convergenza uniforme della serie delle derivate $\displaystyle\sum_{n=1}^{+\infty}na_nx^{n-1}$; poiché la serie delle derivate è ancora una serie di potenze, allora ci basta studiare il raggio di convergenza.
+Per dimostrare questo teorema useremo il teorema di derivabilità per serie di funzioni (\refChapterOnly{seriefunzioni}, teorema \ref{derivabilitatermineatermine}, pag. \pageref{derivabilitatermineatermine}): poiché le ipotesi di tale teorema $1)$ e $2)$ sono banalmente verificate, dobbiamo contrarci sull'ipotesi $3)$, ovvero abbiamo bisogno di informazioni sulla convergenza uniforme della serie delle derivate
+\begin{equation*}
+	\sum_{n=1}^{+\infty}na_nx^{n-1}
+\end{equation*}
+Poiché la serie delle derivate è ancora una serie di potenze, allora ci basta studiare il raggio di convergenza.
 % TO DO: nelle Note extra a pagina XXX inserire il prodotto del lim sup
 \begin{lemming}[Convergenza della serie di derivate della serie di potenze.]~{}\\
-	Sia data la serie di potenze $\displaystyle\sum_{n=0}^{+\infty}a_nx^n$ e sia $R>0$ il suo raggio di convergenza. Allora la serie di potenze $\displaystyle\sum_{n=1}^{+\infty}na_nx^{n-1}$ ha lo stesso raggio di convergenza $R$.
+	Sia data la serie di potenze 
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}a_nx^n
+	\end{equation*}
+	e sia $R>0$ il suo raggio di convergenza. Allora la serie di potenze 
+	\begin{equation*}
+		\sum_{n=1}^{+\infty}na_nx^{n-1}
+	\end{equation*}
+	ha lo stesso raggio di convergenza $R$.
 \end{lemming}
 \begin{demonstration}
 	Riscriviamo la serie delle derivate, operando un cambio di indici ponendo $n=k+1$
@@ -420,24 +493,28 @@ Per dimostrare questo teorema useremo il teorema di derivabilità per serie di f
 	\end{equation*}
 	Sia $R'$ il suo raggio di convergenza. Per il teorema di Cauchy-Hadamard si ha
 	\begin{equation*}
-		\frac{1}{R'}=\limsup_{n\to+\infty}\abs{b_n}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\abs{\left(n+1\right)a_{n+1}}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\underbrace{\left(n+1\right)^{\nicefrac{1}{n}}}_{=\alpha_n}\underbrace{\abs{a_{n+1}}^{\nicefrac{1}{n}}}_{=\beta_n}=\limsup_{n\to+\infty}\alpha_n\beta_n\squarequal
+		\frac{1}{R'}=\limsup_{n\to+\infty}\abs{b_n}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\abs{\left(n+1\right)a_{n+1}}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\underbrace{\left(n+1\right)^{\nicefrac{1}{n}}}_{\coloneqq\alpha_n}\underbrace{\abs{a_{n+1}}^{\nicefrac{1}{n}}}_{\coloneqq\beta_n}=\limsup_{n\to+\infty}\alpha_n\beta_n\squarequal
 	\end{equation*}
 Ottenendo così il prodotto di due successioni. Osserviamo che
 \begin{equation*}
 	\lim_{n\to+\infty}\alpha_n=\lim_{n\to+\infty}\left(n+1\right)^{\nicefrac{1}{n}}=\lim_{n\to+\infty}e^{\frac{1}{n}\log\left(n+1\right)}=\lim_{n\to+\infty}e^{\frac{\log\left(n+1\right)}{n}}
 \end{equation*}
-Poichè $\frac{\log\left(n+1\right)}{n}\to 0$ per $n\to+\infty$ per confronto della crescita degli infiniti, si ha che $\displaystyle\lim_{n\to+\infty}\alpha_n=e^0=1$, dunque $\alpha_n$ ammette limite e dunque coincide col suo $\limsup$. Allora, per proprietà\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} del $\limsup$:
+Poichè $\frac{\log\left(n+1\right)}{n}\to 0$ per $n\to+\infty$ per \textit{confronto della crescita degli infiniti}, si ha che $\displaystyle\lim_{n\to+\infty}\alpha_n=e^0=1$, dunque $\alpha_n$ ammette limite e coincide col suo $\limsup$. Allora, per proprietà\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} del $\limsup$:
 \begin{equation*}
-	\squarequal\lim_{n\to+\infty}\alpha_n\limsup_{n\to+\infty}\beta_n=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\nicefrac{1}{n+1}}\right)^{\nicefrac{n+1}{n}}\squarequal
+	\squarequal\lim_{n\to+\infty}\alpha_n\limsup_{n\to+\infty}\beta_n=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\frac{1}{n+1}}\right)^{\frac{n+1}{n}}\squarequal
 \end{equation*}
-Poichè $\nicefrac{n+1}{n}\to 1$ per $n\to+\infty$, possiamo applicare Cauchy-Hadamard sulla serie di potenze $\displaystyle\sum_{n=0}^{+\infty}a_nx^n$ con raggio di convergenza $R>0$: poiché
+Applicare Cauchy-Hadamard sulla serie di potenze
 \begin{equation*}
-	\frac{1}{R}=\limsup_{n\to+\infty}\abs{a_n}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\nicefrac{1}{n+1}}
+	\sum_{n=0}^{+\infty}a_nx^n
 \end{equation*}
-allora abbiamo mostrato che
+con raggio di convergenza $R>0$, osserviamo che
 \begin{equation*}
-	\frac{1}{R'}=\ldots=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\nicefrac{1}{n+1}}\right)^{\nicefrac{n+1}{n}}=\frac{1}{R}
+	\frac{1}{R}=\limsup_{n\to+\infty}\abs{a_n}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\frac{1}{n+1}}
 \end{equation*}
+In quanto $\dfrac{n+1}{n}\to 1$ per $n\to+\infty$, allora abbiamo mostrato che
+\begin{equation*}
+	\frac{1}{R'}=\ldots=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\frac{1}{n+1}}\right)^{\frac{n+1}{n}}=\frac{1}{R}
+\end{equation*}% TO DO: sostituire nei dot qualcosa?
 cioè $R'=R$.
 \end{demonstration}
 Grazie a questo lemma, possiamo finalmente dimostrare il teorema lasciato in sospeso all'inizio della sezione.
@@ -447,7 +524,11 @@ Grazie a questo lemma, possiamo finalmente dimostrare il teorema lasciato in sos
 		\item $\overline{x}\in\left(a,b\right)$.
 		\item $\left[a,b\right]\subsetneqq\left(-R,R\right)$
 	\end{itemize}
-Applichiamo ora il teorema di derivabilità termine a termine della serie di funzioni su $\left(a,b\right)$ sulla serie di potenze $\displaystyle\sum_{n=0}^{+\infty}a_nx^n$; vediamo che le ipotesi sono verificate:
+Applichiamo ora il teorema di derivabilità termine a termine della serie di funzioni su $\left(a,b\right)$ sulla serie di potenze
+\begin{equation*}
+	\sum_{n=0}^{+\infty}a_nx^n
+\end{equation*}
+Vediamo che le ipotesi sono verificate:
 \begin{itemize}
 	\item $f_n\left(x\right)=a_nx^n$ derivabile in $\left(a,b\right),\ \forall n\geq 1$.
 	\item $\displaystyle\sum_{n=0}^{+\infty}f_n\left(x\right)$ converge $\forall x\in\left(a,b\right)$
@@ -474,7 +555,7 @@ Esplicitiamo il primo termine di $f^{\left(k\right)}\left(x\right)$:
 	f^{\left(k\right)}\left(x\right)&=k\left(k-1\right)\ldots\left(k-k+1\right)a_kx^0+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\\
 	&=k!a_k+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}
 \end{align*}
-In $x=0$ otteniamo
+Valutando in $x=0$ otteniamo
 \begin{equation*}
 	f^{\left(k\right)}\left(0\right)=k!a_k+0=k!a_k
 \end{equation*}
@@ -536,8 +617,9 @@ Consideriamo la funzione
 			\end{array}
 		\end{cases}
 	\end{equation*}
+Innanzitutto, mostriamo che $f$ è di classe  $\mathcal{C}^{\infty}$:
 \begin{itemize}
-	\item $f$ è certamente di classe $\mathcal{A}^{\infty}\left(\realset\setminus\left\{0\right\}\right)$.
+	\item $f$ è certamente di classe $\mathcal{C}^{\infty}\left(\realset\setminus\left\{0\right\}\right)$.
 	\item Dimostriamo che esiste $f^{\left(k\right)}\left(0\right),\ \forall k\geq 0$, che essa sia uguale a $0$ per ogni $k$ e che $f^{\left(k\right)}\in\mathcal{C}\left(\realset\right),\ \forall k\geq 0$.\\
 	Per far ciò, innanzitutto mostriamo per \textit{induzione} su $k$ che per ogni $k\geq 0$ esiste un polinomio $P_{3k}$ di grado $3k$ tale per cui
 	\begin{equation*}
@@ -556,7 +638,7 @@ dove
 	Q(u)=- u^2 P'_{3k}(u) +2u^3 P_{3k}(u),\quad \forall \ u\neq 0
 \end{equation*}
 Osserviamo che $P'_{3k}$ è un polinomio di grado $3k-1$; si ricava quindi che $u^2P'_{3k}\left(u\right)$ è un polinomio di grado $3k+1$, mentre $2u^3P_{3k}\left(u\right)$ è un polinomio di grado $3k+3$. Concludiamo che $Q$ è un polinomio di grado $3k+3=3\left(k+1\right)$, come richiesto.
-Utilizzando i confronti di crescita, dalla relazione appena mostrata si vede che
+Utilizzando i \textit{confronti di crescita}, dalla relazione appena mostrata si vede che
 \begin{equation*}
 \lim_{x\to 0} f^{(k)}(x)=\lim_{x\to 0} P_{3k}(x^{-1})\, e^{-1/x^2}=0,\quad \forall \ k\geq 0
 \end{equation*}
@@ -600,14 +682,14 @@ La condizione sufficiente che andremo ora a definire necessita di avere una info
 	\end{equation*}
 dove $\xi$ è ottenuto applicando la formula di Taylor con il resto in \textit{formula di Lagrange}. Poiché $\xi\in\left(x_0-r_0,\ x_0+r_0\right)$, per l'ipotesi di partenza si può stimare $f^{\left(n+1\right)}\left(\xi\right)$:
 \begin{gather*}
-	0\leq \abs{\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}} =\frac{\abs{f^{\left(n+1\right)}\left(\xi\right)}}{\left(n+1\right)!}\abs{x-x_0}^{n+1} \stackrel{\forall n\geq n_0}{\leq} \\ \leq \frac{\frac{M\Ccancel[red]{\left(n+1\right)!}}{r_0^{n+1}}}{\Ccancel[red]{\left(n+1\right)!}}\abs{x-x_0}^{n+1}
+	0\leq \abs{\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}} =\frac{\abs{f^{\left(n+1\right)}\left(\xi\right)}}{\left(n+1\right)!}\abs{x-x_0}^{n+1} \underset{\forall n\geq n_0}{\leq} \\ \leq \frac{\frac{M\Ccancel[red]{\left(n+1\right)!}}{r_0^{n+1}}}{\Ccancel[red]{\left(n+1\right)!}}\abs{x-x_0}^{n+1}
 	=M\frac{\abs{x-x_0}^{n+1}}{r_0^{n+1}}=M\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1}
 \end{gather*}
 Abbiamo quindi ottenuto
 \begin{equation*}
 	0\leq \abs{R_n\left(x\right)}\leq M\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1},\ \forall n\geq n_0
 \end{equation*}
-Poiché $\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1}$ è una successione geometrica di ragione $\frac{\abs{x-x_0}}{r_0}\in\left(0,1\right)$, essa tende a $0$ per $n\to+\infty$: per il teorema del confronto abbiamo $\displaystyle\lim_{n\to+\infty}R_n\left(x\right)=0$.
+Poiché $\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1}$ è una successione geometrica di ragione $\frac{\abs{x-x_0}}{r_0}\in\left(0,1\right)$, essa tende a $0$ per $n\to+\infty$: per il \textit{teorema del confronto} abbiamo $\displaystyle\lim_{n\to+\infty}R_n\left(x\right)=0$.
 \end{demonstration}
 \begin{observe}\label{condizionesufficientederivatelimitate}
 	Questa condizione sufficiente si verifica anche se $\exists M>0, \exists r_0>0$ tale per cui
@@ -660,7 +742,7 @@ con
 \end{solution}
 
 \subsection{Esempi di funzioni analitiche}
-\begin{theorema}[Analiticità di {$e^x$}, {$\cos x$}, {$\sin x$}, {$\left(1+x\right)^\alpha$}.]~{}\\
+\begin{theorema}[Analiticità di {$e^x$}, {$\cos x$}, {$\sin x$}, {$\left(1+x\right)^\alpha$}.]~{}\\% TO DO: allinearli (chiedere ad Elisa come li voleva, se li voleva)
 	Le funzioni $e^x$, $\cos x$, $\sin x$, $\left(1+x\right)^\alpha$ con $\alpha\in\realset$ sono analitiche in $x_0=0$ e vale
 	\begin{align}
 		e^x&=\sum_{k=0}^{+\infty}\frac{1}{k!}x^k,\ \ \forall x\in\realset\\
@@ -679,7 +761,7 @@ Le prime tre formule si dimostrano usando la condizione sufficiente precedenteme
 		\begin{equation*}
 			\sum_{k=0}^{n}\frac{1}{k!}x^k\quad\sum_{k=0}^{n}\frac{\left(-1\right)^k}{\left(2k\right)!}x^{2k}\quad\sum_{k=0}^{n}\frac{\left(-1\right)^k}{\left(2k+1\right)!}x^{2k+1}
 		\end{equation*}
-		sono i polinomi di Taylor di $e^x,\ \cos x$ e $\sin x$ centrati in $x_0=0$. Per $n\to+\infty$ si ottengono le serie di Taylor
+		sono i polinomi di Taylor di $e^x,\ \sin x$ e $\cos x$ centrati in $x_0=0$. Per $n\to+\infty$ si ottengono le serie di Taylor
 		\begin{equation*}
 			\sum_{k=0}^{+\infty}\frac{1}{k!}x^k\quad\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k\right)!}x^{2k}\quad\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k+1\right)!}x^{2k+1}
 		\end{equation*}
@@ -759,7 +841,11 @@ che è un \textit{problema di Cauchy} o altresì noto come un'\textit{equazione 
 	\end{equation}
 \end{define}
 \begin{demonstration}
-	Questa funzione è ben definita. Applichiamo alla serie di potenze $\displaystyle \sum_{n=0}^{+\infty}\frac{z^n}{n!}$ il criterio di d'Alembert:
+	Questa funzione è ben definita. Applichiamo alla serie di potenze
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}\frac{z^n}{n!}
+	\end{equation*}
+	il criterio di d'Alembert:
 	\begin{equation*}
 		\lim_{n\to+\infty}\frac{\frac{1}{\left(n+1\right)!}}{\frac{1}{n!}}=\lim_{n\to+\infty}\frac{n!}{\left(n+1\right)!}=\lim_{n\to+\infty}\frac{1}{n+1}=0
 	\end{equation*}
@@ -768,7 +854,7 @@ Segue che converge per ogni $z\in\complexset$.
 \begin{observe}
 	Ricordando che in campo reale vale la relazione
 	\begin{equation*}
-		e^z=\sum_{n=0}^{+\infty}\frac{x^n}{n!},\ \forall x\in\realset
+		e^x=\sum_{n=0}^{+\infty}\frac{x^n}{n!},\ \forall x\in\realset
 	\end{equation*}
 	si ricava che la funzione esponenziale definita in campo complesso coincide con la nota funzione esponenziale nel caso di $z=x\in\realset$, ottenendo così una naturale estensione dell'esponenziale reale a quello complesso.
 \end{observe}
@@ -845,7 +931,7 @@ Ricordando che
 \end{equation*}
 segue la tesi.
 \item[V] Sia $z=x+iy$, con $x,y\in\realset$. Dalla relazione provata in I segue che $e^{x+iy}=e^xe^{iy}$. Applicando la \textit{formula di Eulero}, si ha la tesi.
-\item[VI] Sia $z=x+iy$, con $x,y\in \realset$, ossia $x=\Re z e y=\Im z$. 
+\item[VI] Sia $z=x+iy$, con $x,y\in \realset$, ossia $x=\Re z$ e $y=\Im z$. 
 La formula provata al punto V esprime il numero complesso $e^z$ in forma trigonometrica; da essa si ricava quindi immediatamente il risultato.
 \item[VII]  Siano $z\in \complexset$ e $k\in \integerset$. Dalla relazione provata al punto I segue che 
 \begin{equation*}
@@ -935,16 +1021,16 @@ Come si osserva dalla formula essi hanno tutti la \textit{stessa parte reale} e 
 \begin{exercise}
 	\textit{Scegli la risposta corretta.} I logaritmi del numero complesso $-2i$ sono:
 	\begin{enumerate}[label=\alph*]
-		\item $\log 2 + i\left(-\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
-		\item $-\log 2 + i\left(\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
-		\item $\log 2 + i\left(\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
-		\item $-\log 2 + i\left(-\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
+		\item $\log_{\realset} 2 + i\left(-\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
+		\item $-\log_{\realset} 2 + i\left(\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
+		\item $\log_{\realset} 2 + i\left(\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
+		\item $-\log_{\realset} 2 + i\left(-\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
 	\end{enumerate}
 \end{exercise}
 \begin{solution}
 Applicando la formula caratterizzante il logaritmo complesso:
 \begin{equation*}
-	\log_{\complexset}\left(-2i\right)=\log_{\realset}\abs{-2i}+i\left(\arg\left(-2i\right)+2k\pi\right)=\log 2+i\left(-\frac{\pi}{2}+2k\pi\right),\ k\in\integerset
+	\log_{\complexset}\left(-2i\right)=\log_{\realset}\abs{-2i}+i\left(\arg\left(-2i\right)+2k\pi\right)=\log_{\realset} 2+i\left(-\frac{\pi}{2}+2k\pi\right),\ k\in\integerset
 \end{equation*}
 La risposta corretta è pertanto \textbf{a}.
 \end{solution}
