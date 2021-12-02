@@ -87,12 +87,12 @@ Se dotiamo l'insieme $X$ di una struttura di \textbf{spazio normato} possiamo ge
 \begin{define}[Convergenza totale o assoluta.]~{}\\
 	Sia $\left(X,\norm{\cdot}\right)$ spazio normato e $x_n$ una successione in $X$. La serie $\displaystyle\sum_{k=0}^{+\infty}x_k$ \textbf{converge totalmente}\index{convergenza!totale} o \textbf{assolutamente}\seeonlyindex{convergenza!totale}{convergenza!assoluta} in $X$ se converge la serie $\displaystyle\sum_{k=0}^{+\infty}\norm{x_k}$.
 \end{define}
-Dall'osservazione a pag. \pageref{convergenzaassolutadipendedacauchy} il teorema ‘‘Convergenza assoluta implica convergenza semplice'' (teorema \ref{teoremaassimplicasemplice}, pag. \pageref{teoremaassimplicasemplice}) necessita della \textit{completezza} dei reali. Per generalizzarlo ci basta lavorare in \textit{spazi normati completi}.
+Dall'osservazione a pag. \pageref{convergenzaassolutadipendedacauchy} il teorema \ref{teoremaassimplicasemplice} necessita della \textit{completezza} dei reali. Per generalizzarlo ci basta lavorare in \textit{spazi normati completi}.
 \begin{theorema}[Convergenza totale o assoluta implica convergenza semplice.]~{}\\
 	Ogni serie in $X$ spazio normato completo totalmente convergente è anche semplicemente convergente.
 \end{theorema}
 \begin{demonstration}
-	La dimostrazione è analoga a quella affrontata nel teorema  \ref{teoremaassimplicasemplice}, pag. \pageref{teoremaassimplicasemplice}: è sufficiente sostituire al valore assoluto $\abs{\cdot}$ la norma $\norm{\cdot}$.
+	La dimostrazione è analoga a quella affrontata nel teorema  \ref{teoremaassimplicasemplice}: è sufficiente sostituire al valore assoluto $\abs{\cdot}$ la norma $\norm{\cdot}$.
 \end{demonstration}
 In generale, il problema della convergenza in spazi normati è \textit{inesplorato}, ma se lo spazio è \textit{completo} possiamo passare per la \textit{convergenza totale} e studiare una serie a valori reali tramite i \textit{criteri di convergenza}\footnote{Nelle ‘‘Note aggiuntive'', a pag. \pageref{criteridiconvergenzaserie} è possibile trovare maggiori dettagli sui criteri di convergenza delle serie a valori reali.} noti dall'\textsc{Analisi Matematica 1}.\\
 \section{Serie di funzioni}
@@ -112,7 +112,7 @@ ossia
 \begin{equation*}
 	\sum_{k=0}^{+\infty}f_k\text{ converge in }\mathcal{C}\left(\left[a,b\right]\right)\iff S_n\text{ converge uniformemente in}\mathcal{C}\left(\left[a,b\right]\right)
 \end{equation*}
-Per la stessa osservazione fatte a pag. \pageref{convergenzalagrangianaeuniforme}, sezione \ref{convergenzalagrangianaeuniforme}, per parlare di convergenza uniforme non sono necessarie né la \textit{compattezza} di $\left[a,b\right]$ né la \textit{continuità} delle funzioni.\\
+Per la stessa osservazione fatte a pag. \pageref{convergenzalagrangianaeuniforme}, per parlare di convergenza uniforme non sono necessarie né la \textit{compattezza} di $\left[a,b\right]$ né la \textit{continuità} delle funzioni.\\
 Possiamo \textit{estendere} la definizione di convergenza di una serie di funzioni per
 \begin{equation*}
 	\funz{f_n}{A\subseteq \realset}{\realset}
@@ -131,8 +131,16 @@ In queste definizioni la convergenza delle ridotte si trasferisce sulla converge
 	\end{itemize}
 \end{define}
 \subsection{Il criterio di Weierstrass}
-Per motivi che saranno chiari a partire dalla sezione \ref{seriedipotenze} (pag. \pageref{seriedipotenze}) sulle serie di potenze, in questa sottosezione lavoreremo nello spazio dei complessi $\complexset$.\\
-Abbiamo dato la definizione di convergenza uniforme di una serie di funzione, ma essa non è di facile applicazione operativa. Infatti, la serie $\displaystyle\sum_{n=0}^{+\infty}f_n\left(z\right)$ converge uniformemente su $A\subseteq\complexset$ se e solo se, definita $S\left(z\right)$ la funzione limite delle ridotte $\displaystyle S_n\left(z\right)=\sum_{k=0}^{n}f_k\left(z\right)$, vale
+Per motivi che saranno chiari nel \refChapterOnly{seriedipotenze} dedicato alle \textit{serie di potenze}, in questa sottosezione lavoreremo nel \textit{campo dei complessi} $\complexset$.\\
+Abbiamo dato la definizione di convergenza uniforme di una serie di funzione, ma essa non è di facile applicazione operativa. Infatti, la serie
+\begin{equation*}
+	\sum_{n=0}^{+\infty}f_n\left(z\right)
+\end{equation*}
+converge uniformemente su $A\subseteq\complexset$ se e solo se, definita $S\left(z\right)$ la funzione limite delle ridotte
+\begin{equation*}
+	S_n\left(z\right)=\sum_{k=0}^{n}f_k\left(z\right)
+\end{equation*}
+essa vale
 \begin{equation*}
 	\lim_{n\to+\infty}\left(\sup_{z\in A}\abs{S_n\left(z\right)-S\left(z\right)}\right)=0
 \end{equation*}
@@ -141,9 +149,9 @@ Tuttavia, questa funzione richiede la conoscenza della \textit{somma} $S\left(z\
 	Siano $\funz{f_n}{A\subseteq \complexset}{\complexset}$ tale che
 	\begin{enumerate}
 		\item $\forall n\in \naturalset,\ \exists c_n\in\realset\colon\ \abs{f_n\left(z\right)}\leq c_n,\ \forall z\in A$.
-		\item $\displaystyle\sum_{n=1}^{+\infty}c_n$ converge (come serie numerica).
+		\item $\displaystyle\sum_{n=1}^{+\infty}c_n$ converge (come serie \textit{numerica}).
 	\end{enumerate}
-Allora $\displaystyle\sum_{n=1}^{+\infty}f_n\left(z\right)$ converge uniformemente in $A$.
+Allora $\displaystyle\sum_{n=1}^{+\infty}f_n\left(z\right)$ converge \textit{uniformemente} in $A$.
 \end{proposition}
 \begin{observe}
 	La dimostrazione utilizza il criterio di Cauchy per la convergenza uniforme.

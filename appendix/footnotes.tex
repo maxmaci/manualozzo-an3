@@ -150,7 +150,7 @@ Allora una serie è di Cauchy se
 	\lim_{N\to+\infty}osc\left(N\right)=0
 \end{equation*}
 Questo ci permette di \textit{estendere} il criterio di Cauchy a situazione \textit{molto variegate} tra di loro dove bisogna studiare una convergenza, tutte \textit{accomunate} dall'idea che ‘‘portare l'oscillazione a \textit{zero} è equivalente alla convergenza''.\\
-Abbiamo visto nel \refChapter{convergenzafunzioni}, a pag. \pageref{criteriodicauchyperconvergenzauniforme} il criterio di Cauchy per la \textit{convergenza uniforme}; qui di seguito riportiamo quello per le successioni.
+Abbiamo visto\footnote{Si veda \refChapterOnly{convergenzafunzioni}, pag. \pageref{criteriodicauchyperconvergenzauniforme}.} il criterio di Cauchy per la \textit{convergenza uniforme}; qui di seguito riportiamo quello per le \textit{serie}.
 \begin{corollary}[Criterio di Cauchy per le serie.]~{}\\\label{criteriodicauchyperleserie}\index{criterio!di Cauchy!per le serie}
 	Una serie $\displaystyle\sum_{n=0}^{+\infty}x_n$ in uno spazio \textit{normato completo} è convergente se e solo se
 	\begin{equation}
@@ -158,7 +158,15 @@ Abbiamo visto nel \refChapter{convergenzafunzioni}, a pag. \pageref{criteriodica
 	\end{equation}
 \end{corollary}
 \begin{demonstration}
-	Considerate le ridotte $\displaystyle s_n=\sum_{k=1}^{n}a_k$, la serie $\displaystyle\sum_{n=0}^{+\infty}x_n$ converge se e solo se la successione delle ridotte converge. Poiché $X$ è uno spazio completo, questo equivale a dire che la successione delle ridotte $s_n$ è di Cauchy, ossia
+	Considerate le ridotte
+	\begin{equation*}
+		s_n=\sum_{k=1}^{n}a_k
+	\end{equation*}
+	la serie 
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}x_n
+	\end{equation*}
+	converge se e solo se la successione delle ridotte converge. Poiché $X$ è uno spazio completo, questo equivale a dire che la successione delle ridotte $s_n$ è di Cauchy, ossia
 	\begin{equation*}
 		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \norm{s_m-s_n}<\epsilon
 	\end{equation*}
@@ -172,12 +180,20 @@ Abbiamo visto nel \refChapter{convergenzafunzioni}, a pag. \pageref{criteriodica
 % TO DO: riportare qui le definizioni di successione di Cauchy, spazio normato
 \subsection{Criteri di convergenza delle serie}\label{criteridiconvergenzaserie}
 Di seguito enunceremo diversi criteri utili per studiare la convergenza di una serie $\displaystyle\sum_{n=1}^{+\infty}a_n$.
-\begin{itemize}
+\begin{itemize} % TO DO: rendere paragraph?
 	\item \textbf{Limite del termine della successione.} (\textit{Criterio necessario}, $\realset$ o $\complexset$) Se la serie converge, allora $\displaystyle\lim_{n\to+\infty}a_n=0$. Per contronominale vale
 	\begin{equation}
 		\lim_{n\to+\infty}a_n\neq 0\implies\sum_{n=1}^{+\infty}a_n\text{ non converge}
 	\end{equation}
-	\item \textbf{Convergenza assoluta.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie $\displaystyle\sum_{n=1}^{+\infty}\abs{a_n}$ converge, allora si dice che la serie $\displaystyle\sum_{n=1}^{+\infty}a_n$ converge \textit{assolutamente} e inoltre essa converge anche semplicemente.
+	\item \textbf{Convergenza assoluta.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie
+	\begin{equation*}
+		\sum_{n=1}^{+\infty}\abs{a_n}
+	\end{equation*}
+	converge, allora si dice che la serie 
+	\begin{equation*}
+		\sum_{n=1}^{+\infty}a_n
+	\end{equation*}
+	converge \textit{assolutamente} e inoltre essa converge anche semplicemente.
 	\item \textbf{Criterio del rapporto o di d'Alembert.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$)
 	% Sia $a_n$ definitivamente diverso da zero.
 	Se esiste $R$ tale che
@@ -186,25 +202,37 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 	\end{equation}
 	se $R<1$, la serie è \textit{assolutamente} convergente. Se $R>1$, la serie diverge. Se $R=1$, non abbiamo informazioni sulla convergenza.
 	\item \textbf{Criterio della radice o di Cauchy.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia
-	\begin{equation*}
+	\begin{equation}
 		R = \limsup_{n\to+\infty}\sqrt[n]{\abs{a_n}}
-	\end{equation*}
-	se $R<1$, la serie è \textit{assolutamente} convergente. Se $R>1$, la serie diverge. Se $R=1$, non abbiamo informazioni sulla convergenza.\\
-	Se una serie infinita converge o diverge col criterio della radice, lo stesso risultato si ottiene con il criterio del rapporto ma non vale il viceversa.
+	\end{equation}
+	Se $R<1$, la serie è \textit{assolutamente} convergente, mentre se $R>1$, la serie diverge. Se $R=1$, non abbiamo informazioni sulla convergenza.\\
+	Se una serie infinita converge o diverge col criterio della radice, lo stesso risultato si ottiene con il \textit{criterio del rapporto} ma \textit{non} vale il viceversa.
 	\item \textbf{Criterio dell'integrale.} (\textit{Criterio necessario e sufficiente}, $\realset$) Sia $\funz{f}{\left[1,+\infty\right)}{\realset_+}$ una funzione non-negativa e monotona decrescente tale per cui $f\left(n\right)=a_n$. Allora, posto
 	\begin{equation*}
 		\int_{1}^{+\infty}f\left(x\right)dx=\lim_{t\to\infty}\int_{1}^{t}f\left(x\right)dx
 	\end{equation*}
 	la serie $a_n$ converge se e solo se l'integrale converge.
-	\item \textbf{Criterio di confronto diretto.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie $\displaystyle\sum_{n=1}^{+\infty}b_n$ è una serie \textit{assolutamente} convergente e $\abs{a_n}<\abs{b_n}$ per $n$ sufficientemente largo, allora la serie $\displaystyle\sum_{n=1}^{+\infty}a_n$ converge \textit{assolutamente}.
-	\item \textbf{Criterio del confronto asintotico} (\textit{Criterio necessario e sufficiente}, $\realset$) Se $a_n,\ b_n>0,\ \forall n$, e il limite $\displaystyle\lim_{n\to+\infty}\frac{a_n}{b_n}$ esiste, è finito e diverso da zero, allora
-	\begin{center}
-		$\displaystyle\sum_{n=1}^{+\infty}a_n$ converge $\displaystyle\iff\sum_{n=1}^{+\infty}b_n$ converge.
-	\end{center}
+	\item \textbf{Criterio di confronto diretto.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie
+	\begin{equation*}
+		\sum_{n=1}^{+\infty}b_n
+	\end{equation*}
+	è una serie \textit{assolutamente} convergente e $\abs{a_n}<\abs{b_n}$ per $n$ sufficientemente grande, allora la serie
+	\begin{equation*}
+		\sum_{n=1}^{+\infty}a_n
+	\end{equation*}
+	converge \textit{assolutamente}.
+	\item \textbf{Criterio del confronto asintotico} (\textit{Criterio necessario e sufficiente}, $\realset$) Se $a_n,\ b_n>0,\ \forall n$, e il limite
+	\begin{equation*}
+		\lim_{n\to+\infty}\frac{a_n}{b_n}
+	\end{equation*}
+	esiste, è finito e diverso da zero, allora
+	\begin{equation}
+		\sum_{n=1}^{+\infty}a_n\text{ converge}\iff\sum_{n=1}^{+\infty}b_n\text{ converge}.
+	\end{equation}
 	\item \textbf{Criterio di condensazione di Cauchy.} (\textit{Criterio necessario e sufficiente}, $\realset$) Sia $a_n$ una successione non negativa e non crescente. Allora
-	\begin{center}
-		$\displaystyle\sum_{n=1}^{+\infty}a_n$ converge $\displaystyle\iff\sum_{n=1}^{+\infty}2^na_{2^n}$ converge.
-	\end{center}
+	\begin{equation}
+		\sum_{n=1}^{+\infty}a_n\text{ converge}\iff\sum_{n=1}^{+\infty}2^na_{2^n}\text{ converge}.
+	\end{equation}
 	Inoltre, nel caso di convergenza, si ha
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}a_n<\sum_{n=1}^{+\infty}2^na_{2^n}<2\sum_{n=1}^{+\infty}a_n
@@ -221,16 +249,24 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 			\exists M>0\colon\abs{\sum_{k=0}^{n}a_k}\leq M,\ \forall k\leq 0
 		\end{equation*}
 	\end{itemize}
-	allora la serie $\displaystyle\sum_{n=0}^{+\infty}a_nb_n$ converge (semplicemente).
+	allora la serie 
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}a_nb_n
+	\end{equation*}
+	converge (semplicemente).
 	\item \textbf{Criterio di Leibniz.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia data la serie
 		\begin{equation}
 		\sum_{n=0}^{+\infty}\left(-1\right)^na_n,\quad a_n\in\realset
 	\end{equation}
-	Se $a_n>0$ è decrescente ed infinitesima per $n\to+\infty$, allora la serie $\displaystyle\sum_{n=0}^{+\infty}\left(-1\right)^na_n$ converge (semplicemente).
+	Se $a_n>0$ è decrescente ed infinitesima per $n\to+\infty$, allora la serie
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}\left(-1\right)^na_n
+	\end{equation*}
+	converge (semplicemente).
 \end{itemize}
-\subsection{Serie a valori reali notevoli}\ref{serieavalorirealinotevoli}
+\subsection{Serie a valori reali notevoli}\label{serieavalorirealinotevoli}
 Di seguito enunceremo alcune serie a valori reali di particolare rilevanza.
-\begin{itemize}
+\begin{itemize} % TO DO: rendere paragraph
 	\item \textbf{Serie geometrica.}
 	\begin{equation*}
 		\sum_{n=0}^{+\infty}z^{n}
@@ -337,12 +373,12 @@ Questa sezione è basata sul capitolo 3 di XXX.\\
 \paragraph{Cardinalità}
 Definiremo la cardinalità per insiemi \textit{ben ordinati}; poiché per l'\textit{Assioma di Scelta} ogni insieme è ben ordinato, la seguente definizione risulta essere valida sotto la teoria degli insiemi di \textbf{Zermelo–Fraenkel} con l'Assioma di Scelta ($\mathsf{ZFC}$).
 \begin{define}[Cardinalità.]~{}\\
-	Due insiemi $X$ e $Y$ hanno la stessa \textbf{cardinalità}\index{cardinalità} se sono \textbf{equipotenti}\index{equipotenza} o \textbf{equinumerosi}\seeonlyindex{equipotenza}{equinumerosità}, ossia se esiste una corrispondenza \textit{biunivoca} tra i due insiemi. Tale relazione si indica come
+	Due insiemi $X$ e $Y$ hanno la stessa \textbf{cardinalità}\index{cardinalità} se sono \textbf{equipotenti}\index{equipotenza} o \textbf{equinumerosi}\seeonlyindex{equinumerosità}{equipotenza}, ossia se esiste una corrispondenza \textit{biunivoca} tra i due insiemi. Tale relazione si indica come
 		\begin{equation}
 		\abs{X}=\abs{Y}
 	\end{equation}
 \end{define}
-L'equipotenza è una relazione di equivalenza sulle classi di tutti gli insiemi. Ad ogni insieme $X$ possiamo assumere di associare il \textbf{numero cardinale}\seeonlyindex{numero!cardinale}{cardinalità} o \textbf{cardinale}\seeonlyindex{cardinale}{cardinalità} $\abs{X}$, in modo tale che due insiemi che hanno lo stesso numero cardinale soddisfino la condizione di equipotenza.
+L'equipotenza è una relazione di equivalenza sulle classi di tutti gli insiemi. Ad ogni insieme $X$ possiamo assumere di associare il \textbf{numero cardinale}\seeonlyindex{numero!cardinale}{cardinalità} o \textbf{cardinale} $\abs{X}$, in modo tale che due insiemi che hanno lo stesso numero cardinale soddisfino la condizione di equipotenza.
 \begin{digression}
 	Se consideriamo valido l'\textit{Assioma di Regolarità} è comunque possibile definire la cardinalità anche senza l'\textit{Assioma di Scelta} sulla base delle relazioni di equivalenza indotte dall'equipotenza.
 \end{digression}
@@ -425,7 +461,7 @@ Queste operazioni sono ben definite se sono indipendenti dalla scelta di $X$ e $
 \begin{demonstration}
 	Per il teorema precedente, si ha una biezione tra $\setpart{X}$ e $2^{\abs{X}}\coloneqq\left\{0,1\right\}^{X}$, dunque hanno la stessa cardinalità. Per esponenziazione dei cardinali, si ha
 	\begin{equation*}
-		\abs{\setpart{X}}=\abs{\{0,1\right\}^{X}}=\abs{\{0,1\right\}}^{\abs{X}}=2^{\abs{X}}
+		\abs{\setpart{X}}=\abs{\left\{0,1\right\}^{X}}=\abs{\left\{0,1\right\}}^{\abs{X}}=2^{\abs{X}}
 	\end{equation*}
 \end{demonstration}
 Poiché questo corollario vale sia per insiemi arbitrari, l'immediata conseguenza del corollario è poter definire la cardinalità dell'insieme delle parti di insiemi \textit{infiniti} già noti:
@@ -484,7 +520,7 @@ Passando alle cardinalità:
 \begin{equation*}
 	2^{\mathfrak{c}}\underset{(1)}{\abs{\setpart{C}}}\leq \abs{\mathcal{L}\left(\realset\right)}\leq\abs{\setpart{\realset}}=2^{\mathfrak{c}}\implies \abs{\mathcal{\realset}}=2^{\mathfrak{c}}
 \end{equation*}
-\paragraph{Inclusione stretta di {$\mathcal{L}\left(\realset\right)$} in  {$\setpart{\realset}$}}
+\paragraph{Inclusione stretta di {$\mathcal{L}\left(\realset\right)$} in {$\setpart{\realset}$}}
 Il fatto che la cardinalità degli insiemi Lebesgue-misurabili in $\realset$ coincida con quella dell'insieme delle parti di $\realset$ non è sufficiente\footnote{Si veda pag. \pageref{cardinalitàugualenonimplicauguaglianzainsiemistica}.} per affermare che i due insiemi coincidano; costruiamo ora un sottoinsieme particolare di $\realset$ che risulta \textit{non misurabile}.\\
 \begin{define}[Insieme di Vitali.]~{}\\
 	Considerata in $\realset$ la relazione di equivalenza
@@ -504,9 +540,59 @@ Per costruzione $V\subseteq\left[0,1\right]$. Preso l'insieme \textit{numerabile
 \begin{equation*}
 	V_n=V+q_n\subseteq\left[-1,2\right]
 \end{equation*}
-\begin{lemming}[Gli insiemi di Vitali traslati sono 2 a 2 disgiunti.]
+\begin{lemming}[Lemma 1 di Vitali - gli insiemi di Vitali traslati sono 2 a 2 disgiunti.]
 	Dato $V$ insieme di Vitali e $\left\{q_n\right\}$ numerazione di $\rationalset\cap\left[0,1\right]$, allora $V_n\cap V_m=\emptyset,\ \forall n\neq m$.
 \end{lemming}
 \begin{demonstration}
-	Supponiamo
+	Consideriamo $x\in V_n\cap V_m$: questo implica che $x\in V_n$ e $x\in V_m$, ossia
+	\begin{equation*}
+		\begin{cases}
+			x=y+q_n,\ y\in V,\ q_n\in\rationalset\cap\left[-1,1\right]\\
+			x=z+q_m,\ z\in V,\ q_m\in\rationalset\cap\left[-1,1\right]
+		\end{cases}
+	\end{equation*}
+Pertanto,
+\begin{equation*}
+	y+q_n=z+q_m\iff y-z=q_m-q_n\in\rationalset
+\end{equation*}
+Poichè $y$ e $z$ differiscono di un razionale, essi appartengono alla stessa classe di equivalenza in $\nicefrac{\realset}{\sim}$, ma dato che nella costruzione dell'insieme di VItali abbiamo preso\footnote{In virtù dell'\textit{Assioma di Scelta}.} uno e un solo elemento da tale classe, allora segue che $y=z$. È immediato verificare che $q_m=q_n$ e, essendo elementi numerazione, allora $n=m$. In altre parole, l'intersezione non è vuota solo se $V_n=V_m$.
 \end{demonstration}
+\begin{lemming}[Lemma 2 di Vitali - ogni numero reale in {$\left[0,1\right]$} appartiene ad un $V_n$ per un certo $n$:]
+	Dato $V$ insieme di Vitali vale la seguente relazione:
+	\begin{equation*}
+		\left[0,1\right]\subseteq\bigcup_{n\in\naturalset}V_n
+	\end{equation*}
+\end{lemming}
+\begin{demonstration}
+	Sia $x\in\left[0,1\right]$. Poiché la relazione $\sim$ forma una partizione di $\realset$, deve esistere $y$ tale che $x-y=q\in\rationalset$; riscrivendo tale relazione si ha $x=y+q$, ossia $x=y+q_n$ per un certo $n$.
+\end{demonstration}
+Possiamo osservare alcune proprietà sulla base dei due lemmi appena mostrati:
+\begin{itemize}
+	\item \textbf{Conseguenze del lemma 1:}
+	\begin{equation*}
+		m\left(\bigcup_{n\in\naturalset}V_n\right)=\sum_{n\in\naturalset}m\left(V_n\right)=\sum_{n\in\naturalset}m\left(V\right)=\begin{cases}
+			\begin{array}{ll}
+				0&\text{se }m\left(V\right)=0\\
+				+\infty&\text{se }m\left(V\right)>0
+			\end{array}
+		\end{cases}
+	\end{equation*}
+\item \textbf{Conseguenze del lemma 2:}
+\begin{equation*}
+	1=m\left(\left[0,1\right]\right)\leq m\left(\bigcup_{n\in\naturalset}V_n\right)\leq m\left(\left[-1,2\right]\right)=3
+\end{equation*}
+\end{itemize}
+In altre parole, si deduce che
+\begin{equation*}
+	1\leq \sum_{n\in\naturalset}m\left(V\right)\leq 3
+\end{equation*}
+ma poiché la somma di infinite copie di $m\left(V\right)$ o è $0$ o è $+\infty$ per la conseguenza del lemma 1, in nessuno dei due casi la somma sta in $\left[1,3\right]$. Pertanto, $V$ \textit{non} è misurabile, in quanto non possiamo associargli un valore $m\left(V\right)$.
+\paragraph{Cardinalità dei Borelliani e inclusione stretta di {$\mathcal{B}\left(\realset\right)$} in {$\mathcal{L}\left(\realset\right)$}}
+Per \textit{induzione transfinita} si dimostra che i Borelliani hanno la cardinalità del continuo.
+\begin{equation}
+	\abs{\mathcal{B}\left(\realset\right)}=\abs{\realset}=\mathfrak{c}
+\end{equation}
+Pertanto, l'inclusione $\mathcal{B}\left(\realset\right)\subsetneqq \mathcal{L}\left(\realset\right)$ è stretta.
+\begin{digression}
+	L'Assioma della Scelta \textit{non} è necessario per dimostrare l'inclusione stretta di $\mathcal{B}\left(\realset\right)$ in $\mathcal{L}\left(\realset\right)$. Infatti, si può costruire un insieme misurabile \textit{non} Borelliano senza farne uso.
+\end{digression}

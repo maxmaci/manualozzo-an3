@@ -128,7 +128,8 @@ Infatti, preso $A\subseteq \realset$, si ha
 Allora $f^{-1}\left(A\right)\in\mathcal{M}\iff E\in\mathcal{M}$.
 \end{examples}
 \begin{observe}
-	La funzione caratteristica $\chi_{\rationalset\cap\left[0,1\right]}$ è la \textit{funzione di Dirichlet} vista nella sezione XXX, pag. XXX. % TO DO: inserire riferimento
+	La funzione caratteristica $\chi_{\rationalset\cap\left[0,1\right]}$ è la \textit{funzione di Dirichlet}\footnote{Si veda pag. XXX.}.
+	% TO DO: inserire riferimento
 \end{observe}
 \begin{proposition}[Proprietà della funzioni misurabili.]~{}\label{funzionimisurabilicomplesse}
 	\begin{enumerate}
@@ -189,7 +190,7 @@ Per dimostrarlo (e lo faremo per funzioni a valori in $\complexset$), abbiamo bi
 \end{proposition}
 \begin{demonstration}~{}
 	\begin{enumerate}
-		\item Sia $g\left(x\right)=\sup_{n\geq 1} f_n\left(x\right),\ \forall x\in X$. Dobbiamo provare che $g$ sia misurabile, con $\funz{g}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$. Per la caratterizzazione delle funzioni misurabili (teorema \ref{caratterizzazionefunzionimisurabili}, pag. \pageref{caratterizzazionefunzionimisurabili}) è sufficiente dimostrare che $g^{-1}\left(\left(\alpha,+\infty\right)\right)\in\mathcal{M},\ \forall\alpha\in\realset$.\\
+		\item Sia $g\left(x\right)=\sup_{n\geq 1} f_n\left(x\right),\ \forall x\in X$. Dobbiamo provare che $g$ sia misurabile, con $\funz{g}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$. Per il teorema \ref{caratterizzazionefunzionimisurabili} sulla \textit{caratterizzazione} delle funzioni misurabili è sufficiente dimostrare che $g^{-1}\left(\left(\alpha,+\infty\right)\right)\in\mathcal{M},\ \forall\alpha\in\realset$.\\
 		% SVOLGERE CALCOLO
 		Si prova che
 		\begin{equation*}
@@ -231,7 +232,7 @@ dove
 		\funz{u=\Re\left(f\right)}{X}{\realset}&\funz{v=\Im\left(f\right)}{X}{\realset}
 	\end{array}
 \end{equation*}
-Come visto nella proposizione \ref{funzionimisurabilicomplesse} (pag. \pageref{funzionimisurabilicomplesse}) $f_n$ misurabile implica che sia $u_n$ sia $v_n$ siano misurabili e, dal risultato precedente sulle funzioni a valori in $\realset^{\ast}$ si ha
+Come visto nella proposizione \ref{funzionimisurabilicomplesse}, $f_n$ misurabile implica che sia $u_n$ sia $v_n$ siano misurabili e, dal risultato precedente sulle funzioni a valori in $\realset^{\ast}$ si ha
 \begin{equation*}
 	\limsup_{n\to+\infty}u_n,\ \limsup_{n\to+\infty}v_n\text{ misurabili.}
 \end{equation*}
@@ -552,7 +553,7 @@ Il seguente teorema ci afferma un risultato importante: \textit{tutti} gli insie
 	\end{enumerate}
 \end{theorema}
 \begin{demonstration}
-	Dimostriamo il punto 1. Sia $E\subseteq \realset^n$ e Peano-Jordan misurabile. Per provare che $E$ è misurabile secondo Lebesgue usrermeo il teorema di regolarità visto a pag. \ref{regolaritàlebesgue}.\\
+	Dimostriamo il punto 1. Sia $E\subseteq \realset^n$ e Peano-Jordan misurabile. Per provare che $E$ è misurabile secondo Lebesgue useremo il teorema \ref{regolaritàlebesgue} di \textit{regolarità}.\\
 	In particolare, proviamo che $\forall \epsilon >0\ \exists A_{\epsilon}$ aperto tale che
 	\begin{itemize}
 		\item $E\subseteq A_{\epsilon}$.

@@ -229,7 +229,7 @@ Segue che
 				&=0\cdot\left(+\infty\right)+4\cdot 2+8\cdot 1=16
 			\end{array}
 		\end{equation*}
-		\item Consideriamo la funzione di Dirichlet su $\left[0,1\right]$, che ha dominio in $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$  l'integrale su $E=\left[0,1\right]$:
+		\item \label{funzionedirichletintegrale}Consideriamo la funzione di Dirichlet su $\left[0,1\right]$, che ha dominio in $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$  l'integrale su $E=\left[0,1\right]$:
 		\begin{equation*}
 			\int_{\left[0,1\right]}sdm_1=1\cdot m_1\left(\left[0,1\right]\cap\rationalset\right)+0\cdot m_1\left(\left[0,1\right]\setminus\rationalset\right)
 		\end{equation*}
@@ -371,7 +371,7 @@ Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right]}$ funzione 
 \end{proposition}
 \subsection{Teorema della convergenza monotona}
 Il \textbf{teorema della convergenza monotona}\index{teorema!della convergenza monotona}, altresì noto come Teorema di Beppo-Levi (principalmente in Italia) o di Lebesgue, si inserisce nel filone dei risultati sul problema del \textit{passaggio al limite sotto segno di integrale} di cui abbiamo parlato per la prima volta nel \refChapterOnly{ellipseintroduction}.\\
-Abbiamo già visto (\refChapterOnly{seriefunzioni}, teorema \ref{passaggioallimitecontinuitàuniforme}, pag. \pageref{passaggioallimitecontinuitàuniforme}) che se una successione di funzioni $f_n$ Riemann-integrabili su un compatto converge uniformemente a $f$, allora $f$ è Riemann-integrabile e vale il passaggio al limite dell'integrale. Il teorema che dimostreremo, pur essendo applicabile solo a funzioni misurabili e monotone \textit{crescenti}, risulta avere diversi notevoli vantaggi rispetto al risultato basato sulla convergenza uniforme.
+Abbiamo già visto\footnote{Si veda \refChapterOnly{seriefunzioni}, teorema \ref{passaggioallimitecontinuitàuniforme}, pag. \pageref{passaggioallimitecontinuitàuniforme}.} che se una successione di funzioni $f_n$ Riemann-integrabili su un compatto converge uniformemente a $f$, allora $f$ è Riemann-integrabile e vale il passaggio al limite dell'integrale. Il teorema che dimostreremo, pur essendo applicabile solo a funzioni misurabili e monotone \textit{crescenti}, risulta avere diversi notevoli vantaggi rispetto al risultato basato sulla convergenza uniforme.
 \begin{theorema}[Teorema della convergenza monotona.]~{}\\
 	Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che
 	\begin{enumerate}
@@ -640,7 +640,7 @@ Concludendo:
 \end{equation*}
 \end{demonstration}
 % TO DO: mi viene un dubbio, il Rudin lo mette come corollario di questo teorema, ma noi l'abbiamo usato per la sigma additività... che ci è servita oer il teorema della convergenza monotona che ci è servito nel teorema di integrazione delle funzioni monotone. Non per sembrare Reddito Zero, ma o sbaglio qualcosa o c'è un non so che di ricorsivo in tutto ciò. Controllare che non ci sia qualche errore.
-Il seguente risultato, che abbiamo già incontrato a pag. \pageref{commutativitàindici} e che ci è servito per dimostrare la $\sigma$-additività dell'integrale di funzioni semplici rispetto al dominio, si può vedere come corollario dell'\textit{integrazione della misura conteggio semplice}, oltre che in modo \textit{elementare}. 
+Il seguente risultato, che abbiamo già incontrato\footnote{Si veda pag. \pageref{commutativitàindici}.} e che ci è servito per dimostrare la $\sigma$-additività dell'integrale di funzioni semplici rispetto al dominio, si può anche vedere come corollario dell'\textit{integrazione della misura conteggio semplice}, oltre che in modo \textit{elementare}. 
 \begin{corollary}[Commutatività degli indici nelle serie doppie.]~{}\\
 	Se $a_{ij}\geq0\ \forall i,j$, allora
 	\begin{equation*}
@@ -788,11 +788,11 @@ possiamo concludere, per il teorema di convergenza monotona, che
 	\end{enumerate}
 \end{demonstration}
 \begin{example}
-	Riprendiamo l'esempio a pag. \pageref{gaussiana}; la funzione gaussiana
+	Riprendiamo l'esempio visto in precedenza \footnote{Si veda pag. \pageref{gaussiana}.} della funzione gaussiana
 	\begin{equation*}
 		f\left(x\right)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall x\in X
 	\end{equation*}
-	in $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ implica la misura di probabilità ($\mu_f\left(X\right)=1$) normale
+	In $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ essa implica la misura di probabilità ($\mu_f\left(X\right)=1$) normale
 	\begin{equation*}
 		\mu_f\left(E\right)=\int_E\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall E\in \mathcal{L}\left(\realset\right)
 	\end{equation*}
@@ -861,8 +861,8 @@ La risposta è \textit{no}, come si può vedere dal teorema seguente.
 \end{theorema}
 \section{Integrabilità}
 Ci stiamo avvicinando al terzo e ultimo passo dell'integrale di Lebesgue: lo scopo è quello di estendere la definizione per funzione \textit{a valori complessi}.\\
-Tuttavia, a differenza del passo 2, dove l'integrale può essere assumere valori in $\left[0,+\infty\right]$, l'insieme dei complessi $\complexset$ non contempla il valore $+\infty$; inoltre, come vedremo, la costruzione dell'integrale scelta può presentare delle forme di indecisione che non possiamo risolvere.\\
-Per proseguire, dobbiamo considerare una classe particolare di funzioni misurabili, le \textbf{funzioni integrabili}\index{funzione!integrabile}\seeonlyindex{funzione!integrabile}{integrabilità}.
+Tuttavia, a differenza del passo 2, dove l'integrale può essere assumere valori in $\left[0,+\infty\right]$, l'insieme dei complessi $\complexset$ non contempla il valore $+\infty$; inoltre, come vedremo, la costruzione dell'integrale scelta può presentare delle \textit{forme di indecisione} che \textit{non} possiamo risolvere.\\
+Per proseguire, dobbiamo necessariamente considerare una classe particolare di funzioni misurabili, le \textbf{funzioni integrabili}\index{funzione!integrabile}\seeonlyindex{integrabilità}{funzione!integrabile}.
 \begin{define}[Integrabilità.]~{}\\
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\complexset}$. La funzione $f$ si dice \textbf{integrabile} se
 	\begin{enumerate}
@@ -983,3 +983,113 @@ Si ha quindi
 	\forall \epsilon > 0,\ \exists \delta >0\colon \exists E\in\mathcal{M},\ \mu\left(E\right)<\delta\implies \abs{\int_Efd\mu}\underset{\substack{\text{prop. }2\\\text{dell'int.}}}{\leq}\int_E\abs{f}d\mu<\epsilon\implies \abs{\int_Efd\mu}<\epsilon
 \end{equation*}
 \end{demonstration}
+\subsection{Teorema della convergenza dominata}
+\section{Tra integrale di Riemann e integrale di Lebesgue}
+Nell'excursus storico abbiamo visto come l'\textit{integrale di Lebesgue} e le sue successive astrazioni di inizio '900 siano state la risposta a due domande che indirizzarono gli studi di Analisi del XIX secolo:
+\begin{itemize}
+	\item Come si può allargare la classe delle funzioni integrabili?
+	\item Come si può caratterizzare l'insieme dei punti di discontinuità di una funzione integrabile secondo Riemann?
+\end{itemize}
+Con i tre passi precedentemente esposti abbiamo costruito l'integrale astratto di Lebesgue e risposto alla prima domanda, mentre rimane al momento aperta la seconda; inoltre, nel caso di funzioni d $\realset$ a $\realset$ , sorge la questione: \textit{che relazione c'è tra l'integrale di Riemann e l'integrale di Lebesgue?}\\
+Nel caso di funzioni limitate su un intervallo chiuso e che sono Riemann-integrabili scopriamo che tali integrali coincidono.
+\begin{theorema}[Integrale proprio di Riemann implica integrale di Lebesgue.]~{}\\
+	Sia $\funz{f}{\left[a,b\right]}{\realset}$ limitata e misurabile. Allora
+	\begin{equation}
+		f\in\mathcal{R}\left(\left[a,b\right]\right)\implies f\in\mathcal{L}^1\left(\left[a,b\right],m_1\right)
+	\end{equation}
+e
+\begin{equation}
+	\int_{\left[a,b\right]}\abs{f}dm_1=\int_{a}^{b}f\left(x\right)dx
+\end{equation}
+\end{theorema}
+% TO DO: add cenni dimostrazione
+\begin{observe}
+	Il viceversa non è vero: come abbiamo già visto\footnote{Si veda pag. \pageref{funzionedirichletintegrale}.}, la funzione di Dirichlet è integrabile secondo Lebesgue ma non secondo Riemann.
+\end{observe}
+Situazione differente si ha con l'integrale improprio di Riemann: infatti, può capitare che ci siano funzioni integrabili (almeno impropriamente) secondo Riemann ma \textit{non} secondo Lebesgue!
+\begin{theorema}[Integrale improprio di Riemann e integrale di Lebesgue.]~{}\\\label{integraleimproprioriemannlebesgue}
+	Sia $\funz{f}{\left[a,+\infty\right]}{\realset}$ misurabile tale che $f\in\mathcal{R}\left(\left[a,b\right]\right)$ per ogni $b>a$. Allora
+	\begin{enumerate}
+		\item Vale la relazione
+		\begin{equation}
+			\int_{\left[a,+\infty\right)}\abs{f}dm_1=\int_{0}^{+\infty}\abs{f\left(x\right)}dx\in\left[0,+\infty\right]
+		\end{equation}
+		\item Se l'integrale improprio di Riemann di $f$ su $\left[a,+\infty\right)$ converge \textit{assolutamente} allora $f$ è integrabile secondo Lebesgue su $\left[a,+\infty\right)$ e
+		\begin{equation}
+			\int_{\left[a,+\infty\right)}fdm_1=\int_{a}^{+\infty}f\left(x\right)dx\in\realset
+		\end{equation}
+	\end{enumerate}
+\end{theorema}
+\begin{observe}
+	Se l'integrale improprio di Riemann di $f$ su $\left[a,+\infty\right)$ converge ma non \textit{assolutamente} allora $f$ \textit{non} è integrabile secondo Lebesgue su $\left[a,+\infty\right)$.
+\end{observe}
+\begin{example}
+	Consideriamo la funzione
+	\begin{equation*}
+		f\left(x\right)=\frac{\sin x}{x}
+	\end{equation*}
+	sull'intervallo $\left[\pi,+\infty\right)$. Mostriamo che:
+	\begin{enumerate}
+		\item L'integrale di $f$ secondo Riemann converge semplicemente.
+		\item L'integrale di $f$ secondo Riemann \textit{non} converge assolutamente.
+		\item La funzione $f$ \textit{non} è integrabile secondo Lebesgue.
+	\end{enumerate}
+\begin{enumerate}[label=\Roman*]
+	\item Integrando per parti si ha % TO DO: controllare calcoli
+	\begin{align*}
+		\int_{\pi}^{+\infty}\frac{\sin x}{x}dx&=\lim_{R\to+\infty}\int_{\pi}^{R}\frac{\sin x}{x}dx=\lim_{R\to+\infty}\left[-\frac{\cos x}{x}\middle|^{R}_{\pi}-\int_{\pi}^{R}\frac{\cos x}{x^2}dx\right]\\
+		&=\lim_{R\to+\infty}\left[\underbrace{-\frac{\cos R}{R}}_{\substack{\to 0\text{ per}\\R\to\infty}}+\cos \pi-\int_{\pi}^{R}\frac{\cos x}{x^2}dx\right]=-1-\int_{\pi}^{+\infty}\frac{\cos x}{x^2}dx
+	\end{align*}
+dato che
+\begin{equation*}
+	0\leq \abs{\frac{\cos x}{x^2}}\leq \frac{1}{x^2}
+\end{equation*}
+e
+\begin{equation*}
+	\int_{\pi}^{\infty}\frac{1}{x^2}
+\end{equation*}
+converge, allora
+\begin{equation*}
+	\int_{\pi}^{+\infty}\abs{\frac{\cos x}{x^2}}
+\end{equation*}
+converge e dunque per \textit{confronto}
+\begin{equation*}
+	\int_{\pi}^{+\infty}\frac{\sin x}{x}dx
+\end{equation*}
+converge (assolutamente). Ne consegue che l'integrale di $f\left(x\right)$ è \textit{semplicemente convergente}.
+\item Osserviamo che, per ogni $n\in\naturalset$, si ha
+\begin{align*}
+	\int_{\pi}^{n\pi}\frac{\abs{\sin x}}{x}dx&=\sum_{k=1}^{n-1}\int_{k\pi}^{\left(k+1\right)\pi}\frac{\abs{\sin x}}{x}dx>\sum_{k=1}^{n-1}\frac{1}{\left(k+1\right)\pi}\int_{k\pi}^{\left(k+1\right)\pi}\abs{\sin x}dx=\\
+	&=\sum_{k=1}^{n-1}\frac{2}{\left(k+1\right)\pi}=\frac{2}{\pi}\sum_{k=2}^{n}\frac{1}{k}
+\end{align*}
+operando nell'ultimo passaggio un cambio di indice $k-1\to k$. Passando al limite per $n\to+\infty$ si ha
+\begin{equation*}
+	\int_{\pi}^{+\infty}\frac{\abs{\sin x}}{x}dx>\frac{2}{\pi}\sum_{k=2}^{+\infty}\frac{1}{k}=\frac{2}{\pi}\left[\sum_{k=1}^{+\infty}\frac{1}{k}-1\right]
+\end{equation*}
+Poiché l'integrale è minorato dalla \textit{serie armonica}, che sappiamo essere \textit{divergente}, allora l'integrale diverge e quindi l'integrale della funzione $f\left(x\right)$ \textit{non} converge \textit{assolutamente}.
+\item Per il primo punto del teorema \ref{integraleimproprioriemannlebesgue} vale
+\begin{equation*}
+	\int_{\left[\pi,+\infty\right)}\abs{\frac{\sin x}{x}}dm_1=\int_{\pi}^{\infty}\abs{\frac{\sin x}{x}}dx=+\infty
+\end{equation*}
+Poiché l'integrale improprio di Riemann \textit{non} converge assolutamente, segue che $f$ non è integrabile su $\left[\pi,+\infty\right)$ e pertanto non ammette integrale secondo Lebesgue.
+\end{enumerate}
+\end{example}
+Sulla base di questi risultati siamo finalmente in grado di rispondere al secondo quesito: con una certa ironia, la caratterizzazione dell'insieme dei punti di discontinuità di una funzione integrabile secondo Riemann è basata sulla \textbf{misura di Lebesgue}.
+\begin{theorema}[Caratterizzazione delle funzioni integrabili secondo Riemann.]~{}\\
+	Sia $\funz{f}{\left[a,b\right]}{\realset}$ limitata e sia $D_f$ l'insieme delle discontinuità di $f$. Se $m_1$ è la misura  di Lebesgue unidimensionale, allora
+	\begin{equation}
+		f\in\mathcal{R}\left(\left[a,b\right]\right)\iff m_1\left(D_f\right)=0
+	\end{equation}
+\end{theorema}
+\begin{example}
+	Sia $C\subseteq\left[0,1\right]$ l'insieme di Cantor e sia $f=\chi_C$ la funzione caratteristica su tale insieme.
+	Si ha che $D_f=\partial C$, ma poiché $C$ è un chiuso con interno vuoto, allora
+	\begin{equation*}
+		D_f=\partial C=C
+	\end{equation*}
+	Essendo $m_1\left(C\right)=0$, $f$ è integrabile secondo Riemann su $\left[0,1\right]$.
+\end{example}
+\section{Il ruolo degli insiemi di misura nulla}
+\begin{define}[Proprietà quasi ovunque valida.]~{}\\
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Si dice che una proprietà vale \textbf{‘‘quasi ovunque''} (\textbf{q.o.})\index{proprietà quasi ovunque valida} o ‘‘$\mu$\textbf{-quasi ovunque}'' se vale in tutto $X$ tranne eventualmente su un insieme di misrua $\mu$ nulla.
+\end{define}
