@@ -413,10 +413,10 @@ Sulla base di queste definizioni possiamo enunciare già una serie di proprietà
 \begin{proposition}[Relazioni insiemistiche e ordine delle cardinalità.]~{}\\\label{cardinalitàugualenonimplicauguaglianzainsiemistica}
 Dati $X$ e $Y$ insiemi:
 \begin{itemize}
-		\item $X\subseteq Y\iff \exists \incl{\iota}{X}{Y}$ inclusione $\iff \abs{X}\leq \abs{Y}$.
+		\item $X\subseteq Y\iff \exists \incl{\iota}{X}{Y}$ inclusione $\iff \abs{X}\leq \abs{Y}$. %DUBBI sull'ultimo sse
 		\item $X\supseteq Y\iff \exists \funz{f}{X}{Y}$ suriettiva $\iff \abs{X}\geq \abs{Y}$. % TO DO: controllare se è vero effettivamente
-		\item Se $\abs{X}<\abs{Y}$, allora $X\supsetneqq Y$.
-		\item Se $X$ e $Y$ sono \textit{finiti}, allora $\abs{X}=\abs{Y}\iff X=Y$; se $X$ e $Y$ sono \textit{infiniti} $\abs{X}=\abs{Y}\Ccancel[black]{\implies}X=Y$ - vale soltanto la relazione banale $X=Y\implies \abs{X}=\abs{Y}$. % TO DO: aggiungere commento su questi risultati?
+		\item Se $\abs{X}<\abs{Y}$, allora $X\subsetneqq Y$.
+		\item Se $X$ e $Y$ sono \textit{finiti}, allora $\abs{X}=\abs{Y}\iff X=Y$; se $X$ e $Y$ sono \textit{infiniti} $\abs{X}=\abs{Y}\Ccancel[black]{\implies}X=Y$, ma vale soltanto la relazione banale $X=Y\implies \abs{X}=\abs{Y}$. % TO DO: aggiungere commento su questi risultati?
 \end{itemize}
 \end{proposition}
 Il seguente teorema è particolarmente importante: oltre ad avere come conseguenza che $<$ è una relazione d'ordine \textit{parziale}, permette di determinare alcune cardinalità sulla base di sole funzioni \textit{iniettive}.
@@ -435,9 +435,9 @@ Il seguente teorema è particolarmente importante: oltre ad avere come conseguen
 \paragraph{Aritmetica dei cardinali}
 Possiamo definire delle \textit{operazioni aritmetiche} con i cardinali; dati $\abs{X}=\kappa$ e $\abs{Y}=\lambda$, si ha
 \begin{align}
-	\kappa+\lambda=\abs{X\cup Y}&\text{ se }X\text{ e }Y\text{ disgiunti}\\
-	\kappa\cdot\lambda\abs{X\times Y}&\\
-	\kappa^{\lambda}=\abs{X^Y}
+	\kappa+\lambda&=\abs{X\cup Y} \text{ se }X\text{ e }Y\text{ disgiunti}\\
+	\kappa\cdot\lambda&=\abs{X\times Y}\\
+	\kappa^{\lambda}&=\abs{X^Y}
 \end{align}
 dove con $X^Y$ indichiamo l'insieme delle funzioni da $Y$ in $X$.\\
 Queste operazioni sono ben definite se sono indipendenti dalla scelta di $X$ e $Y$.
