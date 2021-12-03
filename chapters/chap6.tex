@@ -553,9 +553,9 @@ Banalmente l'inclusione $\subseteq$ è verificata: per trovare l'altra si usa la
 		\end{itemize}
 	% TO DO: mettere note di pag. 88 appunti
 \end{demonstration}
-Una conseguenza immediata di questa proprietà è che per le successioni di funzioni misurabili non negative vale lo \textit{scambio di integrale e serie}.
+Una conseguenza immediata di questa proprietà è che per le successioni di funzioni misurabili non negative vale lo \textit{scambio tra integrale e serie}.
 \begin{corollary}[Scambio tra integrale e serie per funzioni misurabili e non negative.]~{}\\
-Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura siano $\funz{f_n}{X}{\left[0,+\infty\right]},\ n\geq 1$ funzioni misurabili. Allora
+Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura siano $\funz{f_n}{X}{\left[0,+\infty\right]},\ n\geq 1$ funzioni misurabili. Allora vale lo scambio tra integrale e serie:\index{scambio tra integrale e serie}
 	\begin{equation}
 		\int_X\left(\sum_{n=1}^{+\infty}f_n\right)d\mu=\sum_{n=1}^{+\infty}\int_Xf_nd\mu
 	\end{equation}
@@ -632,7 +632,7 @@ Per ogni $k\in\naturalset$ calcoliamo $\displaystyle\int_{\naturalset}g^kd\mu_p$
 \end{equation*}
 Calcoliamo l'integrale:
 \begin{equation*}
-	\int_{\naturalset}d^kd\mu_p=\sum_{n=1}^{k}f_n\mu_p\left(\left\{n\right\}\right)+0\cdot \underbrace{\mu_p\left(A_0\right)}_{\substack{=0\ (\text{anche} \\ \text{nel caso } \\ 0\cdot \infty)}}=\sum_{n=!}^{k}f_np_n
+	\int_{\naturalset}d^kd\mu_p=\sum_{n=1}^{k}f_n\mu_p\left(\left\{n\right\}\right)+0\cdot \underbrace{\mu_p\left(A_0\right)}_{\substack{=0\ (\text{anche} \\ \text{nel caso } \\ 0\cdot \infty)}}=\sum_{n=1}^{k}f_np_n
 \end{equation*}
 Concludendo:
 \begin{equation*}
@@ -717,21 +717,21 @@ Osserviamo che $\displaystyle \chi_E=\sum_{n\geq 1}\chi_{E_n}$ perché $\display
 \begin{observe}
 	Questo è il caso generale per \textit{funzioni misurabili} di un risultato precedentemente dimostrato per \textit{funzioni semplici}, misurabili, non negative. Notiamo che questo risultato richiede \textit{implicitamente} tale caso: infatti, nella dimostrazione abbiamo fatto uso del \textit{teorema della convergenza monotona}, che richiede la $\sigma$-additività rispetto al dominio delle funzioni semplici.
 \end{observe}
-\subsection{Misura di probabilità} % TO DO: controllare che non stia dicendo una cazzata, è questa la definizione di misura di probabilità?
+\subsection{Misura indotta dall'integrale di Lebesgue}
 Una conseguenza della $\sigma$-additività rispetto al dominio dell'integrale di Lebesgue è che, in modo analogo a come abbiamo visto per le funzioni semplici, possiamo costruire un \textit{nuovo spazio di misura} $\left(X,\mathcal{M},\mu_f\right)$ a partire da uno spazio di misura $\left(X,\mathcal{M},\mu\right)$ dato e una funzione $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile.
 \begin{corollary}[Misura indotta dalla funzione misurabile non negativa.]~{}\\
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile. Allora la funzione
 \begin{equation}
 	\funztot{\mu_f}{\mathcal{M}}{\left[0,+\infty\right]}{E}{\int_Efd\mu}
 \end{equation}
-è una misura su $\mathcal{M}$, detta \textbf{misura di probabilità}\index{misura!di probabilità}.
+è una misura su $\mathcal{M}$.
 \end{corollary}
 \begin{example}\label{gaussiana}
 	Consideriamo $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e prendiamo la \textbf{funzione gaussiana}\index{funzione!gaussiana}:
 	\begin{equation*}
 		f\left(x\right)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall x\in\realset
 	\end{equation*}
-	La funzione è continua e dunque misurabile. La misura $\mu_f$ indotta è detta \textbf{misura di probabilità normale}\index{misura!di probabilità!normale}:
+	La funzione è continua e dunque misurabile. La misura $\mu_f$ indotta è di probabilità dato che $\mu_f\left(\realset\right)=1$ e viene chiamata \textbf{misura di probabilità normale}\index{misura!di probabilità!normale}:
 	\begin{gather*}
 		\mu_f\left(E\right)=\int_E\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dm_1,\ \forall E\in\mathcal{L}\left(\realset\right)\\
 		\mu_f\left(\realset\right)=\int_{\realset}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dm_1=1
@@ -741,7 +741,7 @@ Se consideriamo lo spazio di misura $\left(\realset,\mathcal{L}\left(\realset\ri
 	\int_Egd\mu_f,\ \forall E\in\mathcal{L}\left(\realset\right)
 \end{equation*}
 Cos'è questo integrale? La risposta tale quesito è il seguente teorema.
-\begin{theorema}[Integrale rispetto alla misura di probabilità.]~{}\\
+\begin{theorema}[Integrale rispetto alla misura indotta.]~{}\\
 	Dato $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, consideriamo lo spazio di misura indotto $\left(X,\mathcal{M},\mu_f\right)$ con
 	\begin{equation*}
 		\funztot{\mu_f}{\mathcal{M}}{\left[0,+\infty\right]}{E}{\int_Efd\mu}
@@ -984,6 +984,12 @@ Si ha quindi
 \end{equation*}
 \end{demonstration}
 \subsection{Teorema della convergenza dominata}
+\begin{theorema}[Teorema della convergenza dominata.]~{}
+	% TO DO: aggiungere
+\end{theorema}
+\begin{demonstration}
+	% TO DO: aggiungere
+\end{demonstration}
 \section{Tra integrale di Riemann e integrale di Lebesgue}
 Nell'excursus storico abbiamo visto come l'\textit{integrale di Lebesgue} e le sue successive astrazioni di inizio '900 siano state la risposta a due domande che indirizzarono gli studi di Analisi del XIX secolo:
 \begin{itemize}
@@ -1090,6 +1096,125 @@ Sulla base di questi risultati siamo finalmente in grado di rispondere al second
 	Essendo $m_1\left(C\right)=0$, $f$ è integrabile secondo Riemann su $\left[0,1\right]$.
 \end{example}
 \section{Il ruolo degli insiemi di misura nulla}
+Abbiamo appena visto come una funzione è integrabile secondo Riemann se e solo se l'insieme delle sue discontinuità è un insieme di misura nulla. In altre parole, una funzione è integrabile secondo Riemann su un dato intervallo se e solo se essa è continua, tolto al più un insieme misurabilmente nullo di discontinuità.\\
+Più in generale, ha senso parlare di proprietà valide su un particolare dominio tolto un insieme di misura nulla: poiché queste proprietà non valgono su insiemi la cui \textit{rilevanza è minima}, quantomeno dal punto della \textit{misura}, possiamo definire tale proprietà come \textit{quasi ovunque valida}.
 \begin{define}[Proprietà quasi ovunque valida.]~{}\\
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Si dice che una proprietà vale \textbf{‘‘quasi ovunque''} (\textbf{q.o.})\index{proprietà quasi ovunque valida} o ‘‘$\mu$\textbf{-quasi ovunque}'' se vale in tutto $X$ tranne eventualmente su un insieme di misrua $\mu$ nulla.
 \end{define}
+\begin{example}
+	Siano $\funz{f,g}{X}{\complexset}$ misurabili. Allora
+	\begin{equation}
+		f=g\ \text{\textbf{q.o.}}\iff \text{Posto}\ E=\{x\in\ X\mid f\left(x\right)\neq g\left(x\right)\}
+	\end{equation}
+\end{example}
+\begin{example}
+	Consideriamo la funzione di Dirichlet $f=\chi_{\left[0,1\right]\cap\rationalset}$:
+	\begin{equation*}
+		f\left(x\right)=\begin{cases}
+			\begin{array}{ll}
+				1&\text{se }x\in\left[0,1\right]\cap\rationalset\\
+				0&\text{se }x\in\left[0,1\right]\setminus\rationalset
+			\end{array}
+		\end{cases}
+	\end{equation*}
+Sappiamo che $m_1\left(\left[0,1\right]\cap\rationalset\right)=0$, quindi
+\begin{equation*}
+	\left\{x\in\left[0,1\right]\mid f\left(x\right)\neq 0\right\}=\left[0,1\right]\cap \rationalset
+\end{equation*}
+ha misura nulla e pertanto la funzione di Dirichlet è \textit{quasi ovunque} la funzione identicamente \textit{nulla}.
+\end{example}
+\begin{proposition}[Ruolo degli insiemi di misura nulla nell'integrazione.] % TO DO: proprietà
+Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
+\begin{enumerate}
+	\item Se $\funz{f}{X}{\complexset}$, $f\in\mathcal{L}^{1}\left(\mu\right)$ allora
+	\begin{equation}
+		\forall E\in\mathcal{M},\ \mu\left(E\right)=0\implies \int_Efd\mu=0
+	\end{equation}
+\item Se $\funz{f,g}{X}{\complexset}$, $f,g\in\mathcal{L}^{1}\left(\mu\right)$ allora
+\begin{equation}
+	f=g\ \text{\textbf{q.o.}}\implies \int_Xfd\mu=\int_Xgd\mu
+\end{equation}
+\end{enumerate}
+\end{proposition}
+\begin{demonstration}~{}
+	\begin{enumerate}[label=\Roman*]
+		\item
+		\item Posto
+		\begin{equation*}
+			E=\left\{x\in X\mid f\left(x\right)\neq g\left(x\right)\right\}
+		\end{equation*}
+	si ha $\mu\left(E\right)=0$. Allora
+	\begin{equation*}
+		\int_Xfd\mu=\int_{X\setminus E}fd\mu+\int_Efd\mu=\int_{X\setminus E}gd\mu+0=\int_{X\setminus E}gd\mu+\int_Egd\mu=\int_Xgd\mu
+	\end{equation*}
+	\item Sia
+		\begin{equation*}
+			E=\left\{x\in X\mid f\left(x\right)\neq 0\right\}=\bigcup_{n\geq 1}\left\{x\in X\mid f\left(x\right)>\frac{1}{n}\right\}=\bigcup_{n\geq 1}E_n
+		\end{equation*}
+	Osserviamo che $E_n=f^{-1}\left(\left(\frac{1}{n},+\infty\right)\right)\in\mathcal{M}$ in quanto è controimmagine di un aperto tramite una funzione misurabile; su ha allora
+	\begin{align*}
+		0=&\int_Xfd\mu\leq&\\
+		 &\leq\int_{E_n}fd\mu\leq&\text{(monotonia dell'integrale rispetto al dominio)}\\
+		 &\leq\int_{E_n}\frac{1}{n}d\mu=&\text{(monotonia rispetto l'integranda)}\\
+		 &=\frac{1}{n}\mu\left(E_n\right)\leq 0&
+	\end{align*}
+	Segue dunque che $\mu\left(E_n\right)=0,\ \forall n\geq 1$; utilizzando la $\sigma$-subadditività della misura vediamo che
+	\begin{equation*}
+		\mu\left(E\right)=\mu\left(\bigcup_{n\geq 1}E_n\right)\leq\sum_{n=1}^{+\infty}\mu\left(E_n\right)=0\implies \mu\left(E\right)=0
+	\end{equation*}
+	Vale dunque la tesi.
+	\end{enumerate}
+\end{demonstration}
+Avendo definito il concetto di proprietà quasi ovunque valida, possiamo enunciare un'altra versione dello \textit{scambio tra integrale e serie}; questo risultato che segue dal teorema della convergenza dominata.
+\begin{theorema}[Scambio tra integrale e serie per funzioni integrabili.]~{}\\
+	Sia $\left(X,\mathcal{M},\mu\right)$ unop spazio di misura. Siano $\funz{f_n}{X}{\complexset}$ integrabili. Supponiamo che
+	\begin{equation*}
+		\sum_{n=1}^{+\infty}\int_X\abs{f_n}d\mu<+\infty
+	\end{equation*}
+Allora
+\begin{enumerate}
+	\item $\displaystyle f\left(x\right)=\sum_{n=1}^{+\infty}f_n\left(x\right)$ è definita q.o. in $X$.
+	\item $f\in\mathcal{L}^{1}\left(\mu\right)$
+	\item Vale lo \textit{scambio tra integrale e serie}\index{scambio tra integrale e serie}:
+	\begin{equation}
+		\int_Xfd\mu=\int_X\left(\sum_{n=1}^{+\infty}f_n\right)d\mu=\sum_{n=1}^{+\infty}\int_Xfd\mu\in\complexset
+	\end{equation}
+\end{enumerate}
+\end{theorema}
+\section{Dallo spazio {$\mathcal{L}^{1}$} allo spazio {$L^{1}$}}
+Ricordiamo che, dato uno spazio di misura $\left(X,\mathcal{M},\mu\right)$ si definisce lo spazio delle funzioni integrabili
+\begin{equation}
+	\mathcal{L}^{1}=\left\{\funz{f}{X}{\complexset}\text{ misurabili}\mid \int_X\abs{f}d\mu<+\infty\right\}
+\end{equation}
+il quale è un spazio vettoriale con le operazioni di somma di funzioni e prodotto di una funzione per uno scalare complesso.\\
+Vogliamo ora introdurre una struttura \textit{metrica} in $\mathcal{L}^1\left(\mu\right)$; nello specifico, cerchiamo una \textit{norma} - in questo modo potremo avvalerci di risultati che sono validi solo in \textit{spazi normati}. Possiamo considerare come potenziale candidata la funzione
+\begin{equation}
+	\funztot{N}{\mathcal{L}^1\left(\mu\right)}{\left[0,+\infty\right)}{f}{\int_X\abs{f}d\mu}
+\end{equation}
+Tuttavia, la suddetta è una \textbf{pseudonorma} in quanto soddisfa due delle tre proprietà della norma, ma non la \textit{prima}: può valere zero per altre funzione oltre quella nulla. Infatti:
+\begin{enumerate}
+	\item[1.] $\displaystyle f=0\implies \int_X\abs{f}d\mu=0$ ma $\displaystyle \int_X\abs{f}d\mu=0\implies f$ q.o. in $X$.
+\end{enumerate}
+Come precedentemente detto, le proprietà 2 e 3 sono verificate:
+\begin{enumerate}
+	\item[2.] $N\left(\lambda f\right)=\abs{\lambda}N\left(f\right),\ \forall f\in\mathcal{L}^1\left(\mu\right),\ \forall \lambda \in \complexset$.
+	\item[3.] $N\left(f+g\right)\leq N\left(f\right)+N\left(g\right),\ \forall f,g\in\mathcal{L}^{1}\left(\mu\right)$.
+\end{enumerate}
+Per risolvere il problema, si introduce la relazione
+\begin{equation}
+	f,g\in\mathcal{L}^{1}\left(\mu\right)\colon f\sim g\iff f=g\text{ q.o. in }X
+\end{equation}
+che si dimostra essere di equivalenza in $\mathcal{L}^{1}\left(\mu\right)$. % TO DO: aggiungere esercizio
+Si definisce allora
+\begin{equation}
+	L^{1}\left(\mu\right)=\frac{\mathcal{L}^{1}\left(\mu\right)}{\sim}
+\end{equation}
+Invece che indicare gli elementi di $L^{1}\left(\mu\right)$ come classi di equivalenza $\left[f\right]$ (dove $f\in\mathcal{L}^{1}\left(\mu\right)$), faremo un \textit{abuso di notazione} e indicheremo solo $f\in L^{1}$.\\
+Adesso in $L^1{\left(\mu\right)}$ possiamo definire finalmente una vera e onesta norma:
+\begin{equation}
+	\funztot{\lvert\cdot\rvert}{L^{1}\left(\mu\right)}{\left[0,+\infty\right)}{\left[f\right]}{\lvert\left[f\right]\rvert=\int_X\abs{f}d\mu}
+\end{equation}
+Questa norma è ben posta come funzione in $L^1\left(\mu\right)$ in quanto \textit{non} dipende dal \textit{rappresentante} scelto:
+\begin{equation*}
+	g\in\left[f\right]\iff f=g\text{ q.o. in }X\implies \int_X\abs{g}d\mu=\int_X\abs{f}d\mu
+\end{equation*}
