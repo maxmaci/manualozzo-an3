@@ -201,8 +201,8 @@ come
 	f\left(x\right)-\epsilon<f_n\left(x\right)<f\left(x\right)+\epsilon,\ \forall x\in A\text{ definitivamente}
 \end{equation}
 In altre parole, scelto $\epsilon$, trovo un $N$ nella successione tale che definitivamente $f_n$ deve essere compresa nell'\textbf{intorno tubulare} di $f\left(x\right)$, cioé le $f_n$ devono stare in questo intorno per ogni $n$ sufficientemente grande ($\forall n\geq N$), quindi la striscia cattura globalmente tutte le $f_n$ da un certo $N$ in poi.
-\begin{center}
-	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.65]{images/grafico3.pdf}
+\begin{center}\label{visualizzazioneconvergenzauniforme}
+	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.65]{images/visualizzazioneconvergenzauniforme.pdf}
 \end{center}
 Visivamente la successione geometrica non converge uniformemente su $(-1,1)$ a $0$ perché non posso restringermi intorno alla funzione limite $f(x)=0$ per qualsiasi $\epsilon$ io scelga, infatti $f_n(1)=1, \forall n$.
 
@@ -293,12 +293,12 @@ Il quantificatore esistenziale $\exists$ implica che ciò che esiste dipende da 
 	\item Se $\displaystyle\sup_{x\in A}N\left(\epsilon\right)=+\infty$ allora \textit{non} c'è convergenza uniforme.
 \end{itemize}
 \end{observe}
-Dalle definizioni segue immediatamente che
+Dalle definizioni segue immediatamente che\label{convuniformeimplicapuntuale}
 	\begin{multline}
-	f_n\text{ converge uniformemente a }f\text{ in }A\implies\\
+	f_n\text{ converge uniformemente a }f\text{ su }A\implies\\
 	\implies f_n\text{ converge puntualmente a }f\text{ in ogni punto di }A
 \end{multline}
-ma in generale vale che la convergenza puntuale \textbf{NON} implica la convergenza uniforme perché fissata la tolleranza $\epsilon$ la soglia $N$ potrebbe cambiare al variare di $x\in A$.
+ma in generale vale che la convergenza puntuale \textbf{non} implica la convergenza uniforme perché fissata la tolleranza $\epsilon$ la soglia $N$ potrebbe cambiare al variare di $x\in A$.
 \begin{example}[Successione geometrica e convergenza puntuale.]~{}
 	Consideriamo la successione geometrica $f_n\left(x\right)=x^n,\ \forall n\geq 0$.\\
 	Dagli studi fatti nel corso di \textsc{Analisi 1} si ha $\forall x\in\realset$ fissato 

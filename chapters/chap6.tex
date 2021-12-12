@@ -655,20 +655,28 @@ Il seguente risultato, che abbiamo già incontrato\footnote{Si veda pag. \pagere
 	\end{equation}
 \end{lemming}
 \begin{demonstration}
-	Posto $g_k\left(x\right)=\inf_{i\geq k}f_i\left(x\right)$ dove $k\geq 1,\ x\in X$, allora $g_k\leq f_k$ e quindi
+	Posto $\displaystyle g_k\left(x\right)\coloneqq\inf_{i\geq k}f_i\left(x\right)$ dove $k\geq 1,\ x\in X$, allora $g_k\leq f_k$ implica, per monotonia dell'integrale rispetto alle integrande,
 	\begin{equation*}
-		\int_Xg_kd\mu\leq \int_Xf_kd\mu
+		\textcolor{red}{\circled{\ast}}\quad\int_Xg_kd\mu\leq \int_Xf_kd\mu\implies \liminf_{k\to+\infty}\int_Xg_kd\mu\leq \liminf_{k\to+\infty}\int_Xf_kd\mu
 	\end{equation*}
-Inoltre:
+Osserviamo che:
 \begin{itemize}
-	\item $0\leq g_k\left(x\right)\leq g_{k+1}\left(x\right),\ \forall x\in X$.
-	\item $g_k$ è misurabile, $\forall k\geq 1$.
-	\item $\displaystyle\lim_{n\to+\infty}g_k\left(x\right)=\liminf_{n\to+\infty}f_n\left(x\right)$ per caratterizzazione del $\liminf$.
+	\item $0\leq g_k\left(x\right)\leq g_{k+1}\left(x\right),\ \forall x\in X$ perché
+	\begin{equation*}
+		f_i\left(x\right)_{i\geq k}\supseteq f_i\left(x\right)_{i\geq k+1}\implies g_k\left(x\right)=\inf_{i\geq k}f_i\left(x\right)\leq\inf_{i\geq k+1}f_i\left(x\right)=g_{k+1}\left(x\right)
+	\end{equation*}
+	\item $g_k$ è misurabile, $\forall k\geq 1$ in quanto $\inf$ di funzioni misurabili.
 \end{itemize}
-Per il teorema della convergenza monotona
+Pertanto
+	\begin{align*}
+	\lim_{n\to+\infty}g_k\left(x\right)&=\sup_{k\geq i}\inf_{i\geq k}f_i\left(x\right)&\text{(teorema sul limite di successioni monotone)}\\
+	&=\liminf_{n\to+\infty}f_n\left(x\right)&\text{(caratterizzazione del $\liminf$)}
+\end{align*}
+Per il teorema della convergenza monotona si ha
 \begin{equation*}
-	\lim_{k\to+\infty}\int_X g_kd\mu=\int_X\left(\liminf_{n\to+\infty}f_n\right)d\mu\leq \liminf_{n\to+\infty}\int_Xf_nd\mu
+	\textcolor{blue}{\circled{\ast}}\quad \liminf_{k\to+\infty}\int_Xg_kd\mu=\lim_{k\to+\infty}\int_Xg_kd\mu=\int_X\lim_{n\to+\infty}g_kd\mu=\int_X\liminf_{k\to+\infty}f_kd\mu
 \end{equation*}
+Combinando $\textcolor{red}{\circled{\ast}}$ e $\textcolor{blue}{\circled{\ast}}$ otteniamo la tesi.
 \end{demonstration}
 \begin{observe}~{}
 	\begin{itemize}
@@ -984,11 +992,90 @@ Si ha quindi
 \end{equation*}
 \end{demonstration}
 \subsection{Teorema della convergenza dominata}
-\begin{theorema}[Teorema della convergenza dominata.]~{}
-	% TO DO: aggiungere
+\begin{theorema}[Teorema della convergenza dominata.]~{}\\
+Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n}{X}{\complexset}$ una successione di funzioni misurabili tale che esiste
+\begin{equation*}
+	f\left(x\right)=\lim_{n\to+\infty}f_n\left(x\right),\ \forall x\in X
+\end{equation*}
+Se esiste una funzione $g\in L^{1}\left(\mu\right)$ tale per cui
+\begin{equation*}
+	\abs{f_n\left(x\right)}\leq g\left(x\right),\ \forall n\geq 1,\ \forall x\in X
+\end{equation*}
+allora $f\in L^{1}\left(\mu\right)$ e vale
+\begin{equation}
+	\lim_{n\to+\infty}\int_X\abs{f_n-f}d\mu=0
+\end{equation}
+e vale il passaggio al limite sotto segno di integrale:
+\begin{equation}
+	\lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu
+\end{equation}
 \end{theorema}
 \begin{demonstration}
-	% TO DO: aggiungere
+	Poiché $f_n$ è una successione di funzioni misurabili che converge puntualmente a $f$, $\forall x\in X$, $f$ è una funzione misurabile. Inoltre, dato che tutti gli elementi della successione $f_n$ sono maggiorati (in modulo) da $g$, si ha per monotonia del limite che
+	\begin{equation*}
+		\textcolor{red}{\circled{\ast}}\quad \abs{f}\leq g
+	\end{equation*}
+	Allora, applicando i moduli ai membri della disequazione vale $\abs{f}\leq\abs{g}$. Integrando rispetto a Lebesgue, per monotonia rispetto all'integranda si ha
+	\begin{equation*}
+		\int_X\abs{f}d\mu\leq \int_X \abs{g}d\mu<+\infty
+	\end{equation*}
+	in quanto $g\in L^1\left(\mu\right)$; segue che $f\in L^1\left(\mu\right)$.\\
+	Osserviamo che
+	\begin{align*}
+		\abs{f_n-f}&\leq \abs{f_n}+\abs{f}&\text{(disuguaglianza triangolare)}\\
+		&\leq2g&\text{(per $\textcolor{red}{\circled{\ast}}$)}
+	\end{align*}
+	da cui segue che $2g-\abs{f_n-f}\geq 0$ e quindi sono funzioni non negative. Poiché le $2g-\abs{f_n-f}$ sono misurabili in quanto somma di funzioni in $L^1\left(\mu\right)$ (e quindi misurabili), possiamo applicare il \textit{lemma di Fatou} a tali funzioni e ottenere
+	\begin{gather*}
+		\int_X\left(\liminf_{n\to+\infty}2g-\abs{f_n-f}\right)d\mu\leq\liminf_{n\to+\infty}\int_X\left(2g-\abs{f_n-f}\right)d\mu\\
+		\viff\\
+		\int_X 2gd\mu-\int_X\liminf_{n\to+\infty}\abs{f_n-f}d\mu\leq\int_X 2gd\mu+\liminf_{n\to+\infty}\left(-\int_X\abs{f_n-f}d\mu\right)
+	\end{gather*}
+	ma
+	\begin{equation*}
+		\int_X\liminf_{n\to+\infty}\abs{f_n-f}d\mu=0
+	\end{equation*}
+	in quanto per ipotesi $\displaystyle\lim_{n\to+\infty}f_n=f\iff\lim_{n\to+\infty}\abs{f_n-f}=0$; segue che $\liminf$ e $\lim$ coincidono con valore $0$ e pertanto anche l'integrale risulta nullo.\\
+	Inoltre, notiamo che
+	\begin{equation*}
+		\int_X\abs{f_n-f}d\mu
+	\end{equation*}
+	è una successione a valori non negativi, dunque per le proprietà del massimo e minimo limite\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} si ha
+	\begin{equation*}
+		\liminf_{n\to+\infty}\left(-\int_X\abs{f_n-f}d\mu\right)=-\limsup_{n\to+\infty}\left(\int_X\abs{f_n-f}d\mu\right)
+	\end{equation*}
+	Allora otteniamo
+	\begin{equation*}
+		\int_X 2gd\mu\leq\int_X 2gd\mu-\limsup_{n\to+\infty}\left(\int_X\abs{f_n-f}d\mu\right)
+	\end{equation*}
+	Dato che $g\in L^1\left(\mu\right)$ è non negativa, si ha  
+	\begin{equation*}
+		\int_X2gd\mu=2\int_X\abs{g}d\mu<+\infty
+	\end{equation*}
+	Possiamo dunque sottrarre
+	\begin{equation*}
+		\int_X 2gd\mu
+	\end{equation*}
+	da entrambi i membri della disequazione e ottenere
+	\begin{equation*}
+		\textcolor{blue}{\circled{\ast}}\quad \limsup_{n\to+\infty}\int_X\abs{f_n-f}d\mu\leq 0
+	\end{equation*} 
+	Notiamo che se una successione di numeri reali non negativi non converge a $0$, allora il massimo limite è positivo.\footnote{Infatti, se $a_n\geq 0,\ \forall n\in\naturalset$, allora anche il limite $\displaystyle \lim_{n\to+\infty}a_n$ sarà non negativo.  Tuttavia, poiché tale successione ammette limite, allora esso coincide con il suo massimo limite. Segue immediatamente che
+	\begin{equation*}
+		\lim_{n\to+\infty}a_n\neq0\implies \lim_{n\to+\infty}a_n>0\implies \limsup_{n\to+\infty}a_n>0
+	\end{equation*}} Per contronominale, se il massimo limite di numeri reali non negativi \textit{non} è positivo, allora la serie converge a $0$ necessariamente. Poiché vale $\textcolor{blue}{\circled{\ast}}$, allora ciò implica la prima tesi:
+	\begin{equation*}
+		\lim_{n\to+\infty}\int_X\abs{f_n-f}d\mu=0
+	\end{equation*}
+	Infine, poiché l'integrale di Lebesgue è monotono rispetto al modulo, si ha
+	\begin{equation*}
+		0=\lim_{n\to+\infty}\int_X\abs{f_n-f}d\mu\geq\lim_{n\to+\infty}\abs{\int_X\left(f_n-f\right)d\mu}\ge 0
+	\end{equation*}
+	e quindi
+	\begin{equation*}
+		\lim_{n\to+\infty}\abs{\int_X \left(f_n-f\right)d\mu}=0\implies\lim_{n\to+\infty}\int_X\left(f_n-f\right)d\mu=0\implies\lim_{n\to+\infty}\int_X f_nd\mu=\int_X fd\mu
+	\end{equation*}
+	ottenendo la seconda e ultima tesi.
 \end{demonstration}
 \section{Tra integrale di Riemann e integrale di Lebesgue}
 Nell'excursus storico abbiamo visto come l'\textit{integrale di Lebesgue} e le sue successive astrazioni di inizio '900 siano state la risposta a due domande che indirizzarono gli studi di Analisi del XIX secolo:
@@ -1044,7 +1131,7 @@ Situazione differente si ha con l'integrale improprio di Riemann: infatti, può 
 	\item Integrando per parti si ha % TO DO: controllare calcoli
 	\begin{align*}
 		\int_{\pi}^{+\infty}\frac{\sin x}{x}dx&=\lim_{R\to+\infty}\int_{\pi}^{R}\frac{\sin x}{x}dx=\lim_{R\to+\infty}\left[-\frac{\cos x}{x}\middle|^{R}_{\pi}-\int_{\pi}^{R}\frac{\cos x}{x^2}dx\right]\\
-		&=\lim_{R\to+\infty}\left[\underbrace{-\frac{\cos R}{R}}_{\substack{\to 0\text{ per}\\R\to\infty}}+\cos \pi-\int_{\pi}^{R}\frac{\cos x}{x^2}dx\right]=-1-\int_{\pi}^{+\infty}\frac{\cos x}{x^2}dx
+		&=\lim_{R\to+\infty}\left[\underbrace{-\frac{\cos R}{R}}_{\substack{\to 0\text{ per}\\R\to+\infty}}+\cos \pi-\int_{\pi}^{R}\frac{\cos x}{x^2}dx\right]=-1-\int_{\pi}^{+\infty}\frac{\cos x}{x^2}dx
 	\end{align*}
 dato che
 \begin{equation*}
@@ -1104,7 +1191,7 @@ Più in generale, ha senso parlare di proprietà valide su un particolare domini
 \begin{example}
 	Siano $\funz{f,g}{X}{\complexset}$ misurabili. Allora
 	\begin{equation}
-		f=g\ \text{\textbf{q.o.}}\iff \text{Posto}\ E=\{x\in\ X\mid f\left(x\right)\neq g\left(x\right)\}
+		f=g\ \text{\textbf{q.o.}}\iff \text{Posto}\ E=\{x\in\ X\mid f\left(x\right)\neq g\left(x\right)\},\ \mu\left(E\right)ù=0
 	\end{equation}
 \end{example}
 \begin{example}
@@ -1123,7 +1210,7 @@ Sappiamo che $m_1\left(\left[0,1\right]\cap\rationalset\right)=0$, quindi
 \end{equation*}
 ha misura nulla e pertanto la funzione di Dirichlet è \textit{quasi ovunque} la funzione identicamente \textit{nulla}.
 \end{example}
-\begin{proposition}[Ruolo degli insiemi di misura nulla nell'integrazione.] % TO DO: proprietà
+\begin{proposition}[Ruolo degli insiemi di misura nulla nell'integrazione.]~{}\\ % TO DO: proprietà
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 \begin{enumerate}
 	\item Se $\funz{f}{X}{\complexset}$, $f\in\mathcal{L}^{1}\left(\mu\right)$ allora
@@ -1138,7 +1225,7 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 \end{proposition}
 \begin{demonstration}~{}
 	\begin{enumerate}[label=\Roman*]
-		\item
+		\setcounter{enumi}{2}
 		\item Posto
 		\begin{equation*}
 			E=\left\{x\in X\mid f\left(x\right)\neq g\left(x\right)\right\}
@@ -1153,9 +1240,9 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 		\end{equation*}
 	Osserviamo che $E_n=f^{-1}\left(\left(\frac{1}{n},+\infty\right)\right)\in\mathcal{M}$ in quanto è controimmagine di un aperto tramite una funzione misurabile; su ha allora
 	\begin{align*}
-		0=&\int_Xfd\mu\leq&\\
-		 &\leq\int_{E_n}fd\mu\leq&\text{(monotonia dell'integrale rispetto al dominio)}\\
-		 &\leq\int_{E_n}\frac{1}{n}d\mu=&\text{(monotonia rispetto l'integranda)}\\
+		0&=\int_Xfd\mu&\\
+		 &\leq\int_{E_n}fd\mu&\text{(monotonia dell'integrale rispetto al dominio)}\\
+		 &\leq\int_{E_n}\frac{1}{n}d\mu&\text{(monotonia rispetto l'integranda)}\\
 		 &=\frac{1}{n}\mu\left(E_n\right)\leq 0&
 	\end{align*}
 	Segue dunque che $\mu\left(E_n\right)=0,\ \forall n\geq 1$; utilizzando la $\sigma$-subadditività della misura vediamo che
@@ -1167,7 +1254,7 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 \end{demonstration}
 Avendo definito il concetto di proprietà quasi ovunque valida, possiamo enunciare un'altra versione dello \textit{scambio tra integrale e serie}; questo risultato che segue dal teorema della convergenza dominata.
 \begin{theorema}[Scambio tra integrale e serie per funzioni integrabili.]~{}\\
-	Sia $\left(X,\mathcal{M},\mu\right)$ unop spazio di misura. Siano $\funz{f_n}{X}{\complexset}$ integrabili. Supponiamo che
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Siano $\funz{f_n}{X}{\complexset}$ integrabili. Supponiamo che
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}\int_X\abs{f_n}d\mu<+\infty
 	\end{equation*}
@@ -1184,7 +1271,7 @@ Allora
 \section{Dallo spazio {$\mathcal{L}^{1}$} allo spazio {$L^{1}$}}
 Ricordiamo che, dato uno spazio di misura $\left(X,\mathcal{M},\mu\right)$ si definisce lo spazio delle funzioni integrabili
 \begin{equation}
-	\mathcal{L}^{1}=\left\{\funz{f}{X}{\complexset}\text{ misurabili}\mid \int_X\abs{f}d\mu<+\infty\right\}
+	\mathcal{L}^{1}=\left\{\funz{f}{X}{\complexset}\text{ misurabili}\middle| \int_X\abs{f}d\mu<+\infty\right\}
 \end{equation}
 il quale è un spazio vettoriale con le operazioni di somma di funzioni e prodotto di una funzione per uno scalare complesso.\\
 Vogliamo ora introdurre una struttura \textit{metrica} in $\mathcal{L}^1\left(\mu\right)$; nello specifico, cerchiamo una \textit{norma} - in questo modo potremo avvalerci di risultati che sono validi solo in \textit{spazi normati}. Possiamo considerare come potenziale candidata la funzione
@@ -1212,9 +1299,388 @@ Si definisce allora
 Invece che indicare gli elementi di $L^{1}\left(\mu\right)$ come classi di equivalenza $\left[f\right]$ (dove $f\in\mathcal{L}^{1}\left(\mu\right)$), faremo un \textit{abuso di notazione} e indicheremo solo $f\in L^{1}$.\\
 Adesso in $L^1{\left(\mu\right)}$ possiamo definire finalmente una vera e onesta norma:
 \begin{equation}
-	\funztot{\lvert\cdot\rvert}{L^{1}\left(\mu\right)}{\left[0,+\infty\right)}{\left[f\right]}{\lvert\left[f\right]\rvert=\int_X\abs{f}d\mu}
+	\funztot{\lvert\cdot\rvert}{L^{1}\left(\mu\right)}{\left[0,+\infty\right)}{\left[f\right]}{\lvert\left[f\right]\rvert_1=\int_X\abs{f}d\mu}
 \end{equation}
 Questa norma è ben posta come funzione in $L^1\left(\mu\right)$ in quanto \textit{non} dipende dal \textit{rappresentante} scelto:
 \begin{equation*}
 	g\in\left[f\right]\iff f=g\text{ q.o. in }X\implies \int_X\abs{g}d\mu=\int_X\abs{f}d\mu
 \end{equation*}
+\begin{example}
+	Consideriamo lo spazio di misura $\left(\naturalset,\setpart{\naturalset},\mu_c\right)$ con $\mu_c$ la misura conteggio:
+	\begin{equation*}
+		\mu_c\left(E\right)=\begin{cases}
+			\begin{array}{ll}
+				\# E &\text{se }E\text{ è finito}\\
+				+\infty &\text{altrimenti}
+			\end{array}
+		\end{cases}\quad\forall E\in\setpart{\naturalset}
+	\end{equation*}
+Ricordiamo che, data la successione $\funz{f}{\naturalset}{\left[0,+\infty\right]}$ (dove $f\left(n\right)\coloneqq f_n$), allora come conseguenza del teorema di convergenza monotona si ha
+\begin{equation*}
+	\int_\naturalset fd\mu_c=\sum_{n=1}^{+\infty}f_n
+\end{equation*}
+In questo caso si ha
+\begin{equation*}
+	\mathcal{L}^1\left(\mu_c\right)=\left\{\funz{f}{\naturalset}{\complexset}\mid\sum_{n=1}^{+\infty}\abs{f_n}=\int_X\abs{f}d\mu_c<+\infty\right\}
+\end{equation*}
+e quindi la norma in $L^1$ è la serie dei moduli
+\begin{equation*}
+	\norm{f}_1=\sum_{n=1}^{+\infty}\abs{f_n}
+\end{equation*}
+\end{example}
+Come sappiamo, se uno spazio normato è completo valgono diversi risultati teorici e pratici di estrema importanza, come ad esempio il criterio di Cauchy. Si dimostrerà a \textsc{Istituzioni di Analisi Matematica} che anche $L^1$ è uno spazio normato completo.
+\begin{theorema}[{$L^1$} è completo.]~{}\\
+	Lo spazio normato $\left(L^1\left(\mu\right),\norm{\cdot}_1\right)$ è completo.
+\end{theorema}
+\begin{observe}
+	Se si considero lo spazio delle funzioni continue $\mathcal{C}\left(\left[a,b\right];\realset\right)$, allora in esso la funzione
+	\begin{equation*}
+		\funztot{\ }{\mathcal{C}\left(\left[a,b\right];\realset\right)}{\left[0,+\infty\right]}{f}{\lvert f\rvert_1\int_{a}^{b}\abs{f\left(x\right)}dx}
+	\end{equation*}
+è già una norma. Infatti
+\begin{equation*}
+	\lvert f\rvert_1 = 0 \iff f\equiv 0\text{ q.o. in }\left[a,b\right]\iff f\equiv 0\text{ su }\left[a,b\right]\text{ perché continua}
+\end{equation*}
+Pertanto, $\mathcal{C}\left(\left[a,b\right];\realset\right)$ è normato. Lo svantaggio, tuttavia, è che esso \textit{non} è completo.Per questo motivo, nonostante ciò che comporta quozientare, conviene usare lo spazio $\left(L^1\left(\mu\right),\norm{\cdot}_1\right)$.
+\end{observe}
+\section{Modi di convergenza}
+Abbiamo già visto nel \refChapterOnly{convergenzafunzioni} la convergenza uniforme e la convergenza puntuale. Noti i concetti di misura e integrale di Lebesgue, approfondiamo il tema dei modi di convergenza e le relazioni tra questi.
+\paragraph{Convergenza uniforme}
+\begin{define}[Convergenza uniforme.]~{}\\
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$.
+	Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$\textbf{su} $X$ ($f_n\overset{\text{unif.}}{\to} f$) se
+	\begin{equation}
+		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in X
+	\end{equation}
+\end{define}
+Come già visto a pag. \pageref{visualizzazioneconvergenzauniforme}, se consideriamo $X\subseteq \realset$ si può visualizzare la convergenza uniforme della successione $f_n$ a $f$: arbitrariamente scelto un raggio $\epsilon$ e per $n$ sufficientemente grandi, il grafico di $f_n$ è contenuto nell'\textit{intorno tubulare} di raggio $\epsilon$ centrato sul grafico di $f$.
+\begin{center}
+	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.65]{images/visualizzazioneconvergenzauniforme.pdf}
+\end{center}
+\paragraph{Convergenza puntuale}
+\begin{define}[Convergenza puntuale.]~{}\\
+	Consideriamo l'insieme $X$ e le funzioni $\funz{f_n,f}{X}{\complexset}$.
+	Si dice che $f_n$ \textbf{converge puntualmente}\index{convergenza!puntuale} a $f$\textbf{in} $X$ ($f_n\overset{\text{punt.}}{\to} f$) se
+	\begin{equation}
+		\forall x\in X,\lim_{n\to+\infty}f_n\left(x\right)=f\left(x\right)
+	\end{equation}
+o, alternativamente,
+	\begin{equation}
+	\forall x\in X,\ \forall \epsilon >0,\ \exists N=N\left(x,\epsilon\right)\colon \forall n\geq N,\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
+\end{equation}
+\end{define}
+\begin{attention}
+	Il limite della convergenza è in campo \textit{complesso}!
+\end{attention}
+\paragraph{Convergenza uniforme e puntuale}
+Come visto in precedenza\footnote{Si veda \refChapterOnly{convergenzafunzioni}, sezione \ref{convuniformeimplicapuntuale}, pag. \pageref{convuniformeimplicapuntuale}.}, nella \textit{convergenza uniforme} il differente ordine dei quantificatori relativi alla $x$ fa sì che la soglia $N$ trovata è indipendente dal punto $x$ e quindi vale per ogni punto dell'insieme di definizione $X$, implicando pertanto la \textit{convergenza puntuale}.
+\begin{multline}
+	f_n\text{ converge uniformemente a }f\text{ su }X\implies\\
+	\implies f_n\text{ converge puntualmente a }f\text{ in ogni punto di }X
+\end{multline}
+Il viceversa non è vero: abbiamo visto\footnote{Si veda nota precedente.} nella stessa sezione il caso della successione geometrica, la quale converge uniformemente solo a $f\equiv 0$ in ogni intervallo $\left[-a,a\right]\subsetneqq\left(-1,1\right),\ \forall a\in\left(0,1\right)$, mentre puntualmente in tutti i $\left(-1,1\right]$; qui di seguito riportiamo un controesempio alternativo.
+\begin{example}
+	Consideriamo la successione
+	\begin{equation*}
+		f_n\left(x\right)=\chi_{(n,n+1)}\left(x\right)=
+		\begin{cases}
+		\begin{array}{ll}
+			1&n<x<n+1\\
+			0&x\leq n\vee x\geq n+1
+		\end{array}
+		\end{cases}
+	\end{equation*}
+% TO DO: completare la dimostrazione.
+\end{example}
+\paragraph{Convergena quasi ovunque}
+\begin{define}[Convergenza quasi ovunque.]~{}\\
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$. Si dice che
+	$f_n$ \textbf{converge quasi ovunque}\index{convergenza!quasi ovunque} a $f$\textbf{in} $X$ ($f_n\overset{\text{q.o.}}{\to} f$) se
+	\begin{equation}
+		\mu\left(\left\{x\in X\mid \lim_{n\to+\infty}f_n\left(x\right)\neq f\left(x\right)\right\}\right)=0
+	\end{equation}
+\end{define}
+\paragraph{Convergenza puntuale e quasi ovunque}
+Dalla definizione è evidente che la convergenza \textit{quasi ovunque} nello spazio di misura $X$ è una \textit{convergenza puntuale} in $X$ tolto un insieme di misura nulla. Se in $\left(X,\mathcal{M},\mu\right)$ si ha convergenza puntuale, il sottoinsieme su cui \textit{non} vale è l'insieme vuoto e quindi è banalmente soddisfatta la condizione di convergenza q.o., ossia
+\begin{multline}
+	f_n\text{ converge puntualmente a }f\text{ in ogni punto di }X\implies\\
+	\implies f_n\text{ converge quasi ovunque a }f\text{ in ogni punto di }X
+\end{multline}
+Il viceversa non è vero, come possiamo vedere nel seguente esempio.
+\begin{example}
+	Consideriamo la successione
+	\begin{equation*}
+		f_n\left(x\right)=n\chi_{\left[0,\frac{1}{n}\right]}\left(x\right)=
+		\begin{cases}
+			\begin{array}{ll}
+				n&0\leq x\leq\frac{1}{n}\\
+				0&x< 0\vee x>\frac{1}{n}
+			\end{array}
+		\end{cases}
+	\end{equation*}
+	% TO DO: completare la dimostrazione.
+\end{example}
+\paragraph{Convergenza in {$L^1$}}
+\begin{define}[Convergenza in {$L^1\left(\mu\right)$}.]~{}\\
+	Siano $f_n,f\in L^1\left(\mu\right)$. Si dice che
+	$f_n$ \textbf{converge in $L^1\left(\mu\right)$}\index{convergenza!in $L^1\left(\mu\right)$} a $f$ ($f_n\overset{L^1}{\to} f$) se
+	\begin{equation}
+		\lim_{n\to+\infty}\norm{f_n-f}_1=\int_{X}\abs{f_n-f}d\mu=0
+	\end{equation}
+\end{define}
+Considerato $X\subseteq \realset$, possiamo visualizzare graficamente la convergenza in $L^1$.
+\begin{center}
+% TO DO: inserire visualizzazione
+\end{center}
+Si nota che il grafico di $f_n$ può stare, in qualche zona, molto distante dal grafico di $f$, l'importante è che \textit{complessivamente} l'\textbf{area} tra $f_n$ e $f$ diminuisce fino ad essere zero per $n$ crescenti.\\
+Questa è la differenza principale tra la convergenza uniforme/puntuale/quasi ovunque e quella in $L^1$: se per le prime tre è fondamentale minimizzare la \textit{distanza} tra la funzione $f_n$ e $f$, l'ultima richiede di minimizzare l'\textit{area} tra le due.
+\paragraph{Convergenza in misura}
+\begin{define}[Convergenza in {$L^1\left(\mu\right)$}.]~{}\\
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$; $\forall n\in\naturalset$ definiamo la funzione $g_n\coloneqq \abs{f_n-f}$. Allora, se prendiamo $\forall n\in\ \naturalset,\forall \epsilon>0$ l'insieme
+	\begin{equation*}
+		E_{n,\epsilon}\coloneqq g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)=\left\{x\in X\mid \abs{f_n\left(x\right)-f\left(x\right)}>\epsilon\right\}
+	\end{equation*}
+	si dice che	$f_n$ \textbf{converge in misura}\index{convergenza!in misura} a $f$ ($f_n\overset{\mu}{\to} f$) se
+	\begin{equation}
+		\lim_{n\to+\infty}\mu\left(\left\{x\in X\mid \abs{f_n\left(x\right)-f\left(x\right)}>\epsilon\right\}\right)=0,\ \forall \epsilon >0
+	\end{equation}
+\end{define}
+Considerato $X\subseteq \realset$, possiamo visualizzare graficamente la convergenza in misura.
+\begin{center}
+	% TO DO: inserire visualizzazione
+\end{center}
+Possiamo interpretare questa convergenza come un particolare tipo di convergenza in $L^1$, con alcune caratteristiche comuni alla convergenza uniforme e alla convergenza quasi ovunque. Arbitrariamente scelto un raggio $\epsilon$, il grafico di $f_n$ è nella quasi sua totalità contenuto nell'\textit{intorno tubulare} di raggio $\epsilon$ centrato sul grafico di $f$, ma è concesso che esso possa \textit{uscire} da tale intorno purché la misura dell'insieme di tutti i punti di $\realset$ in cui ciò accade tenda ad essere nulla al crescere di $n$.
+\paragraph{Convergenza uniforme e in {$L^1$}}
+\begin{theorema}[Legame tra convergenza uniforme e {$L^1$}.]~{}\\
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$. Se
+	\begin{enumerate}[label=(\alph*)]
+		\item $f_n\in L^{1}\left(\mu\right)$.
+		\item $f_n$ converge uniformemente a $f$ su $X$.
+		\item $\mu\left(X\right)<+\infty$.
+	\end{enumerate}
+allora
+\begin{enumerate}
+	\item $f\in L^{1}\left(\mu\right)$.
+	\item $\displaystyle\lim_{n\to+\infty}\norm{f_n-f}_1=0$.
+	\item Vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio al limite sotto segno di integrale}
+	\begin{equation}
+		\lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu
+	\end{equation}
+\end{enumerate}
+\end{theorema}
+\begin{demonstration}~{}
+	\begin{enumerate}[label=(\Roman*)]
+		\item Dobbiamo dimostrare che $f\in L^!\left(\mu\right)$, ovvero
+		\begin{itemize}
+			\item $f$ misurabile.
+			\item $\displaystyle\int_X\abs{f}d\mu<+\infty$
+		\end{itemize}
+		Per ipotesi si ha la convergenza uniforme di $f_n$ a $f$ in $X$:
+		\begin{equation*}
+			\textcolor{red}{\circled{\ast}}\quad \forall \epsilon > 0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in X
+		\end{equation*}
+		Osserviamo che $f$ è dunque misurabile, in quanto la misurabilità passa al limite puntuale (e quindi al limite uniforme). Da $\textcolor{red}{\circled{\ast}}$ segue che
+		\begin{equation*}
+			\abs{f\left(x\right)}\underset{=}{\forall n\in\naturalset}\abs{f\left(x\right)-f_n\left(x\right)+f_n\left(x\right)}\leq\abs{f\left(x\right)-f_n\left(x\right)}+\abs{f_n\left(x\right)}\underset{\forall x\in X}{<}\epsilon +\abs{f\left(x\right)}
+		\end{equation*}
+	Posto, ad esempio, $\epsilon = 1$ e $n=N$ si ha
+	\begin{equation*}
+		\abs{f\left(x\right)}=1+\abs{f_N\left(x\right)},\ \forall x\in X
+	\end{equation*}
+Allora
+	\begin{align*}
+	\int_X\abs{f}d\mu&\leq \int_X \left(1+\abs{f_N}\right)d\mu&\text{(monotonia dell'integrale rispetto all'integranda)}\\
+	&=\int_{X}1d\mu+\int_X\abs{f_N}d\mu&\text{(additività dell'integranda)}\\
+	&=\mu\left(X\right)+\int_X\abs{f_N}d\mu <+\infty&
+\end{align*}
+perché $\mu\left(X\right)<+\infty$ per ipotesi e $f_n\in L^1\left(\mu\right)$.
+\item Dobbiamo dimostrare che $\displaystyle\lim_{n\to+\infty}\norm{f_n-f}_1=0$, ossia
+	\begin{equation*}
+	\textcolor{blue}{\circled{\ast}}\quad \forall \epsilon > 0,\ \exists \widetilde{N}=\widetilde{N}\left(\epsilon\right)\colon \forall n\geq N,\ \norm{f_n\left(x\right)-f\left(x\right)}_1<\epsilon
+\end{equation*}
+Si ha
+\begin{equation*}
+	\norm{f_n-f}_1=\int_X\abs{f_n-f}d\mu\underset{\forall n\geq N\left(\epsilon\right)}{\overset{\textcolor{red}{\circled{\ast}}}{\leq}}\int_X\epsilon d\mu=\epsilon \mu\left(X\right)<+\infty
+\end{equation*}
+Vale la relazione $\textcolor{blue}{\circled{\ast}}$ ponendo $\widetilde{N}=N$.
+\item Segue dal teorema di convergenza dominata.
+\end{enumerate}
+\end{demonstration}
+\begin{attention}
+	Se $\mu\left(X\right)=+\infty$, in generale \textit{non} vale nessuna delle tesi: come controesempi si possono prendere i tre esposti nel discorso sui problemi di integrabilità nell'ambito della teoria di Riemann. % TO DO: mettere riferimento.
+\end{attention}
+In generale non vale il viceversa: dalla convergenza $L^1$ non segue quella uniforme.
+\begin{example}
+	Consideriamo la successione
+	\begin{equation*}
+		f_n\left(x\right)=n\chi_{\left[0,\frac{1}{n^2}\right]}\left(x\right)=
+		\begin{cases}
+			\begin{array}{ll}
+				n&0\leq x\leq\frac{1}{n^2}\\
+				0&x< 0\vee x>\frac{1}{n^2}
+			\end{array}
+		\end{cases}
+	\end{equation*}
+	% TO DO: completare la dimostrazione.
+\end{example}
+\begin{observe}
+	Questo teorema ci mostra che il passaggio al limite sotto segno di integrale visto nell'ambito della teoria di Riemann, che contemplava la convergenza uniforme su intervalli limitati, è valido anche nell'ambito della Teoria di Lebesgue.
+\end{observe}
+Con questo teorema abbiamo finalmente risposto ad uno dei quesiti inizialmente enunciati nel \refChapterOnly{ellipseintroduction}: nell'ambito della teoria di Lebesgue, ci sono tre differenti teoremi per il passaggio al limite sotto il segno di integrale, che sono quelli di
+\begin{itemize}
+	\item Convergenza uniforme su spazi di misura finita.
+	\item Convergenza monotona.
+	\item Convergenza dominata.
+\end{itemize}
+\paragraph{Convergenza in {$L^1$} e in misura}
+\begin{theorema}[Legame tra convergenza {$L^1$} e convergenza in misura.]~{}\\
+		Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$ tali che $f_n,f\in L^1\left(\mu\right)$.
+		Allora
+		\begin{equation}
+			f_n\text{ converge in }L^1\text{ a }f\implies f_n\text{ converge in misura a }f
+		\end{equation}
+\end{theorema}
+\begin{demonstration}
+	Dobbiamo dimostrare che
+	\begin{equation*}
+		\mu(\underbrace{\left\{x\in X\middle|\abs{f_n\left(x\right)-f\left(x\right)}>\epsilon\right\}}_{\coloneqq E_{n,\epsilon}})=0,\ \forall \epsilon>0
+	\end{equation*}
+Si ha, per monotonia dell'integrale rispetto al dominio,
+\begin{equation*}
+\int_X\abs{f_n-f}d\mu\geq\int_{E_{n,\epsilon}}\abs{f_n-f}d\mu\geq\epsilon\int_{E_{n,\epsilon}}d\mu=\epsilon\mu\left(E_{n.,\epsilon}\right),\ \forall \epsilon>0,\ \forall n\geq 1
+\end{equation*}
+Dunque si ottiene
+\begin{equation*}
+	0\leq \mu\left(E_{n,\epsilon}\right)\leq \frac{1}{\epsilon}\int_X\abs{f_n-f}d\mu=\frac{1}{\epsilon}\underbrace{\norm{f_n-f}_1}_{\to 0\text{ per }n\to+\infty}
+\end{equation*}
+Passando al limite per $n\to+\infty$, applicando il teorema del confronto si ricava:
+\begin{equation*}
+	\lim_{n\to+\infty}\mu\left(E_{n,\epsilon}\right)=0,\ \forall \epsilon>0
+\end{equation*}
+\end{demonstration}
+\section{Integrali dipendenti da un parametro}
+Nel corso di \textsc{Analisi Matematica 2} abbiamo incontrato gli \textit{integrali dipendenti da un parametro} nella teoria dell'integrazione di Riemann. Espandiamo questo argomento agli integrali di Lebesgue.
+\begin{define}[Integrali dipendenti da un parametro.]~{}\\
+	Consideriamo lo spazio di misura $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$. Un \textbf{integrale dipendente da un parametro}\index{integrale!dipendente da un parametro} è una funzione
+	\begin{equation}
+		F\left(t\right)=\int_If\left(t,x\right)dm_1\left(x\right),\ \forall t\in J
+	\end{equation}
+dove $I,J$ sono intervalli in $\realset$ e
+\begin{equation*}
+	\funztot{f}{I\times J}{\complexset}{\left(t,x\right)}{f\left(t,x\right)}
+\end{equation*}
+è tale per cui $\forall t\in I\ \funz{f\left(t,\cdot\right)}{J}{\complexset}$ integrabile.
+\end{define}
+Vogliamo studiare le proprietà di continuità e derivabilità dell'integrale dipendente da una parametro a partire da quelle della funzione $f$ che lo definisce.
+\begin{theorema}[Teorema di continuità e derivabilità di integrali dipendenti da un parametro.]~{}\\
+	Siano $I,J\subseteq\realset$ intervalli e sia $\funz{f}{I\times J}{\complexset}$ tale che $f\left(t,\cdot\right)$ sia integrabile, $\forall t\in I$. Consideriamo
+	\begin{equation*}
+		F\left(t\right)=\int_If\left(t,x\right)dm_1\left(x\right)
+	\end{equation*}
+	\begin{enumerate}
+		\item Se
+		\begin{itemize}
+			\item $f\left(\cdot, x\right)$ è continua su $I$, $\forall x\in J$.
+			\item $\exists \funz{\phi}{I}{\realset}$ integrabile tale che
+			\begin{equation*}
+				\abs{f\left(t,x\right)}\leq\phi\left(x\right),\ \forall \left(t,x\right)\in I\times J
+			\end{equation*}
+		\end{itemize}
+	allora $F$ è continua su $I$.
+	\item Se
+	\begin{itemize}
+		\item $\exists\frac{\partial f}{\partial t}$ su $I\times J$.
+		\item $\exists\funz{\psi}{J}{\realset}$ integrabile tale che
+		\begin{equation*}
+			\abs{\frac{\partial f}{\partial t}\left(t,x\right)}\leq\psi\left(x\right),\ \forall \left(t,x\right)\in I\times J
+		\end{equation*}
+	allora $F$ è continua su $I$ e si ha la \textbf{derivazione sotto segno di integrale}\index{derivazione sotto segno di integrale}:
+	\begin{equation*}
+		F'\left(t\right)=\int_J\frac{\partial f}{\partial t}\left(t,x\right)dm_1\left(x\right), \forall t\in I
+	\end{equation*}
+	\end{itemize}
+	\end{enumerate}
+\end{theorema}
+Per dimostrare questo teorema ci serviranno i seguenti fatti:
+\begin{itemize}
+	\item \textbf{Teorema di relazione:} data $\funz{g}{I\subseteq\realset}{\complexset}$ e $\overline{t}\in I$, si ha
+	\begin{equation}
+		\lim_{t\to\overline{t}}g\left(t\right)=L\in\complexset\iff\lim_{n\to+\infty}g\left(t_n\right)=L,\ \forall t_n\to\overline{t}
+	\end{equation}
+	\item \textbf{Teorema di Lagrange:} data $\funz{g}{I\subseteq\realset}{\complexset}$ derivabile su $I$, si ha
+	\begin{equation}
+		\forall t_1,t_2\in I, \abs{g\left(t_1\right)-g\left(t_2\right)}\leq\sup_{t\in\left[t_1,t_2\right]}\abs{g'\left(t\right)}\abs{t_1-t_2}
+	\end{equation}
+\end{itemize}
+\begin{demonstration}\textsc{(della continuità e derivabilità di $F$.)}
+	\begin{enumerate}[label=\Roman*]
+	\item Dobbiamo provare che
+		\begin{equation*}
+			\forall \overline{t}\in I,\ \lim_{t\to\overline{t}}F\left(t\right)=F\left(\overline{t}\right)
+		\end{equation*}
+	È sufficiente provare che, per il primo fatto enunciato precedentemente,
+	\begin{equation*}
+		\forall \overline{t}\in I,\ \forall t_n\to\overline{t}, \lim_{n\to+\infty}F\left(t_n\right)=F\left(\overline{t}\right)
+	\end{equation*}
+Siano quindi $\overline{t}\in I$ e $t_n\to\overline{t}$ fissati: dobbiamo provare che
+\begin{equation*}
+	\lim_{n\to+\infty}\int_Jf\left(t_n,x\right)dm_1\left(x\right)=\int_Jf\left(\overline{t},x\right)dm_1\left(x\right)
+\end{equation*}
+Ponendo
+\begin{align*}
+	g_n\left(x\right)\coloneqq f\left(t_n,x\right)\\
+	\overline{g}\left(x\right)\coloneqq f\left(\overline{t},x\right)
+\end{align*}
+allora la relazione da provare si scrive come
+\begin{equation*}
+	\lim_{n\to+\infty}\int_Jg_n\left(x\right)dm_1\left(x\right)=\int_J\overline{g}\left(x\right)dm_1\left(x\right)
+\end{equation*}
+ossia ho ottenuto un problema di passaggio al limite sotto segno di integrale. Applichiamo il teorema di convergenza dominata, verificandone le ipotesi:
+\begin{itemize}
+	\item \textbf{Convergenza puntuale:}
+	\begin{equation*}
+		\forall x\in J,\ \lim_{n\to+\infty}g_n\left(x\right)=\lim_{n\to+\infty}f\left(t_n,x\right)=f\left(\overline{t},x\right)=\overline{g}\left(x\right)
+	\end{equation*}
+perché $f\left(\cdot,x\right)$ è continua rispetto alla $t$.
+\item \textbf{Maggiorazione (convergenza dominata):}
+\begin{equation*}
+	\abs{g_n\left(x\right)}\underset{\substack{\forall n\geq 1\\\forall x\in J}}{=}\abs{f\left(t_n,x\right)}\leq \phi\left(x\right)\quad\text{(indipendentemente da $n$)}
+\end{equation*}
+\end{itemize}
+Si può allora passare al limite sotto segno di integrale e concludere.
+\item Dobbiamo provare che
+\begin{equation*}
+	F'\left(t\right)=\int_J\frac{\partial f}{\partial t}\left(\overline{t},x\right)dm_1\left(x\right),\ \forall \overline{t}\in I
+\end{equation*}
+ossia
+\begin{equation*}
+	\lim_{t\to\overline{t}}\frac{F\left(t\right)-F\left(\overline{t}\right)}{t-\overline{t}}=\int_J\frac{\partial f}{\partial t}\left(\overline{t},x\right)dm_1\left(x\right),\ \forall \overline{t}\in I
+\end{equation*}
+Per il primo dei fatti è sufficiente provare che
+\begin{equation*}
+	\lim_{n\to+\infty}\frac{F\left(t_n\right)-F\left(\overline{t}\right)}{t_n-\overline{t}}=\int_J\frac{\partial f}{\partial t}\left(\overline{t},x\right)dm_1\left(x\right),\ \forall \overline{t}\in I,\ \forall t_n\to \overline{t}
+\end{equation*}
+Siano allora $\overline{t}\in I$ e $t_n\to\overline{t}$ fissati: dobbiamo provare che
+\begin{align*}
+	\lim_{n\to+\infty}\frac{F\left(t_n\right)-F\left(\overline{t}\right)}{t_n-\overline{t}}&=\lim_{n\to+\infty}\frac{1}{t_n-\overline{t}}\left(\int_Jf\left(+t_n,x\right)dm_1\left(x\right)-\int_Jf\left(\overline{t},x_n\right)dm_1\left(x\right)\right)=\\
+	&=\lim_{n\to+\infty}\int_J\underbrace{\frac{f\left(t_n,x\right)-f\left(\overline{t},x\right)}{t_n-\overline{t}}}_{\coloneqq h_n\left(x\right)}dm_1\left(x\right)=\int_J\underbrace{\frac{\partial f}{\partial t}\left(\overline{t},x\right)}_{\coloneqq \overline{h}\left(x\right)}dm_1\left(x\right)
+\end{align*}
+ottenendo
+\begin{equation*}
+	\lim_{n\to+\infty}\int_Jh_n\left(x\right)dm_1\left(x\right)=\int_J\overline{h}\left(x\right)dm_1\left(x\right)
+\end{equation*}
+ossia ho di nuovo un problema di passaggio al limite sotto segno di integrale. Come prima, applichiamo il teorema di convergenza dominata, verificandone le ipotesi:
+\begin{itemize}
+	\item \textbf{Convergenza puntuale:}
+	\begin{equation*}
+		\forall x\in J,\ \lim_{n\to+\infty}h_n\left(x\right)=\overline{h}\left(x\right)
+	\end{equation*}
+	per definizione di derivata parziale.
+	\item \textbf{Maggiorazione (convergenza dominata):}
+	\begin{equation*}
+		\abs{h_n\left(x\right)}\underset{\substack{\forall n\geq 1\\\forall x\in J}}{=}\abs{\frac{f\left(t_n,x\right)-f\left(\overline{t},x\right)}{t_n-t}}\underset{\text{fatto }2}{\leq} \frac{\displaystyle\sup_{t\in\left[t_n,\overline{t}\right]}\abs{\frac{\partial f}{\partial t}}\Ccancel[red]{\abs{t_n-\overline{t}}}}{\Ccancel[red]{\abs{t_n-\overline{t}}}}\leq \psi\left(x\right)
+	\end{equation*}
+\end{itemize}
+Si può allora passare al limite sotto segno di integrale e concludere.
+	\end{enumerate}
+\end{demonstration}
