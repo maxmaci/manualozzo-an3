@@ -16,8 +16,8 @@
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{L}{e} \textbf{[COMPLETARE]} % TO DO: completare l'intro
 \section{Convergenza uniforme di funzioni}
-Per poter trattare i problemi enunciati nel \refChapter{ellipseintroduction} dobbiamo parlare di convergenza di funzioni. Innanzitutto, ricordiamo le definizioni di distanza, spazio metrico e convergenza.
-\begin{define}[Spazio metrico e distanza.]~{}\\
+Per poter trattare i problemi enunciati nel \refChapterOnly{ellipseintroduction} dobbiamo parlare di convergenza di funzioni. Innanzitutto, ricordiamo le definizioni di distanza, spazio metrico e convergenza.
+\begin{define}[Spazio metrico e distanza]
 	Uno \textbf{spazio metrico}\index{spazio!metrico} è una coppia $\left(X,\ d\right)$ dove $X$ è un insieme e $\funz{d}{X\times X}{\realset^+}$ è una funzione detta \textbf{distanza}\index{distanza}, cioè tale che $\forall x,\ y,\ z\in X$ essa soddisfi le seguenti proprietà:
 	\begin{enumerate}
 		\item $\mvf{d}{x}{y}\geq 0,\ \mvf{d}{x}{y}=0\iff x=y$.
@@ -25,7 +25,7 @@ Per poter trattare i problemi enunciati nel \refChapter{ellipseintroduction} dob
 		\item $\mvf{d}{x}{y}\leq\mvf{d}{x}{z}+\mvf{d}{z}{y}$.
 	\end{enumerate}
 \end{define}
-\begin{define}[Convergenza di successioni secondo una distanza.]~{}\\
+\begin{define}[Convergenza di successioni secondo una distanza]
 	Una successione $v_n\in X$ \textbf{converge}\index{convergenza!di una successione} in $X$ a $v\in X$ se
 	\begin{equation}
 		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \mvf{d}{v_n}{v}<\epsilon
@@ -38,7 +38,7 @@ Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(
 \begin{observe}
 	La distanza è ben definita perché la funzione $\abs{f\left(x\right)-g\left(x\right)}$, essendo definita su $\left[a,b\right]$ compatto, non si considera solo l'estremo superiore ma ammette massimo per il teorema di Weierstrass.
 \end{observe}
-\begin{define}[Convergenza nella metrica lagrangiana.]~{}\\
+\begin{define}[Convergenza nella metrica lagrangiana]
 	Siano $f_n,\ f\in X$. Si dice che $f_n$ converge a $f$ in $X$ se
 	\begin{equation}
 		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \max_{x\in\left[a,b\right]}\abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
@@ -52,13 +52,13 @@ Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(
 	La condizione, riscritta in questo modo, non solo \textit{non necessita} più dell'esistenza del \textit{massimo}, ma non è neanche necessario che l'intervallo sia \textit{compatto} o che le funzioni $f_n$ siano \textit{continue}: questa è in realtà una relazione \textit{più generale} rispetto alla semplice convergenza nella metrica lagrangiana!\\
 	Vedremo che nel caso di funzioni continue sui compatti la convergenza uniforme coincide con quella lagrangiana.
 \end{observe}
-\begin{define}[Convergenza uniforme.]~{}\\
+\begin{define}[Convergenza uniforme]
 	Siano $\funz{f_n,\ f}{A\subseteq\realset}{\realset}$ con $A\subseteq R$ qualsiasi. Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$\textbf{su} $A$ se
 \begin{equation}
 	\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in A
 \end{equation}
 \end{define}
-\begin{define}[Funzione limite.]~{}\\
+\begin{define}[Funzione limite]
 	Se $f_n$ converge a $f$ su $A$, $f$ si dice \textbf{funzione limite}\index{funzione!limite}.
 \end{define}
 \begin{observe}
@@ -72,8 +72,11 @@ Se essa vale per qualsiasi $x$ in $A$, allora vale per il $\sup$ e viceversa, qu
 \begin{equation*}
 	\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
 \end{equation*}
-
-Siccome il $\sup$ dipende da $n$, possiamo definire una successione $\displaystyle c_n\coloneqq\sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}\in\realset^+$. Allora la relazione sopra, per definizione di limite di una successione, è equivalente a $\displaystyle \lim_{n\to+\infty}c_n=0$, cioè
+Siccome il $\sup$ dipende da $n$, possiamo definire una successione
+\begin{equation*}
+	c_n\coloneqq\sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}\in\realset^+
+\end{equation*}
+Allora la relazione sopra, per definizione di limite di una successione, è equivalente a $\displaystyle \lim_{n\to+\infty}c_n=0$, cioè
 \begin{equation*}
 \lim_{n\to+\infty}\left(\sup_{x\in A}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
 \end{equation*}
@@ -83,7 +86,7 @@ In conclusione abbiamo mostrato che
 \end{equation}
 \begin{example}\label{valoreassolutoesempioconvergenzaassoluta}
 	Proviamo che $f_n\left(x\right)=\sqrt{x^2+\frac{1}{n}}$ converge uniformemente a $f\left(x\right)=\abs{x}$ su $\realset$.\\
-	Dobbiamo provare che
+	Operativamente, dobbiamo dimostrare che
 	\begin{equation*}
 		\lim_{n\to+\infty}\left(\sup_{x\in \realset}\abs{f_n\left(x\right)-f\left(x\right)}\right)=0
 	\end{equation*}
@@ -108,13 +111,13 @@ In conclusione abbiamo mostrato che
 	\end{enumerate}
 Abbiamo così verificato la convergenza richiesta.
 \end{example}
-\begin{example}\textsc{Successione geometrica.}~{}\\
+\begin{examplewt}[Successione geometrica]
 	Consideriamo $f_n\left(x\right)=x^n,\ \forall n\geq 0$. Allora:
 	\begin{enumerate}
 		\item[1.] $x^n$ converge uniformemente a $0$ su \textit{ogni} insieme $\left[-a,a\right],\ \forall a\colon 0<a<1$.
 		\item[2.] $x^n$ \textbf{non} converge uniformemente a $0$ su $\left(-1,1\right)$.
 	\end{enumerate}
-\end{example}
+\end{examplewt}
 \begin{demonstration}~{}
 	\begin{enumerate}
 		\item Sia $a\in\left(0,1\right)$ fissato e consideriamo
@@ -157,7 +160,7 @@ Abbiamo così verificato la convergenza richiesta.
 		\begin{equation*}
 			\lim_{n\to+\infty}\left(\sup_{x\in\left(-1,1\right)}\abs{x^n}\right)=1\neq 0
 		\end{equation*}
-	pertanto \textit{non} c'è convergenza uniforme su $\left(-1,1\right)$.
+	pertanto \textit{non} c'è convergenza uniforme su $\left(-1,1\right)$.\qedhere
 	\end{enumerate}
 \end{demonstration}
 \subsection{Eserciziamoci! Convergenza uniforme}
@@ -180,13 +183,12 @@ Abbiamo così verificato la convergenza richiesta.
 \end{solution}
 \subsection{Criterio di Cauchy per la convergenza uniforme}
 Come nel caso delle successioni numeriche, esiste un \textbf{criterio di Cauchy} per la convergenza uniforme.
-\begin{theorema}[Criterio di Cauchy per la convergenza uniforme.]~{}\\\label{criteriodicauchyperconvergenzauniforme}\index{criterio!di Cauchy!per la convergenza uniforme}
-	Siano $\funz{f_n}{A\subseteq\realset}{\realset}$. Allora
-	\begin{multline}
-		f_n\text{ converge uniformemente su }A \iff\\
-		\iff\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon\forall n,m\geq N,\ \abs{f_n\left(x\right)-f_m\left(x\right)}<\epsilon,\ \forall x\in A
-	\end{multline}
-\end{theorema}
+\begin{theoremaqed}[Criterio di Cauchy per la convergenza uniforme]\label{criteriodicauchyperconvergenzauniforme}\index{criterio!di Cauchy!per la convergenza uniforme}
+Siano $\funz{f_n}{A\subseteq\realset}{\realset}$. Allora $f_n$ converge uniformemente su $A$ se e solo se
+	\begin{equation}
+		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon\forall n,m\geq N,\ \abs{f_n\left(x\right)-f_m\left(x\right)}<\epsilon,\ \forall x\in A\qedhere
+	\end{equation}
+\end{theoremaqed}
 \begin{observe}
 Il criterio di Cauchy è un \textit{risultato teorico molto importante}, in quanto permette di mostrare la convergenza uniforme di una successione di funzioni \textit{senza sapere} quale sia il limite come invece è necessario nella definizione di convergenza, in modo analogo a ciò che succede con il criterio di Cauchy per le \textit{successioni numeriche}.
 \end{observe}
@@ -206,12 +208,12 @@ In altre parole, scelto $\epsilon$, trovo un $N$ nella successione tale che defi
 \end{center}
 Visivamente la successione geometrica non converge uniformemente su $(-1,1)$ a $0$ perché non posso restringermi intorno alla funzione limite $f(x)=0$ per qualsiasi $\epsilon$ io scelga, infatti $f_n(1)=1, \forall n$.
 
-\begin{define}[Intorno tubulare.]~{}\\
+\begin{define}[Intorno tubulare]
 Un \textbf{intorno tubulare}\index{intorno!tubulare} di larghezza $\epsilon$ di una curva è l'unione di tutti i dischi di raggio $\epsilon$ con centro un punto di una curva.
 \end{define}
 \subsection{Generalizzazioni della convergenza uniforme}\label{sec:generalizzazioni-della-convergenza-uniforme}
 Prima di tutto, ricordiamo le definizioni di norma e spazio normato.
-\begin{define}[Spazio normato e norma.]~{}\\
+\begin{define}[Spazio normato e norma]
 	Uno \textbf{spazio normato}\index{spazio!normato} è una coppia $\left(X,\ \norm{\cdot}\right)$ dove $X$ è un spazio vettoriale su $\kamp$ reale o complesso e $\funz{\lvert\lvert\cdot\rvert\rvert}{X}{\realset^+}$ è una funzione detta \textbf{norma}\index{norma}, cioè tale che $\forall x,\ y\in X,\ \lambda\in\kamp$ essa soddisfi le seguenti proprietà:
 	\begin{enumerate}
 		\item $\norm{x}\geq 0,\ \norm{x}=0\iff x=0$.
@@ -223,20 +225,20 @@ Prima di tutto, ricordiamo le definizioni di norma e spazio normato.
 	Ogni spazio normato è anche uno spazio metrico se consideriamo la \textbf{metrica indotta dalla norma}\index{metrica!indotta dalla norma}, cioè la funzione data da $\mvf{d}{x}{y}\coloneqq\norm{x-y}$.
 \end{observe}
 Generalizziamo la definizione di convergenza uniforme considerando $\funz{f_n,\ f}{A}{Y}$, con $A$ \textit{insieme qualsiasi} e $Y$ uno spazio \textit{normato}; se vogliamo che valga anche il criterio di Cauchy è necessario che $Y$ sia \textit{anche} uno spazio \textbf{completo}.
-\begin{define}[Successione di Cauchy.]~{}\\
+\begin{define}[Successione di Cauchy]
 		Una successione $v_n\in X$ è \textbf{di Cauchy}\index{successione!di Cauchy} in $X$ se
 	\begin{equation}
 		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n,m\geq N,\ \mvf{d}{v_n}{v_m}<\epsilon
 	\end{equation}
 \end{define}
-\begin{define}[Spazio completo.]~{}\\
+\begin{define}[Spazio completo]
 	Uno spazio metrico è detto \textbf{completo}\index{spazio!metrico!completo} se tutte le successioni di Cauchy convergono.
 \end{define}
 \begin{observe}
 	Una successione convergente è \textit{sempre} di Cauchy, ma in generale \textit{non tutte} le successioni di Cauchy convergono. L'implicazione opposta è vera solo se lo spazio è completo.
 \end{observe}
 Possiamo ora, date queste nuove ipotesi, riformulare la convergenza uniforme.
-\begin{define}[Convergenza uniforme, generalizzata.]~{}\\
+\begin{define}[Convergenza uniforme, generalizzata]
 		Siano $\funz{f_n,\ f}{A}{Y}$ con $A$ insieme qualsiasi e $Y$ spazio normato completo. Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$ \textbf{su} $A$ se
 	\begin{equation}
 		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \norm{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in A
@@ -247,20 +249,19 @@ Possiamo ora, date queste nuove ipotesi, riformulare la convergenza uniforme.
 \end{digression}
 \section{Convergenza puntuale}
 Durante gli studi di \textsc{Calcolo delle probabilità} si è parlato di tre tipi di convergenze di successioni di variabili aleatorie: la \textbf{convergenza in probabilità}, la \textbf{convergenza quasi certa} e la \textbf{convergenza in legge} (o in distribuzione). Consideriamo ora quest'ultima, di cui riportiamo la definizione.
-\begin{define}[Convergenza in legge.]~{}\\
-	Dato $\left(\Omega,\ \mathcal{M},\ \mathbb{P}\right)$ spazio di probabilità, $\funz{X_n,\ X}{\Omega}{\realset}$ variabili aleatorie e le due corrispettive \textit{funzioni di distribuzione}
+\begin{define}[Convergenza in legge]
+	Dato $\left(\Omega,\ \mathcal{M},\ \mathbb{P}\right)$ spazio di probabilità e le variabili aleatorie $\funz{X_n,\ X}{\Omega}{\realset}$ con le corrispettive \textit{funzioni di distribuzione}
 	\begin{gather*}
 		\funztot{F_n}{\realset}{\realset}{x}{F_n\left(x\right)=\mathbb{P}\left(X_n\leq x\right),\ \forall x\in \realset}\\
-		\funztot{F}{\realset}{\realset}{x}{F\left(x\right)=\mathbb{P}\left(X\leq x\right),\ \forall x\in \realset}\\
+		\funztot{F}{\realset}{\realset}{x}{F\left(x\right)=\mathbb{P}\left(X\leq x\right),\ \forall x\in \realset}
 	\end{gather*}
-
 allora si dice che $X_n$ converge a $X$ \textbf{in legge}\index{convergenza!in legge} $\left(X_n\stackrel{d}{\to}X\right)$ se
 \begin{equation}
 	\lim_{n\to+\infty}F_n\left(x\right)=F\left(x\right),\ \forall x\in\realset\ \text{punto di continuità di }F.
 \end{equation}
 \end{define}
-Quello che abbiamo appena scritta non è altro che il caso applicato agli \textit{studi probabilistici} della \textbf{convergenza puntuale} di una successione ad una funzione limite nel punto $x$.
-\begin{define}[Convergenza puntuale.]~{}\\
+Quello che abbiamo appena scritta non è altro che il caso applicato agli \textit{studi probabilistici} della \textbf{convergenza puntuale} di una successione nel punto $x$.
+\begin{define}[Convergenza puntuale]
 	Siano $\funz{f_n,\ f}{A}{Y}$ con $A$ insieme qualsiasi e $Y$ spazio normato (completo). $f_n$ converge a $f$ \textbf{puntualmente}\index{convergenza!puntuale} in ogni punto di $A$ se
 	\begin{equation}
 		\forall x\in A,\ \forall \epsilon>0,\ \exists N=N\left(\epsilon,x\right)\colon\forall n\geq N,\ \norm{f_n\left(x\right)-f\left(x\right)}<\epsilon
@@ -299,7 +300,7 @@ Dalle definizioni segue immediatamente che\label{convuniformeimplicapuntuale}
 	\implies f_n\text{ converge puntualmente a }f\text{ in ogni punto di }A
 \end{multline}
 ma in generale vale che la convergenza puntuale \textbf{non} implica la convergenza uniforme perché fissata la tolleranza $\epsilon$ la soglia $N$ potrebbe cambiare al variare di $x\in A$.
-\begin{example}[Successione geometrica e convergenza puntuale.]~{}
+\begin{examplewt}[Successione geometrica e convergenza puntuale]
 	Consideriamo la successione geometrica $f_n\left(x\right)=x^n,\ \forall n\geq 0$.\\
 	Dagli studi fatti nel corso di \textsc{Analisi 1} si ha $\forall x\in\realset$ fissato 
 	\begin{equation*}
@@ -325,16 +326,15 @@ in ogni punto di $\left(-1,1\right]$ e la funzione limite è discontinua.
 \begin{center}
 	\includegraphics[trim=0cm 4cm 0cm 0cm, clip, scale=0.65]{images/grafico4.pdf}
 \end{center}
-\end{example}
-Abbiamo provato precedentemente che $f_n\left(x\right)=x^n$ converge uniformemente a $f\equiv 0$ in ogni intervallo $\left[-a,a\right]\subsetneqq\left(-1,1\right),\ \forall a\in\left(0,1\right)$, ma \textit{non} converge uniformemente a $f=0$ in $\left(-1,1\right)$.\\
-Questo mostra che su $\left(-1,1\right)$ c'è convergenza puntuale ma non uniforme.
+\end{examplewt}
+Abbiamo provato precedentemente che $f_n\left(x\right)=x^n$ converge uniformemente a $f\equiv 0$ in ogni intervallo $\left[-a,a\right]\subsetneqq\left(-1,1\right),\ \forall a\in\left(0,1\right)$, ma \textit{non} converge uniformemente a $f\equiv0$ in $\left(-1,1\right)$. Questo mostra che su $\left(-1,1\right)$ c'è convergenza puntuale ma non uniforme.
 \begin{observe}
-	Questo esempio mostra inoltre che la CP \textit{non} è sufficiente in generale per trasferire la continuità alla funzione limite.
+	Questo esempio mostra inoltre che la convergenza puntuale \textit{non} è sufficiente in generale per trasferire la continuità alla funzione limite.
 \end{observe}
 \section{Proprietà di regolarità nel caso di convergenza uniforme e puntuale}
 Adesso studiamo il diverso comportamento delle due tipologie di convergenza viste rispetto alle proprietà di regolarità: se le funzioni $f_n$ della successione sono limitate/continue/integrabili/differenziabili, la funzione limite $f$ è limitata/continua/integrabile/differenziabile?
 \subsection{Limitatezza}
-\begin{theorema}[Teorema di limitatezza per successioni.]~{}\\
+\begin{theorema}[Teorema di limitatezza per successioni]
 Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
 \begin{enumerate}
 	\item $f_n$ limitata su $\left[a,b\right],\ \forall n\geq 1$.
@@ -351,7 +351,7 @@ Per l'ipotesi $2)$ sappiamo che
 \begin{equation*}
 	\forall \epsilon>0,\ \exists N=N\left(\epsilon\right)\colon\forall n\geq N,\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in A
 \end{equation*}
-Posto ad esempio\footnote{La scelta di $\epsilon$ è assolutamente arbitraria.} $\epsilon = 2$, consideriamo la soglia $N_2=N\left(2\right)$ e $n=N_2$. Allora la relazione precedente risulta
+Posto ad esempio\footnote{La scelta di $\epsilon$ è arbitraria.} $\epsilon = 2$, consideriamo la soglia $N_2=N\left(2\right)$ e $n=N_2$. Allora la relazione precedente risulta
 \begin{equation*}
 	\abs{f_{N_2}\left(x\right)-f\left(x\right)}<2,\ \forall x\in A
 \end{equation*}
@@ -361,7 +361,7 @@ Consideriamo $f_{N_2}\left(x\right)$: per l'ipotesi $1)$ è limitata, cioè
 \end{equation*}
 Per ogni $x\in A$ si ha quindi
 \begin{equation*}
-	\abs{f\left(x\right)}=\abs{f\left(x\right)+f_{N_2}(x)-f_{N_2}(x)}\leq\abs{f\left(x\right)-f_{N_2}(x)}+\abs{f_{N_2}(x)}\leq 2+M_2=M,\ \forall x\in A
+	\abs{f\left(x\right)}=\abs{f\left(x\right)+f_{N_2}(x)-f_{N_2}(x)}\leq\abs{f\left(x\right)-f_{N_2}(x)}+\abs{f_{N_2}(x)}\leq 2+M_2=M,\ \forall x\in A\qedhere
 \end{equation*}
 \end{demonstration}
 \begin{digression}
@@ -403,7 +403,7 @@ Per ogni $n\geq1$ la funzione $f_n$ è limitata su $\left(0,1\right]$. Inoltre, 
 	La successione di funzioni \textit{limitate} $f_n$ converge quindi puntualmente $\forall x\in \left(0,1\right]$ alla funzione $\frac{1}{x}$ che \textbf{non} è limitata su $\left(0,1\right]$.
 \end{example}
 \subsection{Continuità}
-\begin{theorema}[Teorema di continuità per successioni.]~{}\\
+\begin{theorema}[Teorema di continuità per successioni]
 	Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
 	\begin{enumerate}
 		\item $f_n$ continua su $\left[a,b\right],\ \forall n\geq 1$.
@@ -430,7 +430,7 @@ Per l'ipotesi $1)$ ogni $f_n$ è continua in $x_0$, in particolare $f_N$ la è. 
 \end{equation*}
 Quindi, se $\abs{x-x_0}<\delta$ abbiamo
 \begin{equation*}
-	\abs{f\left(x\right)-f\left(x_0\right)}\leq\abs{f\left(x\right)-f_N\left(x\right)}+\abs{f_N\left(x\right)-f_N\left(x_0\right)}+\abs{f_N\left(x_0\right)-f\left(x_0\right)}\leq\frac{\epsilon}{3}+\frac{\epsilon}{3}+\frac{\epsilon}{3}=\epsilon
+	\abs{f\left(x\right)-f\left(x_0\right)}\leq\abs{f\left(x\right)-f_N\left(x\right)}+\abs{f_N\left(x\right)-f_N\left(x_0\right)}+\abs{f_N\left(x_0\right)-f\left(x_0\right)}\leq\frac{\epsilon}{3}+\frac{\epsilon}{3}+\frac{\epsilon}{3}=\epsilon\qedhere
 \end{equation*}
 \end{demonstration}
 \begin{digression}
@@ -453,7 +453,7 @@ La successione di funzioni \textit{continue} $f_n$ converge quindi puntualmente 
 \end{example}
 \subsection{Integrabilità e passaggio al limite sotto segno di integrale}
 D'ora in avanti indicheremo con $\mathcal{R}\left(\left[a,b\right]\right)$ l'insieme delle funzioni integrabili secondo Riemann su $[a,b]$.
-\begin{theorema}[Teorema di integrabilità per successioni, passaggio al limite sotto segno di integrale.]~{}\\\label{passaggioallimitecontinuitàuniforme}
+\begin{theoremaqed}[Teorema di integrabilità per successioni, passaggio al limite sotto segno di integrale]\label{passaggioallimitecontinuitàuniforme}
 	Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
 	\begin{enumerate}
 		\item $f_n\in\mathcal{R}\left(\left[a,b\right]\right),\ \forall n\geq 1$.
@@ -464,10 +464,10 @@ D'ora in avanti indicheremo con $\mathcal{R}\left(\left[a,b\right]\right)$ l'ins
 		\item $f\in\mathcal{R}\left(\left[a,b\right]\right)$.
 		\item Vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio al limite sotto segno di integrale}:
 		\begin{equation}
-			\lim_{n\to+\infty}\int_{a}^{b}f_n\left(x\right)dx=\int_{a}^{b}\lim_{n\to+\infty}f_n\left(x\right)dx=\int_{a}^{b}f\left(x\right)dx
+			\lim_{n\to+\infty}\int_{a}^{b}f_n\left(x\right)dx=\int_{a}^{b}\lim_{n\to+\infty}f_n\left(x\right)dx=\int_{a}^{b}f\left(x\right)dx\qedhere
 		\end{equation}
 	\end{enumerate}
-\end{theorema}
+\end{theoremaqed}
 \begin{observe}
 	Nel caso di un intervallo \textit{illimitato} la convergenza uniforme 
 	\begin{itemize}
@@ -567,7 +567,7 @@ Vedremo la dimostrazione di una versione più generica del teorema quando parler
 	\begin{equation*}
 		\int_{0}^{1}\lim_{n\to+\infty}nx\left(1-x^2\right)^ndx=\int_{0}^{1}0dx=0
 	\end{equation*}
-	Per lo stesso ragionamento si vede che $f_n\left(x\right)$ converge puntualmente a $0$ per ogni punto di $\left[0,1\right]$, ma \textit{non} si verifica il passaggio al limite sotto segno di integrale.
+	Per lo stesso ragionamento si vede che $f_n\left(x\right)$ converge puntualmente a $0$ per ogni punto di $\left[0,1\right]$, ma \textit{non} si verifica il passaggio al limite sotto segno di integrale.\qed
 \end{enumerate}
 \end{examples}
 \subsection{Derivabilità}
@@ -590,15 +590,15 @@ Date $\funz{f_n,f}{A\subseteq\realset}{\realset}$ con $f$ la funzione limite di 
 \end{tikzcd}\]
 \end{enumerate}
 La risposta ad entrambe domande, a differenza di quanto ci si potrebbe aspettare dati i risultati su limitatezza, continuità e integrabilità, è \textbf{NO}, anche nel caso di \textit{convergenza uniforme}.
-\begin{example}{\textsc{La convergenza uniforme \textit{non} è condizione sufficiente per trasferire alla funzione limite la derivabilità.} }~{}\\
-	Consideriamo la successione $f_n(x)=\sqrt{x^2+\frac{1}{n}},\ \forall x\in \realset,\ \forall n\geq1$.
+\begin{examplewt}[La convergenza uniforme \textit{non} è condizione sufficiente per trasferire alla funzione limite la derivabilità]
+Consideriamo la successione $f_n(x)=\sqrt{x^2+\frac{1}{n}},\ \forall x\in \realset,\ \forall n\geq1$.
 	\begin{itemize}
 		\item $f_n$ è derivabile.
 		\item $f_n$ abbiamo visto\footnote{Si veda pag. \pageref{valoreassolutoesempioconvergenzaassoluta}.} converge uniformemente su $\realset$ a $f\left(x\right)=\abs{x}$ che \textit{non} è derivabile in $x=0$.
 	\end{itemize}
-\end{example}
-\begin{example}{\textsc{La convergenza uniforme \textit{non} è condizione sufficiente per poter scambiare limite e derivata, anche se si aggiunge l'ipotesi che la funzione limite sia derivabile.} } ~{}\\
-	Consideriamo la successione $f_n(x)=\frac{sin\left(nx\right)}{\sqrt{n}},\ \forall x\in \realset,\ \forall n\geq1$.
+\end{examplewt}
+\begin{examplewt}[La convergenza uniforme \textit{non} è condizione sufficiente per poter scambiare limite e derivata, anche se si aggiunge l'ipotesi che la funzione limite sia derivabile]
+	Consideriamo la successione $f_n(x)=\frac{\sin\left(nx\right)}{\sqrt{n}},\ \forall x\in \realset,\ \forall n\geq1$.
 	\begin{itemize}
 		\item $f_n$ è derivabile su $\realset$, $\forall n\geq 1$, e vale
 		\begin{equation*}
@@ -629,9 +629,9 @@ La risposta ad entrambe domande, a differenza di quanto ci si potrebbe aspettare
 		\end{equation*}
 	Quindi non si può per $x=0$ scambiare limite e derivata-
 	\end{itemize}
-\end{example}
+\end{examplewt}
 Esiste comunque un legame tra \textit{successioni di funzioni}, \textit{derivabilità} e convergenza uniforme; scopriamo che non è più la successione $f_n$ a dover convergere uniformemente, bensì sono le derivate $f'$ della successioni a doverlo fare.
-\begin{theorema}[Teorema di derivabilità per successioni.]~{}\\
+\begin{theorema}[Teorema di derivabilità per successioni]
 	Siano dati $\funz{f_n}{\left(a,b\right)}{\realset}$ tali che
 	\begin{enumerate}
 		\item $f_n$ derivabili su $\left(a,b\right)$.
@@ -649,7 +649,7 @@ Allora
 \end{enumerate}
 \end{theorema}
 Per dimostrare il teorema, faremo uso di tre strumenti: il \textit{criterio di Cauchy per la convergenza uniforme} \footnote{Si veda il teorema \ref{criteriodicauchyperconvergenzauniforme}, pag. \pageref{criteriodicauchyperconvergenzauniforme}.}, il \textit{teorema di scambio di limiti} e una conseguenza \textit{teorema di Lagrange}. Enunciamo questi ultimi due.
-\begin{theorema}[Teorema di scambio di limiti.]~{}\\
+\begin{theoremaqed}[Teorema di scambio di limiti]
 	Dati $\funz{g_n,g}{I\subseteq \realset}{\realset}$ e $c$ punto di accumulazione di $I$, se
 	\begin{enumerate}
 		\item $g_n$ converge \textit{uniformemente} a $g$ su $I$
@@ -670,17 +670,16 @@ Per dimostrare il teorema, faremo uso di tre strumenti: il \textit{criterio di C
 		\end{equation}
 		ossia
 	\begin{equation}
-		\lim_{x\to c}\lim_{n\to+\infty}g_n\left(x\right)=\lim_{n\to+\infty}\lim_{x\to c}g_n\left(x\right)
+		\lim_{x\to c}\lim_{n\to+\infty}g_n\left(x\right)=\lim_{n\to+\infty}\lim_{x\to c}g_n\left(x\right)\qedhere
 	\end{equation}
-	\end{enumerate}
-	
-\end{theorema}
-\begin{corollary}[Conseguenza al teorema di Lagrange.]~{}\\
+	\end{enumerate}	
+\end{theoremaqed}
+\begin{corollaryqed}[Conseguenza al teorema di Lagrange]
 Sia $\funz{h}{\left(\alpha,\beta\right)\subseteq\realset}{\realset}$ derivabile in $\left(\alpha,\beta\right)$. Allora:
 \begin{equation}
-	\forall u,v\in\left(\alpha,\beta\right),\  \abs{h\left(u\right)-h\left(v\right)}\leq\left(\sup_{x\in\left(\alpha,\beta\right)}\abs{h'\left(x\right)}\right)\abs{u-v}
+	\forall u,v\in\left(\alpha,\beta\right),\  \abs{h\left(u\right)-h\left(v\right)}\leq\left(\sup_{x\in\left(\alpha,\beta\right)}\abs{h'\left(x\right)}\right)\abs{u-v}\qedhere
 \end{equation}
-\end{corollary}
+\end{corollaryqed}
 \begin{demonstration} \textsc{(del Teorema di derivabilità per successioni.)}
 \begin{enumerate}
 	\item Dimostriamo la \textit{convergenza uniforme} di $f_n$ su $\left(a, b\right)$. Per il Criterio di Cauchy per la convergenza uniforme è sufficiente

@@ -31,7 +31,7 @@ La definizione viene data per \textit{passaggi successivi}, utilizzando a partir
 \end{itemize}
 Prima di passare ai passi qui sopra enunciati, dobbiamo definire cos'è una \textit{funzione semplice} e capire come mai sono così importanti per l'integrale di Lebesgue.
 \section{Funzioni semplici}
-\begin{define}[Funzione semplice.]~{}\\
+\begin{define}[Funzione semplice]
 Una funzione $\funz{s}{\left(X,\mathcal{M}\right)}{\left[0,+\infty\right)}$, con $\left(X,\mathcal{M}\right)$ spazio misurabile, è detta \textbf{semplice}\index{funzione!semplice} se la sua immagine $S\left(X\right)$ è \textit{finita}.
 \end{define}
 Se $s$ ha l'immagine finita di cardinalità $n$, allora esistono $n$ valori distinti $\alpha_1,\ldots,\alpha_n$  valori \textit{distinti} tali che
@@ -42,7 +42,7 @@ Se consideriamo $A_i=\left\{x\mid s\left(x\right)=\alpha_i\right\}=s^{-1}\left(\
 \begin{equation}
 	s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}
 \end{equation}
-\begin{proposition}[Una funzione semplice è misurabile se e solo se le controimmagini degli {$A_i$} sono misurabili.]~{}\\
+\begin{proposition}[Una funzione semplice è misurabile se e solo se le controimmagini degli {$A_i$} sono misurabili]
 	Una funzione semplice $s$, scritta in decomposizione standard come
 	\begin{equation*}
 		s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}
@@ -101,7 +101,7 @@ Poiché per ipotesi gli $A_i$ sono misurabili, allora $A$ è unione di insiemi m
 \subsection{Approssimazione di funzioni misurabili non negative con funzioni semplici}
 Riprendendo l'idea di Lebesgue alla base del suo integrale, ci interessa studiare le funzioni passando attraverso la loro immagine. Si può ipotizzare di \textit{approssimare} tale funzione $f$ con una \textit{funzione semplice}: partizionando il codominio in opportuni intervalli individuati da quote fissate, se passiamo alle controimmagini possiamo sapere quali punti di $f$ sono contenuti nell'intervallo posto ad una certa quota e pertanto definire una funzione caratteristica che, come nelle \textit{carte topografiche a isoipse}, approssima la funzione $f$ per difetto.
 % TO DO: inserire grafico.
-\begin{theorema}[Approssimazione di funzioni misurabili non negative con funzioni semplici.]~{}\\
+\begin{theorema}[Approssimazione di funzioni misurabili non negative con funzioni semplici]
 	Sia $\left(X,\mathcal{M}\right)$ uno spazio misurabile e sia $\funz{f}{X}{\left[0,+\infty\right]}$ una funzione misurabile. Allora esiste una successione di funzioni semplici misurabili $\funz{s_n}{X}{\left[0,+\infty\right)}$ tale che
 	\begin{itemize}
 		\item $0\leq s_n\left(x\right)\leq s_{n+1}\left(x\right)\leq f\left(x\right),\ \forall x\in X,\ n\geq 1$.
@@ -197,7 +197,7 @@ Segue che
 \end{demonstration}
 
 \section{Passo 1: funzioni semplici, misurabili, non negative}
-\begin{define}[Integrale di Lebesgue per funzioni semplici, misurabili, non negative.]~{}\\
+\begin{define}[Integrale di Lebesgue per funzioni semplici, misurabili, non negative]
 	Sia $\funz{s}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right)}$ funzione semplice, misurabile e non negativa che si decompone, dato $s\left(X\right)=\left\{\alpha_1,\ldots, \alpha_n\right\}$, nella forma standard
 	\begin{equation*}
 		s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}\quad A_i=s^{-1}\left(\left\{A_i\right\}\right)
@@ -274,7 +274,7 @@ Allora, posto $E=\naturalset$, l'integrale sul dominio è
 	La funzione di Dirichlet è una funzione \textit{non} integrabile secondo \textit{Riemann}, ma è integrabile secondo Lebesgue.
 \end{observe}
 \subsection{{$\sigma$}-additività dell'integrale di funzioni semplici, misurabili, non negative rispetto al dominio}
-\begin{proposition}[{$\sigma$}-additività dell'integrale di funzioni semplici, misurabili, non negative rispetto al dominio.]~{}\\
+\begin{proposition}[{$\sigma$}-additività dell'integrale di funzioni semplici, misurabili, non negative rispetto al dominio]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{s}{X}{\left[0,+\infty\right)}$ semplice misurabile \textit{non} negativa. Allora vale
 	\begin{equation}
 		\int_{\union_{n\geq 1}E_n}sd\mu=\sum_{n\geq 1}\int_{E_n}sd\mu,\ \forall E_n\in\mathcal{M}\colon E_i\cap E_j=\emptyset,\ \forall i\neq j
@@ -319,7 +319,7 @@ si riscrive pertanto come
 Pertanto, $\mu_s$ è una misura su $\mathcal{M}$.
 \section{Passo 2: funzioni a valori reali misurabili, non negative}
 Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right]}$ funzione misurabile e non negativa. Dato $E\in\mathcal{M}$, vogliamo definire l'\textit{integrale esteso ad E di $f$ rispetto alla misura $\mu$} utilizzando l'integrale delle funzioni semplici definito al passo 1. 
-\begin{define}[Integrale di Lebesgue per funzioni a valori reali, misurabili, non negative.]~{}\\
+\begin{define}[Integrale di Lebesgue per funzioni a valori reali, misurabili, non negative]
 	Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right]}$ funzione misurabile e non negativa. Si definisce l'\textit{integrale esteso ad E di $f$ rispetto alla misura $\mu$} come
 	\begin{equation}
 		\int_Efd\mu\coloneqq\sup\left\{\int_Esd\mu\ \middle| \funz{s}{X}{\left[0,+\infty\right)}\text{ semplice, misurabile}\colon0\leq s\leq f\right\}
@@ -339,7 +339,7 @@ Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right]}$ funzione 
 	\textbf{Ogni funzione misurabile \textit{non negativa} ammette integrale secondo Lebesgue.}\\
 	Questa notevole differenza rispetto all'integrale di Riemann è situa nella definizione. Se l'integrale di Riemann richiede che la somma inferiore e la somma superiore coincidono, quello di Lebesgue richiede solo l'esistenza del $\sup$: la prima condizione non si verifica sempre, mentre la seconda è sempre verificata in $\realset^{\ast}$.
 \end{attention}
-\begin{proposition}[Proprietà dell'integrale di Lebesgue per funzioni misurabili non negative.]~{}\\
+\begin{proposition}[Proprietà dell'integrale di Lebesgue per funzioni misurabili non negative]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura.
 	\begin{enumerate}
 		\item \textbf{Monotonia rispetto alla funzione integranda:}\\
@@ -372,7 +372,7 @@ Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right]}$ funzione 
 \subsection{Teorema della convergenza monotona}
 Il \textbf{teorema della convergenza monotona}\index{teorema!della convergenza monotona}, altresì noto come Teorema di Beppo-Levi (principalmente in Italia) o di Lebesgue, si inserisce nel filone dei risultati sul problema del \textit{passaggio al limite sotto segno di integrale} di cui abbiamo parlato per la prima volta nel \refChapterOnly{ellipseintroduction}.\\
 Abbiamo già visto\footnote{Si veda \refChapterOnly{seriefunzioni}, teorema \ref{passaggioallimitecontinuitàuniforme}, pag. \pageref{passaggioallimitecontinuitàuniforme}.} che se una successione di funzioni $f_n$ Riemann-integrabili su un compatto converge uniformemente a $f$, allora $f$ è Riemann-integrabile e vale il passaggio al limite dell'integrale. Il teorema che dimostreremo, pur essendo applicabile solo a funzioni misurabili e monotone \textit{crescenti}, risulta avere diversi notevoli vantaggi rispetto al risultato basato sulla convergenza uniforme.
-\begin{theorema}[Teorema della convergenza monotona.]~{}\\
+\begin{theorema}[Teorema della convergenza monotona]
 	Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che
 	\begin{enumerate}
 		\item $f_n$ sono misurabili.
@@ -486,7 +486,7 @@ Banalmente l'inclusione $\subseteq$ è verificata: per trovare l'altra si usa la
 	\end{enumerate}
 \end{demonstration}
 \subsection{Additività dell'intergrale, scambio di integrale e serie}
-\begin{proposition}[Additività dell'integrale.]~{}\\
+\begin{proposition}[Additività dell'integrale]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e siano $\funz{f_1,\ \ldots,\ f_N}{X}{\left[0,+\infty\right]}$ funzioni misurabili. Allora
 	\begin{equation}
 		\int_X \left(\sum_{i=1}^{N}f_i\right)d\mu=\sum_{i=1}^{N}\int_Xf_id\mu
@@ -554,7 +554,7 @@ Banalmente l'inclusione $\subseteq$ è verificata: per trovare l'altra si usa la
 	% TO DO: mettere note di pag. 88 appunti
 \end{demonstration}
 Una conseguenza immediata di questa proprietà è che per le successioni di funzioni misurabili non negative vale lo \textit{scambio tra integrale e serie}.
-\begin{corollary}[Scambio tra integrale e serie per funzioni misurabili e non negative.]~{}\\
+\begin{corollary}[Scambio tra integrale e serie per funzioni misurabili e non negative]
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura siano $\funz{f_n}{X}{\left[0,+\infty\right]},\ n\geq 1$ funzioni misurabili. Allora vale lo scambio tra integrale e serie:\index{scambio tra integrale e serie}
 	\begin{equation}
 		\int_X\left(\sum_{n=1}^{+\infty}f_n\right)d\mu=\sum_{n=1}^{+\infty}\int_Xf_nd\mu
@@ -578,7 +578,7 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura siano $\funz{f_n}{X}{\
 	\end{align*}
 \end{demonstration}
 \subsection{Integrazione rispetto alla misura conteggio pesata}
-\begin{theorema}[Integrazione rispetto alla misura conteggio pesata.]~{}\\
+\begin{theorema}[Integrazione rispetto alla misura conteggio pesata]
 	Sia $\left(\naturalset,\setpart{\naturalset},\mu_p\right)$ spazio di misura dove $\mu_p$ è la \textit{misura conteggio pesata} definita da
 	\begin{align*}
 		\mu_p\left(\left\{n\right\}\right)=p_n,\ \forall n\geq 1\text{ con }p_n\geq 0\\
@@ -641,14 +641,14 @@ Concludendo:
 \end{demonstration}
 % TO DO: mi viene un dubbio, il Rudin lo mette come corollario di questo teorema, ma noi l'abbiamo usato per la sigma additività... che ci è servita oer il teorema della convergenza monotona che ci è servito nel teorema di integrazione delle funzioni monotone. Non per sembrare Reddito Zero, ma o sbaglio qualcosa o c'è un non so che di ricorsivo in tutto ciò. Controllare che non ci sia qualche errore.
 Il seguente risultato, che abbiamo già incontrato\footnote{Si veda pag. \pageref{commutativitàindici}.} e che ci è servito per dimostrare la $\sigma$-additività dell'integrale di funzioni semplici rispetto al dominio, si può anche vedere come corollario dell'\textit{integrazione della misura conteggio semplice}, oltre che in modo \textit{elementare}. 
-\begin{corollary}[Commutatività degli indici nelle serie doppie.]~{}\\
+\begin{corollary}[Commutatività degli indici nelle serie doppie]
 	Se $a_{ij}\geq0\ \forall i,j$, allora
 	\begin{equation*}
 		\sum_{i=1}^{+\infty}\sum_{j=1}^{+\infty}a_{ij}=\sum_{j=1}^{+\infty}\sum_{i=1}^{+\infty}a_{ij}
 	\end{equation*}
 \end{corollary}
 \subsection{Lemma di Fatou}
-\begin{lemming}[Lemma di Fatou.]~{}\\
+\begin{lemming}[Lemma di Fatou]
 	Se $\funz{f_n}{X}{\left[0,+\infty\right]}$ sono misurabili, $\forall n$, allora
 	\begin{equation}
 		\int_X\left(\liminf_{n\to+\infty}f_nd\mu\right)d\mu\leq \liminf_{n\to+\infty}\int_Xf_nd\mu
@@ -698,7 +698,7 @@ Combinando $\textcolor{red}{\circled{\ast}}$ e $\textcolor{blue}{\circled{\ast}}
 	\end{equation*}
 \end{example}
 \subsection{{$\sigma$}-additività dell'integrale di funzioni misurabili non negative rispetto al dominio}
-\begin{proposition}[{$\sigma$}-additività dell'integrale rispetto al dominio.]~{}\\
+\begin{proposition}[{$\sigma$}-additività dell'integrale rispetto al dominio]
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\left[0,+\infty\right]}$ funzione misurabile.
 Allora
 \begin{equation}
@@ -727,7 +727,7 @@ Osserviamo che $\displaystyle \chi_E=\sum_{n\geq 1}\chi_{E_n}$ perché $\display
 \end{observe}
 \subsection{Misura indotta dall'integrale di Lebesgue}
 Una conseguenza della $\sigma$-additività rispetto al dominio dell'integrale di Lebesgue è che, in modo analogo a come abbiamo visto per le funzioni semplici, possiamo costruire un \textit{nuovo spazio di misura} $\left(X,\mathcal{M},\mu_f\right)$ a partire da uno spazio di misura $\left(X,\mathcal{M},\mu\right)$ dato e una funzione $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile.
-\begin{corollary}[Misura indotta dalla funzione misurabile non negativa.]~{}\\
+\begin{corollary}[Misura indotta dalla funzione misurabile non negativa]
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile. Allora la funzione
 \begin{equation}
 	\funztot{\mu_f}{\mathcal{M}}{\left[0,+\infty\right]}{E}{\int_Efd\mu}
@@ -749,7 +749,7 @@ Se consideriamo lo spazio di misura $\left(\realset,\mathcal{L}\left(\realset\ri
 	\int_Egd\mu_f,\ \forall E\in\mathcal{L}\left(\realset\right)
 \end{equation*}
 Cos'è questo integrale? La risposta tale quesito è il seguente teorema.
-\begin{theorema}[Integrale rispetto alla misura indotta.]~{}\\
+\begin{theorema}[Integrale rispetto alla misura indotta]
 	Dato $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, consideriamo lo spazio di misura indotto $\left(X,\mathcal{M},\mu_f\right)$ con
 	\begin{equation*}
 		\funztot{\mu_f}{\mathcal{M}}{\left[0,+\infty\right]}{E}{\int_Efd\mu}
@@ -821,7 +821,7 @@ Riscriviamo questa relazione come
 \end{equation*}
 Questo si esprime dice che $\mu_f$ è \textbf{assolutamente continua rispetto a }$\mu$ e si indica $\mu_f \ll \mu$.
 \end{observe}
-\begin{define}[Continuità assoluta.]~{}\\
+\begin{define}[Continuità assoluta]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{\lambda}{X}{\left[0,+\infty\right]}$. $\lambda$ si dice \textbf{assolutamente continua rispetto a }$\mu$\index{continuità assoluta} se
 	\begin{equation}
 		\forall E\in\mathcal{M}\colon \mu\left(E\right)=0\implies \lambda\left(E\right)=0
@@ -849,7 +849,7 @@ e si indica come $\lambda \ll \mu$.
 	\end{itemize}
 \end{examples}
 Diamo ora una caratterizzazione delle misure assolutamente continue finite.
-\begin{theorema}[Caratterizzazione delle misure ass. cont. finite.]~{}\\
+\begin{theorema}[Caratterizzazione delle misure ass. cont. finite]
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{\lambda}{\mathcal{M}}{\left[0,+\infty\right)}$ una misura \textit{finita}, ossia tale per cui $\lambda\left(X\right)<+\infty$.
 Allora
 \begin{equation}
@@ -861,7 +861,7 @@ Tra le misure assolutamente rispetto ad una misura $\mu$ ci sono le misure del t
 	\mu\left(X\right)=+\infty\quad X=\bigcup_{n\geq 1}X_n,\ \mu\left(X_n\right)<+\infty
 \end{equation*}
 La risposta è \textit{no}, come si può vedere dal teorema seguente.
-\begin{theorema}[Teorema di Radon-Nicodym.]~{}\\
+\begin{theorema}[Teorema di Radon-Nicodym]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura con $\mu$ misura $\sigma$-finita e sia $\funz{\lambda}{X}{\left[0,+\infty\right]}$ una misura. Allora
 	\begin{equation}
 		\lambda\ll\mu\iff \exists \funz{f}{X}{\left[0,+\infty\right]}\colon\lambda\left(E\right)=\int_Efd\mu,\ \forall E\in\mathcal{M}
@@ -871,7 +871,7 @@ La risposta è \textit{no}, come si può vedere dal teorema seguente.
 Ci stiamo avvicinando al terzo e ultimo passo dell'integrale di Lebesgue: lo scopo è quello di estendere la definizione per funzione \textit{a valori complessi}.\\
 Tuttavia, a differenza del passo 2, dove l'integrale può essere assumere valori in $\left[0,+\infty\right]$, l'insieme dei complessi $\complexset$ non contempla il valore $+\infty$; inoltre, come vedremo, la costruzione dell'integrale scelta può presentare delle \textit{forme di indecisione} che \textit{non} possiamo risolvere.\\
 Per proseguire, dobbiamo necessariamente considerare una classe particolare di funzioni misurabili, le \textbf{funzioni integrabili}\index{funzione!integrabile}\seeonlyindex{integrabilità}{funzione!integrabile}.
-\begin{define}[Integrabilità.]~{}\\
+\begin{define}[Integrabilità]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\complexset}$. La funzione $f$ si dice \textbf{integrabile} se
 	\begin{enumerate}
 		\item $f$ misurabile.
@@ -892,7 +892,7 @@ Indichiamo l'insieme delle funzioni integrabili come $\mathcal{L}^{1}\left(\mu\r
 	\end{equation*}
 	\end{itemize}
 \end{observe}
-\begin{proposition}[Le funzioni integrabili formano uno spazio vettoriale.]~{}\\
+\begin{proposition}[Le funzioni integrabili formano uno spazio vettoriale]
 	$\mathcal{L}^1\left(\mu\right)$ è uno spazio vettoriale con le operazioni di somma di funzioni e prodotto di una funzione per uno scalare.
 \end{proposition}
 \begin{demonstration}
@@ -925,7 +925,7 @@ Tornando quindi a $\funz{f}{X}{\complexset}$, possiamo ottenere $f$ come combina
 	f=\left(\Re f\right)+i\left(\Im f\right)=\left(\left(\Re f\right)^{+}-\left(\Re f\right)^{-}\right)+i\left(\left(\Im\right)^{+}-\left(\Im\right)^{-}\right)
 \end{equation}
 Con la prossima proposizione dimostreremo che le funzioni qui definite sono tutte integrabili.
-\begin{proposition}[Integrabilità delle parti positive e negative delle parti reali e immaginarie.]~{}\\\label{integrabilitàpartiposnegrealimm}
+\begin{proposition}[Integrabilità delle parti positive e negative delle parti reali e immaginarie]\label{integrabilitàpartiposnegrealimm}
 	Se $f\in\mathcal{L}^{1}\left(\mu\right)$, allora $\left(\Re f\right)^{\pm},\ \left(\Im f\right)^{\pm}\in\mathcal{L}^{1}\left(\mu\right)$.
 \end{proposition}
 \begin{demonstration}
@@ -933,7 +933,7 @@ Con la prossima proposizione dimostreremo che le funzioni qui definite sono tutt
 \end{demonstration}
 \section{Passo 3: funzioni complesse integrabili}
 Avendo enunciato tutte le premesse del caso, siamo nelle condizioni di enunciare il terzo passo dell'integrale di Lebesgue.
-\begin{define}[Integrale di Lebesgue per funzioni a valori complesse, integrabili.]~{}\\
+\begin{define}[Integrale di Lebesgue per funzioni a valori complesse, integrabili]
 	Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\complexset}$ funzione \textit{integrabile}. Posto
 	\begin{equation*}
 		f=\left(\Re f\right)^{+}-\left(\Re f\right)^-+i\left[\left(\Im f\right)^{+}-\left(\Im f\right)^{-}\right]
@@ -992,7 +992,7 @@ Si ha quindi
 \end{equation*}
 \end{demonstration}
 \subsection{Teorema della convergenza dominata}
-\begin{theorema}[Teorema della convergenza dominata.]~{}\\
+\begin{theorema}[Teorema della convergenza dominata]
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n}{X}{\complexset}$ una successione di funzioni misurabili tale che esiste
 \begin{equation*}
 	f\left(x\right)=\lim_{n\to+\infty}f_n\left(x\right),\ \forall x\in X
@@ -1085,7 +1085,7 @@ Nell'excursus storico abbiamo visto come l'\textit{integrale di Lebesgue} e le s
 \end{itemize}
 Con i tre passi precedentemente esposti abbiamo costruito l'integrale astratto di Lebesgue e risposto alla prima domanda, mentre rimane al momento aperta la seconda; inoltre, nel caso di funzioni d $\realset$ a $\realset$ , sorge la questione: \textit{che relazione c'è tra l'integrale di Riemann e l'integrale di Lebesgue?}\\
 Nel caso di funzioni limitate su un intervallo chiuso e che sono Riemann-integrabili scopriamo che tali integrali coincidono.
-\begin{theorema}[Integrale proprio di Riemann implica integrale di Lebesgue.]~{}\\
+\begin{theorema}[Integrale proprio di Riemann implica integrale di Lebesgue]
 	Sia $\funz{f}{\left[a,b\right]}{\realset}$ limitata e misurabile. Allora
 	\begin{equation}
 		f\in\mathcal{R}\left(\left[a,b\right]\right)\implies f\in\mathcal{L}^1\left(\left[a,b\right],m_1\right)
@@ -1100,7 +1100,7 @@ e
 	Il viceversa non è vero: come abbiamo già visto\footnote{Si veda pag. \pageref{funzionedirichletintegrale}.}, la funzione di Dirichlet è integrabile secondo Lebesgue ma non secondo Riemann.
 \end{observe}
 Situazione differente si ha con l'integrale improprio di Riemann: infatti, può capitare che ci siano funzioni integrabili (almeno impropriamente) secondo Riemann ma \textit{non} secondo Lebesgue!
-\begin{theorema}[Integrale improprio di Riemann e integrale di Lebesgue.]~{}\\\label{integraleimproprioriemannlebesgue}
+\begin{theorema}[Integrale improprio di Riemann e integrale di Lebesgue]\label{integraleimproprioriemannlebesgue}
 	Sia $\funz{f}{\left[a,+\infty\right]}{\realset}$ misurabile tale che $f\in\mathcal{R}\left(\left[a,b\right]\right)$ per ogni $b>a$. Allora
 	\begin{enumerate}
 		\item Vale la relazione
@@ -1168,7 +1168,7 @@ Poiché l'integrale improprio di Riemann \textit{non} converge assolutamente, se
 \end{enumerate}
 \end{example}
 Sulla base di questi risultati siamo finalmente in grado di rispondere al secondo quesito: con una certa ironia, la caratterizzazione dell'insieme dei punti di discontinuità di una funzione integrabile secondo Riemann è basata sulla \textbf{misura di Lebesgue}.
-\begin{theorema}[Caratterizzazione delle funzioni integrabili secondo Riemann.]~{}\\
+\begin{theorema}[Caratterizzazione delle funzioni integrabili secondo Riemann]
 	Sia $\funz{f}{\left[a,b\right]}{\realset}$ limitata e sia $D_f$ l'insieme delle discontinuità di $f$. Se $m_1$ è la misura  di Lebesgue unidimensionale, allora
 	\begin{equation}
 		f\in\mathcal{R}\left(\left[a,b\right]\right)\iff m_1\left(D_f\right)=0
@@ -1185,7 +1185,7 @@ Sulla base di questi risultati siamo finalmente in grado di rispondere al second
 \section{Il ruolo degli insiemi di misura nulla}
 Abbiamo appena visto come una funzione è integrabile secondo Riemann se e solo se l'insieme delle sue discontinuità è un insieme di misura nulla. In altre parole, una funzione è integrabile secondo Riemann su un dato intervallo se e solo se essa è continua, tolto al più un insieme misurabilmente nullo di discontinuità.\\
 Più in generale, ha senso parlare di proprietà valide su un particolare dominio tolto un insieme di misura nulla: poiché queste proprietà non valgono su insiemi la cui \textit{rilevanza è minima}, quantomeno dal punto della \textit{misura}, possiamo definire tale proprietà come \textit{quasi ovunque valida}.
-\begin{define}[Proprietà quasi ovunque valida.]~{}\\
+\begin{define}[Proprietà quasi ovunque valida]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Si dice che una proprietà vale \textbf{‘‘quasi ovunque''} (\textbf{q.o.})\index{proprietà quasi ovunque valida} o ‘‘$\mu$\textbf{-quasi ovunque}'' se vale in tutto $X$ tranne eventualmente su un insieme di misrua $\mu$ nulla.
 \end{define}
 \begin{example}
@@ -1210,7 +1210,7 @@ Sappiamo che $m_1\left(\left[0,1\right]\cap\rationalset\right)=0$, quindi
 \end{equation*}
 ha misura nulla e pertanto la funzione di Dirichlet è \textit{quasi ovunque} la funzione identicamente \textit{nulla}.
 \end{example}
-\begin{proposition}[Ruolo degli insiemi di misura nulla nell'integrazione.]~{}\\ % TO DO: proprietà
+\begin{proposition}[Ruolo degli insiemi di misura nulla nell'integrazione] % TO DO: proprietà
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 \begin{enumerate}
 	\item Se $\funz{f}{X}{\complexset}$, $f\in\mathcal{L}^{1}\left(\mu\right)$ allora
@@ -1253,7 +1253,7 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 	\end{enumerate}
 \end{demonstration}
 Avendo definito il concetto di proprietà quasi ovunque valida, possiamo enunciare un'altra versione dello \textit{scambio tra integrale e serie}; questo risultato che segue dal teorema della convergenza dominata.
-\begin{theorema}[Scambio tra integrale e serie per funzioni integrabili.]~{}\\
+\begin{theorema}[Scambio tra integrale e serie per funzioni integrabili]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Siano $\funz{f_n}{X}{\complexset}$ integrabili. Supponiamo che
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}\int_X\abs{f_n}d\mu<+\infty
@@ -1329,7 +1329,7 @@ e quindi la norma in $L^1$ è la serie dei moduli
 \end{equation*}
 \end{example}
 Come sappiamo, se uno spazio normato è completo valgono diversi risultati teorici e pratici di estrema importanza, come ad esempio il criterio di Cauchy. Si dimostrerà a \textsc{Istituzioni di Analisi Matematica} che anche $L^1$ è uno spazio normato completo.
-\begin{theorema}[{$L^1$} è completo.]~{}\\
+\begin{theorema}[{$L^1$} è completo]
 	Lo spazio normato $\left(L^1\left(\mu\right),\norm{\cdot}_1\right)$ è completo.
 \end{theorema}
 \begin{observe}
@@ -1346,7 +1346,7 @@ Pertanto, $\mathcal{C}\left(\left[a,b\right];\realset\right)$ è normato. Lo sva
 \section{Modi di convergenza}
 Abbiamo già visto nel \refChapterOnly{convergenzafunzioni} la convergenza uniforme e la convergenza puntuale. Noti i concetti di misura e integrale di Lebesgue, approfondiamo il tema dei modi di convergenza e le relazioni tra questi.
 \paragraph{Convergenza uniforme}
-\begin{define}[Convergenza uniforme.]~{}\\
+\begin{define}[Convergenza uniforme]
 	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$.
 	Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$\textbf{su} $X$ ($f_n\overset{\text{unif.}}{\to} f$) se
 	\begin{equation}
@@ -1358,7 +1358,7 @@ Come già visto a pag. \pageref{visualizzazioneconvergenzauniforme}, se consider
 	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.65]{images/visualizzazioneconvergenzauniforme.pdf}
 \end{center}
 \paragraph{Convergenza puntuale}
-\begin{define}[Convergenza puntuale.]~{}\\
+\begin{define}[Convergenza puntuale]
 	Consideriamo l'insieme $X$ e le funzioni $\funz{f_n,f}{X}{\complexset}$.
 	Si dice che $f_n$ \textbf{converge puntualmente}\index{convergenza!puntuale} a $f$\textbf{in} $X$ ($f_n\overset{\text{punt.}}{\to} f$) se
 	\begin{equation}
@@ -1393,7 +1393,7 @@ Il viceversa non è vero: abbiamo visto\footnote{Si veda nota precedente.} nella
 % TO DO: completare la dimostrazione.
 \end{example}
 \paragraph{Convergena quasi ovunque}
-\begin{define}[Convergenza quasi ovunque.]~{}\\
+\begin{define}[Convergenza quasi ovunque]
 	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$. Si dice che
 	$f_n$ \textbf{converge quasi ovunque}\index{convergenza!quasi ovunque} a $f$\textbf{in} $X$ ($f_n\overset{\text{q.o.}}{\to} f$) se
 	\begin{equation}
@@ -1421,7 +1421,7 @@ Il viceversa non è vero, come possiamo vedere nel seguente esempio.
 	% TO DO: completare la dimostrazione.
 \end{example}
 \paragraph{Convergenza in {$L^1$}}
-\begin{define}[Convergenza in {$L^1\left(\mu\right)$}.]~{}\\
+\begin{define}[Convergenza in {$L^1\left(\mu\right)$}]
 	Siano $f_n,f\in L^1\left(\mu\right)$. Si dice che
 	$f_n$ \textbf{converge in $L^1\left(\mu\right)$}\index{convergenza!in $L^1\left(\mu\right)$} a $f$ ($f_n\overset{L^1}{\to} f$) se
 	\begin{equation}
@@ -1435,7 +1435,7 @@ Considerato $X\subseteq \realset$, possiamo visualizzare graficamente la converg
 Si nota che il grafico di $f_n$ può stare, in qualche zona, molto distante dal grafico di $f$, l'importante è che \textit{complessivamente} l'\textbf{area} tra $f_n$ e $f$ diminuisce fino ad essere zero per $n$ crescenti.\\
 Questa è la differenza principale tra la convergenza uniforme/puntuale/quasi ovunque e quella in $L^1$: se per le prime tre è fondamentale minimizzare la \textit{distanza} tra la funzione $f_n$ e $f$, l'ultima richiede di minimizzare l'\textit{area} tra le due.
 \paragraph{Convergenza in misura}
-\begin{define}[Convergenza in {$L^1\left(\mu\right)$}.]~{}\\
+\begin{define}[Convergenza in {$L^1\left(\mu\right)$}]
 	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$; $\forall n\in\naturalset$ definiamo la funzione $g_n\coloneqq \abs{f_n-f}$. Allora, se prendiamo $\forall n\in\ \naturalset,\forall \epsilon>0$ l'insieme
 	\begin{equation*}
 		E_{n,\epsilon}\coloneqq g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)=\left\{x\in X\mid \abs{f_n\left(x\right)-f\left(x\right)}>\epsilon\right\}
@@ -1451,7 +1451,7 @@ Considerato $X\subseteq \realset$, possiamo visualizzare graficamente la converg
 \end{center}
 Possiamo interpretare questa convergenza come un particolare tipo di convergenza in $L^1$, con alcune caratteristiche comuni alla convergenza uniforme e alla convergenza quasi ovunque. Arbitrariamente scelto un raggio $\epsilon$, il grafico di $f_n$ è nella quasi sua totalità contenuto nell'\textit{intorno tubulare} di raggio $\epsilon$ centrato sul grafico di $f$, ma è concesso che esso possa \textit{uscire} da tale intorno purché la misura dell'insieme di tutti i punti di $\realset$ in cui ciò accade tenda ad essere nulla al crescere di $n$.
 \paragraph{Convergenza uniforme e in {$L^1$}}
-\begin{theorema}[Legame tra convergenza uniforme e {$L^1$}.]~{}\\
+\begin{theorema}[Legame tra convergenza uniforme e {$L^1$}]
 	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$. Se
 	\begin{enumerate}[label=(\alph*)]
 		\item $f_n\in L^{1}\left(\mu\right)$.
@@ -1533,7 +1533,7 @@ Con questo teorema abbiamo finalmente risposto ad uno dei quesiti inizialmente e
 	\item Convergenza dominata.
 \end{itemize}
 \paragraph{Convergenza in {$L^1$} e in misura}
-\begin{theorema}[Legame tra convergenza {$L^1$} e convergenza in misura.]~{}\\
+\begin{theorema}[Legame tra convergenza {$L^1$} e convergenza in misura]
 		Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$ tali che $f_n,f\in L^1\left(\mu\right)$.
 		Allora
 		\begin{equation}
@@ -1560,22 +1560,22 @@ Passando al limite per $n\to+\infty$, applicando il teorema del confronto si ric
 \end{demonstration}
 \section{Integrali dipendenti da un parametro}
 Nel corso di \textsc{Analisi Matematica 2} abbiamo incontrato gli \textit{integrali dipendenti da un parametro} nella teoria dell'integrazione di Riemann. Espandiamo questo argomento agli integrali di Lebesgue.
-\begin{define}[Integrali dipendenti da un parametro.]~{}\\
+\begin{define}[Integrali dipendenti da un parametro]
 	Consideriamo lo spazio di misura $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$. Un \textbf{integrale dipendente da un parametro}\index{integrale!dipendente da un parametro} è una funzione
 	\begin{equation}
-		F\left(t\right)=\int_If\left(t,x\right)dm_1\left(x\right),\ \forall t\in J
+		F\left(t\right)=\int_I\mvf{f}{t}{x}dm_1\left(x\right),\ \forall t\in J
 	\end{equation}
 dove $I,J$ sono intervalli in $\realset$ e
 \begin{equation*}
-	\funztot{f}{I\times J}{\complexset}{\left(t,x\right)}{f\left(t,x\right)}
+	\funztot{f}{I\times J}{\complexset}{\left(t,x\right)}{\mvf{f}{t}{x}}
 \end{equation*}
 è tale per cui $\forall t\in I\ \funz{f\left(t,\cdot\right)}{J}{\complexset}$ integrabile.
 \end{define}
 Vogliamo studiare le proprietà di continuità e derivabilità dell'integrale dipendente da una parametro a partire da quelle della funzione $f$ che lo definisce.
-\begin{theorema}[Teorema di continuità e derivabilità di integrali dipendenti da un parametro.]~{}\\
+\begin{theorema}[Teorema di continuità e derivabilità di integrali dipendenti da un parametro]
 	Siano $I,J\subseteq\realset$ intervalli e sia $\funz{f}{I\times J}{\complexset}$ tale che $f\left(t,\cdot\right)$ sia integrabile, $\forall t\in I$. Consideriamo
 	\begin{equation*}
-		F\left(t\right)=\int_If\left(t,x\right)dm_1\left(x\right)
+		F\left(t\right)=\int_I\mvf{f}{t}{x}dm_1\left(x\right)
 	\end{equation*}
 	\begin{enumerate}
 		\item Se
@@ -1583,7 +1583,7 @@ Vogliamo studiare le proprietà di continuità e derivabilità dell'integrale di
 			\item $f\left(\cdot, x\right)$ è continua su $I$, $\forall x\in J$.
 			\item $\exists \funz{\phi}{I}{\realset}$ integrabile tale che
 			\begin{equation*}
-				\abs{f\left(t,x\right)}\leq\phi\left(x\right),\ \forall \left(t,x\right)\in I\times J
+				\abs{\mvf{f}{t}{x}}\leq\phi\left(x\right),\ \forall \left(t,x\right)\in I\times J
 			\end{equation*}
 		\end{itemize}
 	allora $F$ è continua su $I$.
@@ -1681,6 +1681,72 @@ ossia ho di nuovo un problema di passaggio al limite sotto segno di integrale. C
 		\abs{h_n\left(x\right)}\underset{\substack{\forall n\geq 1\\\forall x\in J}}{=}\abs{\frac{f\left(t_n,x\right)-f\left(\overline{t},x\right)}{t_n-t}}\underset{\text{fatto }2}{\leq} \frac{\displaystyle\sup_{t\in\left[t_n,\overline{t}\right]}\abs{\frac{\partial f}{\partial t}}\Ccancel[red]{\abs{t_n-\overline{t}}}}{\Ccancel[red]{\abs{t_n-\overline{t}}}}\leq \psi\left(x\right)
 	\end{equation*}
 \end{itemize}
-Si può allora passare al limite sotto segno di integrale e concludere.
+Si può allora passare al limite sotto segno di integrale e concludere.\qedhere
 	\end{enumerate}
 \end{demonstration}
+\subsection{La trasformata di Fourier}
+\begin{define}[Trasformata di Fourier]
+	Sia $\funz{g}{\realset}{\realset}$. Data la funzione
+	\begin{equation*}
+		\mvf{f}{t}{x}=g\left(x\right)e^{-itx},\ \forall \left(t,x\right)\in\realset^2,
+	\end{equation*}
+	dove
+	\begin{equation*}
+		e^{-itx}=\cos tx-\sin tx,\ \forall\left(t,x\right)\in\realset^2,
+	\end{equation*}
+	definiamo la \textbf{trasformata di Fourier}\index{trasformata di Fourier} di $g$ l'integrale dipendente dal parametro di $t$ dato da $f$:
+	\begin{align}
+		\hat{g}\left(t\right)&=\int_{\realset}g\left(x\right)e^{-itx}dm_1\left(x\right)=\\
+		&=\int_{\realset}g\left(x\right)\cos txdm_1\left(x\right)-i\int_\realset g\left(x\right)\sin txdm_1\left(x\right),\ \forall t\in\realset
+	\end{align}
+\end{define}
+Ci chiediamo sotto quali ipotesi su $g$ la funzione $F$ è continua e sotto quali invece è derivabile.
+\begin{theorema}[Continuità e derivabilità della trasformata di Fourier]
+	Sia data $\funz{g}{\realset}{\realset}$.
+	\begin{enumerate}
+		\item Se $g\in L^1\left(\realset\right)$, allora $\hat{g}$ è continua su $\realset$.
+		\item Se
+		\begin{itemize}
+			\item $g\in L^1\left(\realset\right)$.
+			\item $xg\left(x\right)\in L^1\left(\realset\right)$.
+		\end{itemize}
+	allora $\hat{g}$ è derivabile su $\realset$ e
+	\begin{equation}
+		\hat{g}'\left(t\right)=\widehat{\left(-ixg\left(x\right)\right)}=-i\int_{\realset}xg\left(x\right)e^{-itx}dm_1\left(x\right),\ \forall t\in\realset
+	\end{equation}
+	\end{enumerate}
+\end{theorema}
+\begin{demonstrations}
+	\begin{itemize}
+		\item % TO DO: completare
+		\item Applichiamo il teorema di derivabilità degli integrali dipendenti da un parametro. In questo caso si ha
+		\begin{equation*}
+			\mvf{f}{t}{x}=g\left(x\right)e^{-itx},\ \forall \left(t,x\right)\in\realset^2
+		\end{equation*}
+	Verifichiamo le ipotesi.
+	\begin{itemize}
+		\item $\mvf{f}{t}{\cdot}$ è integrabile su $\realset$:
+		\begin{itemize}
+			\item $\mvf{f}{t}{\cdot}$ misurabile perché $f$ è il prodotto di $g$ e $e^{-itx}$, due funzioni misurabili - la prima per ipotesi, la seconda in quanto è continua.
+			\item $\displaystyle\int_{\realset}\abs{\mvf{f}{t}{x}}<+\infty$ in quanto
+			\begin{equation*}
+				\abs{\mvf{f}{t}{x}}=-ixg\left(x\right)e^{-itx},\ \forall \left(t,x\right)\in\realset^2
+			\end{equation*}
+		\end{itemize}
+	\item Esiste
+	\begin{equation*}
+		\frac{\partial f}{\partial t}=-ixg\left(x\right)e^{itx},\ \forall \left(t,x\right)\in\realset^2
+	\end{equation*}
+\item Si può maggiorare uniformemente $\dfrac{\partial f}{\partial t}$ in $t$ con una funzione integrabile:
+\begin{equation*}
+	\abs{\frac{\partial f}{\partial t}\left(t,x\right)}=\abs{-ixg\left(x\right)e^{-itx}}=\abs{xg\left(x\right)}\underbrace{\abs{e^{-itx}}}_{=1}=\abs{xg\left(x\right)}\coloneqq \psi\left(x\right),\ \forall \left(t,x\right)\in\realset^2
+\end{equation*}
+con $\psi\left(x\right)$ integrabile per ipotesi sull'integrabilità di $xg\left(x\right)$.
+	\end{itemize}
+Ne segue che $\hat{g}$ è derivabile e
+\begin{equation*}
+	\hat{g}'\left(t\right)=\int_{\realset}\frac{\partial f}{\partial t}\left(t,x\right)dm_1\left(x\right)=-i\int_{\realset}xg\left(x\right)e^{-itx}dm_1\left(x\right)\qedhere
+\end{equation*}
+	\end{itemize}
+\end{demonstrations}
+\section{Analisi e probabilità}
