@@ -115,9 +115,9 @@ La coppia $\left(X,\mathcal{M}\right)$ si dice \textbf{spazio misurabile}\index{
 		f^{-1}\left(A\right)\in\mathcal{M},\ \forall A\subseteq Y\text{ aperto.}
 	\end{equation}
 \end{define}
-\begin{digression}
-	In probabilità le funzioni misurabili sono dette \textbf{variabili aleatorie}\index{variabile!aleatoria}. % TO DO: aggiungere riferimento a fondo libro o spostare proprio
-\end{digression}
+%\begin{digression}
+%	In probabilità le funzioni misurabili sono dette \textbf{variabili aleatorie}\index{variabile!aleatoria}. % TO DO: aggiungere riferimento a fondo libro o spostare proprio
+%\end{digression}
 \begin{observe}
 	Se $\mathcal{M}=\setpart{X}$, allora \textit{ogni} funzione è misurabile.
 \end{observe}
@@ -516,7 +516,7 @@ Ogni insieme \textbf{numerabile} è misurabile e ha misura nulla.
 		m_1\left(\rationalset\right)=0,\ m_1\left(\rationalset\cap\left[0,1\right]\right)=0
 	\end{equation*}
 \end{example}
-\subsubsection{L'insieme di Cantor}
+\subsubsection{L'insieme di Cantor}\label{insiemecantor}
 Esistono anche insiemi di misura nulla con \textit{cardinalità del continuo}. Uno di questi è l'\textbf{insieme di Cantor}, il quale possiede diverse proprietà interessanti e non particolarmente immediate.
 \begin{examplewt}[Insieme di Cantor]
 	% TO DO: inserire immagine
@@ -575,10 +575,10 @@ Ora enunciamo una proprietà della misura di Lebesgue, detta \textbf{regolarità
 Come abbiamo visto, la misura di Peano-Jordan soddisfa solo alcune proprietà della misura in senso assiomatico, essendo $\sigma$-subadditiva, mentre la misura secondo Lebesgue è a tutti gli effetti una misura assiomatica moderna. Ci si può dunque chiedere se tali concetti sono incompatibili tra di loro oppure se c'è una qualche relazione tra di esse.\\
 È già noto che non tutti gli insiemi misurabili secondo Lebesgue lo sono secondo Peano-Jordan.
 \begin{example}
-	Consideriamo $E=\rationalset\cap\left[0,1\right]$.
+	Consideriamo la funzione di Dirichlet $E=\rationalset\cap\left[0,1\right]$.
 	\begin{itemize}
 		\item $E$ numerabile implica che $E$ è Lebesgue-misurabile e $m_1\left(E\right)=0$.
-		\item $E$ non è Peano-Jordan misurabile, in quanto
+		\item $E$ \textit{non} è Peano-Jordan misurabile, in quanto
 		\begin{equation*}
 			m_{PJ}^{X}\left(E\right)=1\neq 0=m_{PJ,X}\left(E\right)
 		\end{equation*}
@@ -590,7 +590,7 @@ Invece, si vede banalmente che gli insiemi elementari, ossia le unioni di parall
 	m_{PJ}\left(\bigcup_{i=1}^{k}P_i\right)=m_n\left(\bigcup_{i=1}^{k}P_i\right)=\sum_{i=1}^{k}V_n\left(P_i\right)
 \end{gather*}
 Il seguente teorema ci afferma un risultato importante: \textit{tutti} gli insiemi misurabili secondo Peano-Jordan sono misurabili secondo Lebesgue e le misure in tal caso coincidono.
-\begin{theorema}[Equivalenza della misura di Peano-Jordan e Lebesgue]
+\begin{theorema}[Misurabile secondo Peano-Jordan implica misurabile secondo Lebesgue]
 	Sia $E\subseteq\realset^n$ limitato. Allora
 	\begin{enumerate}
 		\item Se $E$ è Peano-Jordan misurabile allora $E$ è Lebesgue misurabile.
@@ -604,7 +604,7 @@ Il seguente teorema ci afferma un risultato importante: \textit{tutti} gli insie
 		\item $E\subseteq A_{\epsilon}$.
 		\item $m_n^{X}\left(A_{\epsilon}\setminus E\right)<\epsilon$.
 	\end{itemize}
-Sappiamo che $E$ è misurabile secondo Peano-Jordan, dunque per il criterio equivalente $\forall \epsilon >0 \ \exists A_{\epsilon},\ B_{\epsilon}$ unioni finite di parallelepipedi con $B_{\epsilon}\subseteq E\subseteq A_{\epsilon}$ tali che $m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon$. Allora l'insieme $A_{\epsilon}$ così definito è proprio quello che stavamo cercando. Noto innanzitutto che $A_{\epsilon}\setminus E\subseteq A_{\epsilon}\setminus B_{\epsilon}$, per monotonia della misura esterna otteniamo:
+Sappiamo che $E$ è misurabile secondo Peano-Jordan, dunque per il criterio equivalente $\forall \epsilon >0,\ \exists A_{\epsilon},\ B_{\epsilon}$ unioni finite di parallelepipedi con $B_{\epsilon}\subseteq E\subseteq A_{\epsilon}$ tali che $m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon$. Allora l'insieme $A_{\epsilon}$ così definito è proprio quello che stavamo cercando. Noto innanzitutto che $A_{\epsilon}\setminus E\subseteq A_{\epsilon}\setminus B_{\epsilon}$, per monotonia della misura esterna otteniamo:
 \begin{equation*}
 	m_{n}^{X}\left(A_{\epsilon}\setminus E\right)<	m_{n}^{X}\left(A_{\epsilon}\setminus B_{\epsilon}\right)=m_{PJ}^X\left(A_{\epsilon}\setminus B_{\epsilon}\right)=m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon\qedhere
 \end{equation*}
@@ -633,7 +633,7 @@ Sappiamo che $E$ è misurabile secondo Peano-Jordan, dunque per il criterio equi
 	\item $\mu$ si dice \textbf{di probabilità}\index{misura!di probabilità} se $\mu\left(X\right)=1$.
 	\end{itemize}
 \end{define}
-\begin{examples}\textsc{Spazi di misura.}
+\begin{exampleswt}[Spazi di misura]~{}
 	\begin{enumerate}
 		\item $\left(\realset^n,\mathcal{L}\left(\realset^n\right)\right)$ è spazio di misura con la \textbf{misura di Lebesgue}
 		\begin{equation}
@@ -643,7 +643,7 @@ Sappiamo che $E$ è misurabile secondo Peano-Jordan, dunque per il criterio equi
 		\begin{equation*}
 			\realset^n=\bigcup_{n\geq 0}B_n\left(0\right)\quad\text{con }m_n\left(B_n\left(0\right)\right)<+\infty
 		\end{equation*}
-		\item Fissato $x_0\in X$ insieme qualunque, $\left(X,\setpart{X}\right)$ è spazio di misura con la funzione $\delta$ \textbf{di Dirac concentrata in} $x_0$\index{Delta di Dirac}:
+		\item Fissato $x_0\in X$ insieme qualunque, $\left(X,\setpart{X}\right)$ è uno spazio di misura con la funzione $\delta$ \textbf{di Dirac concentrata in} $x_0$\index{Delta di Dirac}:
 		\begin{equation}
 			\funztot{\delta}{\setpart{X}}{\left[0,+\infty\right]}{E}{\begin{cases}
 					\begin{array}{ll}
@@ -661,7 +661,11 @@ Sappiamo che $E$ è misurabile secondo Peano-Jordan, dunque per il criterio equi
 	\begin{equation}
 		\funztot{\mu}{\setpart{X}}{\left[0,+\infty\right]}{E}{\displaystyle\sum_{n\colon x_n\in E}p_n}
 	\end{equation}
-Se $\displaystyle\sum_{n\colon x_n\in E}p_n=1$, $\mu_p$ è una \textbf{misura di probabilità discreta}\index{misura!di probabilità!discreta}, come la m.d.p. \textit{binomiale}, di \textit{Poisson}, ecc...\\
+Se
+\begin{equation*}
+	\sum_{n\colon x_n\in E}p_n=1,
+\end{equation*}
+$\mu_p$ è una \textbf{misura di probabilità discreta}\index{misura!di probabilità!discreta}, come la m.d.p. \textit{binomiale}, di \textit{Poisson}, ecc...\\
 \item Preso $X=\naturalset$, i punti $x_n=n, \forall n\geq 1$ e $p_n=1,\ \forall n\geq 1$, allora $\left(\naturalset,\setpart{\naturalset}\right)$ è spazio di misura con la \textbf{misura di conteggio semplice}\index{misura!di conteggio!semplice}, un caso particolare dell'esempio precedente:
 	\begin{equation}
 	\forall E\subseteq\naturalset,\ \mu\left(E\right)=\sum_{n\colon n\in E}1=\begin{cases}
@@ -672,8 +676,8 @@ Se $\displaystyle\sum_{n\colon x_n\in E}p_n=1$, $\mu_p$ è una \textbf{misura di
 	\end{cases}
 \end{equation}
 	\end{enumerate}
-\end{examples}
-\subsection{Famiglie di insiemi nella teoria della misura e relazioni tra di loro}\label{famigliediinsiemi}
+\end{exampleswt}
+\section{Famiglie di insiemi nella teoria della misura e relazioni tra di loro}\label{famigliediinsiemi}
 Concludiamo questo capitolo alcune delle più comuni \textit{famiglie di insiemi} che si incontrano nello studio della teoria della misura.
 \begin{center}
 	\begin{tabular}{c|c|c}
@@ -697,7 +701,7 @@ Se $\abs{\realset}=\mathfrak{c}$ è la cardinalità del continuo, allora la card
 	\abs{\setpart{\realset}}=2^{\mathfrak{c}}
 \end{equation}
 \paragraph{Cardinalità degli insiemi misurabili}
-Per trovare quanti sono gli insiemi misurabili, consideriamo l'\textit{insieme di Cantor} $C$. Abbiamo visto (pag. XXX) che esso gode delle seguenti proprietà: % TO DO: aggiunge pagina su Cantor o nelle note aggiuntive oppure nel libro in sè
+Per trovare quanti sono gli insiemi misurabili, consideriamo l'\textit{insieme di Cantor} $C$. Abbiamo visto\footnote{Si veda pag. \pageref{insiemecantor}.} che esso gode delle seguenti proprietà: % TO DO: aggiunge pagina su Cantor o nelle note aggiuntive oppure nel libro in sè
 \begin{enumerate}
 	\item Il numero di punti prima e dopo il processo iterativo per costruire $C$ rimane invariato, dunque $C$ è \textit{non numerabile} e ha la stessa cardinalità di $\left[0,1\right]$:
 	\begin{equation*}
@@ -711,7 +715,7 @@ Dal punto 1 segue che l'insieme delle parti dell'insieme di Cantor ha cardinalit
 \end{equation*}
 Passando alle cardinalità:
 \begin{equation*}
-	2^{\mathfrak{c}}\underset{(1)}{\abs{\setpart{C}}}\leq \abs{\mathcal{L}\left(\realset\right)}\leq\abs{\setpart{\realset}}=2^{\mathfrak{c}}\implies \abs{\mathcal{\realset}}=2^{\mathfrak{c}}
+	2^{\mathfrak{c}}\underset{(1)}{=}{\abs{\setpart{C}}}\leq \abs{\mathcal{L}\left(\realset\right)}\leq\abs{\setpart{\realset}}=2^{\mathfrak{c}}\implies \abs{\mathcal{\realset}}=2^{\mathfrak{c}}
 \end{equation*}
 \paragraph{Inclusione stretta di {$\mathcal{L}\left(\realset\right)$} in {$\setpart{\realset}$}} % TO DO: controllare footnote
 Il fatto che la cardinalità degli insiemi Lebesgue-misurabili in $\realset$ coincida con quella dell'insieme delle parti di $\realset$ non è sufficiente\footnote{Si veda pag. \pageref{cardinalitàugualenonimplicauguaglianzainsiemistica}.} per affermare che i due insiemi coincidano; costruiamo ora un sottoinsieme particolare di $\realset$ che risulta \textit{non misurabile}.\\
@@ -722,9 +726,9 @@ Il fatto che la cardinalità degli insiemi Lebesgue-misurabili in $\realset$ coi
 	\end{equation}
 	possiamo definire delle classi di equivalenza in $\nicefrac{\realset}{\sim}$:
 	\begin{align*}
-		\left[0\right]=\left\{0,1,\frac{1}{2},-\frac{3}{4},\frac{123}{72},\ldots\right\}=\left\{x\in\realset\mid x\in\rationalset\right\}=\rationalset\\
-		\left[\sqrt{2}\right]=\left\{\sqrt{2},\sqrt{2}+\frac{1}{2},\sqrt{2}-1,\ldots\right\}=\left\{x\in\realset\mid x=\sqrt{2}+q,\ q\in\rationalset\right\}\\
-		\left[\pi\right]=\left\{\pi,\pi-\frac{3}{4},\pi+23,\ldots\right\}=\left\{x\in\realset\mid x=\pi+q,\ q\in\rationalset\right\}\\
+		\left[0\right]&=\left\{0,1,\frac{1}{2},-\frac{3}{4},\frac{123}{72},\ldots\right\}=\left\{x\in\realset\mid x\in\rationalset\right\}=\rationalset\\
+		\left[\sqrt{2}\right]&=\left\{\sqrt{2},\sqrt{2}+\frac{1}{2},\sqrt{2}-1,\ldots\right\}=\left\{x\in\realset\mid x=\sqrt{2}+q,\ q\in\rationalset\right\}\\
+		\left[\pi\right]&=\left\{\pi,\pi-\frac{3}{4},\pi+23,\ldots\right\}=\left\{x\in\realset\mid x=\pi+q,\ q\in\rationalset\right\}\\
 		\vdots
 	\end{align*}
 	Scelto\footnote{Per poter fare questa operazione è necessario supporre l'\textit{Assioma di Scelta}.} un elemento che stia in $\left[0,1\right]$ da ogni classe di equivalenza, definisco l'\textbf{insieme di Vitali}\index{insieme!di Vitali} $V$ come unione di questi elementi.
@@ -733,8 +737,8 @@ Per costruzione $V\subseteq\left[0,1\right]$. Preso l'insieme \textit{numerabile
 \begin{equation*}
 	V_n=V+q_n\subseteq\left[-1,2\right]
 \end{equation*}
-\begin{lemming}[Lemma 1 di Vitali - gli insiemi di Vitali traslati sono 2 a 2 disgiunti.]
-	Dato $V$ insieme di Vitali e $\left\{q_n\right\}$ numerazione di $\rationalset\cap\left[0,1\right]$, allora $V_n\cap V_m=\emptyset,\ \forall n\neq m$.
+\begin{lemming}[Lemma 1 di Vitali - gli insiemi di Vitali traslati sono 2 a 2 disgiunti]
+	Dato l'insieme di Vitali $V$  e una enumerazione $\left\{q_n\right\}$  di $\rationalset\cap\left[0,1\right]$, allora $V_n\cap V_m=\emptyset,\ \forall n\neq m$.
 \end{lemming}
 \begin{demonstration}
 	Consideriamo $x\in V_n\cap V_m$: questo implica che $x\in V_n$ e $x\in V_m$, ossia
@@ -751,7 +755,7 @@ Per costruzione $V\subseteq\left[0,1\right]$. Preso l'insieme \textit{numerabile
 	Poichè $y$ e $z$ differiscono di un razionale, essi appartengono alla stessa classe di equivalenza in $\nicefrac{\realset}{\sim}$, ma dato che nella costruzione dell'insieme di VItali abbiamo preso\footnote{In virtù dell'\textit{Assioma di Scelta}.} uno e un solo elemento da tale classe, allora segue che $y=z$. È immediato verificare che $q_m=q_n$ e, essendo elementi numerazione, allora $n=m$. In altre parole, l'intersezione non è vuota solo se $V_n=V_m$.
 \end{demonstration}
 \begin{lemming}[Lemma 2 di Vitali - ogni numero reale in {$\left[0,1\right]$} appartiene ad un $V_n$ per un certo $n$:]
-	Dato $V$ insieme di Vitali vale la seguente relazione:
+	Dato l'insieme di Vitali $V$ vale la seguente relazione:
 	\begin{equation*}
 		\left[0,1\right]\subseteq\bigcup_{n\in\naturalset}V_n
 	\end{equation*}

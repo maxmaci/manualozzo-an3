@@ -23,7 +23,7 @@
 \noindent Riportiamo alcune note, precisazioni e dimostrazioni complementari agli argomenti dei capitoli principali che possono risultare utili al lettore.
 \section{Capitolo 1: alla ricerca della lunghezza dell'ellisse}
 \subsection{Il coefficiente binomiale generalizzato}\label{coefficientebinomialgeneralizzato}
-\begin{define}[Coefficiente binomiale.]~{}\\
+\begin{define}[Coefficiente binomiale]
 	Dati $n,j\in\naturalset$ con $n\geq j$, si definisce il \textbf{coefficiente binomiale}\index{coefficiente binomiale} il numero
 	\begin{equation}
 		\binom{n}{j}=\frac{n!}{j!\left(n-j\right)!}
@@ -36,7 +36,7 @@ dove $!$ indica il \textbf{fattoriale}\index{fattoriale}:
 Se $n<j$, allora poniamo $\displaystyle\binom{n}{j}=0$
 \end{define}
 Possiamo estendere la definizione del coefficiente binomiale sostituendo a $n$ e $j$ dei qualunque numeri complessi $\alpha$ e $\beta$ (purché \textit{non} sia un intero negativo)  utilizzando la generalizzazione del fattoriale, la \textit{funzione Gamma di Eulero}. Vediamone la definizione con $\alpha$ tale che $\Re\left(\alpha\right)>0$.
-\begin{define}[Funzione Gamma di Eulero.]~{}\\
+\begin{define}[Funzione Gamma di Eulero]
 	Dato $\alpha$ tale che $\Re\left(\alpha\right)>0$, definiamo la \textbf{funzione Gamma di Eulero}\index{funzione!Gamma di Eulero} in campo complesso come il prolungamento analitico dell'integrale improprio convergente
 	\begin{equation}
 		\Gamma\left(\alpha\right)=\int_{0}^{+\infty}x^{\alpha-1}e^{-\alpha}dx
@@ -49,7 +49,7 @@ Possiamo estendere la definizione del coefficiente binomiale sostituendo a $n$ e
 	\end{itemize}
 \end{define}
 Definita la funzione Gamma, diamo ora una definizione generalizzata di coefficiente binomiale.
-\begin{define}[Coefficiente binomiale generalizzato con Gamma di Eulero.]~{}\\
+\begin{define}[Coefficiente binomiale generalizzato con Gamma di Eulero]
 	Dati $\alpha,\beta\in\complexset\setminus\left\{z\mid\Re\left(z\right)\in\integerset\wedge\Re\left(z\right)\leq0\right\}$, si definisce il \textbf{coefficiente binomiale generalizzato}\index{coefficiente binomiale!generalizzato} il numero
 	\begin{equation}
 		\binom{\alpha}{\beta}=\frac{\Gamma\left(\alpha+1\right)}{\Gamma\left(\beta+1\right)\Gamma\left(\alpha-j+1\right)}
@@ -66,7 +66,7 @@ Consideriamo ora il caso del binomiale $\displaystyle\binom{\alpha}{j}$ dove $\a
 	&=\frac{\alpha\left(\alpha-1\right)\cdots\left(\alpha-j+1\right)}{j!}
 \end{align*}
 In realtà questa relazione si ottiene anche col coefficiente che abbiamo definito in precedenza se $\alpha\in\complexset$ e $j\in\naturalset$. Innanzitutto, diamo qualche notazione.
-\begin{define}[Simbolo di Pochhammer o fattoriale crescente.]~{}\\
+\begin{define}[Simbolo di Pochhammer o fattoriale crescente]
 	Dati $\alpha\in\complexset$, $j\in\naturalset$, il \textbf{simbolo di Pochhammer}\seeonlyindex{fattoriale!crescente}{simbolo di Pochhammer} o altresì detto \textbf{fattoriale crescente}\index{fattoriale!crescente} è il numero
 	\begin{equation}
 		\alpha^{\overline{j}}=\left(\alpha\right)_j\coloneqq\frac{\Gamma\left(\alpha+j\right)}{\Gamma\left(\alpha\right)}
@@ -76,7 +76,7 @@ In realtà questa relazione si ottiene anche col coefficiente che abbiamo defini
 	\alpha^{\overline{j}}=\left(\alpha\right)_j=\prod_{k=0}^{j-1}\left(\alpha+j\right)=\prod_{k=1}^{j}\left(\alpha+j-1\right)=\alpha\left(\alpha+1\right)\cdots\left(\alpha+j-1\right)
 \end{equation}
 \end{define}
-\begin{define}[Fattoriale decrescente.]~{}\\
+\begin{define}[Fattoriale decrescente]
 	Dati $\alpha\in\complexset$, $j\in\naturalset$, il \textbf{fattoriale decrescente}\index{fattoriale!decrescente} è il numero
 	\begin{equation}
 		\alpha^{\underline{j}}\coloneqq\frac{\Gamma\left(\alpha+1\right)}{\Gamma\left(\alpha-j+1\right)}
@@ -94,14 +94,14 @@ Osserviamo che
 	\binom{\alpha}{j}=\frac{\Gamma\left(\alpha+1\right)}{j!\Gamma\left(\alpha-j+1\right)}=\frac{\alpha^{\underline{j}}}{j!}=\frac{\alpha\left(\alpha-1\right)\cdots\left(\alpha-j+1\right)}{j!}=\frac{\left(\alpha-j+1\right)^{\overline{j}}}{j!}=\frac{\left(\alpha-j+1\right)_j}{j!}
 \end{equation*}
 Allora possiamo considerare questa definizione operativa come la generalizzazione nel caso $\alpha\in\complexset$ e $j\in\naturalset$ del binomiale.
-\begin{define}[Coefficiente binomiale generalizzato, definizione operativa.]~{}\\
+\begin{define}[Coefficiente binomiale generalizzato, definizione operativa]
 	Dati $\alpha\in\complexset,\ j\in\naturalset$, si definisce il \textbf{coefficiente binomiale generalizzato}\index{coefficiente binomiale!generalizzato} il numero
 	\begin{equation}
 		\binom{\alpha}{j}=\frac{\alpha^{\underline{j}}}{j!}=\frac{\left(\alpha-j+1\right)^{\overline{j}}}{j!}=\frac{\left(\alpha-j+1\right)_j}{j!}=\frac{\alpha\left(\alpha-1\right)\cdots\left(\alpha-j+1\right)}{j!}
 	\end{equation}
 \end{define}
 \begin{observe}
-	Se $\alpha<j$, con $\alpha\in\integerset$ e $j\in\naturalset$, si ha al numeratore il fattore $\left(\alpha-\alpha\right)$ e quindi $\displaystyle\binom{\alpha}{j}=0$. Il 
+	Se $\alpha<j$, con $\alpha\in\integerset$ e $j\in\naturalset$, si ha al numeratore il fattore $\left(\alpha-\alpha\right)$ e quindi $\displaystyle\binom{\alpha}{j}=0$.
 \end{observe}
 Valgono inoltre le seguenti proprietà, $\forall \alpha\in\complexset$:
 \begin{align}
@@ -112,7 +112,7 @@ Valgono inoltre le seguenti proprietà, $\forall \alpha\in\complexset$:
 \section{Capitolo 3: serie di funzioni}
 \subsection{Tanti criteri di Cauchy}\label{criteriodicauchy}
 Il \textbf{criterio di Cauchy}\index{criterio!di Cauchy} è un importante teorema che fornisce condizioni necessarie e sufficienti per la convergenza di una successione.
-\begin{theorema}[Criterio di Cauchy per le successioni.]~{}\\\index{criterio!di Cauchy!per le successioni}
+\begin{theorema}[Criterio di Cauchy per le successioni]\index{criterio!di Cauchy!per le successioni}
 		Sia $v_n$ successione in $X$ spazio metrico \textit{completo}. Allora
 	\begin{multline}
 		v_n\text{ converge in }X \iff v_n\text{ è di Cauchy}\iff\\
@@ -151,7 +151,7 @@ Allora una serie è di Cauchy se
 \end{equation*}
 Questo ci permette di \textit{estendere} il criterio di Cauchy a situazione \textit{molto variegate} tra di loro dove bisogna studiare una convergenza, tutte \textit{accomunate} dall'idea che ‘‘portare l'oscillazione a \textit{zero} è equivalente alla convergenza''.\\
 Abbiamo visto\footnote{Si veda \refChapterOnly{convergenzafunzioni}, pag. \pageref{criteriodicauchyperconvergenzauniforme}.} il criterio di Cauchy per la \textit{convergenza uniforme}; qui di seguito riportiamo quello per le \textit{serie}.
-\begin{corollary}[Criterio di Cauchy per le serie.]~{}\\\label{criteriodicauchyperleserie}\index{criterio!di Cauchy!per le serie}
+\begin{corollary}[Criterio di Cauchy per le serie]\label{criteriodicauchyperleserie}\index{criterio!di Cauchy!per le serie}
 	Una serie $\displaystyle\sum_{n=0}^{+\infty}x_n$ in uno spazio \textit{normato completo} è convergente se e solo se
 	\begin{equation}
 		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \norm{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\epsilon
@@ -180,12 +180,13 @@ Abbiamo visto\footnote{Si veda \refChapterOnly{convergenzafunzioni}, pag. \pager
 % TO DO: riportare qui le definizioni di successione di Cauchy, spazio normato
 \subsection{Criteri di convergenza delle serie}\label{criteridiconvergenzaserie}
 Di seguito enunceremo diversi criteri utili per studiare la convergenza di una serie $\displaystyle\sum_{n=1}^{+\infty}a_n$.
-\begin{itemize} % TO DO: rendere paragraph?
-	\item \textbf{Limite del termine della successione.} (\textit{Criterio necessario}, $\realset$ o $\complexset$) Se la serie converge, allora $\displaystyle\lim_{n\to+\infty}a_n=0$. Per contronominale vale
+\paragraph{Limite del termine della successione}
+(\textit{Criterio necessario}, $\realset$ o $\complexset$) Se la serie converge, allora $\displaystyle\lim_{n\to+\infty}a_n=0$. Per contronominale vale
 	\begin{equation}
 		\lim_{n\to+\infty}a_n\neq 0\implies\sum_{n=1}^{+\infty}a_n\text{ non converge}
 	\end{equation}
-	\item \textbf{Convergenza assoluta.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie
+\paragraph{Convergenza assoluta}
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}\abs{a_n}
 	\end{equation*}
@@ -194,25 +195,29 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 		\sum_{n=1}^{+\infty}a_n
 	\end{equation*}
 	converge \textit{assolutamente} e inoltre essa converge anche semplicemente.
-	\item \textbf{Criterio del rapporto o di d'Alembert.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$)
+\paragraph{Criterio del rapporto o di d'Alembert}
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$)
 	% Sia $a_n$ definitivamente diverso da zero.
 	Se esiste $R$ tale che
 	\begin{equation}
 		\lim_{n\to+\infty}\abs{\frac{a_{n+1}}{a_n}}=R
 	\end{equation}
 	se $R<1$, la serie è \textit{assolutamente} convergente. Se $R>1$, la serie diverge. Se $R=1$, non abbiamo informazioni sulla convergenza.
-	\item \textbf{Criterio della radice o di Cauchy.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia
+\paragraph{Criterio della radice o di Cauchy}
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia
 	\begin{equation}
 		R = \limsup_{n\to+\infty}\sqrt[n]{\abs{a_n}}
 	\end{equation}
 	Se $R<1$, la serie è \textit{assolutamente} convergente, mentre se $R>1$, la serie diverge. Se $R=1$, non abbiamo informazioni sulla convergenza.\\
 	Se una serie infinita converge o diverge col criterio della radice, lo stesso risultato si ottiene con il \textit{criterio del rapporto} ma \textit{non} vale il viceversa.
-	\item \textbf{Criterio dell'integrale.} (\textit{Criterio necessario e sufficiente}, $\realset$) Sia $\funz{f}{\left[1,+\infty\right)}{\realset_+}$ una funzione non-negativa e monotona decrescente tale per cui $f\left(n\right)=a_n$. Allora, posto
+\paragraph{Criterio dell'integrale}
+(\textit{Criterio necessario e sufficiente}, $\realset$) Sia $\funz{f}{\left[1,+\infty\right)}{\realset_+}$ una funzione non-negativa e monotona decrescente tale per cui $f\left(n\right)=a_n$. Allora, posto
 	\begin{equation*}
 		\int_{1}^{+\infty}f\left(x\right)dx=\lim_{t\to\infty}\int_{1}^{t}f\left(x\right)dx
 	\end{equation*}
 	la serie $a_n$ converge se e solo se l'integrale converge.
-	\item \textbf{Criterio di confronto diretto.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie
+\paragraph{Criterio di confronto diretto}
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}b_n
 	\end{equation*}
@@ -221,7 +226,8 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 		\sum_{n=1}^{+\infty}a_n
 	\end{equation*}
 	converge \textit{assolutamente}.
-	\item \textbf{Criterio del confronto asintotico} (\textit{Criterio necessario e sufficiente}, $\realset$) Se $a_n,\ b_n>0,\ \forall n$, e il limite
+\paragraph{Criterio del confronto asintotico}
+(\textit{Criterio necessario e sufficiente}, $\realset$) Se $a_n,\ b_n>0,\ \forall n$, e il limite
 	\begin{equation*}
 		\lim_{n\to+\infty}\frac{a_n}{b_n}
 	\end{equation*}
@@ -229,7 +235,8 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 	\begin{equation}
 		\sum_{n=1}^{+\infty}a_n\text{ converge}\iff\sum_{n=1}^{+\infty}b_n\text{ converge}.
 	\end{equation}
-	\item \textbf{Criterio di condensazione di Cauchy.} (\textit{Criterio necessario e sufficiente}, $\realset$) Sia $a_n$ una successione non negativa e non crescente. Allora
+\paragraph{Criterio di condensazione di Cauchy}
+(\textit{Criterio necessario e sufficiente}, $\realset$) Sia $a_n$ una successione non negativa e non crescente. Allora
 	\begin{equation}
 		\sum_{n=1}^{+\infty}a_n\text{ converge}\iff\sum_{n=1}^{+\infty}2^na_{2^n}\text{ converge}.
 	\end{equation}
@@ -237,7 +244,8 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}a_n<\sum_{n=1}^{+\infty}2^na_{2^n}<2\sum_{n=1}^{+\infty}a_n
 	\end{equation*}
-	\item \textbf{Criterio di Abel-Dirichlet.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia data la serie
+\paragraph{Criterio di Abel-Dirichlet}
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia data la serie
 	\begin{equation}
 		\sum_{n=0}^{+\infty}a_nb_n,\quad a_n\in\complexset,\ b_n\in\realset
 	\end{equation}
@@ -254,7 +262,8 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 		\sum_{n=0}^{+\infty}a_nb_n
 	\end{equation*}
 	converge (semplicemente).
-	\item \textbf{Criterio di Leibniz.} (\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia data la serie
+\paragraph{Criterio di Leibniz}
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia data la serie
 		\begin{equation}
 		\sum_{n=0}^{+\infty}\left(-1\right)^na_n,\quad a_n\in\realset
 	\end{equation}
@@ -263,11 +272,9 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 		\sum_{n=0}^{+\infty}\left(-1\right)^na_n
 	\end{equation*}
 	converge (semplicemente).
-\end{itemize}
 \subsection{Serie a valori reali notevoli}\label{serieavalorirealinotevoli}
 Di seguito enunceremo alcune serie a valori reali di particolare rilevanza.
-\begin{itemize} % TO DO: rendere paragraph
-	\item \textbf{Serie geometrica.}
+\paragraph{Serie geometrica}
 	\begin{equation*}
 		\sum_{n=0}^{+\infty}z^{n}
 	\end{equation*}	
@@ -276,17 +283,16 @@ Di seguito enunceremo alcune serie a valori reali di particolare rilevanza.
 		s_n=\sum_{k=0}^{n}z^{k}=\frac{1-z^{n+1}}{1-z}
 	\end{equation*}
 	La serie dunque converge se e solo se $\abs{z}<1$ e in tal caso converge a $\displaystyle\frac{1}{1-z}$.
-	\item \textbf{Serie armonica generalizzata.}
+\paragraph{Serie armonica generalizzata}
 	\begin{equation}
 		\sum_{n=1}^{+\infty}\frac{1}{n^p}
 	\end{equation}
 	converge se $p>1$ e diverge per $p\leq 1$; per $p=1$ abbiamo la \textbf{serie armonica}. Se $p>1$ la somma della serie armonica generalizzata, se vista in funzione di $p$, è  $\zeta\left(p\right)$, ossia la \textit{funzione zeta di Riemann} valutata in $p$.
-	\item \textbf{Serie logaritmica.}
+\paragraph{Serie logaritmica}
 	\begin{equation}
 		\sum_{n=2}^{+\infty}\frac{1}{n\left(\log n\right)^p}
 	\end{equation}
 	per ogni numero reale positiva $p$. Diverge per $p\leq 1$, ma converge per ogni $p>1$.
-\end{itemize}
 \section{Capitolo 4: serie di potenze}
 \subsection{Il prodotto di serie (secondo Cauchy)}\label{prodottosecondocauchy}
 In questa sezioni ricordiamo la definizione ed alcune proprietà del prodotto di serie (secondo Cauchy), basandoci sul Capitolo 3 di \cite{rudin:1976principles}.\\
@@ -307,7 +313,7 @@ Possiamo estendere formalmente questa scrittura al caso di serie di potenze, pon
 	\sum_{n=0}^{+\infty} \alpha_n z^n \cdot \sum_{n=0}^{+\infty} \beta_n z^n = \sum_{n=0}^{+\infty} \gamma_n z^n
 \end{equation*}
 dove $\gamma_n$ è definito come precedentemente. Il risultato per $z=1$ suggerisce quindi come definire il prodotto delle serie iniziali.
-\begin{define}[Prodotto di serie {(secondo Cauchy)}.]~{}\\
+\begin{define}[Prodotto di serie {(secondo Cauchy)}]
 	Date le serie
 	\begin{equation*}
 		\sum_{n=0}^{+\infty} \alpha_n,\quad \sum_{n=0}^{+\infty} \beta_n,\quad \alpha_n, \ \beta_n \in \complexset
@@ -350,7 +356,7 @@ Perciò si ha
 e quindi la serie prodotto non può convergere.
 \end{example}
 Osserviamo che nell'esempio riportato la serie iniziale \textit{converge semplicemente}, ma non \textit{assolutamente}; questo è il motivo per cui la serie prodotto \textit{non converge}. Infatti, in presenza della convergenza assoluta la serie prodotto \textit{converge}.
-\begin{theorema}[Prodotto di serie {(secondo Cauchy)} convergente se una serie converge assolutamente.]~{}\\
+\begin{theoremaqed}[Prodotto di serie {(secondo Cauchy)} convergente se una serie converge assolutamente]
 	Siano date le due serie 
 	\begin{equation*}
 		\sum_{n=0}^{+\infty} \alpha_n,\quad \sum_{n=0}^{+\infty} \beta_n,\quad \alpha_n, \ \beta_n \in \complexset,
@@ -358,5 +364,5 @@ Osserviamo che nell'esempio riportato la serie iniziale \textit{converge semplic
 	e si supponga che esse convergano a $\alpha$ e $\beta$, rispettivamente. 
 	Inoltre, si supponga che \textit{almeno una} di esse converga \textit{assolutamente}.
 	Allora, la loro serie prodotto converge a $\alpha \beta$.
-\end{theorema}
+\end{theoremaqed}
 \section{Capitolo 5: teoria della misura}

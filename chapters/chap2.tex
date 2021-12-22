@@ -260,11 +260,15 @@ allora si dice che $X_n$ converge a $X$ \textbf{in legge}\index{convergenza!in l
 	\lim_{n\to+\infty}F_n\left(x\right)=F\left(x\right),\ \forall x\in\realset\ \text{punto di continuità di }F.
 \end{equation}
 \end{define}
-Quello che abbiamo appena scritta non è altro che il caso applicato agli \textit{studi probabilistici} della \textbf{convergenza puntuale} di una successione nel punto $x$.
+Quello che abbiamo appena scritta non è altro che un'applicazione agli \textit{studi probabilistici} della \textbf{convergenza puntuale} di una successione nel punto $x$.
 \begin{define}[Convergenza puntuale]
-	Siano $\funz{f_n,\ f}{A}{Y}$ con $A$ insieme qualsiasi e $Y$ spazio normato (completo). $f_n$ converge a $f$ \textbf{puntualmente}\index{convergenza!puntuale} in ogni punto di $A$ se
+	Siano $\funz{f_n,\ f}{A}{Y}$ con $A$ insieme qualsiasi e $Y$ spazio normato (completo). $f_n$ converge a $f$ \textbf{puntualmente}\index{convergenza!puntuale} in ogni punto di $A$  se
 	\begin{equation}
-		\forall x\in A,\ \forall \epsilon>0,\ \exists N=N\left(\epsilon,x\right)\colon\forall n\geq N,\ \norm{f_n\left(x\right)-f\left(x\right)}<\epsilon
+		\forall x\in X,\lim_{n\to+\infty}f_n\left(x\right)=f\left(x\right)
+	\end{equation}
+	o, alternativamente,
+	\begin{equation}
+		\forall x\in X,\ \forall \epsilon >0,\ \exists N=N\left(x,\epsilon\right)\colon \forall n\geq N,\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
 	\end{equation}
 \end{define}
 Confrontiamo qui $\funz{f_n,\ f}{A\subseteq R}{\realset}$:

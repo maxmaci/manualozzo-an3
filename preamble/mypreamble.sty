@@ -1104,24 +1104,61 @@ headfont=\bfseries\scshape\color{orangered!55!black},
 notebraces={ }{ },
 notefont=\scshape,
 headpunct=\color{orangered!55!black},
+headformat={\NAME\, \NUMBER\small\bfseries\scshape\color{orangered!55!black}{.\, - \NOTE. }\addcontentsline{theorema}{section}{\small{\textbf{PR\NUMBER}.\ \textsc{\NOTE}}}}
+]{propositionssty}
+
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont\itshape,
+headindent=0pt,
+headfont=\bfseries\scshape\color{orangered!55!black},
+notebraces={ }{ },
+notefont=\scshape,
+headpunct=\color{orangered!55!black},
 headformat={\NAME\, \NUMBER\small\bfseries\scshape\color{orangered!55!black}{.\, - \NOTE. }\addcontentsline{theorema}{section}{\small{\textbf{PR\NUMBER}.\ \textsc{\NOTE}}}},
 postheadspace=\newline,
 qed=\qedsymbol
 ]{propositionqedsty}
 
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont\itshape,
+headindent=0pt,
+headfont=\bfseries\scshape\color{orangered!55!black},
+notebraces={ }{ },
+notefont=\scshape,
+headpunct=\color{orangered!55!black},
+headformat={\NAME\, \NUMBER\small\bfseries\scshape\color{orangered!55!black}{.\, - \NOTE. }\addcontentsline{theorema}{section}{\small{\textbf{PR\NUMBER}.\ \textsc{\NOTE}}}},
+qed=\qedsymbol
+]{propositionsqedsty}
+
 \newcounter{proposition}
 
 \declaretheorem[style=propositionsty,numberwithin=section,name=\textsc{Proposizione}]{propositionT}
 
+\declaretheorem[style=propositionssty,numberwithin=section,name=\textsc{Proposizione}]{propositionsT}
+
 \declaretheorem[style=propositionqedsty,numberwithin=section,name=\textsc{Proposizione}]{propositionqedT}
+
+\declaretheorem[style=propositionsqedsty,numberwithin=section,name=\textsc{Proposizione}]{propositionsqedT}
 
 \newenvironment{proposition}
 {\begin{orangeredBox}\begin{propositionT}}
 {\end{propositionT}\end{orangeredBox}}
 
+\newenvironment{propositions}
+{\begin{orangeredBox}\begin{propositionsT}}
+{\end{propositionsT}\end{orangeredBox}}
+
 \newenvironment{propositionqed}
 {\begin{orangeredBox}\begin{propositionqedT}}
 {\end{propositionqedT}\end{orangeredBox}}
+
+\newenvironment{propositionsqed}
+{\begin{orangeredBox}\begin{propositionsqedT}}
+{\end{propositionsqedT}\end{orangeredBox}}
 
 %%% lemma %%%
 
@@ -1635,11 +1672,25 @@ headformat={\color{zomp!55!black}{\NAME\, - \NOTE.}},
 postheadspace=\newline
 ]{examplewtsty}
 
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+headfont=\bfseries\scshape\color{zomp!55!black},
+notebraces={ }{ },
+headpunct=\color{zomp!55!black},
+notefont=\scshape,
+headformat={\color{zomp!55!black}{\NAME\, - \NOTE.}}
+]{exampleswtsty}
+
 \declaretheorem[style=examplesty,numberwithin=section,name=\textsc{Esempio}]{exampleT}
 
 \declaretheorem[style=examplewtsty,numberwithin=section,name=\textsc{Esempio}]{examplewtT}
 
 \declaretheorem[style=examplesty,numberwithin=section,name=\textsc{Esempi}]{examplesT}
+
+\declaretheorem[style=exampleswtsty,numberwithin=section,name=\textsc{Esempi}]{exampleswtT}
 
 \newenvironment{example}
 {\begin{zompBox}\begin{exampleT}}
@@ -1652,6 +1703,10 @@ postheadspace=\newline
 \newenvironment{examples}
 {\begin{zompBox}\begin{examplesT}}
 {\end{examplesT}\end{zompBox}}
+
+\newenvironment{exampleswt}
+{\begin{zompBox}\begin{exampleswtT}}
+{\end{exampleswtT}\end{zompBox}}
 
 %%% digressione %%%
 
