@@ -125,7 +125,7 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 
 \end{theorema}
 \begin{observe}
-	I tre casi scritti esauriscono \textit{tutti} i casi possibili. Infatti, per la permanenza del segno del limsup\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} vale
+	I tre casi scritti esauriscono \textit{tutti} i casi possibili. Infatti, per la permanenza del segno del limsup\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{limsuppermanenzadelsegno} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} vale
 	\begin{equation*}
 		\sqrt[n]{\abs{a_n}}\geq 0,\ \forall n\geq 0\implies\limsup_{n\to+\infty}\sqrt[n]{\abs{a_n}}\geq 0
 	\end{equation*}
@@ -142,11 +142,11 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 			\item[a.]	 Sia $z$ tale che $\abs{z}<\nicefrac{1}{\lambda}$. Se $z=0$ la serie banalmente converge perché ogni serie converge nel suo centro.\\
 			Se $z\neq 0$, vale $\lambda<\nicefrac{1}{\abs{z}}$; consideriamo allora $\lambda'$ tale che $\lambda<\lambda'<\nicefrac{1}{\abs{z}}$: poiché $\lambda'>\lambda$, per la caratterizzazione del massimo limite si ha
 			\begin{equation*}
-				\textcolor{red}{\circled{\ast}}\quad\exists N\colon\forall n\geq N,\ \sqrt[n]{\abs{a_n}}<\lambda'
+				\circled[red]{\vardiamond}\quad\exists N\colon\forall n\geq N,\ \sqrt[n]{\abs{a_n}}<\lambda'
 			\end{equation*}
 			Proviamo che $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge assolutamente usando il criterio del confronto.
 			\begin{equation*}
-				\abs{a_nz^n}=\abs{a_n}\abs{z^n}=\abs{a_n}\abs{z}^n\underset{\textcolor{red}{\circled{\ast}}}{<} \left(\lambda'\right)^n\abs{z}^n=\left(\lambda'\abs{z}\right)^n,\ \forall n\geq N
+				\abs{a_nz^n}=\abs{a_n}\abs{z^n}=\abs{a_n}\abs{z}^n\underset{\circled[red]{\vardiamond}}{<} \left(\lambda'\right)^n\abs{z}^n=\left(\lambda'\abs{z}\right)^n,\ \forall n\geq N
 			\end{equation*}
 			Questo è il termine $n$-esimo della serie geometrica
 			\begin{equation*}
@@ -171,11 +171,11 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 			Anche se $\complexset$ è uno spazio metrico con la distanza indotta dal modulo, siamo passati da $\complexset$ a $\realset$ col modulo in modo da utilizzare l'ipotesi del $\limsup$, la quale richiede uno spazio metrico ordinato (come è $\realset$).\\
 			Poiché $z\neq 0$, vale $\lambda>\nicefrac{1}{\abs{z}}$.	Consideriamo allora $\lambda''$ tale che $\nicefrac{1}{\abs{z}}<\lambda''<\lambda$: poiché $\lambda''<\lambda$, per la caratterizzazione del massimo limite si ha
 			\begin{equation*}
-				\textcolor{blue}{\circled{\ast}}\quad\exists n_k\to+\infty\colon\sqrt[n_k]{\abs{a_{n_k}}}>\lambda''
+				\circled[blue]{\spadesuit}\quad\exists n_k\to+\infty\colon\sqrt[n_k]{\abs{a_{n_k}}}>\lambda''
 			\end{equation*}
 			Si ha, lungo la sottosuccessione:
 			\begin{equation*}
-				\abs{a_{n_k}z^{n_k}}=\abs{a_n}{z}^{n_k}\underset{\textcolor{blue}{\circled{\ast}}}{>} \left(\lambda''\right)^{n_k}\abs{z}^{n_k}\underset{\substack{\text{per la}\\\text{scelta}\\\text{di }\lambda''}}{=}\left(\lambda''\abs{z}>1\right)^{n_k}>1,\ \forall n_k
+				\abs{a_{n_k}z^{n_k}}=\abs{a_n}{z}^{n_k}\underset{\circled[blue]{\spadesuit}}{>} \left(\lambda''\right)^{n_k}\abs{z}^{n_k}\underset{\substack{\text{per la}\\\text{scelta}\\\text{di }\lambda''}}{=}\left(\lambda''\abs{z}>1\right)^{n_k}>1,\ \forall n_k
 			\end{equation*}
 			Poiché esiste una sottosuccessione che è sempre maggiore di $1$, deve esistere un valore limite della successione $\abs{a_nz^n}$ maggiore o uguale a $1$. Ma allora
 			\begin{equation*}
@@ -184,11 +184,11 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 		\end{itemize}
 	\item La dimostrazione del punto $1)$ è analoga alla prima parte della dimostrazione del punto $2)$. In questo caso, dobbiamo mostrare che la serie converge $\forall z\in\complexset$.\\ Se $z=0$, la serie banalmente converge, mentre se $z\neq 0$, si ha chiaramente che $0=\lambda<\nicefrac{1}{\abs{z}},\ \forall z\in\complexset\setminus\{0\}$. Consideriamo allora $\lambda'$ tale che $0<\lambda'<\nicefrac{1}{\abs{z}}$: poiché $\lambda'>0$, per la caratterizzazione del massimo limite si ha
 	\begin{equation*}
-		\textcolor{red}{\circled{\ast}}\quad\exists N\colon\forall n\geq N\ \sqrt[n]{\abs{a_n}}<\lambda'
+		\circled[red]{\vardiamond}\quad\exists N\colon\forall n\geq N\ \sqrt[n]{\abs{a_n}}<\lambda'
 	\end{equation*}
 	Proviamo che $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge assolutamente usando il criterio del confronto.
 	\begin{equation*}
-		\abs{a_nz^n}=\abs{a_n}\abs{z^n}=\abs{a_n}\abs{z}^n\underset{\textcolor{red}{\circled{\ast}}}{<} \left(\lambda'\right)^n\abs{z}^n=\left(\lambda'\abs{z}\right)^n,\ \forall n\geq N
+		\abs{a_nz^n}=\abs{a_n}\abs{z^n}=\abs{a_n}\abs{z}^n\underset{\circled[red]{\vardiamond}}{<} \left(\lambda'\right)^n\abs{z}^n=\left(\lambda'\abs{z}\right)^n,\ \forall n\geq N
 	\end{equation*}
 	Questo è il termine $n$-esimo della serie geometrica
 	\begin{equation*}
@@ -208,17 +208,17 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 	\begin{equation*}
 		\lim_{n\to+\infty}a_nz^n\neq 0,\ \forall z\neq 0
 	\end{equation*}
-	Questo è equivalente\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare la dimostrazione di questo risultato.} a mostrare che
+	Questo è equivalente\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{equivalenzalimiteemodulolimite} è possibile trovare la dimostrazione di questo risultato.} a mostrare che
 	\begin{equation*}
 		\lim_{n\to+\infty}\abs{a_nz^n}\neq 0,\ \forall z\neq 0
 	\end{equation*}
 	Dato $z\neq 0$, consideriamo allora $\lambda''$ tale che $\nicefrac{1}{\abs{z}}<\lambda''<+\infty$: poiché $\lambda''<+\infty$, per la caratterizzazione del massimo limite si ha
 	\begin{equation*}
-		\textcolor{blue}{\circled{\ast}}\quad\exists n_k\to+\infty\colon\sqrt[n_k]{\abs{a_{n_k}}}>\lambda''
+		\circled[blue]{\spadesuit}\quad\exists n_k\to+\infty\colon\sqrt[n_k]{\abs{a_{n_k}}}>\lambda''
 	\end{equation*}
 	Si ha, lungo la sottosuccessione:
 	\begin{equation*}
-		\abs{a_{n_k}z^{n_k}}=\abs{a_n}{z}^{n_k}\underset{\textcolor{blue}{\circled{\ast}}}{>}\left(\lambda''\right)^{n_k}\abs{z}^{n_k}\underset{\substack{\text{per la}\\\text{scelta}\\\text{di }\lambda''}}{=}\left(\lambda''\abs{z}>1\right)^{n_k}>1,\ \forall n_k
+		\abs{a_{n_k}z^{n_k}}=\abs{a_n}{z}^{n_k}\underset{\circled[blue]{\spadesuit}}{>}\left(\lambda''\right)^{n_k}\abs{z}^{n_k}\underset{\substack{\text{per la}\\\text{scelta}\\\text{di }\lambda''}}{=}\left(\lambda''\abs{z}>1\right)^{n_k}>1,\ \forall n_k
 	\end{equation*}
 	Poiché esiste una sottosuccessione che è sempre maggiore di $1$, deve esistere un valore limite della successione $\abs{a_nz^n}$ maggiore o uguale a $1$. Ma allora
 	\begin{equation*}
@@ -376,7 +376,7 @@ Anche se in generale non possiamo affermare a priori come converge sul bordo si 
 	abbiamo già ricavato diverse informazioni: ha raggio di convergenza $R=1$ e \textit{non} c'è convergenza (assoluta) sul bordo, inoltre ne conosciamo la somma. Studiamo ora la convergenza uniforme.
 	\begin{itemize}
 		\item Converge uniformemente su ogni insieme $H$ tale che $\overline{H}\subsetneqq B_1\left(0\right)$ per il teorema precedente.
-		\item Non avendo alcuna convergenza sul bordo, a priori \textit{non} possiamo dare risultati generali sulla convergenza uniforme sulla base del teorema visto. Tuttavia, possiamo mostrare direttamente - grazie al fatto che la somma parziale e limite della serie geometrica è nota\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare maggiori dettagli sulla somma (parziale) della serie geometrica e come ricavarla.} -  che la serie non converge uniformemente sul disco aperto $B_1\left(0\right)$. Infatti
+		\item Non avendo alcuna convergenza sul bordo, a priori \textit{non} possiamo dare risultati generali sulla convergenza uniforme sulla base del teorema visto. Tuttavia, possiamo mostrare direttamente - grazie al fatto che la somma parziale e limite della serie geometrica è nota\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{seriegeometricafootnote} è possibile trovare maggiori dettagli sulla somma (parziale) della serie geometrica e come ricavarla.} -  che la serie non converge uniformemente sul disco aperto $B_1\left(0\right)$. Infatti
 		\begin{align*}
 			\sup_{z\in B_1\left(0\right)}\abs{S_n\left(z\right)-S\left(z\right)}&=\sup_{z\in B_1\left(0\right)}\abs{\frac{1-z^{n+1}}{1-z}-\frac{1}{1-z}}=\sup_{z\in B_1\left(0\right)}\abs{\frac{-z^{n+1}}{1-z}}=\\
 			&=\sup_{z\in B_1\left(0\right)}\frac{\abs{z}^{n+1}}{\abs{1-z}}=+\infty,\ \forall n\geq 0
@@ -498,7 +498,6 @@ Per dimostrare questo teorema useremo il \textit{teorema di derivabilità} per s
 	\sum_{n=1}^{+\infty}na_nx^{n-1}
 \end{equation*}
 Poiché la serie delle derivate è ancora una serie di potenze, allora ci basta studiare il raggio di convergenza.
-% TO DO: nelle Note extra a pagina XXX inserire il prodotto del lim sup
 \begin{lemming}[Convergenza della serie di derivate della serie di potenze]
 	Sia data la serie di potenze 
 	\begin{equation*}
@@ -523,7 +522,7 @@ Ottenendo così il prodotto di due successioni. Osserviamo che
 \begin{equation*}
 	\lim_{n\to+\infty}\alpha_n=\lim_{n\to+\infty}\left(n+1\right)^{\nicefrac{1}{n}}=\lim_{n\to+\infty}e^{\frac{1}{n}\log\left(n+1\right)}=\lim_{n\to+\infty}e^{\frac{\log\left(n+1\right)}{n}}
 \end{equation*}
-Poichè $\frac{\log\left(n+1\right)}{n}\to 0$ per $n\to+\infty$ per \textit{confronto della crescita degli infiniti}, si ha che $\displaystyle\lim_{n\to+\infty}\alpha_n=e^0=1$, dunque $\alpha_n$ ammette limite e coincide col suo $\limsup$. Allora, per proprietà\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} del $\limsup$:
+Poichè $\frac{\log\left(n+1\right)}{n}\to 0$ per $n\to+\infty$ per \textit{confronto della crescita degli infiniti}, si ha che $\displaystyle\lim_{n\to+\infty}\alpha_n=e^0=1$, dunque $\alpha_n$ ammette limite e coincide col suo $\limsup$. Allora, per proprietà del $\limsup$ del prodotto\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{prodottolimsup} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.}:
 \begin{equation*}
 	\squarequal\lim_{n\to+\infty}\alpha_n\limsup_{n\to+\infty}\beta_n=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\frac{1}{n+1}}\right)^{\frac{n+1}{n}}\squarequal
 \end{equation*}
@@ -764,16 +763,15 @@ con
 	b_m=\sum_{n=0}^{+\infty} a_{n+m} \binom{n+m}{n} x_0^{n}.
 \end{equation*}
 \end{solution}
-
 \subsection{Esempi di funzioni analitiche}
-\begin{theorema}[Analiticità di {$e^x$}, {$\cos x$}, {$\sin x$}, {$\left(1+x\right)^\alpha$}]% TO DO: allinearli (chiedere ad Elisa come li voleva, se li voleva)
+\begin{theorema}[Analiticità di {$e^x$}, {$\cos x$}, {$\sin x$}, {$\left(1+x\right)^\alpha$}]\label{funzionianaliticheeserie}
 	Le funzioni $e^x$, $\cos x$, $\sin x$, $\left(1+x\right)^\alpha$ con $\alpha\in\realset$ sono analitiche in $x_0=0$ e vale
-	\begin{align}
+	\begin{flalign}
 		e^x&=\sum_{k=0}^{+\infty}\frac{1}{k!}x^k,\ \ \forall x\in\realset\\
 		\cos x&=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k\right)!}x^{2k},\ \ \forall x\in\realset\\
 		\sin x&=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k+1\right)!}x^{2k+1},\ \ \forall x\in\realset\\
 		\left(1+x\right)^\alpha&=\sum_{k=0}^{+\infty}\binom{\alpha}{k}x^k,\ \ \forall x\in\left(-1,1\right),\ \forall \alpha\in\realset
-	\end{align}
+	\end{flalign}
 \end{theorema}
 \begin{attention}
 	L'ultima formula vale solo per $x\in\left(-1,1\right)$, indipendentemente dal dominio di $\left(1+x\right)^\alpha$. Ad esempio, se $\alpha=\frac{1}{3}$, $\left(1+x\right)^\alpha=\sqrt[3]{1+x}$ è definita su tutto $\realset$, però si può scrivere somma della sua serie di Taylor solo in $\left(-1,1\right)$; in altre parole, l'analiticità è una proprietà \textit{locale}.
@@ -902,7 +900,7 @@ Segue che converge per ogni $z\in\complexset$.
 \begin{equation*}
 	\sum_{n=0}^{+\infty} \frac{(z_1+z_2)^n}{n!} =\sum_{n=0}^{+\infty} \frac{z_1^n}{n!} \cdot \sum_{n=0}^{+\infty} \frac{z_2^n}{n!}
 \end{equation*}
-Ricordiamo\footnote{Nelle ‘‘Note aggiuntive'', a pagina \ref{prodottosecondocauchy} è possibile trovare alcune informazioni sulla proprietà di prodotto (secondo Cauchy).} che, date due serie
+Ricordiamo\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{prodottosecondocauchy} è possibile trovare alcune informazioni sulla proprietà di prodotto (secondo Cauchy).} che, date due serie
 \begin{equation*}
 	\sum_{n=0}^{+\infty} \alpha_n,\quad \sum_{n=0}^{+\infty} \beta_n,\quad \alpha_n, \ \beta_n \in \complexset
 \end{equation*}
@@ -935,7 +933,7 @@ Da questo segue che $e^{-z} = \nicefrac{1}{e^z}$.
 \begin{equation*}
 	e^{iy}=\sum_{n=0}^{+\infty}\frac{\left(iy\right)^n}{n!}=\sum_{n=0}^{+\infty}\frac{i^ny^n}{n!}
 \end{equation*}
-Riordiniamo i termini della serie separando i termini di posto pari e quelli di posto dispari\footnote{Per riordinare la serie come due ‘‘sottoserie'' senza che la somma venga modificata è necessaria la convergenza assoluta. Poiché ogni serie di potenze converge assolutamente all'interno del suo cerchio di convergenza, in questo caso non abbiamo problemi di riorganizzazione della serie. Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare alcune informazioni sul problema di riorganizzazione della serie.}, ottenendo
+Riordiniamo i termini della serie separando i termini di posto pari e quelli di posto dispari\footnote{Per riordinare la serie come due ‘‘sottoserie'' senza che la somma venga modificata è necessaria la convergenza assoluta. Poiché ogni serie di potenze converge assolutamente all'interno del suo cerchio di convergenza, in questo caso non abbiamo problemi di riorganizzazione della serie e . Nelle ‘‘Note aggiuntive'', a pagina \pageref{riordinamentoserie} è possibile trovare alcune informazioni sul problema di riorganizzazione della serie.}, ottenendo
 \begin{equation*}
 	e^{iy}=\sum_{n=0}^{+\infty}\frac{i^{2k}y^{2k}}{\left(2k\right)!}+\sum_{n=0}^{+\infty}\frac{i^{2k+1}y^{2k+1}}{\left(2k+1\right)!}
 \end{equation*}
@@ -946,12 +944,12 @@ Calcoliamo ora $i^{2k}$ e $i^{2k+1}$:
 \end{itemize}
 Allora
 \begin{equation*}
-	e^{iy}=\sum_{n=0}^{+\infty}\frac{\left(-1\right)^ky^{2k}}{\left(2k\right)!}+i\sum_{n=0}^{+\infty}\frac{\left(-1\right)^ky^{2k+1}}{\left(2k+1\right)!}
+	e^{iy}=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^ky^{2k}}{\left(2k\right)!}+i\sum_{k=0}^{+\infty}\frac{\left(-1\right)^ky^{2k+1}}{\left(2k+1\right)!}
 \end{equation*}
 Ricordando che
 \begin{equation*}
-	\cos y=\sum_{n=0}^{+\infty}\frac{\left(-1\right)^ky^{2k}}{\left(2k\right)!}\quad
-	\sin y=\sum_{n=0}^{+\infty}\frac{\left(-1\right)^ky^{2k+1}}{\left(2k+1\right)!}
+	\cos y=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^ky^{2k}}{\left(2k\right)!}\quad
+	\sin y=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^ky^{2k+1}}{\left(2k+1\right)!}
 \end{equation*}
 segue la tesi.
 \item[V] Sia $z=x+iy$, con $x,y\in\realset$. Dalla relazione provata in I segue che $e^{x+iy}=e^xe^{iy}$. Applicando la \textit{formula di Eulero}, si ha la tesi.

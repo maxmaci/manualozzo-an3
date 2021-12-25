@@ -96,7 +96,7 @@ La coppia $\left(X,\mathcal{M}\right)$ si dice \textbf{spazio misurabile}\index{
 		\begin{equation*}
 			A_n\in\mathcal{M}\implies \bigcap_{n\geq 1}A_n\in\mathcal{M} 
 		\end{equation*}
-		Infatti, l'intersezione si può scrivere tramite unioni e complementari, operazioni interne alla $\sigma$-algebra, grazie alle \textit{leggi di De Morgan}\footnote{Nelle ‘‘Note aggiuntive'', a pagina XXX è possibile trovare alcune informazioni sulle leggi di De Morgan.}.
+		Infatti, l'intersezione si può scrivere tramite unioni e complementari, operazioni interne alla $\sigma$-algebra, grazie alle \textit{leggi di De Morgan}\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{leggidemorgan} è possibile trovare alcune informazioni sulle leggi di De Morgan.}.
 	\end{itemize}
 \end{observe}
 \begin{example}
@@ -193,13 +193,13 @@ In \textsc{Calcolo delle Probabilità} abbiamo dato una definizione di funzione 
 \end{theoremasqed}
 Che differenza c'è tra la definizione e le caratterizzazioni? In sostanza possono essere considerate tre ‘‘test'' differenti per mostrare o confutare che una funzione sia misurabile.
 \begin{align*}
-	\textcolor{red}{\circled{A}}&\qquad f^{-1}\left(A\right)\in\mathcal{M},\ \forall A\text{ aperto di }Y\\
-	\textcolor{red}{\circled{B}}&\qquad f^{-1}\left(B\right)\in\mathcal{M},\ \forall B\text{ Borelliano di }Y\\
-	\textcolor{red}{\circled{C}}&\qquad f^{-1}\left(\left(\alpha,+\infty\right)\right)\in\mathcal{M},\ \forall \alpha\in\realset,\ \text{con }Y=\realset^{\ast}=\left[-\infty,+\infty\right]
+	\circled[red]{A}&\qquad f^{-1}\left(A\right)\in\mathcal{M},\ \forall A\text{ aperto di }Y\\
+	\circled[red]{B}&\qquad f^{-1}\left(B\right)\in\mathcal{M},\ \forall B\text{ Borelliano di }Y\\
+	\circled[red]{C}&\qquad f^{-1}\left(\left(\alpha,+\infty\right)\right)\in\mathcal{M},\ \forall \alpha\in\realset,\ \text{con }Y=\realset^{\ast}=\left[-\infty,+\infty\right]
 \end{align*}
-Da un punto di vista \textit{operativo} $\textcolor{red}{\circled{B}}$ non conviene come metodo per verificare che $f$ sia misurabile: i Borelliani, pur avendo la \textit{stessa cardinalità} degli aperti, li contengono \textit{strettamente}\footnote{A pag. \pageref{famigliediinsiemi} è possibile trovare un approfondimento sulla relazione tra Borelliani, aperti e altre classi di insiemi.} e quindi bisogna verificare ulteriori insiemi (come i chiusi) rispetto a quelli che si verificherebbero con la condizione $\textcolor{red}{\circled{A}}$.\\
-Tuttavia, $\textcolor{red}{\circled{B}}$ fornisce delle informazioni che immediatamente non si avevano dalla definizione originale: sono misurabili non solo le controimmagini degli aperti, ma anche le controimmagini dei chiusi.\\
-Col caso $\textcolor{red}{\circled{C}}$ ci limitiamo ad operare in $\realset^{\ast}=\left[-\infty,+\infty\right]$, ma è sicuramente più vantaggioso da applicare rispetto ad $\textcolor{red}{\circled{A}}$.
+Da un punto di vista \textit{operativo} \circled[red]{B} non conviene come metodo per verificare che $f$ sia misurabile: i Borelliani, pur avendo la \textit{stessa cardinalità} degli aperti, li contengono \textit{strettamente}\footnote{A pag. \pageref{famigliediinsiemi} è possibile trovare un approfondimento sulla relazione tra Borelliani, aperti e altre classi di insiemi.} e quindi bisogna verificare ulteriori insiemi (come i chiusi) rispetto a quelli che si verificherebbero con la condizione \circled[red]{A}.\\
+Tuttavia, \circled[red]{B} fornisce delle informazioni che immediatamente non si avevano dalla definizione originale: sono misurabili non solo le controimmagini degli aperti, ma anche le controimmagini dei chiusi.\\
+Col caso \circled[red]{C} ci limitiamo ad operare in $\realset^{\ast}=\left[-\infty,+\infty\right]$, ma è sicuramente più vantaggioso da applicare rispetto ad \circled[red]{A}.
 \subsection{Passaggio al limite per funzioni misurabili}
 Ci chiediamo se, date $f_n$ successione di funzioni misurabili che convengono ad una funzione $f$ in \textit{una qualche} convergenza, $f$ risulta essere ancora misurabile e se sì, con quale tipo di convergenza.\\
 A differenza di quanto visto col passaggio al limite della continuità, la risposta è affermativa anche sotto la sola ipotesi di \textit{convergenza puntuale}!\\

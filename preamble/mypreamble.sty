@@ -1424,22 +1424,40 @@ headfont=\bfseries\scshape\color{platinum!55!black},
 notebraces={ }{ },
 notefont=\scshape,
 headpunct=\color{platinum!55!black},
-postheadspace=0.50em,
+postheadspace=\newline,
 headformat={\color{platinum!55!black}{\NAME.}},
-qed=\qedsymbol,
-postheadspace=\newline
-]{demonstrationssty}
+qed=\qedsymbol
+]{demonstrationcaputsty}
+
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+headfont=\bfseries\scshape\color{platinum!55!black},
+notebraces={ }{ },
+notefont=\scshape,
+headpunct=\color{platinum!55!black},
+postheadspace=\newline,
+headformat={\color{platinum!55!black}{\NAME\, (\!\!\!\NOTE\!).}},
+qed=\qedsymbol
+]{demonstrationwtsty}
 
 \declaretheorem[style=demonstrationsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationT}
-\declaretheorem[style=demonstrationssty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationsT}
+\declaretheorem[style=demonstrationcaputsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationcaputT}
+\declaretheorem[style=demonstrationwtsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationwtT} % demonstration con lista
 
 \newenvironment{demonstration}
 {\begin{platinumBox}\begin{demonstrationT}}
 {\end{demonstrationT}\end{platinumBox}}
 
-\newenvironment{demonstrations}
-{\begin{platinumBox}\begin{demonstrationsT}}
-{\end{demonstrationsT}\end{platinumBox}}
+\newenvironment{demonstrationcaput}
+{\begin{platinumBox}\begin{demonstrationcaputT}}
+{\end{demonstrationcaputT}\end{platinumBox}}
+
+\newenvironment{demonstrationwt}
+{\begin{platinumBox}\begin{demonstrationwtT}}
+{\end{demonstrationwtT}\end{platinumBox}}
 
 %%% assioma %%%
 
@@ -1819,11 +1837,36 @@ postheadspace=0.50em,
 headformat={\color{forestgreencrayola!55!black}{\NAME.}}
 ]{exercisesty}
 
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+headfont=\bfseries\scshape\color{forestgreencrayola!55!black},
+notebraces={ }{ },
+headpunct=\color{forestgreencrayola!55!black},
+notefont=\scshape,
+postheadspace=\newline,
+headformat={\color{forestgreencrayola!55!black}{\NAME\, - \NOTE.}}
+]{exercisewtsty}
+
 \declaretheorem[style=exercisesty,numberwithin=section,name=\textsc{Esercizio}]{exerciseT}
 
+\declaretheorem[style=exercisewtsty,numberwithin=section,name=\textsc{Esercizio}]{exercisewtT}
+
+\declaretheorem[style=exercisesty,numberwithin=section,name=\textsc{Esercizi}]{exercisesT}
+
 \newenvironment{exercise}
-{\begin{exerciseT}\begin{forestgreencrayolaBox}}
-{\end{forestgreencrayolaBox}\end{exerciseT}}
+{\begin{forestgreencrayolaBox}\begin{exerciseT}}
+{\end{exerciseT}\end{forestgreencrayolaBox}}
+
+\newenvironment{exercisewt}
+{\begin{forestgreencrayolaBox}\begin{exercisewtT}}
+{\end{exercisewtT}\end{forestgreencrayolaBox}}
+
+\newenvironment{exercises}
+{\begin{forestgreencrayolaBox}\begin{exercisesT}}
+{\end{exercisesT}\end{forestgreencrayolaBox}}
 
 %%% soluzione %%%
 
@@ -1854,15 +1897,34 @@ headfont=\bfseries\scshape\color{queenblue!55!black},
 notebraces={ }{ },
 notefont=\scshape,
 headpunct=\color{queenblue!55!black},
+postheadspace=\newline,
+headformat={\color{queenblue!55!black}{\NAME.}}
+]{solutioncaputsty}
+
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+headfont=\bfseries\scshape\color{queenblue!55!black},
+notebraces={ }{ },
+notefont=\scshape,
+headpunct=\color{queenblue!55!black},
 postheadspace=0.50em,
 headformat={\color{queenblue!55!black}{\NAME.}}
 ]{solutionsty}
 
 \declaretheorem[style=solutionsty,numberwithin=section,name=\textsc{Soluzione}]{solutionT}
 
+\declaretheorem[style=solutioncaputsty,numberwithin=section,name=\textsc{Soluzione}]{solutioncaputT}
+
 \newenvironment{solution}
-{\begin{solutionT}\begin{queenblueBox}}
-{\end{queenblueBox}\end{solutionT}}
+{\begin{queenblueBox}\begin{solutionT}}
+{\end{solutionT}\end{queenblueBox}}
+
+\newenvironment{solutioncaput}
+{\begin{queenblueBox}\begin{solutioncaputT}}
+{\end{solutioncaputT}\end{queenblueBox}}
 
 %%% notazione %%%
 
@@ -2329,8 +2391,16 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 % testo cerchiato
 
-\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
-		\node[shape=circle,draw,inner sep=2pt] (char) {\ensuremath{#1}};}}
+\newcommand{\circled}[2][black]{%
+	\textcolor{#1}{\begin{tikzpicture}[baseline={(char.base)}]
+		\node (char) {\ensuremath{#2}};
+		\node[draw,circle,minimum size=16pt,inner sep=0pt,overlay] (char.center){};
+	\end{tikzpicture}}
+}
+
+%\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
+%		\node[shape=circle,draw,inner sep=2pt] (char) {\ensuremath{#1}};}}
+%
 
 % testo in un riquadro ad angoli smussati
 
@@ -2611,3 +2681,11 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+%%%
+
+% new font
+
+\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
+\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
+\DeclareMathSymbol{\vardiamond}{\mathalpha}{extraup}{87}

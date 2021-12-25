@@ -103,9 +103,10 @@ Sappiamo intuitivamente che più termini si hanno nello sviluppo di Taylor, più
 	\sum_{j=0}^{+\infty}\binom{\nicefrac{1}{2}}{j}x^j
 \end{equation*}
 Già ci dobbiamo porre nuove domande: la serie \textit{converge} e per quali valori di $x$? Supponendo che la serie converga per opportuni valori di $x$, la serie converge proprio a $\left(1+x\right)^{\nicefrac{1}{2}}$?\\
-\textit{In generale}, per $f\in\mathcal{C}^\infty$ qualsiasi \textbf{no}, la serie di Taylor non converge proprio e se converge non converge ad $f$! Tuttavia, in questo caso siamo particolarmente fortunati: $\forall x\in \left(-1, 1\right)$ la serie converge\footnote{Nelle ‘‘Note aggiuntive'', a pag. XXX è possibile trovare la dimostrazione di tale convergenza.} e vale
+\textit{In generale}, per $f\in\mathcal{C}^\infty$ qualsiasi \textbf{no}, la serie di Taylor non converge proprio e se converge non converge ad $f$!\\
+Tuttavia, in questo caso siamo particolarmente fortunati: $\forall x\in \left(-1, 1\right)$ la serie converge e vale\footnote{Nel \refChapterOnly{seriedipotenze}, a pag. \pageref{funzionianaliticheeserie} è possibile trovare la dimostrazione di tale risultato nel caso generale di $\left(1+x\right)^\alpha$.}
 \begin{equation*}
-	\left(1+x\right)^{\frac{1}{2}}=\sum_{j=0}^{+\infty}\binom{\nicefrac{1}{2}}{j}x^j\quad\forall n\geq 0\quad \forall x\in\left(-1, 1\right)
+	\left(1+x\right)^{\frac{1}{2}}=\sum_{j=0}^{+\infty}\binom{\frac{1}{2}}{j}x^j\quad\forall n\geq 0\quad \forall x\in\left(-1, 1\right)
 \end{equation*}
 In questa prima parte della dimostrazione abbiamo capito che è importante determinare quando è possibile passare dalla semplice \textit{approssimazione} di una funzione con il \textit{polinomio di Taylor} a poter riscrivere una funzione come una \textbf{serie di Taylor} di funzioni opportune.
 \subsection{La problematica dimostrazione della lunghezza dell'ellisse: passaggio al limite sotto segno di integrale}
@@ -123,7 +124,7 @@ Riscriviamo l'espressione precedente con la definizione di serie come \textit{li
 	\squarequal 4a\int_{0}^{\frac{\pi}{2}}\lim_{n\to+\infty}\left(\sum_{j=0}^{n}\binom{\nicefrac{1}{2}}{j}\left(-1\right)^je^{2j}\sin^{2j}t\right)dt
 \end{equation*}
 Il problema precedente si può riformulare come \emph{‘‘È possibile scambiare integrale e limite?''}. Tale questione è come il problema del \textbf{passaggio al limite sotto segno di integrale}.\\
-\textit{In generale}, la risposta è \textbf{no}: non è possibile scambiare limite e integrale. Ciò nonostante anche questa volta siamo particolarmente fortunati e il passaggio è \textit{lecito}\footnote{Nelle ‘‘Note aggiuntive'', a pag. XXX è possibile trovare la dimostrazione che in questo caso il passaggio è lecito.} e si ha
+\textit{In generale}, la risposta è \textbf{no}: non è possibile scambiare limite e integrale. Ciò nonostante anche questa volta siamo particolarmente fortunati e il passaggio è \textit{lecito} e si ha
 \begin{align*}
 	L&=4a\lim_{n\to+\infty}\int_{0}^{\frac{\pi}{2}}\sum_{j=0}^{n}\binom{\nicefrac{1}{2}}{j}\left(-1\right)^je^{2j}\sin^{2j}tdt\\
 	&=4a\lim_{n\to+\infty}\sum_{j=0}^{n}\int_{0}^{\frac{\pi}{2}}\binom{\nicefrac{1}{2}}{j}\left(-1\right)^je^{2j}\sin^{2j}tdt\\

@@ -5,636 +5,303 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Omotopia}
-\labelChapter{omotopia}
+\chapter{Convergenza di funzioni, parte seconda}
+\labelChapter{integraledilebesgue}
 
 \begin{introduction}
-	‘‘Molto spesso si è ripetuto che la Geometria è l'arte di ragionare bene su figure mal fatte; in ogni caso queste figure, per non ingannarci, devono soddisfare determinate condizioni; le proporzioni
-	possono essere grossolanamente distorte, ma le posizioni relative del
-	le varie parti non devono essere interrotte.''
+	‘‘BEEP BOOP QUESTA È UNA CITAZIONE.''
 	\begin{flushright}
-		\textsc{Henri Poincaré,} dopo aver finito di leggere il già citato libro di Topologia.
+		\textsc{Marinobot,} dopo aver finito le citazioni stupide.
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{F}{inora} abbiamo visto omeomorfismi tra spazi topologici sotto tanti aspetti diversi, definendo così rigorosamente quella che era l'intuizione del magico materiale elastico. Tuttavia, la definizione di omeomorfismo è molto rigida e possiamo osservare delle ‘‘\textit{equivalenze di forma}'' che non riesce pertanto a descrivere.\\
-Ad esempio, si possono considerare \textit{equivalenti} figure con lo stesso numero di buchi. Sotto questo punto di vista, la figura corrispondente alla lettera \textsf{\textbf{O}} e quella corrispondente a \textsf{\textbf{P}} sono \textit{equivalenti}, dato che hanno entrambe un solo buco, mentre \textsf{\textbf{X}} non lo è perché non ne ha. Allo stesso tempo, nessuna di queste è \textit{omeomorfa} all'altra: infatti, se togliamo dalle tre lettera/figure un punto come il nodo di raccordo delle ‘‘stanghette'' (o per \textsf{\textbf{O}} un punto qualunque), otteniamo per \textsf{\textbf{O}} una componente connessa, per \textsf{\textbf{P}} due e per \textsf{\textbf{X}} ben quattro distinte.\\
-Preceduto da un approfondimento sulle componenti connesse (anche per archi), nel presente capitolo formalizzeremo questo tipo di equivalenza più debole e allo stesso tempo più ampia: l'\textbf{omotopia}.
-\section{Lemma di incollamento}
-\begin{lemming}[Lemma di incollamento.]~{}\label{lemmaincollamento}\\
-Siano $X,\ Y$ spazi topologici e $X=A\cup B$. Siano $\funz{f}{A}{Y}$ e $\funz{g}{B}{Y}$ continue tali che $f\left(x\right)=g\left(x\right)\ \forall x\in A\cap B$, cioè $f_{\mid A\cap B}=g_{\mid A\cap B}$.\\
-Consideriamo l'\textbf{incollamento}\index{incollamento} $\funz{h}{X}{Y}$ definito da:
-	\begin{equation}
-		h\left(x\right)=\begin{cases}
-			f\left(x\right),\ x\in A\\
-			g\left(x\right),\ x\in B
-		\end{cases}
-	\end{equation}
-	Se $A$ e $B$ sono entrambi aperti in $X$ (o entrambi chiusi in $X$), allora $h$ è continua.
-\end{lemming}
-\begin{demonstration}
-	Supponiamo $A$ e $B$ aperti. Sia $U\subseteq Y$ aperto. Allora:
-	\begin{equation*}
-		h^{-1}\left(U\right)=\underbrace{f^{-1}\left(U\right)}_{\subseteq A}\cup \underbrace{g^{-1}\left(U\right)}_{\subseteq B}
-	\end{equation*}
-Essendo $f,\ g$ continue, segue che $f^{-1}\left(U\right)$ è aperto in $A$ e $g^{-1}\left(U\right)$ è aperto in $B$.\\
-In quanto $A,\ B$ aperti, per definizione di aperto del sottospazio\footnote{Poiché un aperto del sottospazio è dato dall'intersezione del sottospazio con un aperto di $X$, se abbiamo che anche il sottospazio è aperto di $X$, l'intersezione è aperta: in questo caso ogni aperto del sottospazio è anche aperto di $X$.} $f^{-1}\left(U\right)$ e $g^{-1}\left(U\right)$ sono aperti su $X\implies h^{-1}\left(U\right)$ aperto.\\
-Il caso di $A$ e $B$ chiusi è esattamente analogo.
-\end{demonstration}
-\section{Componenti connesse e componenti c.p.a.}
-Riprendiamo la trattazione delle componenti connesse e \textbf{c.p.a.} introdotte nel \autoref{chap:Connessocompatto}.
-\begin{define}[Componente connessa.]~{}\\
-	Una \textbf{componente connessa}\index{componente!connessa} di $X$ spazio topologico è uno spazio $C\subseteq X$ \textit{connesso} \textbf{massimale}, tale per cui:
-	\begin{equation}
-		C\subseteq A\subseteq X\text{ con }A\text{ connesso}\implies C=A
-	\end{equation}
-\vspace{-6mm}
-\end{define}
-\begin{observes}~{}
-\begin{itemize}
-	\item Le componenti connesse formano una \textit{partizione} di $X$.
-	\item Se $x\in X$ si può definire la componente connessa che contiene $x$:
-	\begin{equation}
-		C\left(x\right)=\bigcup\left\{C\subseteq X\mid x\in C,\ C\text{ connesso}\right\}
-	\end{equation}
-\item Le componenti connesse possono essere viste come classi di equivalenza per la seguente relazione di equivalenza su $ X $:
-	\begin{equation}
-		x,\ y\in X\qquad x\sim_C y\iff \exists C\subseteq X\text{ connesso}\ \colon x,\ y\in C
-	\end{equation}
-\end{itemize}
-\vspace{-6mm}
-\end{observes}
-\begin{demonstration}
-Innanzitutto mostriamo che la relazione è di equivalenza:
-\begin{itemize}
-\item \textsc{Riflessiva}: $x\sim_C x$ è vero, dato che $\left\{x\right\}$ è sempre un connesso.
-\item \textsc{Simmetrica}: ovvia dalla definizione.
-\item \textsc{Transitiva}: Supponiamo $x\sim_C y,\ y\sim_C z$. Allora $\exists C,\ D\subseteq X$ connessi tale che $x,\ y\in C$ e $y,\ z\in D$. Allora $C\cup D$ contiene sia $x$ che $z$. Inoltre, essendo $y\in C\cap D\implies C\cap D\neq \emptyset$, dunque $C\cup D$ è un connesso: vale $x\sim_C z$.
-\end{itemize}
-Mostriamo che le classi di equivalenza sono le componenti connesse per $x$, ovvero $C=C_0$ con $C$ componente connessa e $C_0$ classe di equivalenza.\\
-$\includedx$Se $C\subseteq X$ è una componente connessa, allora $\forall x, y\in C$ si ha $x\sim_C y$, cioè $C$ è interamente contenuta in $C_0=[x]=[y]$ classe di equivalenza per $\sim_C$: $C\subseteq C_0$.\\
-$\includesx$Sia $z\in C_0$ classe di equivalenza e sia $x\in C$ componente connessa. Allora: $x\sim_C z\implies \exists T\subseteq X \text{ connesso}\ \colon x,\ z\in T$.\\
-Consideriamo $C\cup T$. $C$ e $T$ sono connessi, $x\in C\cap T\implies C\cap T\neq \emptyset$: $C\cup T$ è ancora connessa. In quanto $C$ è componente connessa, poiché $C\subseteq C\cup T$, per definizione segue che $C=C\cup T$, cioè $T\subseteq C$. Allora $z\in C$ e $C_0\subseteq C$.
-%\vspace{-3mm}
-\end{demonstration}
-\begin{define}[Componente c.p.a..]~{}\\
-Una \textbf{componente c.p.a.}\index{componente!c.p.a.} di $X$ è una classe di equivalenza per la relazione $\sim_A$ così definita:
-	\begin{equation}
-	x,\ y\in X\qquad x\sim_A y\iff \exists \alpha\textsc{ cammino in }X\ \colon \alpha\left(0\right)=x,\ \alpha\left(1\right)=y
-\end{equation}
-\vspace{-6mm}
-\end{define}
-\begin{demonstration}
-	Mostriamo che sia una relazione di equivalenza:
-	\begin{itemize}
-		\item \textsc{Riflessiva}: $x\sim_A x$ è vero, dato che esiste sempre il \textbf{cammino costante}\index{cammino!costante} nel punto $x$: \begin{equation}
-			\funztot{c_x}{I}{X}{t}{x}
-		\end{equation}
-		\item \textsc{Simmetrica}: se $x\sim_A y$ sappiamo che $\exists\ \funz{\alpha}{I}{X}$ tale per cui $\alpha\left(0\right)=x,\ \alpha\left(1\right)=y$. Possiamo definire il \textbf{cammino inverso}\index{cammino!inverso}:
-		\begin{equation}
-			\funztot{\overline{\alpha}}{I}{X}{t}{\alpha\left(1-t\right)}
-		\end{equation}
-	\begin{itemize}
-		\item $\overline{\alpha}$ è continuo, perché composizione di applicazioni continue:\\
-		\begin{center}
-			\begin{tikzcd}
-				I \arrow[r]          & I \arrow[r, "\alpha"]  & X                      \\[-25pt]
-				t \arrow[r, maps to] & 1-t \arrow[r, maps to] & \alpha\left(1-t\right)
-			\end{tikzcd}
-		\end{center}
-	\item $\overline{\alpha}\left(0\right)=\alpha\left(1\right)=y,\ \overline{\alpha}\left(1\right)=\alpha\left(0\right)=x$.
-	\end{itemize}
-Allora il cammino $\overline{\alpha}$ definisce $y\sim_A x$.
-		\item \textsc{Transitiva}: Supponiamo $x\sim_A y,\ y\sim_A z$. Allora $\exists \funz{\alpha,\ \beta}{I}{X}$ tale che $\alpha\left(0\right)=x,\ \alpha\left(1\right)=y, \beta\left(0\right)=y,\ \beta\left(1\right)=z$. Usando la \textbf{giunzione di cammini}\index{cammino!giunzione di cammini}:
-	\begin{equation}
-	\left(\alpha\ast\beta\right)\left(t\right)=\begin{cases}
-		\begin{array}{lc}
-					\alpha\left(2t\right) & \text{se }0\leq t\leq \frac{1}{2}\\
-			\beta\left(2t-1\right) & \text{se }\frac{1}{2}\leq t\leq 1	
-		\end{array}
-	\end{cases}
-\end{equation}
-In particolare:
-\begin{equation*}
-	\begin{cases}
-	\left(\alpha\ast\beta\right)\left(0\right)=\alpha\left(0\right)=x\\
-	\left(\alpha\ast\beta\right)\left(1\right)=\beta\left(1\right)=z
-		\end{cases}
-\end{equation*}
-Poiché $\alpha\ast\beta$ soddisfa le ipotesi del lemma di incollamento, essa è continua e collega con un cammino unico $x$ e $z$, dunque vale $x\sim_A z$.
-	\end{itemize}
-\end{demonstration}
-\begin{observes}~{}
-	\begin{enumerate}
-		\item Le componenti \textbf{c.p.a.} formano una partizione di $X$
-		\item Sia $C\subseteq X$ un sottospazio \textbf{c.p.a.} per cui vale che $C\subseteq A\subseteq X$ con $A$ \textbf{c.p.a.}$\implies C=A$, allora $C$ è una componente \textbf{c.p.a.}.
-		\item In generale le componenti \textbf{c.p.a.} non sono né aperte né chiuse.
-		\item Se $A$ è una componente \textbf{c.p.a.}, allora $A$ è \textbf{c.p.a.} e dunque \textit{connessa}: $A$ è allora interamente contenuta in una componente connessa, cioè le componenti connesse sono unioni di componenti \textbf{c.p.a.}.
-	\end{enumerate}
-\vspace{-3mm}
-\end{observes}
-\begin{demonstration}
-	Dimostriamo il punto $2$. Supponiamo per assurdo che esista $z\in X\setminus C$ tale che esista un cammino $\alpha$ tra un punto $x\in C$ e $z$. Definiamo $A\coloneqq C\cup \im \alpha$, con $\im \alpha$ il percorso di $\alpha$ in $X$. Si ha che $A$ è \textbf{c.p.a.}, essendo esso unione di spazi \textbf{c.p.a.}: $C$ lo è per ipotesi e $\im \alpha$ lo è banalmente per definizione. In particolare $A\subseteq C$, dunque per ipotesi $A=C$. Ma allora:
-	\begin{equation*}
-		z\in A=C\implies z\in C\implies\text{\textbf{Assurdo!}}
-	\end{equation*}
-	Segue che \textit{non} esiste alcun cammino con punti esterni a $C$. Dunque $C$ è componente c.p.a. di $X$.
-\end{demonstration}
-\begin{example}
-	Ricordiamo l'esempio della \textit{pulce e il pettine}, cioè lo spazio $X\subseteq \realset^2$ descritto da:
-	\begin{gather*}
-		X=Y\cup \left\{p\right\}\\
-		Y=\left(I\times \left\{0\right\}\right)\cup \bigcup_{r\in\integerset}\left(\left\{r\right\}\times I\right)\\
-		p=\left(\frac{\sqrt{2}}{2},\ 1\right)
-	\end{gather*}
-Questo spazio $X$ è connesso, non \textbf{c.p.a.}: infatti, le componenti \textbf{c.p.a.} sono due, $Y$ e $\left\{p\right\}$.
-\end{example}
-\section{Omotopia tra funzioni continue}
-\begin{intuit}
-	Dati due spazi topologici $X,\ Y$ e due funzioni $\funz{f,\ g}{X}{Y}$, si ha un'\textbf{omotopia} tra le due funzioni se una funzione può essere ‘‘\textit{deformata in modo continuo}'' nell'altra (e viceversa).\\
-	Per far ciò vogliamo trovare una famiglia di funzioni $\left\{f_t\right\}_{t\in\left[0,\ 1\right]}$ tale che ogni funzione $\funz{f_t}{X}{Y}$ sia continua e vari ‘‘\textit{con continuità}'' al variare di $t\in\left[0,\ 1\right]$ fra $f_0=f$ e $f_1=g$.
-\end{intuit}
-\begin{define}[Omotopia.]~{}\\
-	Due funzioni continue $\funz{f,\ g}{X}{Y}$ si dicono \textbf{omotope} se $\exists \funz{F}{X\times I}{Y}$ \textit{continua} tale che:
-	\begin{equation}
-		\mvf{F}{x}{0}=f\left(x\right)\qquad \mvf{F}{x}{1}=g\left(x\right)\ \forall x\in X
-	\end{equation}
-La funzione $F$ è detta \textbf{omotopia}\index{omotopia} tra $f$ e $g$; denotiamo che le funzioni sono omotope con $f\sim g$.\\
-Inoltre, definiamo gli elementi della famiglia di funzioni $\left\{f_t\right\}_{t\in\left[0,\ 1\right]}$ nel  seguente modo:
+\lettrine[findent=1pt, nindent=0pt]{D}{allo} \textbf{[COMPLETARE.]}
+\section{Dallo spazio delle funzioni integrabili allo 1-spazio di Lebesgue}
+Ricordiamo che, dato uno spazio di misura $\left(X,\mathcal{M},\mu\right)$ si definisce lo spazio delle funzioni integrabili
 \begin{equation}
-\forall t\ f_t\coloneqq \funz{\mvf{F}{\bullet}{t}}{X}{Y}\ \colon f_0=f,\ f_1=g
+	\mathcal{L}^{1}=\left\{\funz{f}{X}{\complexset}\text{ misurabili}\middle| \int_X\abs{f}d\mu<+\infty\right\}
 \end{equation}
-\vspace{-6mm}
-\end{define}
-\begin{observe}
-Ricordando la definizione di \textit{segmento} (\autoref{segmento}, pag. \pageref{segmento}), la funzione:
-\begin{center}
-	\funztot{\ }{I}{\overline{PQ}}{t}{tA+\left(1-t\right)B}
-\end{center}
-È biunivoca ed, in particolare, è omeomorfismo.
-\end{observe}
-\begin{example}\label{convessoomotope}
-	Dato un sottospazio $Y\subseteq \realset^n$ \textit{convesso}, per ogni spazio topologico $X$ e per ogni coppia di funzioni $\funz{f,\ g}{X}{Y}$ continue, allora $f$ e $g$ sono \textit{omotope}.
-\end{example}
-\begin{demonstration}
-	L'omotopia è:
-	\begin{equation*}
-		\funztot{F}{X\times I}{Y}{\left(x,\ t\right)}{\left(1-t\right)f\left(x\right)+tf\left(x\right)}
-	\end{equation*}
-\begin{itemize}
-	\item $F$ è ben definita. Se $x\in X$ abbiamo $f\left(x\right),\ g\left(x\right)\in Y$ convesso: esiste allora $\overline{f\left(x\right)g\left(x\right)}\subseteq Y$, cioè $\left(1-t\right)f\left(x\right)+tg\left(x\right)\in Y\ \forall x\in X,\ t\in I$.
-	\item $F$ è continua perché composizione di funzioni continue:
-	\begin{center}
-		\begin{tikzcd}
-			X\times I \arrow[r]            & Y\times Y\times I\subseteq \realset^{2n+1} \arrow[r]           & Y\subseteq \realset^n                            \\[-25pt]
-			{\left(x,\ t\right)} \arrow[r, maps to] & {\left(f\left(x\right),\ g\left(x\right),\ t\right)} \arrow[r, maps to] & \left(1-t\right)f\left(x\right)+tg\left(x\right)
-		\end{tikzcd}
-	\end{center}
-\item $F\left(x,\ 0\right)=f\left(x\right),\ F\left(x,\ 1\right)=g\left(x\right),\ \forall x\in X$.
-\end{itemize}
-\vspace{-3mm}
-\end{demonstration}
-\begin{observe}\label{omotopiasegmento}
-	Sia $Y\subseteq \realset^n$ (non necessariamente convesso!) e $\funz{f,\ g}{X}{Y}$ continua tale che $\overline{f\left(x\right)g\left(x\right)}\subseteq Y,\ \forall x\in X$. Allora $f$ è omotopa a $g$ con la stessa omotopia $F$ definita nel caso di $Y$ convesso.
-\end{observe}
-\begin{attention}
-Nel parlare di omotopie è estremamente importante verificare che siano ben definite! Infatti, prendiamo ad esempio $Y=S^1\subseteq \realset^2$ e le funzioni costanti in $p$ e in $q$, rispettivamente $\funztot{f}{X}{S^1}{x}{p}$ e $\funztot{g}{X}{S^1}{x}{q}$.\\
-Considerata $\funz{F}{X\times I}{\realset^2}$ tale che $\mvf{F}{x}{y}=\left(1-t\right)f\left(x\right)+tg\left(x\right)=\left(1-t\right)p+tq$, essa non è ben definita in $Y$: presi due punti della sfera $S^1$ il segmento non è \textit{mai} contenuto in essa!
-\end{attention}
-\begin{lemming}[Omotopia è relazione di equivalenza.]~{}\\
-	Siano $X,\ Y$ due spazi topologici. L'omotopia è una \textit{relazione di equivalenza} sull'insieme delle funzioni continue da $X$ e $Y$.
-\end{lemming}
-\begin{demonstration}~{}
-	\begin{itemize}
-		\item \textsc{Riflessiva}: Sia $\funz{f}{X}{Y}$ continua. Consideriamo:
-		\begin{equation*}
-			\funztot{F}{X\times I}{Y}{\left(x,\ t\right)}{f\left(x\right)}
-		\end{equation*}
-	Essa è:
-		\begin{itemize}
-			\item Continua perché lo è $f$.
-			\item $\mvf{F}{x}{0}=\mvf{F}{x}{1}=f\left(x\right)\ \forall x\in X$.	\end{itemize}
-		Allora $f\sim f$.
-		\item \textsc{Simmetrica}: Supponiamo $f\sim g$, cioè $\exists \funz{F}{X\times I}{Y}$ tale che:
-		\begin{equation*}
-			\begin{cases}
-				\mvf{F}{x}{0}=f\left(x\right)\\
-				\mvf{F}{x}{1}=g\left(x\right)
-			\end{cases}
-			\forall x\in X
-		\end{equation*}
-	Consideriamo:
-	\begin{equation*}
-		\funztot{G}{X\times I}{Y}{\left(x,\ t\right)}{\mvf{F}{x}{1-t}}
-	\end{equation*}
-	Essa è:
-	\begin{itemize}
-		\item Continua perché composizione di funzioni continue.
-		\item $\mvf{G}{x}{0}=\mvf{F}{x}{1}=g\left(x\right),\ \mvf{G}{x}{1}=\mvf{F}{x}{0}=f\left(x\right)\ \forall x\in X$.
-	\end{itemize}
-Allora $g\sim f$.
-\item \textsc{Transitiva}: Siano $\funz{f,\ g,\ h}{X}{Y}$ continue, $f\sim g$ e $g\sim h$, cioè:
-\begin{gather*}
-	\exists \funz{F}{X\times I}{Y},\ \funz{G}{X\times I}{Y}\\
-	\begin{cases}
-		\mvf{F}{x}{0}=f\left(x\right)\\
-		\mvf{F}{x}{1}=g\left(x\right)
-	\end{cases}
-	\begin{cases}
-		\mvf{G}{x}{0}=g\left(x\right)\\
-		\mvf{G}{x}{1}=h\left(x\right)
-	\end{cases}
-\forall x\in X
-\end{gather*}
-Consideriamo $\funz{H}{X\times I}{Y}$:
-\begin{equation*}
-	\mvf{H}{x}{t}=\begin{cases}
-		\begin{array}{lc}
-			\mvf{F}{x}{2t} & t\in\left[0,\ \frac{1}{2}\right] \\
-			\mvf{G}{x}{2t-1} & t\in\left[\frac{1}{2},\ 1\right]
-		\end{array}	
-	\end{cases}
-\end{equation*}
-\begin{itemize}
-	\item $H$ è continua per il lemma di incollamento:
-	\begin{itemize}
-		\item È ben definita per $t=\frac{1}{2}$.
-		\item $H$ è continua separatamente su $X\times \left[0,\ \frac{1}{2}\right]$ e $X\times \left[\frac{1}{2},\ 1\right]$, entrambi chiusi.
-	\end{itemize}
-\item $\mvf{H}{x}{0}=\mvf{F}{x}{0}=f\left(x\right),\ \mvf{H}{x}{1}=\mvf{G}{x}{1}=h\left(x\right)\ \forall x\in X$.
-\end{itemize}
-Allora $f\sim h$.
-\end{itemize}
-\vspace{-3mm}
-\end{demonstration}
-\begin{lemming}[Composizione di omotopie; Manetti, 10.13.]~{}\label{compomotop}\\
-Siano $X,\ Y,\ Z$ spazi topologici e siano $\funz{f_1,\ f_2}{X}{Y}$ continue ed omotope, $\funz{g_1,\ g_2}{Y}{Z}$ continue ed omotope. Allora $\funz{g_1\circ f_1,  g_2\circ f_2}{X}{Z}$ sono omotope:
+il quale è un spazio vettoriale con le operazioni di somma di funzioni e prodotto di una funzione per uno scalare complesso.\\
+Vogliamo ora introdurre una struttura \textit{metrica} in $\mathcal{L}^1\left(\mu\right)$; nello specifico, cerchiamo una \textit{norma} - in questo modo potremo avvalerci di risultati che sono validi solo in \textit{spazi normati}. Possiamo considerare come potenziale candidata la funzione
 \begin{equation}
-	f_1\sim f_2,\ g_1\sim g_2\implies g_1\circ f_1\sim g_2\circ f_2
+	\funztot{N}{\mathcal{L}^1\left(\mu\right)}{\left[0,+\infty\right)}{f}{\int_X\abs{f}d\mu}
 \end{equation}
-\vspace{-6mm}
-\end{lemming}
-\begin{demonstration}
-	Sappiamo che:
-	\begin{itemize}
-		\item $\exists \funz{F}{X\times I}{Y}$ continua tale che $\mvf{F}{x}{0}=f_1\left(x\right),\ \mvf{F}{x}{1}=f_2\left(x\right)\ \forall x\in X$.
-		\item $\exists \funz{G}{Y\times I}{Z}$ continua tale che $\mvf{G}{y}{0}=g_1\left(y\right),\ \mvf{G}{y}{1}=g_2\left(y\right)\ \forall y\in Y$.
-	\end{itemize}
-Sia:
-\begin{equation*}
-	\funztot{H}{X\times I}{Z}{\left(x,\ t\right)}{\mvf{G}{\mvf{F}{x}{t}}{t}}
-\end{equation*}
-\begin{itemize}
-	\item $H$ è continua perché composizione di funzioni continue.
-	\item $\mvf{H}{x}{0}=\mvf{G}{\mvf{F}{x}{0}}{0}=\mvf{G}{f_1\left(x\right)}{0}=g_1\left(f_1\left(x\right)\right)\ \forall x\in X$.
-	\item $\mvf{H}{x}{1}=\mvf{G}{\mvf{F}{x}{1}}{1}=\mvf{G}{f_2\left(x\right)}{1}=g_2\left(f_2\left(x\right)\right)\ \forall x\in X$.
-\end{itemize}
-Allora $H$ è l'omotopia cercata.
-\end{demonstration}
-\section{Equivalenza omotopica}
-Dati due spazi topologici, diciamo che essi sono \textit{omeomorfi} se esistono due omeomorfismi l'uno l'inverso dell'altro. Proviamo ora ad analizzare il caso in cui indeboliamo la relazione tramite l'\textbf{omotopia}.
-\begin{define}[Omotopicamente equivalenti.]~{}\\
-	Siano $X,\ Y$ due spazi topologici. Diciamo che $X$ e $Y$ sono \textbf{omotopicamente equivalenti}\seeonlyindex{omotopicamente equivalenti}{tipo di omotopia}, o che hanno lo stesso \textbf{tipo di omotopia}\index{tipo di omotopia}, se esistono due applicazioni continue:
-	\begin{equation}
-		\funz{f}{X}{Y}\text{ e }\funz{g}{Y}{X}
-	\end{equation}
-Tali che:
-\begin{equation}
-	g\circ f\sim Id_X\text{ e }f\circ g\sim Id_Y
-\end{equation}
-In tal caso $f$ e $g$ si dicono \textbf{equivalenze omotopiche}\index{equivalenze omotopiche}.
-\end{define}
-\begin{observes}~{}
+Tuttavia, la suddetta è una \textbf{pseudonorma} in quanto soddisfa due delle tre proprietà della norma, ma non la \textit{prima}: può valere zero per altre funzione oltre quella nulla. Infatti:
 \begin{enumerate}
-	\item Se $X$ e $Y$ sono \textit{omeomorfi}, allora sono anche \textit{omotopicamente equivalenti}.
-	\item Consideriamo $X=\realset^n$ in topologia Euclidea e $Y=\left\{1\text{ punto}\right\}$. Allora $X$ e $Y$ sono omotopicamente equivalenti.
+	\item[1.] $\displaystyle f=0\implies \int_X\abs{f}d\mu=0$ ma $\displaystyle \int_X\abs{f}d\mu=0\implies f$ \textbf{q.o.} in $X$.
 \end{enumerate}
-\vspace{-3mm}
-\end{observes}
-\begin{demonstration}~{}
-	\begin{enumerate}[label=\Roman*]
-		\item L'omotopia è una relazione riflessiva, dunque se abbiamo $h=k$ e $h\sim h$, allora si ha $h\sim k$. Nel caso di un omeomorfismo, preso $f$ e la sua inversa $g$, possiamo affermare:
-		\begin{equation*}
-			\begin{cases}
-				g\circ f=Id_X\\
-				f\circ g=Id_Y
-			\end{cases}\implies
+Come precedentemente detto, le proprietà 2 e 3 sono verificate:
+\begin{enumerate}
+	\item[2.] $N\left(\lambda f\right)=\abs{\lambda}N\left(f\right),\ \forall f\in\mathcal{L}^1\left(\mu\right),\ \forall \lambda \in \complexset$.
+	\item[3.] $N\left(f+g\right)\leq N\left(f\right)+N\left(g\right),\ \forall f,g\in\mathcal{L}^{1}\left(\mu\right)$.
+\end{enumerate}
+Per risolvere il problema, si introduce la relazione
+\begin{equation}
+	f,g\in\mathcal{L}^{1}\left(\mu\right)\colon f\sim g\iff f=g\text{ \textbf{q.o.} in }X
+\end{equation}
+che si dimostra essere di equivalenza in $\mathcal{L}^{1}\left(\mu\right)$. % TO DO: aggiungere esercizio
+Si definisce allora lo $1$\textbf{-spazio di Lebesgue}\index{spazio!di Lebesgue}
+\begin{equation}
+	L^{1}\left(\mu\right)=\frac{\mathcal{L}^{1}\left(\mu\right)}{\sim}
+\end{equation}
+Invece che indicare gli elementi di $L^{1}\left(\mu\right)$ come classi di equivalenza $\left[f\right]$ (dove $f\in\mathcal{L}^{1}\left(\mu\right)$), faremo un \textit{abuso di notazione} e indicheremo solo $f\in L^{1}$.\\
+Adesso in $L^1{\left(\mu\right)}$ possiamo definire finalmente una vera e onesta norma:
+\begin{equation}
+	\funztot{\lvert\cdot\rvert}{L^{1}\left(\mu\right)}{\left[0,+\infty\right)}{\left[f\right]}{\lvert\left[f\right]\rvert_1=\int_X\abs{f}d\mu}
+\end{equation}
+Questa norma è ben posta come funzione in $L^1\left(\mu\right)$ in quanto \textit{non} dipende dal \textit{rappresentante} scelto:
+\begin{equation*}
+	g\in\left[f\right]\iff f=g\text{ \textbf{q.o.} in }X\implies \int_X\abs{g}d\mu=\int_X\abs{f}d\mu
+\end{equation*}
+\begin{example}
+	Consideriamo lo spazio di misura $\left(\naturalset,\setpart{\naturalset},\mu_c\right)$ con $\mu_c$ la misura conteggio:
+	\begin{equation*}
+		\mu_c\left(E\right)=\begin{cases}
+			\begin{array}{ll}
+				\# E &\text{se }E\text{ è finito}\\
+				+\infty &\text{altrimenti}
+			\end{array}
+		\end{cases}\quad\forall E\in\setpart{\naturalset}
+	\end{equation*}
+	Ricordiamo che, data la successione $\funz{f}{\naturalset}{\left[0,+\infty\right]}$ (dove $f\left(n\right)\coloneqq f_n$), allora come conseguenza del teorema di convergenza monotona si ha
+	\begin{equation*}
+		\int_\naturalset fd\mu_c=\sum_{n=1}^{+\infty}f_n
+	\end{equation*}
+	In questo caso si ha
+	\begin{equation*}
+		\mathcal{L}^1\left(\mu_c\right)=\left\{\funz{f}{\naturalset}{\complexset}\mid\sum_{n=1}^{+\infty}\abs{f_n}=\int_X\abs{f}d\mu_c<+\infty\right\}
+	\end{equation*}
+	e quindi la norma in $L^1$ è la serie dei moduli
+	\begin{equation*}
+		\norm{f}_1=\sum_{n=1}^{+\infty}\abs{f_n}
+	\end{equation*}
+\end{example}
+Come sappiamo, se uno spazio normato è completo valgono diversi risultati teorici e pratici di estrema importanza, come ad esempio il criterio di Cauchy. Si dimostrerà a \textsc{Istituzioni di Analisi Matematica} che anche $L^1$ è uno spazio normato completo.
+\begin{theoremaqed}[{$L^1$} è completo]
+	Lo spazio normato $\left(L^1\left(\mu\right),\norm{\cdot}_1\right)$ è completo.
+\end{theoremaqed}
+\begin{observe}
+	Se si considero lo spazio delle funzioni continue $\mathcal{C}\left(\left[a,b\right];\realset\right)$, allora in esso la funzione
+	\begin{equation*}
+		\funztot{\ }{\mathcal{C}\left(\left[a,b\right];\realset\right)}{\left[0,+\infty\right]}{f}{\lvert f\rvert_1\int_{a}^{b}\abs{f\left(x\right)}dx}
+	\end{equation*}
+	è già una norma. Infatti
+	\begin{equation*}
+		\lvert f\rvert_1 = 0 \iff f\equiv 0\text{ \textbf{q.o.} in }\left[a,b\right]\iff f\equiv 0\text{ su }\left[a,b\right]\text{ perché continua}
+	\end{equation*}
+	Pertanto, $\mathcal{C}\left(\left[a,b\right];\realset\right)$ è normato. Lo svantaggio, tuttavia, è che esso \textit{non} è completo.Per questo motivo, nonostante ciò che comporta quozientare, conviene usare lo spazio $\left(L^1\left(\mu\right),\norm{\cdot}_1\right)$.
+\end{observe}
+\section{Modi di convergenza}\label{modiconvergenza}
+Abbiamo già visto nel \refChapterOnly{convergenzafunzioni} la convergenza uniforme e la convergenza puntuale. Noti i concetti di misura e integrale di Lebesgue, approfondiamo il tema dei modi di convergenza e le relazioni tra questi.
+\paragraph{Convergenza uniforme}
+\begin{define}[Convergenza uniforme]
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$.
+	Si dice che $f_n$ \textbf{converge uniformemente}\index{convergenza!uniforme} a $f$\textbf{su} $X$ ($f_n\overset{\text{unif.}}{\to} f$) se
+	\begin{equation}
+		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in X
+	\end{equation}
+\end{define}
+Come già visto a pag. \pageref{visualizzazioneconvergenzauniforme}, se consideriamo $X\subseteq \realset$ si può visualizzare la convergenza uniforme della successione $f_n$ a $f$: arbitrariamente scelto un raggio $\epsilon$ e per $n$ sufficientemente grandi, il grafico di $f_n$ è contenuto nell'\textit{intorno tubulare} di raggio $\epsilon$ centrato sul grafico di $f$.
+\begin{center}
+	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.65]{images/visualizzazioneconvergenzauniforme.pdf}
+\end{center}
+\paragraph{Convergenza puntuale}
+\begin{define}[Convergenza puntuale]
+	Consideriamo l'insieme $X$ e le funzioni $\funz{f_n,f}{X}{\complexset}$.
+	Si dice che $f_n$ \textbf{converge puntualmente}\index{convergenza!puntuale} a $f$\textbf{in} $X$ ($f_n\overset{\text{punt.}}{\to} f$) se
+	\begin{equation}
+		\forall x\in X,\lim_{n\to+\infty}f_n\left(x\right)=f\left(x\right)
+	\end{equation}
+	o, alternativamente,
+	\begin{equation}
+		\forall x\in X,\ \forall \epsilon >0,\ \exists N=N\left(x,\epsilon\right)\colon \forall n\geq N,\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon
+	\end{equation}
+\end{define}
+\begin{attention}
+	Il limite della convergenza è in campo \textit{complesso}!
+\end{attention}
+\paragraph{Convergenza uniforme e puntuale}
+Come visto in precedenza\footnote{Si veda \refChapterOnly{convergenzafunzioni}, sezione \ref{convuniformeimplicapuntuale}, pag. \pageref{convuniformeimplicapuntuale}.}, nella \textit{convergenza uniforme} il differente ordine dei quantificatori relativi alla $x$ fa sì che la soglia $N$ trovata è indipendente dal punto $x$ e quindi vale per ogni punto dell'insieme di definizione $X$, implicando pertanto la \textit{convergenza puntuale}.
+\begin{multline}
+	f_n\text{ converge uniformemente a }f\text{ su }X\implies\\
+	\implies f_n\text{ converge puntualmente a }f\text{ in ogni punto di }X
+\end{multline}
+Il viceversa non è vero: abbiamo visto\footnote{Si veda nota precedente.} nella stessa sezione il caso della successione geometrica, la quale converge uniformemente solo a $f\equiv 0$ in ogni intervallo $\left[-a,a\right]\subsetneqq\left(-1,1\right),\ \forall a\in\left(0,1\right)$, mentre puntualmente in tutti i $\left(-1,1\right]$; qui di seguito riportiamo un controesempio alternativo.
+\begin{example}
+	Consideriamo la successione
+	\begin{equation*}
+		f_n\left(x\right)=\chi_{(n,n+1)}\left(x\right)=
 		\begin{cases}
-			g\circ f\sim Id_X\\
-			f\circ g\sim Id_Y
+			\begin{array}{ll}
+				1&n<x<n+1\\
+				0&x\leq n\vee x\geq n+1
+			\end{array}
 		\end{cases}
-		\end{equation*}
-	\item Consideriamo:
+	\end{equation*}
+	% TO DO: completare la dimostrazione.
+\end{example}
+\paragraph{Convergena quasi ovunque}
+\begin{define}[Convergenza quasi ovunque]
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$. Si dice che
+	$f_n$ \textbf{converge quasi ovunque}\index{convergenza!quasi ovunque} a $f$\textbf{in} $X$ ($f_n\overset{\text{q.o.}}{\to} f$) se
 	\begin{equation}
-		\funz{f}{\realset^n}{Y=\left\{1\text{ punto}\right\}}\quad\funztot{g}{Y=\left\{1\text{ punto}\right\}}{\realset^n}{\text{punto}}{g\left(\text{punto}\right)=\mathbf{0}}
+		\mu\left(\left\{x\in X\mid \lim_{n\to+\infty}f_n\left(x\right)\neq f\left(x\right)\right\}\right)=0
 	\end{equation}
-$f$ e $g$ sono \textit{continue}, inoltre:
-	\begin{gather*}
-		\funz{f\circ g}{Y=\left\{1\text{ punto}\right\}}{Y=\left\{1\text{ punto}\right\}}\implies f\circ g= Id_Y\\
-		\funztot{g\circ f}{\realset^n}{\realset^n}{\mathbf{x}}{\mathbf{0}}\implies g\circ f=O_{\realset^n}\ \text{(applicazione nulla)}
-	\end{gather*}
-Per l'osservazione $1)$ dato che vale $f\circ g= Id_Y$ allora $f\circ g\sim Id_Y$.\\
-Abbiamo che $g\circ f=O_{\realset^n}$ è omotopa a $Id_{\realset^n}$, in quanto $\realset^n$ è \textit{convesso} e due applicazioni continue a valori in $\realset^n$ sono sempre omotope, come dimostrato nell'esempio a pag. \pageref{convessoomotope}. Una di queste, ad esempio, è la seguente:
-\begin{equation*}
-\funz{F}{\realset^n\times I}{\realset^n},\ \mvf{F}{\mathbf{x}}{t}=t\cdot \mathbf{x}
-\end{equation*}
-\begin{itemize}
-	\item $F$ è continua.
-	\item $\mvf{F}{\mathbf{x}}{0}=\overline{0}=\left(g\circ f\right)\left(x\right)$.
-	\item $\mvf{F}{\mathbf{x}}{1}=\mathbf{x}=Id_{\realset^n}\left(\mathbf{x}\right)$.
-\end{itemize}
-\end{enumerate}
-\vspace{-3mm}
+\end{define}
+\paragraph{Convergenza puntuale e quasi ovunque}
+Dalla definizione è evidente che la convergenza \textit{quasi ovunque} nello spazio di misura $X$ è una \textit{convergenza puntuale} in $X$ tolto un insieme di misura nulla. Se in $\left(X,\mathcal{M},\mu\right)$ si ha convergenza puntuale, il sottoinsieme su cui \textit{non} vale è l'insieme vuoto e quindi è banalmente soddisfatta la condizione di convergenza \textbf{q.o.}, ossia
+\begin{multline}
+	f_n\text{ converge puntualmente a }f\text{ in ogni punto di }X\implies\\
+	\implies f_n\text{ converge quasi ovunque a }f\text{ in ogni punto di }X
+\end{multline}
+Il viceversa non è vero, come possiamo vedere nel seguente esempio.
+\begin{example}
+	Consideriamo la successione
+	\begin{equation*}
+		f_n\left(x\right)=n\chi_{\left[0,\frac{1}{n}\right]}\left(x\right)=
+		\begin{cases}
+			\begin{array}{ll}
+				n&0\leq x\leq\frac{1}{n}\\
+				0&x< 0\vee x>\frac{1}{n}
+			\end{array}
+		\end{cases}
+	\end{equation*}
+	% TO DO: completare la dimostrazione.
+\end{example}
+\paragraph{Convergenza in {$L^1$}}
+\begin{define}[Convergenza in {$L^1\left(\mu\right)$}]
+	Siano $f_n,f\in L^1\left(\mu\right)$. Si dice che
+	$f_n$ \textbf{converge in $L^1\left(\mu\right)$}\index{convergenza!in $L^1\left(\mu\right)$} a $f$ ($f_n\overset{L^1}{\to} f$) se
+	\begin{equation}
+		\lim_{n\to+\infty}\norm{f_n-f}_1=\int_{X}\abs{f_n-f}d\mu=0
+	\end{equation}
+\end{define}
+Considerato $X\subseteq \realset$, possiamo visualizzare graficamente la convergenza in $L^1$.
+\begin{center}
+	% TO DO: inserire visualizzazione
+\end{center}
+Si nota che il grafico di $f_n$ può stare, in qualche zona, molto distante dal grafico di $f$, l'importante è che \textit{complessivamente} l'\textbf{area} tra $f_n$ e $f$ diminuisce fino ad essere zero per $n$ crescenti.\\
+Questa è la differenza principale tra la convergenza uniforme/puntuale/quasi ovunque e quella in $L^1$: se per le prime tre è fondamentale minimizzare la \textit{distanza} tra la funzione $f_n$ e $f$, l'ultima richiede di minimizzare l'\textit{area} tra le due.
+\paragraph{Convergenza in misura}
+\begin{define}[Convergenza in misura]
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$; $\forall n\in\naturalset$ definiamo la funzione $g_n\coloneqq \abs{f_n-f}$. Allora, se prendiamo $\forall n\in\ \naturalset,\forall \epsilon>0$ l'insieme
+	\begin{equation*}
+		E_{n,\epsilon}\coloneqq g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)=\left\{x\in X\mid \abs{f_n\left(x\right)-f\left(x\right)}>\epsilon\right\}
+	\end{equation*}
+	si dice che	$f_n$ \textbf{converge in misura}\index{convergenza!in misura} a $f$ ($f_n\overset{\mu}{\to} f$) se
+	\begin{equation}
+		\lim_{n\to+\infty}\mu\left(\left\{x\in X\mid \abs{f_n\left(x\right)-f\left(x\right)}>\epsilon\right\}\right)=0,\ \forall \epsilon >0
+	\end{equation}
+\end{define}
+Considerato $X\subseteq \realset$, possiamo visualizzare graficamente la convergenza in misura.
+\begin{center}
+	% TO DO: inserire visualizzazione
+\end{center}
+Possiamo interpretare questa convergenza come un particolare tipo di convergenza in $L^1$, con alcune caratteristiche comuni alla convergenza uniforme e alla convergenza quasi ovunque. Arbitrariamente scelto un raggio $\epsilon$, il grafico di $f_n$ è nella quasi sua totalità contenuto nell'\textit{intorno tubulare} di raggio $\epsilon$ centrato sul grafico di $f$, ma è concesso che esso possa \textit{uscire} da tale intorno purché la misura dell'insieme di tutti i punti di $\realset$ in cui ciò accade tenda ad essere nulla al crescere di $n$.
+\paragraph{Convergenza uniforme e in {$L^1$}}
+\begin{theorema}[Legame tra convergenza uniforme e {$L^1$}]
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$. Se
+	\begin{enumerate}[label=(\alph*)]
+		\item $f_n\in L^{1}\left(\mu\right)$.
+		\item $f_n$ converge uniformemente a $f$ su $X$.
+		\item $\mu\left(X\right)<+\infty$.
+	\end{enumerate}
+	allora
+	\begin{enumerate}
+		\item $f\in L^{1}\left(\mu\right)$.
+		\item $\displaystyle\lim_{n\to+\infty}\norm{f_n-f}_1=0$.
+		\item Vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio al limite sotto segno di integrale}
+		\begin{equation}
+			\lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu
+		\end{equation}
+	\end{enumerate}
+\end{theorema}
+\begin{demonstration}~{}
+	\begin{enumerate}[label=(\Roman*)]
+		\item Dobbiamo dimostrare che $f\in L^!\left(\mu\right)$, ovvero
+		\begin{itemize}
+			\item $f$ misurabile.
+			\item $\displaystyle\int_X\abs{f}d\mu<+\infty$
+		\end{itemize}
+		Per ipotesi si ha la convergenza uniforme di $f_n$ a $f$ in $X$:
+		\begin{equation*}
+			\circled[red]{\vardiamond}\quad \forall \epsilon > 0,\ \exists N=N\left(\epsilon\right)\colon \forall n\geq N,\ \abs{f_n\left(x\right)-f\left(x\right)}<\epsilon,\ \forall x\in X
+		\end{equation*}
+		Osserviamo che $f$ è dunque misurabile, in quanto la misurabilità passa al limite puntuale (e quindi al limite uniforme). Da $\circled[red]{\vardiamond}$ segue che
+		\begin{equation*}
+			\abs{f\left(x\right)}\underset{=}{\forall n\in\naturalset}\abs{f\left(x\right)-f_n\left(x\right)+f_n\left(x\right)}\leq\abs{f\left(x\right)-f_n\left(x\right)}+\abs{f_n\left(x\right)}\underset{\forall x\in X}{<}\epsilon +\abs{f\left(x\right)}
+		\end{equation*}
+		Posto, ad esempio, $\epsilon = 1$ e $n=N$ si ha
+		\begin{equation*}
+			\abs{f\left(x\right)}=1+\abs{f_N\left(x\right)},\ \forall x\in X
+		\end{equation*}
+		Allora
+		\begin{align*}
+			\int_X\abs{f}d\mu&\leq \int_X \left(1+\abs{f_N}\right)d\mu&\text{(monotonia dell'integrale rispetto all'integranda)}\\
+			&=\int_{X}1d\mu+\int_X\abs{f_N}d\mu&\text{(additività dell'integranda)}\\
+			&=\mu\left(X\right)+\int_X\abs{f_N}d\mu <+\infty&
+		\end{align*}
+		perché $\mu\left(X\right)<+\infty$ per ipotesi e $f_n\in L^1\left(\mu\right)$.
+		\item Dobbiamo dimostrare che $\displaystyle\lim_{n\to+\infty}\norm{f_n-f}_1=0$, ossia
+		\begin{equation*}
+			\circled[blue]{\spadesuit}\quad \forall \epsilon > 0,\ \exists \widetilde{N}=\widetilde{N}\left(\epsilon\right)\colon \forall n\geq N,\ \norm{f_n\left(x\right)-f\left(x\right)}_1<\epsilon
+		\end{equation*}
+		Si ha
+		\begin{equation*}
+			\norm{f_n-f}_1=\int_X\abs{f_n-f}d\mu\underset{\forall n\geq N\left(\epsilon\right)}{\overset{\circled[red]{\vardiamond}}{\leq}}\int_X\epsilon d\mu=\epsilon \mu\left(X\right)<+\infty
+		\end{equation*}
+		Vale la relazione \circled[blue]{\spadesuit} ponendo $\widetilde{N}=N$.
+		\item Segue dal teorema di convergenza dominata.
+	\end{enumerate}
 \end{demonstration}
 \begin{attention}
-	Se $n>0$, $\realset^n$ e $\left\{1\text{ punto}\right\}$ \textit{non} sono omeomorfi, dato che \textit{non} possono essere in corrispondenza biunivoca.
+	Se $\mu\left(X\right)=+\infty$, in generale \textit{non} vale nessuna delle tesi: come controesempi si possono prendere i tre esposti nel discorso sui problemi di integrabilità nell'ambito della teoria di Riemann. % TO DO: mettere riferimento.
 \end{attention}
+In generale non vale il viceversa: dalla convergenza $L^1$ non segue quella uniforme.
 \begin{example}
-	\textit{Essere omotopicamente equivalenti} è una relazione di equivalenza sull'insieme degli spazi topologici.
+	Consideriamo la successione
+	\begin{equation*}
+		f_n\left(x\right)=n\chi_{\left[0,\frac{1}{n^2}\right]}\left(x\right)=
+		\begin{cases}
+			\begin{array}{ll}
+				n&0\leq x\leq\frac{1}{n^2}\\
+				0&x< 0\vee x>\frac{1}{n^2}
+			\end{array}
+		\end{cases}
+	\end{equation*}
+	% TO DO: completare la dimostrazione.
 \end{example}
-\begin{demonstration}~{}
-	\begin{itemize}
-	\item \textsc{Riflessiva}: $X\sim X\iff \exists f,\ g$ continue per cui $g\circ f\sim Id_X,\ f\circ g\sim Id_X$. Ponendo $f\equiv Id_X\equiv g$ vale banalmente $g\circ f=f\circ g=Id_X\sim Id_X$.
-	\item \textsc{Simmetrica}: Da $X\sim Y$ sappiamo che $\exists \funz{f}{X}{Y},\ \funz{g}{Y}{X}$ continue per cui $g\circ f\sim Id_X,\ f\circ g\sim Id_Y$; se vogliamo mostrare $Y\sim X$ dobbiamo cercare $\funz{h}{Y}{X},\ \funz{k}{X}{Y}$ per cui $k\circ h\sim Id_Y,\ h\circ k\sim Id_X$. Ponendo $h\equiv g$ e $k\equiv h$, esse soddisfano la richiesta.
-	\item \textsc{Transitiva}: Da $X\sim Y$ e $Y\sim Z$:
-	\begin{itemize}
-		\item $\funz{f}{X}{Y},\ \funz{g}{Y}{X}$ continue tali che $g\circ f\sim Id_X,\ f\circ g\sim Id_Y$.
-			\item $\funz{h}{Y}{Z},\ \funz{k}{Z}{Y}$ continue tali che $k\circ h\sim Id_Y,\ h\circ k\sim Id_Z$.
-	\end{itemize}
-	Vogliamo trovare $\funz{a}{X}{Z},\ \funz{b}{Z}{X}$ continue tali che $b\circ a\sim Id_X,\ a\circ b\sim Id_Z$. Se definiamo:
-	\begin{gather*}
-		a\coloneqq \funz{h\circ f}{X}{Z}\\
-		b\coloneqq \funz{g\circ k}{Z}{X}
-	\end{gather*}
-	Si ha allora:
-	\begin{gather*}
-		b\circ a=\left(g\circ k\right)\circ\left(h\circ f\right)=g\circ \left(k\circ h\right)\circ f\\
-		a\circ b=\left(h\circ f\right)\circ \left(g\circ k\right)=h\circ\left(f\circ g\right)\circ k
-	\end{gather*}
-	Dalla composizione di funzioni omotope:
-	\begin{equation*}
-		\begin{array}{cccccc}
-			f\sim f & & & &\\
-			& \implies & \left(k\circ h\right)\circ f\sim Id_y\circ f& &\\
-			k\circ h\sim Id_Y& & &\implies &g\circ \left(k\circ h\right)\circ f\sim g\circ Id_y\circ f \\
-			& & g\sim g & &\\
-		\end{array}
-	\end{equation*}
-	\begin{equation*}
-	\begin{array}{ccc}
-		g\circ \left(k\circ h\right)\circ f& \sim & g\circ Id_Y\circ f\\
-		\shortparallel & & \shortparallel\\
-		b\circ a & \sim & g\circ f\\
-		& & \rotatebox{90}{$\sim$}\\
-		& & Id_X
-	\end{array}
-	\end{equation*}
-$\implies b\circ a\sim Id_X$. In modo analogo:
-\begin{equation*}
-	\begin{array}{cccccc}
-		k\sim k & & & &\\
-		& \implies & \left(f\circ g\right)\circ k\sim Id_y\circ k& &\\
-		f\circ g\sim Id_Y& & &\implies &h\circ \left(f\circ g\right)\circ k\sim g\circ Id_y\circ f \\
-		& & h\sim h & &\\
-	\end{array}
-\end{equation*}
-\begin{equation*}
-	\begin{array}{ccc}
-		h\circ \left(f\circ g\right)\circ k& \sim & h\circ Id_Y\circ k\\
-		\shortparallel & & \shortparallel\\
-		a\circ b & \sim & h\circ k\\
-		& & \rotatebox{90}{$\sim$}\\
-		& & Id_Z
-	\end{array}
-\end{equation*}
-$\implies a\circ b\sim Id_Z$.
+\begin{observe}
+	Questo teorema ci mostra che il passaggio al limite sotto segno di integrale visto nell'ambito della teoria di Riemann, che contemplava la convergenza uniforme su intervalli limitati, è valido anche nell'ambito della Teoria di Lebesgue.
+\end{observe}
+Con questo teorema abbiamo finalmente risposto ad uno dei quesiti inizialmente enunciati nel \refChapterOnly{ellipseintroduction}: nell'ambito della teoria di Lebesgue, ci sono tre differenti teoremi per il passaggio al limite sotto il segno di integrale, che sono quelli di
+\begin{itemize}
+	\item Convergenza uniforme su spazi di misura finita.
+	\item Convergenza monotona.
+	\item Convergenza dominata.
 \end{itemize}
-\vspace{-3mm}
-\end{demonstration}
-\subsection{Spazi contraibili}
-\begin{define}[Spazio contraibile.]~{}\\
-	Uno spazio topologico è \textbf{contraibile}\index{spazio!contraibile} o \textit{contrattile}\seeonlyindex{spazio!contrattile}{spazio!contraibile} se ha lo stesso tipo di omotopia di un punto.
-\end{define}
-\begin{examples}~{}
-	\begin{enumerate}
-		\item $\realset^n$ è contraibile: si veda l'osservazione precedente.
-		\item Dall'esempio precedente, per transitività del tipo di equivalenza, si può affermare che \textit{tutti} i $\realset^n$ sono tutti omotopicamente equivalenti tra di loro.
-		\item Ogni sottospazio $X\subseteq \realset^n$ \textit{convesso} è contraibile.
-		\item Ogni sottospazio $X\subseteq \realset^n$ \textit{stellato} è contraibile.
-	\end{enumerate}
-\vspace{-3mm}
-\end{examples}
+\paragraph{Convergenza in {$L^1$} e in misura}
+\begin{theorema}[Legame tra convergenza {$L^1$} e convergenza in misura]
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$ tali che $f_n,f\in L^1\left(\mu\right)$.
+	Allora
+	\begin{equation}
+		f_n\text{ converge in }L^1\text{ a }f\implies f_n\text{ converge in misura a }f
+	\end{equation}
+\end{theorema}
 \begin{demonstration}
-	Dimostriamo l'esempio $4)$: l'esempio $3)$ è automaticamente dimostrato perché un convesso è stellato per ogni suo punto.\\
-	Sia $P_0\in X$ il punto rispetto al quale $X$ è stellato e consideriamo l'inclusione del singoletto $\left\{P_0\right\}$ in $X$ e la funzione costante da $X$ al punto, entrambe costanti:
+	Dobbiamo dimostrare che
 	\begin{equation*}
-		\incl{i}{\left\{P_0\right\}}{X}\quad \funz{g}{X}{\left\{P_0\right\}}
+		\mu(\underbrace{\left\{x\in X\middle|\abs{f_n\left(x\right)-f\left(x\right)}>\epsilon\right\}}_{\coloneqq E_{n,\epsilon}})=0,\ \forall \epsilon>0
 	\end{equation*}
-Allora consideriamo:
-\begin{itemize}
-	\item $\funz{g\circ i}{\left\{P_0\right\}}{\left\{P_0\right\}}$ è pari all'identità $Id_{\left\{P_0\right\}}$ del singoletto e dunque ovviamente omotopa ad essa.
-	\item $\funztot{\phi\coloneqq i\circ g}{X}{X}{P}{P_0}$ è una funzione costante. Vogliamo dimostrare che $\phi$ è omotopa a $Id_X$. Siccome $X$ è stellato rispetto a $P_0$, $\forall P\in X$ si ha $\overline{PP_0}\subseteq X$. Allora definiamo la funzione:
+	Si ha, per monotonia dell'integrale rispetto al dominio,
 	\begin{equation*}
-		\funztot{F}{X\times I}{X}{\left(P,\ t\right)}{tP+\left(1-t\right)P_0}
+		\int_X\abs{f_n-f}d\mu\geq\int_{E_{n,\epsilon}}\abs{f_n-f}d\mu\geq\epsilon\int_{E_{n,\epsilon}}d\mu=\epsilon\mu\left(E_{n.,\epsilon}\right),\ \forall \epsilon>0,\ \forall n\geq 1
 	\end{equation*}
-Ha senso definire ciò proprio perché su $X\subseteq \realset^n$ ci sono le operazioni di somma e prodotto per scalari. Oltre ad essere ben definita per quanto detto prima ($\mvf{F}{P}{t}\in X$), $F$ è continua e $\mvf{F}{P}{0}=P_0=\phi\left(0\right)$, $\mvf{F}{P}{1}=P=Id_X\left(P\right)$. Si ha l'omotopia cercata.
-\end{itemize}
-\vspace{-3mm}
-\end{demonstration}
-\begin{example}
-$\realset^2\setminus\left\{\left(0,\ 0\right)\right\}$ non è né convesso, né stellato.
-\end{example}
-\begin{lemming}[$X$ contraibile implica $X$ c.p.a.]
-\end{lemming}
-\begin{demonstration} Con il seguente diagramma ricordiamo le funzioni in gioco con la contraibilità.
-\begin{center}
-	\begin{tikzcd}
-		\left\{1\text{ punto}\right\} \arrow[r, "g", bend left] & X \arrow[l, "f\text{ (costante)}", bend left]
-	\end{tikzcd}
-\end{center}
-Necessariamente dobbiamo mappare $g$ ad un punto di $X$, ad esempio $x_0$.  \\
-Il singoletto e $X$ sono in equivalenze omotopica, in particolare da ciò si ha una funzione costante in $x_0$:
-\begin{equation*}
-	\funztot{\phi\coloneqq g\circ f}{X}{X}{x}{x_0}
-\end{equation*}
-In quanto $f$ e $g$ sono in equivalenza omotopica, si ha che $\phi\sim Id_X$, cioè esiste un omotopia fra le due funzioni:
-\begin{equation*}
-	\funz{F}{X\times I}{X}\text{ continua}\ \colon \mvf{F}{x}{0}=\phi\left(x\right)=x_0,\ \mvf{F}{x}{1}=Id_X\left(x\right)=x\ \forall x\in X
-\end{equation*}
-Fissato $x\in X$ sia $\funz{\alpha}{I}{X}$ dato da $\alpha\left(t\right)=\mvf{F}{x}{t}$:
-\begin{itemize}
-	\item $\alpha$ è continua perché lo è $F$.
-	\item $\alpha\left(0\right)=\mvf{F}{x}{0}=x_0$, $\alpha\left(1\right)=\mvf{F}{x}{1}=x$.
-\end{itemize}
-Segue che $\alpha$ è un cammino da $x_0$ a un qualunque punto $x$ in $X$, dunque $X$ è \textbf{c.p.a.}.
-\end{demonstration}
-\begin{exercise}
-Se $X$ e $Y$ sono omotopicamente equivalenti, allora:
-\begin{enumerate}
-\item $X$ è \textbf{c.p.a.} $\iff Y$ è \textbf{c.p.a.}.
-\item $X$ è connesso $\iff Y$ è connesso.
-\end{enumerate}
-\vspace{-3mm}
-\end{exercise}
-\begin{demonstration} Siano $f,\ g$ le equivalenze omotopiche.
-	\begin{center}
-		\begin{tikzcd}
-			X \arrow[r, "f", bend left] & Y \arrow[l, "g", bend left]
-		\end{tikzcd}
-	\end{center}
-	\begin{enumerate}[label=\Roman*]
-		\item 
-$\impliesdx$Considerato $f\circ g\sim Id_Y$, l'omotopia tra le due funzioni è tale per cui:
-\begin{equation*}
-	\funz{F}{Y\times I}{Y}\ \colon \mvf{F}{y}{0}=f\left(g\left(y\right)\right), \mvf{F}{y}{1}=y\ \forall y\in Y
-\end{equation*}
-Possiamo usare $F$ per costruire, ad $y\in Y$ fissato, un arco in $Y$ che collega $y$ ad un punto di $f\left(X\right)\subseteq Y$. Infatti, consideriamo $\funz{\alpha}{I}{Y}$ dato da $\alpha\left(t\right)=\mvf{F}{y}{t}$:
-\begin{itemize}
-	\item $\alpha$ è continua perché lo è $F$.
-	\item $\alpha\left(0\right)=\mvf{F}{y}{0}=f\left(g\left(y\right)\right)\in f\left(X\right),\ \alpha\left(1\right)=\mvf{F}{y}{1}=y$.
-\end{itemize}
-Supponendo $X$ \textbf{c.p.a.}, allora $f\left(X\right)$ è \textbf{c.p.a.} Per i ragionamenti appena fatti abbiamo che ogni punto di $Y$ ha un arco che lo collega ad un punto di $f\left(X\right)$; presi due punti di $Y$ possiamo ricondurci sempre a due punti (\textit{non} necessariamente distinti) in $f\left(X\right)$ che possiamo collegare con un cammino $\gamma$ opportuno in quanto $f\left(X\right)$ \textbf{c.p.a.}\\
-Per giunzione di cammini possiamo collegare con un cammino in $Y$ i due punti di $Y$, pertanto per arbitrarietà dei punti scelti $Y$ è \textbf{c.p.a.}.\\
-$\impliessx$Supponendo che $Y$ sia \textbf{c.p.a.}, applicando all'equivalenza omotopica $g\circ f\sim Id_X$ un procedimento analogo a $\impliesdx$si ha che $X$ è \textbf{c.p.a.}
-%\footnote{In realtà è sufficiente, per i ragionamenti visti sopra, dire che se $X$ e $Y$ sono omotopicamente equivalenti, allora $X$ è \textbf{c.p.a.} $\iff$ $f\left(X\right)$ è \textbf{c.p.a.}.}. (siamo sicuri?)
-\item $\impliesdx$Sia $X$ connesso. Sia $Y=\bigcup_i Y_i$ la scomposizione di $X$ in componenti connesse. Poiché $X$ è connesso, allora $f\left(X\right)\subseteq Y_i$ per un certo $i$. Allora $\left(f\circ g\right)\left(Y\right)\subseteq Y_i$.\\
-Consideriamo l'omotopia $\funz{F}{Y\times I}{Y}$ associata a $f\circ g\sim Id_Y$. Come nel punto I possiamo definire per ogni punto di $Y$ un cammino $\alpha\left(t\right)=\mvf{F}{y}{t}$ tra $y$ e un punto $f\left(X\right)$. Poichè per ogni $y\in Y$ abbiamo $\alpha\left(0\right)\subseteq X_i$ per un certo $i$ e $I$ è \textbf{c.p.a.}, allora $\alpha\left(I\right)\subseteq X_i$. Pertanto, anche $F\left(X\times I\right)\subseteq X_i$, ma $F\left(X\times\{1\}\right)=X$, il che significa che $X_i=X$, cioè $X$ è connesso.\\ 
-$\impliessx$Supponendo che $Y$ sia connesso, applicando all'equivalenza omotopica $g\circ f\sim Id_X$ un procedimento analogo a $\impliesdx$si ha che $X$ è connesso.
-\end{enumerate}
-\vspace{-6mm}
-	\end{demonstration}
-\begin{example}
-	Le sfere $S^n\ \forall n\geq 1$ sono spazi topologici \textbf{c.p.a.} \textit{non} contraibili. Lo dimostreremo solo per il caso $n=1$, i restanti casi si esamineranno in corsi successivi di Geometria.
-\end{example}
-\section{Retratti e retratti di deformazione}
-\begin{define}[Retratto.]~{}\\
-	Sia $X$ uno spazio topologico e $A\subseteq X$ un suo sottospazio. Diciamo che $A$ è un \textbf{retratto}\index{retratto} di $X$ se:
-	\begin{equation}
-		\exists \funz{r}{X}{A}\text{ continua}\ \colon r_{\mid A}=Id_A,\ \text{cioè}\ \colon r\left(a\right)=a,\ \forall a\in A
-	\end{equation}
-In tal caso $r$ è detta \textbf{retrazione}\index{retrazione}.
-\end{define}
-\begin{observe}
-Se $r$ è una retrazione, per costruzione è \textit{suriettiva}, dunque $A$ eredita da $X$ tutte le proprietà topologiche che si trasmettono per mappe continue alle \textit{immagini} (ad esempio connesso, \textbf{c.p.a.}, compatto), nonché le proprietà \textit{ereditarie} (ad esempio Hausdorff, base numerabile).
-\end{observe}
-\begin{examples}~{}
-	\begin{itemize}
-		\item Dato $x_0\in X$, $\left\{x_0\right\}$ è sempre un retratto: infatti la mappa costante $\funz{\ }{X}{\left\{x_0\right\}}$ soddisfa banalmente le ipotesi di retrazione.
-		\item Presi $X=\left[0,\ 1\right]$, $A=\left(0,\ 1\right]$ \textit{non} è un retratto di $X$ (non è \textit{compatto}!).
-		\item Presi $X=\left[0, 1\right]$, $\widetilde{A}=\left\{0,\ 1\right\}$ \textit{non} è un retratto (non è \textit{connesso}!).
-	\end{itemize}
-\vspace{-3mm}
-\end{examples}
-\begin{example}\textsc{Retrazione radiale.}\label{retrazioneradiale}\\
-	Sia $X=\realset^n\setminus \left\{\mathbf{0}\right\}$ e $A=S^{n-1}\subseteq X$. Vogliamo definire una retrazione di $X$ su $A$, cioè una funzione continua $\funz{r}{\realset^n\setminus\left\{\mathbf{0}\right\}}{A=S^{n-1}}$ tale che $r_{\mid S^{n-1}}=Id_{S^{n-1}}$. Definiamo allora la \textbf{retrazione radiale}\index{retrazione!radiale}:
-	\begin{equation}
-		\funztot{r}{\realset^n\setminus\left\{\mathbf{0}\right\}}{S^{n-1}}{\mathbf{x}}{r\left(\mathbf{x}\right)=\frac{\mathbf{x}}{\labs \mathbf{x}\rabs}}
-	\end{equation}
-\begin{itemize}
-	\item $r$ è ben definita perché $\mathbf{x}\neq\mathbf{0}\implies \labs \mathbf{x}\rabs\neq 0$.
-	\item $r$ continua.
-	\item Se $\mathbf{x}\in S^{n-1}$, allora $\labs \mathbf{x}\rabs=1$, cioè $\forall \mathbf{x}\in S^{n-1}\ r\left(\mathbf{x}\right)=\frac{\mathbf{x}}{\labs \mathbf{x}\rabs}=\mathbf{x}$.
-\end{itemize}
-\vspace{-3mm}
-\end{example}
-\begin{example}\textsc{Retrazione lineare.}\label{retrazionelineare}\\
-	Sia $X=S^1\times I$ e $A=S^1\times \{0\}$. Vogliamo definire una retrazione di $X$ su $A$, cioè una funzione continua $\funz{r}{X=S^1\times I}{A=S^1\times \{0\}}$ tale che $r_{\mid S^1\times \{0\}}=Id_{S^1\times \{0\}}$. Definiamo allora la \textbf{retrazione lineare}\index{retrazione!lineare}:
-	\begin{equation}
-		\funztot{r}{S^1\times I}{S^{1}\times \{0\}}{(\mathbf{x},\ t)=(x,\ y,\ t)}{r((\mathbf{x},\ t))=(x,\ y,\ 0)}
-	\end{equation}
-	\begin{itemize}
-		\item $r$ è ben definita.
-		\item $r$ continua.
-		\item Se $\mathbf{x}\in S^{1}\times \{0\}$, allora $t=0$, cioè $\forall \left(\mathbf{x},\ t\right)\in S^{1}\times \{0\}\ r\left(\left(\mathbf{x},\ t\right)\right)=\left(\mathbf{x},\ 0\right)=\left(\mathbf{x},\ t\right)$.
-	\end{itemize}
-	\vspace{-3mm}
-\end{example}
-\begin{define}[Retratto di deformazione.]~{}\\
-	Sia $X$ uno spazio topologico e $A\subseteq X$ un suo sottospazio. Diciamo che $A$ è un \textbf{retratto di deformazione}\index{retratto!di deformazione} se:
-		\begin{itemize}
-			\item $r_{\mid A}=Id_A$, cioè $r$ è un retratto.
-			\item Se $\incl{i}{A}{X}$ è l'inclusione di $A$ in $X$, allora $\funz{i\circ r}{X}{X}$ è omotopa all'identità di $X$ ($i\circ r\sim Id_X$).
-		\end{itemize}
-	\vspace{-3mm}
-\end{define}
-\begin{observe}
-	Se $A$ è un retratto di deformazione di $X$, allora $A$ e $X$ hanno lo stesso \textbf{tipo di omotopia}.
-\end{observe}
-\begin{demonstration}~{}
-	\begin{itemize}
-		\item $\funz{r}{X}{A}$ e $\incl{i}{A}{X}$ sono continue.
-		\item $i\circ r\sim Id_X$ per ipotesi.
-		\item $\funz{r\circ i}{A}{A}$ è la restrizione di $r$ ad $A$ che, per ipotesi, è proprio l'identità di $A$, cioè $r\circ i=r_{\mid A}=Id_A$ e banalmente sono omotope.
-	\end{itemize}
-\vspace{-3mm}
-\end{demonstration}
-\begin{example}
-	\label{retrattosfera}
-	Mostriamo che $S^{n-1}\subseteq \realset^n\setminus\left\{\mathbf{0}\right\}$ è un retratto di deformazione. Utilizziamo la retrazione radiale definita a pag. \pageref{retrazioneradiale}:
-		\begin{equation*}
-		\funztot{r}{\realset^n\setminus\left\{\mathbf{0}\right\}}{S^{n-1}}{\mathbf{x}}{r\left(\mathbf{x}\right)=\frac{\mathbf{x}}{\labs \mathbf{x}\rabs}}
+	Dunque si ottiene
+	\begin{equation*}
+		0\leq \mu\left(E_{n,\epsilon}\right)\leq \frac{1}{\epsilon}\int_X\abs{f_n-f}d\mu=\frac{1}{\epsilon}\underbrace{\norm{f_n-f}_1}_{\to 0\text{ per }n\to+\infty}
 	\end{equation*}
-Considero ora l'inclusione, definendo per comodità $X=\realset^n\setminus\left\{\mathbf{0}\right\}$:
-\begin{equation*}
-	\funz{i}{S^{n-1}}{X}\quad 		\funztot{r}{X}{S^{n-1}}{\mathbf{x}}{\frac{\mathbf{x}}{\labs \mathbf{x}\rabs}}\implies \widetilde{r}\coloneqq\funztot{ i\circ r}{X}{X}{\mathbf{x}}{\frac{\mathbf{x}}{\labs \mathbf{x}\rabs}}
-\end{equation*}
-Vogliamo che $\widetilde{r}$ sia omotopa a $Id_X$.
-Osserviamo che $\forall \mathbf{x}\in\realset^n\setminus\left\{\mathbf{0}\right\}=X$ il segmento da $\mathbf{x}$ a $\frac{\mathbf{x}}{\labs \mathbf{x}\rabs}$ non contiene, per costruzione, l'origine: allora esso è interamente contenuto in $\realset^n\setminus \left\{\mathbf{0}\right\}=X$. Dunque, riprendendo l'osservazione di pag. \pageref{omotopiasegmento} definiamo l'omotopia:
-\begin{equation*}
-	\funztot{F}{X\times I}{X}{\left(\mathbf{x},\ t\right)}{\left(1-t\right)\mathbf{x}+t\frac{\mathbf{x}}{\labs \mathbf{x}\rabs}}
-\end{equation*}
-Infatti $F$ è ben definita, continua e $\mvf{F}{\mathbf{x}}{0}=\frac{\mathbf{x}}{\labs \mathbf{x}\rabs}=\widetilde{r}\left(\mathbf{x}\right),\ \mvf{F}{x}{1}=\mathbf{x}=Id_X\left(\mathbf{x}\right)$.
-\end{example}
-\begin{corollary}[$S^{n-1}$ omotopa a $\realset^n\setminus\left\{1\text{ punto}\right\}$.]~{}\\
-	In generale vale che $S^{n-1}$ è retratto di deformazione di $\realset^n\setminus\left\{1\text{ punto}\right\}$; in particolare hanno lo stesso tipo di omotopia.
-\end{corollary}
-\begin{intuit}
-	Se l'omeomorfismo permette di deformare uno spazio \textit{mantenendo certe qualità}, l'equivalenza omotopica risulta essere una forma \textbf{più debole} di trasformazione, in cui posso sempre deformare uno spazio \textit{perdendo} tuttavia certe qualità.\\
-	Riprendendo l'intuizione (non sempre corretta) di omeomorfismo enunciata nel \autoref{chap:spazitopologici}, possiamo vedere allora l'equivalenza omotopica come una deformazione che \textit{piega} e \textit{allunga} uno spazio senza formare \textit{strappi} ($f$ continua) ma che \textit{permette} fino ad un certo punto \textit{sovrapposizioni} e \textit{incollamenti} (ad esempio, non posso far sparire alcuni fori né ammassare indiscriminatamente troppi punti).\\
-	Dunque, sotto queste condizioni, posso rendere la \textit{retta} un \textit{punto}, mentre il \textit{piano} senza un punto si può trasformare un una \textit{circonferenza}. Allo stesso tempo però, non posso ‘‘concentrare'' la \textit{sfera} in uno solo \textit{punto}.\\
-	Ancor più che con il ragionamento intuitivo sull'omeomorfismo è necessario esercitare \textbf{estrema cautela} nell'applicare questa nozione euristica di omotopia.
-\end{intuit}
-\begin{define}[Bouquet di circonferenze.]~{}\label{bouquet}\\
-Un \textbf{bouquet}\index{bouquet di circonferenze} \textbf{di} $n$ \textbf{circonferenze} è uno spazio topologico ottenuto unendo in un punto $n$ copie di $S^1$.
-\begin{center}
-	\includegraphics[trim=0cm 0cm 0cm 0cm,clip,scale=0.7]{images/bouquet.pdf}
-\end{center}
-\vspace{-8mm}
-\end{define}
-\begin{examples}\textsc{Altri esempi di equivalenze omotopiche.}
-	\begin{enumerate}
-		\item $\realset^2\setminus\left\{2\text{ punti}\right\}$ ha lo stesso tipo di omotopia di un \textit{bouquet di due circonferenze}: si può ottenere attraverso una composizione (continua) di retrazioni \textit{radiali} e \textit{lineari}\index{retrazione!lineare}.
-		\begin{center}
-						\includegraphics[trim=0cm 0cm 0cm 0cm,clip,scale=0.75]{images/bouquetconstruction.pdf}
-		\end{center}	
-		\item $\realset^2\setminus\left\{n\text{ punti}\right\}$ ha lo stesso tipo di omotopia di un \textit{bouquet di} $n$ \textit{circonferenze}.
-		\item $\realset^3\setminus\left\{1\text{ retta}\right\}$ ha lo stesso tipo di omotopia di $\realset^2\setminus\left\{1\text{ punto}\right\}$ per retrazioni lineari, dunque ha la stessa omotopia di $S^1$ per i ragionamenti precedenti.
-		\item Per $\realset^3\setminus\left\{2\text{ rette}\right\}$ dobbiamo distinguere a seconda della relazione fra le due rette.
-		\begin{itemize}
-			\item Se le rette sono \textbf{disgiunte}, $X$ è sempre omeomorfo a:
-			\begin{equation*}
-				\realset^3\setminus\left\{\text{asse z}\right\}\setminus\left\{x=y=1\right\}=\widetilde{X}
-			\end{equation*}
-		Cioè lo spazio $\realset^3$ privato di due rette perpendicolari al piano $xy$ e distinte.\\
-			Considerato ora il piano $Y=\left\{\text{piano xy}\right\}\setminus\left\{\left(0,0\right),\ \left(1,1\right)\right\}$, questo risulta un retratto di deformazione di $\widetilde{X}$ con retrazione:
-			\begin{equation*}
-				\funztot{r}{\widetilde{X}}{Y}{\left(x,\ y,\ z\right)}{\left(x,\ y, 0\right)}
-			\end{equation*}
-		Infatti la funzione è sempre ben definita e continua e, considerata la restrizione di $r$ ad $Y$, segue che banalmente che è l'identità di $Y$ in quanto tutti i punti di $Y$ hanno già la forma $\left(x,\ y, 0\right)$. Guardando invece $\widetilde{r}=i\circ r$ con $\incl{i}{Y}{\widetilde{X}}$, un'omotopia con $Id_{\widetilde{X}}$ è:
-		\begin{equation*}
-			\funz{F}{\widetilde{X}\times I}{\widetilde{X}}\ \colon \mvf{F}{\left(x,\ y,\ z\right)}{t}=\left(x,\ y,\ tz\right)
-		\end{equation*}
-		Infatti $F$ è banalmente ben definita continua, con $\mvf{F}{\mathbf{x}}{0}=\left(x,\ y,\ 0\right)=\widetilde{r}\left(\mathbf{x}\right)$ e $\mvf{F}{\mathbf{x}}{1}=\left(x,\ y,\ z\right)=Id_{\widetilde{X}}\left(\mathbf{x}\right)$.\\
-		Segue che $\widetilde{X}$, e dunque anche $X$ per omeomorfismo, ha la stessa omotopia di $\realset^2\setminus\left\{2\text{ punti}\right\}$ e di un \textit{bouquet di due circonferenze}.
-		\item Se le due rette sono \textbf{incidenti}, a meno di omeomorfismi si intersecano nell'origine. Consideriamo dunque $X=\realset^3\setminus\left\{r_1\cup r_2\right\}$ e lo spazio $A=S^2\setminus\left\{P_1,\ P_2,\ Q_1,\ Q_2\right\}$. Se prendiamo la retrazione:
-		\begin{equation*}
-			\funztot{r}{X}{A}{\mathbf{x}}{\frac{\mathbf{x}}{\labs \mathbf{x}\rabs}}.
-		\end{equation*}
-		e l'omotopia:
-		\begin{equation*}
-			\widetilde{r}\coloneqq\funztot{ i\circ r}{X}{X}{\mathbf{x}}{\frac{\mathbf{x}}{\labs \mathbf{x}\rabs}}
-		\end{equation*}
-	Si verifica in modo analogo a come visto nel caso della sfera e dello spazio privato dell'origine (esempio a pag. \pageref{retrattosfera}), trattando con una \textit{retrazione radiale} ben definita e la sua omotopia nota, che $A$ è retratto di deformazione di $X$. Segue allora che hanno lo stesso tipo di omotopia.
-		\end{itemize}
-	\end{enumerate}
-	\vspace{-3mm}
-\end{examples}
+	Passando al limite per $n\to+\infty$, applicando il teorema del confronto si ricava:
+	\begin{equation*}
+		\lim_{n\to+\infty}\mu\left(E_{n,\epsilon}\right)=0,\ \forall \epsilon>0
+	\end{equation*}
+\end{demonstration}

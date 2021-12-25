@@ -181,12 +181,14 @@ Abbiamo visto\footnote{Si veda \refChapterOnly{convergenzafunzioni}, pag. \pager
 \subsection{Criteri di convergenza delle serie}\label{criteridiconvergenzaserie}
 Di seguito enunceremo diversi criteri utili per studiare la convergenza di una serie $\displaystyle\sum_{n=1}^{+\infty}a_n$.
 \paragraph{Limite del termine della successione}
-(\textit{Criterio necessario}, $\realset$ o $\complexset$) Se la serie converge, allora $\displaystyle\lim_{n\to+\infty}a_n=0$. Per contronominale vale
+(\textit{Criterio necessario}, $\realset$ o $\complexset$)\\
+Se la serie converge, allora $\displaystyle\lim_{n\to+\infty}a_n=0$. Per contronominale vale
 	\begin{equation}
 		\lim_{n\to+\infty}a_n\neq 0\implies\sum_{n=1}^{+\infty}a_n\text{ non converge}
 	\end{equation}
 \paragraph{Convergenza assoluta}
-(\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$)\\
+Se la serie
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}\abs{a_n}
 	\end{equation*}
@@ -204,20 +206,23 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 	\end{equation}
 	se $R<1$, la serie è \textit{assolutamente} convergente. Se $R>1$, la serie diverge. Se $R=1$, non abbiamo informazioni sulla convergenza.
 \paragraph{Criterio della radice o di Cauchy}
-(\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$)\\
+Sia
 	\begin{equation}
 		R = \limsup_{n\to+\infty}\sqrt[n]{\abs{a_n}}
 	\end{equation}
 	Se $R<1$, la serie è \textit{assolutamente} convergente, mentre se $R>1$, la serie diverge. Se $R=1$, non abbiamo informazioni sulla convergenza.\\
 	Se una serie infinita converge o diverge col criterio della radice, lo stesso risultato si ottiene con il \textit{criterio del rapporto} ma \textit{non} vale il viceversa.
 \paragraph{Criterio dell'integrale}
-(\textit{Criterio necessario e sufficiente}, $\realset$) Sia $\funz{f}{\left[1,+\infty\right)}{\realset_+}$ una funzione non-negativa e monotona decrescente tale per cui $f\left(n\right)=a_n$. Allora, posto
+(\textit{Criterio necessario e sufficiente}, $\realset$)\\
+Sia $\funz{f}{\left[1,+\infty\right)}{\realset_+}$ una funzione non-negativa e monotona decrescente tale per cui $f\left(n\right)=a_n$. Allora, posto
 	\begin{equation*}
 		\int_{1}^{+\infty}f\left(x\right)dx=\lim_{t\to\infty}\int_{1}^{t}f\left(x\right)dx
 	\end{equation*}
 	la serie $a_n$ converge se e solo se l'integrale converge.
 \paragraph{Criterio di confronto diretto}
-(\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Se la serie
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$)\\
+Se la serie
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}b_n
 	\end{equation*}
@@ -227,7 +232,8 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 	\end{equation*}
 	converge \textit{assolutamente}.
 \paragraph{Criterio del confronto asintotico}
-(\textit{Criterio necessario e sufficiente}, $\realset$) Se $a_n,\ b_n>0,\ \forall n$, e il limite
+(\textit{Criterio necessario e sufficiente}, $\realset$)\\
+Se $a_n,\ b_n>0,\ \forall n$, e il limite
 	\begin{equation*}
 		\lim_{n\to+\infty}\frac{a_n}{b_n}
 	\end{equation*}
@@ -236,7 +242,8 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 		\sum_{n=1}^{+\infty}a_n\text{ converge}\iff\sum_{n=1}^{+\infty}b_n\text{ converge}.
 	\end{equation}
 \paragraph{Criterio di condensazione di Cauchy}
-(\textit{Criterio necessario e sufficiente}, $\realset$) Sia $a_n$ una successione non negativa e non crescente. Allora
+(\textit{Criterio necessario e sufficiente}, $\realset$)\\
+Sia $a_n$ una successione non negativa e non crescente. Allora
 	\begin{equation}
 		\sum_{n=1}^{+\infty}a_n\text{ converge}\iff\sum_{n=1}^{+\infty}2^na_{2^n}\text{ converge}.
 	\end{equation}
@@ -245,7 +252,8 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 		\sum_{n=1}^{+\infty}a_n<\sum_{n=1}^{+\infty}2^na_{2^n}<2\sum_{n=1}^{+\infty}a_n
 	\end{equation*}
 \paragraph{Criterio di Abel-Dirichlet}
-(\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia data la serie
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$)\\
+Sia data la serie
 	\begin{equation}
 		\sum_{n=0}^{+\infty}a_nb_n,\quad a_n\in\complexset,\ b_n\in\realset
 	\end{equation}
@@ -263,7 +271,8 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 	\end{equation*}
 	converge (semplicemente).
 \paragraph{Criterio di Leibniz}
-(\textit{Criterio sufficiente}, $\realset$ o $\complexset$) Sia data la serie
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$)\\
+Sia data la serie
 		\begin{equation}
 		\sum_{n=0}^{+\infty}\left(-1\right)^na_n,\quad a_n\in\realset
 	\end{equation}
@@ -274,7 +283,7 @@ Di seguito enunceremo diversi criteri utili per studiare la convergenza di una s
 	converge (semplicemente).
 \subsection{Serie a valori reali notevoli}\label{serieavalorirealinotevoli}
 Di seguito enunceremo alcune serie a valori reali di particolare rilevanza.
-\paragraph{Serie geometrica}
+\paragraph{Serie geometrica}\label{seriegeometricafootnote}
 	\begin{equation*}
 		\sum_{n=0}^{+\infty}z^{n}
 	\end{equation*}	
@@ -283,6 +292,39 @@ Di seguito enunceremo alcune serie a valori reali di particolare rilevanza.
 		s_n=\sum_{k=0}^{n}z^{k}=\frac{1-z^{n+1}}{1-z}
 	\end{equation*}
 	La serie dunque converge se e solo se $\abs{z}<1$ e in tal caso converge a $\displaystyle\frac{1}{1-z}$.
+	\begin{demonstration}
+		Osserviamo subito che per $z=1$ la serie geometrica è la somma di infiniti termini pari ad $1$ e \textit{non converge}.\\
+		Calcoliamo la ridotta per $z\neq 1$, utilizzando il seguente espediente:
+		\begin{flalign*}
+			s_n&=\sum_{k=0}^{n}z^{k}=1+z+z^2+z^3+\ldots+z^n\\
+			zs_n&=\sum_{k=1}^{n+1}z^{k}=z+z^2+z^3+z^4+\ldots+z^{n+1}\\
+			s_n-zs_n&=
+			\begin{array}{lllllll}
+				1&+z&+z^2&+z^3&+\ldots&+z^n&\\
+				&-z&-z^2&-z^3&-\ldots&-z^n&-z^{n+1}
+			\end{array}\\
+		&=1-z^{n+1}\\
+		s_n\left(1-z\right)&=1-z^{n+1}\\
+		s_n&=\frac{1-z^{n+1}}{1-z}
+		\end{flalign*}
+	Per definizione di serie, se $\abs{z}<1$ si ha
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}z^{n}=\lim_{n\to+\infty}s_n=\lim_{n\to+\infty}\frac{1-z^{n+1}}{1-z}=\frac{1}{1-z}.
+	\end{equation*}
+dato che $z^{n+1}$ tende a zero per $n\to+\infty$.\\
+Per $z=-1$, la ridotta risulta
+\begin{equation*}
+	s_n=\frac{1-\left(-1\right)^{n+1}}{2}=
+	\begin{cases}
+		\begin{array}{ll}
+			1&\text{se }n\text{ dispari}\\
+			0&\text{se }n\text{ pari}
+		\end{array}
+	\end{cases}
+\end{equation*}
+che non ammette limite per $n\to+\infty$.\\
+Per $\abs{z}>1$ $z^{n+1}$ diverge, dunque diverge anche la ridotta e la serie geometrica.
+\end{demonstration}
 \paragraph{Serie armonica generalizzata}
 	\begin{equation}
 		\sum_{n=1}^{+\infty}\frac{1}{n^p}
@@ -294,9 +336,459 @@ Di seguito enunceremo alcune serie a valori reali di particolare rilevanza.
 	\end{equation}
 	per ogni numero reale positiva $p$. Diverge per $p\leq 1$, ma converge per ogni $p>1$.
 \section{Capitolo 4: serie di potenze}
+\subsection{Massimo e minimo limite}\label{maxminlimite}
+\paragraph{Definizione di massimo e minimo limite}
+\begin{remember}
+In $\realset^{\ast}$ è definito il concetto di \textbf{convergenza}, che coincide con l'usuale concetto di convergenza quando il risultato del limite è \textit{finito}, mentre coincide con il concetto di divergenza, a più o a meno \textit{infinito}, quando il risultato del limite è più o meno infinito, rispettivamente.
+\end{remember}
+\begin{define}[Valore limite e classe limite]
+	Sia $a_n$ una successione di numeri reali e sia $\realset^{\ast}=\realset\cup \{+\infty\}\cup \{-\infty\}=\left[-\infty,+\infty\right]$.\\
+	Un valore $\lambda\in \realset^{\ast}$ si dice \textbf{valore limite}\index{valore limite} della successione $a_n$ se esiste una sottosuccessione $a_{n_k}$ tale che
+	\begin{equation}
+		\lim_{k\to +\infty} a_{n_k}=\lambda.
+	\end{equation}
+L'insieme dei valori limite della successione si chiama \textbf{classe limite}\index{classe limite} della successione.
+\end{define}
+\begin{exercises}~
+	\begin{enumerate}
+		\item Provare che la classe limite di ogni successione è non vuota.
+		\item Scrivere un esempio esplicito di successione con classe limite $\{0, +\infty \}$.
+		\item Scrivere un esempio esplicito di successione con classe limite costituita da tre valori.
+		\item Scrivere un esempio di successione con classe limite $\realset$.
+	\end{enumerate}
+\end{exercises}
+\begin{solution}
+	\begin{enumerate}[label=\Roman*]
+		\item Se la successione è \textit{limitata}, allora si ha sempre una sottosuccessione convergente in $\realset$ per il teorema di Bolzano-Weierstrass.\\
+		Supponendo che la successione non sia limitata superiormente (il caso inferiore è analogo), costruiamo una sottosuccessione convergente a $+\infty$. Dalla non limitatezza di $a_n$ si ha che, per ogni $M\in\realset$ esiste $n\in\naturalset$ tale che $a_n>M$.\\
+		Preso $M_1=1$, si scelga $n_1$ per cui $a_{n_1}>M_1=1$.\\
+		Consideriamo ora $M_2=2+\max\left\{a_j\mid j\leq n_1\right\}$: si ha che $M_2\geq 2$ e si può sempre scegliere in quanto $a_n$ non limitata, un $n_2\geq n_1$ tale per cui $a_{n_2}>M_2$.\\
+		Per induzione si può mostrare che al $k$-esimo passo, scegliendo $M_k=k+\max\left\{a_j\mid j\leq n_k\right\}$ in modo che $M_k\geq k$, esiste $n_{k+1}>n_k$ con $a_{n_k}>M_k$.\\
+		In questo modo si ottiene una sottosequenza indicizzata da $n_k$ tale che $a_{n_k}\geq k$. Questo implica che la sottosequenza converge a $+\infty$.
+		\item Si consideri 
+		\begin{equation*}
+			a_n=\begin{cases}
+				\begin{array}{ll}
+					n&\text{se }n \text{ pari}\\
+					\frac{1}{n}&\text{se }n \text{ dispari}
+				\end{array}
+			\end{cases}
+		\end{equation*}
+		Le sottosuccessioni indicizzate dai pari e dai dispari convergono a $+\infty$ e $0$, rispettivamente.
+		\item Si consideri 
+		\begin{equation*}
+			a_n=\sin\left(\frac{n\pi}{2}\right).
+		\end{equation*}
+		L'immagine di $a_n$ è costituita da soli tre valori: $0$, $1$ e $-1$.\\
+		È sufficiente considerare le sottosuccessioni
+		\begin{flalign*}
+			\left\{b_n\right\}=\left\{a_0,a_2,a_4\ldots\right\}\\
+			\left\{c_n\right\}=\left\{a_1,a_5,a_9,\ldots\right\}\\
+			\left\{d_n\right\}=\left\{a_3,a_7,a_11,\ldots\right\}\\
+		\end{flalign*}
+	per verificare che ogni elemento dell'immagine di $a_n$ è valore limite e la classe limite ha solo tre valori.
+		\item Si consideri la biezione $\funz{f}{\naturalset}{\rationalset_{\geq 0}}$ e si ponga $a_n=f\left(n\right)$: questa è una successione contenente tutti i razionali e i suoi punti di accumulazioni sono, per densità di $\rationalset$, tutti i reali. Allora la classe limite di $a_n$ è $\realset$.
+	\end{enumerate}
+\end{solution}
+\begin{proposition}[Chiusura della classe limite]
+	La classe limite di ogni successione è un insieme chiuso in $\realset^{\ast}$.
+\end{proposition}
+\begin{demonstration}
+	Sia $a_n$ una successione di numeri reali e sia $\Lambda$ la sua classe limite. Per provare che $\Lambda$ è chiuso è sufficiente provare che ogni punto di accumulazione di $\Lambda$ appartiene a  $\Lambda$.\\
+	Sia quindi $\lambda^{\ast} \in \realset^{\ast}$ un punto di accumulazione di $\Lambda$; proviamo che esiste una sottosuccessione di $a_n$ convergente a $\lambda^{\ast}$. A tale fine, osserviamo che, per definizione di punto di accumulazione, per ogni $\epsilon >0$ esiste $l_0\in \Lambda,\ \lambda_0\neq \lambda^{\ast}$, tale che 
+	\begin{equation*}
+		\lambda^{\ast}-\epsilon < \lambda_0<\lambda^{\ast}+\epsilon.
+	\end{equation*}
+Sia $\epsilon_0>0$ tale che
+\begin{equation*}
+	\circled[red]{\vardiamond}\quad\lambda^{\ast}-\epsilon < \lambda_0-\epsilon_0< \lambda_0<\lambda_0+\epsilon_0 < \lambda^{\ast}+\epsilon.
+\end{equation*}
+Dal fatto che $\lambda_0\in \Lambda$ deduciamo che esiste una sottosuccessione $a_{n_k}$ tale che
+\begin{equation*}
+	\lim_{k\to +\infty} a_{n_k}=\lambda_0
+\end{equation*}
+e dunque, dato $\epsilon_0$ come in \circled[red]{\vardiamond}, esiste $K\in \naturalset$ tale che per ogni $k\geq K$ si ha
+\begin{equation*}
+	\circled[blue]{\spadesuit}\quad  \lambda_0-\epsilon_0< a_{n_k}<\lambda_0+\epsilon_0.
+\end{equation*}
+Dalle relazioni (1) e (2) deduciamo che per ogni $\epsilon >0$ esiste $K\in \naturalset$ tale che per ogni $k\geq K$ si ha
+\begin{equation*}
+	\lambda^{\ast}-\epsilon< a_{n_k}<\lambda^{\ast}+\epsilon
+\end{equation*}
+e questo prova che la sottosuccessione $a_{n_k}$ converge a $\lambda^{\ast}$.
+\end{demonstration}
+Dalla proposizione e dal primo punto dell'esercizio precedente, segue che la classe limite di una qualsiasi successione è un insieme chiuso non vuota; esistono quindi in $\realset^{\ast}$ il suo massimo ed il suo minimo.
+\begin{define}[Massimo e minimo limite]
+Si dice \textbf{massimo limite}\index{massimo limite} della successione $a_n$ il massimo della sua classe limite e lo si indica con 
+	\begin{equation}
+		\limsup_{n\to +\infty} a_{n}.
+	\end{equation}
+Si dice \textbf{minimo limite}\index{minimo limite} della successione $a_n$ il minimo della sua classe limite e lo si indica con
+\begin{equation*}
+	\liminf_{n\to +\infty} a_{n}.
+\end{equation*}
+\end{define}
+\begin{observes}~
+	\begin{itemize}
+		\item Si noti che, a differenza del limite, il massimo ed il minimo limite di una successione di numeri reali esistono \textit{sempre}.
+		\item Dalla definizione segue immediatamente che
+		\begin{equation*}
+			\liminf_{n\to +\infty} a_{n} \leq \limsup_{n\to +\infty} a_{n}
+		\end{equation*}
+		e che
+		\begin{equation*}
+			\lim_{n\to +\infty} a_n \quad \mbox{esiste} \quad \iff \quad \liminf_{n\to +\infty} a_{n} =\limsup_{n\to +\infty} a_{n}.
+		\end{equation*}
+		\item Dalla definizione segue anche che
+		\begin{equation*}
+			\liminf_{n\to +\infty} a_{n} = - \limsup_{n\to +\infty} (-a_{n})
+		\end{equation*}
+	e
+	\begin{equation*}
+		\limsup_{n\to +\infty} a_{n} = - \liminf_{n\to +\infty} (-a_{n}).
+	\end{equation*}
+	\end{itemize}
+\end{observes}
+\paragraph{Eserciziamoci! Definizione di massimo e minimo limite}
+\begin{example}
+	Una successione può avere massimo limite uguale a -$\infty$?
+\end{example}
+\begin{solution}
+	La risposta è \textbf{sì}. Osserviamo che dal fatto che il minimo limite è minore o uguale al massimo limite, in questo caso si deduce che anche il minimo limite è uguale a $-\infty$ e dunque esiste il limite ed è uguale a $-\infty$. La successione diverge quindi a $-\infty$.
+\end{solution}
+\paragraph{Caratterizzazione del massimo e del minimo limite finiti}
+Il massimo ed il minimo limite di una successione di numeri reali possono essere facilmente caratterizzati nel caso in cui siano finiti.
+\begin{proposition}[Caratterizzazione del massimo limite finito]
+	Sia $a_n$ una successione di numeri reali e sia $\lambda \in \realset$. Allora
+	\begin{equation*}
+		\limsup_{n\to +\infty} a_n =\lambda
+	\end{equation*}
+	se e solo se
+	\begin{enumerate}
+		\item $\forall \ \epsilon>0 \quad \exists \ N\in \naturalset\quad \forall \ n\geq N \quad a_n<\lambda +\epsilon$.
+		\item $\forall \ \epsilon>0 \quad \mbox{esistono infiniti indici }\ n_k\in \naturalset:\quad a_{n_k}>\lambda-\epsilon$.
+	\end{enumerate}
+\end{proposition}
+\begin{observe}
+	Le condizioni 1. e 2. esprimono il fatto che il massimo limite di una successione è un elemento della classe limite ed è il più grande tra gli elementi della classe limite.
+\end{observe}
+\begin{demonstrationcaput}
+	$\impliesdx$  Sia 
+	\begin{equation*}
+		\limsup_{n\to +\infty} a_n =\lambda;
+	\end{equation*}
+	allora, $\lambda$ è un valore limite di $a_n$, in quanto la classe limite è chiusa, e dunque esiste una sottosuccessione $a_{n_k}$ convergente a $\lambda$.\\
+	Quindi, per ogni $\epsilon >0$ esiste $K\in \naturalset$ tale che per ogni $k\geq K$ si ha
+	\begin{equation*}
+		\lambda-\epsilon < a_{n_k} <\lambda +\epsilon,
+	\end{equation*}
+	da cui segue la relazione 2.\\ 
+	D'altra parte, $\lambda$ è il massimo della classe limite; di conseguenza, per ogni $\epsilon > 0$ il numero $\lambda +2\epsilon$ non è un valore limite e dunque nell'intorno $(\lambda +\epsilon, \lambda +3\epsilon)$ di $\lambda +2\epsilon$ cadono i numeri $a_n$ per al più un numero finito di indici $n$.\\
+	Esiste quindi $N\in \naturalset$ tale che per ogni $n\geq N$ si ha 
+	\begin{equation*}
+		a_n <\lambda +\epsilon,
+	\end{equation*}
+	ossia la relazione 1.\\
+	$\impliessx$ Supponiamo ora che valgano le relazioni 1. e 2. Da esse si deduce immediatamente che la sottosuccessione $a_{n_k}$ converge a $\lambda$ e dunque $\lambda$ è un valore limite della successione $a_n$.\\
+	D'altra parte, dalla relazione 1. segue che ogni numero $\lambda '>\lambda$ non appartiene alla classe limite: infatti, dato  $\lambda '>\lambda$, posto $\epsilon' = (\lambda'-\lambda)/2$, esiste $N'\in \naturalset$ tale che
+	\begin{equation*}
+		a_n< \lambda +\epsilon' = \lambda'-\epsilon ',
+	\end{equation*}
+	per ogni $n\geq N'$. Di conseguenza, si ha definitivamente
+	\begin{equation*}
+		a_n \notin (\lambda' -\epsilon',\lambda'+\epsilon')
+	\end{equation*}
+	e dunque non esistono sottosuccessioni convergenti a $\lambda'$.\\
+	Concludiamo quindi che $\lambda$ è il massimo della classe limite, ossia che $\lambda$ è il massimo limite della successione.
+\end{demonstrationcaput}
+In modo analogo si prova il seguente risultato.
+\begin{propositionqed}[Caratterizzazione del minimo limite finito]
+	Sia $a_n$ una successione di numeri reali e sia $\lambda \in \realset$. Allora 
+	\begin{equation*}
+		\liminf_{n\to +\infty} a_n =\lambda
+	\end{equation*}
+	se e solo se
+	\begin{enumerate}
+		\item $\forall \ \epsilon>0 \quad \exists \ N\in \naturalset\quad \forall \ n\geq N \quad a_n>\lambda -\epsilon$.
+		\item $\forall \ \epsilon>0 \quad \mbox{esistono infiniti indici }\ n_k\in \naturalset:\quad a_{n_k}<\lambda +\epsilon$.\qedhere
+	\end{enumerate}
+\end{propositionqed}
+\paragraph{Formulazione equivalente del massimo e del minimo limite}
+\begin{proposition}[Formulazione equivalente del massimo e del minimo limite]
+	Sia $a_n$ una successione di numeri reali. Allora si ha
+	\begin{equation}
+		\limsup_{n\to +\infty} a_n = \inf_{n\geq 1} \left( \sup_{k\geq n} a_k\right)
+	\end{equation}
+	e
+	\begin{equation}
+		\liminf_{n\to +\infty} a_n = \sup_{n\geq 1} \left( \inf_{k\geq n} a_k\right).
+	\end{equation}
+\end{proposition}
+\begin{observe}
+	Si verifica facilmente che la successione
+	\begin{equation*}
+	b_n=  \sup_{k\geq n} a_k,\quad n\geq 1,
+	\end{equation*}
+	è decrescente: infatti, per ogni $n\geq 1$ si ha
+	\begin{equation*}
+		b_{n+1} = \sup_{k\geq n+1} a_k \leq \sup_{k\geq n} a_k =b_n.
+	\end{equation*}
+	Di conseguenza, per il teorema di \textsc{Analisi Matematica Uno} sui \textit{limiti di successioni monotone}, essa ammette limite ed il suo limite coincide con l'estremo inferiore dei suoi valori; si ha quindi
+	\begin{equation}
+		\limsup_{n\to +\infty} a_n = \inf_{n\geq 1} \left( \sup_{k\geq n} a_k\right) = \lim_{n\to +\infty} \left( \sup_{k\geq n} a_k\right).
+	\end{equation}
+	In modo analogo si prova che 
+	\begin{equation}
+		\liminf_{n\to +\infty} a_n = \sup_{n\geq 1} \left( \inf_{k\geq n} a_k\right) = \lim_{n\to +\infty} \left( \inf_{k\geq n} a_k\right).
+	\end{equation}
+\end{observe}
+\begin{demonstrationwt}[della formulazione equivalente del {$\limsup$} e del {$\liminf$}]
+	Proviamo il risultato sul massimo limite nel caso in cui questo sia \textit{finito}. Lasciamo per esercizio i casi in cui questo sia più o meno infinito e le analoghe dimostrazioni per il minimo limite.\\
+	Sia quindi 
+	\begin{equation*}
+		\lambda = \limsup_{n\to +\infty} a_n
+	\end{equation*}
+	e supponiamo $\lambda \in \realset$. Alla luce dell'osservazione precedente, dobbiamo verificare che 
+	\begin{equation*}
+		\lim_{n\to +\infty} \left( \sup_{k\geq n} a_k\right) = \lambda,
+	\end{equation*}
+	ossia che 
+	\begin{equation*}
+		\forall \ \epsilon >0 \quad \exists \ N\in \naturalset\quad \forall \ n\geq N \quad \lambda -\epsilon < \sup_{k\geq n} a_k <\lambda +\epsilon.
+	\end{equation*}
+	Sia quindi $\epsilon >0$; dalla caratterizzazione del massimo limite finito è noto che esiste $N^{\ast}\in \naturalset$ tale che per ogni $n\geq N^{\ast}$ si ha 
+	\begin{equation*}
+		a_n < \lambda +\epsilon/2.
+	\end{equation*}
+	Per ogni $n \geq N^{\ast}$ e per ogni $k\geq n$ si ha quindi
+	\begin{equation*}
+		a_k < \lambda +\epsilon/2
+	\end{equation*}
+	e dunque
+	\begin{equation*}
+		\sup_{k\geq n} a_k \leq \lambda +\epsilon/2 < \lambda +\epsilon.
+	\end{equation*}
+	D'altra parte, sempre la caratterizzazione del massimo limite finito, esistono infiniti indici $n_j\in \naturalset$ tali che
+	\begin{equation*}
+	a_{n_j} > \lambda -\epsilon.
+	\end{equation*}
+	Ora, per ogni $n\geq N^{\ast}$, sia $n^{\ast}_j>n$; si ha quindi
+	\begin{equation*}
+		a_{n^{\ast}_j} > \lambda -\epsilon
+	\end{equation*}
+	e dunque
+	\begin{equation*}
+		\sup_{k\geq n} a_{k} \geq a_{n^{\ast}_j}  > \lambda -\epsilon.
+	\end{equation*}
+	La tesi è quindi dimostrata scegliendo $N=N^{\ast}$.
+\end{demonstrationwt}
+\paragraph{Eserciziamoci! Formulazione equivalente del massimo e del minimo limite}
+\begin{exercisewt}[Legame tra massimo e minimo limite]\label{maxminlegame}
+	Utilizzando la proposizione precedente, provare che
+	\begin{equation}
+		\liminf_{n\to +\infty}\left(-a_n\right)=-\limsup_{n\to\infty}\left(a_n\right)
+	\end{equation}
+\end{exercisewt}
+\begin{observe}
+	Questa proprietà si può anche dimostrare direttamente dalle definizioni originali di $\limsup$ e $\liminf$.
+\end{observe}
+\begin{solution}
+	Mostriamo innanzitutto che, preso $A\subseteq\realset$ non vuoto, allora
+	\begin{equation*}
+		\inf\left(-A\right)=-\sup\left(A\right).
+	\end{equation*}
+Chiaramente, $A$ non è limitato superiormente se e solo se $-A$ non è limitato inferiormente e quindi vale
+\begin{equation*}
+	\inf\left(-A\right)=-\infty=-\left(+\infty\right)=-\sup\left(A\right)
+\end{equation*}
+Supponiamo allora che $A$ sia limitato superiormente e consideriamo $a\in A$. Si ha
+\begin{equation*}
+	m\leq -a\iff a\leq -m
+\end{equation*}
+ossia $-m$ è un minorante per $-A$ se e solo se $m$ è maggiorante per $a$. Allora:
+\begin{itemize}
+	\item $\inf\left(-A\right)$ è minorante di $-A$, dunque $-\inf\left(-A\right)$ è maggiorante per $A$ e pertanto
+	\begin{equation*}
+		\sup\left(A\right)\leq-\inf\left(-A\right)\iff\inf\left(-A\right)\leq-\sup\left(A\right).
+	\end{equation*}
+\item $\sup\left(A\right)$ è maggiorante di $A$, dunque $-\sup\left(A\right)$ è minorante per $-A$ e pertanto
+\begin{equation*}
+	-\sup\left(A\right)\leq\inf\left(-A\right).
+\end{equation*}
+\end{itemize}
+Segue allora l'uguaglianza cercata.\\
+Ponendo	$A_n\coloneqq\left\{a_k\mid k\geq n\right\}$, si ha allora
+\begin{align*}
+	\inf\left(-A_n\right)=-\sup\left(A_n\right),\ \forall n\in\naturalset\\
+	\implies\inf_{k\geq n}\left(-a_k\right)=-\sup_{k\geq n}\left(a_k\right)
+\end{align*}
+Passando al limite per $n\to+\infty$, per la formulazione equivalente del massimo e minimo limite otteniamo la tesi:
+\begin{equation*}
+	\liminf_{n\to +\infty}\left(-a_n\right)=\lim_{n\to+\infty}\inf_{k\geq n}\left(-a_k\right)=-\lim_{n\to+\infty}\sup_{k\geq n}\left(a_k\right)=-\limsup_{n\to+\infty}\left(a_n\right)
+\end{equation*}
+\end{solution}
+\begin{exercisewt}[Generalizzazione del teorema della permanenza del segno]\label{limsuppermanenzadelsegno}
+	Utilizzando la proposizione precedente, provare che
+	\begin{equation*}
+		a_n \geq 0,\quad \forall \ n\geq 1 \implies \limsup_{n\to +\infty} a_n\geq 0
+	\end{equation*}
+	e
+	\begin{equation*}
+		a_n \geq 0,\quad \forall \ n\geq 1 \implies \liminf_{n\to +\infty} a_n \geq 0.
+	\end{equation*} 
+\end{exercisewt}
+\begin{solution} Poiché vale sempre
+	\begin{equation*}
+		\liminf_{n\to +\infty} a_n \leq \limsup_{n\to +\infty} a_n,
+	\end{equation*}
+ci basta verificare la seconda affermazione.\\
+Consideriamo la successione
+	\begin{equation*}
+		b_n=\inf_{k\geq n} a_k,\quad n\geq 1.
+	\end{equation*}	
+	Poiché $a_k\geq 0,\ \forall n\geq 1$, si ha $b_n\geq 0$. Per il teorema della permanenza del segno per i limiti, si ha
+	\begin{equation*}
+		\liminf_{n\to +\infty} a_n=\lim_{n\to+\infty}\inf_{k\geq n} a_k\geq 0.
+	\end{equation*}
+\end{solution}
+\begin{exercise}
+	I concetti di massimo e minimo limite si possono definire anche per le successioni di numeri complessi?
+\end{exercise}
+\begin{solution}
+	La risposta è \textbf{no}.  I concetti di massimo e minimo limite si basano sulla nozione di ordinamento in $\realset^{\ast}$ e dunque non si possono estendere al campo complesso, che non è un campo ordinato.
+\end{solution}
+\paragraph{Massimo limite del prodotto}\label{prodottolimsup}
+\begin{proposition}[Massimo limite del prodotto di due successioni positive]
+	Si considerino due successioni $a_n$, $b_n$ di numeri reali positivi.
+	Allora vale la disuguaglianza
+	\begin{equation}
+		\limsup_{n\to +\infty} a_n\, b_n\leq  \limsup_{n\to +\infty} a_n\ \limsup_{n\to +\infty} b_n,
+	\end{equation}	
+	mentre in generale non vale l'uguaglianza 
+	\begin{equation}
+		 \limsup_{n\to +\infty} a_n\, b_n=  \limsup_{n\to +\infty} a_n\ \limsup_{n\to +\infty} b_n
+	\end{equation}.
+	Se si suppone che esista finito e non nullo $\displaystyle\lim_{n\to +\infty} a_n$, allora vale l'uguaglianza
+	\begin{equation*}
+		\limsup_{n\to +\infty} a_n\, b_n= \lim_{n\to +\infty} a_n\ \limsup_{n\to +\infty} b_n
+	\end{equation*}
+\end{proposition}
+\begin{demonstration}
+	Ricordiamo che per ogni successione di numeri reali $c_n$ si ha
+	\begin{equation*}
+		\limsup_{n\to +\infty} c_n =\inf_{n\geq 1} \sup_{k\geq n} c_k
+	\end{equation*}
+	\begin{enumerate}
+		\item Osserviamo che per ogni $n\geq 1$ e per ogni $k\geq n$ si ha
+		\begin{equation*}
+			a_k\, b_k\leq \left(\sup_{j\geq n} a_j \right)\ b_k
+		\end{equation*}
+		e dunque
+		\begin{equation*}
+			\sup_{k\geq n} a_k\, b_k\leq \left(\sup_{j\geq n} a_j \right)\ \left(\sup_{k\geq n} b_k \right).
+		\end{equation*}
+		Tenendo presente che, per ogni coppia di successioni $f_n$ e $g_n$ si ha
+		\begin{equation*}
+			f_n\leq g_n,\quad \forall \ n\geq 1 \quad \Longrightarrow \quad \inf_{n\geq 1} f_n\leq \inf_{n\geq 1} g_n,
+		\end{equation*}
+		concludiamo che
+		\begin{equation*}
+			\inf_{n\geq 1} \sup_{k\geq n} a_k\, b_k\leq \inf_{n\geq 1}\left(\sup_{j\geq n} a_j \ \sup_{k\geq n} b_k \right)\leq \inf_{n\geq 1} \sup_{j\geq n} a_j\ \inf_{n\geq 1} \sup_{k\geq n} b_k,
+		\end{equation*} 
+		da cui segue la disuguaglianza richiesta.
+		% Osservazione: dove si è usata l'ipotesi sul segno delle successioni?
+		\item Un controesempio all'uguaglianza è dato dalle successioni
+		\begin{equation*}
+			\{a_n\}=\{1, 2, 1, 2, 1, 2, \ldots \},\quad \{ b_n\} = \{2, 1, 2, 1, 2, 1,\ldots \},
+		\end{equation*}
+		per cui si ha
+		\begin{equation*}
+			a_n\, b_n=2,\quad \forall \ n\geq 1.
+		\end{equation*}
+		Si ha quindi
+		\begin{equation*}
+			\limsup_{n\to +\infty} a_n \, b_n = 2
+		\end{equation*}
+		e
+		\begin{equation*}
+			\limsup_{n\to +\infty} a_n \ \limsup_{n\to +\infty} b_n = 2\cdot 2=4.
+		\end{equation*}
+	\item Sia
+	\begin{equation*}
+		\lim_{n\to +\infty} a_n =L \in (0,+\infty).
+	\end{equation*}
+	Per ogni $\epsilon \in (0,L)$ esiste $N\in \mathbb{N}$ tale che
+	\begin{equation*}
+		L-\epsilon < a_n < L+\epsilon,\quad \forall \ n\geq N.
+	\end{equation*}
+	Per ogni $n\geq N$ e per ogni $k\geq n$, ricordando che $b_k\geq 0$, si ha quindi
+	\begin{equation*}
+		(L-\epsilon) b_k < a_k\, b_k < (L+\epsilon ) b_k
+	\end{equation*}
+	e dunque
+	\begin{equation*}
+		(L-\epsilon) \sup_{k\geq n} b_k < \sup_{k\geq n} a_k\, b_k < (L+\epsilon ) \sup_{k\geq n} b_k.
+	\end{equation*}
+	Deduciamo quindi che
+	\begin{equation*}
+		(L-\epsilon) \inf_{n\geq N} \sup_{k\geq n} b_k < \inf_{n\geq N} \sup_{k\geq n} a_k\, b_k < (L+\epsilon )  \inf_{n\geq N} \sup_{k\geq n} b_k,
+	\end{equation*}
+	ossia
+	\begin{equation*}
+		(L-\epsilon) \limsup_{n\to +\infty} b_n < \limsup_{n\to +\infty} a_n\, b_n < (L+\epsilon ) \limsup_{n\to +\infty} b_n.
+	\end{equation*}
+	Tenendo presente che questa relazione vale per ogni $\epsilon >0$, si deduce la tesi.\qedhere
+	\end{enumerate}
+\end{demonstration}
+\subsection{Limite e limite del modulo}
+\begin{proposition}[Limite di una successione e limite del modulo]\label{equivalenzalimiteemodulolimite}
+	Sia $a_n$ una successione in $\complexset$. Allora
+	\begin{equation}
+		\lim_{n\to+\infty}a_n=0\iff\lim_{n\to+\infty}\abs{a_n}=0
+	\end{equation}
+\end{proposition}
+\begin{demonstration}
+	Da $\displaystyle\lim_{n\to+\infty}a_n=0$ si ha, per definizione, che
+	\begin{equation*}
+		\forall \epsilon>0,\ \exists N=N\left(\epsilon\right)\in\naturalset\colon\forall n>N, \abs{a_n}<\epsilon.
+	\end{equation*}
+Poiché $\abs{a_n}=\abs{\abs{a_n}}$ si ha che l'espressione precedente è equivalente a
+\begin{equation*}
+	\forall \epsilon>0,\ \exists N=N\left(\epsilon\right)\in\naturalset\colon\forall n>N, \abs{\abs{a_n}}<\epsilon,
+\end{equation*}
+ossia verifica la definizione di $\displaystyle\lim_{n\to+\infty}\abs{a_n}=0$; si ha dunque la tesi.
+\end{demonstration}
+\subsection{Riordinare gli elementi di una serie}
+\begin{theoremaqed}[Teorema del riordinamento di Riemann]
+	Se una serie a valori reali converge semplicemente ma non assolutamente, allora i suoi termini possono essere riordinati tramite una permutazione in modo che la nuova serie converge ad un qualunque numero reale arbitrariamente scelto oppure diverge.
+\end{theoremaqed}
+\begin{example}
+	La serie armonica alternante
+	\begin{equation}
+		\sum_{n=1}^{+\infty}\frac{\left(-1\right)^{n+1}}{n}
+	\end{equation}
+converge semplicemente per il criterio di Leibniz, ma la serie dei valori assoluti
+\begin{equation*}
+	\sum_{n=1}^{+\infty}\abs{\frac{\left(-1\right)^{n+1}}{n}}=\sum_{n=1}^{+\infty}\frac{1}{n}
+\end{equation*}
+è la serie armonica, che non converge; pertanto, la serie armonica alternante non converge assolutamente.\\
+La serie, nell'ordinamento classico
+\begin{equation*}
+	\sum_{n=1}^{+\infty}\frac{\left(-1\right)^{n+1}}{n}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\ldots,
+\end{equation*}
+converge a $\log 2$. Possiamo riordinare i termini nella seguente maniera:
+\begin{equation*}
+	1-\frac{1}{2}-\frac{1}{4}+\frac{1}{3}-\frac{1}{6}-\frac{1}{8}+\frac{1}{5}-\frac{1}{10}-\frac{1}{12}+\ldots=\frac{1}{2}-\frac{1}{4}+\frac{1}{6}-\frac{1}{8}+\frac{1}{10}-\frac{1}{12}+\ldots
+\end{equation*}
+Questo è a tutti gli effetti una permutazione degli elementi della serie e si può, raggrupando dei termini, scrivere come la seguente somma infinita:
+\begin{equation*}
+	\sum_{k=1}^{+\infty}\frac{1}{2\left(2k-1\right)}-\frac{1}{4k}=\frac{1}{2}\sum_{k=1}^{+\infty}\frac{1}{\left(2k-1\right)}-\frac{1}{2k}=\frac{1}{2}\sum_{n=1}^{+\infty}\frac{\left(-1\right)^n}{n}=\frac{1}{2}\log 2
+\end{equation*}
+Notiamo come aver riordinato gli elementi in questo modo ci ha portato a due valori finali differenti!
+\end{example}
 \subsection{Il prodotto di serie (secondo Cauchy)}\label{prodottosecondocauchy}
-In questa sezioni ricordiamo la definizione ed alcune proprietà del prodotto di serie (secondo Cauchy), basandoci sul Capitolo 3 di \cite{rudin:1976principles}.\\
-Date le due serie
+In questa sezione ricordiamo la definizione ed alcune proprietà del prodotto di serie (secondo Cauchy), basandoci sul Capitolo 3 di \cite{rudin:1976principles}.\\
+Date le due serie 
 \begin{equation*}
 	\sum_{n=0}^{+\infty} \alpha_n,\quad \sum_{n=0}^{+\infty} \beta_n,\quad \alpha_n, \ \beta_n \in \complexset
 \end{equation*}
@@ -328,7 +820,7 @@ Il problema principale sul prodotto di serie è quello della sua convergenza, a 
 	se le serie iniziali convergono rispettivamente a $\alpha$ e $\beta$, la serie prodotto converge a $\alpha\beta$?
 \end{center}
 In generale la risposta è \textbf{no}, come mostra il prossimo esempio.
-\begin{example}\textsc{Serie convergenti, aventi prodotto non convergente.}\\
+\begin{examplewt}[Serie convergenti, aventi prodotto non convergente]
 	Consideriamo la serie
 	\begin{equation*}
 		\sum_{n=0}^{+\infty} \frac{(-1)^n}{\sqrt{n+1}}
@@ -354,7 +846,7 @@ Perciò si ha
 	\lim_{n\to +\infty} \gamma_n \neq 0
 \end{equation*}
 e quindi la serie prodotto non può convergere.
-\end{example}
+\end{examplewt}
 Osserviamo che nell'esempio riportato la serie iniziale \textit{converge semplicemente}, ma non \textit{assolutamente}; questo è il motivo per cui la serie prodotto \textit{non converge}. Infatti, in presenza della convergenza assoluta la serie prodotto \textit{converge}.
 \begin{theoremaqed}[Prodotto di serie {(secondo Cauchy)} convergente se una serie converge assolutamente]
 	Siano date le due serie 
@@ -366,3 +858,32 @@ Osserviamo che nell'esempio riportato la serie iniziale \textit{converge semplic
 	Allora, la loro serie prodotto converge a $\alpha \beta$.
 \end{theoremaqed}
 \section{Capitolo 5: teoria della misura}
+\subsection{Leggi di De Morgan}
+\begin{theorema}[Leggi di De Morgan]\label{leggidemorgan}
+	Sia $A_i$ una famiglia di insiemi indicizzata da $I$ non necessariamente numerabile. Allora
+	\begin{equation}
+		\left({\bigcap_{i\in I}A_i}\right)^C=\bigcup_{i\in I}{A_i}^C
+	\end{equation}
+e
+\begin{equation}
+	\left({\bigcup_{i\in I}A_i}\right)^C=\bigcap_{i\in I}{A_i}^C
+\end{equation}
+\end{theorema}
+\begin{demonstration}
+	Entrambe si dimostrano per doppia inclusione; la prima legge segue da
+	\begin{flalign*}
+		x\in \left({\bigcap_{i\in I}A_i}\right)^C&\iff x\notin \bigcap_{i\in I}A_i\\
+		&\iff \neg\left(\forall i\in I, x\in A_i\right)\\
+		&\iff \exists i\in I\colon x\notin A_i\\
+		&\iff \exists i\in I\colon x\in A_i^C\\
+		&\iff x\in\bigcup_{i\in I}{A_i}^C
+	\end{flalign*}
+mentre la seconda da
+	\begin{flalign*}
+		x\in \left({\bigcup_{i\in I}A_i}\right)^C&\iff x\notin \bigcup_{i\in I}A_i\\
+		&\iff \neg\left(\exists i\in I\colon x\in A_i\right)\\
+		&\iff \forall i\in I,\ x\notin A_i\\
+		&\iff \forall i\in I,\ x\in A_i^C\\
+		&\iff x\in\bigcap_{i\in I}{A_i}^C
+	\end{flalign*}
+\end{demonstration}
