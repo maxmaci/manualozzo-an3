@@ -9,9 +9,9 @@
 \labelChapter{analisiprobabilità}
 
 \begin{introduction}
-	‘‘BEEP BOOP QUESTA È UNA CITAZIONE.''
+	‘‘Se il tuo esperimento richiede di usare la statistica, dovevi fare un esperimento migliore.''
 	\begin{flushright}
-		\textsc{Marinobot,} dopo aver finito le citazioni stupide.
+		\textsc{Ernest Rutherford,} stanco di studiare Calcolo delle Probabilità e Statistica.
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{S}{tudieremo} \textbf{[COMPLETARE]}
@@ -76,7 +76,7 @@ Questo spazio di probabilità deve soddisfare gli assiomi di probabilità introd
 	\end{equation*}
 	Poiché per il primo assioma la probabilità di un evento è sempre non-negativa, ne consegue che ogni elemento di questa sommatoria debba essere uguale a zero, ossia $\mathcal{P}\left(\emptyset\right)=0$.
 \end{demonstration}
-Si può subito osservare che lo spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ altro non è che uno \textbf{spazio di misura} $\left(X,\mathcal{M},\mu\right)$, con l'ipotesi aggiunta che la misura $\mu$ sia di \textbf{probabilità}, cioè $\mu\left(X\right)=1$.
+Si può subito osservare che lo spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ altro non è che uno \textbf{spazio di misura} $\left(X,\mathcal{M},\mu\right)$, con l'ipotesi aggiunta che la misura $\mu$ sia di \textbf{probabilità}, cioè $\mu(x)=1$.
 \begin{define}[Funzione misurabile]
 	Sia $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ uno spazio di probabilità. Una funzione $\funz{X}{\Omega}{\complexset}$ si dice \textbf{variabile aleatoria}\index{variabile aleatoria} se \begin{equation}
 		X^{-1}\left(A\right)\in\mathcal{F},\ \forall A\subseteq \complexset\text{ aperto.}
@@ -122,13 +122,13 @@ Interpretiamo questo nuovo concetto nell'ambito degli spazi di probabilità.
 	\end{equation}
 	ossia
 	\begin{equation}
-		\int_{\Omega}g\left(X\right)d\mathbb{P}=\int_{\realset}gd\mathbb{P}_X\qedhere
+		\int_{\Omega}g(x)d\mathbb{P}=\int_{\realset}gd\mathbb{P}_X\qedhere
 	\end{equation}
 \end{theoremaqed}
 % TO DO: inserire immagine
 Pertanto, non mi interessa nello specifico sapere cos'è $\Omega$ o com'è definita $\mathbb{P}$: se definisco la variabile aleatoria direttamente con la probabilità immagine ‘‘dimentico'' quale fosse lo spazio originale e lavoro direttamente su $\realset$
 \begin{define}[Momento di ordine {$k$-esimo}]
-	Se consideriamo la funzione $g\left(x\right)=x^k,\ \forall x\in\realset$ e $\forall k\in\naturalset$, si definisce il \textbf{momento}\index{momento di ordine {$k$}-esimo} il valore
+	Se consideriamo la funzione $g(x)=x^k,\ \forall x\in\realset$ e $\forall k\in\naturalset$, si definisce il \textbf{momento}\index{momento di ordine {$k$}-esimo} il valore
 	\begin{equation*}
 		\mathbb{E}\left(X^k\right)=\int_{\Omega}X^kd\mathbb{P}=\int_{\realset}x^kd\mathbb{P}_X
 	\end{equation*}
@@ -137,7 +137,7 @@ Pertanto, non mi interessa nello specifico sapere cos'è $\Omega$ o com'è defin
 \begin{define}[Funzione di ripartizione]
 	Siano $\left(\Omega,\mathcal{M},\mathbb{P}\right)$ uno spazio di probabilità, $\funz{X}{\Omega}{\realset}$ una variabile aleatoria e $\mathbb{P}_X$ la corrispondente probabilità immagine. Si chiama \textbf{funzione di ripartizione}\index{funzione!di ripartizione} la funzione $\funz{F_X}{\realset}{\left[0,1\right]}$ definita da
 	\begin{equation}
-		F_X\left(x\right)=\mathbb{P}_X\left(\left(-\infty,x\right]\right)=\mathbb{P}\left(X\leq x\right),\ \forall x\in\realset
+		F_X(x)=\mathbb{P}_X\left(\left(-\infty,x\right]\right)=\mathbb{P}\left(X\leq x\right),\ \forall x\in\realset
 	\end{equation}
 \end{define}
 Una funzione di ripartizione $F_X$ soddisfa le seguenti proprietà:
@@ -146,7 +146,7 @@ Una funzione di ripartizione $F_X$ soddisfa le seguenti proprietà:
 	\item È continua a destra.
 	\item È tale per cui
 	\begin{equation}
-		\lim_{x\to+\infty}F_X\left(x\right)=0\quad\lim_{x\to+\infty}F_X\left(x\right)=1
+		\lim_{x\to+\infty}F_X(x)=0\quad\lim_{x\to+\infty}F_X(x)=1
 	\end{equation}
 	ossia ha immagine $\left[0,1\right]$.
 \end{enumerate}
@@ -164,7 +164,7 @@ La variabili aleatorie si classificano in base alla probabilità immagine $\math
 	\begin{equation}
 		\forall E\in\mathcal{B}\left(\realset\right),\ m_1\left(E\right)=0\implies \mathbb{P}_X\left(E\right)=0
 	\end{equation}
-	Per il teorema di Radon-Nikodym esiste quindi una funzione detta \textbf{densità} $f\in\mathcal{L}^1\left(\realset\right)$, $f\geq 0$ tale che
+	Per il \textit{teorema di Radon-Nikodym} esiste quindi una funzione detta \textbf{densità} $f\in\mathcal{L}^1\left(\realset\right)$, $f\geq 0$ tale che
 	\begin{equation}
 		\mathbb{P}_X\left(B\right)=\int_B fdm_1,\ \forall B\in\mathcal{B}\left(\realset\right)
 	\end{equation}
@@ -194,10 +194,10 @@ Abbiamo già visto\footnote{Si veda \refChapterOnly{integraledilebesgue}, pag. \
 La funzione di ripartizione $\funz{F_X}{\realset}{\left[0,1\right]}$ di una variabile aleatoria assolutamente continua è una funzione \textbf{assolutamente continua}.
 \begin{define}[Assoluta continuità.]
 	Una funzione $\funz{f}{\realset}{\realset}$ è assolutamente continua se
-	\begin{align}
+	\begin{gather*}
 		\forall \epsilon>0,\ \exists \delta >0\colon \forall \left(a_1,b_1\right),\ \dots,\ \left(a_n,b_n\right),\ \left(a_i,b_i\right)\cap\left(a_j,b_j\right)=\emptyset,\ \forall i\neq j,\\
 		\sum_{i=1}^{n}\abs{b_i-a_i}<\delta\implies\sum_{i=1}^{n}\abs{f\left(b_i\right)-f\left(a_i\right)}<\epsilon
-	\end{align}
+	\end{gather*}
 \end{define}
 \begin{observe}
 	Scegliendo un unico intervallo $\left(a_1,b_1\right)$ si ritrova la definizione di \textit{uniforme continuità}. Pertanto, l'assoluta continuità è una condizione più forte dell'uniforme continuità e in quanto tale implica anche la continuità della funzione originale.
@@ -205,13 +205,13 @@ La funzione di ripartizione $\funz{F_X}{\realset}{\left[0,1\right]}$ di una vari
 % TO DO: aggiungere grafico
 Ricordiamo che
 \begin{equation*}
-	F_X\left(x\right)=\mathbb{P}_X\left(\left(-\infty,x\right]\right)=\int_{\left(-\infty,x\right]}fdm_1
+	F_X(x)=\mathbb{P}_X\left(\left(-\infty,x\right]\right)=\int_{\left(-\infty,x\right]}fdm_1
 \end{equation*}
 Si dimostra che $F_X$ è derivabile \textbf{q.o.} e che vale
 \begin{equation}
-	F'_X\left(x\right)=f\left(x\right),\ \textrm{per quasi ogni }x\in\realset
+	F'_X(x)=f(x),\ \textrm{per quasi ogni }x\in\realset
 \end{equation}
-Questa relazione non è altro che l'\textbf{estensione del teorema fondamentale del calcolo integrale alla teoria di Lebesgue}.
+Questa relazione non è altro che l'\textbf{estensione del teorema fondamentale del calcolo integrale alla teoria di Lebesgue}\index{teorema!fondamentale del calcolo integrale nella teoria di Lebesgue}.
 \subsection{Misure singolari}
 Consideriamo una misura $\funz{\lambda}{\mathcal{B}\left(\realset\right)}{\left[0,+\infty\right]}$ non assolutamente continua rispetto alla misura di Lebesgue $m_1$.
 Negare
@@ -230,7 +230,7 @@ la misura viene chiamata \textit{singolare} e si definisce \textit{concentrata} 
 \begin{define}[Misura singolare]
 	Dato un spazio di misura $\left(X,\mathcal{M},\mu\right)$, una misura $\funz{\lambda}{\mathcal{M}}{\left[0,+\infty\right]}$ non assolutamente continua rispetto a $\mu$ si dice \textbf{singolare}\index{misura!singolare} rispetto a $\mu$ se
 	\begin{equation}
-		\exists S\in\mathcal{M}\colon \mu\left(S\right)=0, \lambda\left(S\right)\neq0 \text{ ma }\lambda\left(X\right)=\lambda\left(S\right)
+		\exists S\in\mathcal{M}\colon \mu\left(S\right)=0, \lambda\left(S\right)\neq0 \text{ ma }\lambda(x)=\lambda\left(S\right)
 	\end{equation}
 	La misura $\lambda$ è detta \textbf{concentrata} in $S$ e si indica con $\mu\perp\lambda$.
 	\begin{itemize}
@@ -239,7 +239,7 @@ la misura viene chiamata \textit{singolare} e si definisce \textit{concentrata} 
 	\end{itemize}
 \end{define}
 \begin{observe}
-	Si può vedere che se prendo $A\subseteq S^{C}=X\setminus S$, allora $\lambda\left(A\right)=0$, in quanto se così non fosse si avrebbe $\lambda\left(S\right)\neq\lambda\left(X\right)$. Si osserva chiaramente che vale anche il viceversa per $\mu$: se prendo $B\subseteq S$, allora $\mu\left(B\right)=0$.\\
+	Si può vedere che se prendo $A\subseteq S^{C}=X\setminus S$, allora $\lambda\left(A\right)=0$, in quanto se così non fosse si avrebbe $\lambda\left(S\right)\neq\lambda(x)$. Si osserva chiaramente che vale anche il viceversa per $\mu$: se prendo $B\subseteq S$, allora $\mu\left(B\right)=0$.\\
 	Da ciò, si vede una definizione alternativa per le misura singolari: una misura $\lambda$ singolare rispetto a $\mu$ se esiste un insieme $S\in\mathcal{M}$ tale che $\mu\left(A\right)=0,\ \forall A\subseteq S$ misurabili e $\lambda\left(B\right)=0,\ \forall A\subseteq S^{C}$ misurabili.
 \end{observe}
 \subsection{Variabili aleatorie singolari discrete}
@@ -270,7 +270,7 @@ Abbiamo già dimostrato questo teorema parlando dell'integrazione rispetto ad un
 La funzione di ripartizione $\funz{F_X}{\realset}{\left[0,1\right]}$ di una variabile aleatoria singolare discreta è una funzione \textbf{costante a tratti}.% TO DO: aggiungere grafico
 In particolare, $S$ è l'insieme delle discontinuità di $F_X$ e vale
 \begin{equation}
-	p_n=\lim_{x\to\omega_n^{+}}F_X\left(x\right)-\lim_{n\to\omega_n^{-}}F_X\left(x\right),\ \forall n\geq 1
+	p_n=\lim_{x\to\omega_n^{+}}F_X(x)-\lim_{n\to\omega_n^{-}}F_X(x),\ \forall n\geq 1
 \end{equation}
 \subsection{Variabili aleatorie singolari continue}
 \begin{define}[Variabili aleatorie singolari continue]
@@ -284,7 +284,7 @@ In particolare, $S$ è l'insieme delle discontinuità di $F_X$ e vale
 La funzione di ripartizione $\funz{F_X}{\realset}{\left[0,1\right]}$ di una variabile aleatoria singolare continua è una funzione \textbf{continua} ma non \textit{assolutamente continua}.% TO DO: aggiungere grafico
 In particolare, si dimostra che $F_X$ è derivabile su $\realset\setminus S$ (ossia \textbf{q.o.}) e
 \begin{equation}
-	F'_X\left(x\right)=0,\ \forall x\in\realset\setminus S
+	F'_X(x)=0,\ \forall x\in\realset\setminus S
 \end{equation}
 \begin{observe}
 	Questa condizione è compatibile con il fatto che $F_X$ sia crescente ed abbia come immagine $\left[0,1\right]$.
@@ -294,7 +294,7 @@ In particolare, si dimostra che $F_X$ è derivabile su $\realset\setminus S$ (os
 \end{examplewt}
 \subsection{Variabili aleatorie qualsiasi}
 Abbiamo elencato tre diverse classi di misure di probabilità e variabili aleatorie ad esse associate. Il seguente teorema ci permette di affermare che esiste solo un'ulteriore classe di misure e variabili, le quali tuttavia non sono altro che combinazioni dei tre tipi precedentemente enunciati. 
-\begin{theoremaqed}[Teorema di Radon-Nikodym-Lebesgue]
+\begin{theoremaqed}[Teorema di Radon-Nikodym-Lebesgue]\index{teorema!di Radon-Nikodym-Lebesgue}
 	Sia $\funz{\mathbb{P}}{\mathcal{B}\left(\realset\right)}{\left[0,1\right]}$ una misura di probabilità. Allora esistono $\alpha_1,\ \alpha_2,\ \alpha_3\geq 0$ e tre misure di probabilità $\mathbb{P}^{ac},\ \mathbb{P}^{sd},\ \mathbb{P}^{sc}$ assolutamente continua, singolare discreta e singolare continua, rispettivamente, tali che
 	\begin{equation}
 		\mathcal{P}=\alpha_1\mathbb{P}^{ac}+\alpha_2\mathbb{P}^{sd}+\alpha_3\mathbb{P}^{sc}\qedhere
@@ -324,7 +324,7 @@ La convergenza certa implica tutti i modi di convergenza successivi, ma \textit{
 Osserviamo che in uno spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ questa convergenza è equivalente alla convergenza \textit{quasi ovunque}. Infatti:
 \begin{flalign*}
 	\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}=\Omega\setminus\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\\
-	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}\right)\underset{\mathbb{P}\left(X\right)<+\infty}{=}\mathbb{P}\left(\Omega\right)-\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\right)\\
+	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}\right)\underset{\mathbb{P}(x)<+\infty}{=}\mathbb{P}\left(\Omega\right)-\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\right)\\
 	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}\right)=1-\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\right)
 \end{flalign*}
 Allora affermare che
@@ -336,7 +336,7 @@ significa affermare che
 	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}\right)=0
 \end{equation*}
 \begin{attention}
-	In uno spazio di misura che \textit{non} sia di probabilità questa corrispondenza non si può fare, dato che $\mu\left(X\right)$ può non essere pari ad $1$, tanto meno finito. Vale sempre la convergenza \textbf{q.o.}, ma mai quella \textbf{q.c.}.
+	In uno spazio di misura che \textit{non} sia di probabilità questa corrispondenza non si può fare, dato che $\mu(x)$ può non essere pari ad $1$, tanto meno finito. Vale sempre la convergenza \textbf{q.o.}, ma mai quella \textbf{q.c.}.
 \end{attention}
 \paragraph{Convergenza in probabilità}
 \begin{define}[Convergenza in probabilità]
@@ -347,7 +347,7 @@ significa affermare che
 \end{define}
 In modo analogo alla convergenza quasi certa, in uno spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ questa convergenza è equivalente alla \textit{convergenza in misura}.
 \begin{attention}
-	In uno spazio di misura che \textit{non} sia di probabilità questa corrispondenza non si può fare, dato che $\mu\left(X\right)$ può non essere pari ad $1$, tanto meno finito. Vale sempre la convergenza in misura, ma mai quella in probabilità.
+	In uno spazio di misura che \textit{non} sia di probabilità questa corrispondenza non si può fare, dato che $\mu(x)$ può non essere pari ad $1$, tanto meno finito. Vale sempre la convergenza in misura, ma mai quella in probabilità.
 \end{attention}
 \paragraph{Convergenza in media}
 \begin{define}[Convergenza in media]
@@ -365,11 +365,11 @@ In modo analogo alla convergenza quasi certa, in uno spazio di probabilità $\le
 \begin{define}[Convergenza in legge]
 	Dato $\left(\Omega,\ \mathcal{M},\ \mathbb{P}\right)$ spazio di probabilità e le variabili aleatorie $\funz{X_n,\ X}{\Omega}{\realset}$ con le corrispettive \textit{funzioni di distribuzione}
 	\begin{gather*}
-		\funztot{F_n}{\realset}{\realset}{x}{F_n\left(x\right)=\mathbb{P}\left(X_n\leq x\right),\ \forall x\in \realset}\\
-		\funztot{F}{\realset}{\realset}{x}{F\left(x\right)=\mathbb{P}\left(X\leq x\right),\ \forall x\in \realset}
+		\funztot{F_n}{\realset}{\realset}{x}{F_n(x)=\mathbb{P}\left(X_n\leq x\right),\ \forall x\in \realset}\\
+		\funztot{F}{\realset}{\realset}{x}{F(x)=\mathbb{P}\left(X\leq x\right),\ \forall x\in \realset}
 	\end{gather*}
 	allora si dice che $X_n$ converge a $X$ \textbf{in legge}\index{convergenza!in legge} $\left(X_n\stackrel{d}{\to}X\right)$ se
 	\begin{equation}
-		\lim_{n\to+\infty}F_n\left(x\right)=F\left(x\right),\ \forall x\in\realset\ \text{punto di continuità di }F.
+		\lim_{n\to+\infty}F_n(x)=F(x),\ \forall x\in\realset\ \text{punto di continuità di }F.
 	\end{equation}
 \end{define}

@@ -9,13 +9,13 @@
 \labelChapter{seriedipotenze}
 
 \begin{introduction}
-	‘‘BEEP BOOP QUESTA È UNA CITAZIONE.''
+	‘‘Se si trascurano i casi assolutamente più semplici, allora in tutta la matematica non c'è una singola serie infinita la cui somma è stata rigorosamente determinata. In altre parole, una delle parti più importanti della matematica sta in piedi senza alcun fondamento.''
 	\begin{flushright}
-		\textsc{Marinobot,} dopo aver finito le citazioni stupide.
+		\textsc{Niels Henrik Abel,} deluso dal non poter trovare la somma delle sue serie preferite.
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{N}{el} \refChapterOnly{seriefunzioni} abbiamo iniziato definito cos'è una serie di funzioni. Ora studieremo un particolare tipo di funzioni, le potenze, e le serie ad esse associate.
-\textbf{[COMPLETARE]} % TO DO: completare l'intro
+\lettrine[findent=1pt, nindent=0pt]{N}{el} \refChapterOnly{seriefunzioni} abbiamo iniziato definito cos'è una serie di funzioni; ora entriamo nel dettaglio studiando le \textbf{serie di potenze}. Come già accennato nel capitolo introduttivo e in quello precedente, lo scopo è quello di capire quando una funzione si può scrivere come la sua serie di Taylor.\\
+Dopo averne dato la definizione di serie di potenze in campo complesso, affronteremo dei criteri per determinare il dominio di convergenza di esse, analizzeremo il comportamento al bordo del dominio e parleremo della continuità/derivabilità delle serie. La seconda parte del capitolo sarà invece dedicato alla trattazione delle \textbf{funzioni analitiche} - cioè proprio le funzioni che si possono scrivere come \textit{serie di Taylor} - e di come dimostrare l'analiticità di una funzione; concluderemo con un approfondimento sull'\textbf{esponenziale} e il \textbf{logaritmo} complesso.
 \section{Serie di potenze}\label{seriedipotenze}
 \begin{define}[Serie di potenze]
 	Una \textbf{serie di potenze}\index{serie!di potenze} è una serie di funzioni della forma
@@ -94,7 +94,11 @@ Poiché sappiamo che la serie converge assolutamente per $\abs{z}<r$, lo studio 
 \end{equation*}
 Per determinare il raggio di convergenza, possiamo ad esempio usare il \textbf{criterio di D’Alembert}\seeonlyindex{criterio!del rapporto}{criterio!di D’Alembert} o detto anche \textit{criterio del rapporto}\index{criterio!del rapporto}, che ci fornisce una condizione \textit{sufficiente} su come determinare il raggio di convergenza.
 \begin{propositionqed}[Criterio di D’Alembert o del rapporto]
-	Data la serie $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$, se $a_n\neq 0$ definitivamente ed esiste il limite
+	Data la serie 
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}a_nz^n
+	\end{equation*}
+	se $a_n\neq 0$ definitivamente ed esiste il limite
 	\begin{equation*}
 		\lim_{n\to+\infty}\frac{\abs{a_{n+1}}}{\abs{a_{n}}}=L
 	\end{equation*}
@@ -107,7 +111,7 @@ Per determinare il raggio di convergenza, possiamo ad esempio usare il \textbf{c
 \end{propositionqed}
 Questa proposizione ha il vantaggio di essere operativamente utile, ma ovviamente solo se valgono le ipotesi: non è scontato che il limite del rapporto sia ben definito!\\
 Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio della radice}\index{criterio!della radice} o altresì noto come \textbf{teorema di Cauchy-Hadamard}\seeonlyindex{criterio!del rapporto}{teorema!di Cauchy-Hadamard}.
-\begin{theorema}[Teorema di Cauchy-Hadamard]~{}\\
+\begin{theorema}[Teorema di Cauchy-Hadamard]
 	Sia data la serie di potenze
 	\begin{equation*}
 		\sum_{n=0}^{+\infty}a_nz^n
@@ -122,7 +126,6 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 		\item Se $0<\lambda<+\infty$, la serie converge $R=\nicefrac{1}{\lambda}$.
 		\item Se $\lambda = +\infty$, la serie converge solo in $z=0$.
 	\end{enumerate}
-
 \end{theorema}
 \begin{observe}
 	I tre casi scritti esauriscono \textit{tutti} i casi possibili. Infatti, per la permanenza del segno del limsup\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{limsuppermanenzadelsegno} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} vale
@@ -130,7 +133,7 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 		\sqrt[n]{\abs{a_n}}\geq 0,\ \forall n\geq 0\implies\limsup_{n\to+\infty}\sqrt[n]{\abs{a_n}}\geq 0
 	\end{equation*}
 \end{observe}
-\begin{demonstration}\textsc{(del teorema di Cauchy-Hadamard.)}~{}
+\begin{demonstrationcaputwt}[del teorema di Cauchy-Hadamard]~
 	\begin{enumerate}[label=\Roman*]
 		\item 	Partiamo dal dimostrare il punto $2)$: dobbiamo provare che $R=\frac{1}{\lambda}$, ossia
 		\begin{itemize}
@@ -226,7 +229,7 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 	\end{equation*}
 	La scelta di $z$ è arbitraria, purché $z$ sia diverso da zero; per questo motivo vale la tesi.\qedhere
 	\end{enumerate}
-\end{demonstration}
+\end{demonstrationcaputwt}
 \section{Comportamento sul bordo}
 Consideriamo la serie di potenze
 \begin{equation*}
@@ -335,13 +338,18 @@ Anche se in generale non possiamo affermare a priori come converge sul bordo si 
 \end{demonstration}
 \section{Serie di potenze e convergenza uniforme}
 \begin{theorema}[Converge uniforme delle serie di potenze]\label{convergenzasottoinsiemeH}
-	Sia $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ una serie di potenze con raggio di convergenza $R\in\left(0,+\infty\right)$. Allora
-	\begin{enumerate} % TO DO: controllare se H deve essere relativamente compatto come dice Zucco, questo è quello scritto da Walter
+	Sia
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}a_nz^n
+	\end{equation*}
+una serie di potenze con raggio di convergenza $R\in\left(0,+\infty\right)$. Allora
+	\begin{enumerate}
 		\item La serie converge uniformemente su ogni insieme $H\subseteq\complexset$ tale che $\overline{H}\subsetneqq B_R\left(0\right)$, con $B_R\left(0\right)$ il disco aperto di convergenza, ovvero su qualsiasi insieme contenuto nel disco aperto tale che la sua chiusura non tocchi il bordo.
 		\item Se la serie converge assolutamente in ogni $z\in\partial B_R\left(0\right)$ (il bordo del disco), allora converge uniformemente sul disco chiuso $\overline{B_R\left(0\right)}$.
 	\end{enumerate}
 \end{theorema}
-\begin{demonstration} Per questa dimostrazione useremo il \textit{criterio di Weierstrass}\footnote{Si veda \refChapterOnly{seriefunzioni}, sezione \ref{criteriodiweierstrass}, pag. \pageref{criteriodiweierstrass}.}.
+\begin{demonstration}
+Per questa dimostrazione useremo il \textit{criterio di Weierstrass}\footnote{Si veda \refChapterOnly{seriefunzioni}, sezione \ref{criteriodiweierstrass}, pag. \pageref{criteriodiweierstrass}.}.
 	\begin{enumerate}
 		\item Sia $H$ tale che $\overline{H}\subsetneqq B_R\left(0\right)$. Per il criterio di Weierstrass, per provare la convergenza uniforme su $H$ è sufficiente provare che esiste una successione $c_n$ tale che
 		\begin{enumerate}
@@ -479,14 +487,14 @@ con raggio di convergenza $R>0$. In questo caso il cerchio di convergenza è un 
 \begin{theorema}[Derivabilità della somma di una serie di potenze]
 	Sia data
 	\begin{equation*}
-		f\left(x\right)=\sum_{n=0}^{+\infty}a_nx^n,\ \forall x\in\left(-R,R\right),\ a_n\in\realset
+		f(x)=\sum_{n=0}^{+\infty}a_nx^n,\ \forall x\in\left(-R,R\right),\ a_n\in\realset
 	\end{equation*}
 con $R>0$ il raggio di convergenza. Allora
 \begin{enumerate}
 	\item $f$ è derivabile su $\left(-R,R\right)$
 	\item La derivata di $f$ è
 	\begin{equation}
-		f'\left(x\right)=\sum_{n=1}^{+\infty}na_nx^{n-1}, \ \forall x\in\left(-R,R\right)
+		f'(x)=\sum_{n=1}^{+\infty}na_nx^{n-1}, \ \forall x\in\left(-R,R\right)
 	\end{equation}
 \end{enumerate}
 \end{theorema}
@@ -512,36 +520,36 @@ Poiché la serie delle derivate è ancora una serie di potenze, allora ci basta 
 \begin{demonstration}
 	Riscriviamo la serie delle derivate, operando un cambio di indici ponendo $n=k+1$
 	\begin{equation*}
-		\sum_{n=1}^{+\infty}na_nx^{n-1}=\sum_{k=0}^{+\infty}\underbrace{\left(k+1\right)a_{k+1}}_{=b_k}x^k=\sum_{k=0}^{+\infty}b_ka_k
+		\sum_{n=1}^{+\infty}na_nx^{n-1}=\sum_{k=0}^{+\infty}\underbrace{\left(k+1\right)a_{k+1}}_{\coloneqq b_k}x^k=\sum_{k=0}^{+\infty}b_ka_k
 	\end{equation*}
 	Sia $R'$ il suo raggio di convergenza. Per il teorema di Cauchy-Hadamard si ha
 	\begin{equation*}
 		\frac{1}{R'}=\limsup_{n\to+\infty}\abs{b_n}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\abs{\left(n+1\right)a_{n+1}}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\underbrace{\left(n+1\right)^{\nicefrac{1}{n}}}_{\coloneqq\alpha_n}\underbrace{\abs{a_{n+1}}^{\nicefrac{1}{n}}}_{\coloneqq\beta_n}=\limsup_{n\to+\infty}\alpha_n\beta_n\squarequal
 	\end{equation*}
-Ottenendo così il prodotto di due successioni. Osserviamo che
+Otteniamo così il prodotto di due successioni. Osserviamo che
 \begin{equation*}
-	\lim_{n\to+\infty}\alpha_n=\lim_{n\to+\infty}\left(n+1\right)^{\nicefrac{1}{n}}=\lim_{n\to+\infty}e^{\frac{1}{n}\log\left(n+1\right)}=\lim_{n\to+\infty}e^{\frac{\log\left(n+1\right)}{n}}
+	\lim_{n\to+\infty}\alpha_n=\lim_{n\to+\infty}\left(n+1\right)^{\nicefrac{1}{n}}=\lim_{n\to+\infty}e^{\frac{1}{n}\log\left(n+1\right)}=\lim_{n\to+\infty}e^{\frac{\log\left(n+1\right)}{n}}.
 \end{equation*}
-Poichè $\frac{\log\left(n+1\right)}{n}\to 0$ per $n\to+\infty$ per \textit{confronto della crescita degli infiniti}, si ha che $\displaystyle\lim_{n\to+\infty}\alpha_n=e^0=1$, dunque $\alpha_n$ ammette limite e coincide col suo $\limsup$. Allora, per proprietà del $\limsup$ del prodotto\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{prodottolimsup} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.}:
+Poichè $\frac{\log\left(n+1\right)}{n}\to 0$ per $n\to+\infty$ per \textit{confronto della crescita degli infiniti}, si ha che $\displaystyle\lim_{n\to+\infty}\alpha_n=e^0=1$, dunque $\alpha_n$ ammette limite e coincide col suo $\limsup$. Allora, per proprietà del $\limsup$ del prodotto\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{prodottolimsup} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.}
 \begin{equation*}
-	\squarequal\lim_{n\to+\infty}\alpha_n\limsup_{n\to+\infty}\beta_n=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\frac{1}{n+1}}\right)^{\frac{n+1}{n}}\squarequal
+	\squarequal\lim_{n\to+\infty}\alpha_n\limsup_{n\to+\infty}\beta_n=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\frac{1}{n+1}}\right)^{\frac{n+1}{n}}
 \end{equation*}
-Applicare Cauchy-Hadamard sulla serie di potenze
+Ora applichiamo Cauchy-Hadamard alla serie di potenze
 \begin{equation*}
 	\sum_{n=0}^{+\infty}a_nx^n
 \end{equation*}
-con raggio di convergenza $R>0$, osserviamo che
+con raggio di convergenza $R>0$:
 \begin{equation*}
-	\frac{1}{R}=\limsup_{n\to+\infty}\abs{a_n}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\frac{1}{n+1}}
+	\frac{1}{R}=\limsup_{n\to+\infty}\abs{a_n}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\frac{1}{n+1}}.
 \end{equation*}
-In quanto $\dfrac{n+1}{n}\to 1$ per $n\to+\infty$, allora abbiamo mostrato che
+Dato che $\dfrac{n+1}{n}\to 1$ per $n\to+\infty$, allora abbiamo mostrato che
 \begin{equation*}
-	\frac{1}{R'}=\ldots=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\frac{1}{n+1}}\right)^{\frac{n+1}{n}}=\frac{1}{R}
-\end{equation*}% TO DO: sostituire nei dot qualcosa?
+	\frac{1}{R'}=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\frac{1}{n+1}}\right)^{\frac{n+1}{n}}=\frac{1}{R}
+\end{equation*}
 cioè $R'=R$.
 \end{demonstration}
 Grazie a questo lemma, possiamo finalmente dimostrare il teorema lasciato in sospeso all'inizio della sezione.
-\begin{demonstration}\textsc{(del Teorema di derivabilità della somma di una serie di potenze.)}\\% TO DO: add title to demonstration in preamble
+\begin{demonstration}[del Teorema di derivabilità della somma di una serie di potenze]
 	Fissiamo $\overline{x}\in\left(-R,R\right)$ arbitrario e sia $\left(a,b\right)$ tale che
 	\begin{itemize}
 		\item $\overline{x}\in\left(a,b\right)$.
@@ -553,9 +561,9 @@ Applichiamo ora il teorema di derivabilità termine a termine della serie di fun
 \end{equation*}
 Vediamo che le ipotesi sono verificate:
 \begin{itemize}
-	\item $f_n\left(x\right)=a_nx^n$ derivabile in $\left(a,b\right),\ \forall n\geq 1$.
-	\item $\displaystyle\sum_{n=0}^{+\infty}f_n\left(x\right)$ converge $\forall x\in\left(a,b\right)$
-	\item $\displaystyle\sum_{n=1}^{+\infty}f'_n\left(x\right)=\sum_{n=1}^{+\infty}na_nx^{n-1}$ converge uniformemente su $\left(a,b\right)$ per la scelta di $\left(a,b\right)$, sulla base del lemma precedentemente dimostrato.
+	\item $f_n(x)=a_nx^n$ derivabile in $\left(a,b\right),\ \forall n\geq 1$.
+	\item $\displaystyle\sum_{n=0}^{+\infty}f_n(x)$ converge $\forall x\in\left(a,b\right)$
+	\item $\displaystyle\sum_{n=1}^{+\infty}f'_n(x)=\sum_{n=1}^{+\infty}na_nx^{n-1}$ converge uniformemente su $\left(a,b\right)$ per la scelta di $\left(a,b\right)$, sulla base del lemma precedentemente dimostrato.
 \end{itemize}
 Per il teorema di derivabilità termine a termine $f$ è derivabile in $\left(a,b\right)$ e dunque anche in $\overline{x}$, con derivata in tal punto
 \begin{equation*}
@@ -567,15 +575,15 @@ Per l'arbitrarietà di $\overline{x}$, questi risultati valgono $\forall x\in\le
 La tesi $2)$ appena dimostrata ci dice che la derivata $f'$ è una somma di serie di potenze con stesso raggio di convergenza $R$ di $f$. Possiamo riapplicare il teorema alla funzione $f'$, notando però che la serie inizia da $n=2$:
 \begin{itemize}
 	\item $f'$ è derivabile in $\left(-R,R\right)$.
-	\item $\displaystyle f''\left(x\right)=\sum_{n=2}^{+\infty}n\left(n-1\right)a_nx^{n-2},\ \forall x\in\left(-R,R\right)$.
+	\item $\displaystyle f''(x)=\sum_{n=2}^{+\infty}n\left(n-1\right)a_nx^{n-2},\ \forall x\in\left(-R,R\right)$.
 \end{itemize}
-Ma anche $f''$ è una serie di potenze con raggio $R$: possiamo riapplicare il teorema su $f''$ e ammettere l'esistenza di $f'''$ come serie di potenze. Iterando il ragionamento, si trova che esiste $f^{\left(k\right)}\left(x\right),\ \forall x\in\left(-R,R\right),\ \forall k\geq 0$ e vale
+Ma anche $f''$ è una serie di potenze con raggio $R$: possiamo riapplicare il teorema su $f''$ e ammettere l'esistenza di $f'''$ come serie di potenze. Iterando il ragionamento, si trova che esiste $f^{\left(k\right)}(x),\ \forall x\in\left(-R,R\right),\ \forall k\geq 0$ e vale
 \begin{equation}
-	f^{\left(k\right)}\left(x\right)=\sum_{n=k}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\sum_{n=k}^{+\infty}\frac{n!}{\left(n-k\right)!}a_nx^{n-k},\ \forall x\in\left(-R,R\right)
+	f^{\left(k\right)}(x)=\sum_{n=k}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\sum_{n=k}^{+\infty}\frac{n!}{\left(n-k\right)!}a_nx^{n-k},\ \forall x\in\left(-R,R\right)
 \end{equation}
-Esplicitiamo il primo termine di $f^{\left(k\right)}\left(x\right)$:
+Esplicitiamo il primo termine di $f^{\left(k\right)}(x)$:
 \begin{align*}
-	f^{\left(k\right)}\left(x\right)&=k\left(k-1\right)\ldots\left(k-k+1\right)a_kx^0+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\\
+	f^{\left(k\right)}(x)&=k\left(k-1\right)\ldots\left(k-k+1\right)a_kx^0+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\\
 	&=k!a_k+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}
 \end{align*}
 Valutando in $x=0$ otteniamo
@@ -597,7 +605,7 @@ con raggio di convergenza $R>0$ e sia $f$ la sua somma. Allora
 	\item $f\in\mathcal{C}^{\infty}\left(\left(-R,R\right)\right)$.
 	\item La derivata $k$-esima è nella forma
 	\begin{equation}
-		f^{\left(k\right)}\left(x\right)=\sum_{n=k}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\sum_{n=k}^{+\infty}\frac{n!}{\left(n-k\right)!}a_nx^{n-k},\ \forall x\in\left(-R,R\right)
+		f^{\left(k\right)}(x)=\sum_{n=k}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\sum_{n=k}^{+\infty}\frac{n!}{\left(n-k\right)!}a_nx^{n-k},\ \forall x\in\left(-R,R\right)
 	\end{equation}
 	\item Il coefficiente $a_k$ si può scrivere come
 	\begin{equation}
@@ -605,7 +613,7 @@ con raggio di convergenza $R>0$ e sia $f$ la sua somma. Allora
 	\end{equation}
 	\item $f$ è \textit{analitica} in $0$, ossia si può scrivere come una \textbf{serie di Taylor di }$f$\textbf{centrata in }$x=0$\index{serie!di Taylor}
 	\begin{equation}
-		f\left(x\right)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}}{k!}x^k,\ \forall x\in\left(-R,R\right)
+		f(x)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}}{k!}x^k,\ \forall x\in\left(-R,R\right)
 	\end{equation}
 \end{enumerate}
 \end{theorema}
@@ -615,7 +623,7 @@ Diamo una definizione formale del termine ‘‘funzione analitica'' che abbiamo
 	\begin{enumerate}
 		\item Dato $x_0\in\ U$, $f$ si dice \textbf{analitica}\index{analitica} in $x_0$ se $\exists r_0>0$ tale che
 		\begin{equation*}
-			f\left(x\right)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k,\ \forall x\in\left(x_0-r_0,x_0+r_0\right)\subseteq U
+			f(x)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k,\ \forall x\in\left(x_0-r_0,x_0+r_0\right)\subseteq U
 		\end{equation*}
 		\item f si dice \textbf{analitica in }$U$ se è analitica in ogni punto $x_0\in U$. In questo caso si scrive $f\in\mathcal{A}\left(U\right)$.
 	\end{enumerate}
@@ -632,7 +640,7 @@ In generale la risposta è \textbf{no}, come possiamo vedere nell'esempio succes
 \begin{examplewt}[Controesempio di una funzione $\mathcal{C}^{\infty}$ non analitica]
 Consideriamo la funzione
 	\begin{equation*}
-		f\left(x\right)=
+		f(x)=
 		\begin{cases}
 			\begin{array}{ll}
 				e^{-\frac{1}{x^2}}&\text{se }x\neq 0\\
@@ -646,7 +654,7 @@ Innanzitutto, mostriamo che $f$ è di classe  $\mathcal{C}^{\infty}$:
 	\item Dimostriamo che esiste $f^{\left(k\right)}\left(0\right),\ \forall k\geq 0$, che essa sia uguale a $0$ per ogni $k$ e che $f^{\left(k\right)}\in\mathcal{C}\left(\realset\right),\ \forall k\geq 0$.\\
 	Per far ciò, innanzitutto mostriamo per \textit{induzione} su $k$ che per ogni $k\geq 0$ esiste un polinomio $P_{3k}$ di grado $3k$ tale per cui
 	\begin{equation*}
-		f^{(k)}\left(x\right)=P_{3k}\left(x^{-1}\right)e^{-\frac{1}{x^2}},\ \forall x\neq 0
+		f^{(k)}(x)=P_{3k}\left(x^{-1}\right)e^{-\frac{1}{x^2}},\ \forall x\neq 0
 	\end{equation*}
 La relazione è banalmente vera per $k=0$. quindi proviamo ora il passo induttivo: supponiamo che sia vera la relazione per ogni intero minore o uguale a $k$ e dimostriamo che è vera per $k+1$. A tal fine deriviamo la relazione corrispondente all'interno $k$, ottenendo
 \begin{equation*}
@@ -671,37 +679,37 @@ Tuttavia, $f\notin\mathcal{A}\left(\realset\right)$. Infatti, la serie di Taylor
 \begin{equation*}
 	\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(0\right)}{k!}x^k=\sum_{k=0}^{+\infty}\frac{0}{k!}x^k\equiv 0
 \end{equation*}
-che sì converge, ma \textit{non} a $f$, ossia $\displaystyle f\left(x\right)\neq \sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(0\right)}{k!}x^k,\ \forall x\neq 0$.
+che sì converge, ma \textit{non} a $f$, ossia $\displaystyle f(x)\neq \sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(0\right)}{k!}x^k,\ \forall x\neq 0$.
 \end{examplewt}
 Bisogna quindi capire sotto quali ipotesi ulteriori una funzione di classe $\mathcal{C}^{\infty}$ è anche analitica, ovvero si può scrivere come somma della sua serie di Taylor: in particolare dobbiamo verificare che la seria innanzi tutto converga e che converga alla $f$ voluta (il che non è successo nell'esempio precedente). Cerchiamo a tal scopo una condizione \textit{sufficiente}.\\
-Riprendiamo il problema come era stato posto originalmente; approssimiamo $f$ con il \textit{polinomio} di Taylor, tenendo conto del \textit{resto} $R_n\left(x\right)$:
+Riprendiamo il problema come era stato posto originalmente; approssimiamo $f$ con il \textit{polinomio} di Taylor, tenendo conto del \textit{resto} $R_n(x)$:
 \begin{equation*}
-	f\left(x\right)=\sum_{k=0}^{n}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k+R_n\left(x\right)
+	f(x)=\sum_{k=0}^{n}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k+R_n(x)
 \end{equation*}
 Per passare da questa approssimazione alla riscrittura di $f$ come \textit{serie} di Taylor è necessario ridurre il resto dell'approssimazione a zero al crescere dei termini del polinomio, ossia
 \begin{equation*}
-	\lim_{n\to+\infty}R_n\left(x\right)=0
+	\lim_{n\to+\infty}R_n(x)=0
 \end{equation*}
 Ricordiamo l'espressione del resto in \textit{forma di Lagrange}, che è di tipo quantitativo:
 \begin{equation*}
-	\exists \xi=\xi_{x,n} \ \colon \ R_n\left(x\right)=\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}
+	\exists \xi=\xi_{x,n} \ \colon \ R_n(x)=\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}
 \end{equation*}
 La condizione sufficiente che andremo ora a definire necessita di avere una informazione sulle derivate $f^{\left(n\right)}$ per $n$ \textit{sufficientemente grande}.
 \begin{theorema}[Condizione sufficiente di analiticità]
 	Sia $\funz{f}{U\subseteq\realset}{\realset}$, $f\in\mathcal{C}^{\infty}\left(U\right)$ e sia $x_0\in U$. Se $\exists r_0>0,\ \exists M>0,\ \exists n_0>0$ tale che
 	\begin{equation}\label{condizionesufficienteanaliticita}
-		\abs{f^{\left(n\right)}\left(x\right)}\leq\frac{Mn!}{r_0^n},\ \forall x\in\left(x_0-r_0, \ x_0+r_0\right),\ \forall n\geq n_0
+		\abs{f^{\left(n\right)}(x)}\leq\frac{Mn!}{r_0^n},\ \forall x\in\left(x_0-r_0, \ x_0+r_0\right)\subseteq U,\ \forall n\geq n_0
 	\end{equation}
 	allora $f$ è \textit{analitica} in $x_0$ e vale
 	\begin{equation*}
-		f\left(x\right)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k,\ \forall x\in\left(x_0-r_0,\ x_0+r_0\right)
+		f(x)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k,\ \forall x\in\left(x_0-r_0,\ x_0+r_0\right)\subseteq U
 	\end{equation*}
 	nello stesso intervallo della stima considerato sopra.
 \end{theorema}
 \begin{demonstration}
 	Sia $x\in\left(x_0-r_0,\ x_0+r_0\right)$ fissato. Dobbiamo provare che
 	\begin{equation*}
-		\lim_{n\to+\infty}R_n\left(x\right)=\lim_{n\to+\infty}\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}=0
+		\lim_{n\to+\infty}R_n(x)=\lim_{n\to+\infty}\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}=0
 	\end{equation*}
 dove $\xi$ è ottenuto applicando la formula di Taylor con il resto in \textit{formula di Lagrange}. Poiché $\xi\in\left(x_0-r_0,\ x_0+r_0\right)$, per l'ipotesi di partenza si può stimare $f^{\left(n+1\right)}\left(\xi\right)$:
 \begin{gather*}
@@ -710,14 +718,14 @@ dove $\xi$ è ottenuto applicando la formula di Taylor con il resto in \textit{f
 \end{gather*}
 Abbiamo quindi ottenuto
 \begin{equation*}
-	0\leq \abs{R_n\left(x\right)}\leq M\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1},\ \forall n\geq n_0
+	0\leq \abs{R_n(x)}\leq M\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1},\ \forall n\geq n_0
 \end{equation*}
-Poiché $\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1}$ è una successione geometrica di ragione $\frac{\abs{x-x_0}}{r_0}\in\left(0,1\right)$, essa tende a $0$ per $n\to+\infty$: per il \textit{teorema del confronto} abbiamo $\displaystyle\lim_{n\to+\infty}R_n\left(x\right)=0$.
+Poiché $\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1}$ è una successione geometrica di ragione $\frac{\abs{x-x_0}}{r_0}\in\left(0,1\right)$, essa tende a $0$ per $n\to+\infty$: per il \textit{teorema del confronto} abbiamo $\displaystyle\lim_{n\to+\infty}R_n(x)=0$.
 \end{demonstration}
 \begin{observe}
 	Questa condizione sufficiente si verifica anche se $\exists M>0, \exists r_0>0$ tale per cui
 	\begin{equation}\label{condizionesufficientederivatelimitate}
-		\abs{f^{\left(n\right)}\left(x\right)}\leq M,\ \forall x\in\left(x_0-r_0,\ x_0+r_0\right),\ \forall n\geq 0
+		\abs{f^{\left(n\right)}(x)}\leq M,\ \forall x\in\left(x_0-r_0,\ x_0+r_0\right),\ \forall n\geq 0
 	\end{equation}
 Infatti, $\forall r_0>0$, per confronto di crescita si ha
 \begin{equation*}
@@ -725,7 +733,7 @@ Infatti, $\forall r_0>0$, per confronto di crescita si ha
 \end{equation*}
 Dunque esiste sempre $n_0$ tale che $\forall n\geq n_0$ si ha $\frac{n!}{r_0^n}>1$. Segue allora
 \begin{equation*}
-	\abs{f^{\left(n\right)}\left(x\right)}\leq M<M\frac{n!}{r_0^n},\ \forall x\in\left(x_0-r_0,\ x_0+r_0\right),\ \forall n\geq n_0
+	\abs{f^{\left(n\right)}(x)}\leq M<M\frac{n!}{r_0^n},\ \forall x\in\left(x_0-r_0,\ x_0+r_0\right),\ \forall n\geq n_0
 \end{equation*}
 \end{observe}
 \subsection{Eserciziamoci! Funzioni analitiche e serie di Taylor}
@@ -756,7 +764,7 @@ Possiamo scambiare l'ordine delle sommatorie in quanto la serie doppia
 converge, infatti $\abs{x-x_0}+\abs{x_0}<r_0+\abs{x_0}=R$.\\
 Scambiamo allora l'ordine e cambiamo nome agli indici, ottenendo
 \begin{equation*}
-	f\left(x\right)=f(x)=\sum_{m=0}^{+\infty} \sum_{n=0}^{+\infty} a_{n+m} \binom{n+m}{n} x_0^{n} (x-x_0)^m=\sum_{m=0}^{+\infty} b_m (x-x_0)^m
+	f(x)=f(x)=\sum_{m=0}^{+\infty} \sum_{n=0}^{+\infty} a_{n+m} \binom{n+m}{n} x_0^{n} (x-x_0)^m=\sum_{m=0}^{+\infty} b_m (x-x_0)^m
 \end{equation*}
 con
 \begin{equation*}
@@ -790,70 +798,169 @@ Le prime tre formule si dimostrano usando la condizione sufficiente precedenteme
 	Proviamo ora che valgono le uguaglianze scritte. Per dimostrare che valgono su tutto $\realset$ è sufficiente dimostrate che valgono su un intervallo del tipo $\left(-r_0, r_0\right)$ con $r_0>0$ arbitrario.\\
 	Sia allora $r_0>0$ fissato arbitrariamente e sia $x\in\left(-r_0, r_0\right)$. Proviamo che è vera la condizione \ref{condizionesufficientederivatelimitate}, dato che essa implica la condizione sufficiente \ref{condizionesufficienteanaliticita}. Vediamo i tre casi:
 	\begin{itemize}
-		\item $e^x$. La derivata di $f\left(x\right)=e^x$ è $f^{\left(n\right)}\left(x\right)=e^x$, quindi si ha
+		\item $e^x$. La derivata di $f(x)=e^x$ è $f^{\left(n\right)}(x)=e^x$, quindi si ha
 		\begin{equation*}
-			\abs{f^{\left(n\right)}\left(x\right)}=e^x\leq e^{r_0}= M,\ \forall x\in\left(-r_0,r_0\right),\ \forall n\geq 0
+			\abs{f^{\left(n\right)}(x)}=e^x\leq e^{r_0}= M,\ \forall x\in\left(-r_0,r_0\right),\ \forall n\geq 0
 		\end{equation*}
 		\item $\cos x$, $\sin x$. Poiché le derivate di seno e coseno sono ciclicamente seno e coseno con opportuni segni, la derivata $n$-esima di $\cos x$ e $\sin x$ in modulo è sempre limitata da 1.
 		\begin{equation*}
-			\abs{f^{\left(n\right)}\left(x\right)}\leq 1 = M,\ \forall x\in\left(-r_0,r_0\right),\ \forall n\geq 0
+			\abs{f^{\left(n\right)}(x)}\leq 1 = M,\ \forall x\in\left(-r_0,r_0\right),\ \forall n\geq 0
 		\end{equation*}
 	\end{itemize}
 	Poiché la condizione è verificata su $\left(-r_0,r_0\right)$ e vale l'analiticità su tale intervallo, per l'arbitrarietà di $r_0$ l'analiticità si verifica su tutto $\realset$.
-	\item $\left(1+x\right)^\alpha$. Mostriamo innanzitutto che la serie di potenze $\displaystyle\sum_{n=0}^{+\infty}\binom{\alpha}{k}x^k$ converge $\forall x\in\left(-1,1\right)$, usando il criterio del rapporto:
+	\item $\left(1+x\right)^\alpha$. Mostriamo innanzitutto che la serie di potenze \label{funzionianaliticheesempiopotenza}
+	\begin{equation*}
+		\sum_{n=0}^{+\infty}\binom{\alpha}{k}x^k
+	\end{equation*} converge $\forall x\in\left(-1,1\right)$, usando il criterio del rapporto:
 	\begin{align*}
-		R&=\lim_{n\to+\infty}\frac{\abs{a_n}}{\abs{a_{n+1}}}=\lim_{n\to+\infty}\frac{\abs{\alpha\left(\alpha-1\right)\ldots\left(\alpha-n+1\right)}}{n!}\frac{\left(n+1\right)!}{|\alpha\left(\alpha-1\right)\underbrace{\left(\alpha-\left(n+1\right)+1\right)}_{\alpha-n}|}=\\
+		R&=\lim_{n\to+\infty}\frac{\abs{a_n}}{\abs{a_{n+1}}}=\lim_{n\to+\infty}\frac{\abs{\alpha\left(\alpha-1\right)\ldots\left(\alpha-n+1\right)}}{n!}\frac{\left(n+1\right)!}{|\alpha\left(\alpha-1\right)\underbrace{\left(\alpha-\left(n+1\right)+1\right)}_{=\alpha-n}|}=\\
 		&=\lim_{n\to+\infty}\frac{\abs{n+1}}{\abs{\alpha-n}}=\lim_{n\to+\infty}\frac{n+1}{n-\alpha}=1
 	\end{align*}
 	Adesso definiamo la funzione somma
 	\begin{equation*}
-		g_\alpha\left(x\right)=\sum_{n=0}^{+\infty}\binom{\alpha}{n}x^n,\ \forall x\in\left(-1,1\right)
+		g_\alpha(x)=\sum_{n=0}^{+\infty}\binom{\alpha}{n}x^n,\ \forall x\in\left(-1,1\right)
 	\end{equation*}
-	Dobbiamo dimostrare che $g_\alpha\left(x\right)=\left(1+x\right)^{\alpha},\ \forall x\in\left(-1,1\right)$. Per la derivazione termine a termine abbiamo
+	Dobbiamo dimostrare che $g_\alpha(x)=\left(1+x\right)^{\alpha},\ \forall x\in\left(-1,1\right)$. Per la derivazione termine a termine abbiamo
 	\begin{align*}
-		g'_\alpha\left(x\right)&=\sum_{n=1}^{+\infty}n\binom{\alpha}{n}x^{n-1}=\sum_{n=1}^{+\infty}\frac{\alpha\left(\alpha-1\right)\ldots\left(\alpha-n+1\right)}{n!}nx^{n-1}=\\
+		g'_\alpha(x)&=\sum_{n=1}^{+\infty}n\binom{\alpha}{n}x^{n-1}=\sum_{n=1}^{+\infty}\frac{\alpha\left(\alpha-1\right)\ldots\left(\alpha-n+1\right)}{n!}nx^{n-1}=\\
 		&=\alpha\sum_{n=1}^{+\infty}\frac{\left(\alpha-1\right)\ldots\left(\alpha-1\left(n-1\right)+1\right)}{\left(n+1\right)!}x^{n-1}=\alpha\sum_{n=1}^{+\infty}\binom{\alpha-1}{n-1}x^{n-1}=\\
-		&\underrel[c]{n-1=m}{=}\alpha\sum_{m=0}^{+\infty}\binom{\alpha-1}{m}x^m=\alpha g_{\alpha-1}\left(x\right),\ \forall x\in\left(-1,1\right)
+		&\underrel[c]{n-1=m}{=}\alpha\sum_{m=0}^{+\infty}\binom{\alpha-1}{m}x^m=\alpha g_{\alpha-1}(x),\ \forall x\in\left(-1,1\right)
 	\end{align*}
-	Quindi $g'_{\alpha}\left(x\right)=\alpha g_{\alpha-1}\left(x\right),\ \forall x\in\left(-1,1\right)$. Osserviamo che
+	Quindi $g'_{\alpha}(x)=\alpha g_{\alpha-1}(x),\ \forall x\in\left(-1,1\right)$. Osserviamo che
 	\begin{align*}
-		\left(1+x\right)g_{\alpha-1}\left(x\right)&=\sum_{n=0}^{+\infty}\binom{\alpha-1}{n}x^n+\sum_{n=0}^{+\infty}\binom{\alpha-1}{n}x^{n+1}=\\
+		\left(1+x\right)g_{\alpha-1}(x)&=\sum_{n=0}^{+\infty}\binom{\alpha-1}{n}x^n+\sum_{n=0}^{+\infty}\binom{\alpha-1}{n}x^{n+1}=\\
 		&\underrel{n+1=m}{=}\sum_{n=0}^{+\infty}\binom{\alpha-1}{n}x^n+\sum_{m=1}^{+\infty}\binom{\alpha-1}{m-1}x^{m}=\\
 		&=1+\sum_{m=1}^{+\infty}\left[\binom{\alpha-1}{m}+\binom{\alpha-1}{m-1}\right]x^m=1+\sum_{m=1}^{+\infty}\binom{\alpha}{m}x^m
 	\end{align*}
 	Infatti, si ha
 	\begin{align*}
-		\binom{\alpha-1}{m}+\binom{\alpha-1}{m-1}&=\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-m+1\right)}{m!}+\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-\left(m-1\right)+1\right)}{\left(m-1\right)!}=\\
-		&=\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-\left(m-1\right)+1\right)}{\left(m-1\right)!}\frac{\left(\alpha\Ccancel[red]{-1-m+1+m}\right)}{m}=\frac{\alpha\left(\alpha-1\right)}{m}=\\
+		\binom{\alpha-1}{m}+\binom{\alpha-1}{m-1}&=\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-m+1\right)}{m!}+\\
+		&+\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-\left(m-1\right)+1\right)}{\left(m-1\right)!}=\\
+		&=\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-\left(m-1\right)+1\right)}{\left(m-1\right)!}\cdot\\
+		&\cdot\frac{\left(\alpha\Ccancel[red]{-1-m+1+m}\right)}{m}=\frac{\alpha\left(\alpha-1\right)}{m}=\\
 		&=\frac{\alpha\left(\alpha-1\right)\ldots\left(\alpha-m+1\right)}{m!}=\binom{\alpha}{m}
 	\end{align*}
 Riassumendo, abbiamo ottenuto che
 \begin{equation*}
-	\left(1+x\right)g_{\alpha-1}\left(x\right)=g_\alpha\left(x\right)
+	\left(1+x\right)g_{\alpha-1}(x)=g_\alpha(x)
 \end{equation*}
 Si ha
 \begin{equation*}
 	\begin{cases}
-		g'_{\alpha}\left(x\right)=\frac{\alpha}{\left(1+x\right)}g_{\alpha}\left(x\right)\\
+		g'_{\alpha}(x)=\frac{\alpha}{\left(1+x\right)}g_{\alpha}(x)\\
 		g_{\alpha}\left(0\right)=1
 	\end{cases}
 \end{equation*}
 che è un \textit{problema di Cauchy} o altresì noto come un'\textit{equazione differenziale lineare} omogenea del I grado con dato iniziale, la cui soluzione è
 \begin{equation*}
-	g_{\alpha}\left(x\right)=e^{\alpha\int_{0}^{x}\frac{1}{1+t}dt}=e^{\alpha\log\left(1+x\right)}=\left(1+x\right)^{\alpha},\ \forall x\in\left(-1,1\right)\qedhere
+	g_{\alpha}(x)=e^{\alpha\int_{0}^{x}\frac{1}{1+t}dt}=e^{\alpha\log\left(1+x\right)}=\left(1+x\right)^{\alpha},\ \forall x\in\left(-1,1\right)\qedhere
 \end{equation*}
 \end{itemize}
-\end{demonstration}% TO DO: add title to digression in preamble
-\begin{digression}\textsc{\textbf{Uno sguardo al futuro: il caso complesso}}\\
+\end{demonstration}
+\begin{digressionwt}[Uno sguardo al futuro: il caso complesso]
 	In \textsc{Analisi Matematica 4} si riprenderà la questione della \textit{derivabilità} in campo complesso, definendola e proseguendo con il problema di studiare l'\textit{analiticità} delle funzioni in campo complesso.\\
-	In campo reale le funzioni \textit{analitiche} sono solo un piccolo sottoinsieme delle funzioni $\mathcal{C}^{\infty}\left(U\right)$, che a loro volta un sottoinsieme stretto delle funzioni $\mathcal{C}^1\left(U\right),\ \mathcal{C}^2\left(U\right),\ \ldots$, a loro volta sottoinsieme delle funzioni \textit{derivabili} $D\left(U\right)$ e infine delle funzioni \textit{continue} $\mathcal{C}\left(U\right)$.\\
-	% TO DO: disegnare insieme di Eulero-Venn delle funzioni reali
+	In campo reale le funzioni \textit{analitiche} sono solo un piccolo sottoinsieme delle funzioni $\mathcal{C}^{\infty}\left(U\right)$, che a loro volta un sottoinsieme stretto delle funzioni $\mathcal{C}^1\left(U\right),\ \mathcal{C}^2\left(U\right),\ \ldots$, a loro volta contenute nelle funzioni \textit{derivabili} $D\left(U\right)$, che sono sottoinsieme delle funzioni \textit{continue} $\mathcal{C}\left(U\right)$.
+\begin{center}
+		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.45]{images/eulerovenn1.pdf}
+\end{center}
 	In campo complesso abbiamo una sorpresa. Infatti, se la funzione è \textit{derivabile} una volta, lo è \textit{infinitamente} con continuità e sono anche \textit{analitiche}!
 	\begin{equation*}
 		D\left(U\right)=\mathcal{C}^1\left(U\right)=\ldots=\mathcal{C}^{\infty}\left(U\right)=\mathcal{A}(U)
 	\end{equation*}
+\begin{center}
+	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.45]{images/eulerovenn2.pdf}
+\end{center}
 	Si vedrà che questo è dovuto al fatto che $\complexset$ ha la struttura di campo come $\realset$, ma allo stesso tempo è uno spazio vettoriale di dimensione $2$ su $\realset$ stesso.
-\end{digression}
+\end{digressionwt}
+\section{Il calcolo della lunghezza dell'ellisse}\label{lunghezzaellisse}
+In questa sezione riprendiamo la dimostrazione abbozzata nel \refChapterOnly{ellipseintroduction} alla luce degli strumenti e teoremi dimostrati fino a questo punto.
+Consideriamo un'ellisse di semiassi $a\geq b>0$ di equazione cartesiana
+\begin{equation*}
+	\frac{x^2}{a^2}+\frac{y^2}{b^2}=1
+\end{equation*}
+Consideriamo la parametrizzazione
+\begin{equation*}
+	\vec{r}\left(t\right)=\left(a\sin t,b\cos t\right)\quad t\in\left[0, 2\pi\right]
+\end{equation*}
+e ne calcoliamo la lunghezza con la derivata:
+\begin{align*}
+L&=\int_{0}^{2\pi}\norm{\vec{r}'\left(t\right)}dt=\int_{0}^{2\pi}\norm{\left(a\cos t,\ -b\sin t\right)}dt=\int_{0}^{2\pi}\sqrt{a^2\cos^2t+b^2\sin^2t}dt=\\
+&=\int_{0}^{2\pi}\sqrt{a^2-\left(a^2+b^2\right)\sin^2t}dt=a\int_{0}^{2\pi}\sqrt{1-e^2\sin^2t}dt\\
+&=4a\int_{0}^{\frac{\pi}{2}}\sqrt{1-e^2\sin^2t}dt,
+\end{align*} 
+dove $e=\frac{\sqrt{a^2-b^2}}{a}\in\left[0,1\right)$; l'ultimo passaggio segue dalla simmetria dell'ellisse.\\
+Posto $x=-e^2\sin^2t$, da $\sqrt{1-e^2\sin^2t}$ ci riconduciamo alla funzione $\left(1+x\right)^{\frac{1}{2}}$ che abbiamo recentemente dimostrato\footnote{Si veda pag. \pageref{funzionianaliticheesempiopotenza}.} essere una funzione analitica per ogni $x\in\left(-1,1\right)$. Poichè
+\begin{equation*}
+	\abs{x}=\abs{-e^2\sin^2t}\leq e^2<1,\ \forall t\in\left[0,\frac{\pi}{2}\right],
+\end{equation*}
+allora si ha l'uguaglianza tra funzione e serie di Taylor corrispondente per ogni $t$ in $\left[0,\frac{\pi}{2}\right]$:
+\begin{equation*}
+	\left(1+x\right)^{\nicefrac{1}{2}}=\sum_{k=0}^{+\infty}\binom{\nicefrac{1}{2}}{k}x^k\implies\left(1-e^2\sin^2t\right)^{\nicefrac{1}{2}}=\sum_{k=0}^{+\infty}\binom{\nicefrac{1}{2}}{k}\left(-e^2\sin^2t\right)^k
+\end{equation*}
+Inoltre, per proprietà delle serie di potenze,
+\begin{equation*}
+	\sum_{k=0}^{+\infty}\binom{\nicefrac{1}{2}}{k}x^k
+\end{equation*}
+converge uniformemente su tutti gli insiemi la cui chiusura è contenuta strettamente in $\left(-1,1\right)$, in particolare converge uniformemente su $\left[-A,A\right]$ per ogni $A\in\left(0,1\right)$, dunque vale il teorema di scambio serie e integrale perché si ha convergenza uniforme su $\left[-e^2,e^2\right]\subsetneqq\left(-1,1\right)$.\\
+Tornando al calcolo della lunghezza dell'ellisse:
+\begin{align*}
+	L&=4a\int_{0}^{\frac{\pi}{2}}\sqrt{1-e^2\sin^2t}dt=\\
+	&=4a\int_{0}^{\frac{\pi}{2}}\sum_{k=0}^{+\infty}\binom{\nicefrac{1}{2}}{k}\left(-e^2\sin^2t\right)^kdt=\\
+	&=4a\sum_{k=0}^{+\infty}\binom{\nicefrac{1}{2}}{k}\left(-1\right)^ke^{2k}\int_{0}^{\frac{\pi}{2}}\sin^{2k}tdt=\\
+	&=4a\left(\frac{\pi}{2}+\sum_{k=1}^{+\infty}\binom{\nicefrac{1}{2}}{k}\left(-1\right)^ke^{2k}\int_{0}^{\frac{\pi}{2}}\sin^{2k}tdt\right)\squarequal
+\end{align*}
+Dimostriamo ora le seguenti espressioni:
+\begin{align*}
+	\circled{1}&\qquad\binom{\nicefrac{1}{2}}{k}=\left(-1\right)^{k-1}\frac{\left(2k-3\right)!!}{\left(2k\right)!!}\\
+	\circled{2}&\qquad\int_{0}^{\frac{\pi}{2}}\sin^{2k}tdt=\frac{\left(2k-1\right)!!}{\left(2k\right)!!}\frac{\pi}{2}
+\end{align*}
+\begin{demonstration}~
+	\begin{enumerate}[label=\Roman*]
+		\item Per induzione. Il passo base $k=1$ è banalmente verificato:
+		\begin{equation*}
+			\binom{\nicefrac{1}{2}}{1}=\frac{\frac{1}{2}}{1!}=\frac{1}{2}=\left(-1\right)^0\frac{\left(-1\right)!!}{2!!}
+		\end{equation*}
+	Supponendo sia vero per $k$, mostriamo che valga per il passo $k+1$:
+	\begin{align*}
+		\binom{\nicefrac{1}{2}}{k+1}&=\binom{\nicefrac{1}{2}}{k}\frac{\frac{1}{2}-k}{k+1}\underset{\substack{\text{hp.}\\\text{ ind.}}}{=}\left(-1\right)^{k-1}\frac{\left(2k-3\right)!!}{\left(2k\right)!!}\frac{\frac{1}{2}-k}{k+1}=\\
+		&=\left(-1\right)^{k-1}\frac{\left(2k-3\right)!!}{\left(2k\right)!!}\left(-\frac{2k-1}{2k+2}\right)=\left(-1\right)^{k}\frac{\left(2k-1\right)!!}{\left(2k+2\right)!!}=\\
+		&=\left(-1\right)^{\left(k+1\right)-1}\frac{\left(2\left(k+1\right)-3\right)!!}{\left(2\left(k+1\right)\right)!!}
+	\end{align*}
+	\item Sia
+	\begin{equation*}
+		I_n=\int_{0}^{\frac{\pi}{2}}\sin^ntdt
+	\end{equation*}
+	Integriamo per parti: posto $f=\sin^{n-1}t$ e $dg=\sin tdt$, allora $df=\left(n-1\right)\sin^{n-2}t\cos tdt$. e $g=-\cos t$; calcoliamo
+	\begin{equation*}
+		\int_{0}^{\frac{\pi}{2}}fdg=\left.fg\right\vert_{0}^{\frac{\pi}{2}}-\int_{0}^{\frac{\pi}{2}}gdf,
+	\end{equation*}
+	ossia:
+	\begin{equation*}
+		I_n=\left.-\sin^{n-1}t\cos t\right\vert_{0}^{\frac{\pi}{2}}+\int_{0}^{\frac{\pi}{2}}\left(n-1\right)\sin^{n-2}t\cos^2 tdt=\int_{0}^{\frac{\pi}{2}}\left(n-1\right)\sin^{n-2}t\cos^2 tdt
+	\end{equation*}
+	Poiché $\cos^2t=1-\sin^2t$, allora
+	\begin{equation*}
+		I-n=\left(n-1\right)\left(\int_{0}^{\frac{\pi}{2}}\left(n-1\right)\sin^{n-2}tdt-\int_{0}^{\frac{\pi}{2}}\sin^{n}tdt\right)=\left(n-2\right)I_{n-2}-\left(n-1\right)I_n
+	\end{equation*}
+	Riordinando, otteniamo
+	\begin{equation*}
+		I_n=\frac{n-1}{n}I_{n-2}
+	\end{equation*}
+	Allora, usando questa ricorsione
+	\begin{equation*}
+		I_{2k}=\frac{2k-1}{2k}\frac{2k-3}{2k-2}\cdots\frac{1}{2}I_0=\frac{\left(2k-1\right)!!}{\left(2k\right)!!}\frac{\pi}{2}\qedhere
+	\end{equation*}
+	\end{enumerate}
+\end{demonstration}
+Allora, sostituendo, otteniamo la lunghezza dell'ellisse:
+\begin{align*}
+	\squarequal&4a\left(\frac{\pi}{2}+\sum_{k=1}^{+\infty}\left(-1\right)^{2k-1}e^{2k}\frac{\left(2k-3\right)!!\left(2k-1\right)!!}{\left(\left(2k\right)!!\right)^2}\frac{\pi}{2}e^{2k}\right)\\
+	=&2\pi a\left[1-\sum_{k=1}^{+\infty}\frac{1}{2k-1}\left(\frac{\left(2k-1\right)!!}{\left(2k\right)!!}e^k\right)^2\right]
+\end{align*}
+ossia
+\begin{equation}
+	L=2\pi a\sum_{k=0}^{+\infty}\frac{1}{1-2k}\left(\frac{\left(2k-1\right)!!}{\left(2k\right)!!}e^k\right)^2
+\end{equation}
 \section{Funzioni esponenziale e logaritmo in campo complesso}
 \subsection{Funzione esponenziale in campo complesso}
 \begin{define}[Esponenziale in campo complesso]
@@ -967,14 +1074,22 @@ e questo consente di concludere la tesi.\qedhere
 \end{enumerate}
 \end{demonstration}
 \begin{observe}
-	Dalla relazione $e^{z+2k\pi i}=e^z,\ \forall z\in\complexset, k\in\integerset$ segue che in campo complesso la funzione esponenziale è \textbf{periodica} di periodo $2\pi i$.\\
-	% TO DO: disegnare numeri complessi con lo stesso esponenziale
-	Di conseguenza, in campo complesso la funzione esponenziale \textit{non} è invertibile.\\
-	L'\textit{invertibilità} è però garantita consentendo come inversa una \textit{funzione multivoca}.
+	Dalla relazione
+	\begin{equation*}
+		e^{z+2k\pi i}=e^z,\ \forall z\in\complexset,\ \forall k\in\integerset
+	\end{equation*}
+	segue che in campo complesso la funzione esponenziale è \textbf{periodica} di periodo $2\pi i$.
+	Di conseguenza, in campo complesso la funzione esponenziale \textit{non} è invertibile. Tuttavia, l'\textit{invertibilità} è garantita se si consente come inversa una \textit{funzione multivoca}.\\
 \end{observe}
 \begin{define}[Funzione multivoca]
 	Una \textbf{funzione multivoca}\index{funzione!multivoca} è una \textit{relazione binaria seriale} che associa ad ogni valore $x$ nel dominio $X$ uno o più valori $y$ nel codominio $Y$.
 \end{define}
+\begin{example}
+		Nella seguente figura sono rappresentati dei numeri complessi $z$ aventi lo \textit{stesso esponenziale}; si può vedere come essi abbiano la stessa parte \textit{reale}, ma ciascun numero differisce da quelli vicini a lui di $2\pi$ nella parte \textit{immaginaria}.
+	\begin{center}
+		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=1]{images/esponenziale1.pdf}
+	\end{center}
+\end{example}
 \subsubsection{Eserciziamoci! Funzione esponenziale in campo complesso}
 \begin{exercise}
 	\textit{Scegli la risposta corretta.} Il modulo del numero complesso $e^{iz}$, con $z\in\complexset$, è:
@@ -1036,8 +1151,10 @@ e dunque
 \begin{attention}
 Si presti attenzione al diverso significato del simbolo $\log$ nella formula caratterizzante il \textit{logaritmo complesso}: a \textit{primo membro} esso indica i \textit{logaritmi complessi} del numero $z$; a secondo membro, l'unico logaritmo reale del numero reale positivo $\abs{z}$. Per evitare confusioni, qui è stato indicato in pedice a quale logaritmo ci riferiamo.
 \end{attention}
-In figura sono rappresentati alcuni dei logaritmi complessi di un numero complesso \textit{non nullo} $z$.\\
-% TO DO: inserire immagine logaritmo
+In figura sono rappresentati alcuni dei logaritmi complessi di un numero complesso \textit{non nullo} $z$.
+\begin{center}
+	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=1]{images/esponenziale2.pdf}
+\end{center}
 Come si osserva dalla formula essi hanno tutti la \textit{stessa parte reale} e parti immaginarie che \textit{differiscono} per multipli di $2\pi$.
 \subsubsection{Eserciziamoci! Funzione logaritmo in campo complesso}
 \begin{exercise}

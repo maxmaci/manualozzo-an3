@@ -9,20 +9,19 @@
 \labelChapter{integraledilebesgue}
 
 \begin{introduction}
-	‘‘BEEP BOOP QUESTA È UNA CITAZIONE.''
+	‘‘Si dovrebbe sempre generalizzare.''
 	\begin{flushright}
-		\textsc{Marinobot,} dopo aver finito le citazioni stupide.
+		\textsc{Carl Jacobi,} prima che Teoria delle Categorie gli facesse cambiare idea.
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{D}{allo} \textbf{[COMPLETARE.]}
+\lettrine[findent=1pt, nindent=0pt]{D}{opo} aver approfondito il tema della misura, in questo capitolo ci dedicheremo integralmente a parlare del punto focale del nostro studio, l'\textbf{integrale di Lebesgue}. La definizione che daremo \textit{non} è la stessa enunciata da Lebesgue, limitata alle funzioni \textit{da valori reali a valori reali}, bensì una generalizzazione avvenuta successivamente atta ad \textit{astrarre} (da qui il termine ‘‘astratto'') il concetto di integrale a funzioni da uno spazio di misura a valori reali (estesi) o complessi; per far ciò, sarà necessario definire l'integrale in tre passi consequenziali, estendendo gradualmente (ma con certe condizioni!) la famiglia di funzioni che ammettono integrale.
 \section{I tre passi dell'integrale astratto di Lebesgue}
-La definizione che daremo \textit{non} è la stessa enunciata da Lebesgue, limitata alle funzioni \textit{da valori reali a valori reali}, bensì una generalizzazione avvenuta successivamente atta ad \textit{astrarre} (da qui il termine) il concetto di integrale a funzioni da uno spazio di misura a valori reali (estesi) o complessi.\\
-Premettiamo innanzitutto alcune osservazioni su come questa definizione si distinguerà da quella di \textit{integrale di Riemann}:
+Primo di passare ad enunciare questi passi, premettiamo un paio di osservazioni su come questa definizione si distinguerà da quella dell'\textit{integrale di Riemann}:
 \begin{enumerate}
 	\item La definizione si dà per funzioni definite su uno spazio di misura $\left(X,\mathcal{M},\mu\right)$, mentre per Riemann le funzioni erano definite su $\realset$ o al più su $\realset^n$.	
 	\item La definizione \textit{non} richiede alcuna ipotesi sulla misura di $X$, non distinguendo neanche casi tra misura finita e misura infinita.
 \end{enumerate}
-La definizione viene data per \textit{passaggi successivi}, utilizzando a partire dal passo 2 i passaggi precedenti. Supponiamo sempre di considerare funzioni con dominio un generico \textit{spazio di misura} $\left(X,\mathcal{M},\mu\right)$.
+Come abbiamo annunciato, la definizione viene data per \textit{passaggi successivi}, utilizzando a partire dal passo 2 i passaggi precedenti. Supponiamo sempre di considerare funzioni con dominio un generico \textit{spazio di misura} $\left(X,\mathcal{M},\mu\right)$.
 \begin{itemize}
 	\item \textbf{\textsc{Passo 1:}} definiamo l'integrale per funzioni $\funz{s}{X}{\left[0,+\infty\right)}$ \textbf{semplici}, misurabili e non negative.
 	\item \textbf{\textsc{Passo 2:}} definiamo l'integrale per funzioni
@@ -32,13 +31,13 @@ La definizione viene data per \textit{passaggi successivi}, utilizzando a partir
 Prima di passare ai passi qui sopra enunciati, dobbiamo definire cos'è una \textit{funzione semplice} e capire come mai sono così importanti per l'integrale di Lebesgue.
 \section{Funzioni semplici}
 \begin{define}[Funzione semplice]
-Una funzione $\funz{s}{\left(X,\mathcal{M}\right)}{\left[0,+\infty\right)}$, con $\left(X,\mathcal{M}\right)$ spazio misurabile, è detta \textbf{semplice}\index{funzione!semplice} se la sua immagine $S\left(X\right)$ è \textit{finita}.
+Una funzione $\funz{s}{\left(X,\mathcal{M}\right)}{\left[0,+\infty\right)}$, con $\left(X,\mathcal{M}\right)$ spazio misurabile, è detta \textbf{semplice}\index{funzione!semplice} se la sua immagine $S(x)$ è \textit{finita}.
 \end{define}
 Se $s$ ha l'immagine finita di cardinalità $n$, allora esistono $n$ valori distinti $\alpha_1,\ldots,\alpha_n$  valori \textit{distinti} tali che
 \begin{equation*}
-	s\left(X\right)=\left\{\alpha_1,\ldots,\alpha_n\right\}
+	s(x)=\left\{\alpha_1,\ldots,\alpha_n\right\}
 \end{equation*}
-Se consideriamo $A_i=\left\{x\mid s\left(x\right)=\alpha_i\right\}=s^{-1}\left(\left\{\alpha_i\right\}\right)$, allora possiamo decomporre $s$ come ‘‘somma pesata'' delle funzioni caratteristiche degli insiemi $A_i$ nella cosiddetta \textbf{decomposizone standard di }$s$\index{decomposizione standard di una funzione semplice}:
+Se consideriamo $A_i=\left\{x\mid s(x)=\alpha_i\right\}=s^{-1}\left(\left\{\alpha_i\right\}\right)$, allora possiamo decomporre $s$ come ‘‘somma pesata'' delle funzioni caratteristiche degli insiemi $A_i$ nella cosiddetta \textbf{decomposizione standard di }$s$\index{decomposizione standard di una funzione semplice}:
 \begin{equation}
 	s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}
 \end{equation}
@@ -49,8 +48,12 @@ Se consideriamo $A_i=\left\{x\mid s\left(x\right)=\alpha_i\right\}=s^{-1}\left(\
 	\end{equation*}
 	è misurabile se e solo se gli insiemi $A_i=s^{-1}\left(\left\{\alpha_i\right\}\right)$ sono misurabili, $\forall i=1,\ \ldots,\ n$. 
 \end{proposition}
-\begin{demonstration}~{}\\
-	Per definizione di funzione misurabile, $\funz{s}{\left(X,\mathcal{M}\right)}{\left[0,+\infty\right)}$ è misurabile se e solo se $\forall A\subseteq\left[0,+\infty\right)$ aperto, la controimmagine
+\begin{demonstration}
+	Per definizione di funzione misurabile,
+	\begin{equation*}
+		\funz{s}{\left(X,\mathcal{M}\right)}{\left[0,+\infty\right)}
+	\end{equation*}
+	è misurabile se e solo se $\forall A\subseteq\left[0,+\infty\right)$ aperto, la controimmagine
 	\begin{equation*}
 		s^{-1}\left(A\right)=\bigcup_{\alpha_i\in A}s^{-1}\left(\left\{\alpha_i\right\}\right)=\bigcup_{i\colon \alpha_i\in A}A_i
 	\end{equation*}
@@ -68,44 +71,52 @@ Poiché per ipotesi gli $A_i$ sono misurabili, allora $A$ è unione di insiemi m
 \end{demonstration}
 \begin{examples}~{} \label{funzionesemplice}
 	\begin{enumerate}
-		\item Sia $\left(X,\mathcal{M}\right)=\left(\realset,\mathcal{L}\left(\realset\right)\right)$ e consideriamo la funzione $\funz{s}{\realset}{\realset}$ come da grafico.
-		% TO DO: inserire grafico
-		Osserviamo che $s\left(X\right)=\left\{0,4,8\right\}$, dunque è semplice; le controimmagini dei valori $0$, $4$ e $8$ sono, rispettivamente:
-		\begin{equation*}
-			\begin{array}{l}
-				A_1=s^{-1}\left(\left\{0\right\}\right)=\left(-\infty,-1\right]\cap\left[2,+\infty\right)\\
-				A_2=s^{-1}\left(\left\{4\right\}\right)=\left(-1,1\right]\\
-				A_3=s^{-1}\left(\left\{8\right\}\right)=\left(1,2\right)
-			\end{array}
-		\end{equation*}
-	Pertanto la decomposizione standard di $s$ risulta
-	\begin{equation*}
-	s=0\chi_{\left(-\infty,-1\right]\cap\left[2,+\infty\right)}+4\chi_{\left(-1,1\right]}+8\chi_{\left(1,2\right)}=4\chi_{\left(-1,1\right]}+8\chi_{\left(1,2\right)}
-	\end{equation*}
+		\item Sia $\left(X,\mathcal{M}\right)=\left(\realset,\mathcal{L}(\realset)\right)$ e consideriamo la funzione $\funz{s}{\realset}{\realset}$ come da grafico.\\
+		\begin{minipage}{0.4\textwidth}
+			\includegraphics[trim=3cm 2cm 0cm 0cm, clip, scale=0.7]{images/graficosemplice.pdf}
+		\end{minipage}\hspace{-7mm}
+		\begin{minipage}{0.55\textwidth}
+			Osserviamo che $s(x)=\left\{0,4,8\right\}$, dunque è semplice; le controimmagini dei valori $0$, $4$ e $8$ sono, rispettivamente:
+			\begin{equation*}
+				\begin{array}{l}
+					A_1=s^{-1}\left(\left\{0\right\}\right)=\left(-\infty,-1\right]\cap\left[2,+\infty\right)\\
+					A_2=s^{-1}\left(\left\{4\right\}\right)=\left(-1,1\right]\\
+					A_3=s^{-1}\left(\left\{8\right\}\right)=\left(1,2\right)
+				\end{array}
+			\end{equation*}
+		Pertanto la decomposizione standard di $s$ risulta
+		\begin{align*}
+			s&=0\chi_{\left(-\infty,-1\right]\cap\left[2,+\infty\right)}+4\chi_{\left(-1,1\right]}+8\chi_{\left(1,2\right)}=\\
+			&=4\chi_{\left(-1,1\right]}+8\chi_{\left(1,2\right)}
+		\end{align*}
+		\end{minipage}\vspace{3mm}\\
 	\item La funzione di Dirichlet
-		\begin{equation}
-		s\left(x\right)=
+		\begin{equation*}
+		s(x)=
 		\begin{cases}
 			\begin{array}{ll}
 				1&\text{se }x\in\left[0,1\right]\cap\rationalset\\
 				0&\text{se }x\in\left[0,1\right]\setminus\rationalset\\
 			\end{array}
 		\end{cases}
-	\end{equation}
-	è semplice perché $s\left(\left[0,1\right]\right)=\left\{0,1\right\}$ e infatti
-	\begin{equation*}
-		s=\chi_{\left[0,1\right]\cap\rationalset}
 	\end{equation*}
+	è semplice perché $s\left(\left[0,1\right]\right)=\left\{0,1\right\}$ e infatti $s=\chi_{\left[0,1\right]\cap\rationalset}$.
 	\end{enumerate}
 \end{examples}
+\begin{minipage}{0.55\textwidth}
 \subsection{Approssimazione di funzioni misurabili non negative con funzioni semplici}
-Riprendendo l'idea di Lebesgue alla base del suo integrale, ci interessa studiare le funzioni passando attraverso la loro immagine. Si può ipotizzare di \textit{approssimare} tale funzione $f$ con una \textit{funzione semplice}: partizionando il codominio in opportuni intervalli individuati da quote fissate, se passiamo alle controimmagini possiamo sapere quali punti di $f$ sono contenuti nell'intervallo posto ad una certa quota e pertanto definire una funzione caratteristica che, come nelle \textit{carte topografiche a isoipse}, approssima la funzione $f$ per difetto.
-% TO DO: inserire grafico.
+Riprendendo l'idea di Lebesgue alla base del suo integrale, ci interessa studiare le funzioni passando attraverso la loro \textit{immagine}.\\
+Si può ipotizzare di \textit{approssimare} tale funzione $f$ con una \textit{funzione semplice}: partizionando il codominio in opportuni intervalli individuati da quote fissate, se passiamo alle controimmagini possiamo sapere quali punti di $f$ sono contenuti nell'intervallo posto ad una certa quota e pertanto definire una funzione caratteristica che, come nelle \textit{carte topografiche a isoipse}, approssima la funzione $f$ per difetto.\\
+Il prossimo teorema formalizza proprio questo ragionamento.
+\end{minipage}\hspace{2mm}
+\begin{minipage}{0.4\textwidth}
+	\includegraphics[trim=1cm 0cm 1.5cm 0cm, clip, scale=0.4]{images/isoipse}
+\end{minipage}\vspace{3mm}\\
 \begin{theorema}[Approssimazione di funzioni misurabili non negative con funzioni semplici]
 	Sia $\left(X,\mathcal{M}\right)$ uno spazio misurabile e sia $\funz{f}{X}{\left[0,+\infty\right]}$ una funzione misurabile. Allora esiste una successione di funzioni semplici misurabili $\funz{s_n}{X}{\left[0,+\infty\right)}$ tale che
 	\begin{itemize}
-		\item $0\leq s_n\left(x\right)\leq s_{n+1}\left(x\right)\leq f\left(x\right),\ \forall x\in X,\ n\geq 1$.
-		\item $\displaystyle\lim_{n\to+\infty}s_n\left(x\right)=f\left(x\right),\ \forall x\in X$.
+		\item $0\leq s_n(x)\leq s_{n+1}(x)\leq f(x),\ \forall x\in X,\ n\geq 1$.
+		\item $\displaystyle\lim_{n\to+\infty}s_n(x)=f(x),\ \forall x\in X$.
 	\end{itemize}
 \end{theorema}
 \begin{observe}
@@ -122,12 +133,15 @@ Riprendendo l'idea di Lebesgue alla base del suo integrale, ci interessa studiar
 	\begin{equation}
 		s_n=\sum_{i=1}^{n2^n}\frac{i-1}{2^n}\chi_{E_{n,i}}+n\chi_{F_n}
 	\end{equation}
+\begin{center}
+	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=1.3]{images/approssimazione1}
+\end{center}
 Da questa costruzione segue che:
 \begin{itemize}
 	\item $s_n$ è semplice per $n$ fissato: è una combinazione lineare \textit{finita} di funzioni caratteristiche con pesi distinti.
-	\item È monotona al crescere di $n$:
+	\item È monotona al crescere di $n$:\vspace{-3mm}
 	\begin{equation*}
-		0\leq s_n\left(x\right)\leq s_{n+1}\left(x\right)\leq f\left(x\right) 
+		0\leq s_n(x)\leq s_{n+1}(x)\leq f(x)\vspace{-3mm}
 	\end{equation*}
 	Intuitivamente, passando da $s_n$ a $s_{n+1}$:
 	\begin{itemize}
@@ -135,62 +149,69 @@ Da questa costruzione segue che:
 		\item vengono aggiunti dei nodi intermedi dimezzando ogni intervallino $\left[\frac{i-1}{2^n},\frac{i}{2^n}\right)$.
 		\item vengono aggiunti dei nuovi nodi tra $n$ e $n+1$
 	\end{itemize}
-	Riducendo la dimensione di ciascun intervallino, l'approssimazione così definita risulta essere più raffinata del passo precedente.
-	% TO DO: inserire immagine.
+	Riducendo la dimensione di ciascun intervallino, l'approssimazione così definita risulta essere più raffinata del passo precedente; infatti, per ogni $x$ l'intervallo in cui sta ora $f(x)$ può avere lo stesso estremo inferiore che aveva con la partizione di $s_n$, oppure può avere un nuovo estremo inferiore dato da uno dei nodi introdotti con $s_{n+1}$.\\
+\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=1.4]{images/approssimazione2}
+	\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=1.3]{images/approssimazione3}
+\end{minipage}\vspace{4mm}
 \end{itemize}
 \item  \textbf{\textsc{Passo 2}: misurabilità di $s_n,\ \forall n\geq 1$.}\\
 Ricordiamo che, dati $s_i\geq 0$ e $A_i\in\mathcal{M},\ i=1,\ \ldots,\ k$ si ha
 \begin{equation*}
-	s=\sum_{i=1}^{k}s_i\chi_{A_i}\text{ misurabile}\iff A_i\text{ misurabile}\forall i
+	s=\sum_{i=1}^{k}s_i\chi_{A_i}\text{ misurabile}\iff A_i\text{ misurabile},\ \forall i
 \end{equation*}
 Gli intervalli di $\left[\frac{i-1}{2^n},\frac{i}{2^n}\right),\ \forall i=1,\ \ldots,\ n2^n$ e $\left[n,+\infty\right)$ sono Borelliani in $\left[0,+\infty\right]$; pertanto, le controimmagini $E_{n,i}$ e $F_n$ tramite $f$ funzione misurabile sono anch'esse misurabili in $X$.
 \item  \textbf{\textsc{Passo 3}: approssimazione nel senso della convergenza puntuale.}\\
 	Proviamo che vale la relazione
 	\begin{equation*}
-		\lim_{n\to+\infty}s_n\left(x\right)=f\left(x\right),\ \forall x\in\ X
+		\lim_{n\to+\infty}s_n(x)=f(x),\ \forall x\in\ X
 	\end{equation*}
 Fissiamo $x\in X$ e distinguiamo i casi.
 \begin{itemize}
-	\item \textbf{\textsc{Caso 1:}} $f\left(x\right)\in\left[0,+\infty\right)$.\\
-	Poiché $\floor{f\left(x\right)}\leq f\left(x\right)<\floor{f\left(x\right)}+1$, posto $N_x\coloneqq \floor{f\left(x\right)}+1$ si ha che
+	\item \textbf{\textsc{Caso 1:}} $f(x)\in\left[0,+\infty\right)$.\\
+	Poiché $\floor{f(x)}\leq f(x)<\floor{f(x)}+1$, posto $N_x\coloneqq \floor{f(x)}+1$ si ha che
 	\begin{equation*}
-		f\left(x\right)< N_x\leq n,\ \forall n\geq N_x
+		f(x)< N_x\leq n,\ \forall n\geq N_x
 	\end{equation*}
-Pertanto, esiste $N_x\geq 1$ tale per cui $f\left(x\right)<n,\ \forall n\geq N_X$.\\
-Sulla base di ciò si ha che $f\left(x\right)\in\left[0,n\right),\ \forall n\geq N_x$ e dunque esiste $i\in\left\{0,\ldots,n2^n\right\}$ tale per cui
+Pertanto, esiste $N_x\geq 1$ tale per cui $f(x)<n,\ \forall n\geq N_X$.\\
+Sulla base di ciò si ha che $f(x)\in\left[0,n\right),\ \forall n\geq N_x$ e dunque esiste $i\in\left\{0,\ldots,n2^n\right\}$ tale per cui
 \begin{equation*}
-	f\left(x\right)\in\left[\frac{i-1}{2^n},\frac{i}{2^n}\right)\implies x\in f^{-1}\left(\left[\frac{i-1}{2^n},\frac{i}{2^n}\right]\right)=E_{n,i}
+	f(x)\in\left[\frac{i-1}{2^n},\frac{i}{2^n}\right)\implies x\in f^{-1}\left(\left[\frac{i-1}{2^n},\frac{i}{2^n}\right]\right)=E_{n,i}
 \end{equation*}
-Allora $s_n\left(x\right)=\frac{i-1}{2^n}$ perché
+Allora $s_n(x)=\frac{i-1}{2^n}$ perché
 \begin{gather*}
-	\chi_{E_{n,j}}\left(x\right)=\delta_{i,j}\\
-	\chi_{F_n}\left(x\right)\equiv 0
+	\chi_{E_{n,j}}(x)=\delta_{i,j}\\
+	\chi_{F_n}(x)\equiv 0
 \end{gather*}
 dove $\delta_{i,j}$ è il delta di Kronecker; segue che
 \begin{equation*}
-	0\leq s_n\left(x\right)=\frac{i-1}{2^n}\leq f\left(x\right)< \frac{i}{2^n}\implies 0\leq f\left(x\right)-s_n\left(x\right)<\frac{i}{2^n}
+	0\leq s_n(x)=\frac{i-1}{2^n}\leq f(x)< \frac{i}{2^n}\implies 0\leq f(x)-s_n(x)<\frac{i}{2^n}
 \end{equation*}
 Passando al limite
 \begin{equation*}
-	0\leq \lim_{n\to+\infty}f\left(x\right)-s_n\left(x\right)\leq \lim_{n\to+\infty}\frac{i}{2^n}=0
+	0\leq \lim_{n\to+\infty}f(x)-s_n(x)\leq \lim_{n\to+\infty}\frac{i}{2^n}=0
 \end{equation*}
-Pertanto, per il teorema del confronto
+Pertanto, per il \textit{teorema del confronto}
 \begin{equation*}
-	\lim_{n\to+\infty}f\left(x\right)-s_n\left(x\right)=0\implies \lim_{n\to+\infty}s_n\left(x\right)=f\left(x\right)
+	\lim_{n\to+\infty}f(x)-s_n(x)=0\implies \lim_{n\to+\infty}s_n(x)=f(x).
 \end{equation*}
-\item \textbf{\textsc{Caso 2:}} $f\left(x\right)=+\infty$.\\
+\item \textbf{\textsc{Caso 2:}} $f(x)=+\infty$.\\
 Chiaramente
 \begin{equation*}
-	f\left(x\right)\in\left[n,+\infty\right],\ \forall n\geq 1\implies x\inf^{-1}\left(\left[n,+\infty\right]\right)=F_n
+	f(x)\in\left[n,+\infty\right],\ \forall n\geq 1\implies x\in f^{-1}\left(\left[n,+\infty\right]\right)=F_n
 \end{equation*}
-Allora $s_n\left(x\right)=n$ perché
+Allora $s_n(x)=n$ perché
 \begin{gather*}
-	\chi_{E_{n,j}}\left(x\right)\equiv 0\\
-	\chi_{F_n}\left(x\right)\equiv 1
+	\chi_{E_{n,j}}(x)\equiv 0\\
+	\chi_{F_n}(x)\equiv 1
 \end{gather*}
 Segue che
 \begin{equation*}
-	\lim_{n\to+\infty}s_n\left(x\right)=\lim_{n\to+\infty}n=+\infty=f\left(x\right)\implies \lim_{n\to+\infty}s_n\left(x\right)=f\left(x\right)\qedhere
+	\lim_{n\to+\infty}s_n(x)=\lim_{n\to+\infty}n=+\infty=f(x)\implies \lim_{n\to+\infty}s_n(x)=f(x)\qedhere
 \end{equation*}
 \end{itemize}
 \end{itemize}
@@ -198,7 +219,7 @@ Segue che
 
 \section{Passo 1: funzioni semplici, misurabili, non negative}
 \begin{define}[Integrale di Lebesgue per funzioni semplici, misurabili, non negative]
-	Sia $\funz{s}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right)}$ funzione semplice, misurabile e non negativa che si decompone, dato $s\left(X\right)=\left\{\alpha_1,\ldots, \alpha_n\right\}$, nella forma standard
+	Sia $\funz{s}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right)}$ funzione semplice, misurabile e non negativa che si decompone, dato $s(x)=\left\{\alpha_1,\ldots, \alpha_n\right\}$, nella forma standard
 	\begin{equation*}
 		s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}\quad A_i=s^{-1}\left(\left\{A_i\right\}\right)
 	\end{equation*}
@@ -207,7 +228,6 @@ Segue che
 		\int_{E}sd\mu\coloneqq\sum_{i=1}^{n}\alpha_i\mu\left(A_i\cap E\right)
 	\end{equation}
 	con la convenzione che se un termine di tale sommatoria è $0\cdot \infty$ allora tale termine sia uguale a $0$.
-	% TO DO: inserire grafico? 
 \end{define}
 \begin{observe}
 	$\mu\left(A_i\cap E\right)$ è ben definito in quanto $A_i\cap E$ è misurabile:
@@ -222,14 +242,14 @@ Segue che
 \end{observe}
 \begin{examples} Per il primo e secondo esempio riprendiamo le funzioni viste a pag. \pageref{funzionesemplice}.
 	\begin{enumerate}
-		\item Consideriamo la funzione del primo esempio, che ha dominio in $\left(\realset^n,\mathcal{L}\left(\realset\right),m_1\right)$ e calcoliamo l'integrale su $E=\realset$:
+		\item Consideriamo la funzione del primo esempio, che ha dominio in $\left(\realset^n,\mathcal{L}(\realset),m_1\right)$ e calcoliamo l'integrale su $E=\realset$:
 		\begin{equation*}
 			\begin{array}{ll}
 				\displaystyle	\int_{\realset}sdm_1&=0m_1\left(\left(-\infty,-1\right]\cup\left[2,+\infty\right)\right)+4m_1\left(\left[-1,1\right]\right)+8m_2\left(\left(1,2\right)\right)=\\
 				&=0\cdot\left(+\infty\right)+4\cdot 2+8\cdot 1=16
 			\end{array}
 		\end{equation*}
-		\item \label{funzionedirichletintegrale}Consideriamo la funzione di Dirichlet su $\left[0,1\right]$, che ha dominio in $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$  l'integrale su $E=\left[0,1\right]$:
+		\item \label{funzionedirichletintegrale}Consideriamo la funzione di Dirichlet su $\left[0,1\right]$, che ha dominio in $\left(\realset,\mathcal{L}(\realset),m_1\right)$  l'integrale su $E=\left[0,1\right]$:
 		\begin{equation*}
 			\int_{\left[0,1\right]}sdm_1=1\cdot m_1\left(\left[0,1\right]\cap\rationalset\right)+0\cdot m_1\left(\left[0,1\right]\setminus\rationalset\right)
 		\end{equation*}
@@ -290,8 +310,8 @@ Per dimostrare tale proprietà ci servirà un risultato sulle serie con \textit{
 		\item Più in generale, se $\displaystyle\sum_{i=1}^{+\infty}\sum_{j=1}^{+\infty}\abs{a_{ij}}<+\infty$, allora vale la relazione precedente.\qedhere
 	\end{itemize}
 \end{propositionsqed}
-\begin{demonstration}\textsc{(della $\sigma$-additività dell'integrale rispetto al dominio.)}\\
-	Siano $E_n\in\mathcal{M},\ E_i\cap E_j= \emptyset$ e sia $\displaystyle E=\cup_{n\geq 1} E_n$. Sia $\displaystyle s=\sum_{i=1}^{k}\alpha_i\chi_{A_i}$ la decomposizione standard di $s$ funzione semplice, dove $s\left(X\right)=\left\{\alpha_1,\ldots,\alpha_k\right\}$ e $A_i=s^{-1}\left(\left\{\alpha_i\right\}\right),\ \forall i=1,\ \ldots,\ k$. Si ha
+\begin{demonstrationwt}[della {$\sigma$}-additività dell'integrale rispetto al dominio]
+	Siano $E_n\in\mathcal{M},\ E_i\cap E_j= \emptyset$ e sia $\displaystyle E=\cup_{n\geq 1} E_n$. Sia $\displaystyle s=\sum_{i=1}^{k}\alpha_i\chi_{A_i}$ la decomposizione standard di $s$ funzione semplice, dove $s(x)=\left\{\alpha_1,\ldots,\alpha_k\right\}$ e $A_i=s^{-1}\left(\left\{\alpha_i\right\}\right),\ \forall i=1,\ \ldots,\ k$. Si ha
 	\begin{equation*}
 		\int_Esd\mu=\sum_{i=1}^{k}\alpha_i\mu\left(A_i\cap E\right)\squarequal
 	\end{equation*}
@@ -303,7 +323,7 @@ quindi
 \begin{equation*}
 	\squarequal \sum_{i=1}^{k}\alpha_i\sum_{j=1}^{+\infty}\mu\left(A_i\cap E_j\right)=\sum_{i=1}^{k}\sum_{j=1}^{+\infty}\underbrace{\alpha_i\mu\left(A_i\cap E_j\right)}_{\geq 0}=\sum_{j=1}^{+\infty}\sum_{i=1}^{k}\alpha_i\mu\left(A_i\cap E_j\right)=\sum_{j=1}^{+\infty}\int_{E_j}sd\mu
 \end{equation*}
-\end{demonstration}
+\end{demonstrationwt}
 Vediamo il risultato appena dimostrato da un punto di vista differente. Possiamo considerare l'integrale di Lebesgue non solo come un \textit{funzionale} che, fissato un insieme misurabile $E\in\left(X,\mathcal{M},\mu\right)$, agisce sulla funzione $s$, bensì come una \textit{funzione d'insieme} in cui $s$ è fissata, mentre la variabile è l'insieme misurabile $E$:
 \begin{equation}
 	\funztot{\mu_s}{\mathcal{M}}{\left[0,+\infty\right]}{E}{\int_Esd\mu}
@@ -376,8 +396,8 @@ Abbiamo già visto\footnote{Si veda \refChapterOnly{seriefunzioni}, teorema \ref
 	Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che
 	\begin{enumerate}
 		\item $f_n$ sono misurabili.
-		\item $\displaystyle\lim_{n\to+\infty}f_n\left(x\right)=f\left(x\right),\ \forall x\in X$.
-		\item $0\leq f_n\left(x\right)\leq f_{n+1}\left(x\right),\ \forall n\geq 1,\ \forall x\in X$.
+		\item $\displaystyle\lim_{n\to+\infty}f_n(x)=f(x),\ \forall x\in X$.
+		\item $0\leq f_n(x)\leq f_{n+1}(x),\ \forall n\geq 1,\ \forall x\in X$.
 	\end{enumerate}
 allora
 \begin{enumerate}
@@ -391,14 +411,14 @@ allora
 \begin{observe}~{}
 	\begin{itemize}
 		\item L'uguaglianza della tesi è valida per ogni misura di $X$, anche infinita.
-		\item Il risultato è in generale \textit{falso} se $f_n\left(x\right)$ decresce rispetto ad $n,\ \forall x\in X$.
+		\item Il risultato è in generale \textit{falso} se $f_n(x)$ decresce rispetto ad $n,\ \forall x\in X$.
 	\end{itemize}
 \end{observe}
 \begin{examplewt}[Controesempio con una successione di funzioni decrescenti]
-	Sia $\left(X,\mathcal{M},\mu\right)=\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e $f_n\left(x\right)=\frac{1}{n},\ \forall x\in\realset$. Per ogni $x$ vale
+	Sia $\left(X,\mathcal{M},\mu\right)=\left(\realset,\mathcal{L}(\realset),m_1\right)$ e $f_n(x)=\frac{1}{n},\ \forall x\in\realset$. Per ogni $x$ vale
 	\begin{itemize}
-		\item $f_n\left(x\right)$ decrescente rispetto ad $n$.
-		\item $\displaystyle\lim_{n\to+\infty}f_n\left(x\right)=0$
+		\item $f_n(x)$ decrescente rispetto ad $n$.
+		\item $\displaystyle\lim_{n\to+\infty}f_n(x)=0$
 	\end{itemize}
 Pertanto:
 \begin{align*}
@@ -406,7 +426,7 @@ Pertanto:
 	\int_{\realset}\left(\lim_{n\to+\infty}f_n\right)dm_1=\int_{\realset}0dm_1&=0
 \end{align*}
 \end{examplewt}
-\begin{demonstration}\textsc{(del teorema della convergenza monotona.)}
+\begin{demonstrationcaputwt}[del teorema della convergenza monotona]~
 	\begin{enumerate}[label=\Roman*]
 		\item $f$ è misurabile perché è limite puntuale di funzioni misurabili.
 		\item Osserviamo che $f$ misurabile e non negativa implica che
@@ -422,7 +442,7 @@ Pertanto:
 	\begin{equation*}
 		\int_Xf_nd\mu\in\left[0,+\infty\right]
 	\end{equation*}
-		è crescente e quindi per il \textit{teorema sui limiti di successioni monotone} esiste il suo limite % TO DO: aggiungerlo nelle note?
+		è crescente e quindi per il \textit{teorema sui limiti di successioni monotone} esiste il suo limite
 \begin{equation*}
 	\lim_{n\to+\infty}\int_Xf_nd\mu\in\left[0,+\infty\right]
 \end{equation*}
@@ -449,14 +469,13 @@ Osserviamo che questa è vera se mostriamo che
 Basterà infatti passare poi al limite per $c\to 1^{-}$ per ottenere la condizione cercata.\\
 Siano quindi $c\in\left(0,1\right)$ e $\funz{s}{X}{\left[0,+\infty\right]}$ semplice, misurabile e tale che $0\leq s\leq f$ su $X$. Per ogni $n\geq 1$ definiamo
 \begin{equation*}
-	E_n=\left\{x\in X\mid f_n\left(x\right)\geq cs\left(x\right)\right\}
+	E_n=\left\{x\in X\mid f_n(x)\geq cs(x)\right\}
 \end{equation*}
 Osserviamo che se $x\in\ E_n$, allora
 \begin{equation*}
-	f_n\left(x\right)\geq cs\left(x\right)\implies f_{n+1}\left(x\right)\geq f_n\left(x\right)\geq cs\left(x\right)\implies x\in E_{n+1},\ \forall n\geq 1
+	f_n(x)\geq cs(x)\implies f_{n+1}(x)\geq f_n(x)\geq cs(x)\implies x\in E_{n+1},\ \forall n\geq 1,
 \end{equation*}
-Cioè $E_n\subseteq E_{n+1},\ \forall n\geq 1$.
-% to do: inserire immagine insiemi concatenati
+cioè $E_n\subseteq E_{n+1},\ \forall n\geq 1$.
 Ora abbiamo
 \begin{equation*}
 	\int_Xf_nd\mu\geq \int_{E_n}f_nd\mu\geq \int_{E_n}csd\mu=c\int_Esd\mu=c\mu_s\left(E_n\right)
@@ -481,10 +500,14 @@ Per concludere, proviamo che
 \begin{equation*}
 	\bigcup_{n\geq 1}E_n=X
 \end{equation*}
-Banalmente l'inclusione $\subseteq$ è verificata: per trovare l'altra si usa la convergenza puntuale di $f_n\left(x\right)$ e $f\left(x\right),\ \forall x\in X$.\qedhere
-% TO DO: completare con l'esercizio.
-	\end{enumerate}
-\end{demonstration}
+Banalmente l'inclusione $\subseteq$ è verificata; per trovare l'altra si usa la convergenza puntuale di $f_n(x)$ e $f(x),\ \forall x\in X$. Poiché $f_n$ è una successione di funzioni crescenti e con limite puntuale a $f$ su $X$, sappiamo che $f_n\leq f$ e quindi
+\begin{equation*}
+	f(x)\geq f_n(x)\geq cs(x)
+\end{equation*}
+Prendiamo ora $x\in X$: se $f(x)=0$, allora $x\in E_1$ in quanto segue che $s(x)=0$; se $f(x)>0$, allora $x\in E_n$ per qualche $n$.
+\qedhere
+\end{enumerate}
+\end{demonstrationcaputwt}
 \subsection{Additività dell'intergrale, scambio di integrale e serie}
 \begin{proposition}[Additività dell'integrale]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e siano $\funz{f_1,\ \ldots,\ f_N}{X}{\left[0,+\infty\right]}$ funzioni misurabili. Allora
@@ -505,19 +528,21 @@ Banalmente l'inclusione $\subseteq$ è verificata: per trovare l'altra si usa la
 		\begin{equation*}
 			\begin{array}{lll}
 				& \displaystyle s=\sum_{i=1}^{k}s_i\chi_{A_i} & \displaystyle t=\sum_{i=1}^n{k}t_j\chi_{B_j}\\
-				\text{dove}& \displaystyle s\left(X\right)=\left\{s_1,\ldots,s_k\right\}&\displaystyle t\left(X\right)=\left\{t_1,\ldots,t_n\right\}\\
+				\text{dove}& \displaystyle s(x)=\left\{s_1,\ldots,s_k\right\}&\displaystyle t(x)=\left\{t_1,\ldots,t_n\right\}\\
 				&\displaystyle A_i=s^{-1}\left(\left\{s_i\right\}\right),\ i=1,\ldots,\ k&\displaystyle B_j=t^{-1}\left(\left\{t_j\right\}\right),\ j=1,\ldots,\ n\\
 			\end{array}
 		\end{equation*}
 	Consideriamo $E_{i,j}=A_i\cap B_j,\ \forall i,\ \ldots,\ k$ e $j=1,\ \ldots,\ n$: essi formano una nuova partizione di $X$ e, preso $x\in E_{ij}$, si ha
 	\begin{equation*}
 		\begin{cases}
-			s\left(x\right)=s_i\\
-			t\left(x\right)=t_j
+			s(x)=s_i\\
+			t(x)=t_j
 		\end{cases}
 	\end{equation*}
-% TO DO: inserire immagine
-	Questo significa che $s\left(x\right)+t\left(x\right)=s_i+t_j,\ \forall x\in E_{ij}$, ossia
+\begin{center}
+	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.75]{images/additivita}
+\end{center}
+	Questo significa che $s(x)+t(x)=s_i+t_j,\ \forall x\in E_{ij}$, ossia
 	\begin{equation*}
 		s+t=\sum_{i,j}\left(s_i+t_j\right)\chi_{E_{ij}}
 	\end{equation*}
@@ -530,28 +555,28 @@ Banalmente l'inclusione $\subseteq$ è verificata: per trovare l'altra si usa la
 	\begin{itemize}
 		\item Esiste una successione di funzioni semplici misurabili $\funz{s_n}{X}{\left[0,+\infty\right]}$ tali che
 		\begin{itemize}
-			\item $0\leq s_n\left(x\right)\leq s_{n+1}\left(x\right)\leq f_1\left(x\right),\ \forall x\in X$.
-			\item $\displaystyle \lim_{n\to+\infty}s_n\left(x\right)=f_1\left(x\right),\ \forall x\in\ X$
+			\item $0\leq s_n(x)\leq s_{n+1}(x)\leq f_1(x),\ \forall x\in X$.
+			\item $\displaystyle \lim_{n\to+\infty}s_n(x)=f_1(x),\ \forall x\in\ X$
 		\end{itemize}
 		\item Esiste una successione di funzioni semplici misurabili $\funz{t_n}{X}{\left[0,+\infty\right]}$ tali che
 		\begin{itemize}
-			\item $0\leq t_n\left(x\right)\leq t_{n+1}\left(x\right)\leq f_2\left(x\right),\ \forall x\in X$.
-			\item $\displaystyle \lim_{n\to+\infty}t_n\left(x\right)=f_2\left(x\right),\ \forall x\in\ X$
+			\item $0\leq t_n(x)\leq t_{n+1}(x)\leq f_2(x),\ \forall x\in X$.
+			\item $\displaystyle \lim_{n\to+\infty}t_n(x)=f_2(x),\ \forall x\in\ X$
 		\end{itemize}
 	\end{itemize}
 	Di conseguenza si ha
 	\begin{align*}
-		0\leq \left(s_n+t_n\right)\left(x\right)\leq \left(s_{n+1}+t_{n+1}\right)\left(x\right)\leq\left(f_1+f_2\right)\left(x\right),\ \forall x\in\ X\\
-		\lim_{n\to+\infty}\left(s_n+t_n\right)\left(x\right)=\left(f_1+f_2\right)\left(x\right),\ \forall x\in\ X
+		0\leq \left(s_n+t_n\right)(x)\leq \left(s_{n+1}+t_{n+1}\right)(x)\leq\left(f_1+f_2\right)(x),\ \forall x\in\ X\\
+		\lim_{n\to+\infty}\left(s_n+t_n\right)(x)=\left(f_1+f_2\right)(x),\ \forall x\in\ X
 	\end{align*}
 	Integriamo secondo Lebesgue:
 	\begin{align*}
-		\int_X \left(f_1+f_2\right)d\mu&=\lim_{n\to+\infty}\int_X\left(s_n+t_n\right)d\mu=\\
-		&=\lim_{n\to+\infty}\left(\int_Xs_nd\mu+\int_Xt_nd\mu\right)=\lim_{n\to+\infty}\int_Xs_nd\mu+\lim_{n\to+\infty}\int_Xt_nd\mu=\\
-		&=\int_Xf_1d\mu+\int_Xf_2d\mu\qedhere
+		\int_X \left(f_1+f_2\right)d\mu&=\lim_{n\to+\infty}\int_X\left(s_n+t_n\right)d\mu&\text{(thm. conv. monotona)}\\
+		&=\lim_{n\to+\infty}\left(\int_Xs_nd\mu+\int_Xt_nd\mu\right)&\text{(passo 1)}\\
+		&=\lim_{n\to+\infty}\int_Xs_nd\mu+\lim_{n\to+\infty}\int_Xt_nd\mu&\\
+		&=\int_Xf_1d\mu+\int_Xf_2d\mu&\text{(thm. conv. monotona)\qedhere}
 	\end{align*}
-		\end{itemize}
-	% TO DO: mettere note di pag. 88 appunti
+	\end{itemize}
 \end{demonstration}
 Una conseguenza immediata di questa proprietà è che per le successioni di funzioni misurabili non negative vale lo \textit{scambio tra integrale e serie}.
 \begin{corollary}[Scambio tra integrale e serie per funzioni misurabili e non negative]
@@ -563,9 +588,9 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura siano $\funz{f_n}{X}{\
 \begin{demonstration}
 	Consideriamo la successione delle ridotte
 	\begin{equation*}
-		g_k\left(x\right)=\sum_{n=1}^{k}f_n\left(x\right),\ \forall x\in X
+		g_k(x)=\sum_{n=1}^{k}f_n(x),\ \forall x\in X.
 	\end{equation*}
-	Ricordiamo che $g_k\left(x\right)$ è una successione crescente su $k$ per ogni $x\in X$, in quando $f_n\left(x\right)\geq 0$; poiché valgono le ipotesi del teorema della convergenza monotona sulla successione $g_k$, possiamo applicarlo.\\
+	Ricordiamo che $g_k(x)$ è una successione crescente su $k$ per ogni $x\in X$, in quando $f_n(x)\geq 0$; poiché valgono le ipotesi del \textit{teorema della convergenza monotona} sulla successione $g_k$, possiamo applicarlo.\\
 	Prima di farlo, osserviamo che per additività dell'integrale vale
 	\begin{equation*}
 		\int_X \sum_{n=1}^{k}f_n=\sum_{n=1}^{k}\int_X f_n
@@ -614,7 +639,7 @@ Ad esempio:
 \begin{gather*}
 	\left\{g^1_n\right\}_{n\geq 1}=\left\{f_1,0,0,\ldots\right\}\\
 	\left\{g^2_n\right\}_{n\geq 1}=\left\{f_1,f_2,0,\ldots\right\}\\
-	\vdots
+	\vdots\\
 	\left\{g^k_n\right\}_{n\geq 1}=\left\{f_1,f_2,\ldots,f_k,0\ldots\right\}\\
 \end{gather*}
 Si ha $\displaystyle\lim_{k\to+\infty}g^k\left(n\right)=f_n=f\left(n\right),\ \forall n\geq 1$, quindi $g^k$ converge puntualmente a $f$ in ogni $n\in\naturalset$. Inoltre, $\forall n\in\naturalset$, la successione $g^k_n$ soddisfa
@@ -623,7 +648,7 @@ Si ha $\displaystyle\lim_{k\to+\infty}g^k\left(n\right)=f_n=f\left(n\right),\ \f
 \end{equation*}
 Pertanto, $g^k$ è una successione che converge \textit{puntualmente} in modo \textit{monotona crescente} a $f$. Per il \textit{teorema della convergenza monotona}, si ha
 \begin{equation*}
-	\int_{\naturalset}fd\mu_p=\lim_{k\to+\infty}g^kd\mu_p
+	\int_{\naturalset}fd\mu_p=\lim_{k\to+\infty}\int_{\naturalset}g^kd\mu_p
 \end{equation*}
 Per ogni $k\in\naturalset$ calcoliamo $\displaystyle\int_{\naturalset}g^kd\mu_p$. Osserviamo che $g^k\left(\naturalset\right)=\left\{f_1,\ldots,f_k,0\right\}$, quindi $g^k$ è \textit{semplice} avendo immagine finita. Allora
 \begin{equation*}
@@ -639,7 +664,6 @@ Concludendo:
 	\int_{\naturalset}fd\mu_p=\lim_{k\to+\infty}\int_{\naturalset}g^kd\mu_p=\lim_{k\to+\infty}\sum_{n=1}^{k}f_np_n=\sum_{n=1}^{+\infty}f_np_n\qedhere
 \end{equation*}
 \end{demonstration}
-% TO DO: mi viene un dubbio, il Rudin lo mette come corollario di questo teorema, ma noi l'abbiamo usato per la sigma additività... che ci è servita oer il teorema della convergenza monotona che ci è servito nel teorema di integrazione delle funzioni monotone. Non per sembrare Reddito Zero, ma o sbaglio qualcosa o c'è un non so che di ricorsivo in tutto ciò. Controllare che non ci sia qualche errore.
 Il seguente risultato, che abbiamo già incontrato\footnote{Si veda pag. \pageref{commutativitàindici}.} e che ci è servito per dimostrare la $\sigma$-additività dell'integrale di funzioni semplici rispetto al dominio, si può anche vedere come corollario dell'\textit{integrazione della misura conteggio semplice}, oltre che in modo \textit{elementare}. 
 \begin{corollaryqed}[Commutatività degli indici nelle serie doppie]
 	Se $a_{ij}\geq0\ \forall i,j$, allora
@@ -648,35 +672,35 @@ Il seguente risultato, che abbiamo già incontrato\footnote{Si veda pag. \pagere
 	\end{equation*}
 \end{corollaryqed}
 \subsection{Lemma di Fatou}
-\begin{lemming}[Lemma di Fatou]
+\begin{lemming}[Lemma di Fatou]\index{lemma!di Fatou}
 	Se $\funz{f_n}{X}{\left[0,+\infty\right]}$ sono misurabili, $\forall n$, allora
 	\begin{equation}
 		\int_X\left(\liminf_{n\to+\infty}f_nd\mu\right)d\mu\leq \liminf_{n\to+\infty}\int_Xf_nd\mu
 	\end{equation}
 \end{lemming}
 \begin{demonstration}
-	Posto $\displaystyle g_k\left(x\right)\coloneqq\inf_{i\geq k}f_i\left(x\right)$ dove $k\geq 1,\ x\in X$, allora $g_k\leq f_k$ implica, per monotonia dell'integrale rispetto alle integrande,
+	Posto $\displaystyle g_k(x)\coloneqq\inf_{i\geq k}f_i(x)$ dove $k\geq 1,\ x\in X$, allora $g_k\leq f_k$ implica, per monotonia dell'integrale rispetto alle integrande,
 	\begin{equation*}
 		\circled[red]{\vardiamond}\quad\int_Xg_kd\mu\leq \int_Xf_kd\mu\implies \liminf_{k\to+\infty}\int_Xg_kd\mu\leq \liminf_{k\to+\infty}\int_Xf_kd\mu
 	\end{equation*}
 Osserviamo che:
 \begin{itemize}
-	\item $0\leq g_k\left(x\right)\leq g_{k+1}\left(x\right),\ \forall x\in X$ perché
+	\item $0\leq g_k(x)\leq g_{k+1}(x),\ \forall x\in X$ perché
 	\begin{equation*}
-		f_i\left(x\right)_{i\geq k}\supseteq f_i\left(x\right)_{i\geq k+1}\implies g_k\left(x\right)=\inf_{i\geq k}f_i\left(x\right)\leq\inf_{i\geq k+1}f_i\left(x\right)=g_{k+1}\left(x\right)
+		f_i(x)_{i\geq k}\supseteq f_i(x)_{i\geq k+1}\implies g_k(x)=\inf_{i\geq k}f_i(x)\leq\inf_{i\geq k+1}f_i(x)=g_{k+1}(x)
 	\end{equation*}
 	\item $g_k$ è misurabile, $\forall k\geq 1$ in quanto $\inf$ di funzioni misurabili.
 \end{itemize}
 Pertanto
 	\begin{align*}
-	\lim_{n\to+\infty}g_k\left(x\right)&=\sup_{k\geq i}\inf_{i\geq k}f_i\left(x\right)&\text{(teorema sul limite di successioni monotone)}\\
-	&=\liminf_{n\to+\infty}f_n\left(x\right)&\text{(caratterizzazione del $\liminf$)}
+	\lim_{n\to+\infty}g_k(x)&=\sup_{k\geq i}\inf_{i\geq k}f_i(x)&\text{(teorema sul limite di successioni monotone)}\\
+	&=\liminf_{n\to+\infty}f_n(x)&\text{(caratterizzazione del $\liminf$)}
 \end{align*}
-Per il teorema della convergenza monotona si ha
+Per il \textit{teorema della convergenza monotona} si ha
 \begin{equation*}
 	\circled[blue]{\spadesuit}\quad \liminf_{k\to+\infty}\int_Xg_kd\mu=\lim_{k\to+\infty}\int_Xg_kd\mu=\int_X\lim_{n\to+\infty}g_kd\mu=\int_X\liminf_{k\to+\infty}f_kd\mu
 \end{equation*}
-Combinando $\circled[red]{\vardiamond}$ e $\circled[blue]{\spadesuit}$ otteniamo la tesi.
+Combinando $\circled[red]{\vardiamond}\ $ e $\ \circled[blue]{\spadesuit}\ $ otteniamo la tesi.
 \end{demonstration}
 \begin{observe}~{}
 	\begin{itemize}
@@ -685,11 +709,9 @@ Combinando $\circled[red]{\vardiamond}$ e $\circled[blue]{\spadesuit}$ otteniamo
 	\end{itemize}
 \end{observe}
 \begin{examplewt}[Lemma di Fatou con disuguaglianza stretta]
-	Sia $\left(X,\mathcal{M},\mu\right)=\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e $f_n\left(x\right)=\frac{1}{n}\chi_{\left[0,n\right]},\ \forall x\in\realset$.\\
-	% TO DO: immagine?
-	Si ha
+	Sia $\left(X,\mathcal{M},\mu\right)=\left(\realset,\mathcal{L}(\realset),m_1\right)$ e $f_n(x)=\frac{1}{n}\chi_{\left[0,n\right]},\ \forall x\in\realset$.	Si ha
 	\begin{equation*}
-		\liminf_{n\to+\infty}f_n\left(x\right)=\lim_{n\to+\infty}f_n\left(x\right)=0\\
+		\liminf_{n\to+\infty}f_n(x)=\lim_{n\to+\infty}f_n(x)=0\\
 		\implies\int_{\realset}\left(\liminf_{n\to+\infty}f_n\right)dm_1=0
 	\end{equation*}
 	Mentre invece
@@ -717,10 +739,11 @@ Allora
 	\end{equation*}
 Osserviamo che $\displaystyle \chi_E=\sum_{n\geq 1}\chi_{E_n}$ perché $\displaystyle E=\bigcup_{n\geq 1}E_n$ e $ E_i\cap E_j=\emptyset,\ \forall i\neq j$, pertanto
 \begin{align*}
-	\int_Efd\mu&=\int_X\left(f\chi_E\right)d\mu=\int_X\left(f\sum_{n\geq 1}f\chi_{E_n}d\mu\right)=\int_X\sum_{n\geq 1}\underbrace{\left(f\chi_{E_n}\right)}_{\geq 0}d\mu=\\
-	&=\sum_{n\geq 1}\int_Xf\chi_{E_n}d\mu=\sum_{g\geq 1}\int_{E_n}fd\mu\qedhere
+	\int_Efd\mu&=\int_X\left(f\chi_E\right)d\mu\\
+	&=\int_X\left(f\sum_{n\geq 1}f\chi_{E_n}d\mu\right)=\int_X\sum_{n\geq 1}\underbrace{\left(f\chi_{E_n}\right)}_{\geq 0}d\mu\\
+	&=\sum_{n\geq 1}\int_Xf\chi_{E_n}d\mu&\text{(scambio tra serie e integrale)}\\
+	&=\sum_{g\geq 1}\int_{E_n}fd\mu&\qedhere
 \end{align*}
-% TO DO: inserire note pag. 93
 \end{demonstration}
 \begin{observe}
 	Questo è il caso generale per \textit{funzioni misurabili} di un risultato precedentemente dimostrato per \textit{funzioni semplici}, misurabili, non negative. Notiamo che questo risultato richiede \textit{implicitamente} tale caso: infatti, nella dimostrazione abbiamo fatto uso del \textit{teorema della convergenza monotona}, che richiede la $\sigma$-additività rispetto al dominio delle funzioni semplici.
@@ -735,18 +758,18 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\le
 è una misura su $\mathcal{M}$.
 \end{corollaryqed}
 \begin{example}\label{gaussiana}
-	Consideriamo $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e prendiamo la \textbf{funzione gaussiana}\index{funzione!gaussiana}:
+	Consideriamo $\left(\realset,\mathcal{L}(\realset),m_1\right)$ e prendiamo la \textbf{funzione gaussiana}\index{funzione!gaussiana}:
 	\begin{equation*}
-		f\left(x\right)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall x\in\realset
+		f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall x\in\realset
 	\end{equation*}
-	La funzione è continua e dunque misurabile. La misura $\mu_f$ indotta è di probabilità dato che $\mu_f\left(\realset\right)=1$ e viene chiamata \textbf{misura di probabilità normale}\index{misura!di probabilità!normale}:
+	La funzione è continua e dunque misurabile. La misura $\mu_f$ indotta è di probabilità dato che $\mu_f(\realset)=1$ e viene chiamata \textbf{misura di probabilità normale}\index{misura!di probabilità!normale}:
 	\begin{gather*}
-		\mu_f\left(E\right)=\int_E\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dm_1,\ \forall E\in\mathcal{L}\left(\realset\right)\\
-		\mu_f\left(\realset\right)=\int_{\realset}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dm_1=1
+		\mu_f\left(E\right)=\int_E\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dm_1,\ \forall E\in\mathcal{L}(\realset)\\
+		\mu_f(\realset)=\int_{\realset}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dm_1=1
 	\end{gather*}
 \end{example}
-Se consideriamo lo spazio di misura $\left(\realset,\mathcal{L}\left(\realset\right),\mu_f\right)$ e una funzione $\funz{g}{\realset}{\left[0,+\infty\right]}$ misurabile, possiamo definire \begin{equation*}
-	\int_Egd\mu_f,\ \forall E\in\mathcal{L}\left(\realset\right)
+Se consideriamo lo spazio di misura $\left(\realset,\mathcal{L}(\realset),\mu_f\right)$ e una funzione $\funz{g}{\realset}{\left[0,+\infty\right]}$ misurabile, possiamo definire \begin{equation*}
+	\int_Egd\mu_f,\ \forall E\in\mathcal{L}(\realset)
 \end{equation*}
 Cos'è questo integrale? La risposta tale quesito è il seguente teorema.
 \begin{theorema}[Integrale rispetto alla misura indotta]
@@ -768,7 +791,7 @@ Cos'è questo integrale? La risposta tale quesito è il seguente teorema.
 		\end{equation*}
 		\item Sia $\funz{g}{X}{\left[0,+\infty\right)}$ misurabile semplice, scritta nella decomposizione standard come
 		\begin{equation*}
-			g=\sum_{i=1}^kg_i\chi_{A_i}\quad\text{con }g\left(X\right)=\left\{g_1,\ldots,g_k\right\}\text{ e }A_i=g^{-1}\left(\left\{g_i\right\}\right),\ i=1,\ \ldots,\ k
+			g=\sum_{i=1}^kg_i\chi_{A_i}\quad\text{con }g(x)=\left\{g_1,\ldots,g_k\right\}\text{ e }A_i=g^{-1}\left(\left\{g_i\right\}\right),\ i=1,\ \ldots,\ k
 		\end{equation*}
 	Allora
 	\begin{align*}
@@ -777,8 +800,8 @@ Cos'è questo integrale? La risposta tale quesito è il seguente teorema.
 	\end{align*}
 	\item Consideriamo $\funz{g}{X}{\left[0,+\infty\right]}$ misurabile. È noto che esiste una successione $\funz{g_n}{X}{\left[0,+\infty\right)}$ di funzioni semplici misurabili tali
 	\begin{itemize}
-		\item $\displaystyle\lim_{n\to+\infty}g_n\left(x\right)=g\left(x\right),\ \forall x\in X$.
-		\item $g_{n+1}\left(x\right)\leq g_n\left(x\right),\ \forall x\in\ X,\ \forall n\geq 1$.
+		\item $\displaystyle\lim_{n\to+\infty}g_n(x)=g(x),\ \forall x\in X$.
+		\item $g_{n+1}(x)\leq g_n(x),\ \forall x\in\ X,\ \forall n\geq 1$.
 	\end{itemize}
 Allora
 	\begin{equation*}
@@ -786,10 +809,10 @@ Allora
 	\end{equation*}
 Osservando che
 \begin{itemize}
-	\item $\displaystyle\lim_{n\to+\infty}\left(g_nf\right)\left(x\right)=\left(gf\right)\left(x\right),\ \forall x\in X$.
-	\item $\left(g_{n+1}f\right)\left(x\right)\leq \left(g_nf\right)\left(x\right),\ \forall x\in\ X,\ \forall n\geq 1$.
+	\item $\displaystyle\lim_{n\to+\infty}\left(g_nf\right)(x)=\left(gf\right)(x),\ \forall x\in X$.
+	\item $\left(g_{n+1}f\right)(x)\leq \left(g_nf\right)(x),\ \forall x\in\ X,\ \forall n\geq 1$.
 \end{itemize}
-possiamo concludere, per il teorema di convergenza monotona, che
+possiamo concludere, per il \textit{teorema di convergenza monotona}, che
 \begin{equation*}
 	\int_Xgd\mu_f=\int_X\left(gf\right)d\mu\qedhere
 \end{equation*}
@@ -798,17 +821,17 @@ possiamo concludere, per il teorema di convergenza monotona, che
 \begin{example}
 	Riprendiamo l'esempio visto in precedenza\footnote{Si veda pag. \pageref{gaussiana}.} della funzione gaussiana
 	\begin{equation*}
-		f\left(x\right)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall x\in X
+		f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall x\in X
 	\end{equation*}
-	In $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ essa implica la misura di probabilità ($\mu_f\left(X\right)=1$) normale
+	In $\left(\realset,\mathcal{L}(\realset),m_1\right)$ essa implica la misura di probabilità ($\mu_f(x)=1$) normale
 	\begin{equation*}
-		\mu_f\left(E\right)=\int_E\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall E\in \mathcal{L}\left(\realset\right)
+		\mu_f\left(E\right)=\int_E\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall E\in \mathcal{L}(\realset)
 	\end{equation*}
-la quale induce il nuovo spazio di misura $\left(\realset,\mathcal{L}\left(\realset\right),\mu_f\right)$. Se $\funz{g}{\realset}{\left[0,+\infty\right]}$ misurabile, allora
+la quale induce il nuovo spazio di misura $\left(\realset,\mathcal{L}(\realset),\mu_f\right)$. Se $\funz{g}{\realset}{\left[0,+\infty\right]}$ misurabile, allora
 \begin{equation*}
-	\int_\realset gd\mu_f=\int_\realset\frac{1}{\sqrt{2\pi}}g\left(x\right)e^{-\frac{x^2}{2}}dm_1
+	\int_\realset gd\mu_f=\int_\realset\frac{1}{\sqrt{2\pi}}g(x)e^{-\frac{x^2}{2}}dm_1
 \end{equation*}
-Osserviamo che per $g\left(x\right)=x^k$ quello che otteniamo integrando rispetto alla misura $\mu_f$ è il momento $k$-esimo di $f$.
+Osserviamo che per $g(x)=x^k$ quello che otteniamo integrando rispetto alla misura $\mu_f$ è il momento $k$-esimo di $f$.
 \end{example}
 \subsection{Misure assolutamente continue}
 Ricordiamo che se $\funz{f}{X}{\left[0,+\infty\right]}$ è misurabile, allora
@@ -832,9 +855,9 @@ e si indica come $\lambda \ll \mu$.
 		\item \textsc{\textbf{Misura assolutamente continua.}}\\
 		Se $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, $\mu_f$ definita precedentemente è assolutamente continua rispetto a $\mu$
 		\item \textsc{\textbf{Misura non assolutamente continua.}}\\
-		Sia $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$ e consideriamo la \textit{misura conteggio}
+		Sia $\left(\realset,\mathcal{L}(\realset),m_1\right)$ e consideriamo la \textit{misura conteggio}
 		\begin{equation*}
-			\funztot{\lambda}{\mathcal{L}\left(\realset\right)}{\left[0,+\infty\right]}{E}{\begin{cases}
+			\funztot{\lambda}{\mathcal{L}(\realset)}{\left[0,+\infty\right]}{E}{\begin{cases}
 					\begin{array}{ll}
 						\# E&\text{se }E\text{ è finito}\\
 						+\infty&\text{se }E\text{ è infinito}
@@ -849,7 +872,7 @@ e si indica come $\lambda \ll \mu$.
 \end{examples}
 Diamo ora una caratterizzazione delle misure assolutamente continue finite.
 \begin{theoremaqed}[Caratterizzazione delle misure ass. cont. finite]
-Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{\lambda}{\mathcal{M}}{\left[0,+\infty\right)}$ una misura \textit{finita}, ossia tale per cui $\lambda\left(X\right)<+\infty$.
+Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{\lambda}{\mathcal{M}}{\left[0,+\infty\right)}$ una misura \textit{finita}, ossia tale per cui $\lambda(x)<+\infty$.
 Allora
 \begin{equation}
 	\lambda\ll\mu\iff\forall \epsilon>0,\ \exists\delta>0\colon\forall E\in\mathcal{M}\colon \mu\left(E\right)<\delta\implies \lambda\left(E\right)<\epsilon\qedhere
@@ -857,10 +880,10 @@ Allora
 \end{theoremaqed}
 Tra le misure assolutamente rispetto ad una misura $\mu$ ci sono le misure del tipo $\mu_f$ introdotte prima. Ci si potrebbe chiedere se ce ne sono altre: se $\mu$ è $\sigma$-finita, ossia se soddisfa
 \begin{equation*}
-	\mu\left(X\right)=+\infty\quad X=\bigcup_{n\geq 1}X_n,\ \mu\left(X_n\right)<+\infty
+	\mu(x)=+\infty\quad X=\bigcup_{n\geq 1}X_n,\ \mu\left(X_n\right)<+\infty
 \end{equation*}
 La risposta è \textbf{no}, come si può vedere dal teorema seguente.
-\begin{theoremaqed}[Teorema di Radon-Nikodym]
+\begin{theoremaqed}[Teorema di Radon-Nikodym]\index{teorema!di Radon-Nikodym}
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura con $\mu$ misura $\sigma$-finita e sia $\funz{\lambda}{X}{\left[0,+\infty\right]}$ una misura. Allora
 	\begin{equation}
 		\lambda\ll\mu\iff \exists \funz{f}{X}{\left[0,+\infty\right]}\colon\lambda\left(E\right)=\int_Efd\mu,\ \forall E\in\mathcal{M}
@@ -919,7 +942,18 @@ In questo modo, abbiamo scomposto $f$ come una combinazione lineare di funzioni 
 	\quad{\scriptsize $\blacksquare $}\ \textbf{Parte positiva di} $v$: & $v^{+}\coloneqq \max\left(v,0\right)\geq 0$ \\
 	\quad{\scriptsize $\blacksquare $}\ \textbf{Parte negativa di} $v$: & $v^{-}\coloneqq \max\left(-v,0\right)\geq 0$ \\
 \end{tabular}\\
-Ottenendo così $u=u^{+}-u^{-}$ e $v=v^{+}-v^{-}$.\\ % TO DO: inserire grafico?
+Ottenendo così $u=u^{+}-u^{-}$ e $v=v^{+}-v^{-}$.
+\vspace{4mm}\\
+\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.65]{images/partepositiva}
+	\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.65]{images/partenegativa}
+	\end{center}
+\end{minipage}\vspace{4mm}\\
 Tornando quindi a $\funz{f}{X}{\complexset}$, possiamo ottenere $f$ come combinazione lineare di quattro funzioni reali \textit{non negative}.
 \begin{equation}
 	f=\left(\Re f\right)+i\left(\Im f\right)=\left(\left(\Re f\right)^{+}-\left(\Re f\right)^{-}\right)+i\left(\left(\Im\right)^{+}-\left(\Im\right)^{-}\right)
@@ -929,11 +963,12 @@ Con la prossima proposizione dimostreremo che le funzioni qui definite sono tutt
 	Se $f\in\mathcal{L}^{1}\left(\mu\right)$, allora $\left(\Re f\right)^{\pm},\ \left(\Im f\right)^{\pm}\in\mathcal{L}^{1}\left(\mu\right)$.
 \end{proposition}
 \begin{demonstration}
-	% TO DO: add dimostrazione
+	Poiché $f\in\mathcal{L}^{1}\left(\mu\right)$, allora $\Re f$ e $\Im f$ sono misurabili; ne consegue che $\left(\Re f\right)^{\pm},\ \left(\Im f\right)^{\pm}\in\mathcal{L}^{1}\left(\mu\right)$ sono misurabili\footnote{Si vedano le ‘‘Note aggiuntive'', a pag. \pageref{misuraparterealeimm}.}, reali e non negative, dunque coincidono con il loro modulo.\\
+	Poiché ogni funzione misurabile, reale, non negativa è integrabile, ciò implica che la seconda ipotesi per l'integrabilità è soddisfatta e quindi vale la tesi.
 \end{demonstration}
 \section{Passo 3: funzioni complesse integrabili}
 Avendo enunciato tutte le premesse del caso, siamo nelle condizioni di enunciare il terzo passo dell'integrale di Lebesgue.
-\begin{define}[Integrale di Lebesgue per funzioni a valori complesse, integrabili]
+\begin{define}[Integrale di Lebesgue per funz. a valori complessi, integrabili]
 	Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\complexset}$ funzione \textit{integrabile}. Posto
 	\begin{equation*}
 		f=\left(\Re f\right)^{+}-\left(\Re f\right)^-+i\left[\left(\Im f\right)^{+}-\left(\Im f\right)^{-}\right]
@@ -981,7 +1016,7 @@ in altre parole, l'integrale si può rendere arbitrariamente più piccolo in mod
 	\end{equation*}
 Essa è assolutamente continua rispetto a $\mu$. Inoltre, $\mu_{\abs{f}}$ è finita perché $f\in\mathcal{L}^1\left(\mu\right)$ e quindi
 \begin{equation*}
-	\mu_{\abs{f}}\left(X\right)\int_X\abs{f}d\mu<+\infty
+	\mu_{\abs{f}}(x)\int_X\abs{f}d\mu<+\infty
 \end{equation*}
 Per la caratterizzazione delle misure finite assolutamente continue rispetto a $\mu$ si ha
 \begin{equation*}
@@ -992,21 +1027,21 @@ Si ha quindi
 	\forall \epsilon > 0,\ \exists \delta >0\colon \exists E\in\mathcal{M},\ \mu\left(E\right)<\delta\implies \abs{\int_Efd\mu}\underset{\substack{\text{prop. }2\\\text{dell'int.}}}{\leq}\int_E\abs{f}d\mu<\epsilon\implies \abs{\int_Efd\mu}<\epsilon\qedhere
 \end{equation*}
 \end{demonstration}
-\subsection{Teorema della convergenza dominata}
+\subsection{Teorema della convergenza dominata}\index{teorema!della convergenza dominata}
 \begin{theorema}[Teorema della convergenza dominata]
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n}{X}{\complexset}$ una successione di funzioni misurabili tale che esiste
 \begin{equation*}
-	f\left(x\right)=\lim_{n\to+\infty}f_n\left(x\right),\ \forall x\in X
+	f(x)=\lim_{n\to+\infty}f_n(x),\ \forall x\in X
 \end{equation*}
-Se esiste una funzione $g\in L^{1}\left(\mu\right)$ tale per cui
+Se esiste una funzione $g\in \mathcal{L}^{1}\left(\mu\right)$ tale per cui
 \begin{equation*}
-	\abs{f_n\left(x\right)}\leq g\left(x\right),\ \forall n\geq 1,\ \forall x\in X
+	\abs{f_n(x)}\leq g(x),\ \forall n\geq 1,\ \forall x\in X
 \end{equation*}
-allora $f\in L^{1}\left(\mu\right)$ e vale
+allora $f\in \mathcal{L}^{1}\left(\mu\right)$ e vale
 \begin{equation}
 	\lim_{n\to+\infty}\int_X\abs{f_n-f}d\mu=0
 \end{equation}
-e vale il passaggio al limite sotto segno di integrale:
+e vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio al limite sotto segno di integrale}:
 \begin{equation}
 	\lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu
 \end{equation}
@@ -1020,13 +1055,13 @@ e vale il passaggio al limite sotto segno di integrale:
 	\begin{equation*}
 		\int_X\abs{f}d\mu\leq \int_X \abs{g}d\mu<+\infty
 	\end{equation*}
-	in quanto $g\in L^1\left(\mu\right)$; segue che $f\in L^1\left(\mu\right)$.\\
+	in quanto $g\in \mathcal{L}^1\left(\mu\right)$; segue che $f\in \mathcal{L}^1\left(\mu\right)$.\\
 	Osserviamo che
 	\begin{align*}
 		\abs{f_n-f}&\leq \abs{f_n}+\abs{f}&\text{(disuguaglianza triangolare)}\\
 		&\leq2g&\text{(per $\circled[red]{\vardiamond}$)}
 	\end{align*}
-	da cui segue che $2g-\abs{f_n-f}\geq 0$ e quindi sono funzioni non negative. Poiché le $2g-\abs{f_n-f}$ sono misurabili in quanto somma di funzioni in $L^1\left(\mu\right)$ (e quindi misurabili), possiamo applicare il \textit{lemma di Fatou} a tali funzioni e ottenere
+	da cui segue che $2g-\abs{f_n-f}\geq 0$ e quindi sono funzioni non negative. Poiché le $2g-\abs{f_n-f}$ sono misurabili in quanto somma di funzioni in $\mathcal{L}^1\left(\mu\right)$ (e quindi misurabili), possiamo applicare il \textit{lemma di Fatou} a tali funzioni e ottenere
 	\begin{gather*}
 		\int_X\left(\liminf_{n\to+\infty}2g-\abs{f_n-f}\right)d\mu\leq\liminf_{n\to+\infty}\int_X\left(2g-\abs{f_n-f}\right)d\mu\\
 		\viff\\
@@ -1041,7 +1076,7 @@ e vale il passaggio al limite sotto segno di integrale:
 	\begin{equation*}
 		\int_X\abs{f_n-f}d\mu
 	\end{equation*}
-	è una successione a valori non negativi, dunque per le proprietà del massimo e minimo limite\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{maxminlegame} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} si ha
+	è una successione a valori non negativi, dunque per le proprietà del massimo e minimo limite\footnote{Nelle ‘‘Note aggiuntive'', a pag. \pageref{maxminlegame} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} si ha
 	\begin{equation*}
 		\liminf_{n\to+\infty}\left(-\int_X\abs{f_n-f}d\mu\right)=-\limsup_{n\to+\infty}\left(\int_X\abs{f_n-f}d\mu\right)
 	\end{equation*}
@@ -1049,7 +1084,7 @@ e vale il passaggio al limite sotto segno di integrale:
 	\begin{equation*}
 		\int_X 2gd\mu\leq\int_X 2gd\mu-\limsup_{n\to+\infty}\left(\int_X\abs{f_n-f}d\mu\right)
 	\end{equation*}
-	Dato che $g\in L^1\left(\mu\right)$ è non negativa, si ha  
+	Dato che $g\in \mathcal{L}^1\left(\mu\right)$ è non negativa, si ha  
 	\begin{equation*}
 		\int_X2gd\mu=2\int_X\abs{g}d\mu<+\infty
 	\end{equation*}
@@ -1093,24 +1128,27 @@ Nel caso di funzioni limitate su un intervallo chiuso e che sono Riemann-integra
 	\end{equation}
 e
 \begin{equation}
-	\int_{\left[a,b\right]}\abs{f}dm_1=\int_{a}^{b}f\left(x\right)dx\qedhere
+	\int_{\left[a,b\right]}\abs{f}dm_1=\int_{a}^{b}f(x)dx\qedhere
 \end{equation}
 \end{theoremaqed}
 % TO DO: add cenni dimostrazione
-\begin{observe}
-	Il viceversa non è vero: come abbiamo già visto\footnote{Si veda pag. \pageref{funzionedirichletintegrale}.}, la funzione di Dirichlet è integrabile secondo Lebesgue ma non secondo Riemann.
-\end{observe}
+\begin{observes}~
+	\begin{itemize}
+		\item Il viceversa non è vero: come abbiamo già visto\footnote{Si veda pag. \pageref{funzionedirichletintegrale}.}, la funzione di Dirichlet è integrabile secondo Lebesgue ma non secondo Riemann.
+		\item L'ipotesi di misurabilità è in realtà ridondante: come si potrà vedere con i risultati della sezione successiva, ogni funzione limitata e Riemann-integrabile è sempre misurabile rispetto alla misura di Lebesgue $m_1$.
+	\end{itemize}
+\end{observes}
 Situazione differente si ha con l'integrale improprio di Riemann: infatti, può capitare che ci siano funzioni integrabili (almeno impropriamente) secondo Riemann ma \textit{non} secondo Lebesgue!
 \begin{theoremaqed}[Integrale improprio di Riemann e integrale di Lebesgue]\label{integraleimproprioriemannlebesgue}
 	Sia $\funz{f}{\left[a,+\infty\right]}{\realset}$ misurabile tale che $f\in\mathcal{R}\left(\left[a,b\right]\right)$ per ogni $b>a$. Allora
 	\begin{enumerate}
 		\item Vale la relazione
 		\begin{equation}
-			\int_{\left[a,+\infty\right)}\abs{f}dm_1=\int_{0}^{+\infty}\abs{f\left(x\right)}dx\in\left[0,+\infty\right]
+			\int_{\left[a,+\infty\right)}\abs{f}dm_1=\int_{0}^{+\infty}\abs{f(x)}dx\in\left[0,+\infty\right]
 		\end{equation}
 		\item Se l'integrale improprio di Riemann di $f$ su $\left[a,+\infty\right)$ converge \textit{assolutamente} allora $f$ è integrabile secondo Lebesgue su $\left[a,+\infty\right)$ e
 		\begin{equation}
-			\int_{\left[a,+\infty\right)}fdm_1=\int_{a}^{+\infty}f\left(x\right)dx\in\realset\qedhere
+			\int_{\left[a,+\infty\right)}fdm_1=\int_{a}^{+\infty}f(x)dx\in\realset\qedhere
 		\end{equation}
 	\end{enumerate}
 \end{theoremaqed}
@@ -1120,7 +1158,7 @@ Situazione differente si ha con l'integrale improprio di Riemann: infatti, può 
 \begin{example}
 	Consideriamo la funzione
 	\begin{equation*}
-		f\left(x\right)=\frac{\sin x}{x}
+		f(x)=\frac{\sin x}{x}
 	\end{equation*}
 	sull'intervallo $\left[\pi,+\infty\right)$. Mostriamo che:
 	\begin{enumerate}
@@ -1129,10 +1167,10 @@ Situazione differente si ha con l'integrale improprio di Riemann: infatti, può 
 		\item La funzione $f$ \textit{non} è integrabile secondo Lebesgue.
 	\end{enumerate}
 \begin{enumerate}[label=\Roman*]
-	\item Integrando per parti si ha % TO DO: controllare calcoli
+	\item Integrando per parti si ha
 	\begin{align*}
-		\int_{\pi}^{+\infty}\frac{\sin x}{x}dx&=\lim_{R\to+\infty}\int_{\pi}^{R}\frac{\sin x}{x}dx=\lim_{R\to+\infty}\left[-\frac{\cos x}{x}\middle|^{R}_{\pi}-\int_{\pi}^{R}\frac{\cos x}{x^2}dx\right]\\
-		&=\lim_{R\to+\infty}\left[\underbrace{-\frac{\cos R}{R}}_{\substack{\to 0\text{ per}\\R\to+\infty}}+\cos \pi-\int_{\pi}^{R}\frac{\cos x}{x^2}dx\right]=-1-\int_{\pi}^{+\infty}\frac{\cos x}{x^2}dx
+		\int_{\pi}^{+\infty}\frac{\sin x}{x}dx&=\lim_{R\to+\infty}\int_{\pi}^{R}\frac{\sin x}{x}dx=\lim_{R\to+\infty}\left[-\frac{\cos x}{x}\Big|^{R}_{\pi}-\int_{\pi}^{R}\frac{\cos x}{x^2}dx\right]\\
+		&=\lim_{R\to+\infty}\biggl[\underbrace{-\frac{\cos R}{R}}_{\substack{\to 0\text{ per}\\R\to+\infty}}+\cos \pi-\int_{\pi}^{R}\frac{\cos x}{x^2}dx\biggr]=-1-\int_{\pi}^{+\infty}\frac{\cos x}{x^2}dx
 	\end{align*}
 dato che
 \begin{equation*}
@@ -1146,21 +1184,22 @@ converge, allora
 \begin{equation*}
 	\int_{\pi}^{+\infty}\abs{\frac{\cos x}{x^2}}
 \end{equation*}
-converge e dunque per \textit{confronto}
+converge e dunque
 \begin{equation*}
 	\int_{\pi}^{+\infty}\frac{\sin x}{x}dx
 \end{equation*}
-converge (assolutamente). Ne consegue che l'integrale di $f\left(x\right)$ è \textit{semplicemente convergente}.
+converge (assolutamente). Ne consegue che l'integrale di $f(x)$ è \textit{semplicemente convergente}.
 \item Osserviamo che, per ogni $n\in\naturalset$, si ha
 \begin{align*}
-	\int_{\pi}^{n\pi}\frac{\abs{\sin x}}{x}dx&=\sum_{k=1}^{n-1}\int_{k\pi}^{\left(k+1\right)\pi}\frac{\abs{\sin x}}{x}dx>\sum_{k=1}^{n-1}\frac{1}{\left(k+1\right)\pi}\int_{k\pi}^{\left(k+1\right)\pi}\abs{\sin x}dx=\\
-	&=\sum_{k=1}^{n-1}\frac{2}{\left(k+1\right)\pi}=\frac{2}{\pi}\sum_{k=2}^{n}\frac{1}{k}
+	\int_{\pi}^{n\pi}\frac{\abs{\sin x}}{x}dx&=\sum_{k=1}^{n-1}\int_{k\pi}^{\left(k+1\right)\pi}\frac{\abs{\sin x}}{x}dx&\\
+	&>\sum_{k=1}^{n-1}\frac{1}{\left(k+1\right)\pi}\int_{k\pi}^{\left(k+1\right)\pi}\abs{\sin x}dx&\text{($\nicefrac{1}{x}$ decrescente)}\\
+	&=\sum_{k=1}^{n-1}\frac{2}{\left(k+1\right)\pi}=\frac{2}{\pi}\sum_{k=2}^{n}\frac{1}{k}&
 \end{align*}
 operando nell'ultimo passaggio un cambio di indice $k-1\to k$. Passando al limite per $n\to+\infty$ si ha
 \begin{equation*}
 	\int_{\pi}^{+\infty}\frac{\abs{\sin x}}{x}dx>\frac{2}{\pi}\sum_{k=2}^{+\infty}\frac{1}{k}=\frac{2}{\pi}\left[\sum_{k=1}^{+\infty}\frac{1}{k}-1\right]
 \end{equation*}
-Poiché l'integrale è minorato dalla \textit{serie armonica}, che sappiamo essere \textit{divergente}, allora l'integrale diverge e quindi l'integrale della funzione $f\left(x\right)$ \textit{non} converge \textit{assolutamente}.
+Poiché l'integrale è minorato dalla \textit{serie armonica}, che sappiamo essere \textit{divergente}, allora l'integrale diverge e quindi l'integrale della funzione $f(x)$ \textit{non} converge \textit{assolutamente}.
 \item Per il primo punto del teorema \ref{integraleimproprioriemannlebesgue} vale
 \begin{equation*}
 	\int_{\left[\pi,+\infty\right)}\abs{\frac{\sin x}{x}}dm_1=\int_{\pi}^{\infty}\abs{\frac{\sin x}{x}}dx=+\infty
@@ -1174,6 +1213,7 @@ Sulla base di questi risultati siamo finalmente in grado di rispondere al second
 	\begin{equation}
 		f\in\mathcal{R}\left(\left[a,b\right]\right)\iff m_1\left(D_f\right)=0\qedhere
 	\end{equation}
+ossia $f$ limitata è Riemann-integrabile su $\left[a,b\right]$ se e solo se $f$ è continua \textbf{q.o.} su $\left[a,b\right]$.
 \end{theoremaqed}
 \begin{example}
 	Sia $C\subseteq\left[0,1\right]$ l'insieme di Cantor e sia $f=\chi_C$ la funzione caratteristica su tale insieme.
@@ -1187,18 +1227,24 @@ Sulla base di questi risultati siamo finalmente in grado di rispondere al second
 Abbiamo appena visto come una funzione è integrabile secondo Riemann se e solo se l'insieme delle sue discontinuità è un insieme di misura nulla. In altre parole, una funzione è integrabile secondo Riemann su un dato intervallo se e solo se essa è continua, tolto al più un insieme misurabilmente nullo di discontinuità.\\
 Più in generale, ha senso parlare di proprietà valide su un particolare dominio tolto un insieme di misura nulla: poiché queste proprietà non valgono su insiemi la cui \textit{rilevanza è minima}, quantomeno dal punto della \textit{misura}, possiamo definire tale proprietà come \textit{quasi ovunque valida}.
 \begin{define}[Proprietà quasi ovunque valida]
-	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Si dice che una proprietà vale \textbf{‘‘quasi ovunque''} (\textbf{q.o.})\index{proprietà quasi ovunque valida} o ‘‘$\mu$\textbf{-quasi ovunque}'' se vale in tutto $X$ tranne eventualmente su un insieme di misrua $\mu$ nulla.
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Si dice che una proprietà $P$ vale \textbf{‘‘quasi ovunque''} (\textbf{q.o.})\index{proprietà quasi ovunque valida} o ‘‘$\mu$\textbf{-quasi ovunque}'' se vale in tutto $X$ tranne eventualmente su un insieme di misrua $\mu$ nulla. In altre parole, deve esistere un insieme $N\in\mathcal{M}$ con $\mu(N)=0$ tale che $\forall x\in X\setminus N$ vale tale proprietà $P$.
 \end{define}
-\begin{example}
+\begin{observe}
+	Dalla definizione in sè \textit{non} è richiesto che l'insieme $E=\{x\in\ X\mid P(x)\text{non vale}\}$ sia misurabile, ma solamente che sia contenuto in un insieme misurabile e di misura nulla.\\
+	Tuttavia, se la misura è \textit{completa}, allora anche $E$ risulta essere misurabile e di misura nulla.
+\end{observe}
+\begin{examplewt}[Uguaglianza quasi ovunque]
 	Siano $\funz{f,g}{X}{\complexset}$ misurabili. Allora
 	\begin{equation}
-		f=g\ \text{\textbf{q.o.}}\iff \text{Posto}\ E=\{x\in\ X\mid f\left(x\right)\neq g\left(x\right)\},\ \mu\left(E\right)ù=0
+		f=g\ \text{\textbf{q.o.}}\iff \text{Posto}\ E=\{x\in\ X\mid f(x)\neq g(x)\},\ \mu\left(E\right)ù=0
 	\end{equation}
-\end{example}
+	Poiché $E=(f-g)^{-1}\left(\complexset\setminus\{0\}\right)$, $f,\ g$ sono misurabili e $\complexset\setminus\{0\}$ è aperto, allora $E$ è misurabile e la definizione è ben posta.\\
+	Inoltre, si può notare che si può estendere la stessa definizione di uguaglianza \textbf{q.o.} a funzioni $f,\ g$ \textit{non} necessariamente misurabili con codominio uno spazio topologico, a patto di supporre che la misura $\mu$ sia \textit{completa}.
+\end{examplewt}
 \begin{example}
 	Consideriamo la funzione di Dirichlet $f=\chi_{\left[0,1\right]\cap\rationalset}$:
 	\begin{equation*}
-		f\left(x\right)=\begin{cases}
+		f(x)=\begin{cases}
 			\begin{array}{ll}
 				1&\text{se }x\in\left[0,1\right]\cap\rationalset\\
 				0&\text{se }x\in\left[0,1\right]\setminus\rationalset
@@ -1207,7 +1253,7 @@ Più in generale, ha senso parlare di proprietà valide su un particolare domini
 	\end{equation*}
 Sappiamo che $m_1\left(\left[0,1\right]\cap\rationalset\right)=0$, quindi
 \begin{equation*}
-	\left\{x\in\left[0,1\right]\mid f\left(x\right)\neq 0\right\}=\left[0,1\right]\cap \rationalset
+	\left\{x\in\left[0,1\right]\mid f(x)\neq 0\right\}=\left[0,1\right]\cap \rationalset
 \end{equation*}
 ha misura nulla e pertanto la funzione di Dirichlet è \textit{quasi ovunque} la funzione identicamente \textit{nulla}.
 \end{example}
@@ -1233,7 +1279,7 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 		\setcounter{enumi}{1}
 		\item Posto
 		\begin{equation*}
-			E=\left\{x\in X\mid f\left(x\right)\neq g\left(x\right)\right\}
+			E=\left\{x\in X\mid f(x)\neq g(x)\right\}
 		\end{equation*}
 	si ha $\mu\left(E\right)=0$. Allora
 	\begin{equation*}
@@ -1241,7 +1287,7 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 	\end{equation*}
 	\item Sia
 		\begin{equation*}
-			E=\left\{x\in X\mid f\left(x\right)\neq 0\right\}=\bigcup_{n\geq 1}\left\{x\in X\mid f\left(x\right)>\frac{1}{n}\right\}=\bigcup_{n\geq 1}E_n
+			E=\left\{x\in X\mid f(x)\neq 0\right\}=\bigcup_{n\geq 1}\left\{x\in X\mid f(x)>\frac{1}{n}\right\}=\bigcup_{n\geq 1}E_n
 		\end{equation*}
 	Osserviamo che $E_n=f^{-1}\left(\left(\frac{1}{n},+\infty\right)\right)\in\mathcal{M}$ in quanto è controimmagine di un aperto tramite una funzione misurabile; su ha allora
 	\begin{align*}
@@ -1257,7 +1303,7 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 	Vale dunque la tesi.\qedhere
 	\end{enumerate}
 \end{demonstration}
-Avendo definito il concetto di proprietà quasi ovunque valida, possiamo enunciare un'altra versione dello \textit{scambio tra integrale e serie}, questo risultato che segue dal teorema della convergenza dominata.
+Avendo definito il concetto di proprietà quasi ovunque valida, possiamo enunciare un'altra versione dello \textit{scambio tra integrale e serie}, questo risultato che segue dal \textit{teorema della convergenza dominata}.
 \begin{theorema}[Scambio tra integrale e serie per funzioni integrabili]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Siano $\funz{f_n}{X}{\complexset}$ integrabili. Supponiamo che
 	\begin{equation*}
@@ -1265,7 +1311,7 @@ Avendo definito il concetto di proprietà quasi ovunque valida, possiamo enuncia
 	\end{equation*}
 Allora
 \begin{enumerate}
-	\item $\displaystyle f\left(x\right)=\sum_{n=1}^{+\infty}f_n\left(x\right)$ è definita \textbf{q.o.} in $X$.
+	\item $\displaystyle f(x)=\sum_{n=1}^{+\infty}f_n(x)$ è definita \textbf{q.o.} in $X$.
 	\item $f\in\mathcal{L}^{1}\left(\mu\right)$
 	\item Vale lo \textit{scambio tra integrale e serie}\index{scambio tra integrale e serie}:
 	\begin{equation}

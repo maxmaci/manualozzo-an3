@@ -14,9 +14,12 @@
 			\nowtitle}}
 }{}
 \begin{introduction}
-‘‘Le note a piè di pagina sono le superfici ingannatrici che permettono ai paragrafi tentacolari di aderire alla realtà più ampia della biblioteca.''
+‘‘\textbf{Lafayette}: Ehi, Napoleone! Direi che questa è la fine.\\
+\textbf{Napoleone}: Un momento, il capo sono io! Lo dico io quando è la fine!\\
+\textbf{[La parola \textsf{FINE} lo colpisce alla testa.]}\\
+È la fine.''
 \begin{flushright}
-	\textsc{Nicholson Baker,} bibliotecario di Cthulhu.
+	\textsc{Gli Aristogatti.}
 \end{flushright}
 \end{introduction}
 
@@ -101,7 +104,10 @@ Allora possiamo considerare questa definizione operativa come la generalizzazion
 	\end{equation}
 \end{define}
 \begin{observe}
-	Se $\alpha<j$, con $\alpha\in\integerset$ e $j\in\naturalset$, si ha al numeratore il fattore $\left(\alpha-\alpha\right)$ e quindi $\displaystyle\binom{\alpha}{j}=0$.
+	Se $\alpha<j$, con $\alpha\in\integerset$ e $j\in\naturalset$, si ha al numeratore il fattore $\left(\alpha-\alpha\right)$ e quindi
+	\begin{equation*}
+		\binom{\alpha}{j}=0
+	\end{equation*}
 \end{observe}
 Valgono inoltre le seguenti proprietà, $\forall \alpha\in\complexset$:
 \begin{align}
@@ -217,7 +223,7 @@ Sia
 (\textit{Criterio necessario e sufficiente}, $\realset$)\\
 Sia $\funz{f}{\left[1,+\infty\right)}{\realset_+}$ una funzione non-negativa e monotona decrescente tale per cui $f\left(n\right)=a_n$. Allora, posto
 	\begin{equation*}
-		\int_{1}^{+\infty}f\left(x\right)dx=\lim_{t\to\infty}\int_{1}^{t}f\left(x\right)dx
+		\int_{1}^{+\infty}f(x)dx=\lim_{t\to\infty}\int_{1}^{t}f(x)dx
 	\end{equation*}
 	la serie $a_n$ converge se e solo se l'integrale converge.
 \paragraph{Criterio di confronto diretto}
@@ -329,12 +335,13 @@ Per $\abs{z}>1$ $z^{n+1}$ diverge, dunque diverge anche la ridotta e la serie ge
 	\begin{equation}
 		\sum_{n=1}^{+\infty}\frac{1}{n^p}
 	\end{equation}
-	converge se $p>1$ e diverge per $p\leq 1$; per $p=1$ abbiamo la \textbf{serie armonica}. Se $p>1$ la somma della serie armonica generalizzata, se vista in funzione di $p$, è  $\zeta\left(p\right)$, ossia la \textit{funzione zeta di Riemann} valutata in $p$.
+	converge se $p>1$ e diverge per $p\leq 1$; per $p=1$ abbiamo la \textbf{serie armonica}.\\
+	Se $p>1$, la somma della serie armonica generalizzata, vista in funzione di $p$, è $\zeta\left(p\right)$, ossia la \textit{funzione zeta di Riemann} valutata in $p$.
 \paragraph{Serie logaritmica}
 	\begin{equation}
 		\sum_{n=2}^{+\infty}\frac{1}{n\left(\log n\right)^p}
 	\end{equation}
-	per ogni numero reale positiva $p$. Diverge per $p\leq 1$, ma converge per ogni $p>1$.
+	per ogni numero reale positivo $p$. Diverge per $p\leq 1$, ma converge per ogni $p>1$.
 \section{Capitolo 4: serie di potenze}
 \subsection{Massimo e minimo limite}\label{maxminlimite}
 \paragraph{Definizione di massimo e minimo limite}
@@ -384,7 +391,7 @@ L'insieme dei valori limite della successione si chiama \textbf{classe limite}\i
 		\begin{flalign*}
 			\left\{b_n\right\}=\left\{a_0,a_2,a_4\ldots\right\}\\
 			\left\{c_n\right\}=\left\{a_1,a_5,a_9,\ldots\right\}\\
-			\left\{d_n\right\}=\left\{a_3,a_7,a_11,\ldots\right\}\\
+			\left\{d_n\right\}=\left\{a_3,a_7,a_11,\ldots\right\}
 		\end{flalign*}
 	per verificare che ogni elemento dell'immagine di $a_n$ è valore limite e la classe limite ha solo tre valori.
 		\item Si consideri la biezione $\funz{f}{\naturalset}{\rationalset_{\geq 0}}$ e si ponga $a_n=f\left(n\right)$: questa è una successione contenente tutti i razionali e i suoi punti di accumulazioni sono, per densità di $\rationalset$, tutti i reali. Allora la classe limite di $a_n$ è $\realset$.
@@ -759,8 +766,8 @@ Poiché $\abs{a_n}=\abs{\abs{a_n}}$ si ha che l'espressione precedente è equiva
 ossia verifica la definizione di $\displaystyle\lim_{n\to+\infty}\abs{a_n}=0$; si ha dunque la tesi.
 \end{demonstration}
 \subsection{Riordinare gli elementi di una serie}
-\begin{theoremaqed}[Teorema del riordinamento di Riemann]
-	Se una serie a valori reali converge semplicemente ma non assolutamente, allora i suoi termini possono essere riordinati tramite una permutazione in modo che la nuova serie converge ad un qualunque numero reale arbitrariamente scelto oppure diverge.
+\begin{theoremaqed}[Teorema del riordinamento di Riemann]\label{riordinamentoserie}
+	Se una serie a valori reali converge semplicemente ma \textit{non} assolutamente, allora i suoi termini possono essere riordinati tramite una permutazione in modo che la nuova serie converge ad un qualunque numero reale arbitrariamente scelto oppure diverge.
 \end{theoremaqed}
 \begin{example}
 	La serie armonica alternante
@@ -887,3 +894,62 @@ mentre la seconda da
 		&\iff x\in\bigcap_{i\in I}{A_i}^C
 	\end{flalign*}
 \end{demonstration}
+\subsection{Misurabilità della parte positiva e negativa}\label{misuraparterealeimm}
+\begin{proposition}[Misurabilità di {$\max$} e {$\min$}]
+	Sia $ \left(X,\mathcal{M}\right)$ uno spazio misurabile e siano $\funz{f,g}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ misurabili.
+	Allora
+	\begin{equation*}
+		\max\{f,g\}\quad\min\{f,g\}
+	\end{equation*}
+	sono misurabili.
+\end{proposition}
+\begin{demonstration}~{}
+	\begin{enumerate}
+		\item Sia $ h(x)=\max\{f,g\}(x),\ \forall x\in X$. Dobbiamo provare che $h$ sia misurabile, con $\funz{h}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$. Per una proprietà equivalente alla terza caratterizzazione del teorema \ref{caratterizzazionefunzionimisurabili} delle funzioni misurabili è sufficiente dimostrare che $h^{-1}\left(\left[-\infty,\alpha\right]\right)\in\mathcal{M},\ \forall\alpha\in\realset$.
+		Si osserva che
+		\begin{equation*}
+			\max\{f(x),g(x)\}\leq\alpha \forall x\in X, \alpha\in\realset\iff f(x)\leq \alpha\wedge g(x)\leq \alpha
+		\end{equation*}
+	Allora, per ogni $\alpha\in\realset$ si ha
+	\begin{align*}
+		h^{-1}\left(\left[-\infty,\alpha\right]\right)&=\left\{x\in X\mid \max\{f(x),g(x)\}\leq\alpha\right\}=\\
+		&=\left\{x\in X\mid f(x)\leq \alpha\right\}\cap\left\{x\in X\mid g(x)\leq\alpha\right\}=\\
+		&=f^{-1}\left(\left[-\infty,\alpha\right]\right)\cap g^{-1}\left(\left[-\infty,\alpha\right]\right)
+	\end{align*}
+	Poiché $f$ e $g$ sono misurabili si ha
+	\begin{equation*}
+	f^{-1}\left(\left[-\infty,\alpha\right]\right)\in\mathcal{M}\quad g^{-1}\left(\left[-\infty,\alpha\right]\right)\in\mathcal{M}
+	\end{equation*}
+	ed essendo $\mathcal{M}$ una $\sigma$-algebra è chiusa rispetto all'intersezione finita e dunque
+	\begin{equation*}
+		h^{-1}\left(\left[-\infty,\alpha\right]\right)=f^{-1}\left(\left[-\infty,\alpha\right]\right)\cap g^{-1}\left(\left[-\infty,\alpha\right]\right)\in\mathcal{M}
+	\end{equation*}
+		\item Sia $ k(x)=\min\{f,g\}(x),\ \forall x\in X$. Dobbiamo provare che $k$ sia misurabile, con $\funz{k}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$. Per la terza caratterizzazione del teorema \ref{caratterizzazionefunzionimisurabili} delle funzioni misurabili è sufficiente dimostrare che $k^{-1}\left(\left(\alpha,+\infty\right]\right)\in\mathcal{M},\ \forall\alpha\in\realset$.
+		Si osserva che
+		\begin{equation*}
+			\min\{f(x),g(x)\}>\alpha \forall x\in X, \alpha\in\realset\iff f(x)>\alpha \alpha\wedge g(x)> \alpha
+		\end{equation*}
+		Allora, per ogni $\alpha\in\realset$ si ha
+		\begin{align*}
+			k^{-1}\left(\left(\alpha,+\infty\right]\right)&=\left\{x\in X\mid \min\{f(x),g(x)\}>\alpha\right\}=\\
+			&=\left\{x\in X\mid f(x)> \alpha\right\}\cap\left\{x\in X\mid g(x)>\alpha\right\}=\\
+			&=f^{-1}\left(\left(\alpha,+\infty\right]\right)\cap g^{-1}\left(\left(\alpha,+\infty\right]\right)
+		\end{align*}
+		Poiché $f$ e $g$ sono misurabili si ha
+		\begin{equation*}
+			f^{-1}\left(\left(\alpha,+\infty\right]\right)\in\mathcal{M}\quad g^{-1}\left(\left(\alpha,+\infty\right]\right)\in\mathcal{M}
+		\end{equation*}
+		ed essendo $\mathcal{M}$ una $\sigma$-algebra è chiusa rispetto all'intersezione finita e dunque
+		\begin{equation*}
+			k^{-1}\left(\left(\alpha,+\infty\right]\right)=f^{-1}\left(\left(\alpha,+\infty\right]\right)\cap g^{-1}\left(\left(\alpha,+\infty\right]\right)\in\mathcal{M}
+		\end{equation*}
+	\end{enumerate}
+\end{demonstration}
+\begin{corollary}[Misurabilità della parte positiva e negativa di una funzione]
+	Sia $ \left(X,\mathcal{M}\right)$ uno spazio misurabile e sia $\funz{f}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ misurabile.
+	Allora
+	\begin{equation*}
+		f^{+}\coloneqq \max\{f,0\}\quad f^{-}\coloneqq-\min\{f,0\}
+	\end{equation*}
+	sono misurabili.
+\end{corollary}

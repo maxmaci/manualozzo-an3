@@ -19,18 +19,18 @@
 \end{textblock}
 
 
-\begin{textblock}{1}(.00,.13)
-	\begin{center}
-	\noindent{\fontsize{40.88}{2}\selectfont
-		\bfseries\textcolor{white}{\textsc{TITOLO TITOLOZZO\\[3mm] QUESTO TITOLO\\[3mm] È PROVVISORIOZZO}}}
-	\end{center}
+\begin{textblock}{1}(.00,.11)
+	%\begin{center}
+	%\noindent{\fontsize{39.88}{2}\selectfont
+	%	\bfseries\textcolor{white}{\textsc{FATTO DI SANGUE\\[4.5mm]TRA DUE ANALISTI\\[4.5mm]PER CAUSA DI UN\\[4.5mm]INTEGRALE}}}
+	%\end{center}
 \end{textblock}
 
-\begin{textblock}{1}(.00,.27)
-	\begin{center}
-	\noindent {\fontsize{25.88}{2}\selectfont
-		\bfseries\textcolor{white}{\textsc{e ci piace così}}}
-	\end{center}
+\begin{textblock}{1}(.00,.31)
+	%\begin{center}
+	%\noindent {\fontsize{24.88}{2}\selectfont
+	%	\bfseries\textcolor{white}{\textsc{Si sospettano moventi misurabili}}}
+	%\end{center}
 \end{textblock}
 
 % \begin{textblock}{1}(.1,.21)
@@ -40,8 +40,9 @@
 
 \begin{textblock}{1}(.00,.06)
 	\begin{center}
-			\noindent {\fontsize{20.74}{2}\selectfont
-			\bfseries\textcolor{white}{Elisa Antuca\ \ \ Massimo Bertolotti}}
+	\includegraphics[width=0.8\paperwidth]{images/uncompressed/titolo}
+	%		\noindent {\fontsize{20.74}{2}\selectfont
+	%		\bfseries\textcolor{white}{Elisa Antuca\ \ \ Massimo Bertolotti}}
 	\end{center}
 \end{textblock}
 
@@ -63,7 +64,7 @@
 
 \begin{textblock}{.4}(.01,.675)
 	\begin{center}
-		%\includegraphics[width=.2\paperwidth]{images/frontpage1}
+		\includegraphics[width=.4\paperwidth]{images/frontpage1}
 	\end{center}
 \end{textblock}
 
@@ -73,21 +74,9 @@
 	\end{center}
 \end{textblock}
 
-\begin{textblock}{.6}(.05,.59)
+\begin{textblock}{.6}(.09,.59)
 	\noindent {\fontsize{14.74}{18}%
-		\textcolor{white}{$\displaystyle			\beta(P_1,\ P_2,\ P_3,\ P_4)=\frac{ \left| \begin{array}{cc}
-					\lambda_1 & \lambda_4 \\
-					\mu_1 & \mu_4
-				\end{array} \right| \cdot \left| \begin{array}{cc}
-					\lambda_2 & \lambda_3 \\
-					\mu_2 & \mu_3
-				\end{array} \right| } { \left| \begin{array}{cc}
-					\lambda_1 & \lambda_3 \\
-					\mu_1 & \mu_3
-				\end{array} \right| \cdot \left| \begin{array}{cc}
-					\lambda_2 & \lambda_4 \\
-					\mu_2 & \mu_4
-				\end{array} \right| }$}}
+		\textcolor{white}{$\displaystyle\lambda=\limsup_{n\to+\infty}\sqrt[n]{\abs{n}}$}}
 \end{textblock}
 
 
@@ -98,15 +87,19 @@
 
 \begin{textblock}{.4}(.05,.925)
 	\noindent {\fontsize{14.4}{18}%
-		\textcolor{white!50}{$\displaystyle e^A\coloneqq \sum_{k=0}^{+\infty}\frac{A^k}{k!}=I+A+\frac{A^2}{2!}+\frac{A^3}{3!}+\ldots$}}
+		\textcolor{white!50}{$\displaystyle e^z\coloneqq \sum_{n=0}^{+\infty}\frac{z^n}{n!}=1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\ldots$}}
 \end{textblock}
 
-
+% \textcolor{white!50}{}
 \begin{textblock}{.6}(.525,.625)
 	\noindent {\fontsize{18.28}{18}%
 		\begin{tikzcd}
-				\textcolor{white!50}{X} \arrow[r, "\textcolor{white!50}{f}",white] \arrow[d, "\textcolor{white!50}{\pi}"',white]                                   & \textcolor{white!50}{Y} \\
-				\textcolor{white!50}{\nicefrac{X}{\sim}} \arrow[ur, "\textcolor{white!50}{\overline{f}}"', dotted,white] &
+			{\textcolor{white!50}{f_n}} & {\textcolor{white!50}{f'_n}} \\
+			{\textcolor{white!50}{\displaystyle\lim_{n\to+\infty}f_n}} & {\textcolor{white!50}{\displaystyle\lim_{n\to+\infty}f'_n}}
+			\arrow["D", color=white, from=1-1, to=1-2]
+			\arrow["\lim"', color=white, from=1-1, to=2-1]
+			\arrow["\lim", color=white, from=1-2, to=2-2]
+			\arrow["D"', color=white, from=2-1, to=2-2]
 	\end{tikzcd}}
 \end{textblock}
 

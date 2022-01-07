@@ -9,9 +9,9 @@
 \labelChapter{integralidipendentiparametro}
 
 \begin{introduction}
-	‘‘BEEP BOOP QUESTA È UNA CITAZIONE.''
+	‘‘La matematica confronta i più disparati fenomeni e scopre le analogie segrete che li uniscono.''
 	\begin{flushright}
-		\textsc{Marinobot,} dopo aver finito le citazioni stupide.
+		\textsc{Joseph Fourier,} cercando disperatamente di motivare ai suoi genitori la scelta di studiare matematica.
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{S}{tudieremo} \textbf{[COMPLETARE]}
@@ -21,7 +21,7 @@ Nel corso di \textsc{Analisi Matematica 2} abbiamo incontrato gli \textit{integr
 \begin{define}[Integrali dipendenti da un parametro]
 	Consideriamo lo spazio di misura $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$. Un \textbf{integrale dipendente da un parametro}\index{integrale!dipendente da un parametro} è una funzione
 	\begin{equation}
-		F\left(t\right)=\int_I\mvf{f}{t}{x}dm_1\left(x\right),\ \forall t\in J
+		F(t)=\int_I\mvf{f}{t}{x}dm_1(x),\ \forall t\in J
 	\end{equation}
 	dove $I,J$ sono intervalli in $\realset$ e
 	\begin{equation*}
@@ -33,7 +33,7 @@ Vogliamo studiare le proprietà di continuità e derivabilità dell'integrale di
 \begin{theorema}[Teorema di continuità e derivabilità di integrali dipendenti da un parametro]
 	Siano $I,J\subseteq\realset$ intervalli e sia $\funz{f}{I\times J}{\complexset}$ tale che $f\left(t,\cdot\right)$ sia integrabile, $\forall t\in I$. Consideriamo
 	\begin{equation*}
-		F\left(t\right)=\int_I\mvf{f}{t}{x}dm_1\left(x\right)
+		F(t)=\int_I\mvf{f}{t}{x}dm_1(x)
 	\end{equation*}
 	\begin{enumerate}
 		\item Se
@@ -41,7 +41,7 @@ Vogliamo studiare le proprietà di continuità e derivabilità dell'integrale di
 			\item $f\left(\cdot, x\right)$ è continua su $I$, $\forall x\in J$.
 			\item $\exists \funz{\phi}{I}{\realset}$ integrabile tale che
 			\begin{equation*}
-				\abs{\mvf{f}{t}{x}}\leq\phi\left(x\right),\ \forall \left(t,x\right)\in I\times J
+				\abs{\mvf{f}{t}{x}}\leq\phi(x),\ \forall \left(t,x\right)\in I\times J
 			\end{equation*}
 		\end{itemize}
 		allora $F$ è continua su $I$.
@@ -50,11 +50,11 @@ Vogliamo studiare le proprietà di continuità e derivabilità dell'integrale di
 			\item $\exists\frac{\partial f}{\partial t}$ su $I\times J$.
 			\item $\exists\funz{\psi}{J}{\realset}$ integrabile tale che
 			\begin{equation*}
-				\abs{\frac{\partial f}{\partial t}\left(t,x\right)}\leq\psi\left(x\right),\ \forall \left(t,x\right)\in I\times J
+				\abs{\frac{\partial f}{\partial t}\left(t,x\right)}\leq\psi(x),\ \forall \left(t,x\right)\in I\times J
 			\end{equation*}
 			allora $F$ è continua su $I$ e si ha la \textbf{derivazione sotto segno di integrale}\index{derivazione sotto segno di integrale}:
 			\begin{equation*}
-				F'\left(t\right)=\int_J\frac{\partial f}{\partial t}\left(t,x\right)dm_1\left(x\right), \forall t\in I
+				F'(t)=\int_J\frac{\partial f}{\partial t}\left(t,x\right)dm_1(x), \forall t\in I
 			\end{equation*}
 		\end{itemize}
 	\end{enumerate}
@@ -63,18 +63,18 @@ Per dimostrare questo teorema ci serviranno i seguenti fatti:
 \begin{itemize}
 	\item \textbf{Teorema di relazione:} data $\funz{g}{I\subseteq\realset}{\complexset}$ e $\overline{t}\in I$, si ha
 	\begin{equation}
-		\lim_{t\to\overline{t}}g\left(t\right)=L\in\complexset\iff\lim_{n\to+\infty}g\left(t_n\right)=L,\ \forall t_n\to\overline{t}
+		\lim_{t\to\overline{t}}g(t)=L\in\complexset\iff\lim_{n\to+\infty}g\left(t_n\right)=L,\ \forall t_n\to\overline{t}
 	\end{equation}
 	\item \textbf{Teorema di Lagrange:} data $\funz{g}{I\subseteq\realset}{\complexset}$ derivabile su $I$, si ha
 	\begin{equation}
-		\forall t_1,t_2\in I, \abs{g\left(t_1\right)-g\left(t_2\right)}\leq\sup_{t\in\left[t_1,t_2\right]}\abs{g'\left(t\right)}\abs{t_1-t_2}
+		\forall t_1,t_2\in I, \abs{g\left(t_1\right)-g\left(t_2\right)}\leq\sup_{t\in\left[t_1,t_2\right]}\abs{g'(t)}\abs{t_1-t_2}
 	\end{equation}
 \end{itemize}
-\begin{demonstration}\textsc{(della continuità e derivabilità di $F$.)}
+\begin{demonstrationcaputwt}[della continuità e derivabilità di {$F$}]
 	\begin{enumerate}[label=\Roman*]
 		\item Dobbiamo provare che
 		\begin{equation*}
-			\forall \overline{t}\in I,\ \lim_{t\to\overline{t}}F\left(t\right)=F\left(\overline{t}\right)
+			\forall \overline{t}\in I,\ \lim_{t\to\overline{t}}F(t)=F\left(\overline{t}\right)
 		\end{equation*}
 		È sufficiente provare che, per il primo fatto enunciato precedentemente,
 		\begin{equation*}
@@ -82,81 +82,83 @@ Per dimostrare questo teorema ci serviranno i seguenti fatti:
 		\end{equation*}
 		Siano quindi $\overline{t}\in I$ e $t_n\to\overline{t}$ fissati: dobbiamo provare che
 		\begin{equation*}
-			\lim_{n\to+\infty}\int_Jf\left(t_n,x\right)dm_1\left(x\right)=\int_Jf\left(\overline{t},x\right)dm_1\left(x\right)
+			\lim_{n\to+\infty}\int_Jf\left(t_n,x\right)dm_1(x)=\int_Jf\left(\overline{t},x\right)dm_1(x)
 		\end{equation*}
 		Ponendo
 		\begin{align*}
-			g_n\left(x\right)\coloneqq f\left(t_n,x\right)\\
-			\overline{g}\left(x\right)\coloneqq f\left(\overline{t},x\right)
+			g_n(x)\coloneqq f\left(t_n,x\right)\\
+			\overline{g}(x)\coloneqq f\left(\overline{t},x\right)
 		\end{align*}
 		allora la relazione da provare si scrive come
 		\begin{equation*}
-			\lim_{n\to+\infty}\int_Jg_n\left(x\right)dm_1\left(x\right)=\int_J\overline{g}\left(x\right)dm_1\left(x\right)
+			\lim_{n\to+\infty}\int_Jg_n(x)dm_1(x)=\int_J\overline{g}(x)dm_1(x)
 		\end{equation*}
 		ossia ho ottenuto un problema di passaggio al limite sotto segno di integrale. Applichiamo il teorema di convergenza dominata, verificandone le ipotesi:
 		\begin{itemize}
 			\item \textbf{Convergenza puntuale:}
 			\begin{equation*}
-				\forall x\in J,\ \lim_{n\to+\infty}g_n\left(x\right)=\lim_{n\to+\infty}f\left(t_n,x\right)=f\left(\overline{t},x\right)=\overline{g}\left(x\right)
+				\forall x\in J,\ \lim_{n\to+\infty}g_n(x)=\lim_{n\to+\infty}f\left(t_n,x\right)=f\left(\overline{t},x\right)=\overline{g}(x)
 			\end{equation*}
 			perché $f\left(\cdot,x\right)$ è continua rispetto alla $t$.
 			\item \textbf{Maggiorazione (convergenza dominata):}
 			\begin{equation*}
-				\abs{g_n\left(x\right)}\underset{\substack{\forall n\geq 1\\\forall x\in J}}{=}\abs{f\left(t_n,x\right)}\leq \phi\left(x\right)\quad\text{(indipendentemente da $n$)}
+				\abs{g_n(x)}\underset{\substack{\forall n\geq 1\\\forall x\in J}}{=}\abs{f\left(t_n,x\right)}\leq \phi(x)\quad\text{(indipendentemente da $n$)}
 			\end{equation*}
 		\end{itemize}
 		Si può allora passare al limite sotto segno di integrale e concludere.
 		\item Dobbiamo provare che
 		\begin{equation*}
-			F'\left(t\right)=\int_J\frac{\partial f}{\partial t}\left(\overline{t},x\right)dm_1\left(x\right),\ \forall \overline{t}\in I
+			F'(t)=\int_J\frac{\partial f}{\partial t}\left(\overline{t},x\right)dm_1(x),\ \forall \overline{t}\in I
 		\end{equation*}
 		ossia
 		\begin{equation*}
-			\lim_{t\to\overline{t}}\frac{F\left(t\right)-F\left(\overline{t}\right)}{t-\overline{t}}=\int_J\frac{\partial f}{\partial t}\left(\overline{t},x\right)dm_1\left(x\right),\ \forall \overline{t}\in I
+			\lim_{t\to\overline{t}}\frac{F(t)-F\left(\overline{t}\right)}{t-\overline{t}}=\int_J\frac{\partial f}{\partial t}\left(\overline{t},x\right)dm_1(x),\ \forall \overline{t}\in I
 		\end{equation*}
 		Per il primo dei fatti è sufficiente provare che
 		\begin{equation*}
-			\lim_{n\to+\infty}\frac{F\left(t_n\right)-F\left(\overline{t}\right)}{t_n-\overline{t}}=\int_J\frac{\partial f}{\partial t}\left(\overline{t},x\right)dm_1\left(x\right),\ \forall \overline{t}\in I,\ \forall t_n\to \overline{t}
+			\lim_{n\to+\infty}\frac{F\left(t_n\right)-F\left(\overline{t}\right)}{t_n-\overline{t}}=\int_J\frac{\partial f}{\partial t}\left(\overline{t},x\right)dm_1(x),\ \forall \overline{t}\in I,\ \forall t_n\to \overline{t}
 		\end{equation*}
 		Siano allora $\overline{t}\in I$ e $t_n\to\overline{t}$ fissati: dobbiamo provare che
 		\begin{align*}
-			\lim_{n\to+\infty}\frac{F\left(t_n\right)-F\left(\overline{t}\right)}{t_n-\overline{t}}&=\lim_{n\to+\infty}\frac{1}{t_n-\overline{t}}\left(\int_Jf\left(+t_n,x\right)dm_1\left(x\right)-\int_Jf\left(\overline{t},x_n\right)dm_1\left(x\right)\right)=\\
-			&=\lim_{n\to+\infty}\int_J\underbrace{\frac{f\left(t_n,x\right)-f\left(\overline{t},x\right)}{t_n-\overline{t}}}_{\coloneqq h_n\left(x\right)}dm_1\left(x\right)=\int_J\underbrace{\frac{\partial f}{\partial t}\left(\overline{t},x\right)}_{\coloneqq \overline{h}\left(x\right)}dm_1\left(x\right)
+			\lim_{n\to+\infty}\frac{F\left(t_n\right)-F\left(\overline{t}\right)}{t_n-\overline{t}}&=\lim_{n\to+\infty}\frac{1}{t_n-\overline{t}}\left(\int_Jf\left(+t_n,x\right)dm_1(x)-\int_Jf\left(\overline{t},x_n\right)dm_1(x)\right)=\\
+			&=\lim_{n\to+\infty}\int_J\underbrace{\frac{f\left(t_n,x\right)-f\left(\overline{t},x\right)}{t_n-\overline{t}}}_{\coloneqq h_n(x)}dm_1(x)=\int_J\underbrace{\frac{\partial f}{\partial t}\left(\overline{t},x\right)}_{\coloneqq \overline{h}(x)}dm_1(x)
 		\end{align*}
 		ottenendo
 		\begin{equation*}
-			\lim_{n\to+\infty}\int_Jh_n\left(x\right)dm_1\left(x\right)=\int_J\overline{h}\left(x\right)dm_1\left(x\right)
+			\lim_{n\to+\infty}\int_Jh_n(x)dm_1(x)=\int_J\overline{h}(x)dm_1(x)
 		\end{equation*}
 		ossia ho di nuovo un problema di passaggio al limite sotto segno di integrale. Come prima, applichiamo il teorema di convergenza dominata, verificandone le ipotesi:
 		\begin{itemize}
 			\item \textbf{Convergenza puntuale:}
 			\begin{equation*}
-				\forall x\in J,\ \lim_{n\to+\infty}h_n\left(x\right)=\overline{h}\left(x\right)
+				\forall x\in J,\ \lim_{n\to+\infty}h_n(x)=\overline{h}(x)
 			\end{equation*}
 			per definizione di derivata parziale.
 			\item \textbf{Maggiorazione (convergenza dominata):}
 			\begin{equation*}
-				\abs{h_n\left(x\right)}\underset{\substack{\forall n\geq 1\\\forall x\in J}}{=}\abs{\frac{f\left(t_n,x\right)-f\left(\overline{t},x\right)}{t_n-t}}\underset{\text{fatto }2}{\leq} \frac{\displaystyle\sup_{t\in\left[t_n,\overline{t}\right]}\abs{\frac{\partial f}{\partial t}}\Ccancel[red]{\abs{t_n-\overline{t}}}}{\Ccancel[red]{\abs{t_n-\overline{t}}}}\leq \psi\left(x\right)
+				\abs{h_n(x)}\underset{\substack{\forall n\geq 1\\\forall x\in J}}{=}\abs{\frac{f\left(t_n,x\right)-f\left(\overline{t},x\right)}{t_n-t}}\underset{\text{fatto }2}{\leq} \frac{\displaystyle\sup_{t\in\left[t_n,\overline{t}\right]}\abs{\frac{\partial f}{\partial t}}\Ccancel[red]{\abs{t_n-\overline{t}}}}{\Ccancel[red]{\abs{t_n-\overline{t}}}}\leq \psi(x)
 			\end{equation*}
 		\end{itemize}
 		Si può allora passare al limite sotto segno di integrale e concludere.\qedhere
 	\end{enumerate}
-\end{demonstration}
+\end{demonstrationcaputwt}
 \section{La trasformata di Fourier}
 \begin{define}[Trasformata di Fourier]
 	Sia $\funz{g}{\realset}{\realset}$. Data la funzione
 	\begin{equation*}
-		\mvf{f}{t}{x}=g\left(x\right)e^{-itx},\ \forall \left(t,x\right)\in\realset^2,
+		\mvf{f}{t}{x}=g(x)e^{-itx},\ \forall \left(t,x\right)\in\realset^2,
 	\end{equation*}
 	dove
 	\begin{equation*}
-		e^{-itx}=\cos tx-\sin tx,\ \forall\left(t,x\right)\in\realset^2,
+		e^{-itx}=\cos tx-i\sin tx,\ \forall\left(t,x\right)\in\realset^2,
 	\end{equation*}
 	definiamo la \textbf{trasformata di Fourier}\index{trasformata di Fourier} di $g$ l'integrale dipendente dal parametro di $t$ dato da $f$:
-	\begin{align}
-		\hat{g}\left(t\right)&=\int_{\realset}g\left(x\right)e^{-itx}dm_1\left(x\right)=\\
-		&=\int_{\realset}g\left(x\right)\cos txdm_1\left(x\right)-i\int_\realset g\left(x\right)\sin txdm_1\left(x\right),\ \forall t\in\realset
-	\end{align}
+	\begin{equation}
+		\begin{array}{ll}
+			\displaystyle\hat{g}(t)&=\displaystyle\int_{\realset}g(x)e^{-itx}dm_1(x)=\\
+			&=\displaystyle\int_{\realset}g(x)\cos txdm_1(x)-i\int_\realset g(x)\sin txdm_1(x),\ \forall t\in\realset
+		\end{array}
+	\end{equation}
 \end{define}
 Ci chiediamo sotto quali ipotesi su $g$ la funzione $F$ è continua e sotto quali invece è derivabile.
 \begin{theorema}[Continuità e derivabilità della trasformata di Fourier]
@@ -166,11 +168,11 @@ Ci chiediamo sotto quali ipotesi su $g$ la funzione $F$ è continua e sotto qual
 		\item Se
 		\begin{itemize}
 			\item $g\in L^1\left(\realset\right)$.
-			\item $xg\left(x\right)\in L^1\left(\realset\right)$.
+			\item $xg(x)\in L^1\left(\realset\right)$.
 		\end{itemize}
 		allora $\hat{g}$ è derivabile su $\realset$ e
 		\begin{equation}
-			\hat{g}'\left(t\right)=\widehat{\left(-ixg\left(x\right)\right)}=-i\int_{\realset}xg\left(x\right)e^{-itx}dm_1\left(x\right),\ \forall t\in\realset
+			\hat{g}'(t)=\widehat{\left(-ixg(x)\right)}=-i\int_{\realset}xg(x)e^{-itx}dm_1(x),\ \forall t\in\realset
 		\end{equation}
 	\end{enumerate}
 \end{theorema}
@@ -179,7 +181,7 @@ Ci chiediamo sotto quali ipotesi su $g$ la funzione $F$ è continua e sotto qual
 		\item % TO DO: completare
 		\item Applichiamo il teorema di derivabilità degli integrali dipendenti da un parametro. In questo caso si ha
 		\begin{equation*}
-			\mvf{f}{t}{x}=g\left(x\right)e^{-itx},\ \forall \left(t,x\right)\in\realset^2
+			\mvf{f}{t}{x}=g(x)e^{-itx},\ \forall \left(t,x\right)\in\realset^2
 		\end{equation*}
 		Verifichiamo le ipotesi.
 		\begin{itemize}
@@ -188,22 +190,22 @@ Ci chiediamo sotto quali ipotesi su $g$ la funzione $F$ è continua e sotto qual
 				\item $\mvf{f}{t}{\cdot}$ misurabile perché $f$ è il prodotto di $g$ e $e^{-itx}$, due funzioni misurabili - la prima per ipotesi, la seconda in quanto è continua.
 				\item $\displaystyle\int_{\realset}\abs{\mvf{f}{t}{x}}<+\infty$ in quanto
 				\begin{equation*}
-					\abs{\mvf{f}{t}{x}}=-ixg\left(x\right)e^{-itx},\ \forall \left(t,x\right)\in\realset^2
+					\abs{\mvf{f}{t}{x}}=-ixg(x)e^{-itx},\ \forall \left(t,x\right)\in\realset^2
 				\end{equation*}
 			\end{itemize}
 			\item Esiste
 			\begin{equation*}
-				\frac{\partial f}{\partial t}=-ixg\left(x\right)e^{itx},\ \forall \left(t,x\right)\in\realset^2
+				\frac{\partial f}{\partial t}=-ixg(x)e^{itx},\ \forall \left(t,x\right)\in\realset^2
 			\end{equation*}
 			\item Si può maggiorare uniformemente $\dfrac{\partial f}{\partial t}$ in $t$ con una funzione integrabile:
 			\begin{equation*}
-				\abs{\frac{\partial f}{\partial t}\left(t,x\right)}=\abs{-ixg\left(x\right)e^{-itx}}=\abs{xg\left(x\right)}\underbrace{\abs{e^{-itx}}}_{=1}=\abs{xg\left(x\right)}\coloneqq \psi\left(x\right),\ \forall \left(t,x\right)\in\realset^2
+				\abs{\frac{\partial f}{\partial t}\left(t,x\right)}=\abs{-ixg(x)e^{-itx}}=\abs{xg(x)}\underbrace{\abs{e^{-itx}}}_{=1}=\abs{xg(x)}\coloneqq \psi(x),\ \forall \left(t,x\right)\in\realset^2
 			\end{equation*}
-			con $\psi\left(x\right)$ integrabile per ipotesi sull'integrabilità di $xg\left(x\right)$.
+			con $\psi(x)$ integrabile per ipotesi sull'integrabilità di $xg(x)$.
 		\end{itemize}
 		Ne segue che $\hat{g}$ è derivabile e
 		\begin{equation*}
-			\hat{g}'\left(t\right)=\int_{\realset}\frac{\partial f}{\partial t}\left(t,x\right)dm_1\left(x\right)=-i\int_{\realset}xg\left(x\right)e^{-itx}dm_1\left(x\right)\qedhere
+			\hat{g}'(t)=\int_{\realset}\frac{\partial f}{\partial t}\left(t,x\right)dm_1(x)=-i\int_{\realset}xg(x)e^{-itx}dm_1(x)\qedhere
 		\end{equation*}
 	\end{enumerate}
 \end{demonstration}

@@ -12,25 +12,36 @@
 %    PACKAGES TO LOAD
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% geometry
 \RequirePackage[margin=3cm]{geometry}
 \newcommand\hmmax{0}
 \newcommand\bmmax{0}
-\RequirePackage[T1]{fontenc}
-\RequirePackage[utf8]{inputenc}
+
+% encoding and language
+\RequirePackage[T1]{fontenc} % choose the default encoding
+\RequirePackage[utf8]{inputenc} % choose the default input
+\RequirePackage[italian]{babel} % choose the language
 \RequirePackage[sorting=none, style=alphabetic, citestyle=authortitle, backend=bibtex]{biblatex}
-\RequirePackage[italian]{babel}
-\RequirePackage{csquotes}
-\RequirePackage[oldstylenums]{kpfonts}
+
+\RequirePackage{csquotes} % quotes
+
+% amsth
+%\let\openbox\undefined
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+
+% font
+\usepackage{newpxmath} % use newpxmath for math fonts
+\usepackage[osf]{newpxtext} % but use newpxtext as main font
+ 
 \RequirePackage{microtype}
 \RequirePackage{textcase}
 \RequirePackage[inline]{enumitem}
 \RequirePackage{xspace}
 \RequirePackage{graphicx}
 \RequirePackage{ifthen}
-\RequirePackage{amsmath}
-\RequirePackage{amssymb}
 \RequirePackage{wasysym}
-\RequirePackage{amsthm}
 \RequirePackage{pifont} % aggiunge dingbat per itemize
 \RequirePackage{array}
 \RequirePackage{afterpage}
@@ -771,31 +782,31 @@
 \renewcommand{\printparttitle}[1]{%
   \normalfont\normalcolor\partnamefont #1
 }
-% Customize chapters
-\makeatletter
-\setlength{\beforechapskip}{30pt}
-\renewcommand*{\chapterheadstart}{\vspace*{\beforechapskip}}
-\setlength{\afterchapskip}{3ex}
-\setlength{\midchapskip}{3ex}
-\renewcommand*{\chapnamefont}{%
-  \Large\flushright\chapterStyle\partChapterNumColor%
-}
-\renewcommand*{\chapnumfont}{\chapterNumSize\chapterNumStyle}
-\renewcommand*{\chaptitlefont}{%
-  \normalfont\flushleft\normalcolor\chapterSize\chapterStyle%
-}
-\renewcommand*{\printchaptername}{%
-  \chapnamefont\MakeTextLowercase{\@chapapp}%
-}
-\renewcommand*{\chapternamenum}{\quad}
-\renewcommand*{\printchapternum}{%
-  \chapnumfont\textls[-75]{\classicstylenums{\thechapter}}%
-}
-\renewcommand*{\printchaptertitle}[1]{%
-  \chaptitlefont #1
-  \chapterAfter
-}
-\makeatother
+	% Customize chapters
+	\makeatletter
+	\setlength{\beforechapskip}{30pt}
+	\renewcommand*{\chapterheadstart}{\vspace*{\beforechapskip}}
+	\setlength{\afterchapskip}{3ex}
+	\setlength{\midchapskip}{3ex}
+	\renewcommand*{\chapnamefont}{%
+		\Large\flushright\chapterStyle\partChapterNumColor%
+	}
+	\renewcommand*{\chapnumfont}{\chapterNumSize\chapterNumStyle}
+	\renewcommand*{\chaptitlefont}{%
+		\normalfont\flushleft\normalcolor\chapterSize\chapterStyle%
+	}
+	\renewcommand*{\printchaptername}{%
+		\chapnamefont\MakeTextLowercase{\@chapapp}%
+	}
+	\renewcommand*{\chapternamenum}{\quad}
+	\renewcommand*{\printchapternum}{%
+		\chapnumfont\textls[-75]{\thechapter}%
+	}
+	\renewcommand*{\printchaptertitle}[1]{%
+		\chaptitlefont #1
+		\chapterAfter
+	}
+	\makeatother
 % Customize sections and subsections
 \setsecnumformat{\csname my#1\endcsname\quad}
 \setsecheadstyle{\sectionSize\sectionStyle}
@@ -1443,9 +1454,23 @@ headformat={\color{platinum!55!black}{\NAME\, (\!\!\!\NOTE\!).}},
 qed=\qedsymbol
 ]{demonstrationwtsty}
 
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+headfont=\bfseries\scshape\color{platinum!55!black},
+notebraces={ }{ },
+notefont=\scshape,
+headpunct=\color{platinum!55!black},
+headformat={\color{platinum!55!black}{\NAME\, (\!\!\!\NOTE\!).}},
+qed=\qedsymbol
+]{demonstrationcaputwtsty}
+
 \declaretheorem[style=demonstrationsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationT}
 \declaretheorem[style=demonstrationcaputsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationcaputT}
-\declaretheorem[style=demonstrationwtsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationwtT} % demonstration con lista
+\declaretheorem[style=demonstrationwtsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationwtT}
+\declaretheorem[style=demonstrationcaputwtsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationcaputwtT}
 
 \newenvironment{demonstration}
 {\begin{platinumBox}\begin{demonstrationT}}
@@ -1458,6 +1483,10 @@ qed=\qedsymbol
 \newenvironment{demonstrationwt}
 {\begin{platinumBox}\begin{demonstrationwtT}}
 {\end{demonstrationwtT}\end{platinumBox}}
+
+\newenvironment{demonstrationcaputwt}
+{\begin{platinumBox}\begin{demonstrationcaputwtT}}
+{\end{demonstrationcaputwtT}\end{platinumBox}}
 
 %%% assioma %%%
 
@@ -1493,13 +1522,32 @@ headformat={\NAME\, \NUMBER\small\bfseries\scshape\textcolor{CGblue!55!black}{.\
 postheadspace=\newline
 ]{axiomsty}
 
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+headfont=\bfseries\scshape\color{CGblue!55!black},
+notebraces={ }{ },
+headpunct=\color{CGblue!55!black},
+notefont=\scshape,
+headformat={\NAME\small\bfseries\scshape\textcolor{CGblue!55!black}{\, - \NOTE.}},
+postheadspace=\newline
+]{falseaxiomsty}
+
 \newcounter{axiom}
 
 \declaretheorem[style=axiomsty,numberwithin=section,name=\textsc{Assioma}]{axiomT}
 
+\declaretheorem[style=falseaxiomsty,numberwithin=section,name=\textsc{‘‘Assioma''}]{falseaxiomT}
+
 \newenvironment{axiom}
 {\begin{CGblueBox}\begin{axiomT}}
 {\end{axiomT}\end{CGblueBox}}
+
+\newenvironment{falseaxiom}
+{\begin{CGblueBox}\begin{falseaxiomT}}
+{\end{falseaxiomT}\end{CGblueBox}}
 
 %%% definizione %%%
 
@@ -1593,17 +1641,36 @@ postheadspace=0.50em,
 headformat={\color{pumpkin!55!black}{\NAME.}}
 ]{observesty}
 
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+headfont=\bfseries\scshape\color{pumpkin!55!black},
+notebraces={ }{ },
+headpunct=\color{pumpkin!55!black},
+notefont=\scshape,
+postheadspace=\newline,
+headformat={\color{pumpkin!55!black}{\NAME\, - \NOTE.}}
+]{observewtsty}
+
 \declaretheorem[style=observesty,numberwithin=section,name=\textsc{Osservazione}]{observeT}
 
 \declaretheorem[style=observesty,numberwithin=section,name=\textsc{Osservazioni}]{observesT}
 
+\declaretheorem[style=observewtsty,numberwithin=section,name=\textsc{Osservazione}]{observewtT}
+
 \newenvironment{observe}
-{\begin{observeT}\begin{pumpkinBox}}
-{\end{pumpkinBox}\end{observeT}}
+{\begin{pumpkinBox}\begin{observeT}}
+{\end{observeT}\end{pumpkinBox}}
 
 \newenvironment{observes}
-{\begin{observesT}\begin{pumpkinBox}~{}}
-{\end{pumpkinBox}\end{observesT}}
+{\begin{pumpkinBox}\begin{observesT}~{}}
+{\end{observesT}\end{pumpkinBox}}
+
+\newenvironment{observewt}
+{\begin{pumpkinBox}\begin{observewtT}}
+{x\end{observewtT}\end{pumpkinBox}}
 
 %%% Attenzione! %%%
 
@@ -1759,11 +1826,31 @@ postheadspace=0.50em,
 headformat={\color{yellowcrayola!55!black}{\NAME.}}
 ]{digressionsty}
 
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+headfont=\bfseries\scshape\color{yellowcrayola!55!black},
+notebraces={ }{ },
+headpunct=\color{yellowcrayola!55!black},
+notefont=\scshape,
+postheadspace=\newline,
+headformat={\color{yellowcrayola!55!black}{\NAME\, - \NOTE.}}
+]{digressionwtsty}
+
 \declaretheorem[style=digressionsty,numberwithin=section,name=\textsc{Digressione}]{digressionT}
 
+\declaretheorem[style=digressionwtsty,numberwithin=section,name=\textsc{Digressione}]{digressionwtT}
+
 \newenvironment{digression}
-{\begin{digressionT}\begin{yellowcrayolaBox}}
-{\end{yellowcrayolaBox}\end{digressionT}}
+{\begin{yellowcrayolaBox}\begin{digressionT}}
+{\end{digressionT}\end{yellowcrayolaBox}}
+
+\newenvironment{digressionwt}
+{\begin{yellowcrayolaBox}\begin{digressionwtT}}
+{\end{digressionwtT}\end{yellowcrayolaBox}}
+
 
 %%% intuitivamente %%%
 
@@ -2199,21 +2286,21 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 % definizione di funzione (solo domini)
 
 \newcommand{\funz}[3]{
-	\IfEq{#1}{\ }{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	\IfEq{#1}{\ }{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#2 \arrow[r] \& #3
 	\end{tikzcd}\!\!\!}
-	{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#1\ \colon \&[-36.21pt] #2 \arrow[r] \& #3
 \end{tikzcd}\!\!\!}}
 
 % definizione di funzione (completa)
 
 \newcommand{\funztot}[5]{
-	\IfEq{#1}{\ }{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	\IfEq{#1}{\ }{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#2 \arrow[r]          \& #3 \\[-25pt]
 			#4 \arrow[r, maps to] \& #5
 	\end{tikzcd}\!\!\!}
-	{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#1\ \colon \&[-36.21pt] #2 \arrow[r]          \& #3 \\[-25pt]
 			\& #4 \arrow[r, maps to] \& #5
 \end{tikzcd}\!\!\!}}
@@ -2221,21 +2308,21 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 % inclusione (solo domini)
 
 \newcommand{\incl}[3]{
-	\IfEq{#1}{\ }{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	\IfEq{#1}{\ }{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#2 \arrow[r, hook] \& #3
 	\end{tikzcd}\!\!\!}
-	{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#1\ \colon \&[-36.21pt] #2 \arrow[r, hook] \& #3
 \end{tikzcd}\!\!\!}}
 
 % inclusione (completa)
 
 \newcommand{\incltot}[5]{
-	\IfEq{#1}{\ }{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	\IfEq{#1}{\ }{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#2 \arrow[r, hook]          \& #3 \\[-25pt]
 			#4 \arrow[r, maps to] \& #5
 	\end{tikzcd}\!\!\!}
-	{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#1\ \colon \&[-36.21pt] #2 \arrow[r, hook]          \& #3 \\[-25pt]
 			\& #4 \arrow[r, maps to] \& #5
 \end{tikzcd}\!\!\!}}
@@ -2243,21 +2330,21 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 % suriettiva
 
 \newcommand{\surr}[3]{
-	\IfEq{#1}{\ }{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	\IfEq{#1}{\ }{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#2 \arrow[r, two heads] \& #3
 	\end{tikzcd}\!\!\!}
-	{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#1\ \colon \&[-36.21pt] #2 \arrow[r, two heads] \& #3
 \end{tikzcd}\!\!\!}}
 
 % suriettiva (completa)
 
 \newcommand{\surrtot}[5]{
-	\IfEq{#1}{\ }{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	\IfEq{#1}{\ }{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#2 \arrow[r, two heads]          \& #3 \\[-25pt]
 			#4 \arrow[r, maps to] \& #5
 	\end{tikzcd}\!\!\!}
-	{\!\!\!\!\begin{tikzcd}[ampersand replacement=\&]
+	{\!\!\!\begin{tikzcd}[ampersand replacement=\&]
 			#1\ \colon \&[-36.21pt] #2 \arrow[r, two heads]          \& #3 \\[-25pt]
 			\& #4 \arrow[r, maps to] \& #5
 \end{tikzcd}\!\!\!}}
@@ -2684,8 +2771,24 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 %%%
 
-% new font
+% new font for diamond and heart
 
 \DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
 \DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
 \DeclareMathSymbol{\vardiamond}{\mathalpha}{extraup}{87}
+
+
+%%%%%%
+
+\let\oldRe\Re
+\def\Re{\oldRe\!\mathfrak{e}}
+\makeatother
+
+\let\oldIm\Im
+\def\Im{\oldIm\!\mathfrak{m}}
+\makeatother
+
+
+%%%%%
+
+\allowdisplaybreaks
