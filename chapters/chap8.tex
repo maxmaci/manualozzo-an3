@@ -70,7 +70,7 @@ Per dimostrare questo teorema ci serviranno i seguenti fatti:
 		\forall t_1,t_2\in I, \abs{g\left(t_1\right)-g\left(t_2\right)}\leq\sup_{t\in\left[t_1,t_2\right]}\abs{g'(t)}\abs{t_1-t_2}
 	\end{equation}
 \end{itemize}
-\begin{demonstrationcaputwt}[della continuità e derivabilità di {$F$}]
+\begin{demonstrationcaputwt}[della continuità e derivabilità di {$F$}]~
 	\begin{enumerate}[label=\Roman*]
 		\item Dobbiamo provare che
 		\begin{equation*}
@@ -178,7 +178,20 @@ Ci chiediamo sotto quali ipotesi su $g$ la funzione $F$ è continua e sotto qual
 \end{theorema}
 \begin{demonstration}~
 	\begin{enumerate}[label=\Roman*]
-		\item % TO DO: completare
+		\item  Applichiamo il teorema di continuità degli integrali dipendenti da un parametro. In questo caso si ha
+		\begin{equation*}
+			\mvf{f}{t}{x}=g(x)e^{-itx},\ \forall \left(t,x\right)\in\realset^2
+		\end{equation*}
+		Verifichiamo le ipotesi.
+		\begin{itemize}
+			\item $f\left(\cdot, x\right)$ è continua su $\realset$, $\forall x\in \realset$.
+			\item Si ha
+			\begin{equation*}
+				\abs{\mvf{f}{t}{x}}=\abs{g(x)e^{-itx}}=\abs{g(x)}\abs{e^{-itx}}=\footnote{Si ha che $\abs{e^{-itx}}=e^{\Re(-itx)}=e^0=1$.}\abs{g(x)}
+			\end{equation*}
+			ed essendo $g\in L^1$ per ipotesi, $\abs{g(x)}$ è integrabile per ipotesi e abbiamo dunque una \textit{maggiorazione uniforme} integrabile di $f$.
+		\end{itemize}
+		Ne segue che $\hat{g}$ è continua.
 		\item Applichiamo il teorema di derivabilità degli integrali dipendenti da un parametro. In questo caso si ha
 		\begin{equation*}
 			\mvf{f}{t}{x}=g(x)e^{-itx},\ \forall \left(t,x\right)\in\realset^2
@@ -197,7 +210,7 @@ Ci chiediamo sotto quali ipotesi su $g$ la funzione $F$ è continua e sotto qual
 			\begin{equation*}
 				\frac{\partial f}{\partial t}=-ixg(x)e^{itx},\ \forall \left(t,x\right)\in\realset^2
 			\end{equation*}
-			\item Si può maggiorare uniformemente $\dfrac{\partial f}{\partial t}$ in $t$ con una funzione integrabile:
+			\item Si può \textit{maggiorare uniformemente} $\dfrac{\partial f}{\partial t}$ in $t$ con una funzione integrabile:
 			\begin{equation*}
 				\abs{\frac{\partial f}{\partial t}\left(t,x\right)}=\abs{-ixg(x)e^{-itx}}=\abs{xg(x)}\underbrace{\abs{e^{-itx}}}_{=1}=\abs{xg(x)}\coloneqq \psi(x),\ \forall \left(t,x\right)\in\realset^2
 			\end{equation*}

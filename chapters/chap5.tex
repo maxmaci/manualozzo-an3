@@ -124,7 +124,7 @@ Tuttavia, abbiamo prima bisogno di affrontare alcune questioni:
 \end{enumerate}
 Possiamo immaginare, da quanto detto, che una misura sia una funzione che quantifica la dimensione - che sia una lunghezza, un'area o volendo anche una cardinalità - di insiemi. Sostanzialmente, ci sono tre elementi da definire:
 \begin{enumerate}[label=(\Roman*)]
-	\item Una famiglia di insiemi su cui è definita una misura, che chiameremo poco intuitivamente $\sigma$\textbf{-algebra} e i suoi elementi invece saranno detti \textbf{insiemi misurabili}.
+	\item Una famiglia di insiemi su cui è definita una misura, che chiameremo poco intuitivamente $\sigma$\textbf{-algebra}, e i suoi elementi, che saranno detti \textbf{insiemi misurabili}.
 	\item Una classe di funzioni su cui definire l’integrale, le \textbf{funzioni misurabili}.
 	\item Ultima, ma decisamente non per importanza, una \textbf{misura} per valutare l’ampiezza degli insiemi.
 \end{enumerate}
@@ -276,7 +276,7 @@ Per dimostrarlo (e lo faremo per funzioni a valori in $\complexset$), abbiamo bi
 \begin{equation*}
 \funz{f}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}
 \end{equation*}
-\begin{defines}[{$\sup$}, {$\inf$}, {$\limsup$} e {$\liminf$} di una successione di funzioni]
+\begin{define}[{$\sup$}, {$\inf$}, {$\limsup$} e {$\liminf$} di una successione di funzioni]
 Sia $\funz{f_n}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ misurabili.
 Allora definiamo:
 \begin{gather*}
@@ -285,7 +285,7 @@ Allora definiamo:
 	\left(\limsup_{n\to+\infty} f_n\right)(x)\coloneqq \limsup_{n\to+\infty}f_n(x),\ \forall x\in X\\
 	\left(\liminf_{n\to+\infty} f_n\right)(x)\coloneqq \liminf_{n\to+\infty}f_n(x),\ \forall x\in X
 \end{gather*}
-\end{defines}
+\end{define}
 \begin{proposition}[Misurabilità di {$\sup$}, {$\inf$}, {$\limsup$} e {$\liminf$} di una successione di funzioni misurabili]\label{misurabilitàsupinf}
 	Sia $ \left(X,\mathcal{M}\right)$ uno spazio misurabile e siano $\funz{f_n}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ misurabili.
 	Allora
