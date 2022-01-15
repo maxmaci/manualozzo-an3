@@ -369,20 +369,21 @@ Negli stessi anni in cui si lavorò per espandere la classe di funzioni che amme
 Chiaramente già dall'antichità erano note misure di figure ‘‘elementari'', come ad esempio la lunghezza e l'area di un poligono o il volume di certi solidi, spesso sulla base di principi come quello di \textit{esaustione}.\\
 Solo nel XIX secolo si cercò di formalizzare questi ragionamenti ed espandere il concetto di misura non soltanto a figure generiche, ma anche a più dimensioni fino ad arrivare ad una astrazione di tale concetto ad insiemi, indipendentemente dall'essere in $\realset^n$.\\
 Il primo ad introdurre un concetto di misura di un sottoinsieme della retta, del piano o delle spazio fu Giuseppe \textbf{Peano} (1858-1932). Nel suo \textit{Applicazioni geometriche del
-calcolo infinitesimale (1887)}, il matematico torinese ipotizza di ‘‘modernizzare'' il metodo di esaustione già citato in precedenza.
+calcolo infinitesimale (1887)}, il matematico piemontese ipotizza di ‘‘modernizzare'' il metodo di esaustione già citato in precedenza.
+%Peano ha lavorato a Torino, però essendo di origini cuneesi potrebbe essere frainteso come "orginario di Torino", e i cuneesi si arrabbiano (sì, i cioccolatini)
 Ad esempio, prendo un insieme limitato in $\realset^2$, ossia quello che all'epoca veniva denominato \textit{campo piano}, potremmo considerare dei poligoni che contengono tale insieme - che chiameremo \textit{poligoni esterni} - e dei poligoni che sono contenuti in tale insieme - i cosiddetti \textit{poligoni interni}.
 \begin{center}
 	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.71]{images/peanopoligoni.pdf}
 \end{center}
 Se l'estremo inferiore dei poligoni esterni coincide con quello superiore di quelli interni, potremmo dire che l'insieme è misurabile e ha area pari a questo limite.
 Inoltre, Peano fornisce una condizione necessaria e sufficiente: la differenza tra i poligoni esterni ed interni deve essere piccola a piacere, ossia la frontiera dell'insieme (che chiaramente è contenuta nell'area di piano fra i poligoni esterni ed interni) dovrà avere misura nulla.\\
-Possono capitare anche insiemi che non ammettono area. 
+Possono però esistere anche insiemi che non ammettono area. 
 \begin{example}
 	Supponiamo di prendere tutti i punti a distanza \textit{razionale} $r\leq 1$ dall'origine, cioè infinite circonferenze di raggio razionale interne al disco di raggio 1.\\
-	Chiaramente l'area interna è uguale a 0, mentre essendo l'insieme denso nel disco di raggio 1, ogni poligono che la contiene contiene il cerchio e quindi l'area esterna è maggiore o uguale 1: essendo l'area interna e l'area esterna diverse, il poligono non ammette aree.
+	Chiaramente l'area interna è uguale a 0, mentre essendo l'insieme denso nel disco di raggio 1, ogni poligono che la contiene contiene il cerchio e quindi l'area esterna è maggiore o uguale 1: essendo l'area interna e l'area esterna diverse, il poligono non ammette area.
 \end{example}
 La misura di Peano, per quanto innovativa, risente di alcuni problemi: parlare di poligoni o solidi poligonali è facile farlo in $\realset^2$ o $\realset^3$, ma non è generalizzabile in dimensioni maggiori: ad esempio, qual è la misura di un ipersolido poligonale di dimensione 4? Inoltre, la misura di Peano non è numerabilmente additiva, ossia un'unione \textit{infinita numerabile} di insiemi misurabili secondo Peano non è necessariamente ancora misurabile.\\
-Qualche anno dopo i lavori di Peano, il matematico francese Marie Camille \textbf{Jordan} (1838-1922) \textit{estende} il concetto di misura introdotta da Peano a una generica dimensione $n$, utilizzando invece che poligoni o solidi poligoni delle \textit{unioni di intervalli}, \textit{rettangoli} o, in generale, \textit{parallelepipedi} $n$-dimensionali, poiché questi hanno una misura ben nota!
+Qualche anno dopo i lavori di Peano, il matematico francese Marie Camille \textbf{Jordan} (1838-1922) \textit{estende} il concetto di misura introdotta da Peano a una generica dimensione $n$, utilizzando invece che poligoni o solidi poligonali delle \textit{unioni di intervalli}, \textit{rettangoli} o, in generale, \textit{parallelepipedi} $n$-dimensionali, poiché questi hanno una misura ben nota!
 \begin{center}
 	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.71]{images/peanoparallelepipedi.pdf}
 \end{center}
@@ -405,16 +406,19 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 	Introduciamo formalmente la misura esterna e la misura interna di un insieme limitato $A$ come estremi inferiori e superiori di un \textbf{insieme elementare}\index{insieme!elementare}, cioè un'unione finita di parallelepipedi:
 	\begin{itemize}
 		\item \textsc{Misura esterna}:\index{misura!esterna} \begin{equation}
-			m_{PJ}^X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\supseteq A\right\}
+			m_{PJ}^X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\ \middle| \ P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\supseteq A\right\}
+%ho sostituito \mid con \middle| e inserito i \ prima e dopo perché a pagina 92 c'era già \middle| ma era tutto attaccato		
+%un'alternativa usata nel chap4 riga 79 è \ \middle\vert \
 		\end{equation}
 		\item \textsc{Misura interna}:\index{misura!interna}
 		\begin{equation}
-			m_{PJ,X}\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\mid P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\subseteq A\right\}
+			m_{PJ,X}\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right) \ \middle| \  P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\subseteq A\right\}
+%stesso discorso del commento precedente
 		\end{equation}
 	\end{itemize}
 	In generale $m_{PJ,X}\left(A\right)\leq m_{PJ}^{X}\left(A\right)$.
 	\begin{define}[Misura di Peano-Jordan]
-		Un insieme limitato $A$ è \textbf{misurabile secondo Peano-Jordan}\index{misura!secondo Peano-Jordan} se
+		Un insieme limitato $A$ è \textbf{misurabile secondo Peano-Jordan}\index{misura!secondo Peano-Jordan} se la misura interna ed esterna coincidono
 		\begin{equation}
 			m_{PJ}^X\left(A\right)=m_{PJ,X}\left(A\right)
 		\end{equation}
@@ -424,14 +428,14 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 		\end{equation}
 	\end{define}
 	\begin{propositionqed}[Criterio di misurabilità]
-		L'insieme limitato $A\subseteq \realset^n$ è misurabile per Peano-Jordan se e solo se $\forall \epsilon>0,\ \exists P\subseteq A, Q\supseteq A$ con $P,\ Q$ insiemi elementari tali che
+		L'insieme limitato $A\subseteq \realset^n$ è misurabile per Peano-Jordan se e solo se $\forall \epsilon>0,\ \exists P\subseteq A, \exists Q\supseteq A$ con $P,\ Q$ insiemi elementari tali che
 		\begin{equation}
 			m_{PJ}\left(Q\right)-m_{PJ}\left(P\right)\leq \epsilon\qedhere
 		\end{equation}
 	\end{propositionqed}
 	Definito
 	\begin{equation}
-		\mathcal{M}=\left\{A\subseteq \realset^n\mid A\text{è P-J misurabile}\right\}
+		\mathcal{M}=\left\{A\subseteq \realset^n\mid A\text{ è P-J misurabile}\right\}
 	\end{equation}
 	essa è un'\textit{algebra}, \textit{ma} non una $\sigma$-algebra, cioè non è chiusa rispetto all'unione \textit{numerabile infinita}.
 	\begin{examplewt}[Controesempio dell'additività numerabile della misura di P-J]
@@ -453,7 +457,7 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 	\end{examplewt}
 	In altre parole, la misura secondo Peano-Jordan è \textit{additiva}, ma non $\sigma$-additiva.
 	\begin{digression}
-		Nella letteratura italiana si è soliti parlare ‘‘misura di Peano-Jordan'', quando in realtà questa terminologia è impropria, non essendo una \textit{misura} nel senso \textit{moderno} del termine. Nell'anglosfera lo stesso concetto viene chiamato ‘‘Jordan content'.
+		Nella letteratura italiana si è soliti parlare ‘‘misura di Peano-Jordan'', quando in realtà questa terminologia è impropria, non essendo una \textit{misura} nel senso \textit{moderno} del termine. Nell'anglosfera lo stesso concetto viene chiamato ‘‘Jordan content".
 	\end{digression}
 	\section{Misura secondo Lebesgue}
 	Per quanto innovativa, la misura di Peano-Jordan presenta alcuni notevoli problemi:
@@ -499,9 +503,9 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 	\end{observe}
 	A differenza di Peano-Jordan, Lebesgue definisce solamente la \textbf{misura esterna} dell'insieme:
 	\begin{equation}
-		m^X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\middle| P_i\text{ parallelepipedi aperti},\ \bigcup_{i=1}^nP_i\supseteq A\right\}
+		m^X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\ \middle| \ P_i\text{ parallelepipedi aperti},\ \bigcup_{i=1}^nP_i\supseteq A\right\}
 	\end{equation}
-dove per parallelepipedo \textit{aperti} si intende un plurintervallo definito da intervalli aperti.\\ 
+dove per parallelepipedo \textit{aperto} si intende un plurintervallo definito da intervalli aperti.\\ 
 	Essa si può vedere come una funzione
 	\begin{equation}
 		\funz{m^X}{\setpart{\realset^n}}{\left[0,+\infty\right]}
@@ -527,12 +531,16 @@ dove per parallelepipedo \textit{aperti} si intende un plurintervallo definito d
 	\end{itemize}
 	Osserviamo che per $m^X$ vale \textit{solo} la  $\sigma$-\textit{subadditività}, ma non la $\sigma$-\textit{additività}.
 	\begin{define}[Insieme misurabile secondo Lebesgue {{\small (Criterio di Caratheodory)}}]\index{criterio!di Caratheodory}
+%fastidiosamente c'è un punto a capo da solo
 		Un insieme $A\subseteq\realset^n$ è \textbf{misurabile secondo Lebesgue} se $\forall E\subseteq\realset^n$ vale
 		\begin{equation}
 			m_n^X\left(E\right)=m_n^X\left(E\cap A\right)+m_n^X\left(E\cap A^C\right)
 		\end{equation}
 	\end{define}
-	$E$ è un \textbf{insieme test}\index{insieme!test} arbitrario (non necessariamente misurabile!): $A$ è misurabile se decompone bene $E$ in due sottoinsiemi misurabili $E\cap A$ e $E\cap A^C$.
+%NEW: riformulazione
+	Per qualsiasi insieme test $E$ insiemisticamente si ha che $E=(E\cap A) \cup (E\cap A^C)$. Si impone che $A$ è misurabile se per qualsiasi \textbf{insieme test}\index{insieme!test} arbitrario (non necessariamente misurabile!) la misura $m_n^X$ è additiva su questa decomposizione
+%OLD
+%	$E$ è un \textbf{insieme test}\index{insieme!test} arbitrario (non necessariamente misurabile!): $A$ è misurabile se decompone bene $E$ in due sottoinsiemi misurabili $E\cap A$ e $E\cap A^C$.
 	\begin{center}
 		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.5]{images/criteriomisurabilita.pdf}
 	\end{center}
@@ -546,9 +554,12 @@ dove per parallelepipedo \textit{aperti} si intende un plurintervallo definito d
 	\begin{define}[Misura secondo Lebesgue]
 		La \textbf{misura secondo Lebesgue}\index{misura!secondo Lebesgue} è la restrizione della misura esterna a $\mathcal{L}\left(\realset^n\right)$:
 		\begin{equation}
-			m_n={m^X_n}\vert_{ \mathcal{L}\left(\realset^n\right)}\text{ ossia }\funz{m_n}{\mathcal{L}\left(\realset^n\right)}{\left[0,+\infty\right]}
+			m_n={m^X_n}_{\vert_{ \mathcal{L}\left(\realset^n\right)}}\text{ ossia }\funz{m_n}{\mathcal{L}\left(\realset^n\right)}{\left[0,+\infty\right]}
 		\end{equation}
 	\end{define}
+\begin{observe}
+	Siccome $m_n$ è una restrizione di $m_n^X$, allora eredita le sue proprietà, in particolare è invariante per traslazioni.
+\end{observe}
 \subsection{Insiemi misurabili secondo Lebesgue}
 La definizione data di insieme misurabile secondo Lebesgue non è particolarmente \textit{operativa}, in quanto richiede di controllare che un generico insieme test decomponga bene l'insieme di cui vogliamo verificare la misurabilità.
 Di seguito presentiamo alcune classi importanti di insiemi misurabili secondo Lebesgue.
@@ -563,15 +574,15 @@ In particolare:
 	\item Preso $P=\realset^n$, allora $m_n\left(\realset^n\right)=+\infty$.
 	\item Preso $P=\left\{x\right\},\ \forall x\in\realset^n$, allora $m_n\left(\left\{x\right\}\right)=0$.
 \end{itemize}
-\item \textsc{\textbf{Borelliani:}} $\mathcal{B}\left(\realset^n\right)\subsetneqq\mathcal{L}\left(\realset^n\right)$.\\
-È importante sottolineare che ci sono insiemi misurabili \textit{non} Borelliani.
+\item \textsc{\textbf{Boreliani:}} $\mathcal{B}\left(\realset^n\right)\subsetneqq\mathcal{L}\left(\realset^n\right)$.\\
+È importante sottolineare che ci sono insiemi misurabili \textit{non} Boreliani.
 % TO DO: aggiungere esempio quando ci sarà l'occasione.
 \item \textsc{\textbf{Tutti gli insiemi aventi misura \textit{esterna} nulla:}}
 \begin{equation*}
-	\forall A\subseteq \realset^n\ m_n^X\left(A\right)=0\implies A\in\mathcal{L}\left(\realset^n\right)\text{ e }m_n\left(A\right)=0
+	\forall A\subseteq \realset^n,\ m_n^X\left(A\right)=0\implies A\in\mathcal{L}\left(\realset^n\right)\text{ e }m_n\left(A\right)=0
 \end{equation*}
 \end{itemize}
-
+%FINO A QUI
 \begin{demonstration}
 	Dobbiamo provare che $\forall E\subseteq \realset^n$
 	\begin{equation*}
