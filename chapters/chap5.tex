@@ -20,7 +20,7 @@
 	\item Ci sono funzioni che, pur essendo costanti tranne un numero numerabile di punti, \textit{non} ammettono integrale, mentre le funzioni limitate e continue tranne un numero numerabile di punti sono Riemann integrabili.
 	\item Ci sono sequenze di funzioni Riemann-integrabili che convergono a funzioni non integrabili.
 	\item L'integrale di Riemann è propriamente integrabile solo in intervalli chiusi (o al più unioni di essi) e, se siamo abbastanza audaci, su intervalli illimitati; all'apparenza si escludono dal concetto di integrazione tutti gli insiemi non riconducibili agli intervalli.
-	\item Dato che la definizione si basa sulle partizioni, che a loro necessitano della metrica di $\realset$, non si può applicare l'integrale di Riemann a spazi astratti e funzioni definite su di essi. In particolare, non si possono calcolare alle successioni $f(n)=f_n$, per le quali sembra invece intuitivo supporre che
+	\item Dato che la definizione si basa sulle partizioni, che necessitano della metrica di $\realset$, non si può applicare l'integrale di Riemann a spazi astratti e funzioni definite su di essi. In particolare, non si possono calcolare per le successioni $f(n)=f_n$, per le quali sembra invece intuitivo supporre che
 	\begin{equation*}
 		\int f=\sum f_n
 	\end{equation*}
@@ -33,14 +33,14 @@ In questo capitolo, dopo un excursus storico su come siamo arrivati a questi due
 \section{Il contesto storico: il problema delle discontinuità nell'integrale definito}
 Seppur tecniche per calcolare aree e volumi furono già introdotte dai matematici dell'antica Grecia, fu solo nel tardo XVII secolo che vennero sviluppati i principi dell'integrazione indipendentemente da Isaac Newton (1643-1727) e Gottfried Wilhelm Leibniz (1646-1716), i quali immaginarono l'area sotto una curva come una \textit{somma infinita} di rettangoli di \textit{larghezza infinitesima}.\\
 La formalizzazione di questo concetto arrivò nel corso dell'Ottocento grazie a Augustin-Louis \textbf{Cauchy} (1789-1857), che in \textit{Résumé des leçons données à l’École Royale Polytechnique sur le calcul infinitésimal (1823)} definì l'integrale per funzioni continue su un dominio compatto con al più un numero finito di discontinuità.\\
-Come ogni matematico che si rispetti, subito dopo aver letto questa definizione quello che fecero gli analisti dell'Ottocente fu chiedersi:
+Come ogni matematico che si rispetti, subito dopo aver letto questa definizione quello che fecero gli analisti dell'Ottocento fu chiedersi:
 \begin{center}
 	\textit{Come allargare la \textbf{classe} delle funzioni che ammettono integrale?}
-	\textit{Come posso \textbf{caratterizzare} possono essere i \textbf{punti di discontinuità} di una funzione
+	\textit{Come posso \textbf{caratterizzare} i \textbf{punti di discontinuità} di una funzione
 		integrabile?}\\
 \end{center}
 Per la seconda domanda ci furono diversi approcci: alcuni ipotizzarono che la \textit{cardinalità} dell'insieme delle discontinuità dovesse essere piccola, altri pensarono che bisognasse passare per proprietà topologiche\footnote{Anche se i primi concetti di Topologia si possono ricondurre al famoso ‘‘Problema dei ponti di Königsberg'' affrontato da Eulero , furono proprio gli analisti ottocenteschi, bramosi di risolvere il problema delle discontinuità dell'integrale, a dare impulso a questa branca della matematica. Per alcuni cenni al mondo della Topologia rimandiamo il lettore curioso a \cite{antucabertolotti:2021manualozzogeometria}.} come densità, ecc...\\
-Per la prima, invece, Bernhard \textbf{Riemann} (1826-1866) nella sua \textit{Tesi di abilitazione all'insegnamento (1851-1852)} estese il concetto di integrale alle funzioni limitate e dare una caratterizzazione delle funzioni integrabili (ora dette \textbf{integrabili secondo Riemann}).
+Per la prima, invece, Bernhard \textbf{Riemann} (1826-1866) nella sua \textit{Tesi di abilitazione all'insegnamento (1851-1852)} estese il concetto di integrale alle funzioni limitate e diede una caratterizzazione delle funzioni integrabili (ora dette \textbf{integrabili secondo Riemann}).
 \begin{define}[Caratterizzazione degli integrali secondo Riemann]
 La funzione $\funz{f}{\left[a,b\right]}{\realset}$ limitata è \textbf{integrabile} (secondo Riemann) se e solo se $\forall \epsilon>0,\ \exists D$ suddivisione di $\left[a,b\right]$ in un numero finito di intervalli $I_1,\ \ldots,\ I_n$ tale per cui
 \begin{equation}
@@ -74,7 +74,7 @@ Allora
 	\sum_{i=1}^{n}\left(\sup_{I_i}f-\inf_{I_i}f\right)\mathcal{L}\left(I_i\right)=\sum_{i=1}^{n}\left(1-0\right)\mathcal{L}\left(I_i\right)=\sum_{i=1}^{n}\mathcal{L}\left(I_i\right)=\mathcal{L}\left(\left[0,1\right]\right)=1,\ \forall D\text{ sudd.}
 \end{equation*}
 \end{examplewt}
-Nonostante il profuso impegno, non si riuscì in alcun modo a collegare la cardinalità o delle proprietà topologiche all'insieme dei punti di discontinuità. Per quasi cinquant'anni l'integrale rimase più o meno nella stessa forma data da Riemann\footnote{Nel 1894 Thomas Joannes \textbf{Stieltjes} (1856-1894) pubblicò una generalizzazione dell'integrale di Riemann che oggi prende il nome di \textbf{integrale di Riemann-Stieltjes}; qui non lo tratteremo, è doveroso segnarlo come un importante precursore di quello che sarà l'\textit{integrale di Lebesgue}.} fino al 1902, quando Henri Lebesgue (1875-1941) nella sua tesi di laurea \textit{Intégrale, longueure, aire (1902)} introdusse i concetti di \textbf{misura} $n$-dimensionale e di \textbf{integrale secondo Lebesgue}.\\
+Nonostante il profuso impegno, non si riuscì in alcun modo a collegare la cardinalità o delle proprietà topologiche all'insieme dei punti di discontinuità. Per quasi cinquant'anni l'integrale rimase più o meno nella stessa forma data da Riemann\footnote{Nel 1894 Thomas Joannes \textbf{Stieltjes} (1856-1894) pubblicò una generalizzazione dell'integrale di Riemann che oggi prende il nome di \textbf{integrale di Riemann-Stieltjes}; qui non lo tratteremo, ma è doveroso segnarlo come un importante precursore di quello che sarà l'\textit{integrale di Lebesgue}.} fino al 1902, quando Henri Lebesgue (1875-1941) nella sua tesi di laurea \textit{Intégrale, longueure, aire (1902)} introdusse i concetti di \textbf{misura} $n$-dimensionale e di \textbf{integrale secondo Lebesgue}.\\
 L’idea di Lebesgue si basa su una semplice osservazione: per rendere piccola l’oscillazione di $f$ il procedimento \textit{naturale} non è, come fa Riemann, di partizionare in piccoli intervalli il suo \textit{dominio}, bensì di suddividere in intervalli
 di ampiezza piccola l’\textbf{immagine} di $f$.\\
 \begin{minipage}{0.5\textwidth}
@@ -113,7 +113,7 @@ In altre parole, per calcolare l'integrale (secondo Lebesgue) di una funzione:
 	\item Più fitta è la partizione iniziale, più accurato sarà il valore dell'integrale.
 \end{itemize}
 \begin{intuit}
-Poiché partizioniamo i \textit{valori} che assume una funzione e non il dominio in sè e li riordiniamo, possiamo trasformare delle funzioni particolarmente patologiche in funzioni ‘‘carine'' dal punto di vista dell'integrazione e ci consente di integrarle.
+Poiché partizioniamo i \textit{valori} che assume una funzione e non il dominio in sè e li riordiniamo, possiamo trasformare delle funzioni particolarmente patologiche in funzioni ‘‘carine'' dal punto di vista dell'integrazione e questo ci consente di integrarle.
 \end{intuit}
 Osserviamo che l'idea di Lebesgue è decisamente geniale: non solo risolve i casi patologici che hanno afflitto i matematici del XIX secolo, ma ci permette di rivoluzionare completamente il concetto di integrale: dato che la partizione è effettuata sul \textit{codominio}, le funzioni non necessariamente devono essere definite sui reali, ma possiamo integrare funzioni definite su altri tipi di insiemi, come i naturali!\\
 Tuttavia, abbiamo prima bisogno di affrontare alcune questioni:
@@ -145,7 +145,7 @@ Possiamo immaginare, da quanto detto, che una misura sia una funzione che quanti
 		\end{equation}
 	\end{enumerate}
 \end{define}
-Di queste nuove strutture matematiche ci interessano in particolare quelle che soddisfano un ulteriore condizione: la chiusura rispetto all'\textit{unione numerabile}.
+Di queste nuove strutture matematiche ci interessano in particolare quelle che soddisfano un'ulteriore condizione: la chiusura rispetto all'\textit{unione numerabile}.
 \begin{define}[{$\sigma$}-algebra, spazi e insiemi misurabili]
 	Sia $X$ un insieme qualsiasi. La famiglia $\mathcal{M}$ di sottoinsiemi di $X$ è una $\sigma$\textbf{-algebra} \index{{$\sigma$}-algebra} se soddisfa i seguenti assiomi:
 	\begin{enumerate}
@@ -173,31 +173,31 @@ La coppia $\left(X,\mathcal{M}\right)$ si dice \textbf{spazio misurabile}\index{
 	\end{itemize}
 \end{observe}
 \begin{example}
-	Ogni insieme si può dotare della struttura di spazio misurabile, in quanto ammette almeno la $\sigma$-algebra triviale data da $\setpart{X}$.
+	Ogni insieme si può dotare della struttura di spazio misurabile, in quanto ammette almeno la $\sigma$-algebra triviale data dall'insieme delle parti $\setpart{X}$.
 \end{example}
 \begin{define}[{$\sigma$}-algebra generata da una famiglia di sottoinsiemi]
 	Data una famiglia $\mathcal{F}$ di sottoinsiemi di $X$, si dice $\sigma$-\textbf{algebra generata da} $\mathcal{F}$\index{{$\sigma$}-algebra!generata da una famiglia di sottoinsiemi} l'intersezione di \textit{tutte} le $\sigma$-algebre che contengono $\mathcal{F}$ ed è la più piccola $\sigma$-algebra che contiene $\mathcal{F}$.
 \end{define}
 \begin{example}
-	Se $X$ è spazio \textit{topologico} e $\mathcal{F}$ è la famiglia degli \textit{aperti} di $X$ (che coincide con la \textit{topologia} $\tau$ se definita con gli assiomi degli aperti), la $\sigma$-algebra generata da $\mathcal{F}$ si chiama $\sigma$\textbf{-algebra dei Borelliani di} $X$\index{{$\sigma$}-algebra!dei Borelliani} e si indica con $\mathcal{B}(x)$.\\
-	Osserviamo che la famiglia $\mathcal{F}$ di per sé non è una $\sigma$-algebra: se $A$ è aperto, $A^C$ è chiuso e quindi non appartiene a $\mathcal{F}$; invece, in $\mathcal{B}(x)$ ci stanno anche i chiusi della topologia e quindi la complementarizzazione è un'operazione interna.
+	Se $X$ è spazio \textit{topologico} e $\mathcal{F}$ è la famiglia degli \textit{aperti} di $X$ (che coincide con la \textit{topologia} $\tau$ se definita con gli assiomi degli aperti), la $\sigma$-algebra generata da $\mathcal{F}$ si chiama $\sigma$\textbf{-algebra dei Borelliani di} $X$\index{{$\sigma$}-algebra!dei Borelliani} e si indica con $\mathcal{B}(X)$.\\
+	Osserviamo che la famiglia $\mathcal{F}$ di per sé non è una $\sigma$-algebra: se $A$ è aperto, $A^C$ è chiuso e quindi non appartiene a $\mathcal{F}$; invece, in $\mathcal{B}(X)$ sono presenti anche i chiusi della topologia e quindi la complementarizzazione è un'operazione interna.
 \end{example}
 \section{Funzioni misurabili}
 \begin{define}[Funzione misurabile]
 	Sia $\left(X, \mathcal{M}\right)$ spazio misurabile e $Y$ spazio topologico. Una funzione $\funz{f}{X}{Y}$ si dice \textbf{misurabile}\index{funzione!misurabile} se \begin{equation}
-		f^{-1}\left(A\right)\in\mathcal{M},\ \forall A\subseteq Y\text{ aperto.}
+		\forall A\subseteq Y\text{ aperto},\ f^{-1}\left(A\right)\in\mathcal{M}
 	\end{equation}
 \end{define}
 \begin{observe}
-	Se $\mathcal{M}=\setpart{X}$, allora \textit{ogni} funzione è misurabile.
+	Se $\mathcal{M}=\setpart{X}$, allora \textit{ogni} funzione con dominio $X$ è misurabile.
 \end{observe}
 \begin{examples}~{}
 	\begin{enumerate}
-		\item Sia $\left(X,\mathcal{B}(x)\right)$ spazio misurabile su $X$ spazio topologico con la $\sigma$-algebra dei Borelliani di $X$ e sia $Y$ spazio topologico. Allora
+		\item Sia $\left(X,\mathcal{B}(X)\right)$ spazio misurabile su $X$ spazio topologico con la $\sigma$-algebra dei Borelliani di $X$ e sia $Y$ spazio topologico. Allora
 		\begin{center}
 			$\funz{f}{X}{Y}$ continua$\implies \funz{f}{X}{Y}$ misurabile.
 		\end{center}
-	Infatti, $\forall A\subseteq Y$ aperto, $f^{-1}\left(A\right)$ è aperto per continuità di $f$ e quindi $f^{-1}\left(A\right)\in\mathcal{B}(x)$.
+	Infatti, $\forall A\subseteq Y$ aperto, $f^{-1}\left(A\right)$ è aperto per continuità di $f$ e quindi $f^{-1}\left(A\right)\in\mathcal{B}(X)$.
 	\item Sia $\left(X,\mathcal{M}\right)$ spazio misurabile qualsiasi e sia $E\subseteq X$. Definiamo la \textbf{funzione caratteristica di} $E$\index{funzione!caratteristica di un sottoinsieme} o \textbf{indicatrice di} $E$\seeonlyindex{funzione!caratteristica di un sottoinsieme}{indicatrice di un sottoinsieme} la funzione
 	\begin{equation}
 		\funztot{\chi_E}{X}{\realset}{x}{\chi_E(x)=\begin{cases}
@@ -211,7 +211,7 @@ Allora
 \begin{center}
 $\chi_E$ è misurabile $\iff E\in\mathcal{M}$
 \end{center}
-Infatti, preso $A\subseteq \realset$, si ha
+Infatti, preso $A\subseteq \realset$ (aperto), si ha
 \begin{equation*}
 f^{-1}\left(A\right)=\begin{cases}
 	\begin{array}{ll}
@@ -222,7 +222,8 @@ f^{-1}\left(A\right)=\begin{cases}
 	\end{array}
 \end{cases}
 \end{equation*}
-Allora $f^{-1}\left(A\right)\in\mathcal{M}\iff E\in\mathcal{M}$.
+Allora $f^{-1}\left(A\right)\in\mathcal{M}\iff E\in\mathcal{M}$.\\
+Quindi le funzioni caratteristiche di insiemi misurabili sono misurabili, anche se \textit{non} sono continue.
 \end{enumerate}
 \end{examples}
 \begin{observe}
@@ -232,7 +233,7 @@ Allora $f^{-1}\left(A\right)\in\mathcal{M}\iff E\in\mathcal{M}$.
 	\begin{enumerate}
 		\item Sia $\left(X,\mathcal{M}\right)$ uno spazio misurabile e sia $\funz{f}{X}{\complexset}$, dove $\complexset$ ha la topologia Euclidea. Possiamo ‘‘scomporre'' la funzione a valori complessi come combinazione lineare di funzioni reali rispetto alla base $(1,i)$.
 		\begin{center}
-			$\forall x\in X f(x)\in\complexset\implies f(x)=\underbrace{u(x)}_{\text{parte reale}}+i\underbrace{v(x)}_{\text{parte imm.}}$, con $\funz{u,v}{X}{\realset}$.
+			$\forall x\in X,\ f(x)\in\complexset\implies f(x)=\underbrace{u(x)}_{\text{parte reale}}+i\underbrace{v(x)}_{\text{parte imm.}}$, con $\funz{u,v}{X}{\realset}$.
 		\end{center}
 	Allora
 	\begin{enumerate}
@@ -247,7 +248,7 @@ Allora $f^{-1}\left(A\right)\in\mathcal{M}\iff E\in\mathcal{M}$.
 \end{enumerate}
 \end{propertiesqed}
 \subsection{Caratterizzazione delle funzioni misurabili}
-In \textsc{Calcolo delle Probabilità} abbiamo dato una definizione di funzione misurabile $\funz{f}{\left(X,\mathcal{M}\right)}{Y}$ se la controimmagine tramite $f$ di un Borelliano è un insieme misurabile per $\mathcal{M}$. Vedremo ora come questa definizione è equivalente a quella data all'inizio della sezione.
+In \textsc{Calcolo delle Probabilità} abbiamo dato un'altra definizione di funzione misurabile: $\funz{f}{\left(X,\mathcal{M}\right)}{Y}$ è misurabile se la controimmagine tramite $f$ di un Borelliano è un insieme misurabile per $\mathcal{M}$. Vedremo ora come questa definizione è equivalente a quella data all'inizio della sezione.
 \begin{theoremasqed}[Caratterizzazione delle funzioni misurabili]~
 	\begin{enumerate}\label{caratterizzazionefunzionimisurabili}
 		\item La funzione $\funz{f}{\left(X,\mathcal{M}\right)}{Y}$, con $Y$ spazio topologico, è  misurabile se e solo se
@@ -267,18 +268,18 @@ Che differenza c'è tra la definizione e le caratterizzazioni? In sostanza posso
 	\circled[red]{C}&\qquad f^{-1}\left(\left(\alpha,+\infty\right]\right)\in\mathcal{M},\ \forall \alpha\in\realset,\ \text{con }Y=\realset^{\ast}=\left[-\infty,+\infty\right]
 \end{align*}
 Da un punto di vista \textit{operativo} \circled[red]{B} non conviene come metodo per verificare che $f$ sia misurabile: i Borelliani, pur avendo la \textit{stessa cardinalità} degli aperti, li contengono \textit{strettamente}\footnote{A pag. \pageref{famigliediinsiemi} è possibile trovare un approfondimento sulla relazione tra Borelliani, aperti e altre classi di insiemi.} e quindi bisogna verificare ulteriori insiemi (come i chiusi) rispetto a quelli che si verificherebbero con la condizione \circled[red]{A}.\\
-Tuttavia, \circled[red]{B} fornisce delle informazioni che immediatamente non si avevano dalla definizione originale: sono misurabili non solo le controimmagini degli aperti, ma anche le controimmagini dei chiusi.\\
-Col caso \circled[red]{C} ci limitiamo ad operare in $\realset^{\ast}=\left[-\infty,+\infty\right]$, ma è sicuramente più vantaggioso da applicare rispetto ad \circled[red]{A}.
+Tuttavia, \circled[red]{B} fornisce delle informazioni che immediatamente non si avevano dalla definizione originale: sono misurabili non solo le controimmagini degli aperti, ma anche le controimmagini dei chiusi e dei borelliani.\\
+Col caso \circled[red]{C} ci limitiamo ad operare in $\realset^{\ast}=\left[-\infty,+\infty\right]$, ma è sicuramente più vantaggioso da applicare rispetto ad \circled[red]{A} perché è operativamente più semplice e ci sono meno insiemi da testare.
 \subsection{Passaggio al limite per funzioni misurabili}
-Ci chiediamo se, date $f_n$ successione di funzioni misurabili che convengono ad una funzione $f$ in \textit{una qualche} convergenza, $f$ risulta essere ancora misurabile e se sì, con quale tipo di convergenza.\\
+Ci chiediamo se, date $f_n$ successione di funzioni misurabili che convergono ad una funzione $f$ in \textit{una qualche} convergenza, $f$ risulta essere ancora misurabile e se sì, con quale tipo di convergenza.\\
 A differenza di quanto visto col passaggio al limite della continuità, la risposta è affermativa anche sotto la sola ipotesi di \textit{convergenza puntuale}!\\
-Per dimostrarlo (e lo faremo per funzioni a valori in $\complexset$), abbiamo bisogno di alcuni risultati preliminari che riguardano $\sup$, $\inf$, $\limsup$, $\liminf$ di una successione di funzione. Per poter parlare di $\limsup$ e $\liminf$ abbiamo bisogno di avere il codomini della funzione in uno spazio $Y$ con ordinamento, pertanto ci porremo in  $\realset^{\ast}=\left[-\infty,+\infty\right]$, ossia le nostre funzioni saranno del tipo
+Per dimostrarlo (e lo faremo per funzioni a valori in $\complexset$ per generalità), abbiamo bisogno di alcuni risultati preliminari che riguardano $\sup$, $\inf$, $\limsup$, $\liminf$ di una successione di funzione. Per poter parlare di $\limsup$ e $\liminf$ abbiamo bisogno di avere come codominio della funzione uno spazio $Y$ con ordinamento, pertanto ci porremo in  $\realset^{\ast}=\left[-\infty,+\infty\right]$ ($\complexset$ in questo caso non andrebbe bene, ma vedremo come generalizzare nuovamente); quindi le nostre funzioni saranno del tipo
 \begin{equation*}
 \funz{f}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}
 \end{equation*}
-\begin{define}[{$\sup$}, {$\inf$}, {$\limsup$} e {$\liminf$} di una successione di funzioni]
+\begin{define}[{$\sup$}, {$\inf$}, {$\limsup$} e {$\liminf$} di una successione di funzioni]	
 Sia $\funz{f_n}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ misurabili.
-Allora definiamo:
+Allora definiamo le \textit{funzioni}:
 \begin{gather*}
 	\left(\sup_{n\geq 1} f_n\right)(x)\coloneqq \sup_{n\geq 1}f_n(x),\ \forall x\in X\\
 	\left(\inf_{n\geq 1} f_n\right)(x)\coloneqq \inf_{n\geq 1}f_n(x),\ \forall x\in X\\
@@ -305,14 +306,14 @@ sono misurabili.
 	\begin{align*}
 		x\in g^{-1}\left(\left(\alpha,+\infty\right]\right)&\iff g(x)>\alpha\\
 		& \iff \exists j\geq 1\colon f_j(x)>\alpha\\
-		& \iff \exists j\geq x\in f_j^{-1}\left(\left(\alpha,+\infty\right]\right)\\
+		& \iff \exists j\geq 1 \colon x\in f_j^{-1}\left(\left(\alpha,+\infty\right]\right)\\
 		& \iff x\in \bigcup_{n\geq 1}f_n^{-1}\left(\left(\alpha,+\infty\right]\right).
 	\end{align*}
 	Poiché $f_n$ è misurabile si ha
 	\begin{equation*}
 		f_n^{-1}\left(\left(\alpha,+\infty\right]\right)\in\mathcal{M}
 	\end{equation*}
-ed essendo $\mathcal{M}$ una $\sigma$-algebra è chiusa rispetto all'unione misurabile e dunque
+ed essendo $\mathcal{M}$ una $\sigma$-algebra è chiusa rispetto all'unione numerabile e dunque
 	\begin{equation*}
 	g^{-1}\left(\left(\alpha,+\infty\right]\right)=\bigcup_{n\geq 1}f_n^{-1}\left(\left(\alpha,+\infty\right]\right)\in\mathcal{M}
 	\end{equation*}
@@ -333,16 +334,16 @@ ed essendo $\mathcal{M}$ una $\sigma$-algebra è chiusa rispetto all'unione misu
 	allora $f$ è misurabile.
 \end{corollary}
 \begin{demonstration}
-	Riconduciamoci al caso reale per utilizzare la proposizione precedente. Posto
+	Il risultato precedente era su $\realset^\ast$, mentre questo teorema è su $\complexset$; inoltre $\limsup$ e $\liminf$ non sono definiti sui complessi perché non c'è ordinamento. Riconduciamoci quindi al caso reale decomponendo $\complexset$ in parte reale ed immaginaria per utilizzare la proposizione precedente. Posto
 	\begin{equation*}
 		f_n=u_n+iv_n\qquad f=u+iv
 	\end{equation*}
 dove
 \begin{equation*}
-	\begin{array}{ll}
-		\funz{u_n=\Re\left(f_n\right)}{X}{\realset}&\funz{v_n=\Im\left(f_n\right)}{X}{\realset}\\
-		\funz{u=\Re\left(f\right)}{X}{\realset}&\funz{v=\Im\left(f\right)}{X}{\realset}
-	\end{array}
+%	\begin{align}
+%		\funz{u_n&=\Re\left(f_n\right)}{X}{\realset} & \funz{v_n&=\Im\left(f_n\right)}{X}{\realset}\\
+%		\funz{u&=\Re\left(f\right)}{X}{\realset}& \funz{v&=\Im\left(f\right)}{X}{\realset}
+%	\end{align}
 \end{equation*}
 Come visto nella proposizione \ref{funzionimisurabilicomplesse}, $f_n$ misurabile implica che sia $u_n$ sia $v_n$ siano misurabili e, dal risultato precedente sulle funzioni a valori in $\realset^{\ast}$ si ha
 \begin{equation*}
@@ -975,7 +976,7 @@ Passando alle cardinalità:
 \end{equation*}
 \paragraph{Inclusione stretta di {$\mathcal{L}\left(\realset\right)$} in {$\setpart{\realset}$}}
 Il fatto che la cardinalità degli insiemi Lebesgue-misurabili in $\realset$ coincida con quella dell'insieme delle parti di $\realset$ non è sufficiente\footnote{Si veda ‘‘Brevi cenni di teoria degli insiemi'', pag. \pageref{cardinalitàugualenonimplicauguaglianzainsiemistica}.} per affermare che i due insiemi coincidano; costruiamo ora un sottoinsieme particolare di $\realset$ che risulta \textit{non misurabile}.
-\begin{define}[Insieme di Vitali]\label{vitali}.
+\begin{define}[Insieme di Vitali]\label{vitali}
 	Considerata in $\realset$ la relazione di equivalenza
 	\begin{equation}
 		x\sim y\iff x-y\in\rationalset
