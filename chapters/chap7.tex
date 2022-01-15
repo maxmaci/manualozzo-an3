@@ -19,7 +19,7 @@ Dopo aver definito lo \textbf{spazio normato} $L^1$ di funzioni integrabili seco
 \section{Dallo spazio delle funzioni integrabili allo 1-spazio di Lebesgue}
 Ricordiamo che, dato uno spazio di misura $\left(X,\mathcal{M},\mu\right)$ si definisce lo spazio delle funzioni integrabili
 \begin{equation}
-	\mathcal{L}^{1}=\left\{\funz{f}{X}{\complexset}\text{ misurabili}\middle| \int_X\abs{f}d\mu<+\infty\right\}
+	\mathcal{L}^{1}=\left\{\funz{f}{X}{\complexset}\text{ misurabili}\ \middle| \int_X\abs{f}d\mu<+\infty\right\}
 \end{equation}
 il quale è un spazio vettoriale con le operazioni di somma di funzioni e prodotto di una funzione per uno scalare complesso.\\
 Vogliamo ora introdurre una struttura \textit{metrica} in $\mathcal{L}^1\left(\mu\right)$; nello specifico, cerchiamo una \textit{norma} - in questo modo potremo avvalerci di risultati che sono validi solo in \textit{spazi normati}. Possiamo considerare come potenziale candidata la funzione
@@ -30,6 +30,9 @@ Tuttavia, la suddetta è una \textbf{pseudonorma} in quanto soddisfa due delle t
 \begin{enumerate}
 	\item[1.] $\displaystyle f=0\implies \int_X\abs{f}d\mu=0$ ma $\displaystyle \int_X\abs{f}d\mu=0\implies f$ \textbf{q.o.} in $X$.
 \end{enumerate}
+\begin{demonstration}
+	% TO DO: add dimostrazione
+\end{demonstration}
 Come precedentemente detto, le proprietà 2 e 3 sono verificate:
 \begin{enumerate}
 	\item[2.] $N\left(\lambda f\right)=\abs{\lambda}N\left(f\right),\ \forall f\in\mathcal{L}^1\left(\mu\right),\ \forall \lambda \in \complexset$.
@@ -150,7 +153,7 @@ Come visto in precedenza\footnote{Si veda \refChapterOnly{convergenzafunzioni}, 
 	\implies f_n\text{ converge puntualmente a }f\text{ in ogni punto di }X
 \end{multline}
 Il viceversa non è vero: abbiamo visto\footnote{Si veda nota precedente.} nella stessa sezione il caso della successione geometrica, la quale converge uniformemente solo a $f\equiv 0$ in ogni intervallo $\left[-a,a\right]\subsetneqq\left(-1,1\right),\ \forall a\in\left(0,1\right)$, mentre puntualmente in tutti i $\left(-1,1\right]$; qui di seguito riportiamo un controesempio alternativo.
-\begin{example}
+\begin{example}\label{controesempiouniformepuntuale}
 	Consideriamo la successione
 	\begin{equation*}
 		f_n(x)=\chi_{(n,n+1)}(x)=
@@ -205,6 +208,42 @@ Il viceversa non è vero, come possiamo vedere nel seguente esempio.
 	\end{itemize}
 Tuttavia, l'insieme dove $f_n$ \textit{non} converge a $f\equiv0$ è un singolo punto e quindi ha misura nulla, pertanto $f_n$ converge \textbf{q.o.} a $f\equiv 0$.
 \end{example}
+\begin{observe}\label{indebolimentoteoremi}
+	Possiamo indebolire le ipotesi del teorema della convergenza \textbf{monotona}\footnote{Si veda \refChapterOnly{integraledilebesgue}, teorema \ref{thmconvergenzamonotona}, pag. \pageref{thmconvergenzamonotona}.} e \textbf{dominata}\footnote{Si veda \refChapterOnly{integraledilebesgue}, teorema \ref{thmconvergenzadominata}, pag. \pageref{thmconvergenzadominata}.} per farli valere con delle ipotesi valide solo \textbf{q.o.}.
+	\begin{itemize}
+		\item Per la \textbf{convergenza monotona} è sufficiente anche solamente supporre che la successione $f_n$ sia non decrescente su $X$ tolto al più un insieme $N$ di misura nulla. In questo modo, la successione $f_n$ converge \textbf{q.o.} a $f$ su $X$ e vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio al limite sotto segno di integrale} con la stessa dimostrazione di prima, in quanto
+		\begin{equation*}
+			\int_X f_nd\mu=\int_{X\setminus N}f_nd\mu\quad\int_X fd\mu=\int_{X\setminus N}fd\mu
+		\end{equation*}
+		Se la misura $\mu$ \textit{non} è completa, allora è necessario supporre che anche $f$ sia misurabile, a differenza del caso puntuale; se $\mu$ è invece completa, allora ciò non sarà necessario in quanto si può vedere che in tal caso una successione di funzioni misurabili converge \textbf{q.o.} ad una funzione misurabile\footnote{Nelle ‘‘Note aggiuntive'', a pag. \pageref{funzionimisurabiliqo} è possibile trovare la dimostrazione di questo risultato.} e dunque non è necessario aggiungere ipotesi.
+		\item Per la \textbf{convergenza monotona} la convergenza della successione $f_n$ e la dominazione da parte di $g$ possono essere considerate proprietà valide \textbf{q.o.} purché la misura sia completa o la funzione limite $f$ è una funzione misurabile che coincide \textbf{q.o.} con il limite \textbf{q.o.} della successione, per lo stesso problema di misurabilità visto con la convergenza monotona  
+	\end{itemize}
+\end{observe}
+\paragraph{Convergenza uniforme e quasi ovunque}
+Dato che, come visto nel precedente controesempio, una successione di funzioni che converge \textbf{q.o.} su $X$ in generale non converge \textit{puntualmente} su $X$, oltremodo la convergenza \textbf{q.o.} non implica quella \textit{uniforme} su $X$.\\
+Tuttavia, se \textit{restringiamo} opportunamente il dominio, è possibile trovare che una successione convergente \textbf{q.o.} converga anche \textit{uniformemente}, come afferma il seguente teorema.
+\begin{theoremaqed}[Teorema di Egoroff]\index{teorema!di Egorofff}
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$. Supponiamo che esista $A\subseteq X$ con $\mu(A)<+\infty$, tale che $f_n$ converge \textbf{q.o.} a $f$ su $A$. Allora per ogni $\epsilon>0$ esiste un sottoinsieme misurabile $B\subseteq A$ tale che $\mu(B)< \epsilon$ e $f_n$ converge uniformemente a $f$ su $A\setminus B$.\\
+	Equivalentemente, per ogni $\epsilon>0$ esiste un sottoinsieme misurabile $C\subseteq A$ tale che $\mu(A\setminus C)<\epsilon$  e $f_n$ converge uniformemente a $f$ su $C$.
+\end{theoremaqed}
+In altre parole, per qualunque successione $f_n$ convergente a $f$ \textbf{q.o} in $X$, se è possibile trovare un sottoinsieme $A\subseteq X$ misurabilmente finito allora $f_n$ converge anche uniformemente a $f$ in un qualunque sottoinsieme di $A$ con misura arbitrariamente vicina a quella originale. Una successione $f_n$ che converge a $f$ in questo modo è detta \textbf{convergenza quasi uniforme}\index{convergenza!quasi uniforme} - non utilizzeremo particolarmente questa nomenclatura.
+L'ipotesi di $A$ con $\mu(A)<+\infty$ è fondamentale: infatti, possiamo riutilizzare come controesempio quello visto a pagina \pageref{controesempiouniformepuntuale} per la convergenza uniforme e puntuale.
+\begin{example}
+	Consideriamo la successione
+	\begin{equation*}
+		f_n(x)=\chi_{(n,n+1)}(x)=
+		\begin{cases}
+			\begin{array}{ll}
+				1&n<x<n+1\\
+				0&x\leq n\vee x\geq n+1
+			\end{array}
+		\end{cases}
+	\end{equation*}
+	Per quanto visto, essa converge puntualmente a $f\equiv 0$ su $\realset$ e quindi anche \textbf{q.o.}. Tuttavia, essa non converge uniformemente alla funzione nulla su qualunque sottoinsieme $\realset\setminus B$, per qualunque insieme $B$ di misura finita, dato che
+	\begin{equation*}
+		\lim_{n\to+\infty}\left(\sup_{x\in\realset\setminus B}\abs{f_n(x)-f(x)}\right)=\lim_{n\to+\infty}\left(\sup_{x\in\realset\setminus B}\abs{1-0}\right)=1\neq 0
+	\end{equation*}
+\end{example}
 \paragraph{Convergenza in {$L^1$}}
 \begin{define}[Convergenza in {$L^1\left(\mu\right)$}]
 	Siano $f_n,f\in L^1\left(\mu\right)$. Si dice che
@@ -221,7 +260,7 @@ Si nota che il grafico di $f_n$ può stare, in qualche zona, molto distante dal 
 Questa è la differenza principale tra la convergenza uniforme/puntuale/quasi ovunque e quella in $L^1$: se per le prime tre è fondamentale minimizzare la \textit{distanza} tra la funzione $f_n$ e $f$, l'ultima richiede di minimizzare l'\textit{area} tra le due.
 \paragraph{Convergenza uniforme e in {$L^1$}}
 \begin{theorema}[Legame tra convergenza uniforme e {$L^1$} nel caso di misura finita]
-	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$. Se
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$. Se
 	\begin{enumerate}[label=(\alph*)]
 		\item $f_n\in L^{1}\left(\mu\right)$.
 		\item $f_n$ converge uniformemente a $f$ su $X$.
@@ -278,7 +317,7 @@ Questa è la differenza principale tra la convergenza uniforme/puntuale/quasi ov
 \begin{attention}
 	Se $\mu(x)=+\infty$, in generale \textit{non} vale nessuna delle tesi: come controesempi si possono prendere i tre esposti\footnote{Si veda \refChapterOnly{convergenzafunzioni}, pag. \pageref{controesempipassaggiointegrale}.} nel discorso sui problemi di integrabilità nell'ambito della teoria di Riemann.
 \end{attention}
-In generale non vale il viceversa: dalla convergenza $L^1$ non segue quella uniforme.
+In generale non vale il viceversa: dalla convergenza in $L^1$ non segue quella uniforme.
 \begin{example}
 	Consideriamo la successione
 	\begin{equation*}
@@ -308,9 +347,48 @@ Con questo teorema abbiamo finalmente risposto in toto ad uno dei quesiti inizia
 	\item Convergenza monotona.
 	\item Convergenza dominata.
 \end{itemize}
+\paragraph{Convergenza quasi ovunque e {$L^1$}}
+Come abbiamo detto precedentemente\footnote{Si veda pag. \pageref{indebolimentoteoremi}.} possiamo indebolire le ipotesi dei teoremi di convergenza monotona e dominata per applicarli anche alla convergenza \textbf{q.o.}, e tutti e due implicano il passaggio al limite sotto segno di integrale. Questo ci permette di affermare il seguente corollario.
+\begin{corollaryqed}[Convergenza quasi ovunque e {$L^1$}]
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili; inoltre, sia $f_n$ convergente \textbf{q.o.} a $f$ e tale per cui sia soddisfatta almeno una delle seguenti:
+	\begin{itemize}
+		 \item Valgono le ipotesi del teorema di convergenza \textit{monotona} - in particolare, la successione è crescente positiva.
+		 \item Valgono le ipotesi del teorema di convergenza \textit{dominata} - in particolare, la successione ha una dominazione uniforme e integrabile.
+	\end{itemize}
+	Se valgono queste condizioni, allora $f_n$ converge in $L^1$ a $f$.
+\end{corollaryqed}
+Chiaramente, questo corollario è valido anche per successioni che convergono \textit{puntualmente} ad una funzione limite e che soddisfano le ipotesi di uno dei due teoremi.\\
+Purtroppo, dalla convergenza in $L^1$ a quella \textbf{q.o.} in generale non si può dire nulla, come si può vedere da un controesempio dal nome peculiare.
+\begin{examplewt}[Successione della macchina da scrivere]
+		Consideriamo la successione
+	\begin{equation*}
+		f_n(x)=\chi_{\left[\frac{n-2^k}{2^k},\frac{n-2^k+1}{2^k}\right]}(x)=
+		\begin{cases}
+			\begin{array}{ll}
+				1&\frac{n-2^k}{2^k}\leq x\leq\frac{n-2^k+1}{2^k}\\
+				0&x< \frac{n-2^k}{2^k}\vee x>\frac{n-2^k+1}{2^k}
+			\end{array}
+		\end{cases}
+	\end{equation*}
+	per ogni $n\geq 0$ e con $k\in\naturalset$ tale che $2^k\leq n\leq 2^{k+1}$. Questa si può visualizzare come dei segmenti, ad altezza $1$ e larghezza $\frac{1}{2^k}$, che ‘‘marciano'' lungo l'intervallo $\left[0,1\right]$ ripetutamente. Ad ogni ‘‘ritorno a capo'' la larghezza viene dimezzata.\\
+	Si vede che $f_n$ converge alla funzione $f\equiv 0$ in $L^1$: il segmento individuato da $f_n$ tenderà a diventare un singolo punto al crescere di $n$, dunque l'area sottesa da $f_n$ è un segmento verticale ed è quindi di misura nulla; infatti,
+	\begin{align*}
+		\lim_{n\to+\infty}\norm{f_n-f}_1&=\lim_{n\to+\infty}\int_{\realset}\abs{f_n-f}d\mu=\lim_{n\to+\infty}\int_{\frac{n-2^k}{2^k}}^{\frac{n-2^k+1}{2^k}}dx=\\
+		&=\lim_{n\to+\infty}\left(\frac{n-2^k+1}{2^k}-\frac{n-2^k}{2^k}\right)=\lim_{n\to+\infty}\frac{1}{2^k}=0
+	\end{align*}
+	Invece, $f_n$ non converge \textbf{q.o.} a $f\equiv 0$. Infatti, per qualunque scelta di $x\in\left[0,1\right]$ e per qualunque $N\in\naturalset$ si può trovare un $n>N$ con $f_n(x)=1$, quindi la sequenza non può convergere \textit{mai} a $0$.
+\end{examplewt}
+Tuttavia, se consideriamo delle \textit{sottosuccessioni}, allora è sempre possibile trovare una sottosuccessione convergente \textbf{q.o.}.
+\begin{theoremaqed}[Teorema della convergenza dominata inversa]
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n}{X}{\complexset}$, con $f_n\in L^1(\mu),\ \forall n$, una successione di funzioni tale che $f_n$ converge ad una funzione $f$ in $L^1$. Allora esiste una sottosuccessione $f_{n_k}$ e una funzione $g\in L^1(\mu)$ tale che
+	\begin{enumerate}
+		\item $f_{n_k}$ converge a $f$ \textbf{q.o.} - rispetto a $k$.
+		\item $\forall k\in\naturalset,\abs{f_{n_k}(x)}\leq g(x)$ \textbf{q.o.} per ogni $x\in X$.\qedhere
+	\end{enumerate} 
+\end{theoremaqed}
 \paragraph{Convergenza in misura}
 \begin{define}[Convergenza in misura]
-	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$; $\forall n\in\naturalset$ definiamo la funzione $g_n\coloneqq \abs{f_n-f}$. Allora, se prendiamo $\forall n\in\ \naturalset,\forall \epsilon>0$ l'insieme
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzion $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$; $\forall n\in\naturalset$ definiamo la funzione $g_n\coloneqq \abs{f_n-f}$. Allora, se prendiamo $\forall n\in\ \naturalset,\forall \epsilon>0$ l'insieme
 	\begin{equation*}
 		E_{n,\epsilon}\coloneqq g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)=\left\{x\in X\mid \abs{f_n(x)-f(x)}>\epsilon\right\}
 	\end{equation*}
@@ -326,7 +404,7 @@ Considerato $X\subseteq \realset$, possiamo visualizzare graficamente la converg
 Possiamo interpretare questa convergenza come un particolare tipo di convergenza in $L^1$, condividendo però alcune caratteristiche con la convergenza \textit{uniforme} e alla convergenza \textit{quasi ovunque}. Arbitrariamente scelto un raggio $\epsilon$, il grafico di $f_n$ è nella quasi sua totalità contenuto nell'\textit{intorno tubulare} di raggio $\epsilon$ centrato sul grafico di $f$, ma è concesso che esso possa \textit{uscire} da tale intorno purché la misura dell'insieme di tutti i punti di $\realset$ in cui ciò accade tenda ad essere nulla al crescere di $n$.
 \paragraph{Convergenza in {$L^1$} e in misura}
 \begin{theorema}[Legame tra convergenza {$L^1$} e convergenza in misura]
-	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzione $\funz{f_n,f}{X}{\complexset}$ tali che $f_n,f\in L^1\left(\mu\right)$.
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzion $\funz{f_n,f}{X}{\complexset}$ tali che $f_n,f\in L^1\left(\mu\right)$.
 	Allora
 	\begin{equation}
 		f_n\text{ converge in }L^1\text{ a }f\implies f_n\text{ converge in misura a }f
@@ -350,7 +428,7 @@ Possiamo interpretare questa convergenza come un particolare tipo di convergenza
 		\lim_{n\to+\infty}\mu\left(E_{n,\epsilon}\right)=0,\ \forall \epsilon>0\qedhere
 	\end{equation*}
 \end{demonstration}
-In generale non vale il viceversa: dalla convergenza in misura non segue la convergenza $L^1$.
+In generale non vale il viceversa: dalla convergenza in misura non segue la convergenza in $L^1$.
 \begin{example}
 	Consideriamo la successione
 	\begin{equation*}
@@ -372,3 +450,12 @@ In generale non vale il viceversa: dalla convergenza in misura non segue la conv
 		&\implies\lim_{n\to+\infty}\mu\left(\left\{x\in X\mid \abs{f_n(x)-f(x)}>\epsilon\right\}\right)=\lim_{n\to+\infty}\mu\left(\left[0,\frac{1}{n}\right]\right)=\lim_{n\to+\infty}\frac{1}{n}=0,\ \forall \epsilon >0
 	\end{align*}
 \end{example}
+\paragraph{Convergenza quasi ovunque e in misura}
+\begin{theoremaqed}[Legame tra convergenza quasi ovunque e in misura]
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$.
+	\begin{enumerate}
+		\item Se $\mu(X)<+\infty$ e $f_n$ converge \textbf{q.o.} a $f$ su $X$, allora $f_n$ converge in misura a $f$ su $X$.
+		\item Se $\mu$ è $\sigma$-finita e $f_n$ converge in misura a $f$ su $X$, allora c'è una sottosuccessione $f_{n_k}$ convergenza \textbf{q.o.} a $f$ su $X$.\qedhere
+	\end{enumerate}
+\end{theoremaqed}
+Chiaramente, il secondo punto del teorema è valido - nelle ipotesi del teorema - anche per successioni che convergono in $L^1$, dato che convergono sempre anche in misura.

@@ -67,72 +67,168 @@ Data una funzione $\funz{f}{X}{Y}$ e date le famiglie di sottoinsiemi $\{A_i\}\s
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{Si veda \ref{note1}.}
 \end{center}
-\section{Inversa di una matrice 2×2}
-Data la matrice $A$:
-	\begin{equation*}
-	A=\left(\begin{array}{cc}
-		a & b \\
-		c & d
-	\end{array}\right)
-\end{equation*}
-Con $\det A\neq 0$, la sua inversa è:
-\begin{equation*}
-	A^{-1}=\frac{1}{\det A}\left(\begin{array}{cc}
-		d & -b \\
-		-c & a
-	\end{array}\right)
-\end{equation*}
-\section{Invarianti topologici più comuni}
-\begin{multicols}{2}
-	\textls{\textsc{\textcolor{reddo}{Cardinalità}}}
-	\begin{itemize}
-		\item \textbf{Cardinalità} $\vert X\vert$ dello spazio $X$.
-		\item \textbf{Cardinalità} $\vert \topo\vert$ della topologia.
-	\end{itemize}
-\textls{\textsc{\textcolor{reddo}{Assiomi di separazione}}}
-\begin{itemize}
-	\item \textbf{T1}: per ogni coppia di punti distinti $x$ e $y$ c'è un intorno aperto contenente $x$ ma non $y$; alternativamente, tutti i punti sono chiusi.
-	\item \textbf{T2} o \textbf{Hausdorff}: per ogni coppia di punti distinti $x$ e $y$ esistono due intorni disgiunti. Spazi di \textbf{Hausdorff} sono sempre \textbf{T1}.
-	\item \textbf{Discreta}: ogni sottoinsieme è aperto.
-\end{itemize}
-\textls{\textsc{\textcolor{reddo}{Assiomi di numerabilità}}}
-\begin{itemize}
-	\item \textbf{Separabile}: lo spazio contiene un sottoinsieme denso numerabile.
-	\item \textbf{Primo numerabile}: ogni punto ha un sistema fondamentale di intorni numerabile.
-	\item \textbf{Secondo numerabile}: la topologia ha una base di cardinalità numerabile. Spazi secondo numerabili sono sempre separabili e primi numerabili.
-\end{itemize}
-\textls{\textsc{\textcolor{reddo}{Connessione}}}
-\begin{itemize}
-	\item \textbf{Connesso}: gli unici aperti e chiusi sono il vuoto e lo spazio stesso; alternativamente, lo spazio \textit{non} è l'unione di una coppia di aperti/chiusi non vuoti e disgiunti.
-	\item \textbf{Connesso per archi}: per ogni coppia di punti $x,\ y$ c'è un cammino $\funz{\alpha}{\left[0,\ 1\right]}{X}$ (con $\alpha\left(0\right)=x$ e $\alpha\left(1\right)=y$). Spazi \textbf{c.p.a.} sono sempre connessi.
-	\item \textbf{Semplicemente connesso}: spazio \textbf{c.p.a.} il cui gruppo fondamentale è banale.
-	\item \textbf{Contraibile}: spazio con tipo di omotopia di un punto; alternativamente, l'identità $Id_X$ è omotopica ad una funzione costante. Ogni spazio contraibile è semplicemente connesso.
-\end{itemize}
-\textls{\textsc{\textcolor{reddo}{Compattezza}}}
-\begin{itemize}
-	\item \textbf{Compatto}: ogni ricoprimento aperto ammette un sottoricoprimento finito.
-	\item \textbf{Compatto per successioni}: ogni successione ha una sottosuccessione convergente.
-\end{itemize}
-\textls{\textsc{\textcolor{reddo}{Metrica}}}
-\begin{itemize}
-	\item \textbf{Metrico}: la topologia è indotta da una distanza; alternativamente, è omeomorfo ad uno spazio metrico.
-\end{itemize}
-\end{multicols}
-\section{Invarianti omotopici più comuni}
-Tutti gli invarianti omotopici sono anche invarianti per omeomorfismi.
-\begin{multicols}{2}
-\begin{itemize}
-	\item \textbf{Connesso per archi}.
-	\item \textbf{Semplicemente connesso}.
-	\item Se gli spazi sono \textbf{c.p.a.}, i \textbf{gruppi fondamentali} sono \textit{isomorfi}. Se non sono \textit{c.p.a.}, $\gruf{X}{x_0}$ è omeomorfo a $\gruf{Y}{y_0}$ con $\funz{f}{\left(X,\ x_0\right)}{\left(Y,\ f\left(x_0\right)\right)}$ equivalenza omotopica.
-\end{itemize}
-\end{multicols}
-\section{Invarianti proiettivi}
-\begin{multicols}{2}
-\begin{itemize}
-	\item \textbf{Birapporto di quattro punti}.
-	\item \textbf{Grado di una conica}.
-	\item \textbf{Irriducibilità di una conica}.
-	\item \textbf{Conica degenere}.
-\end{itemize}	
-\end{multicols}
+	\includepdf{images/modiconvergenza2}
+\newpage
+\section{Passaggio al limite sotto segno di integrale}
+	\begin{tabular}{p{0.49\textwidth}p{0.49\textwidth}}
+		\multicolumn{2}{c}{\textbf{TEOREMA}} \\
+		\begin{tabular}[c]{m{0.49\textwidth}}
+		\centering \textbf{Convergenza uniforme} \\ \centering \textbf{(teoria di Riemann)}
+		\end{tabular} &
+		\begin{tabular}[c]{m{0.49\textwidth}}
+		\centering \textbf{Convergenza uniforme} \\ \centering \textbf{(teoria di Lebesgue)}
+		\end{tabular} \\
+		Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che	\begin{enumerate}[label=(\alph*)]
+			\item $f_n\in\mathcal{R}\left(\left[a,b\right]\right),\ \forall n\geq 1$.
+			\item $f_n$ converge uniformemente a $f$ su $\left[a,b\right]$.
+		\end{enumerate}
+		Allora
+		\begin{enumerate}
+			\item $f\in\mathcal{R}\left(\left[a,b\right]\right)$.
+			\item 
+			Vale il \textbf{passaggio al limite sotto segno di integrale}:
+			\begin{tabular}[c]{c}
+			$\displaystyle\lim_{n\to+\infty}\int_{a}^{b}\!\!\! f_n(x)dx=\int_{a}^{b}\!\!\!\lim_{n\to+\infty}f_n(x)dx$
+			\end{tabular}
+		\end{enumerate} &
+		Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ tali che
+		\begin{enumerate}[label=(\alph*)]
+			\item $f_n\in L^{1}\left(\mu\right)$.
+			\item $f_n$ converge uniformemente a $f$ su $X$.
+			\item $\mu(X)<+\infty$.
+		\end{enumerate}
+			Allora
+		\begin{enumerate}
+			\item $f\in L^{1}\left(\mu\right)$.
+			\item $\displaystyle\lim_{n\to+\infty}\norm{f_n-f}_1=0$.
+			\item Vale il \textbf{passaggio al limite sotto segno di integrale}:
+			\begin{tabular}[c]{c}
+			$\displaystyle\lim_{n\to+\infty}\int_X\!\!\! f_nd\mu=\int_X\!\!\lim_{n\to+\infty}f_nd\mu$
+			\end{tabular}
+		\end{enumerate} \\
+		\multicolumn{2}{c}{\textbf{VANTAGGI}} \\
+		\begin{itemize}
+			\item È l'unico teorema di questo tipo valido nella teoria di Riemann.
+		\end{itemize} &
+		\begin{itemize}
+			\item Vale su spazi di misura finita invece che solamente degli intervalli finiti.
+		\end{itemize} \\
+		\multicolumn{2}{c}{\textbf{SVANTAGGI}} \\
+		\begin{itemize}
+			\item Richiede la convergenza uniforme.
+			\item Vale solo per funzioni limitate.
+			\item Vale solo su intervalli limitati.
+		\end{itemize} &
+		\begin{itemize}
+			\item Richiede la convergenza uniforme.
+			\item Richiede l'integrabilità della successione.
+			\item Vale solo su spazi di misura finita.
+		\end{itemize}
+		\begin{comment} \\
+		\multicolumn{1}{l}{
+			\begin{tabular}[c]{p{3cm}}
+				Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che	\begin{enumerate}
+					\item $f_n\in\mathcal{R}\left(\left[a,b\right]\right),\ \forall n\geq 1$.
+					\item $f_n$ converge uniformemente a $f$ su $\left[a,b\right]$.
+				\end{enumerate}
+				Allora
+				\begin{enumerate}
+					\item $f\in\mathcal{R}\left(\left[a,b\right]\right)$.
+					\item Vale il \textbf{passaggio al limite sotto segno di integrale}:\\
+					$\displaystyle	\lim_{n\to+\infty}\int_{a}^{b}f_n(x)dx=\int_{a}^{b}\lim_{n\to+\infty}f_n(x)dx=\int_{a}^{b}f(x)dx$
+				\end{enumerate}
+		\end{tabular}} &
+		\multicolumn{1}{l}{
+			\begin{tabular}[c]{p{3cm}}
+				Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che	\begin{enumerate}
+					\item $f_n$ sono misurabili.
+					\item $\displaystyle\lim_{n\to+\infty}f_n(x)=f(x),\ \forall x\in X$.
+					\item $0\leq f_n(x)\leq f_{n+1}(x),\ \forall n\geq 1,\ \forall x\in X$.
+				\end{enumerate}
+				allora
+				\begin{enumerate}
+					\item $f$ è misurabile.
+					\item Vale il \textbf{passaggio al limite sotto segno di integrale}:\\
+					$\displaystyle	\lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu\in\left[0,+\infty\right]$
+				\end{enumerate}
+		\end{tabular}}&
+		\begin{tabular}[c]{p{3cm}}
+			Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n}{X}{\complexset}$ una successione di funzioni misurabili tale che esiste\\
+			$\displaystyle f(x)=\lim_{n\to+\infty}f_n(x),\ \forall x\in X$
+			Se esiste una funzione $g\in \mathcal{L}^{1}\left(\mu\right)$ tale per cui\\
+			$\displaystyle\abs{f_n(x)}\leq g(x),\ \forall n\geq 1,\ \forall x\in X$
+			allora $f\in \mathcal{L}^{1}\left(\mu\right)$ e vale\\
+			$\displaystyle \lim_{n\to+\infty}\int_X\abs{f_n-f}d\mu=0$
+			e vale il \textbf{passaggio al limite sotto segno di integrale}:
+			$\displaystyle \lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu$
+		\end{tabular} &
+		\begin{tabular}[c]{@{}l@{}}
+			Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$. Se
+			\begin{enumerate}[label=(\alph*)]
+				\item $f_n\in L^{1}\left(\mu\right)$.
+				\item $f_n$ converge uniformemente a $f$ su $X$.
+				\item $\mu(X)<+\infty$.
+			\end{enumerate}
+			allora
+			\begin{enumerate}
+				\item $f\in L^{1}\left(\mu\right)$.
+				\item $\displaystyle\lim_{n\to+\infty}\norm{f_n-f}_1=0$.
+				\item Vale il \textbf{passaggio al limite sotto segno di integrale}\\
+				$\displaystyle \lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu$
+			\end{enumerate}
+		\end{tabular} \\
+		\multicolumn{4}{c}{\textbf{VANTAGGI}} \\
+		\multicolumn{1}{l}{
+			\begin{tabular}[c]{p{3cm}}
+				\begin{enumerate}
+					\item È l'unico teorema di questo tipo valido nella teoria di Riemann.
+				\end{enumerate}
+		\end{tabular}} &
+		\begin{tabular}[c]{p{3cm}}
+			\begin{enumerate}
+				\item Richiede la convergenza puntuale.
+				\item Si può applicare anche con la convergenza \textbf{q.o.} purché la misura sia completa o la funzione limite $f$ è una funzione misurabile che coincide \textbf{q.o.} con il limite \textbf{q.o.} della successione.
+				\item È sufficiente anche solamente supporre che la successione $f_n$ sia non decrescente su $X$ \textbf{q.o.}.
+				\item Vale qualunque sia la misura di $X$.
+			\end{enumerate}
+		\end{tabular} &
+		\begin{tabular}[c]{p{3cm}}
+			\begin{enumerate}
+				\item Richiede la convergenza puntuale.
+				\item Si può applicare anche con la convergenza \textbf{q.o.} e con la dominazione \textbf{q.o.} purché la misura sia completa o la funzione limite $f$ è una funzione misurabile che coincide \textbf{q.o.} con il limite \textbf{q.o.} della successione.
+				\item Vale qualunque sia la misura di $X$.
+				\item Vale per funzione a valori complessi.
+			\end{enumerate}
+		\end{tabular} &
+		\begin{tabular}[c]{@{}l@{}}
+			\begin{enumerate}
+				\item Vale su spazi di misura finita invece che solamente degli intervalli finiti.
+			\end{enumerate}
+		\end{tabular} \\
+		\multicolumn{4}{c}{\textit{\textbf{SVANTAGGI}}} \\
+		\multicolumn{1}{l}{
+			\begin{tabular}[c]{@{}l@{}}
+				\begin{enumerate}
+					\item Richiede la convergenza uniforme.
+					\item Vale solo per funzioni limitate.
+					\item Vale solo su intervalli limitati.
+				\end{enumerate}
+		\end{tabular}} &
+		\begin{tabular}[c]{@{}l@{}}
+			\begin{enumerate}
+				\item Non vale per successioni decrescenti.
+			\end{enumerate}
+		\end{tabular} &
+		\begin{tabular}[c]{@{}l@{}}
+			\begin{enumerate}
+				\item Richiede una dominazione della successione. \end{enumerate}
+		\end{tabular} &
+		\begin{tabular}[c]{@{}l@{}}
+			\begin{enumerate}
+				\item Richiede la convergenza uniforme.
+				\item Richiede l'integrabilità della successione.
+				\item Vale solo su spazi di misura finita.
+			\end{enumerate}
+		\end{tabular}
+	\end{comment}
+	\end{tabular}

@@ -14,12 +14,9 @@
 			\nowtitle}}
 }{}
 \begin{introduction}
-‘‘\textbf{Lafayette}: Ehi, Napoleone! Direi che questa è la fine.\\
-\textbf{Napoleone}: Un momento, il capo sono io! Lo dico io quando è la fine!\\
-\textbf{[La parola \textsf{FINE} lo colpisce alla testa.]}\\
-È la fine.''
+‘‘... and they don't stop coming.''
 \begin{flushright}
-	\textsc{Gli Aristogatti.}
+	\textsc{Smash Mouth,} sorpresi che ci siano delle note aggiuntive dopo cento e passa pagine di appunti.
 \end{flushright}
 \end{introduction}
 
@@ -953,3 +950,26 @@ mentre la seconda da
 	\end{equation*}
 	sono misurabili.
 \end{corollary}
+\section{Capitolo 7: convergenza di funzioni, parte seconda}
+\subsection{Misurabilità e convergenza quasi ovunque}
+\begin{proposition}[Teorema di misurabilità per successioni {q.o.}]\label{funzionimisurabiliqo}
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura con $\mu$ \textbf{completa} e $\funz{f_n,f}{X}{\complexset}$ tali che
+	\begin{enumerate}
+		\item $f_n$ misurabile su $X,\ \forall n\geq 1$.
+		\item $f_n$ converge \textbf{q.o.} a $f$ su $\left[a,b\right]$.
+	\end{enumerate}
+	Allora $f$ è misurabile.
+\end{proposition}
+\begin{demonstration}
+	Sia $g\coloneqq \liminf_{n\to+\infty}f_n$: sappiamo che $g$ è misurabile perché le $f_n$ lo sono; inoltre, poiché $f_n$ converge \textbf{q.o.} a $f$, allora esso coincide a $f$ \textbf{q.o.}. Ci rimane da mostrare che se $f=g$ \textbf{q.o.} e $g$ è misurabile, allora lo è anche $f$.\\
+	Per definizione di proprietà \textbf{q.o.}, esiste un insieme $N$ di misura nulla in cui $f\neq g$. Osserviamo che, per un qualunque aperto $A\subseteq\complexset$, si ha
+	\begin{align*}
+		f^{-1}(A)&=\left[f^{-1}(A)\cap N^C\right]\cup\left[f^{-1}(A)\cap N\right]=\\
+		&=\left[g^{-1}(A)\cap N^C\right]\cup\left[f^{-1}(A)\cap N\right]
+	\end{align*}
+	in quanto $f=g$ su $N^C$. Poiché $N,\ N^C$ e $g^{-1}(I)$ sono misurabili, allora $g^{-1}(A)\cap N^C$ è misurabile; infine, poiché la misura è completa, allora essendo $N$ misurabilmente nullo si ha $f^{-1}(A)\cap N$ misurabile (e di misura nulla). Pertanto, $f^{-1}(A)$ è misurabile e si ha la tesi.
+\end{demonstration}
+L'ipotesi della completezza della misura $\mu$ è fondamentale, come vedremo nel breve controesempio che segue.
+\begin{example}
+	Si consideri lo spazio di misura $\left(X,\{\emptyset,X,\mu\right)$, dove $\mu(\emptyset)=0=\mu(X)$; la misura $\mu$ è banalmente non completa. In questo spazio si ha che ogni successione $\funz{f_n}{X}{\complexset}$ converge \textbf{q.o.} ad una qualunque $\funz{f}{X}{\complexset}$, ma soltanto le applicazioni costanti sono misurabili.
+\end{example}

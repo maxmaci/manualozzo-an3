@@ -794,7 +794,7 @@ Sia $\epsilon>0$. Per ogni $x\in\left(a,b\right)$, preso $c$ come da ipotesi $2)
 \end{equation*}
 Studiamo il \textit{primo addendo}. Per il \textit{corollario al teorema di Lagrange} si ha
 \begin{equation*}
-	\abs{f_n(x)-f_m(x)-\left(f_n\left(c\right)-f_m\left(c\right)\right)}\leq\left(\sup_{t\in\left(a,b\right)}\abs{x-c}\right)
+	\abs{f_n(x)-f_m(x)-\left(f_n\left(c\right)-f_m\left(c\right)\right)}\leq\left(\sup_{x\in\left(a,b\right)}\abs{x-c}\right)
 \end{equation*}
 Inoltre, poiché per ipotesi $3)$ $f'_n$ converge uniformemente su $\left(a,b\right)$, si ha per il criterio di Cauchy che
 \begin{equation*}
@@ -807,7 +807,7 @@ Segue dunque che
 \end{align*}
 Per il \textit{secondo addendo}, dato che per ipotesi $2)$ $f_n$ converge puntualmente in $c$, possiamo applicare il criterio di Cauchy per le successioni:
 \begin{equation*}
-		\forall \epsilon >0,\ \exists N_2=N_2\left(\epsilon\right)\colon\forall n,m\geq N_2,\ \abs{f_n\left(c\right)-f'_m\left(c\right)}<\frac{\epsilon}{2}
+		\forall \epsilon >0,\ \exists N_2=N_2\left(\epsilon\right)\colon\forall n,m\geq N_2,\ \abs{f_n\left(c\right)-f_m\left(c\right)}<\frac{\epsilon}{2}
 \end{equation*}
 Posto $N=\max\left\{N_1,N_2\right\}$, per ogni $n,m\geq N$ si ha
 \begin{align*}

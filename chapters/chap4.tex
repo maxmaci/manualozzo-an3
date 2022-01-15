@@ -135,7 +135,7 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 \end{observe}
 \begin{demonstrationcaputwt}[del teorema di Cauchy-Hadamard]~
 	\begin{enumerate}[label=\Roman*]
-		\item 	Partiamo dal dimostrare il punto $2)$: dobbiamo provare che $R=\frac{1}{\lambda}$, ossia
+		\item[II] 	Partiamo dal dimostrare il punto $2)$: dobbiamo provare che $R=\frac{1}{\lambda}$, ossia
 		\begin{itemize}
 			\item[a.] Se $\abs{z}<\nicefrac{1}{\lambda}$, allora $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge.
 			\item[b.] Se $\abs{z}>\nicefrac{1}{\lambda}$, allora $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ \textit{non} converge.
@@ -185,7 +185,7 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 				\limsup_{n\to+\infty}\abs{a_nz^n}\geq 1\implies\lim_{n\to+\infty}\abs{a_nz^n}\neq 0
 			\end{equation*}
 		\end{itemize}
-	\item La dimostrazione del punto $1)$ è analoga alla prima parte della dimostrazione del punto $2)$. In questo caso, dobbiamo mostrare che la serie converge $\forall z\in\complexset$.\\ Se $z=0$, la serie banalmente converge, mentre se $z\neq 0$, si ha chiaramente che $0=\lambda<\nicefrac{1}{\abs{z}},\ \forall z\in\complexset\setminus\{0\}$. Consideriamo allora $\lambda'$ tale che $0<\lambda'<\nicefrac{1}{\abs{z}}$: poiché $\lambda'>0$, per la caratterizzazione del massimo limite si ha
+	\item[I] La dimostrazione del punto $1)$ è analoga alla prima parte della dimostrazione del punto $2)$. In questo caso, dobbiamo mostrare che la serie converge $\forall z\in\complexset$.\\ Se $z=0$, la serie banalmente converge, mentre se $z\neq 0$, si ha chiaramente che $0=\lambda<\nicefrac{1}{\abs{z}},\ \forall z\in\complexset\setminus\{0\}$. Consideriamo allora $\lambda'$ tale che $0<\lambda'<\nicefrac{1}{\abs{z}}$: poiché $\lambda'>0$, per la caratterizzazione del massimo limite si ha
 	\begin{equation*}
 		\circled[red]{\vardiamond}\quad\exists N\colon\forall n\geq N\ \sqrt[n]{\abs{a_n}}<\lambda'
 	\end{equation*}
@@ -206,7 +206,7 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 		\sum_{n=0}^{+\infty}a_nz^n
 	\end{equation*}
 	Poiché la scelta di $z$ è stata \textit{arbitraria}, vale la tesi.
-	\item 
+	\item[III]
 	La dimostrazione del punto $3)$ è analoga alla seconda parte della dimostrazione del punto $2)$. In questo caso, dobbiamo mostrare che la serie converge solo nel punto $z=0$.\\ Se $z=0$, la serie banalmente converge. Per mostrare la \textit{non} convergenza della serie proviamo che la condizione necessaria di convergenza non è soddisfatta, ovvero
 	\begin{equation*}
 		\lim_{n\to+\infty}a_nz^n\neq 0,\ \forall z\neq 0

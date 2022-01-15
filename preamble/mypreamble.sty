@@ -88,6 +88,9 @@
 
 \RequirePackage{calc}
 
+
+\RequirePackage{pdfpages}
+
  % used for font issues
 \RequirePackage{anyfontsize}
 % commutative diagrams
@@ -2792,3 +2795,11 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 %%%%%
 
 \allowdisplaybreaks
+
+%%%%%
+
+\newcommand\blankpagers{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}

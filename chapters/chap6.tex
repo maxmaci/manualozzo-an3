@@ -164,7 +164,7 @@ Ricordiamo che, dati $s_i\geq 0$ e $A_i\in\mathcal{M},\ i=1,\ \ldots,\ k$ si ha
 \begin{equation*}
 	s=\sum_{i=1}^{k}s_i\chi_{A_i}\text{ misurabile}\iff A_i\text{ misurabile},\ \forall i
 \end{equation*}
-Gli intervalli di $\left[\frac{i-1}{2^n},\frac{i}{2^n}\right),\ \forall i=1,\ \ldots,\ n2^n$ e $\left[n,+\infty\right)$ sono Borelliani in $\left[0,+\infty\right]$; pertanto, le controimmagini $E_{n,i}$ e $F_n$ tramite $f$ funzione misurabile sono anch'esse misurabili in $X$.
+Gli intervalli di $\left[\frac{i-1}{2^n},\frac{i}{2^n}\right),\ \forall i=1,\ \ldots,\ n2^n$ e $\left[n,+\infty\right)$ sono Boreliani in $\left[0,+\infty\right]$; pertanto, le controimmagini $E_{n,i}$ e $F_n$ tramite $f$ funzione misurabile sono anch'esse misurabili in $X$.
 \item  \textbf{\textsc{Passo 3}: approssimazione nel senso della convergenza puntuale.}\\
 	Proviamo che vale la relazione
 	\begin{equation*}
@@ -390,9 +390,9 @@ Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right]}$ funzione 
 	\end{enumerate}
 \end{property}
 \subsection{Teorema della convergenza monotona}
-Il \textbf{teorema della convergenza monotona}\index{teorema!della convergenza monotona}, altresì noto come Teorema di Beppo-Levi (principalmente in Italia) o di Lebesgue, si inserisce nel filone dei risultati sul problema del \textit{passaggio al limite sotto segno di integrale} di cui abbiamo parlato per la prima volta nel \refChapterOnly{ellipseintroduction}.\\
+Il \textbf{teorema della convergenza monotona}\index{teorema!della convergenza monotona}, altresì noto come \textbf{Teorema di Beppo Levi}\seeonlyindex{teorema!di Beppo Levi}{teorema!della convergenza monotona} (principalmente in Italia) o di \textbf{Lebesgue}\seeonlyindex{teorema!di Lebesgue}{teorema!della convergenza monotona}, si inserisce nel filone dei risultati sul problema del \textit{passaggio al limite sotto segno di integrale} di cui abbiamo parlato per la prima volta nel \refChapterOnly{ellipseintroduction}.\\
 Abbiamo già visto\footnote{Si veda \refChapterOnly{seriefunzioni}, teorema \ref{passaggioallimitecontinuitàuniforme}, pag. \pageref{passaggioallimitecontinuitàuniforme}.} che se una successione di funzioni $f_n$ Riemann-integrabili su un compatto converge uniformemente a $f$, allora $f$ è Riemann-integrabile e vale il passaggio al limite dell'integrale. Il teorema che dimostreremo, pur essendo applicabile solo a funzioni misurabili e monotone \textit{crescenti}, risulta avere diversi notevoli vantaggi rispetto al risultato basato sulla convergenza uniforme.
-\begin{theorema}[Teorema della convergenza monotona]
+\begin{theorema}[Teorema della convergenza monotona]\label{thmconvergenzamonotona}
 	Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che
 	\begin{enumerate}
 		\item $f_n$ sono misurabili.
@@ -408,12 +408,12 @@ allora
 	\end{equation}
 \end{enumerate}
 \end{theorema}
-\begin{observe}~{}
+\begin{observes}~{}
 	\begin{itemize}
 		\item L'uguaglianza della tesi è valida per ogni misura di $X$, anche infinita.
 		\item Il risultato è in generale \textit{falso} se $f_n(x)$ decresce rispetto ad $n,\ \forall x\in X$.
 	\end{itemize}
-\end{observe}
+\end{observes}
 \begin{examplewt}[Controesempio con una successione di funzioni decrescenti]
 	Sia $\left(X,\mathcal{M},\mu\right)=\left(\realset,\mathcal{L}(\realset),m_1\right)$ e $f_n(x)=\frac{1}{n},\ \forall x\in\realset$. Per ogni $x$ vale
 	\begin{itemize}
@@ -1028,7 +1028,7 @@ Si ha quindi
 \end{equation*}
 \end{demonstration}
 \subsection{Teorema della convergenza dominata}\index{teorema!della convergenza dominata}
-\begin{theorema}[Teorema della convergenza dominata]
+\begin{theorema}[Teorema della convergenza dominata]\label{thmconvergenzadominata}
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n}{X}{\complexset}$ una successione di funzioni misurabili tale che esiste
 \begin{equation*}
 	f(x)=\lim_{n\to+\infty}f_n(x),\ \forall x\in X

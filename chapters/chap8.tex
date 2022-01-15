@@ -14,10 +14,11 @@
 		\textsc{Joseph Fourier,} cercando disperatamente di motivare ai suoi genitori la scelta di studiare matematica.
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{S}{tudieremo} \textbf{[COMPLETARE]}
-% TO DO: completare intro
+\lettrine[findent=1pt, nindent=0pt]{S}{i} sa, molti quesiti matematici sono particolarmente difficili da risolvere, anche solo per la loro complessità computazionale. Questo è un problema soprattutto nel mondo applicativo-ingegneristico, dove spesso è importante avere dei metodi risolutivi che siano anche pratici da implementare in \textit{macchina}.\\
+Per fare un esempio pratico, sappiamo che un \textit{suono} si può descrivere come la somma di diverse \textit{sinusoidi} a frequenze e ampiezze differenti: come possiamo trovare da un rumore qualunque le sinusoidi che lo generano?\\
+Per ‘‘aggirare'' questi inconvenienti si fa uso di quelle che sono chiamate \textit{trasformate integrali}, operazioni che mappano funzioni dal loro dominio originale in un altro dominio, dove può essere molto più facile risolvere il problema che nel dominio originale; per fare questo cambio è necessario integrare una funzione a \textit{due} variabili, di cui una è la vecchia variabile e fungerà da \textit{variabile di integrazione}, mentre quella nuova - che rispetto all'integrale non è altre che un \textit{parametro} - è detta di \textit{trasformazione} e ci permetterà il passaggio al nuovo dominio; in altre parole, ci serve trattare gli \textbf{integrali dipendenti da un parametro}.\\
+Già nel corso di \textsc{Analisi Matematica 2} li abbiamo incontrato nella teoria dell'integrazione di Riemann; in questo capitolo espanderemo questo argomento agli \textit{integrali di Lebesgue}, in modo da poter trattare anche funzioni complesse e studiare \textit{continuità} e \textit{derivabilità} con gli strumenti visti nei precedenti capitoli. Concluderemo introducendo una delle trasformazioni più importanti per la matematica teorica e applicata, le \textbf{trasformate di Fourier} - anche se non andremo nei dettagli delle loro vaste e innumerevoli applicazioni, preferendo lasciare alcune riferimenti a fine capitolo per approfondimento.
 \section{Integrali dipendenti da un parametro}
-Nel corso di \textsc{Analisi Matematica 2} abbiamo incontrato gli \textit{integrali dipendenti da un parametro} nella teoria dell'integrazione di Riemann. Espandiamo questo argomento agli integrali di Lebesgue.
 \begin{define}[Integrali dipendenti da un parametro]
 	Consideriamo lo spazio di misura $\left(\realset,\mathcal{L}\left(\realset\right),m_1\right)$. Un \textbf{integrale dipendente da un parametro}\index{integrale!dipendente da un parametro} è una funzione
 	\begin{equation}
@@ -154,7 +155,7 @@ Per dimostrare questo teorema ci serviranno i seguenti fatti:
 	\end{equation*}
 	definiamo la \textbf{trasformata di Fourier}\index{trasformata di Fourier} di $g$ l'integrale dipendente dal parametro di $t$ dato da $f$:
 	\begin{equation}
-		\begin{array}{ll}
+		\begin{array}{rl}
 			\displaystyle\hat{g}(t)&=\displaystyle\int_{\realset}g(x)e^{-itx}dm_1(x)=\\
 			&=\displaystyle\int_{\realset}g(x)\cos txdm_1(x)-i\int_\realset g(x)\sin txdm_1(x),\ \forall t\in\realset
 		\end{array}
@@ -222,3 +223,17 @@ Ci chiediamo sotto quali ipotesi su $g$ la funzione $F$ è continua e sotto qual
 		\end{equation*}
 	\end{enumerate}
 \end{demonstration}
+\paragraph{Un'applicazione delle trasformate di Fourier: l'analisi sonora}
+Come abbiamo accennato nell'introduzione, il problema fondamentale nella \textit{Teoria dei segnali} è quella della decomposizione di un \textit{suono} in sinusoidi semplici. Come abbiamo preannunciato, per risolvere ciò ci si avvale di trasformate integrali e in particolare, da come si può intuire dal titolo del paragrafo, delle trasformate di Fourier.
+Ma allora cosa va a rappresentare la trasformata di Fourier, esattamente?\\
+Consideriamo una funzione $g(t)$ periodica e prendiamo un intervallo $I$ su cui è definita. La sua trasformata di Fourier su $I$ è
+\begin{equation*}
+	\displaystyle\hat{g}(\xi)=\displaystyle\int_{I}g(t)e^{-2\pi i\xi t}dm_1(t)
+\end{equation*}
+Sul piano complesso $e^{-2\pi i\xi t}$ descrive sempre un punto sulla \textit{circonferenza unitaria}. In particolare possiamo immaginare tale punto muoversi sulla circonferenza al variare di $t$: se $t$ indica il \textbf{tempo}, allora il parametro $\xi$ indicherà invece una \textbf{frequenza}; a seconda della frequenza scelta, percorrerò la circonferenza più o meno velocemente.\\
+Moltiplicare ciò per $g(t)$ significa che al tempo $t$ il punto $e^{-2\pi i\xi t}$ disterà dall'origine $g(t)$; visivamente, stiamo ‘‘avvolgendo'' in senso antiorario il grafico di $g(t)$ attorno alla circonferenza unitaria. In questo caso $\xi$ diventa una ‘‘frequenza di avvolgimento'' e rappresenta una misura di \textit{quanto rapidamente} stiamo avvolgendo la curva attorno alla circonferenza.\\
+Osserviamo che la trasformata di Fourier non descrive altro che le coordinate - modulo un opportuno coefficiente dato dall'intervallo $I$ - del \textbf{baricentro} di tale curva avvolta \textit{in funzione} della frequenza di avvolgimento.\\
+Normalmente il \textit{centro di massa} sta nei pressi dell'\textit{origine} per gran parte delle frequenze di avvolgimento; tuttavia, se la frequenza di avvolgimento si avvicina alla \textit{frequenza del segnale} di $g$, allora curiosamente tale baricentro si sposterà a distanza \textit{significativa} dall'origine, per poi tornare indietro in una posizione più standard al variare di $\xi$.\\
+Possiamo rappresentare graficamente le coordinate $x$ e $y$ rispetto alla frequenza di avvolgimento $\xi$: tolto la frequenza nulla, i massimi di questi due grafici si troveranno proprio quando la frequenze di avvolgimento coincide con la frequenza del segnale!\\
+Se studiamo i massimi della trasformata di Fourier di $g$ possiamo ricavare tutte le frequenze che la costituiscono, proprio come desiderato!\\
+Questa che abbiamo dato è solo un'infarinatura molto generale del tema; per un approfondimento visivo particolarmente curato rimandiamo al video di \textbf{3Blue1Brown}, 	\textit{‘‘But what is the Fourier Transform?  A visual introduction.''} (\textcolor{redill}{\url{https://www.youtube.com/watch?v=spUNpyF58BY}}).
