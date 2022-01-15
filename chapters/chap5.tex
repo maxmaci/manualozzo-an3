@@ -334,22 +334,22 @@ ed essendo $\mathcal{M}$ una $\sigma$-algebra è chiusa rispetto all'unione nume
 	allora $f$ è misurabile.
 \end{corollary}
 \begin{demonstration}
-	Il risultato precedente era su $\realset^\ast$, mentre questo teorema è su $\complexset$; inoltre $\limsup$ e $\liminf$ non sono definiti sui complessi perché non c'è ordinamento. Riconduciamoci quindi al caso reale decomponendo $\complexset$ in parte reale ed immaginaria per utilizzare la proposizione precedente. Posto
+	Il risultato precedente era su $\realset^{\ast}$, mentre questo teorema è su $\complexset$; inoltre $\limsup$ e $\liminf$ non sono definiti sui complessi perché non c'è ordinamento. Riconduciamoci quindi al caso reale decomponendo $\complexset$ in parte reale ed immaginaria per utilizzare la proposizione precedente. Posto
 	\begin{equation*}
 		f_n=u_n+iv_n\qquad f=u+iv
 	\end{equation*}
 dove
 \begin{equation*}
-%	\begin{align}
-%		\funz{u_n&=\Re\left(f_n\right)}{X}{\realset} & \funz{v_n&=\Im\left(f_n\right)}{X}{\realset}\\
-%		\funz{u&=\Re\left(f\right)}{X}{\realset}& \funz{v&=\Im\left(f\right)}{X}{\realset}
-%	\end{align}
+\begin{array}{ll}
+	\funz{u_n=\Re\left(f_n\right)}{X}{\realset}&\funz{v_n=\Im\left(f_n\right)}{X}{\realset}\\
+	\funz{u=\Re\left(f\right)}{X}{\realset}&\funz{v=\Im\left(f\right)}{X}{\realset}
+\end{array}
 \end{equation*}
-Come visto nella proposizione \ref{funzionimisurabilicomplesse}, $f_n$ misurabile implica che sia $u_n$ sia $v_n$ siano misurabili e, dal risultato precedente sulle funzioni a valori in $\realset^{\ast}$ si ha
+Come visto nella proposizione \ref{funzionimisurabilicomplesse}, $f_n$ misurabile implica che sia $u_n$ sia $v_n$ sono misurabili e, dal risultato precedente sulle funzioni a valori in $\realset^{\ast}$ si ha
 \begin{equation*}
 	\limsup_{n\to+\infty}u_n,\ \limsup_{n\to+\infty}v_n\text{ misurabili.}
 \end{equation*}
-D'latra parte si ha
+D'altra parte la convergenza in $\complexset$ implica la convergenza delle parti reale ed immaginaria e si ha
 \begin{equation*}
 	\lim_{n\to+\infty}f_n(x)=f(x)\implies
 	\begin{cases}
@@ -357,12 +357,13 @@ D'latra parte si ha
 		\displaystyle\lim_{n\to+\infty}v_n(x)=v(x)
 	\end{cases}
 \end{equation*}
-Poiché i limiti esistono si ha
+Poiché i limiti esistono essi coincidono con i $\limsup$ si ha
 \begin{gather*}
 	\lim_{n\to+\infty}u_n=\limsup_{n\to+\infty}u_n=u(x)\\	\lim_{n\to+\infty}v_n=\limsup_{n\to+\infty}v_n=v(x)
 \end{gather*}
 Quindi $u(x)$ e $v(x)$ sono misurabili, pertanto anche $f=u+iv$ è misurabile.
 \end{demonstration}
+In definitiva la continuità non passa al limite con la sola convergenza puntuale, ma la misurabilità sì!
 \section{Misura di Peano-Jordan}
 Negli stessi anni in cui si lavorò per espandere la classe di funzioni che ammettono integrale definito, diversi matematici lavorano su un'altra questione, quella della \textbf{misura} di un insieme.\\
 Chiaramente già dall'antichità erano note misure di figure ‘‘elementari'', come ad esempio la lunghezza e l'area di un poligono o il volume di certi solidi, spesso sulla base di principi come quello di \textit{esaustione}.\\
