@@ -14,7 +14,7 @@
 		\textsc{Ernest Rutherford,} stanco di studiare Calcolo delle Probabilità e Statistica.
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{C}{ome} abbiamo potuto notare nel corso di \textsc{Calcolo di Probabilità}, la teoria della \textbf{probabilità} si è notevolmente espansa dal mero studio di eventi discreti con metodi combinatoriali. Infatti, Andrey Nikolaevich \textbf{Kolmogorov} (1903 – 1987) nel 1933 combinò la nozione di spazio campione, già introdotta da Richard \textbf{von Mises} (1883 – 1953), e la teoria della misura di Lebesgue per definire un sistema assiomatico compatibile sia con la teoria \textit{classica}, sia con l'Analisi Moderna: in questo modo, gli eventi potevano essere anche qualcosa di \textit{continuo}.\\
+\lettrine[findent=1pt, nindent=0pt]{C}{ome} abbiamo potuto notare nel corso di \textsc{Calcolo di Probabilità}, la teoria della \textbf{probabilità} si è notevolmente espansa dal mero studio di eventi discreti con metodi combinatoriali. Infatti, Andrey Nikolaevich \textbf{Kolmogorov} (1903 – 1987) nel 1933 combinò la nozione di spazio campione, già introdotta da Richard \textbf{von Mises} (1883 – 1953), e la teoria della misura di Lebesgue per definire un sistema assiomatico compatibile sia con la teoria \textit{classica} della probabilità, sia con l'\textit{Analisi moderna}: in questo modo, gli eventi potevano essere anche un qualcosa di \textit{continuo}, con tutto ciò che ne consegue.\\
 In questo ultimo capitolo di teoria approfondiremo alcuni concetti visti a \textsc{Calcolo di Probabilità} con il formalismo e il rigore dato dalla teoria della Misura e dell'integrazione. Partiremo con l'enunciare gli \textit{assiomi di probabilità} di Kolmogorov per poi dedicarci a come studiare le \textit{variabili aleatorie} tramite la sola \textit{probabilità immagine}, e in base ad essa dare una classificazione \textit{esaustiva} delle variabili aleatorie. Concludiamo la trattazione rivedendo i \textit{modi di convergenza} delle funzioni misurabili in ambito probabilistico.
 \section{Spazio di probabilità e variabili aleatorie}
 \begin{define}[Spazio di probabilità]
@@ -76,7 +76,7 @@ Questo spazio di probabilità deve soddisfare gli assiomi di probabilità introd
 	\end{equation*}
 	Poiché per il primo assioma la probabilità di un evento è sempre non-negativa, ne consegue che ogni elemento di questa sommatoria debba essere uguale a zero, ossia $\mathcal{P}\left(\emptyset\right)=0$.
 \end{demonstration}
-Si può subito osservare che lo spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ altro non è che uno \textbf{spazio di misura} $\left(X,\mathcal{M},\mu\right)$, con l'ipotesi aggiunta che la misura $\mu$ sia di \textbf{probabilità}, cioè $\mu(x)=1$.
+Si può subito osservare che lo spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ altro non è che uno \textbf{spazio di misura} $\left(X,\mathcal{M},\mu\right)$, con l'ipotesi aggiunta che la misura $\mu$ sia di \textbf{probabilità}, cioè $\mu(X)=1$.
 \begin{define}[Funzione misurabile]
 	Sia $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ uno spazio di probabilità. Una funzione $\funz{X}{\Omega}{\complexset}$ si dice \textbf{variabile aleatoria}\index{variabile aleatoria} se \begin{equation}
 		X^{-1}\left(A\right)\in\mathcal{F},\ \forall A\subseteq \complexset\text{ aperto.}
@@ -240,7 +240,7 @@ la misura viene chiamata \textit{singolare} e si definisce \textit{concentrata} 
 \begin{define}[Misura singolare]
 	Dato un spazio di misura $\left(X,\mathcal{M},\mu\right)$, una misura $\funz{\lambda}{\mathcal{M}}{\left[0,+\infty\right]}$ non assolutamente continua rispetto a $\mu$ si dice \textbf{singolare}\index{misura!singolare} rispetto a $\mu$ se
 	\begin{equation}
-		\exists S\in\mathcal{M}\colon \mu\left(S\right)=0, \lambda\left(S\right)\neq0 \text{ ma }\lambda(x)=\lambda\left(S\right)
+		\exists S\in\mathcal{M}\colon \mu\left(S\right)=0, \lambda\left(S\right)\neq0 \text{ ma }\lambda(X)=\lambda\left(S\right)
 	\end{equation}
 	La misura $\lambda$ è detta \textbf{concentrata} in $S$ e si indica con $\mu\perp\lambda$.
 	\begin{itemize}
@@ -249,7 +249,7 @@ la misura viene chiamata \textit{singolare} e si definisce \textit{concentrata} 
 	\end{itemize}
 \end{define}
 \begin{observe}
-	Si può vedere che se prendo $A\subseteq S^{C}=X\setminus S$, allora $\lambda\left(A\right)=0$, in quanto se così non fosse si avrebbe $\lambda\left(S\right)\neq\lambda(x)$. Si osserva chiaramente che vale anche il viceversa per $\mu$: se prendo $B\subseteq S$, allora $\mu\left(B\right)=0$.\\
+	Si può vedere che se prendo $A\subseteq S^{C}=X\setminus S$, allora $\lambda\left(A\right)=0$, in quanto se così non fosse si avrebbe $\lambda\left(S\right)\neq\lambda(X)$. Si osserva chiaramente che vale anche il viceversa per $\mu$: se prendo $B\subseteq S$, allora $\mu\left(B\right)=0$.\\
 	Da ciò, si vede una definizione alternativa per le misura singolari: una misura $\lambda$ singolare rispetto a $\mu$ se esiste un insieme $S\in\mathcal{M}$ tale che $\mu\left(A\right)=0,\ \forall A\subseteq S$ misurabili e $\lambda\left(B\right)=0,\ \forall A\subseteq S^{C}$ misurabili.
 \end{observe}
 \subsection{Variabili aleatorie singolari discrete}
@@ -338,11 +338,11 @@ La convergenza certa implica tutti i modi di convergenza successivi, ma \textit{
 	\end{equation}
 \end{define}
 Osserviamo che in uno spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ questa convergenza è equivalente alla convergenza \textit{quasi ovunque}. Infatti:
-\begin{flalign*}
-	\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}=\Omega\setminus\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\\
-	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}\right)\underset{\mathbb{P}(x)<+\infty}{=}\mathbb{P}\left(\Omega\right)-\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\right)\\
-	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}\right)=1-\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\right)
-\end{flalign*}
+\begin{align*}
+	\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}&=\Omega\setminus\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\\
+	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}\right)&\underset{\mathbb{P}(x)<+\infty}{=}\mathbb{P}\left(\Omega\right)-\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\right)\\
+	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}\right)&=1-\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\right)
+\end{align*}
 Allora affermare che
 \begin{equation*}
 	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\right)=1
@@ -352,7 +352,7 @@ significa affermare che
 	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}\right)=0
 \end{equation*}
 \begin{attention}
-	In uno spazio di misura che \textit{non} sia di probabilità questa corrispondenza non si può fare, dato che $\mu(x)$ può non essere pari ad $1$, tanto meno finito. Vale sempre la convergenza \textbf{q.o.}, ma mai quella \textbf{q.c.}.
+	In uno spazio di misura che \textit{non} sia di probabilità questa corrispondenza non si può fare, dato che $\mu(X)$ può non essere pari ad $1$, tanto meno finito. Vale sempre la convergenza \textbf{q.o.}, ma mai quella \textbf{q.c.}.
 \end{attention}
 \paragraph{Convergenza in probabilità}
 \begin{define}[Convergenza in probabilità]
@@ -363,7 +363,7 @@ significa affermare che
 \end{define}
 In modo analogo alla convergenza quasi certa, in uno spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ questa convergenza è equivalente alla \textit{convergenza in misura}.
 \begin{attention}
-	In uno spazio di misura che \textit{non} sia di probabilità questa corrispondenza non si può fare, dato che $\mu(x)$ può non essere pari ad $1$, tanto meno finito. Vale sempre la convergenza in misura, ma mai quella in probabilità.
+	In uno spazio di misura che \textit{non} sia di probabilità questa corrispondenza non si può fare, dato che $\mu(X)$ può non essere pari ad $1$, tanto meno finito. Vale sempre la convergenza in misura, ma mai quella in probabilità.
 \end{attention}
 \paragraph{Convergenza in media}
 \begin{define}[Convergenza in media]

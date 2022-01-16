@@ -67,168 +67,128 @@ Data una funzione $\funz{f}{X}{Y}$ e date le famiglie di sottoinsiemi $\{A_i\}\s
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{Si veda \ref{note1}.}
 \end{center}
+\section{Modi di convergenza}
+\section{Modi di convergenza}
+Lo schema riassuntivo è nella pagina successiva.
 	\includepdf{images/modiconvergenza2}
 \newpage
 \section{Passaggio al limite sotto segno di integrale}
+\begin{center}
 	\begin{tabular}{p{0.49\textwidth}p{0.49\textwidth}}
-		\multicolumn{2}{c}{\textbf{TEOREMA}} \\
-		\begin{tabular}[c]{m{0.49\textwidth}}
-		\centering \textbf{Convergenza uniforme} \\ \centering \textbf{(teoria di Riemann)}
-		\end{tabular} &
-		\begin{tabular}[c]{m{0.49\textwidth}}
-		\centering \textbf{Convergenza uniforme} \\ \centering \textbf{(teoria di Lebesgue)}
-		\end{tabular} \\
-		Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che	\begin{enumerate}[label=(\alph*)]
+		\multicolumn{2}{c}{\textbf{Teoremi}} \\\hline
+		\multicolumn{1}{c|}{
+			 \textbf{Convergenza uniforme}} & \multicolumn{1}{c}{\textbf{Convergenza uniforme}}\\
+		\multicolumn{1}{c|}{\textbf{(teoria di Riemann)}} &
+			\multicolumn{1}{c}{\textbf{(teoria di Lebesgue)}} \\
+		\multicolumn{1}{p{0.49\textwidth}|}{Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
+		\begin{enumerate}[label=(\alph*)]
 			\item $f_n\in\mathcal{R}\left(\left[a,b\right]\right),\ \forall n\geq 1$.
 			\item $f_n$ converge uniformemente a $f$ su $\left[a,b\right]$.
 		\end{enumerate}
-		Allora
-		\begin{enumerate}
-			\item $f\in\mathcal{R}\left(\left[a,b\right]\right)$.
-			\item 
-			Vale il \textbf{passaggio al limite sotto segno di integrale}:
-			\begin{tabular}[c]{c}
-			$\displaystyle\lim_{n\to+\infty}\int_{a}^{b}\!\!\! f_n(x)dx=\int_{a}^{b}\!\!\!\lim_{n\to+\infty}f_n(x)dx$
-			\end{tabular}
-		\end{enumerate} &
+		} &
 		Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ tali che
 		\begin{enumerate}[label=(\alph*)]
 			\item $f_n\in L^{1}\left(\mu\right)$.
 			\item $f_n$ converge uniformemente a $f$ su $X$.
 			\item $\mu(X)<+\infty$.
-		\end{enumerate}
-			Allora
+		\end{enumerate}\\[-4mm]
+		\multicolumn{1}{p{0.49\textwidth}|}{Allora
+		\begin{enumerate}
+			\item $f\in\mathcal{R}\left(\left[a,b\right]\right)$.
+			\item Vale il \textbf{passaggio al limite sotto segno di integrale}:\newline
+			\begin{tabular}[c]{c}
+				$\displaystyle\lim_{n\to+\infty}\int_{a}^{b}\!\!\! f_n(x)dx=\int_{a}^{b}\!\!\!\lim_{n\to+\infty}f_n(x)dx$
+			\end{tabular}
+		\end{enumerate}} &
+		Allora
 		\begin{enumerate}
 			\item $f\in L^{1}\left(\mu\right)$.
 			\item $\displaystyle\lim_{n\to+\infty}\norm{f_n-f}_1=0$.
-			\item Vale il \textbf{passaggio al limite sotto segno di integrale}:
+			\item Vale il \textbf{passaggio al limite sotto segno di integrale}:\newline
 			\begin{tabular}[c]{c}
-			$\displaystyle\lim_{n\to+\infty}\int_X\!\!\! f_nd\mu=\int_X\!\!\lim_{n\to+\infty}f_nd\mu$
+				$\displaystyle\quad\lim_{n\to+\infty}\int_X\!\!\! f_nd\mu=\int_X\!\!\lim_{n\to+\infty}f_nd\mu$
 			\end{tabular}
-		\end{enumerate} \\
-		\multicolumn{2}{c}{\textbf{VANTAGGI}} \\
+		\end{enumerate} \\ \hline
+		\multicolumn{2}{c}{\textbf{Vantaggi}}\\\hline
+		\multicolumn{1}{p{0.49\textwidth}|}{
 		\begin{itemize}
-			\item È l'unico teorema di questo tipo valido nella teoria di Riemann.
-		\end{itemize} &
+			\item È l'unico teorema sul passaggio di limite valido nella teoria di Riemann.
+		\end{itemize}} &
 		\begin{itemize}
-			\item Vale su spazi di misura finita invece che solamente degli intervalli finiti.
-		\end{itemize} \\
-		\multicolumn{2}{c}{\textbf{SVANTAGGI}} \\
-		\begin{itemize}
+			\item Vale su spazi di misura finita invece che solamente sugli intervalli finiti.
+		\end{itemize} \\\hline
+		\multicolumn{2}{c}{\textbf{Svantaggi}}\\\hline
+		\multicolumn{1}{p{0.49\textwidth}|}{\begin{itemize}
 			\item Richiede la convergenza uniforme.
 			\item Vale solo per funzioni limitate.
 			\item Vale solo su intervalli limitati.
-		\end{itemize} &
+		\end{itemize}} &
 		\begin{itemize}
 			\item Richiede la convergenza uniforme.
 			\item Richiede l'integrabilità della successione.
 			\item Vale solo su spazi di misura finita.
 		\end{itemize}
-		\begin{comment} \\
-		\multicolumn{1}{l}{
-			\begin{tabular}[c]{p{3cm}}
-				Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che	\begin{enumerate}
-					\item $f_n\in\mathcal{R}\left(\left[a,b\right]\right),\ \forall n\geq 1$.
-					\item $f_n$ converge uniformemente a $f$ su $\left[a,b\right]$.
-				\end{enumerate}
-				Allora
-				\begin{enumerate}
-					\item $f\in\mathcal{R}\left(\left[a,b\right]\right)$.
-					\item Vale il \textbf{passaggio al limite sotto segno di integrale}:\\
-					$\displaystyle	\lim_{n\to+\infty}\int_{a}^{b}f_n(x)dx=\int_{a}^{b}\lim_{n\to+\infty}f_n(x)dx=\int_{a}^{b}f(x)dx$
-				\end{enumerate}
-		\end{tabular}} &
-		\multicolumn{1}{l}{
-			\begin{tabular}[c]{p{3cm}}
-				Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che	\begin{enumerate}
-					\item $f_n$ sono misurabili.
-					\item $\displaystyle\lim_{n\to+\infty}f_n(x)=f(x),\ \forall x\in X$.
-					\item $0\leq f_n(x)\leq f_{n+1}(x),\ \forall n\geq 1,\ \forall x\in X$.
-				\end{enumerate}
-				allora
-				\begin{enumerate}
-					\item $f$ è misurabile.
-					\item Vale il \textbf{passaggio al limite sotto segno di integrale}:\\
-					$\displaystyle	\lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu\in\left[0,+\infty\right]$
-				\end{enumerate}
-		\end{tabular}}&
-		\begin{tabular}[c]{p{3cm}}
-			Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n}{X}{\complexset}$ una successione di funzioni misurabili tale che esiste\\
-			$\displaystyle f(x)=\lim_{n\to+\infty}f_n(x),\ \forall x\in X$
-			Se esiste una funzione $g\in \mathcal{L}^{1}\left(\mu\right)$ tale per cui\\
-			$\displaystyle\abs{f_n(x)}\leq g(x),\ \forall n\geq 1,\ \forall x\in X$
-			allora $f\in \mathcal{L}^{1}\left(\mu\right)$ e vale\\
-			$\displaystyle \lim_{n\to+\infty}\int_X\abs{f_n-f}d\mu=0$
-			e vale il \textbf{passaggio al limite sotto segno di integrale}:
-			$\displaystyle \lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu$
-		\end{tabular} &
-		\begin{tabular}[c]{@{}l@{}}
-			Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$. Se
-			\begin{enumerate}[label=(\alph*)]
-				\item $f_n\in L^{1}\left(\mu\right)$.
-				\item $f_n$ converge uniformemente a $f$ su $X$.
-				\item $\mu(X)<+\infty$.
-			\end{enumerate}
-			allora
-			\begin{enumerate}
-				\item $f\in L^{1}\left(\mu\right)$.
-				\item $\displaystyle\lim_{n\to+\infty}\norm{f_n-f}_1=0$.
-				\item Vale il \textbf{passaggio al limite sotto segno di integrale}\\
-				$\displaystyle \lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu$
-			\end{enumerate}
-		\end{tabular} \\
-		\multicolumn{4}{c}{\textbf{VANTAGGI}} \\
-		\multicolumn{1}{l}{
-			\begin{tabular}[c]{p{3cm}}
-				\begin{enumerate}
-					\item È l'unico teorema di questo tipo valido nella teoria di Riemann.
-				\end{enumerate}
-		\end{tabular}} &
-		\begin{tabular}[c]{p{3cm}}
-			\begin{enumerate}
-				\item Richiede la convergenza puntuale.
-				\item Si può applicare anche con la convergenza \textbf{q.o.} purché la misura sia completa o la funzione limite $f$ è una funzione misurabile che coincide \textbf{q.o.} con il limite \textbf{q.o.} della successione.
-				\item È sufficiente anche solamente supporre che la successione $f_n$ sia non decrescente su $X$ \textbf{q.o.}.
-				\item Vale qualunque sia la misura di $X$.
-			\end{enumerate}
-		\end{tabular} &
-		\begin{tabular}[c]{p{3cm}}
-			\begin{enumerate}
-				\item Richiede la convergenza puntuale.
-				\item Si può applicare anche con la convergenza \textbf{q.o.} e con la dominazione \textbf{q.o.} purché la misura sia completa o la funzione limite $f$ è una funzione misurabile che coincide \textbf{q.o.} con il limite \textbf{q.o.} della successione.
-				\item Vale qualunque sia la misura di $X$.
-				\item Vale per funzione a valori complessi.
-			\end{enumerate}
-		\end{tabular} &
-		\begin{tabular}[c]{@{}l@{}}
-			\begin{enumerate}
-				\item Vale su spazi di misura finita invece che solamente degli intervalli finiti.
-			\end{enumerate}
-		\end{tabular} \\
-		\multicolumn{4}{c}{\textit{\textbf{SVANTAGGI}}} \\
-		\multicolumn{1}{l}{
-			\begin{tabular}[c]{@{}l@{}}
-				\begin{enumerate}
-					\item Richiede la convergenza uniforme.
-					\item Vale solo per funzioni limitate.
-					\item Vale solo su intervalli limitati.
-				\end{enumerate}
-		\end{tabular}} &
-		\begin{tabular}[c]{@{}l@{}}
-			\begin{enumerate}
-				\item Non vale per successioni decrescenti.
-			\end{enumerate}
-		\end{tabular} &
-		\begin{tabular}[c]{@{}l@{}}
-			\begin{enumerate}
-				\item Richiede una dominazione della successione. \end{enumerate}
-		\end{tabular} &
-		\begin{tabular}[c]{@{}l@{}}
-			\begin{enumerate}
-				\item Richiede la convergenza uniforme.
-				\item Richiede l'integrabilità della successione.
-				\item Vale solo su spazi di misura finita.
-			\end{enumerate}
-		\end{tabular}
-	\end{comment}
 	\end{tabular}
+\end{center}
+\newpage
+\begin{center}
+	\begin{tabular}{p{0.49\textwidth}p{0.49\textwidth}}
+		\multicolumn{2}{c}{\textbf{Teoremi}} \\\hline
+		\multicolumn{1}{c|}{\textbf{Convergenza monotona}} &
+		\multicolumn{1}{c|}{\centering \textbf{Convergenza dominata}} \\
+		\multicolumn{1}{p{0.49\textwidth}|}{
+		Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che
+		\begin{enumerate}[label=(\alph*)]
+			\item $f_n$ sono misurabili.
+			\item $\displaystyle\lim_{n\to+\infty}f_n(x)=f(x),\ \forall x\in X$.
+			\item $0\leq f_n(x)\leq f_{n+1}(x), \forall n\geq 1, \forall x\in X$.
+		\end{enumerate}
+		} &
+		Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\complexset}$ con $n\geq 1$ tali che
+		\begin{enumerate}[label=(\alph*)]
+			\item 	$f_n$ sono misurabili.
+			\item 	$\displaystyle \lim_{n\to+\infty}f_n(x)=f(x),\ \forall x\in X$
+			\item 	Esiste una funzione $g\in \mathcal{L}^{1}\left(\mu\right)$ tale per cui\newline
+			\begin{tabular}{c}
+				$\displaystyle\quad \abs{f_n(x)}\leq g(x),\ \forall n\geq 1,\ \forall x\in X$	
+			\end{tabular}
+		\end{enumerate} \\[-4mm]
+		\multicolumn{1}{p{0.49\textwidth}|}{Allora
+		\begin{enumerate}
+			\item $f$ è misurabile.
+			\item Vale il \textbf{passaggio al limite sotto segno di integrale}:\newline
+			\begin{tabular}{c}
+				$\displaystyle\quad \lim_{n\to+\infty}\int_X\!\!\! f_nd\mu=\int_X\!\!\lim_{n\to+\infty}f_nd\mu$
+			\end{tabular}
+		\end{enumerate}} &
+		Allora
+		\begin{enumerate}
+			\item $f\in L^{1}\left(\mu\right)$.
+			\item $\displaystyle\lim_{n\to+\infty}\int_X\abs{f_n-f}d\mu=0$
+			\item Vale il \textbf{passaggio al limite sotto segno di integrale}:\newline
+			\begin{tabular}[c]{c}
+				$\quad\displaystyle\lim_{n\to+\infty}\int_X\!\!\! f_nd\mu=\int_X\!\!\lim_{n\to+\infty}f_nd\mu$
+			\end{tabular}
+		\end{enumerate} \\\hline
+		\multicolumn{2}{c}{\textbf{Vantaggi}} \\\hline
+		\multicolumn{1}{p{0.49\textwidth}|}{\begin{itemize}
+			\item Richiede solo la convergenza puntuale.
+			\item Si può applicare anche con la convergenza \textbf{q.o.} purché la misura sia completa o la funzione limite $f$ è una funzione misurabile che coincide \textbf{q.o.} con il limite \textbf{q.o.} della successione.
+			\item È sufficiente anche solamente supporre che la successione $f_n$ sia non decrescente su $X$ \textbf{q.o.}.
+			\item Vale qualunque sia la misura di $X$.
+		\end{itemize}} &
+		\begin{itemize}
+			\item Richiede solo la convergenza puntuale.
+			\item Si può applicare anche con la convergenza \textbf{q.o.} e con la dominazione \textbf{q.o.} purché la misura sia completa o la funzione limite $f$ è una funzione misurabile che coincide \textbf{q.o.} con il limite \textbf{q.o.} della successione.
+			\item Vale qualunque sia la misura di $X$.
+			\item Vale per funzione a valori complessi.
+		\end{itemize} \\\hline
+		\multicolumn{2}{c}{\textbf{Svantaggi}} \\\hline
+		\multicolumn{1}{p{0.49\textwidth}|}{\begin{itemize}
+			\item Non vale per successioni decrescenti.
+		\end{itemize}} &
+		\begin{itemize}
+			\item Richiede una dominazione della successione.
+		\end{itemize}
+	\end{tabular}
+\end{center}

@@ -1,0 +1,428 @@
+% SVN info for this file
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+
+\chapter{Massimo e minimo limite}
+\labelAppendix{maxminlimite}
+
+\addtocontents{define}{\noindent\textls{\textsc{\textcolor{reddo}{Appendice A:}
+			\nowtitle}}
+}{}
+\addtocontents{theorema}{\noindent\textls{\textsc{\textcolor{reddo}{Appendice A:}
+			\nowtitle}}
+}{}
+\begin{introduction}
+	‘‘Non c'è niente nel mondo il cui significato non sia quello di un qualche massimo o minimo.''
+	\begin{flushright}
+		\textsc{Leonhard Euler,} dimenticandosi del concetto di estremo inferiore e superiore.
+	\end{flushright}
+\end{introduction}
+\lettrine[findent=1pt, nindent=0pt]{N}{on} sempre le successioni reali ammettono limite: successioni oscillanti, ad esempio, non tendono ad un singolo valore all'infinito e dunque non possiamo parlare di limite in questi contesti. Ciò nonostante, ci accorgiamo che possiamo sempre estrarre delle \textit{sottosuccessioni} che convergono a dei valori nei reali \textit{estesi}. Appurato che per certe successioni non esiste limite, possiamo quanto meno studiare questi ‘‘sotto-limiti'' e chiederci quali siano il più piccolo e il più grande di questi.\\
+In questo capitolo, che per l'importanza che ha per ciò che si fa nel Capitolo 4 avremmo dovuto indicarlo come Capitolo 3.5, approfondiremo l'argomento del \textbf{massimo e minimo limite}, una sorta di generalizzazione del limite che possiamo applicare in qualunque successione reale e che ci permette di descriverne il comportamento all'infinito in modo preciso anche se la essa non ammette limite!\\
+Dopo aver dato la loro definizione attraverso \textbf{valori limiti}, cercheremo di caratterizzarli in una maniera intermedia tra quella di estremo superiore/inferiore e quella di limite vero e propria, per poi darne un'altra più insiemistica. Concludiamo trattando lo studio del massimo limite del prodotto di due successioni.
+\section{La definizione di massimo e minimo limite}
+\begin{remember}
+In $\realset^{\ast}$ è definito il concetto di \textbf{convergenza}, che coincide con l'usuale concetto di convergenza quando il risultato del limite è \textit{finito}, mentre coincide con il concetto di divergenza, a più o a meno \textit{infinito}, quando il risultato del limite è più o meno infinito, rispettivamente.
+\end{remember}
+\begin{define}[Valore limite e classe limite]
+Sia $a_n$ una successione di numeri reali e sia $\realset^{\ast}=\realset\cup \{+\infty\}\cup \{-\infty\}=\left[-\infty,+\infty\right]$.\\
+Un valore $\lambda\in \realset^{\ast}$ si dice \textbf{valore limite}\index{valore limite} della successione $a_n$ se esiste una sottosuccessione $a_{n_k}$ tale che
+\begin{equation}
+	\lim_{k\to +\infty} a_{n_k}=\lambda.
+\end{equation}
+L'insieme dei valori limite della successione si chiama \textbf{classe limite}\index{classe limite} della successione.
+\end{define}
+\begin{exercises}~
+\begin{enumerate}
+	\item Provare che la classe limite di ogni successione è non vuota.
+	\item Scrivere un esempio esplicito di successione con classe limite $\{0, +\infty \}$.
+	\item Scrivere un esempio esplicito di successione con classe limite costituita da tre valori.
+	\item Scrivere un esempio di successione con classe limite $\realset$.
+\end{enumerate}
+\end{exercises}
+\begin{solution}
+\begin{enumerate}[label=\Roman*]
+	\item Se la successione è \textit{limitata}, allora si ha sempre una sottosuccessione convergente in $\realset$ per il teorema di Bolzano-Weierstrass.\\
+	Supponendo che la successione non sia limitata superiormente (il caso inferiore è analogo), costruiamo una sottosuccessione convergente a $+\infty$. Dalla non limitatezza di $a_n$ si ha che, per ogni $M\in\realset$ esiste $n\in\naturalset$ tale che $a_n>M$.\\
+	Preso $M_1=1$, si scelga $n_1$ per cui $a_{n_1}>M_1=1$.\\
+	Consideriamo ora $M_2=2+\max\left\{a_j\mid j\leq n_1\right\}$: si ha che $M_2\geq 2$ e si può sempre scegliere in quanto $a_n$ non limitata, un $n_2\geq n_1$ tale per cui $a_{n_2}>M_2$.\\
+	Per induzione si può mostrare che al $k$-esimo passo, scegliendo $M_k=k+\max\left\{a_j\mid j\leq n_k\right\}$ in modo che $M_k\geq k$, esiste $n_{k+1}>n_k$ con $a_{n_k}>M_k$.\\
+	In questo modo si ottiene una sottosequenza indicizzata da $n_k$ tale che $a_{n_k}\geq k$. Questo implica che la sottosequenza converge a $+\infty$.
+	\item Si consideri 
+	\begin{equation*}
+		a_n=\begin{cases}
+			\begin{array}{ll}
+				n&\text{se }n \text{ pari}\\
+				\frac{1}{n}&\text{se }n \text{ dispari}
+			\end{array}
+		\end{cases}
+	\end{equation*}
+	Le sottosuccessioni indicizzate dai pari e dai dispari convergono a $+\infty$ e $0$, rispettivamente.
+	\item Si consideri 
+	\begin{equation*}
+		a_n=\sin\left(\frac{n\pi}{2}\right).
+	\end{equation*}
+	L'immagine di $a_n$ è costituita da soli tre valori: $0$, $1$ e $-1$.\\
+	È sufficiente considerare le sottosuccessioni
+	\begin{flalign*}
+		\left\{b_n\right\}=\left\{a_0,a_2,a_4\ldots\right\}\\
+		\left\{c_n\right\}=\left\{a_1,a_5,a_9,\ldots\right\}\\
+		\left\{d_n\right\}=\left\{a_3,a_7,a_11,\ldots\right\}
+	\end{flalign*}
+	per verificare che ogni elemento dell'immagine di $a_n$ è valore limite e la classe limite ha solo tre valori.
+	\item Si consideri la biezione $\funz{f}{\naturalset}{\rationalset_{\geq 0}}$ e si ponga $a_n=f\left(n\right)$: questa è una successione contenente tutti i razionali e i suoi punti di accumulazioni sono, per densità di $\rationalset$, tutti i reali. Allora la classe limite di $a_n$ è $\realset$.
+\end{enumerate}
+\end{solution}
+\begin{proposition}[Chiusura della classe limite]
+La classe limite di ogni successione è un insieme chiuso in $\realset^{\ast}$.
+\end{proposition}
+\begin{demonstration}
+Sia $a_n$ una successione di numeri reali e sia $\Lambda$ la sua classe limite. Per provare che $\Lambda$ è chiuso è sufficiente provare che ogni punto di accumulazione di $\Lambda$ appartiene a  $\Lambda$.\\
+Sia quindi $\lambda^{\ast} \in \realset^{\ast}$ un punto di accumulazione di $\Lambda$; proviamo che esiste una sottosuccessione di $a_n$ convergente a $\lambda^{\ast}$. A tale fine, osserviamo che, per definizione di punto di accumulazione, per ogni $\epsilon >0$ esiste $l_0\in \Lambda,\ \lambda_0\neq \lambda^{\ast}$, tale che 
+\begin{equation*}
+	\lambda^{\ast}-\epsilon < \lambda_0<\lambda^{\ast}+\epsilon.
+\end{equation*}
+Sia $\epsilon_0>0$ tale che
+\begin{equation*}
+	\circled[red]{\vardiamond}\quad\lambda^{\ast}-\epsilon < \lambda_0-\epsilon_0< \lambda_0<\lambda_0+\epsilon_0 < \lambda^{\ast}+\epsilon.
+\end{equation*}
+Dal fatto che $\lambda_0\in \Lambda$ deduciamo che esiste una sottosuccessione $a_{n_k}$ tale che
+\begin{equation*}
+	\lim_{k\to +\infty} a_{n_k}=\lambda_0
+\end{equation*}
+e dunque, dato $\epsilon_0$ come in \circled[red]{\vardiamond}, esiste $K\in \naturalset$ tale che per ogni $k\geq K$ si ha
+\begin{equation*}
+	\circled[blue]{\spadesuit}\quad  \lambda_0-\epsilon_0< a_{n_k}<\lambda_0+\epsilon_0.
+\end{equation*}
+Dalle relazioni (1) e (2) deduciamo che per ogni $\epsilon >0$ esiste $K\in \naturalset$ tale che per ogni $k\geq K$ si ha
+\begin{equation*}
+	\lambda^{\ast}-\epsilon< a_{n_k}<\lambda^{\ast}+\epsilon
+\end{equation*}
+e questo prova che la sottosuccessione $a_{n_k}$ converge a $\lambda^{\ast}$.
+\end{demonstration}
+Dalla proposizione e dal primo punto dell'esercizio precedente, segue che la classe limite di una qualsiasi successione è un insieme chiuso non vuota; esistono quindi in $\realset^{\ast}$ il suo massimo ed il suo minimo.
+\begin{define}[Massimo e minimo limite]
+Si dice \textbf{massimo limite}\index{massimo limite} della successione $a_n$ il massimo della sua classe limite e lo si indica con 
+\begin{equation}
+	\limsup_{n\to +\infty} a_{n}.
+\end{equation}
+Si dice \textbf{minimo limite}\index{minimo limite} della successione $a_n$ il minimo della sua classe limite e lo si indica con
+\begin{equation*}
+	\liminf_{n\to +\infty} a_{n}.
+\end{equation*}
+\end{define}
+\begin{observes}~
+\begin{itemize}
+	\item Si noti che, a differenza del limite, il massimo ed il minimo limite di una successione di numeri reali esistono \textit{sempre}.
+	\item Dalla definizione segue immediatamente che
+	\begin{equation*}
+		\liminf_{n\to +\infty} a_{n} \leq \limsup_{n\to +\infty} a_{n}
+	\end{equation*}
+	e che
+	\begin{equation*}
+		\lim_{n\to +\infty} a_n \quad \mbox{esiste} \quad \iff \quad \liminf_{n\to +\infty} a_{n} =\limsup_{n\to +\infty} a_{n}.
+	\end{equation*}
+	\item Dalla definizione segue anche che
+	\begin{equation*}
+		\liminf_{n\to +\infty} a_{n} = - \limsup_{n\to +\infty} (-a_{n})
+	\end{equation*}
+	e
+	\begin{equation*}
+		\limsup_{n\to +\infty} a_{n} = - \liminf_{n\to +\infty} (-a_{n}).
+	\end{equation*}
+\end{itemize}
+\end{observes}
+\subsection{Eserciziamoci! Definizione di massimo e minimo limite}
+\begin{example}
+Una successione può avere massimo limite uguale a -$\infty$?
+\end{example}
+\begin{solution}
+La risposta è \textbf{sì}. Osserviamo che dal fatto che il minimo limite è minore o uguale al massimo limite, in questo caso si deduce che anche il minimo limite è uguale a $-\infty$ e dunque esiste il limite ed è uguale a $-\infty$. La successione diverge quindi a $-\infty$.
+\end{solution}
+\section{Caratterizzazione del massimo e del minimo limite finiti}
+Il massimo ed il minimo limite di una successione di numeri reali possono essere facilmente caratterizzati nel caso in cui siano finiti.
+\begin{proposition}[Caratterizzazione del massimo limite finito]
+Sia $a_n$ una successione di numeri reali e sia $\lambda \in \realset$. Allora
+\begin{equation*}
+	\limsup_{n\to +\infty} a_n =\lambda
+\end{equation*}
+se e solo se
+\begin{enumerate}
+	\item $\forall \ \epsilon>0 \quad \exists \ N\in \naturalset\quad \forall \ n\geq N \quad a_n<\lambda +\epsilon$.
+	\item $\forall \ \epsilon>0 \quad \mbox{esistono infiniti indici }\ n_k\in \naturalset:\quad a_{n_k}>\lambda-\epsilon$.
+\end{enumerate}
+\end{proposition}
+\begin{observe}
+Le condizioni 1. e 2. esprimono il fatto che il massimo limite di una successione è un elemento della classe limite ed è il più grande tra gli elementi della classe limite.
+\end{observe}
+\begin{demonstrationcaput}
+$\impliesdx$  Sia 
+\begin{equation*}
+	\limsup_{n\to +\infty} a_n =\lambda;
+\end{equation*}
+allora, $\lambda$ è un valore limite di $a_n$, in quanto la classe limite è chiusa, e dunque esiste una sottosuccessione $a_{n_k}$ convergente a $\lambda$.\\
+Quindi, per ogni $\epsilon >0$ esiste $K\in \naturalset$ tale che per ogni $k\geq K$ si ha
+\begin{equation*}
+	\lambda-\epsilon < a_{n_k} <\lambda +\epsilon,
+\end{equation*}
+da cui segue la relazione 2.\\ 
+D'altra parte, $\lambda$ è il massimo della classe limite; di conseguenza, per ogni $\epsilon > 0$ il numero $\lambda +2\epsilon$ non è un valore limite e dunque nell'intorno $(\lambda +\epsilon, \lambda +3\epsilon)$ di $\lambda +2\epsilon$ cadono i numeri $a_n$ per al più un numero finito di indici $n$.\\
+Esiste quindi $N\in \naturalset$ tale che per ogni $n\geq N$ si ha 
+\begin{equation*}
+	a_n <\lambda +\epsilon,
+\end{equation*}
+ossia la relazione 1.\\
+$\impliessx$ Supponiamo ora che valgano le relazioni 1. e 2. Da esse si deduce immediatamente che la sottosuccessione $a_{n_k}$ converge a $\lambda$ e dunque $\lambda$ è un valore limite della successione $a_n$.\\
+D'altra parte, dalla relazione 1. segue che ogni numero $\lambda '>\lambda$ non appartiene alla classe limite: infatti, dato  $\lambda '>\lambda$, posto $\epsilon' = (\lambda'-\lambda)/2$, esiste $N'\in \naturalset$ tale che
+\begin{equation*}
+	a_n< \lambda +\epsilon' = \lambda'-\epsilon ',
+\end{equation*}
+per ogni $n\geq N'$. Di conseguenza, si ha definitivamente
+\begin{equation*}
+	a_n \notin (\lambda' -\epsilon',\lambda'+\epsilon')
+\end{equation*}
+e dunque non esistono sottosuccessioni convergenti a $\lambda'$.\\
+Concludiamo quindi che $\lambda$ è il massimo della classe limite, ossia che $\lambda$ è il massimo limite della successione.
+\end{demonstrationcaput}
+In modo analogo si prova il seguente risultato.
+\begin{propositionqed}[Caratterizzazione del minimo limite finito]
+Sia $a_n$ una successione di numeri reali e sia $\lambda \in \realset$. Allora 
+\begin{equation*}
+	\liminf_{n\to +\infty} a_n =\lambda
+\end{equation*}
+se e solo se
+\begin{enumerate}
+	\item $\forall \ \epsilon>0 \quad \exists \ N\in \naturalset\quad \forall \ n\geq N \quad a_n>\lambda -\epsilon$.
+	\item $\forall \ \epsilon>0 \quad \mbox{esistono infiniti indici }\ n_k\in \naturalset:\quad a_{n_k}<\lambda +\epsilon$.\qedhere
+\end{enumerate}
+\end{propositionqed}
+\section{Formulazione equivalente del massimo e del minimo limite}
+\begin{proposition}[Formulazione equivalente del massimo e del minimo limite]
+Sia $a_n$ una successione di numeri reali. Allora si ha
+\begin{equation}
+	\limsup_{n\to +\infty} a_n = \inf_{n\geq 1} \left( \sup_{k\geq n} a_k\right)
+\end{equation}
+e
+\begin{equation}
+	\liminf_{n\to +\infty} a_n = \sup_{n\geq 1} \left( \inf_{k\geq n} a_k\right).
+\end{equation}
+\end{proposition}
+\begin{observe}
+Si verifica facilmente che la successione
+\begin{equation*}
+	b_n=  \sup_{k\geq n} a_k,\quad n\geq 1,
+\end{equation*}
+è decrescente: infatti, per ogni $n\geq 1$ si ha
+\begin{equation*}
+	b_{n+1} = \sup_{k\geq n+1} a_k \leq \sup_{k\geq n} a_k =b_n.
+\end{equation*}
+Di conseguenza, per il teorema di \textsc{Analisi Matematica Uno} sui \textit{limiti di successioni monotone}, essa ammette limite ed il suo limite coincide con l'estremo inferiore dei suoi valori; si ha quindi
+\begin{equation}
+	\limsup_{n\to +\infty} a_n = \inf_{n\geq 1} \left( \sup_{k\geq n} a_k\right) = \lim_{n\to +\infty} \left( \sup_{k\geq n} a_k\right).
+\end{equation}
+In modo analogo si prova che 
+\begin{equation}
+	\liminf_{n\to +\infty} a_n = \sup_{n\geq 1} \left( \inf_{k\geq n} a_k\right) = \lim_{n\to +\infty} \left( \inf_{k\geq n} a_k\right).
+\end{equation}
+\end{observe}
+\begin{demonstrationwt}[della formulazione equivalente del {$\limsup$} e del {$\liminf$}]
+Proviamo il risultato sul massimo limite nel caso in cui questo sia \textit{finito}. Lasciamo per esercizio i casi in cui questo sia più o meno infinito e le analoghe dimostrazioni per il minimo limite.\\
+Sia quindi 
+\begin{equation*}
+	\lambda = \limsup_{n\to +\infty} a_n
+\end{equation*}
+e supponiamo $\lambda \in \realset$. Alla luce dell'osservazione precedente, dobbiamo verificare che 
+\begin{equation*}
+	\lim_{n\to +\infty} \left( \sup_{k\geq n} a_k\right) = \lambda,
+\end{equation*}
+ossia che 
+\begin{equation*}
+	\forall \ \epsilon >0 \quad \exists \ N\in \naturalset\quad \forall \ n\geq N \quad \lambda -\epsilon < \sup_{k\geq n} a_k <\lambda +\epsilon.
+\end{equation*}
+Sia quindi $\epsilon >0$; dalla caratterizzazione del massimo limite finito è noto che esiste $N^{\ast}\in \naturalset$ tale che per ogni $n\geq N^{\ast}$ si ha 
+\begin{equation*}
+	a_n < \lambda +\epsilon/2.
+\end{equation*}
+Per ogni $n \geq N^{\ast}$ e per ogni $k\geq n$ si ha quindi
+\begin{equation*}
+	a_k < \lambda +\epsilon/2
+\end{equation*}
+e dunque
+\begin{equation*}
+	\sup_{k\geq n} a_k \leq \lambda +\epsilon/2 < \lambda +\epsilon.
+\end{equation*}
+D'altra parte, sempre la caratterizzazione del massimo limite finito, esistono infiniti indici $n_j\in \naturalset$ tali che
+\begin{equation*}
+	a_{n_j} > \lambda -\epsilon.
+\end{equation*}
+Ora, per ogni $n\geq N^{\ast}$, sia $n^{\ast}_j>n$; si ha quindi
+\begin{equation*}
+	a_{n^{\ast}_j} > \lambda -\epsilon
+\end{equation*}
+e dunque
+\begin{equation*}
+	\sup_{k\geq n} a_{k} \geq a_{n^{\ast}_j}  > \lambda -\epsilon.
+\end{equation*}
+La tesi è quindi dimostrata scegliendo $N=N^{\ast}$.
+\end{demonstrationwt}
+\subsection{Eserciziamoci! Formulazione equivalente del massimo e del minimo limite}
+\begin{exercisewt}[Legame tra massimo e minimo limite]\label{maxminlegame}
+Utilizzando la proposizione precedente, provare che
+\begin{equation}
+	\liminf_{n\to +\infty}\left(-a_n\right)=-\limsup_{n\to\infty}\left(a_n\right)
+\end{equation}
+\end{exercisewt}
+\begin{observe}
+Questa proprietà si può anche dimostrare direttamente dalle definizioni originali di $\limsup$ e $\liminf$.
+\end{observe}
+\begin{solution}
+Mostriamo innanzitutto che, preso $A\subseteq\realset$ non vuoto, allora
+\begin{equation*}
+	\inf\left(-A\right)=-\sup\left(A\right).
+\end{equation*}
+Chiaramente, $A$ non è limitato superiormente se e solo se $-A$ non è limitato inferiormente e quindi vale
+\begin{equation*}
+	\inf\left(-A\right)=-\infty=-\left(+\infty\right)=-\sup\left(A\right)
+\end{equation*}
+Supponiamo allora che $A$ sia limitato superiormente e consideriamo $a\in A$. Si ha
+\begin{equation*}
+	m\leq -a\iff a\leq -m
+\end{equation*}
+ossia $-m$ è un minorante per $-A$ se e solo se $m$ è maggiorante per $a$. Allora:
+\begin{itemize}
+	\item $\inf\left(-A\right)$ è minorante di $-A$, dunque $-\inf\left(-A\right)$ è maggiorante per $A$ e pertanto
+	\begin{equation*}
+		\sup\left(A\right)\leq-\inf\left(-A\right)\iff\inf\left(-A\right)\leq-\sup\left(A\right).
+	\end{equation*}
+	\item $\sup\left(A\right)$ è maggiorante di $A$, dunque $-\sup\left(A\right)$ è minorante per $-A$ e pertanto
+	\begin{equation*}
+		-\sup\left(A\right)\leq\inf\left(-A\right).
+	\end{equation*}
+\end{itemize}
+Segue allora l'uguaglianza cercata.\\
+Ponendo	$A_n\coloneqq\left\{a_k\mid k\geq n\right\}$, si ha allora
+\begin{align*}
+	\inf\left(-A_n\right)=-\sup\left(A_n\right),\ \forall n\in\naturalset\\
+	\implies\inf_{k\geq n}\left(-a_k\right)=-\sup_{k\geq n}\left(a_k\right)
+\end{align*}
+Passando al limite per $n\to+\infty$, per la formulazione equivalente del massimo e minimo limite otteniamo la tesi:
+\begin{equation*}
+	\liminf_{n\to +\infty}\left(-a_n\right)=\lim_{n\to+\infty}\inf_{k\geq n}\left(-a_k\right)=-\lim_{n\to+\infty}\sup_{k\geq n}\left(a_k\right)=-\limsup_{n\to+\infty}\left(a_n\right)
+\end{equation*}
+\end{solution}
+\begin{exercisewt}[Generalizzazione del teorema della permanenza del segno]\label{limsuppermanenzadelsegno}
+Utilizzando la proposizione precedente, provare che
+\begin{equation*}
+	a_n \geq 0,\quad \forall \ n\geq 1 \implies \limsup_{n\to +\infty} a_n\geq 0
+\end{equation*}
+e
+\begin{equation*}
+	a_n \geq 0,\quad \forall \ n\geq 1 \implies \liminf_{n\to +\infty} a_n \geq 0.
+\end{equation*} 
+\end{exercisewt}
+\begin{solution} Poiché vale sempre
+\begin{equation*}
+	\liminf_{n\to +\infty} a_n \leq \limsup_{n\to +\infty} a_n,
+\end{equation*}
+ci basta verificare la seconda affermazione.\\
+Consideriamo la successione
+\begin{equation*}
+	b_n=\inf_{k\geq n} a_k,\quad n\geq 1.
+\end{equation*}	
+Poiché $a_k\geq 0,\ \forall n\geq 1$, si ha $b_n\geq 0$. Per il teorema della permanenza del segno per i limiti, si ha
+\begin{equation*}
+	\liminf_{n\to +\infty} a_n=\lim_{n\to+\infty}\inf_{k\geq n} a_k\geq 0.
+\end{equation*}
+\end{solution}
+\begin{exercise}
+I concetti di massimo e minimo limite si possono definire anche per le successioni di numeri complessi?
+\end{exercise}
+\begin{solution}
+La risposta è \textbf{no}.  I concetti di massimo e minimo limite si basano sulla nozione di ordinamento in $\realset^{\ast}$ e dunque non si possono estendere al campo complesso, che non è un campo ordinato.
+\end{solution}
+\section{Massimo limite del prodotto}\label{prodottolimsup}
+\begin{proposition}[Massimo limite del prodotto di due successioni positive]
+Si considerino due successioni $a_n$, $b_n$ di numeri reali positivi.
+Allora vale la disuguaglianza
+\begin{equation}
+	\limsup_{n\to +\infty} a_n\, b_n\leq  \limsup_{n\to +\infty} a_n\ \limsup_{n\to +\infty} b_n,
+\end{equation}	
+mentre in generale non vale l'uguaglianza 
+\begin{equation}
+	\limsup_{n\to +\infty} a_n\, b_n=  \limsup_{n\to +\infty} a_n\ \limsup_{n\to +\infty} b_n
+\end{equation}.
+Se si suppone che esista finito e non nullo $\displaystyle\lim_{n\to +\infty} a_n$, allora vale l'uguaglianza
+\begin{equation*}
+	\limsup_{n\to +\infty} a_n\, b_n= \lim_{n\to +\infty} a_n\ \limsup_{n\to +\infty} b_n
+\end{equation*}
+\end{proposition}
+\begin{demonstration}
+Ricordiamo che per ogni successione di numeri reali $c_n$ si ha
+\begin{equation*}
+	\limsup_{n\to +\infty} c_n =\inf_{n\geq 1} \sup_{k\geq n} c_k
+\end{equation*}
+\begin{enumerate}
+	\item Osserviamo che per ogni $n\geq 1$ e per ogni $k\geq n$ si ha
+	\begin{equation*}
+		a_k\, b_k\leq \left(\sup_{j\geq n} a_j \right)\ b_k
+	\end{equation*}
+	e dunque
+	\begin{equation*}
+		\sup_{k\geq n} a_k\, b_k\leq \left(\sup_{j\geq n} a_j \right)\ \left(\sup_{k\geq n} b_k \right).
+	\end{equation*}
+	Tenendo presente che, per ogni coppia di successioni $f_n$ e $g_n$ si ha
+	\begin{equation*}
+		f_n\leq g_n,\quad \forall \ n\geq 1 \quad \Longrightarrow \quad \inf_{n\geq 1} f_n\leq \inf_{n\geq 1} g_n,
+	\end{equation*}
+	concludiamo che
+	\begin{equation*}
+		\inf_{n\geq 1} \sup_{k\geq n} a_k\, b_k\leq \inf_{n\geq 1}\left(\sup_{j\geq n} a_j \ \sup_{k\geq n} b_k \right)\leq \inf_{n\geq 1} \sup_{j\geq n} a_j\ \inf_{n\geq 1} \sup_{k\geq n} b_k,
+	\end{equation*} 
+	da cui segue la disuguaglianza richiesta.
+	% Osservazione: dove si è usata l'ipotesi sul segno delle successioni?
+	\item Un controesempio all'uguaglianza è dato dalle successioni
+	\begin{equation*}
+		\{a_n\}=\{1, 2, 1, 2, 1, 2, \ldots \},\quad \{ b_n\} = \{2, 1, 2, 1, 2, 1,\ldots \},
+	\end{equation*}
+	per cui si ha
+	\begin{equation*}
+		a_n\, b_n=2,\quad \forall \ n\geq 1.
+	\end{equation*}
+	Si ha quindi
+	\begin{equation*}
+		\limsup_{n\to +\infty} a_n \, b_n = 2
+	\end{equation*}
+	e
+	\begin{equation*}
+		\limsup_{n\to +\infty} a_n \ \limsup_{n\to +\infty} b_n = 2\cdot 2=4.
+	\end{equation*}
+	\item Sia
+	\begin{equation*}
+		\lim_{n\to +\infty} a_n =L \in (0,+\infty).
+	\end{equation*}
+	Per ogni $\epsilon \in (0,L)$ esiste $N\in \mathbb{N}$ tale che
+	\begin{equation*}
+		L-\epsilon < a_n < L+\epsilon,\quad \forall \ n\geq N.
+	\end{equation*}
+	Per ogni $n\geq N$ e per ogni $k\geq n$, ricordando che $b_k\geq 0$, si ha quindi
+	\begin{equation*}
+		(L-\epsilon) b_k < a_k\, b_k < (L+\epsilon ) b_k
+	\end{equation*}
+	e dunque
+	\begin{equation*}
+		(L-\epsilon) \sup_{k\geq n} b_k < \sup_{k\geq n} a_k\, b_k < (L+\epsilon ) \sup_{k\geq n} b_k.
+	\end{equation*}
+	Deduciamo quindi che
+	\begin{equation*}
+		(L-\epsilon) \inf_{n\geq N} \sup_{k\geq n} b_k < \inf_{n\geq N} \sup_{k\geq n} a_k\, b_k < (L+\epsilon )  \inf_{n\geq N} \sup_{k\geq n} b_k,
+	\end{equation*}
+	ossia
+	\begin{equation*}
+		(L-\epsilon) \limsup_{n\to +\infty} b_n < \limsup_{n\to +\infty} a_n\, b_n < (L+\epsilon ) \limsup_{n\to +\infty} b_n.
+	\end{equation*}
+	Tenendo presente che questa relazione vale per ogni $\epsilon >0$, si deduce la tesi.\qedhere
+\end{enumerate}
+\end{demonstration}

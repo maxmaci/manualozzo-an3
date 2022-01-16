@@ -15,7 +15,8 @@
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{N}{el} \refChapterOnly{seriefunzioni} abbiamo iniziato definito cos'è una serie di funzioni; ora entriamo nel dettaglio studiando le \textbf{serie di potenze}. Come già accennato nel capitolo introduttivo e in quello precedente, lo scopo è quello di capire quando una funzione si può scrivere come la sua serie di Taylor.\\
-Dopo averne dato la definizione di serie di potenze in campo complesso, affronteremo dei criteri per determinare il dominio di convergenza di esse, analizzeremo il comportamento al bordo del dominio e parleremo della continuità/derivabilità delle serie. La seconda parte del capitolo sarà invece dedicato alla trattazione delle \textbf{funzioni analitiche} - cioè proprio le funzioni che si possono scrivere come \textit{serie di Taylor} - e di come dimostrare l'analiticità di una funzione; concluderemo con un approfondimento sull'\textbf{esponenziale} e il \textbf{logaritmo} complesso.
+Dopo averne dato la definizione di serie di potenze in campo complesso, affronteremo dei criteri per determinare il dominio di convergenza di esse, analizzeremo il comportamento al bordo del dominio e parleremo della continuità/derivabilità delle serie. La seconda parte del capitolo sarà invece dedicato alla trattazione delle \textbf{funzioni analitiche} - cioè proprio le funzioni che si possono scrivere come \textit{serie di Taylor} - e di come dimostrare l'analiticità di una funzione; concluderemo con un approfondimento sull'\textbf{esponenziale} e il \textbf{logaritmo} complesso.\\
+Prima di avventurarsi in questo capitolo è particolarmente consigliato leggere nell'Appendice il \refChapter{maxminlimite}, dedicato al \textbf{massimo e minimo limite}, argomento che è fondamentale per comprendere questo capitolo.
 \section{Serie di potenze}\label{seriedipotenze}
 \begin{define}[Serie di potenze]
 	Una \textbf{serie di potenze}\index{serie!di potenze} è una serie di funzioni della forma
@@ -128,7 +129,7 @@ Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio
 	\end{enumerate}
 \end{theorema}
 \begin{observe}
-	I tre casi scritti esauriscono \textit{tutti} i casi possibili. Infatti, per la permanenza del segno del limsup\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{limsuppermanenzadelsegno} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} vale
+	I tre casi scritti esauriscono \textit{tutti} i casi possibili. Infatti, per la permanenza del segno del limsup\footnote{Nell'approfondimento ‘‘Massimo e minimo limite'', a pagina \pageref{limsuppermanenzadelsegno} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al $\limsup$ e $\liminf$.} vale
 	\begin{equation*}
 		\sqrt[n]{\abs{a_n}}\geq 0,\ \forall n\geq 0\implies\limsup_{n\to+\infty}\sqrt[n]{\abs{a_n}}\geq 0
 	\end{equation*}
@@ -530,7 +531,7 @@ Otteniamo così il prodotto di due successioni. Osserviamo che
 \begin{equation*}
 	\lim_{n\to+\infty}\alpha_n=\lim_{n\to+\infty}\left(n+1\right)^{\nicefrac{1}{n}}=\lim_{n\to+\infty}e^{\frac{1}{n}\log\left(n+1\right)}=\lim_{n\to+\infty}e^{\frac{\log\left(n+1\right)}{n}}.
 \end{equation*}
-Poichè $\frac{\log\left(n+1\right)}{n}\to 0$ per $n\to+\infty$ per \textit{confronto della crescita degli infiniti}, si ha che $\displaystyle\lim_{n\to+\infty}\alpha_n=e^0=1$, dunque $\alpha_n$ ammette limite e coincide col suo $\limsup$. Allora, per proprietà del $\limsup$ del prodotto\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{prodottolimsup} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.}
+Poichè $\frac{\log\left(n+1\right)}{n}\to 0$ per $n\to+\infty$ per \textit{confronto della crescita degli infiniti}, si ha che $\displaystyle\lim_{n\to+\infty}\alpha_n=e^0=1$, dunque $\alpha_n$ ammette limite e coincide col suo $\limsup$. Allora, per proprietà del $\limsup$ del prodotto\footnote{Nell'approfondimento ‘‘Massimo e minimo limite'', a pagina \pageref{prodottolimsup} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al $\limsup$ e $\liminf$.}
 \begin{equation*}
 	\squarequal\lim_{n\to+\infty}\alpha_n\limsup_{n\to+\infty}\beta_n=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\frac{1}{n+1}}\right)^{\frac{n+1}{n}}
 \end{equation*}

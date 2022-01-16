@@ -223,7 +223,8 @@ Tuttavia, l'insieme dove $f_n$ \textit{non} converge a $f\equiv0$ è un singolo 
 Dato che, come visto nel precedente controesempio, una successione di funzioni che converge \textbf{q.o.} su $X$ in generale non converge \textit{puntualmente} su $X$, oltremodo la convergenza \textbf{q.o.} non implica quella \textit{uniforme} su $X$.\\
 Tuttavia, se \textit{restringiamo} opportunamente il dominio, è possibile trovare che una successione convergente \textbf{q.o.} converga anche \textit{uniformemente}, come afferma il seguente teorema.
 \begin{theoremaqed}[Teorema di Egoroff]\index{teorema!di Egorofff}
-	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$. Supponiamo che esista $A\subseteq X$ con $\mu(A)<+\infty$, tale che $f_n$ converge \textbf{q.o.} a $f$ su $A$. Allora per ogni $\epsilon>0$ esiste un sottoinsieme misurabile $B\subseteq A$ tale che $\mu(B)< \epsilon$ e $f_n$ converge uniformemente a $f$ su $A\setminus B$.\\
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$.\\
+	Supponiamo che esista $A\subseteq X$ con $\mu(A)<+\infty$, tale che $f_n$ converge \textbf{q.o.} a $f$ su $A$. Allora per ogni $\epsilon>0$ esiste un sottoinsieme misurabile $B\subseteq A$ tale che $\mu(B)< \epsilon$ e $f_n$ converge uniformemente a $f$ su $A\setminus B$.\\
 	Equivalentemente, per ogni $\epsilon>0$ esiste un sottoinsieme misurabile $C\subseteq A$ tale che $\mu(A\setminus C)<\epsilon$  e $f_n$ converge uniformemente a $f$ su $C$.
 \end{theoremaqed}
 In altre parole, per qualunque successione $f_n$ convergente a $f$ \textbf{q.o} in $X$, se è possibile trovare un sottoinsieme $A\subseteq X$ misurabilmente finito allora $f_n$ converge anche uniformemente a $f$ in un qualunque sottoinsieme di $A$ con misura arbitrariamente vicina a quella originale. Una successione $f_n$ che converge a $f$ in questo modo è detta \textbf{convergenza quasi uniforme}\index{convergenza!quasi uniforme} - non utilizzeremo particolarmente questa nomenclatura.
@@ -308,7 +309,7 @@ Questa è la differenza principale tra la convergenza uniforme/puntuale/quasi ov
 		\end{equation*}
 		Si ha
 		\begin{equation*}
-			\norm{f_n-f}_1=\int_X\abs{f_n-f}d\mu\underset{\forall n\geq N\left(\epsilon\right)}{\overset{\circled[red]{\vardiamond}}{\leq}}\int_X\epsilon d\mu=\epsilon \mu(x)<+\infty
+			\norm{f_n-f}_1=\int_X\abs{f_n-f}d\mu\underset{\forall n\geq N\left(\epsilon\right)}{\overset{\circled[red]{\vardiamond}}{\leq}}\int_X\epsilon d\mu=\epsilon \mu(X)<+\infty
 		\end{equation*}
 		Vale la relazione \circled[blue]{\spadesuit} ponendo $\widetilde{N}=N$.
 		\item Segue dal \textit{teorema di convergenza dominata}.

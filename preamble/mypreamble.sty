@@ -88,7 +88,6 @@
 
 \RequirePackage{calc}
 
-
 \RequirePackage{pdfpages}
 
  % used for font issues
@@ -1046,6 +1045,20 @@ headfont=\bfseries\scshape\color{redsalsa!55!black},
 notebraces={ }{ },
 notefont=\scshape,
 headpunct=\color{redsalsa!55!black},
+headformat={\NAME\, \NUMBER\small\bfseries\scshape\color{redsalsa!55!black}{.\, - \NOTE. }},
+postheadspace=\newline,
+qed=\qedsymbol
+]{theoremanotesty}
+
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont\itshape,
+headindent=0pt,
+headfont=\bfseries\scshape\color{redsalsa!55!black},
+notebraces={ }{ },
+notefont=\scshape,
+headpunct=\color{redsalsa!55!black},
 headformat={\NAME\, \NUMBER\small\bfseries\scshape\color{redsalsa!55!black}{.\, - \NOTE. }\addcontentsline{theorema}{section}{\small{\textbf{T\NUMBER}.\ \textsc{\NOTE}}}},
 qed=\qedsymbol
 ]{theoremasqedsty}
@@ -1057,6 +1070,8 @@ qed=\qedsymbol
 \declaretheorem[style=theoremassty,numberwithin=section,name=\textsc{Teorema}]{theoremasT}
 
 \declaretheorem[style=theoremaqedsty,numberwithin=section,name=\textsc{Teorema}]{theoremaqedT}
+
+\declaretheorem[style=theoremanotesty,numberwithin=section,name=\textsc{Teorema}]{theoremanoteT}
 
 \declaretheorem[style=theoremasqedsty,numberwithin=section,name=\textsc{Teorema}]{theoremasqedT}
 
@@ -1071,6 +1086,10 @@ qed=\qedsymbol
 \newenvironment{theoremaqed}
 {\begin{redsalsaBox}\begin{theoremaqedT}}
 {\end{theoremaqedT}\end{redsalsaBox}}
+
+\newenvironment{theoremanote}
+{\begin{redsalsaBox}\begin{theoremanoteT}}
+{\end{theoremanoteT}\end{redsalsaBox}}
 
 \newenvironment{theoremasqed}
 {\begin{redsalsaBox}\begin{theoremasqedT}}
@@ -1283,11 +1302,28 @@ postheadspace=\newline,
 qed=\qedsymbol
 ]{corollaryqedsty}
 
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont\itshape,
+headindent=0pt,
+headfont=\bfseries\scshape\color{byc!55!black},
+notebraces={ }{ },
+headpunct=\color{byc!55!black},
+notefont=\scshape,
+postheadspace=0.50em,
+headformat={\NAME\, \NUMBER\small\bfseries\scshape\textcolor{byc!55!black}{.\, - \NOTE.}},
+postheadspace=\newline,
+qed=\qedsymbol
+]{corollarynotesty}
+
 \newcounter{corollary}
 
 \declaretheorem[style=corollarysty,numberwithin=section,name=\textsc{Corollario}]{corollaryT}
 
 \declaretheorem[style=corollaryqedsty,numberwithin=section,name=\textsc{Corollario}]{corollaryqedT}
+
+\declaretheorem[style=corollarynotesty,numberwithin=section,name=\textsc{Corollario}]{corollarynoteT}
 
 \newenvironment{corollary}
 {\begin{bycBox}\begin{corollaryT}}
@@ -1296,6 +1332,10 @@ qed=\qedsymbol
 \newenvironment{corollaryqed}
 {\begin{bycBox}\begin{corollaryqedT}}
 {\end{corollaryqedT}\end{bycBox}}
+
+\newenvironment{corollarynote}
+{\begin{bycBox}\begin{corollarynoteT}}
+{\end{corollarynoteT}\end{bycBox}}
 
 %%% proprietà %%%
 
@@ -2566,7 +2606,7 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 	\stackon[-6.9pt]{#1}{\tmpbox}%
 }
 
-\newcommand*{\vv}[1]{\vec{\mkern0mu#1}}
+%% \newcommand*{\vv}[1]{\vec{\mkern0mu#1}}
 
 
 \makeatletter

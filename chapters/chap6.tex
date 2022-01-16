@@ -31,7 +31,7 @@ Come abbiamo annunciato, la definizione viene data per \textit{passaggi successi
 Prima di passare ai passi qui sopra enunciati, dobbiamo definire cos'è una \textit{funzione semplice} e capire come mai sono così importanti per l'integrale di Lebesgue.
 \section{Funzioni semplici}
 \begin{define}[Funzione semplice]
-Una funzione $\funz{s}{\left(X,\mathcal{M}\right)}{\left[0,+\infty\right)}$, con $\left(X,\mathcal{M}\right)$ spazio misurabile, è detta \textbf{semplice}\index{funzione!semplice} se la sua immagine $S(x)$ è \textit{finita}.
+Una funzione $\funz{s}{\left(X,\mathcal{M}\right)}{\left[0,+\infty\right)}$, con $\left(X,\mathcal{M}\right)$ spazio misurabile, è detta \textbf{semplice}\index{funzione!semplice} se la sua immagine $S(X)$ è \textit{finita}.
 \end{define}
 Se $s$ ha l'immagine finita di cardinalità $n$, allora esistono $n$ valori distinti $\alpha_1,\ldots,\alpha_n$  valori \textit{distinti} tali che
 \begin{equation*}
@@ -76,7 +76,7 @@ Poiché per ipotesi gli $A_i$ sono misurabili, allora $A$ è unione di insiemi m
 			\includegraphics[trim=3cm 2cm 0cm 0cm, clip, scale=0.7]{images/graficosemplice.pdf}
 		\end{minipage}\hspace{-7mm}
 		\begin{minipage}{0.55\textwidth}
-			Osserviamo che $s(x)=\left\{0,4,8\right\}$, dunque è semplice; le controimmagini dei valori $0$, $4$ e $8$ sono, rispettivamente:
+			Osserviamo che $s(X)=\left\{0,4,8\right\}$, dunque è semplice; le controimmagini dei valori $0$, $4$ e $8$ sono, rispettivamente:
 			\begin{equation*}
 				\begin{array}{l}
 					A_1=s^{-1}\left(\left\{0\right\}\right)=\left(-\infty,-1\right]\cap\left[2,+\infty\right)\\
@@ -219,7 +219,7 @@ Segue che
 
 \section{Passo 1: funzioni semplici, misurabili, non negative}
 \begin{define}[Integrale di Lebesgue per funzioni semplici, misurabili, non negative]
-	Sia $\funz{s}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right)}$ funzione semplice, misurabile e non negativa che si decompone, dato $s(x)=\left\{\alpha_1,\ldots, \alpha_n\right\}$, nella forma standard
+	Sia $\funz{s}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right)}$ funzione semplice, misurabile e non negativa che si decompone, dato $s(X)=\left\{\alpha_1,\ldots, \alpha_n\right\}$, nella forma standard
 	\begin{equation*}
 		s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}\quad A_i=s^{-1}\left(\left\{A_i\right\}\right)
 	\end{equation*}
@@ -394,12 +394,12 @@ Il \textbf{teorema della convergenza monotona}\index{teorema!della convergenza m
 Abbiamo già visto\footnote{Si veda \refChapterOnly{seriefunzioni}, teorema \ref{passaggioallimitecontinuitàuniforme}, pag. \pageref{passaggioallimitecontinuitàuniforme}.} che se una successione di funzioni $f_n$ Riemann-integrabili su un compatto converge uniformemente a $f$, allora $f$ è Riemann-integrabile e vale il passaggio al limite dell'integrale. Il teorema che dimostreremo, pur essendo applicabile solo a funzioni misurabili e monotone \textit{crescenti}, risulta avere diversi notevoli vantaggi rispetto al risultato basato sulla convergenza uniforme.
 \begin{theorema}[Teorema della convergenza monotona]\label{thmconvergenzamonotona}
 	Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che
-	\begin{enumerate}
+	\begin{enumerate}[label=(\alph*)]
 		\item $f_n$ sono misurabili.
 		\item $\displaystyle\lim_{n\to+\infty}f_n(x)=f(x),\ \forall x\in X$.
 		\item $0\leq f_n(x)\leq f_{n+1}(x),\ \forall n\geq 1,\ \forall x\in X$.
 	\end{enumerate}
-allora
+Allora
 \begin{enumerate}
 	\item $f$ è misurabile.
 	\item Vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio al limite sotto segno di integrale}:
@@ -433,7 +433,7 @@ Pertanto:
 		\begin{equation*}
 			\exists\int_Xfd\mu\in\left[0,+\infty\right]
 		\end{equation*}
-		Dalla monotonia data per ipotesi 3) segue, per monotonia dell'integrale rispetto alla funzione integranda, che
+		Dalla monotonia data per ipotesi c) segue, per monotonia dell'integrale rispetto alla funzione integranda, che
 	\begin{equation*}
 		0\leq\lefteqn{\underbrace{\phantom{\int_Xf_nd\mu\leq\int_Xf_{n+1}d\mu}}_{\circled[red]{\vardiamond}}}\int_Xf_nd\mu\leq
 		\overbrace{\int_Xf_{n+1}d\mu\leq \int_Xfd\mu}^{\circled[blue]{\spadesuit}}
@@ -791,7 +791,7 @@ Cos'è questo integrale? La risposta tale quesito è il seguente teorema.
 		\end{equation*}
 		\item Sia $\funz{g}{X}{\left[0,+\infty\right)}$ misurabile semplice, scritta nella decomposizione standard come
 		\begin{equation*}
-			g=\sum_{i=1}^kg_i\chi_{A_i}\quad\text{con }g(x)=\left\{g_1,\ldots,g_k\right\}\text{ e }A_i=g^{-1}\left(\left\{g_i\right\}\right),\ i=1,\ \ldots,\ k
+			g=\sum_{i=1}^kg_i\chi_{A_i}\quad\text{con }g(X)=\left\{g_1,\ldots,g_k\right\}\text{ e }A_i=g^{-1}\left(\left\{g_i\right\}\right),\ i=1,\ \ldots,\ k
 		\end{equation*}
 	Allora
 	\begin{align*}
@@ -823,7 +823,7 @@ possiamo concludere, per il \textit{teorema di convergenza monotona}, che
 	\begin{equation*}
 		f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall x\in X
 	\end{equation*}
-	In $\left(\realset,\mathcal{L}(\realset),m_1\right)$ essa implica la misura di probabilità ($\mu_f(x)=1$) normale
+	In $\left(\realset,\mathcal{L}(\realset),m_1\right)$ essa implica la misura di probabilità ($\mu_f(X)=1$) normale
 	\begin{equation*}
 		\mu_f\left(E\right)=\int_E\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall E\in \mathcal{L}(\realset)
 	\end{equation*}
@@ -872,7 +872,7 @@ e si indica come $\lambda \ll \mu$.
 \end{examples}
 Diamo ora una caratterizzazione delle misure assolutamente continue finite.
 \begin{theoremaqed}[Caratterizzazione delle misure ass. cont. finite]
-Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{\lambda}{\mathcal{M}}{\left[0,+\infty\right)}$ una misura \textit{finita}, ossia tale per cui $\lambda(x)<+\infty$.
+Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{\lambda}{\mathcal{M}}{\left[0,+\infty\right)}$ una misura \textit{finita}, ossia tale per cui $\lambda(X)<+\infty$.
 Allora
 \begin{equation}
 	\lambda\ll\mu\iff\forall \epsilon>0,\ \exists\delta>0\colon\forall E\in\mathcal{M}\colon \mu\left(E\right)<\delta\implies \lambda\left(E\right)<\epsilon\qedhere
@@ -880,7 +880,7 @@ Allora
 \end{theoremaqed}
 Tra le misure assolutamente rispetto ad una misura $\mu$ ci sono le misure del tipo $\mu_f$ introdotte prima. Ci si potrebbe chiedere se ce ne sono altre: se $\mu$ è $\sigma$-finita, ossia se soddisfa
 \begin{equation*}
-	\mu(x)=+\infty\quad X=\bigcup_{n\geq 1}X_n,\ \mu\left(X_n\right)<+\infty
+	\mu(X)=+\infty\quad X=\bigcup_{n\geq 1}X_n,\ \mu\left(X_n\right)<+\infty
 \end{equation*}
 La risposta è \textbf{no}, come si può vedere dal teorema seguente.
 \begin{theoremaqed}[Teorema di Radon-Nikodym]\index{teorema!di Radon-Nikodym}
@@ -1016,7 +1016,7 @@ in altre parole, l'integrale si può rendere arbitrariamente più piccolo in mod
 	\end{equation*}
 Essa è assolutamente continua rispetto a $\mu$. Inoltre, $\mu_{\abs{f}}$ è finita perché $f\in\mathcal{L}^1\left(\mu\right)$ e quindi
 \begin{equation*}
-	\mu_{\abs{f}}(x)\int_X\abs{f}d\mu<+\infty
+	\mu_{\abs{f}}(X)=\int_X\abs{f}d\mu<+\infty
 \end{equation*}
 Per la caratterizzazione delle misure finite assolutamente continue rispetto a $\mu$ si ha
 \begin{equation*}
@@ -1029,22 +1029,24 @@ Si ha quindi
 \end{demonstration}
 \subsection{Teorema della convergenza dominata}\index{teorema!della convergenza dominata}
 \begin{theorema}[Teorema della convergenza dominata]\label{thmconvergenzadominata}
-Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n}{X}{\complexset}$ una successione di funzioni misurabili tale che esiste
-\begin{equation*}
-	f(x)=\lim_{n\to+\infty}f_n(x),\ \forall x\in X
-\end{equation*}
-Se esiste una funzione $g\in \mathcal{L}^{1}\left(\mu\right)$ tale per cui
+Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\complexset}$ con $n\geq 1$ tali che
+\begin{enumerate}[label=(\alph*)]
+	\item 	$f_n$ sono misurabili.
+	\item 	$\displaystyle \lim_{n\to+\infty}f_n(x)=f(x),\ \forall x\in X$
+	\item 	Esiste una funzione $g\in \mathcal{L}^{1}\left(\mu\right)$ tale per cui
 \begin{equation*}
 	\abs{f_n(x)}\leq g(x),\ \forall n\geq 1,\ \forall x\in X
 \end{equation*}
-allora $f\in \mathcal{L}^{1}\left(\mu\right)$ e vale
-\begin{equation}
-	\lim_{n\to+\infty}\int_X\abs{f_n-f}d\mu=0
-\end{equation}
-e vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio al limite sotto segno di integrale}:
-\begin{equation}
-	\lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu
-\end{equation}
+\end{enumerate}
+Allora
+\begin{enumerate}
+	\item $f\in L^{1}\left(\mu\right)$.
+	\item $\displaystyle\lim_{n\to+\infty}\int_X\abs{f_n-f}d\mu=0$
+	\item Vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio al limite sotto segno di integrale}:
+	\begin{equation}
+		\lim_{n\to+\infty}\int_Xf_nd\mu=\int_Xfd\mu
+	\end{equation}
+\end{enumerate}
 \end{theorema}
 \begin{demonstration}
 	Poiché $f_n$ è una successione di funzioni misurabili che converge puntualmente a $f$, $\forall x\in X$, $f$ è una funzione misurabile. Inoltre, dato che tutti gli elementi della successione $f_n$ sono maggiorati (in modulo) da $g$, si ha per monotonia del limite che
@@ -1076,7 +1078,7 @@ e vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio 
 	\begin{equation*}
 		\int_X\abs{f_n-f}d\mu
 	\end{equation*}
-	è una successione a valori non negativi, dunque per le proprietà del massimo e minimo limite\footnote{Nelle ‘‘Note aggiuntive'', a pag. \pageref{maxminlegame} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} si ha
+	è una successione a valori non negativi, dunque per le proprietà del massimo e minimo limite\footnote{Nell'approfondimento ‘‘Massimo e minimo limite'', a pag. \pageref{maxminlegame} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} si ha
 	\begin{equation*}
 		\liminf_{n\to+\infty}\left(-\int_X\abs{f_n-f}d\mu\right)=-\limsup_{n\to+\infty}\left(\int_X\abs{f_n-f}d\mu\right)
 	\end{equation*}
@@ -1153,8 +1155,16 @@ Situazione differente si ha con l'integrale improprio di Riemann: infatti, può 
 	\end{enumerate}
 \end{theoremaqed}
 \begin{observe}
-	Se l'integrale improprio di Riemann di $f$ su $\left[a,+\infty\right)$ converge ma non \textit{assolutamente} allora $f$ \textit{non} è integrabile secondo Lebesgue su $\left[a,+\infty\right)$.
+	CI sono risultati analoghi per gli integrali impropri di Riemann della forma
+	\begin{align*}
+		\int_{-\infty}^{b}f(x)dx&=\lim_{a\to-\infty}\int_{a}^{b}f(x)dx\\
+		\int_{a}^{\gamma}f(x)dx&=\lim_{b\to \gamma^{-}}\int_{a}^{b}f(x)dx\\
+		\int_{\gamma}^{b}f(x)dx&=\lim_{a\to \gamma^{+}}\int_{a}^{b}f(x)dx
+	\end{align*}
 \end{observe}
+\begin{attention}
+	Se l'integrale improprio di Riemann di $f$ su $\left[a,+\infty\right)$ converge ma non \textit{assolutamente} allora $f$ \textit{non} è integrabile secondo Lebesgue su $\left[a,+\infty\right)$.
+\end{attention}
 \begin{example}
 	Consideriamo la funzione
 	\begin{equation*}
@@ -1230,7 +1240,11 @@ Più in generale, ha senso parlare di proprietà valide su un particolare domini
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Si dice che una proprietà $P$ vale \textbf{‘‘quasi ovunque''} (\textbf{q.o.})\index{proprietà quasi ovunque valida} o ‘‘$\mu$\textbf{-quasi ovunque}'' se vale in tutto $X$ tranne eventualmente su un insieme di misrua $\mu$ nulla. In altre parole, deve esistere un insieme $N\in\mathcal{M}$ con $\mu(N)=0$ tale che $\forall x\in X\setminus N$ vale tale proprietà $P$.
 \end{define}
 \begin{observe}
-	Dalla definizione in sè \textit{non} è richiesto che l'insieme $E=\{x\in\ X\mid P(x)\text{non vale}\}$ sia misurabile, ma solamente che sia contenuto in un insieme misurabile e di misura nulla.\\
+	Dalla definizione di per sè \textit{non} è richiesto che l'insieme
+	\begin{equation*}
+		E=\{x\in\ X\mid P(x)\text{non vale}\}
+	\end{equation*}
+	sia misurabile, ma solamente che \textit{sia contenuto} in un insieme misurabile e di misura nulla: questo significa che a priori $E$ non è misurabile!\\
 	Tuttavia, se la misura è \textit{completa}, allora anche $E$ risulta essere misurabile e di misura nulla.
 \end{observe}
 \begin{examplewt}[Uguaglianza quasi ovunque]
