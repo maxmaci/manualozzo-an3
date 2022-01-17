@@ -26,7 +26,7 @@ Vogliamo ora introdurre una struttura \textit{metrica} in $\mathcal{L}^1\left(\m
 \begin{equation}
 	\funztot{N}{\mathcal{L}^1\left(\mu\right)}{\left[0,+\infty\right)}{f}{\int_X\abs{f}d\mu}
 \end{equation}
-Tuttavia, la suddetta è una \textbf{pseudonorma} in quanto soddisfa due delle tre proprietà della norma, ma non la \textit{prima}: può valere zero per altre funzione oltre quella nulla. Infatti:
+Tuttavia, la suddetta è una \textbf{seminorma} in quanto soddisfa due delle tre proprietà della norma, ma non la \textit{prima}: può valere zero per altre funzione oltre quella nulla. Infatti:
 \begin{enumerate}
 	\item[{\Ccancel[red]{1.}}] $\displaystyle f=0\implies N(f)=\int_X\abs{f}d\mu=0$ ma $\displaystyle N(f)=\int_X\abs{f}d\mu=0\implies f$ \textbf{q.o.} in $X$.
 \end{enumerate}
@@ -142,7 +142,7 @@ Come sappiamo, se uno spazio normato è completo valgono diversi risultati teori
 	\begin{equation*}
 		N^C\subseteq\{x\in X\mid f(x)=h(x)\}\implies \{x\in X\mid f(x)\neq h(x)\}\subseteq N
 	\end{equation*}
-	Poiché $\{x\in X\mid f(x)\neq h(x)\}$ è misurabile e contenuto in $N$ cha ha misura nulla, allora si ha la tesi cercata.
+	Poiché $\{x\in X\mid f(x)\neq h(x)\}$ è misurabile e contenuto in $N$ che ha misura nulla, allora si ha la tesi cercata.
 \end{solution}
 \section{Modi di convergenza}\label{modiconvergenza}
 Abbiamo già visto nel \refChapterOnly{convergenzafunzioni} la convergenza uniforme e la convergenza puntuale. Noti i concetti di misura e integrale di Lebesgue, approfondiamo il tema dei modi di convergenza e le relazioni tra questi.
@@ -201,7 +201,7 @@ Il viceversa non è vero: abbiamo visto\footnote{Si veda nota precedente.} nella
 		\lim_{n\to+\infty}\left(\sup_{x\in\realset}\abs{f_n(x)-f(x)}\right)=\lim_{n\to+\infty}\left(\sup_{x\in\realset}\abs{1-0}\right)=1\neq 0
 	\end{equation*}
 \end{example}
-\paragraph{Convergena quasi ovunque}
+\paragraph{Convergenza quasi ovunque}
 \begin{define}[Convergenza quasi ovunque]
 	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$. Si dice che
 	$f_n$ \textbf{converge quasi ovunque}\index{convergenza!quasi ovunque} a $f$\textbf{in} $X$ ($f_n\overset{\text{q.o.}}{\to} f$) se
@@ -416,7 +416,7 @@ Tuttavia, se consideriamo delle \textit{sottosuccessioni}, allora è sempre poss
 \end{theoremaqed}
 \paragraph{Convergenza in misura}
 \begin{define}[Convergenza in misura]
-	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzion $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$; $\forall n\in\naturalset$ definiamo la funzione $g_n\coloneqq \abs{f_n-f}$. Allora, se prendiamo $\forall n\in\ \naturalset,\forall \epsilon>0$ l'insieme
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$; $\forall n\in\naturalset$ definiamo la funzione $g_n\coloneqq \abs{f_n-f}$. Allora, se prendiamo $\forall n\in\ \naturalset,\forall \epsilon>0$ l'insieme
 	\begin{equation*}
 		E_{n,\epsilon}\coloneqq g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)=\left\{x\in X\mid \abs{f_n(x)-f(x)}>\epsilon\right\}
 	\end{equation*}
@@ -432,7 +432,7 @@ Considerato $X\subseteq \realset$, possiamo visualizzare graficamente la converg
 Possiamo interpretare questa convergenza come un particolare tipo di convergenza in $L^1$, condividendo però alcune caratteristiche con la convergenza \textit{uniforme} e alla convergenza \textit{quasi ovunque}. Arbitrariamente scelto un raggio $\epsilon$, il grafico di $f_n$ è nella quasi sua totalità contenuto nell'\textit{intorno tubulare} di raggio $\epsilon$ centrato sul grafico di $f$, ma è concesso che esso possa \textit{uscire} da tale intorno purché la misura dell'insieme di tutti i punti di $\realset$ in cui ciò accade tenda ad essere nulla al crescere di $n$.
 \paragraph{Convergenza in {$L^1$} e in misura}
 \begin{theorema}[Legame tra convergenza {$L^1$} e convergenza in misura]
-	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzion $\funz{f_n,f}{X}{\complexset}$ tali che $f_n,f\in L^1\left(\mu\right)$.
+	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ tali che $f_n,f\in L^1\left(\mu\right)$.
 	Allora
 	\begin{equation}
 		f_n\text{ converge in }L^1\text{ a }f\implies f_n\text{ converge in misura a }f

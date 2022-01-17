@@ -398,7 +398,7 @@ Sia $\funz{f}{\left(X,\mathcal{M},\mu\right)}{\left[0,+\infty\right]}$ funzione 
 	\end{enumerate}
 \end{property}
 \subsection{Teorema della convergenza monotona}
-Il \textbf{teorema della convergenza monotona}\index{teorema!della convergenza monotona}, altresì noto come \textbf{Teorema di Beppo Levi}\seeonlyindex{teorema!di Beppo Levi}{teorema!della convergenza monotona} (principalmente in Italia) o di \textbf{Lebesgue}\seeonlyindex{teorema!di Lebesgue}{teorema!della convergenza monotona}, si inserisce nel filone dei risultati sul problema del \textit{passaggio al limite sotto segno di integrale} di cui abbiamo parlato per la prima volta nel \refChapterOnly{ellipseintroduction}.\\
+Il \textbf{teorema della convergenza monotona}\index{teorema!della convergenza monotona}, altresì noto come \textbf{Teorema di Beppo Levi}\index{teorema!di Beppo Levi} (principalmente in Italia) o di \textbf{Lebesgue}\index{teorema!di Lebesgue}, si inserisce nel filone dei risultati sul problema del \textit{passaggio al limite sotto segno di integrale} di cui abbiamo parlato per la prima volta nel \refChapterOnly{ellipseintroduction}.\\
 Abbiamo già visto\footnote{Si veda \refChapterOnly{seriefunzioni}, teorema \ref{passaggioallimitecontinuitàuniforme}, pag. \pageref{passaggioallimitecontinuitàuniforme}.} che se una successione di funzioni $f_n$ Riemann-integrabili su un compatto converge uniformemente a $f$, allora $f$ è Riemann-integrabile e vale il passaggio al limite dell'integrale. Il teorema che dimostreremo, pur essendo applicabile solo a funzioni misurabili e monotone \textit{crescenti}, risulta avere diversi notevoli vantaggi rispetto al risultato basato sulla convergenza uniforme.
 \begin{theorema}[Teorema della convergenza monotona]\label{thmconvergenzamonotona}
 	Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che
@@ -791,7 +791,7 @@ Cos'è questo integrale? La risposta tale quesito è il seguente teorema.
 	\end{equation}
 \end{theorema}
 \begin{demonstration}
-	Innanzitutto, prima dimostriamo la proprietà per funzioni caratteristiche, poi per combinazioni lineari di esse (funzioni semplici), poi consideriamo il caso di una funzione $f$ misurabile non negativa, approssimandola co una successione di funzioni semplici misurabili.\\
+	Innanzitutto, prima dimostriamo la proprietà per funzioni caratteristiche, poi per combinazioni lineari di esse (funzioni semplici), poi consideriamo il caso di una funzione $f$ misurabile non negativa, approssimandola con una successione di funzioni semplici misurabili.\\
 	\begin{enumerate}[label=\Roman*]
 		\item Sia $g=\chi_A$ con $A\in\mathcal{M}$ (pertanto $g$ è misurabile). Si ha
 		\begin{equation*}
@@ -901,7 +901,7 @@ La funzione $f$ viene detta \textbf{derivata di Radon-Nikodym} o \textbf{densit�
 \section{Integrabilità}
 Ci stiamo avvicinando al terzo e ultimo passo dell'integrale di Lebesgue: lo scopo è quello di estendere la definizione per funzione \textit{a valori complessi}.\\
 Tuttavia, a differenza del passo 2, dove l'integrale può essere assumere valori in $\left[0,+\infty\right]$, l'insieme dei complessi $\complexset$ non contempla il valore $+\infty$; inoltre, come vedremo, la costruzione dell'integrale scelta può presentare delle \textit{forme di indecisione} che \textit{non} possiamo risolvere.\\
-Per proseguire, dobbiamo necessariamente considerare una classe particolare di funzioni misurabili, le \textbf{funzioni integrabili}\index{funzione!integrabile}\seeonlyindex{integrabilità}{funzione!integrabile}.
+Per proseguire, dobbiamo necessariamente considerare una classe particolare di funzioni misurabili, le \textbf{funzioni integrabili}\index{funzione!integrabile}\index{integrabilità}.
 \begin{define}[Integrabilità]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\complexset}$. La funzione $f$ si dice \textbf{integrabile} se
 	\begin{enumerate}
@@ -1086,7 +1086,7 @@ Allora
 	\begin{equation*}
 		\int_X\abs{f_n-f}d\mu
 	\end{equation*}
-	è una successione a valori non negativi, dunque per le proprietà del massimo e minimo limite\footnote{Nell'approfondimento ‘‘Massimo e minimo limite'', a pag. \pageref{maxminlegame} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al limsup e liminf.} si ha
+	è una successione a valori non negativi, dunque per le proprietà del massimo e minimo limite\footnote{Nell'approfondimento ‘‘Massimo e minimo limite'', a pag. \pageref{maxminlegame} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al $\limsup$ e $\liminf$.} si ha
 	\begin{equation*}
 		\liminf_{n\to+\infty}\left(-\int_X\abs{f_n-f}d\mu\right)=-\limsup_{n\to+\infty}\left(\int_X\abs{f_n-f}d\mu\right)
 	\end{equation*}
@@ -1244,10 +1244,10 @@ ossia $f$ limitata è Riemann-integrabile su $\left[a,b\right]$ se e solo se $f$
 Abbiamo appena visto come una funzione è integrabile secondo Riemann se e solo se l'insieme delle sue discontinuità è un insieme di misura nulla. In altre parole, una funzione è integrabile secondo Riemann su un dato intervallo se e solo se essa è continua, tolto al più un insieme misurabilmente nullo di discontinuità.\\
 Più in generale, ha senso parlare di proprietà valide su un particolare dominio tolto un insieme di misura nulla: poiché queste proprietà non valgono su insiemi la cui \textit{rilevanza è minima}, quantomeno dal punto della \textit{misura}, possiamo definire tale proprietà come \textit{quasi ovunque valida}.
 \begin{define}[Proprietà quasi ovunque valida]
-	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Si dice che una proprietà $P$ vale \textbf{‘‘quasi ovunque''} (\textbf{q.o.})\index{proprietà quasi ovunque valida} o ‘‘$\mu$\textbf{-quasi ovunque}'' se vale in tutto $X$ tranne eventualmente su un insieme di misrua $\mu$ nulla. In altre parole, deve esistere un insieme $N\in\mathcal{M}$ con $\mu(N)=0$ tale che $\forall x\in X\setminus N$ vale tale proprietà $P$.
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Si dice che una proprietà $P$ vale \textbf{‘‘quasi ovunque''} (\textbf{q.o.})\index{proprietà quasi ovunque valida} o ‘‘$\mu$\textbf{-quasi ovunque}'' se vale in tutto $X$ tranne eventualmente su un insieme di misura $\mu$ nulla. In altre parole, deve esistere un insieme $N\in\mathcal{M}$ con $\mu(N)=0$ tale che $\forall x\in X\setminus N$ vale tale proprietà $P$.
 \end{define}
 \begin{observe}
-	Dalla definizione di per sè \textit{non} è richiesto che l'insieme
+	Dalla definizione di per sé \textit{non} è richiesto che l'insieme
 	\begin{equation*}
 		E=\{x\in\ X\mid P(x)\ \text{non vale}\}
 	\end{equation*}

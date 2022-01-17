@@ -231,12 +231,11 @@ come
 \begin{equation}
 	f(x)-\epsilon<f_n(x)<f(x)+\epsilon,\ \forall x\in A\text{ definitivamente}
 \end{equation}
-In altre parole, scelto $\epsilon$, trovo un $N$ nella successione tale che definitivamente $f_n$ deve essere compresa nell'\textbf{intorno tubulare} di $f(x)$, cioé le $f_n$ devono stare in questo intorno per ogni $n$ sufficientemente grande ($\forall n\geq N$), quindi la striscia cattura globalmente tutte le $f_n$ da un certo $N$ in poi.
+In altre parole, scelto $\epsilon$, trovo un $N$ nella successione tale che definitivamente $f_n$ deve essere compresa nell'\textbf{intorno tubulare} di $f(x)$, cioè le $f_n$ devono stare in questo intorno per ogni $n$ sufficientemente grande ($\forall n\geq N$), quindi la striscia cattura globalmente tutte le $f_n$ da un certo $N$ in poi.
 \begin{center}\label{visualizzazioneconvergenzauniforme}
 	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.65]{images/visualizzazioneconvergenzauniforme.pdf}
 \end{center}
 Visivamente, la successione geometrica \textbf{non} converge uniformemente su $(-1,1)$ a $0$ perché non posso restringermi intorno alla funzione limite $f(x)=0$ per qualsiasi $\epsilon$ io scelga, infatti $f_n(1)=1, \forall n$.
-
 \begin{define}[Intorno tubulare]
 Un \textbf{intorno tubulare}\index{intorno!tubulare} di larghezza $\epsilon$ di una curva è l'unione di tutti i dischi di raggio $\epsilon$ con centro un punto di una curva.
 \end{define}
@@ -827,7 +826,7 @@ Posto $N=\max\left\{N_1,N_2\right\}$, per ogni $n,m\geq N$ si ha
 Verifichiamo le ipotesi del \textit{teorema di scambio dei limiti}:
 \begin{itemize}
 	\item $\displaystyle\lim_{x\to d}\frac{f_n(x)-f_n\left(d\right)}{x-d}$ esiste \textit{finito} in quanto per ipotesi $1)$ gli $f_n$ sono \textit{derivabili} su $\left(a,b\right)$.
-	\item $\frac{f_n(x)-f_n\left(d\right)}{x-d}$ conv\textit{erge uniformemente} su $\left(a,b\right)\setminus\left\{d\right\}$.\\
+	\item $\frac{f_n(x)-f_n\left(d\right)}{x-d}$ \textit{converge uniformemente} su $\left(a,b\right)\setminus\left\{d\right\}$.\\
 	Infatti, per ogni $\epsilon>0$ e per ogni $x\in\left(a,b\right)\setminus\left\{d\right\}$ si ha, in virtù del \textit{corollario al teorema di Lagrange}
 	\begin{align*}
 		\abs{\frac{f_n(x)-f_n\left(d\right)}{x-d}-\frac{f_m(x)-f_m\left(d\right)}{x-d}}&\leq\abs{\frac{f_n(x)-f_m(x)-\left(f_n\left(d\right)-f_m\left(d\right)\right)}{x-d}}\leq\\

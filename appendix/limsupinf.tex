@@ -50,7 +50,7 @@ L'insieme dei valori limite della successione si chiama \textbf{classe limite}\i
 	Preso $M_1=1$, si scelga $n_1$ per cui $a_{n_1}>M_1=1$.\\
 	Consideriamo ora $M_2=2+\max\left\{a_j\mid j\leq n_1\right\}$: si ha che $M_2\geq 2$ e si può sempre scegliere in quanto $a_n$ non limitata, un $n_2\geq n_1$ tale per cui $a_{n_2}>M_2$.\\
 	Per induzione si può mostrare che al $k$-esimo passo, scegliendo $M_k=k+\max\left\{a_j\mid j\leq n_k\right\}$ in modo che $M_k\geq k$, esiste $n_{k+1}>n_k$ con $a_{n_k}>M_k$.\\
-	In questo modo si ottiene una sottosequenza indicizzata da $n_k$ tale che $a_{n_k}\geq k$. Questo implica che la sottosequenza converge a $+\infty$.
+	In questo modo si ottiene una sottosuccessione indicizzata da $n_k$ tale che $a_{n_k}\geq k$. Questo implica che la sottosuccessione converge a $+\infty$.
 	\item Si consideri 
 	\begin{equation*}
 		a_n=\begin{cases}
@@ -351,13 +351,13 @@ Allora vale la disuguaglianza
 	\limsup_{n\to +\infty} a_n\, b_n\leq  \limsup_{n\to +\infty} a_n\ \limsup_{n\to +\infty} b_n,
 \end{equation}	
 mentre in generale non vale l'uguaglianza 
-\begin{equation}
-	\limsup_{n\to +\infty} a_n\, b_n=  \limsup_{n\to +\infty} a_n\ \limsup_{n\to +\infty} b_n
-\end{equation}.
-Se si suppone che esista finito e non nullo $\displaystyle\lim_{n\to +\infty} a_n$, allora vale l'uguaglianza
 \begin{equation*}
-	\limsup_{n\to +\infty} a_n\, b_n= \lim_{n\to +\infty} a_n\ \limsup_{n\to +\infty} b_n
+	\limsup_{n\to +\infty} a_n\, b_n=  \limsup_{n\to +\infty} a_n\ \limsup_{n\to +\infty} b_n.
 \end{equation*}
+Se si suppone che esista finito e non nullo $\displaystyle\lim_{n\to +\infty} a_n$, allora vale l'uguaglianza
+\begin{equation}
+	\limsup_{n\to +\infty} a_n\, b_n= \lim_{n\to +\infty} a_n\ \limsup_{n\to +\infty} b_n
+\end{equation}
 \end{proposition}
 \begin{demonstration}
 Ricordiamo che per ogni successione di numeri reali $c_n$ si ha
