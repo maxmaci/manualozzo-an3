@@ -35,7 +35,7 @@ Ricordiamo le definizioni di distanza, spazio metrico e convergenza.
 \end{define}
 Un \textit{caso particolare} di spazio metrico è lo spazio $X=\mathcal{C}\left(\left[a,b\right];\ \realset\right)$ delle funzioni continue su un intervallo compatto con la \textbf{metrica lagrangiana}\index{metrica!lagrangiana}:
 \begin{equation}
-	\mvf{d}{f}{g}=\max_{x\in\left[a,b\right]}\abs{f(x)-g(x)}
+	\mvf{d_{\infty}}{f}{g}=\max_{x\in\left[a,b\right]}\abs{f(x)-g(x)}
 \end{equation}
 \begin{observe}
 	La distanza è ben definita perché la funzione $\abs{f(x)-g(x)}$, essendo definita su $\left[a,b\right]$ compatto, non si considera solo l'estremo superiore ma ammette massimo per il teorema di Weierstrass.
@@ -690,7 +690,7 @@ Date $\funz{f_n,f}{A\subseteq\realset}{\realset}$ con $f$ la funzione limite di 
 	\arrow["D"', color={rgb,255:red,46;green,49;blue,146}, from=2-1, to=2-2]
 \end{tikzcd}\]
 \end{enumerate}
-La risposta ad entrambe domande, a differenza di quanto ci si potrebbe aspettare dati i risultati su limitatezza, continuità e integrabilità, è \textbf{NO}, anche nel caso di \textit{convergenza uniforme}.
+La risposta ad entrambe domande, a differenza di quanto ci si potrebbe aspettare dati i risultati su limitatezza, continuità e integrabilità, è \textbf{no}, anche nel caso di \textit{convergenza uniforme}.
 \begin{examplewt}[La convergenza uniforme \textit{non} è condizione sufficiente per trasferire alla funzione limite la derivabilità]
 Consideriamo la successione $f_n(x)=\sqrt{x^2+\frac{1}{n}},\ \forall x\in \realset,\ \forall n\geq1$.
 	\begin{itemize}
