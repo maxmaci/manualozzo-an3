@@ -311,7 +311,15 @@ Per dimostrare tale proprietà ci servirà un risultato sulle serie con \textit{
 	\end{itemize}
 \end{propositionsqed}
 \begin{demonstrationwt}[della {$\sigma$}-additività dell'integrale rispetto al dominio]
-	Siano $E_n\in\mathcal{M},\ E_i\cap E_j= \emptyset$ e sia $\displaystyle E=\cup_{n\geq 1} E_n$. Sia $\displaystyle s=\sum_{i=1}^{k}\alpha_i\chi_{A_i}$ la decomposizione standard di $s$ funzione semplice, dove $s(x)=\left\{\alpha_1,\ldots,\alpha_k\right\}$ e $A_i=s^{-1}\left(\left\{\alpha_i\right\}\right),\ \forall i=1,\ \ldots,\ k$. Si ha
+	Siano $E_n\in\mathcal{M},\ E_i\cap E_j= \emptyset$ e sia
+	\begin{equation*}
+		E\coloneqq\bigcup_{n\geq 1} E_n;
+	\end{equation*}
+	si consideri inoltre
+	\begin{equation*}
+		s=\sum_{i=1}^{k}\alpha_i\chi_{A_i}
+	\end{equation*}
+	la decomposizione standard di $s$ funzione semplice, dove $s(x)=\left\{\alpha_1,\ldots,\alpha_k\right\}$ e $A_i=s^{-1}\left(\left\{\alpha_i\right\}\right),\ \forall i=1,\ \ldots,\ k$. Si ha
 	\begin{equation*}
 		\int_Esd\mu=\sum_{i=1}^{k}\alpha_i\mu\left(A_i\cap E\right)\squarequal
 	\end{equation*}
@@ -1065,15 +1073,15 @@ Allora
 	\end{align*}
 	da cui segue che $2g-\abs{f_n-f}\geq 0$ e quindi sono funzioni non negative. Poiché le $2g-\abs{f_n-f}$ sono misurabili in quanto somma di funzioni in $\mathcal{L}^1\left(\mu\right)$ (e quindi misurabili), possiamo applicare il \textit{lemma di Fatou} a tali funzioni e ottenere
 	\begin{gather*}
-		\int_X\left(\liminf_{n\to+\infty}2g-\abs{f_n-f}\right)d\mu\leq\liminf_{n\to+\infty}\int_X\left(2g-\abs{f_n-f}\right)d\mu\\
+		\int_X\left(\liminf_{n\to+\infty}\left(2g-\abs{f_n-f}\right)\right)d\mu\leq\liminf_{n\to+\infty}\int_X\left(2g-\abs{f_n-f}\right)d\mu\\
 		\viff\\
-		\int_X 2gd\mu-\int_X\liminf_{n\to+\infty}\abs{f_n-f}d\mu\leq\int_X 2gd\mu+\liminf_{n\to+\infty}\left(-\int_X\abs{f_n-f}d\mu\right)
+		\int_X 2gd\mu+\int_X\liminf_{n\to+\infty}\left(-\abs{f_n-f}\right)d\mu\leq\int_X 2gd\mu+\liminf_{n\to+\infty}\left(-\int_X\abs{f_n-f}d\mu\right)
 	\end{gather*}
 	ma
 	\begin{equation*}
-		\int_X\liminf_{n\to+\infty}\abs{f_n-f}d\mu=0
+		\int_X\liminf_{n\to+\infty}\left(-\abs{f_n-f}\right)d\mu
 	\end{equation*}
-	in quanto per ipotesi $\displaystyle\lim_{n\to+\infty}f_n=f\iff\lim_{n\to+\infty}\abs{f_n-f}=0$; segue che $\liminf$ e $\lim$ coincidono con valore $0$ e pertanto anche l'integrale risulta nullo.\\
+	in quanto per ipotesi $\displaystyle\lim_{n\to+\infty}f_n=f\iff\lim_{n\to+\infty}\abs{f_n-f}=0\iff\lim_{n\to+\infty}\left(-\abs{f_n-f}\right)=0$; segue che $\liminf$ e $\lim$ coincidono con valore $0$ e pertanto anche l'integrale risulta nullo.\\
 	Inoltre, notiamo che
 	\begin{equation*}
 		\int_X\abs{f_n-f}d\mu
@@ -1242,7 +1250,7 @@ Più in generale, ha senso parlare di proprietà valide su un particolare domini
 \begin{observe}
 	Dalla definizione di per sè \textit{non} è richiesto che l'insieme
 	\begin{equation*}
-		E=\{x\in\ X\mid P(x)\text{non vale}\}
+		E=\{x\in\ X\mid P(x)\ \text{non vale}\}
 	\end{equation*}
 	sia misurabile, ma solamente che \textit{sia contenuto} in un insieme misurabile e di misura nulla: questo significa che a priori $E$ non è misurabile!\\
 	Tuttavia, se la misura è \textit{completa}, allora anche $E$ risulta essere misurabile e di misura nulla.

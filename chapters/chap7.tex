@@ -28,11 +28,52 @@ Vogliamo ora introdurre una struttura \textit{metrica} in $\mathcal{L}^1\left(\m
 \end{equation}
 Tuttavia, la suddetta è una \textbf{pseudonorma} in quanto soddisfa due delle tre proprietà della norma, ma non la \textit{prima}: può valere zero per altre funzione oltre quella nulla. Infatti:
 \begin{enumerate}
-	\item[1.] $\displaystyle f=0\implies \int_X\abs{f}d\mu=0$ ma $\displaystyle \int_X\abs{f}d\mu=0\implies f$ \textbf{q.o.} in $X$.
+	\item[{\Ccancel[red]{1.}}] $\displaystyle f=0\implies N(f)=\int_X\abs{f}d\mu=0$ ma $\displaystyle N(f)=\int_X\abs{f}d\mu=0\implies f$ \textbf{q.o.} in $X$.
 \end{enumerate}
-\begin{demonstration}
-	% TO DO: add dimostrazione
-\end{demonstration}
+\begin{demonstrationcaput}
+	$\impliesdx$ Poiché $\abs{f}=f\equiv 0=0\chi_{X}$ è semplice, per definizione di integrale di Lebesgue
+	\begin{equation*}
+		\int_X\abs{f}d\mu=0\cdot\mu(X)\equiv 0
+	\end{equation*}
+	$\impliessx$ Articoliamo la dimostrazione in due punti:
+	\begin{enumerate}[label=(\Roman*)]
+		\item Data $\funz{g}{X}{\left[0,+\infty\right]}$ misurabile, $E$ misurabile e $\displaystyle\int_Egd\mu=0$, allora $g=0$ \textbf{q.o.} su $E$, ossia
+		\begin{equation*}
+			\mu\left(\left\{x\in E\mid g(x)\neq 0\right\}\right)=0.
+		\end{equation*}
+		\item Data $\funz{g}{X}{\complexset}$ integrabile, se per ogni $E$ misurabile $\displaystyle\int_Egd\mu=0$ allora $g=0$ \textbf{q.o.} su $X$, ossia
+		\begin{equation*}
+			\mu\left(\left\{x\in X\mid g(x)\neq 0\right\}\right)=0.
+		\end{equation*}
+	\end{enumerate}
+\begin{enumerate}[label=(\roman*)]
+	\item Consideriamo la successione crescente di insiemi $A_n\coloneqq \left\{x\in E\mid g(x)>\dfrac{1}{n}\right\}$; si osservi che
+	\begin{equation*}
+		A=\left\{x\in X\mid g(x)\neq 0\right\}=\left\{x\in X\mid g(x)> 0\right\}=\bigcup_{n\geq 1}A_n.
+	\end{equation*}
+	Osserviamo che su $A_n$ la funzione $g$ maggiora $\dfrac{1}{n}$, quindi
+	\begin{align*}
+		0=\int_Xgd\mu&\geq\int_{A_n}gd\mu&\text{(monotonia rispetto al dominio)}\\
+		&\geq\int_{A_n}\frac{1}{n}d\mu&\text{(monotonia rispetto all'integranda)}\\
+		&=\frac{1}{n}\mu\left(A_n\right)\geq 0&\text{(integrale di funzione semplice)}
+	\end{align*}
+	da cui segue che $\mu\left(A_n\right)=0,\ \forall n$; per $\sigma$-additività anche $\mu(A)=0$.
+	\item Scriviamo $g=u+iv$ e consideriamo $E=\{x\in X\mid u(x)\geq 0\}=\{x\in X\mid u=u^{+}\}$. Si ha che
+	\begin{equation*}
+		\Re\left(\int_Egd\mu\right)=\int_Eu^{+}d\mu=0.
+	\end{equation*}
+	Per il punto I. si ha che $u^{+}=0$ \textbf{q.o.}. In modo analogo si trova che
+	\begin{equation*}
+		u^{-}=v^{+}=v^{-}=0
+	\end{equation*}
+	ossia $g=0$ \textbf{q.o.}
+\end{enumerate}
+Allora, posto $g=\abs{f}$, dalle ipotesi si ha, per monotonia rispetto al modulo, che
+\begin{equation*}
+	0=\int_X\abs{f}d\mu\leq\abs{\int_Xfd\mu}\geq 0\implies\abs{\int_Xfd\mu}=0\iff\int_Xfd\mu.
+\end{equation*}
+Per il punto II. segue che $f=0$ \textbf{q.o.} su $X$. Si osservi che se $f$ si limita ad avere valori in $\left[0,+\infty\right]$ la conclusione si ottiene direttamente dal punto I. in quanto $\abs{f}=f$.
+\end{demonstrationcaput}
 Come precedentemente detto, le proprietà 2 e 3 sono verificate:
 \begin{enumerate}
 	\item[2.] $N\left(\lambda f\right)=\abs{\lambda}N\left(f\right),\ \forall f\in\mathcal{L}^1\left(\mu\right),\ \forall \lambda \in \complexset$.
@@ -88,7 +129,7 @@ Come sappiamo, se uno spazio normato è completo valgono diversi risultati teori
 \begin{observe}
 	Se si considero lo spazio delle funzioni continue $\mathcal{C}\left(\left[a,b\right];\realset\right)$, allora in esso la funzione
 	\begin{equation*}
-		\funztot{\ }{\mathcal{C}\left(\left[a,b\right];\realset\right)}{\left[0,+\infty\right]}{f}{\lvert f\rvert_1\int_{a}^{b}\abs{f(x)}dx}
+		\funztot{\ }{\mathcal{C}\left(\left[a,b\right];\realset\right)}{\left[0,+\infty\right]}{f}{\lvert f\rvert_1\int_{a}^{b}g(x)dx}
 	\end{equation*}
 	è già una norma. Infatti
 	\begin{equation*}
@@ -290,7 +331,7 @@ Questa è la differenza principale tra la convergenza uniforme/puntuale/quasi ov
 		\end{equation*}
 		Osserviamo che $f$ è dunque misurabile, in quanto la misurabilità passa al limite puntuale (e quindi al limite uniforme). Da $\circled[red]{\vardiamond}$ segue che
 		\begin{equation*}
-			\abs{f(x)}\underset{=}{\forall n\in\naturalset}\abs{f(x)-f_n(x)+f_n(x)}\leq\abs{f(x)-f_n(x)}+\abs{f_n(x)}\underset{\forall x\in X}{<}\epsilon +\abs{f(x)}
+			\abs{f(x)}\underset{\forall n\in\naturalset}{=}\abs{f(x)-f_n(x)+f_n(x)}\leq\abs{f(x)-f_n(x)}+\abs{f_n(x)}\underset{\forall x\in X}{<}\epsilon +g(x)
 		\end{equation*}
 		Posto, ad esempio, $\epsilon = 1$ e $n=N$ si ha
 		\begin{equation*}
@@ -298,7 +339,7 @@ Questa è la differenza principale tra la convergenza uniforme/puntuale/quasi ov
 		\end{equation*}
 		Allora
 		\begin{align*}
-			\int_X\abs{f}d\mu&\leq \int_X \left(1+\abs{f_N}\right)d\mu&\text{(monotonia integrale per l''integranda)}\\
+			\int_X\abs{f}d\mu&\leq \int_X \left(1+\abs{f_N}\right)d\mu&\text{(monotonia integrale per l'integranda)}\\
 			&=\int_{X}1d\mu+\int_X\abs{f_N}d\mu&\text{(additività dell'integranda)}\\
 			&=\mu(x)+\int_X\abs{f_N}d\mu <+\infty&
 		\end{align*}
