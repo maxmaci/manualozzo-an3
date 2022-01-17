@@ -35,44 +35,30 @@ Tuttavia, la suddetta è una \textbf{pseudonorma} in quanto soddisfa due delle t
 	\begin{equation*}
 		\int_X\abs{f}d\mu=0\cdot\mu(X)\equiv 0
 	\end{equation*}
-	$\impliessx$ Articoliamo la dimostrazione in due punti:
-	\begin{enumerate}[label=(\Roman*)]
-		\item Data $\funz{g}{X}{\left[0,+\infty\right]}$ misurabile, $E$ misurabile e $\displaystyle\int_Egd\mu=0$, allora $g=0$ \textbf{q.o.} su $E$, ossia
-		\begin{equation*}
-			\mu\left(\left\{x\in E\mid g(x)\neq 0\right\}\right)=0.
-		\end{equation*}
+	$\impliessx$ Prima di provare questa implicazione, ci serve un risultato preliminare e più generici:
+	\begin{itemize}
 		\item Data $\funz{g}{X}{\complexset}$ integrabile, se per ogni $E$ misurabile $\displaystyle\int_Egd\mu=0$ allora $g=0$ \textbf{q.o.} su $X$, ossia
 		\begin{equation*}
 			\mu\left(\left\{x\in X\mid g(x)\neq 0\right\}\right)=0.
 		\end{equation*}
-	\end{enumerate}
-\begin{enumerate}[label=(\roman*)]
-	\item Consideriamo la successione crescente di insiemi $A_n\coloneqq \left\{x\in E\mid g(x)>\dfrac{1}{n}\right\}$; si osservi che
-	\begin{equation*}
-		A=\left\{x\in X\mid g(x)\neq 0\right\}=\left\{x\in X\mid g(x)> 0\right\}=\bigcup_{n\geq 1}A_n.
-	\end{equation*}
-	Osserviamo che su $A_n$ la funzione $g$ maggiora $\dfrac{1}{n}$, quindi
-	\begin{align*}
-		0=\int_Xgd\mu&\geq\int_{A_n}gd\mu&\text{(monotonia rispetto al dominio)}\\
-		&\geq\int_{A_n}\frac{1}{n}d\mu&\text{(monotonia rispetto all'integranda)}\\
-		&=\frac{1}{n}\mu\left(A_n\right)\geq 0&\text{(integrale di funzione semplice)}
-	\end{align*}
-	da cui segue che $\mu\left(A_n\right)=0,\ \forall n$; per $\sigma$-additività anche $\mu(A)=0$.
+	\end{itemize}
+	Dimostriamolo.
+\begin{itemize}
 	\item Scriviamo $g=u+iv$ e consideriamo $E=\{x\in X\mid u(x)\geq 0\}=\{x\in X\mid u=u^{+}\}$. Si ha che
 	\begin{equation*}
 		\Re\left(\int_Egd\mu\right)=\int_Eu^{+}d\mu=0.
 	\end{equation*}
-	Per il punto I. si ha che $u^{+}=0$ \textbf{q.o.}. In modo analogo si trova che
+	Per il punto III. della proprietà\footnote{Si veda \refChapterOnly{integraledilebesgue}, pag. \pageref{ruoloinsiemimisuranulla}.} \ref{ruoloinsiemimisuranulla}, si ha che $u^{+}=0$ \textbf{q.o.}. In modo analogo si trova che
 	\begin{equation*}
 		u^{-}=v^{+}=v^{-}=0
 	\end{equation*}
 	ossia $g=0$ \textbf{q.o.}
-\end{enumerate}
-Allora, posto $g=\abs{f}$, dalle ipotesi si ha, per monotonia rispetto al modulo, che
+\end{itemize}
+Posto $g=\abs{f}$, dalle ipotesi si ha, per monotonia rispetto al modulo, che
 \begin{equation*}
 	0=\int_X\abs{f}d\mu\leq\abs{\int_Xfd\mu}\geq 0\implies\abs{\int_Xfd\mu}=0\iff\int_Xfd\mu.
 \end{equation*}
-Per il punto II. segue che $f=0$ \textbf{q.o.} su $X$. Si osservi che se $f$ si limita ad avere valori in $\left[0,+\infty\right]$ la conclusione si ottiene direttamente dal punto I. in quanto $\abs{f}=f$.
+Per il punto II. segue che $f=0$ \textbf{q.o.} su $X$. Si osservi che se $f$ si limita ad avere valori in $\left[0,+\infty\right)$ la conclusione si ottiene direttamente per il punto III. della proprietà. in quanto $\abs{f}=f$.
 \end{demonstrationcaput}
 Come precedentemente detto, le proprietà 2 e 3 sono verificate:
 \begin{enumerate}

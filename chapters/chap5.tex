@@ -369,8 +369,7 @@ Negli stessi anni in cui si lavorò per espandere la classe di funzioni che amme
 Chiaramente già dall'antichità erano note misure di figure ‘‘elementari'', come ad esempio la lunghezza e l'area di un poligono o il volume di certi solidi, spesso sulla base di principi come quello di \textit{esaustione}.\\
 Solo nel XIX secolo si cercò di formalizzare questi ragionamenti ed espandere il concetto di misura non soltanto a figure generiche, ma anche a più dimensioni fino ad arrivare ad una astrazione di tale concetto ad insiemi, indipendentemente dall'essere in $\realset^n$.\\
 Il primo ad introdurre un concetto di misura di un sottoinsieme della retta, del piano o delle spazio fu Giuseppe \textbf{Peano} (1858-1932). Nel suo \textit{Applicazioni geometriche del
-calcolo infinitesimale (1887)}, il matematico piemontese ipotizza di ‘‘modernizzare'' il metodo di esaustione già citato in precedenza.
-%Peano ha lavorato a Torino, però essendo di origini cuneesi potrebbe essere frainteso come "orginario di Torino", e i cuneesi si arrabbiano (sì, i cioccolatini)
+calcolo infinitesimale (1887)}, il matematico piemontese ipotizza di ‘‘modernizzare'' il metodo di esaustione già citato in precedenza.\\
 Ad esempio, prendo un insieme limitato in $\realset^2$, ossia quello che all'epoca veniva denominato \textit{campo piano}, potremmo considerare dei poligoni che contengono tale insieme - che chiameremo \textit{poligoni esterni} - e dei poligoni che sono contenuti in tale insieme - i cosiddetti \textit{poligoni interni}.
 \begin{center}
 	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.71]{images/peanopoligoni.pdf}
@@ -407,13 +406,10 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 	\begin{itemize}
 		\item \textsc{Misura esterna}:\index{misura!esterna} \begin{equation}
 			m_{PJ}^X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\ \middle| \ P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\supseteq A\right\}
-%ho sostituito \mid con \middle| e inserito i \ prima e dopo perché a pagina 92 c'era già \middle| ma era tutto attaccato		
-%un'alternativa usata nel chap4 riga 79 è \ \middle\vert \
 		\end{equation}
 		\item \textsc{Misura interna}:\index{misura!interna}
 		\begin{equation}
 			m_{PJ,X}\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right) \ \middle| \  P_i\text{ parallelepipedi},\ \bigcup_{i=1}^nP_i\subseteq A\right\}
-%stesso discorso del commento precedente
 		\end{equation}
 	\end{itemize}
 	In generale $m_{PJ,X}\left(A\right)\leq m_{PJ}^{X}\left(A\right)$.
@@ -530,17 +526,13 @@ dove per parallelepipedo \textit{aperto} si intende un plurintervallo definito d
 		\end{equation}
 	\end{itemize}
 	Osserviamo che per $m^X$ vale \textit{solo} la  $\sigma$-\textit{subadditività}, ma non la $\sigma$-\textit{additività}.
-	\begin{define}[Insieme misurabile secondo Lebesgue {{\small (Criterio di Caratheodory)}}]\index{criterio!di Caratheodory}
-%fastidiosamente c'è un punto a capo da solo
+	\begin{define}[Insieme misurabile secondo Lebesgue {{\footnotesize (Criterio di Caratheodory)}}]\index{criterio!di Caratheodory}
 		Un insieme $A\subseteq\realset^n$ è \textbf{misurabile secondo Lebesgue} se $\forall E\subseteq\realset^n$ vale
 		\begin{equation}
 			m_n^X(E)=m_n^X\left(E\cap A\right)+m_n^X\left(E\cap A^C\right)
 		\end{equation}
 	\end{define}
-%NEW: riformulazione
-	Per qualsiasi insieme test $E$ insiemisticamente si ha che $E=(E\cap A) \cup (E\cap A^C)$. Si impone che $A$ è misurabile se per qualsiasi \textbf{insieme test}\index{insieme!test} arbitrario (non necessariamente misurabile!) la misura $m_n^X$ è additiva su questa decomposizione
-%OLD
-%	$E$ è un \textbf{insieme test}\index{insieme!test} arbitrario (non necessariamente misurabile!): $A$ è misurabile se decompone bene $E$ in due sottoinsiemi misurabili $E\cap A$ e $E\cap A^C$.
+	Insiemisticamente, per qualsiasi insieme $E$ si ha che $E=(E\cap A) \cup (E\cap A^C)$: si impone quindi che $A$ è misurabile se per qualsiasi \textbf{insieme test}\index{insieme!test} arbitrario (non necessariamente misurabile!) $E$ la misura $m_n^X$ è additiva su questa decomposizione.
 	\begin{center}
 		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.5]{images/criteriomisurabilita.pdf}
 	\end{center}

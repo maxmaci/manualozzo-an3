@@ -1138,10 +1138,9 @@ Nel caso di funzioni limitate su un intervallo chiuso e che sono Riemann-integra
 	\end{equation}
 e
 \begin{equation}
-	\int_{\left[a,b\right]}\abs{f}dm_1=\int_{a}^{b}f(x)dx\qedhere
+	\int_{\left[a,b\right]}fdm_1=\int_{a}^{b}f(x)dx\qedhere
 \end{equation}
 \end{theoremaqed}
-% TO DO: add cenni dimostrazione
 \begin{observes}~
 	\begin{itemize}
 		\item Il viceversa non è vero: come abbiamo già visto\footnote{Si veda pag. \pageref{funzionedirichletintegrale}.}, la funzione di Dirichlet è integrabile secondo Lebesgue ma non secondo Riemann.
@@ -1229,7 +1228,7 @@ Sulla base di questi risultati siamo finalmente in grado di rispondere al second
 \begin{theoremaqed}[Caratterizzazione delle funzioni integrabili secondo Riemann]
 	Sia $\funz{f}{\left[a,b\right]}{\realset}$ limitata e sia $D_f$ l'insieme delle discontinuità di $f$. Se $m_1$ è la misura  di Lebesgue unidimensionale, allora
 	\begin{equation}
-		f\in\mathcal{R}\left(\left[a,b\right]\right)\iff m_1\left(D_f\right)=0\qedhere
+		f\in\mathcal{R}\left(\left[a,b\right]\right)\iff m_1\left(D_f\right)=0
 	\end{equation}
 ossia $f$ limitata è Riemann-integrabile su $\left[a,b\right]$ se e solo se $f$ è continua \textbf{q.o.} su $\left[a,b\right]$.
 \end{theoremaqed}
@@ -1279,7 +1278,7 @@ Sappiamo che $m_1\left(\left[0,1\right]\cap\rationalset\right)=0$, quindi
 \end{equation*}
 ha misura nulla e pertanto la funzione di Dirichlet è \textit{quasi ovunque} la funzione identicamente \textit{nulla}.
 \end{example}
-\begin{property}[Ruolo degli insiemi di misura nulla nell'integrazione]
+\begin{property}[Ruolo degli insiemi di misura nulla nell'integrazione]\label{ruoloinsiemimisuranulla}
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 \begin{enumerate}
 	\item Se $\funz{f}{X}{\complexset}$ e $f\in\mathcal{L}^{1}\left(\mu\right)$, allora
@@ -1292,7 +1291,7 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 \end{equation}
 \item Se $\funz{f}{X}{\left[0,+\infty\right)}$ misurabile, allora
 \begin{equation}
-	\int_X fd\mu=0\implies f=0 \text{\textbf{q.o.} in }X
+	\int_X fd\mu=0\implies f=0\ \text{\textbf{q.o.} in }X
 \end{equation}
 \end{enumerate}
 \end{property}
@@ -1309,7 +1308,7 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 	\end{equation*}
 	\item Sia
 		\begin{equation*}
-			E=\left\{x\in X\mid f(x)\neq 0\right\}=\bigcup_{n\geq 1}\left\{x\in X\mid f(x)>\frac{1}{n}\right\}=\bigcup_{n\geq 1}E_n
+			E=\left\{x\in X\mid f(x)\neq 0\right\}=\left\{x\in X\mid f(x)> 0\right\}=\bigcup_{n\geq 1}\left\{x\in X\mid f(x)>\frac{1}{n}\right\}=\bigcup_{n\geq 1}E_n
 		\end{equation*}
 	Osserviamo che $E_n=f^{-1}\left(\left(\frac{1}{n},+\infty\right)\right)\in\mathcal{M}$ in quanto è controimmagine di un aperto tramite una funzione misurabile; su ha allora
 	\begin{align*}

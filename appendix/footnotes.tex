@@ -202,7 +202,6 @@ Se la serie
 	converge \textit{assolutamente} e inoltre essa converge anche semplicemente.
 \paragraph{Criterio del rapporto o di d'Alembert}
 (\textit{Criterio sufficiente}, $\realset$ o $\complexset$)
-	% Sia $a_n$ definitivamente diverso da zero.
 	Se esiste $R$ tale che
 	\begin{equation}
 		\lim_{n\to+\infty}\abs{\frac{a_{n+1}}{a_n}}=R
@@ -287,13 +286,13 @@ Sia data la serie
 \subsection{Serie a valori reali notevoli}\label{serieavalorirealinotevoli}
 Di seguito enunceremo alcune serie a valori reali di particolare rilevanza.
 \paragraph{Serie geometrica}\label{seriegeometricafootnote}
-	\begin{equation*}
+	\begin{equation}
 		\sum_{n=0}^{+\infty}z^{n}
-	\end{equation*}	
+	\end{equation}	
 	La ridotta è uguale a
-	\begin{equation*}
+	\begin{equation}
 		s_n=\sum_{k=0}^{n}z^{k}=\frac{1-z^{n+1}}{1-z}
-	\end{equation*}
+	\end{equation}
 	La serie dunque converge se e solo se $\abs{z}<1$ e in tal caso converge a $\displaystyle\frac{1}{1-z}$.
 	\begin{demonstration}
 		Osserviamo subito che per $z=1$ la serie geometrica è la somma di infiniti termini pari ad $1$ e \textit{non converge}.\\
@@ -340,7 +339,7 @@ Per $\abs{z}>1$ $z^{n+1}$ diverge, dunque diverge anche la ridotta e la serie ge
 	\end{equation}
 	per ogni numero reale positivo $p$. Diverge per $p\leq 1$, ma converge per ogni $p>1$.
 \section{Capitolo 4: serie di potenze}
-\section{Limite e limite del modulo}
+\subsection{Limite e limite del modulo}
 \begin{proposition}[Limite di una successione e limite del modulo]\label{equivalenzalimiteemodulolimite}
 	Sia $a_n$ una successione in $\complexset$. Allora
 	\begin{equation}
@@ -358,7 +357,7 @@ Per $\abs{z}>1$ $z^{n+1}$ diverge, dunque diverge anche la ridotta e la serie ge
 	\end{equation*}
 	ossia verifica la definizione di $\displaystyle\lim_{n\to+\infty}\abs{a_n}=0$; si ha dunque la tesi.
 \end{demonstration}
-\section{Riordinare gli elementi di una serie}
+\subsection{Riordinare gli elementi di una serie}
 \begin{theoremaqed}[Teorema del riordinamento di Riemann]\label{riordinamentoserie}
 	Se una serie a valori reali converge semplicemente ma \textit{non} assolutamente, allora i suoi termini possono essere riordinati tramite una permutazione in modo che la nuova serie converge ad un qualunque numero reale arbitrariamente scelto oppure diverge.
 \end{theoremaqed}
@@ -386,7 +385,7 @@ Per $\abs{z}>1$ $z^{n+1}$ diverge, dunque diverge anche la ridotta e la serie ge
 	\end{equation*}
 	Notiamo come aver riordinato gli elementi in questo modo ci ha portato a due valori finali differenti!
 \end{example}
-\section{Il prodotto di serie (secondo Cauchy)}\label{prodottosecondocauchy}
+\subsection{Il prodotto di serie (secondo Cauchy)}\label{prodottosecondocauchy}
 In questa sezione ricordiamo la definizione ed alcune proprietà del prodotto di serie (secondo Cauchy), basandoci sul Capitolo 3 di \cite{rudin:1976principles}.\\
 Date le due serie 
 \begin{equation*}
@@ -546,6 +545,79 @@ mentre la seconda da
 	\end{equation*}
 	sono misurabili.
 \end{corollary}
+\section{Capitolo 6: integrale di Lebesgue}
+\subsection{Criteri di convergenza degli integrali impropri di Riemann}
+Qui esplicitiamo i criteri per gli integrali impropri su $\left[a,+\infty\right)$, ma si possono formulare equivalentemente per $\left(-\infty,b\right]$, $\left[a,c\right)$ e $\left(c,b\right]$ (dove $c$ è punto di discontinuità).
+\paragraph{Convergenza assoluta}
+(\textit{Criterio sufficiente})\\
+Se l'integrale
+\begin{equation*}
+	\int_{a}^{+\infty} \abs{f(x)}dx
+\end{equation*}
+converge, allora si dice che l'integrale 
+\begin{equation*}
+	\int_{a}^{+\infty} f(x)dx
+\end{equation*}
+converge \textit{assolutamente} e inoltre esso converge anche semplicemente.
+\paragraph{Criterio del confronto}
+(\textit{Criterio sufficiente})\\
+Se $f(x)\geq g(x)\geq 0,\ \forall x\in \left[a,+\infty\right)$ allora
+\begin{enumerate}
+	\item Se $\displaystyle	\int_{a}^{+\infty} f(x)dx$ converge, allora $\displaystyle 	\int_{a}^{+\infty} g(x)dx$ converge.
+	\item Se $\displaystyle	\int_{a}^{+\infty} g(x)dx$ diverge, allora $\displaystyle 	\int_{a}^{+\infty} f(x)dx$ diverge.
+\end{enumerate}
+\paragraph{Criterio del confronto asintotico}
+(\textit{Criterio necessario e sufficiente})\\
+Se $f(x)\geq 0,\ \forall x\in \left[a,+\infty\right)$ e il limite
+\begin{equation*}
+	\lim_{x\to +\infty}\frac{f(x)}{g(x)}
+\end{equation*}
+esiste, è finito e diverso da zero, allora
+\begin{equation}
+	\int_{a}^{+\infty} f(x)dx\text{ converge}\iff\int_{a}^{+\infty} g(x)dx\text{ converge}.
+\end{equation}
+\subsection{Integrali impropri di Riemann notevoli}
+\paragraph{Potenze}
+\begin{equation}
+	\int_{a}^{b}\frac{1}{\left(x-a\right)^p}
+\end{equation}
+converge se $p<1$ e diverge per $p\geq 1$.
+\begin{equation}
+	\int_{a}^{+\infty}\frac{1}{x^p},\quad a>0
+\end{equation}
+converge se $p>1$ e diverge per $p\leq 1$.
+\paragraph{Logaritmo}
+\begin{equation}
+	\int_{1}^{a}\frac{1}{\log^p(x)},\quad a>1
+\end{equation}
+converge se $p<1$ e diverge per $p\geq 1$.
+\paragraph{Potenza e logaritmo}
+\begin{equation}
+	\int_{0}^{a}\frac{1}{x^p\abs{\log(x)}^{q}},\quad 0<a<1
+\end{equation}
+Esso converge se vale una delle seguenti:
+\begin{itemize}
+	\item $p<1,\ \forall q\in\realset$
+	\item $p=1,\ b>1$.
+\end{itemize}
+Esso invece diverse se vale una delle seguenti:
+\begin{itemize}
+	\item $p>1,\ \forall q\in\realset$
+	\item $p=1,\ b\leq 1$.
+\end{itemize}
+\begin{equation}
+	\int_{a}^{+\infty}\frac{1}{x^p\abs{\log(x)}^{q}},\quad a>1
+\end{equation}
+Esso converge se vale una delle seguenti:
+\begin{itemize}
+	\item $p>1,\ \forall q\in\realset$
+	\item $p=1,\ q>1$.
+\end{itemize}
+Esso invece diverse se vale una delle seguenti:
+\begin{itemize}
+	\item $p<1,\ \forall q\in\realset$
+	\item $p=1,\ q\leq 1$.
+\end{itemize}
 \section{Capitolo 7: convergenza di funzioni, parte seconda}
 \subsection{Misurabilità e convergenza quasi ovunque}
 \begin{proposition}[Teorema di misurabilità per successioni {q.o.}]\label{funzionimisurabiliqo}
