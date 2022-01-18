@@ -370,7 +370,7 @@ Chiaramente già dall'antichità erano note misure di figure ‘‘elementari'',
 Solo nel XIX secolo si cercò di formalizzare questi ragionamenti ed espandere il concetto di misura non soltanto a figure generiche, ma anche a più dimensioni fino ad arrivare ad una astrazione di tale concetto ad insiemi, indipendentemente dall'essere in $\realset^n$.\\
 Il primo ad introdurre un concetto di misura di un sottoinsieme della retta, del piano o delle spazio fu Giuseppe \textbf{Peano} (1858-1932). Nel suo \textit{Applicazioni geometriche del
 calcolo infinitesimale (1887)}, il matematico piemontese ipotizza di ‘‘modernizzare'' il metodo di esaustione già citato in precedenza.\\
-Ad esempio, prendo un insieme limitato in $\realset^2$, ossia quello che all'epoca veniva denominato \textit{campo piano}, potremmo considerare dei poligoni che contengono tale insieme - che chiameremo \textit{poligoni esterni} - e dei poligoni che sono contenuti in tale insieme - i cosiddetti \textit{poligoni interni}.
+Ad esempio, preso un insieme limitato in $\realset^2$, ossia quello che all'epoca veniva denominato \textit{campo piano}, potremmo considerare dei poligoni che contengono tale insieme - che chiameremo \textit{poligoni esterni} - e dei poligoni che sono contenuti in tale insieme - i cosiddetti \textit{poligoni interni}.
 \begin{center}
 	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.71]{images/peanopoligoni.pdf}
 \end{center}
@@ -836,14 +836,14 @@ La definizione di misura di Lebesgue che abbiamo analizzato nella scorsa sezione
 I concetti di $\sigma$-algebra e insieme misurabile che abbiamo già affrontato si possono ricondurre proprio a Borel, così come la seguente \textit{definizione assiomatica} di misura.
 \begin{define}[Misura e spazio di misura]
 	Dato $\left(X,\mathcal{M}\right)$ uno spazio misurabile, una funzione $\funz{\mu}{\mathcal{M}}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ è detta \textbf{misura}\index{misura} se soddisfa le seguenti proprietà:
-	\begin{itemize}
+	\begin{enumerate}
 		\item \textsc{\textbf{Non negatività:}} $\forall A\in\mathcal{M},\ \mu\left(A\right)\geq 0$.
 		\item \textsc{\textbf{Insieme vuoto nullo:}} $\mu\left(\emptyset\right)=0$.
 		\item $\sigma$-\textsc{\textbf{additività:}} $\forall A_n\in\mathcal{M}$ tali che $A_i\cap A_j=\emptyset\ \forall i\neq j$, allora
 		\begin{equation}
 			\mu\left(\coprod_{n\geq 1}A_n\right)=\sum_{n\geq 1}\mu\left(A_n\right)
 		\end{equation}
-	\end{itemize}
+	\end{enumerate}
 	In tal caso la terna $\left(X,\mathcal{M},\mu\right)$ è detta \textbf{spazio di misura}\index{spazio!di misura}.
 	\begin{itemize}
 		\item $\mu$ si dice \textbf{completa}\index{misura!completa} se $\forall S\subseteq N,\ \forall N\in\mathcal{M}\colon\mu(N)=0\implies S\in\mathcal{M}$ e $\mu(S)=0$.

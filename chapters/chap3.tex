@@ -49,7 +49,10 @@ si dice che la serie
 	\end{equation}
 \end{define}
 \begin{theorema}[Convergenza assoluta implica convergenza semplice]\label{teoremaassimplicasemplice}
-	Ogni serie di numeri reali assolutamente convergente è anche semplicemente convergente.
+	Ogni serie di numeri reali assolutamente convergente è anche semplicemente convergente. Inoltre, vale
+	\begin{equation}
+		\abs{\sum_{k=0}^{+\infty}x_k}\leq\sum_{k=0}^{+\infty}\abs{x_k}
+	\end{equation}
 \end{theorema}
 \begin{demonstration}
 	Per dimostrare che la serie
@@ -72,7 +75,7 @@ si dice che la serie
 	\begin{equation*}
 		\abs{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\abs{x_{n+1}}+\abs{x_{n+2}}+\ldots+\abs{x_{n+p}}<\epsilon,\ \forall n\in\naturalset,\ \forall p\in\naturalset
 	\end{equation*}
-Dalle ultime due relazioni si deduce immediatamente la prima relazione e dunque la tesi.
+Dalle ultime due relazioni si deduce immediatamente la prima relazione e dunque la prima tesi. La disuguaglianza segue dal fatto che essa è vera per ogni somma parziale.
 \end{demonstration}
 \begin{observe}\label{convergenzaassolutadipendedacauchy}
 	Il teorema appena dimostrato è una conseguenza della \textbf{completezza} di $\realset$. Infatti, abbiamo usato il \textit{criterio di Cauchy}, che si basa sul fatto che le successioni di Cauchy convergono sempre in $\realset$ e quindi proprio per la completezza dei reali.\\
@@ -132,7 +135,10 @@ Se dotiamo l'insieme $X$ di una struttura di \textbf{spazio normato} possiamo ge
 \end{define}
 Dall'osservazione a pag. \pageref{convergenzaassolutadipendedacauchy} il teorema \ref{teoremaassimplicasemplice} necessita della \textit{completezza} dei reali. Per generalizzarlo ci basta lavorare in \textit{spazi normati completi}.
 \begin{theorema}[Convergenza totale o assoluta implica convergenza semplice]
-	Ogni serie in $X$ spazio normato completo totalmente convergente è anche semplicemente convergente.
+	Ogni serie in $X$ spazio normato completo totalmente convergente è anche semplicemente convergente. Inoltre, vale
+	\begin{equation}
+		\norm{\sum_{k=0}^{+\infty}x_k}\leq\sum_{k=0}^{+\infty}\norm{x_k}
+	\end{equation}
 \end{theorema}
 \begin{demonstration}
 	La dimostrazione è analoga a quella affrontata nel teorema  \ref{teoremaassimplicasemplice}: è sufficiente sostituire al valore assoluto $\abs{\cdot}$ la norma $\norm{\cdot}$.
@@ -201,7 +207,7 @@ essa vale
 Tuttavia, questa funzione richiede la conoscenza della \textit{somma} $S\left(z\right)$, cosa che in generale \textit{non} avviene. Usare direttamente il criterio di Cauchy per la convergenza uniforme è sicuramente più conveniente, ma non è sempre semplice da verificare. Esiste tuttavia una condizione \textit{sufficiente} che consente di provare la convergenza uniforme senza la conoscenza della somma limite.
 \begin{propositionqed}[Criterio di Weierstrass]\label{criteriodiweierstrass}
 	Siano $\funz{f_n}{A\subseteq \complexset}{\complexset}$ tale che
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*.]
 		\item $\forall n\in \naturalset,\ \exists c_n\in\realset\colon\ \abs{f_n\left(z\right)}\leq c_n,\ \forall z\in A$.
 		\item $\displaystyle\sum_{n=1}^{+\infty}c_n$ converge (come serie \textit{numerica}).
 	\end{enumerate}
@@ -235,7 +241,7 @@ Ci poniamo ora il problema di studiare come si modificano i teoremi di \textit{l
 \subsection{Limitatezza}
 \begin{theorema}[Teorema di limitatezza per serie]
 	Siano $\displaystyle \funz{f_n}{A\subseteq\realset}{\realset},\ n\geq 1$ tali che
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*.]
 		\item $f_n$ limitata su $A,\ \forall n\geq 1$.
 		\item $\displaystyle\sum_{n=0}^{+\infty}f_n$ converge \textit{uniformemente} a $f$ su $A$.
 	\end{enumerate}
@@ -261,7 +267,7 @@ $S(x)$ è limitata su $A$.
 Notiamo immediatamente che il \textit{teorema di continuità per le serie} è del tutto analogo al \textit{teorema di limitatezza} appena dimostrato.
 \begin{theorema}[Teorema di continuità per serie]
 	Siano $\funz{f_n}{A\subseteq\realset}{\realset},\ n\geq 1$ tali che
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*.]
 		\item $f_n$ continua su $A,\ \forall n\geq 1$.
 		\item $\displaystyle\sum_{n=0}^{+\infty}f_n$ converge \textit{uniformemente} a $f$ su $A$.
 	\end{enumerate}
@@ -286,8 +292,8 @@ Notiamo immediatamente che il \textit{teorema di continuità per le serie} è de
 \end{demonstration}
 \subsection{Integrabilità e scambio tra integrale e serie}
 \begin{theorema}[Teorema di integrabilità per serie, scambio tra integrale e serie]
-	Sia $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
-	\begin{enumerate}
+	Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
+	\begin{enumerate}[label=\alph*.]
 		\item $f_n\in\mathcal{R}\left(\left[a,b\right]\right),\ \forall n\geq 1$.
 		\item $\displaystyle\sum_{n=0}^{+\infty}f_n$ converge \textit{uniformemente} a $f$ su $\left[a,b\right]$.
 	\end{enumerate}
@@ -337,8 +343,8 @@ si ha:
 \end{demonstration}
 \subsection{Derivabilità}
 \begin{theorema}[Derivabilità termine a termine]\label{derivabilitatermineatermine}
-	Sia $\funz{f_n}{\left(a,b\right)}{\realset}$ tale che
-	\begin{enumerate}
+	Siano $\funz{f_n}{\left(a,b\right)}{\realset}$ tale che
+	\begin{enumerate}[label=\alph*.]
 		\item $f_n$ derivabile su $\left(a,b\right),\ \forall n\geq 1$.
 		\item $\exists c\in\left(a,b\right)$ tale che $\displaystyle\sum_{n=1}^{+\infty}f_n\left(c\right)$ converge
 		\item $\displaystyle\sum_{n=1}^{+\infty}f'_n(x)$ converge uniformemente su $\left(a,b\right)$.

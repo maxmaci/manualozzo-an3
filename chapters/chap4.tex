@@ -250,9 +250,10 @@ Mostriamo per ciascuno di essi un esempio.
 		\sum_{n=1}^{+\infty}\frac{z^n}{n^\alpha},\quad\alpha>1
 	\end{equation*}
 	Con la formula di D'Alembert vediamo che il raggio di convergenza è $R=1$. Infatti
-	\begin{equation*}
-		\lim_{n\to+\infty}\frac{\abs{a_{n+1}}}{\abs{a_{n}}}=\lim_{n\to+\infty}\frac{\left(n+1\right)^\alpha}{n^\alpha}=\lim_{n\to+\infty}\frac{n^\alpha\left(1+\frac{1}{n}\right)^\alpha}{n^\alpha}=\lim_{n\to+\infty}\left(1+\frac{1}{n}\right)^\alpha=1=L\implies r=\frac{1}{L}=1
-	\end{equation*}
+	\begin{align*}
+		&\lim_{n\to+\infty}\frac{\abs{a_{n+1}}}{\abs{a_{n}}}=\lim_{n\to+\infty}\frac{\left(n+1\right)^\alpha}{n^\alpha}=\lim_{n\to+\infty}\frac{n^\alpha\left(1+\frac{1}{n}\right)^\alpha}{n^\alpha}=\lim_{n\to+\infty}\left(1+\frac{1}{n}\right)^\alpha=1=L\\
+		&\implies r=\frac{1}{L}=1
+	\end{align*}
 	Per ogni $z\in\complexset$ tale che $\abs{z}=1$ la serie converge (assolutamente):
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}\abs{\frac{z^n}{n^\alpha}}=\sum_{n=1}^{+\infty}\frac{n}{n^\alpha}
@@ -721,10 +722,14 @@ Abbiamo quindi ottenuto
 \begin{equation*}
 	0\leq \abs{R_n(x)}\leq M\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1},\ \forall n\geq n_0
 \end{equation*}
-Poiché $\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1}$ è una successione geometrica di ragione $\frac{\abs{x-x_0}}{r_0}\in\left(0,1\right)$, essa tende a $0$ per $n\to+\infty$: per il \textit{teorema del confronto} abbiamo $\displaystyle\lim_{n\to+\infty}R_n(x)=0$.
+Poiché
+\begin{equation*}
+	\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1}
+\end{equation*}
+è una successione geometrica di ragione $\nicefrac{\abs{x-x_0}}{r_0}\in\left(0,1\right)$, essa tende a $0$ per $n\to+\infty$: per il \textit{teorema del confronto} abbiamo $\displaystyle\lim_{n\to+\infty}R_n(x)=0$.
 \end{demonstration}
 \begin{observe}
-	Questa condizione sufficiente si verifica anche se $\exists M>0, \exists r_0>0$ tale per cui
+	Questa condizione sufficiente si verifica anche se $\exists M>0,\ \exists r_0>0$ tale per cui
 	\begin{equation}\label{condizionesufficientederivatelimitate}
 		\abs{f^{\left(n\right)}(x)}\leq M,\ \forall x\in\left(x_0-r_0,\ x_0+r_0\right),\ \forall n\geq 0
 	\end{equation}
@@ -754,7 +759,11 @@ Provare che $f\in \mathcal{A}((-R,R))$.
 	\begin{equation*}
 		\forall \ x_0\in (-R,R) \quad \exists \ r_0>0\quad \exists \{b_n\}_{n\in \naturalset}: \quad f(x)=\sum_{n=0}^{+\infty} b_n (x-x_0)^n,\quad \forall \ x\in (x_0-r_0,x_0+r_0).
 	\end{equation*}
-Fissiamo $x_0\in\left(-R,R\right)$ e consideriamo $r_0\coloneqq R-\abs{x_0}>0$; $\forall x\in \left(x_0-r_0,x_0+r_0\right)$, applicando la formula del binomio di Newton si ricava
+Fissiamo $x_0\in\left(-R,R\right)$ e consideriamo
+\begin{equation*}
+	r_0\coloneqq R-\abs{x_0}>0.
+\end{equation*}
+Applicando la formula del binomio di Newton per ogni $x\in \left(x_0-r_0,x_0+r_0\right)$ si ricava
 \begin{equation*}
 	f(x)=\sum_{n=0}^{+\infty} a_n x^n=\sum_{n=0}^{+\infty} a_n (x-x_0+x_0)^n = \sum_{n=0}^{+\infty} a_n \sum_{k=0}^{n} \binom{n}{k} x_0^{n-k} (x-x_0)^k.
 \end{equation*}

@@ -121,7 +121,7 @@ Abbiamo così verificato la convergenza richiesta.
 	\end{enumerate}
 \end{examplewt}
 \begin{demonstration}~{}
-	\begin{enumerate}
+	\begin{enumerate}[label=(\Roman*)]
 		\item Sia $a\in\left(0,1\right)$ fissato e consideriamo
 		\begin{equation*}
 			\abs{x^n-0}=\abs{x^n}\implies\sup_{x\in \left[-a,a\right]}\abs{x^n-0}=\sup_{x\in \left[-a,a\right]}\abs{x^n}
@@ -438,7 +438,7 @@ Adesso studiamo il diverso comportamento delle due tipologie di convergenza vist
 \subsection{Limitatezza}
 \begin{theorema}[Teorema di limitatezza per successioni]
 Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
-\begin{enumerate}
+\begin{enumerate}[label=\alph*.]
 	\item $f_n$ limitata su $\left[a,b\right],\ \forall n\geq 1$.
 	\item $f_n$ converge uniformemente a $f$ su $\left[a,b\right]$.
 \end{enumerate}
@@ -449,7 +449,7 @@ Allora $f$ è limitata su $\left[a,b\right]$.
 	\begin{equation*}
 		\exists M>0\colon \abs{f(x)}\leq n,\ \forall x\in A
 	\end{equation*}
-Per l'ipotesi $2)$ sappiamo che
+Per l'ipotesi $b.$ sappiamo che
 \begin{equation*}
 	\forall \epsilon>0,\ \exists N=N\left(\epsilon\right)\colon\forall n\geq N,\ \abs{f_n(x)-f(x)}<\epsilon,\ \forall x\in A
 \end{equation*}
@@ -457,7 +457,7 @@ Posto ad esempio\footnote{La scelta di $\epsilon$ è arbitraria.} $\epsilon = 2$
 \begin{equation*}
 	\abs{f_{N_2}(x)-f(x)}<2,\ \forall x\in A
 \end{equation*}
-Consideriamo $f_{N_2}(x)$: per l'ipotesi $1)$ è limitata, cioè
+Consideriamo $f_{N_2}(x)$: per l'ipotesi $a.$ è limitata, cioè
 \begin{equation*}
 	\exists M_2>0\colon \abs{f_{N_2}(x)}\leq M_2,\ \forall x\in A
 \end{equation*}
@@ -506,7 +506,7 @@ Per ogni $n\geq1$ la funzione $f_n$ è limitata su $\left(0,1\right]$. Inoltre, 
 \subsection{Continuità}
 \begin{theorema}[Teorema di continuità per successioni]
 	Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*.]
 		\item $f_n$ continua su $\left[a,b\right],\ \forall n\geq 1$.
 		\item $f_n$ converge uniformemente a $f$ su $\left[a,b\right]$.
 	\end{enumerate}
@@ -517,7 +517,7 @@ Per ogni $n\geq1$ la funzione $f_n$ è limitata su $\left(0,1\right]$. Inoltre, 
 	\begin{equation*}
 		\forall \epsilon>0,\ \exists \delta>0 \colon \abs{x-x_0}<\delta\implies \abs{f(x)-f\left(x_0\right)}<\epsilon
 	\end{equation*}
-	Per l'ipotesi $2)$ sappiamo che $f_n$ converge uniformemente; allora, fissato $\epsilon>0$, $\exists N=N\left(\epsilon\right)\in\naturalset$ tale che
+	Per l'ipotesi $b.$ sappiamo che $f_n$ converge uniformemente; allora, fissato $\epsilon>0$, $\exists N=N\left(\epsilon\right)\in\naturalset$ tale che
 	\begin{equation*}
 		\abs{f_N(x)-f(x)}<\frac{\epsilon}{3},\ \forall x\in\left[a,b\right]
 	\end{equation*}
@@ -525,7 +525,7 @@ Questa relazione chiaramente vale anche per $x_0$:
 	\begin{equation*}
 	\abs{f_N\left(x_0\right)-f\left(x_0\right)}<\frac{\epsilon}{3}
 \end{equation*}
-Per l'ipotesi $1)$ ogni $f_n$ è continua in $x_0$, in particolare $f_N$ la è. Per definizione di continuità, considerato sempre lo stesso $\epsilon>0$ di prima $\exists\delta >0$ tale che se $\abs{x-x_0}<\delta$ si ha
+Per l'ipotesi $a.$ ogni $f_n$ è continua in $x_0$, in particolare $f_N$ la è. Per definizione di continuità, considerato sempre lo stesso $\epsilon>0$ di prima $\exists\delta >0$ tale che se $\abs{x-x_0}<\delta$ si ha
 	\begin{equation*}
 	\abs{f_N(x)-f_N\left(x_0\right)}<\frac{\epsilon}{3}
 \end{equation*}
@@ -556,7 +556,7 @@ La successione di funzioni \textit{continue} $f_n$ converge quindi puntualmente 
 D'ora in avanti indicheremo con $\mathcal{R}\left(\left[a,b\right]\right)$ l'insieme delle funzioni integrabili secondo Riemann su $[a,b]$.
 \begin{theoremaqed}[Teorema di integrabilità per successioni, passaggio al limite sotto segno di integrale]\label{passaggioallimitecontinuitàuniforme}
 	Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*.]
 		\item $f_n\in\mathcal{R}\left(\left[a,b\right]\right),\ \forall n\geq 1$.
 		\item $f_n$ converge uniformemente a $f$ su $\left[a,b\right]$.
 	\end{enumerate}
@@ -733,7 +733,7 @@ Consideriamo la successione $f_n(x)=\sqrt{x^2+\frac{1}{n}},\ \forall x\in \reals
 Esiste comunque un legame tra \textit{successioni di funzioni}, \textit{derivabilità} e convergenza uniforme; scopriamo che non è più la successione $f_n$ a dover convergere uniformemente, bensì sono le derivate $f'$ della successioni a doverlo fare.
 \begin{theorema}[Teorema di derivabilità per successioni di funzioni]
 	Siano dati $\funz{f_n}{\left(a,b\right)}{\realset}$ tali che
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*.]
 		\item $f_n$ derivabili su $\left(a,b\right)$.
 		\item $\exists c\in\left(a,b\right)\colon f_n\left(c\right)$ converge puntualmente.
 		\item $f'_n$ converge uniformemente a $g$ su $\left(a,b\right)$.
@@ -751,7 +751,7 @@ Allora
 Per dimostrare il teorema, faremo uso di tre strumenti: il \textit{criterio di Cauchy per la convergenza uniforme} \footnote{Si veda il teorema \ref{criteriodicauchyperconvergenzauniforme}, pag. \pageref{criteriodicauchyperconvergenzauniforme}.}, il \textit{teorema di scambio di limiti} e una conseguenza \textit{teorema di Lagrange}. Enunciamo questi ultimi due.
 \begin{theoremaqed}[Teorema di scambio di limiti]
 	Dati $\funz{g_n,g}{I\subseteq \realset}{\realset}$ e $c$ punto di accumulazione di $I$, se
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*.]
 		\item $g_n$ converge \textit{uniformemente} a $g$ su $I$
 		\item Per ogni $n \geq 1$ esiste $L_n\in\realset$ tale che
 		\begin{equation*}
@@ -781,13 +781,13 @@ Sia $\funz{h}{\left(\alpha,\beta\right)\subseteq\realset}{\realset}$ derivabile 
 \end{equation}
 \end{corollaryqed}
 \begin{demonstrationcaputwt}[del Teorema di derivabilità per successioni di funzioni]~
-\begin{enumerate}
+\begin{enumerate}[label=(\Roman*)]
 	\item Dimostriamo la \textit{convergenza uniforme} di $f_n$ su $\left(a, b\right)$. Per il Criterio di Cauchy per la convergenza uniforme è sufficiente
 	dimostrare che
 	\begin{equation*}
 		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon\forall n,m\geq N,\ \sup_{x\in \left(a,b\right)}\abs{f_n(x)-f_m(x)}<\epsilon
 	\end{equation*}
-Sia $\epsilon>0$. Per ogni $x\in\left(a,b\right)$, preso $c$ come da ipotesi $2)$:
+Sia $\epsilon>0$. Per ogni $x\in\left(a,b\right)$, preso $c$ come da ipotesi $b.$:
 \begin{equation*}
 	\abs{f_n(x)-f_m(x)}\leq \abs{f_n(x)-f_m(x)-\left(f_n\left(c\right)-f_m\left(c\right)\right)}+\abs{f_n\left(c\right)-f_m\left(c\right)}
 \end{equation*}
@@ -795,7 +795,7 @@ Studiamo il \textit{primo addendo}. Per il \textit{corollario al teorema di Lagr
 \begin{equation*}
 	\abs{f_n(x)-f_m(x)-\left(f_n\left(c\right)-f_m\left(c\right)\right)}\leq\left(\sup_{x\in\left(a,b\right)}\abs{x-c}\right)
 \end{equation*}
-Inoltre, poiché per ipotesi $3)$ $f'_n$ converge uniformemente su $\left(a,b\right)$, si ha per il criterio di Cauchy che
+Inoltre, poiché per ipotesi $c.$ $f'_n$ converge uniformemente su $\left(a,b\right)$, si ha per il criterio di Cauchy che
 \begin{equation*}
 	\forall \epsilon >0,\ \exists N_1=N_1\left(\epsilon\right)\colon\forall n,m\geq N_1,\ \sup_{x\in \left(a,b\right)}\abs{f'_n(x)-f'_m(x)}<\frac{\epsilon}{2\left(b-a\right)}
 \end{equation*}
@@ -804,7 +804,7 @@ Segue dunque che
 	\abs{f_n(x)-f_m(x)-\left(f_n\left(c\right)-f_m\left(c\right)\right)}&\leq\left(\sup_{t\in\left(a,b\right)}\abs{x-c}\right)\leq\\
 	&\leq\frac{\epsilon}{2\left(b-a\right)}\abs{x-c}\leq\frac{\epsilon}{2},\ \forall x\in\left(a,b\right),\ \forall n,m\geq N_1
 \end{align*}
-Per il \textit{secondo addendo}, dato che per ipotesi $2)$ $f_n$ converge puntualmente in $c$, possiamo applicare il criterio di Cauchy per le successioni:
+Per il \textit{secondo addendo}, dato che per ipotesi $b.$ $f_n$ converge puntualmente in $c$, possiamo applicare il criterio di Cauchy per le successioni:
 \begin{equation*}
 		\forall \epsilon >0,\ \exists N_2=N_2\left(\epsilon\right)\colon\forall n,m\geq N_2,\ \abs{f_n\left(c\right)-f_m\left(c\right)}<\frac{\epsilon}{2}
 \end{equation*}
@@ -817,7 +817,7 @@ Posto $N=\max\left\{N_1,N_2\right\}$, per ogni $n,m\geq N$ si ha
 	\begin{equation*}
 		\sup_{x\in\left(a,b\right)}\abs{f_n(x)-f_m(x)}<\epsilon,\ \forall n,m\geq N
 	\end{equation*}
-\item Denominiamo $f$ il limite \textit{puntuale} di $f_n$, che esiste e coincide con quello uniforme per la dimostrazione appena fatta al punto $1)$. Riscriviamo la tesi $2)$ e $3)$ nella seguente maniera:
+\item Denominiamo $f$ il limite \textit{puntuale} di $f_n$, che esiste e coincide con quello uniforme per la dimostrazione appena fatta al punto $I.$. Riscriviamo la tesi $2.$ e $3.$ nella seguente maniera:
 \begin{enumerate}
 	\setcounter{enumii}{1}
 	\item Per ogni $d\in\left(a,b\right)$ vale $\displaystyle\lim_{x\to d}\frac{f(x)-f\left(d\right)}{x-d}$

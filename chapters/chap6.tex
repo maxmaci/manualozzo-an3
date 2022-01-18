@@ -402,7 +402,7 @@ Il \textbf{teorema della convergenza monotona}\index{teorema!della convergenza m
 Abbiamo già visto\footnote{Si veda \refChapterOnly{seriefunzioni}, teorema \ref{passaggioallimitecontinuitàuniforme}, pag. \pageref{passaggioallimitecontinuitàuniforme}.} che se una successione di funzioni $f_n$ Riemann-integrabili su un compatto converge uniformemente a $f$, allora $f$ è Riemann-integrabile e vale il passaggio al limite dell'integrale. Il teorema che dimostreremo, pur essendo applicabile solo a funzioni misurabili e monotone \textit{crescenti}, risulta avere diversi notevoli vantaggi rispetto al risultato basato sulla convergenza uniforme.
 \begin{theorema}[Teorema della convergenza monotona]\label{thmconvergenzamonotona}
 	Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che
-	\begin{enumerate}[label=(\alph*)]
+	\begin{enumerate}[label=\alph*.]
 		\item $f_n$ sono misurabili.
 		\item $\displaystyle\lim_{n\to+\infty}f_n(x)=f(x),\ \forall x\in X$.
 		\item $0\leq f_n(x)\leq f_{n+1}(x),\ \forall n\geq 1,\ \forall x\in X$.
@@ -441,7 +441,7 @@ Pertanto:
 		\begin{equation*}
 			\exists\int_Xfd\mu\in\left[0,+\infty\right]
 		\end{equation*}
-		Dalla monotonia data per ipotesi c) segue, per monotonia dell'integrale rispetto alla funzione integranda, che
+		Dalla monotonia data per ipotesi c. segue, per monotonia dell'integrale rispetto alla funzione integranda, che
 	\begin{equation*}
 		0\leq\lefteqn{\underbrace{\phantom{\int_Xf_nd\mu\leq\int_Xf_{n+1}d\mu}}_{\circled[red]{\vardiamond}}}\int_Xf_nd\mu\leq
 		\overbrace{\int_Xf_{n+1}d\mu\leq \int_Xfd\mu}^{\circled[blue]{\spadesuit}}
@@ -588,7 +588,7 @@ Prendiamo ora $x\in X$: se $f(x)=0$, allora $x\in E_1$ in quanto segue che $s(x)
 \end{demonstration}
 Una conseguenza immediata di questa proprietà è che per le successioni di funzioni misurabili non negative vale lo \textit{scambio tra integrale e serie}.
 \begin{corollary}[Scambio tra integrale e serie per funzioni misurabili e non negative]
-Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura siano $\funz{f_n}{X}{\left[0,+\infty\right]},\ n\geq 1$ funzioni misurabili. Allora vale lo scambio tra integrale e serie:\index{scambio tra integrale e serie}
+Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e siano $\funz{f_n}{X}{\left[0,+\infty\right]},\ n\geq 1$, funzioni misurabili. Allora vale lo scambio tra integrale e serie:\index{scambio tra integrale e serie}
 	\begin{equation}
 		\int_X\left(\sum_{n=1}^{+\infty}f_n\right)d\mu=\sum_{n=1}^{+\infty}\int_Xf_nd\mu
 	\end{equation}
@@ -598,10 +598,14 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura siano $\funz{f_n}{X}{\
 	\begin{equation*}
 		g_k(x)=\sum_{n=1}^{k}f_n(x),\ \forall x\in X.
 	\end{equation*}
-	Ricordiamo che $g_k(x)$ è una successione crescente su $k$ per ogni $x\in X$, in quando $f_n(x)\geq 0$; poiché valgono le ipotesi del \textit{teorema della convergenza monotona} sulla successione $g_k$, possiamo applicarlo.\\
+	Ricordiamo che $g_k(x)$ è una successione crescente su $k$ per ogni $x\in X$, in quando
+	\begin{equation*}
+		f_n(x)\geq 0;
+	\end{equation*}
+	poiché valgono le ipotesi del \textit{teorema della convergenza monotona} sulla successione $g_k$, possiamo applicarlo.\\
 	Prima di farlo, osserviamo che per additività dell'integrale vale
 	\begin{equation*}
-		\int_X \sum_{n=1}^{k}f_n=\sum_{n=1}^{k}\int_X f_n
+		\int_X \sum_{n=1}^{k}f_n=\sum_{n=1}^{k}\int_X f_n.
 	\end{equation*}
 	Noto ciò, dimostriamo facilmente il risultato desiderato: 
 	\begin{align*}
@@ -658,7 +662,11 @@ Pertanto, $g^k$ è una successione che converge \textit{puntualmente} in modo \t
 \begin{equation*}
 	\int_{\naturalset}fd\mu_p=\lim_{k\to+\infty}\int_{\naturalset}g^kd\mu_p
 \end{equation*}
-Per ogni $k\in\naturalset$ calcoliamo $\displaystyle\int_{\naturalset}g^kd\mu_p$. Osserviamo che $g^k\left(\naturalset\right)=\left\{f_1,\ldots,f_k,0\right\}$, quindi $g^k$ è \textit{semplice} avendo immagine finita. Allora
+Per ogni $k\in\naturalset$ calcoliamo $\displaystyle\int_{\naturalset}g^kd\mu_p$. Osserviamo che
+\begin{equation*}
+	g^k\left(\naturalset\right)=\left\{f_1,\ldots,f_k,0\right\},
+\end{equation*}
+quindi $g^k$ è \textit{semplice} avendo immagine finita. Allora
 \begin{equation*}
 	\left(g^k\right)^{-1}\left(\left\{f_n\right\}\right)=n,\ \forall n\in\naturalset,\ n\geq k\\
 	\left(g^k\right)^{-1}\left(\left\{0\right\}\right)=\left\{k+1,k+2,\ldots\right\}=A_0
@@ -754,11 +762,12 @@ Osserviamo che $\displaystyle \chi_E=\sum_{n\geq 1}\chi_{E_n}$ perché $\display
 \end{align*}
 \end{demonstration}
 \begin{observe}
-	Questo è il caso generale per \textit{funzioni misurabili} di un risultato precedentemente dimostrato per \textit{funzioni semplici}, misurabili, non negative. Notiamo che questo risultato richiede \textit{implicitamente} tale caso: infatti, nella dimostrazione abbiamo fatto uso del \textit{teorema della convergenza monotona}, che richiede la $\sigma$-additività rispetto al dominio delle funzioni semplici.
+	Questo è il caso generale per \textit{funzioni misurabili} di un risultato precedentemente dimostrato per \textit{funzioni semplici}, misurabili, non negative.\\
+	Notiamo che questo risultato richiede \textit{implicitamente} quello precedente: infatti, nella dimostrazione abbiamo fatto uso del \textit{teorema della convergenza monotona}, che richiede la $\sigma$-additività rispetto al dominio delle funzioni semplici.
 \end{observe}
-\subsection{Misura indotta dall'integrale di Lebesgue}\label{misuraindotta}
+\subsection{Misura associata all'integrale di funzioni misurabili positive}\label{misuraindotta}
 Una conseguenza della $\sigma$-additività rispetto al dominio dell'integrale di Lebesgue è che, in modo analogo a come abbiamo visto per le funzioni semplici, possiamo costruire un \textit{nuovo spazio di misura} $\left(X,\mathcal{M},\mu_f\right)$ a partire da uno spazio di misura $\left(X,\mathcal{M},\mu\right)$ dato e una funzione $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile.
-\begin{corollaryqed}[Misura indotta dalla funzione misurabile non negativa]
+\begin{corollaryqed}[Misura associata all'integrale di funzioni misurabili positive]
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile. Allora la funzione
 \begin{equation}
 	\funztot{\mu_f}{\mathcal{M}}{\left[0,+\infty\right]}{E}{\int_Efd\mu}
@@ -770,7 +779,7 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\le
 	\begin{equation*}
 		f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\ \forall x\in\realset
 	\end{equation*}
-	La funzione è continua e dunque misurabile. La misura $\mu_f$ indotta è di probabilità dato che $\mu_f(\realset)=1$ e viene chiamata \textbf{misura di probabilità normale}\index{misura!di probabilità!normale}:
+	La funzione è continua e dunque misurabile. La misura $\mu_f$ associata all'integrale di $f$ è di probabilità dato che $\mu_f(\realset)=1$ e viene chiamata \textbf{misura di probabilità normale}\index{misura!di probabilità!normale}:
 	\begin{gather*}
 		\mu_f\left(E\right)=\int_E\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dm_1,\ \forall E\in\mathcal{L}(\realset)\\
 		\mu_f(\realset)=\int_{\realset}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dm_1=1
@@ -780,8 +789,8 @@ Se consideriamo lo spazio di misura $\left(\realset,\mathcal{L}(\realset),\mu_f\
 	\int_Egd\mu_f,\ \forall E\in\mathcal{L}(\realset)
 \end{equation*}
 Cos'è questo integrale? La risposta tale quesito è il seguente teorema.
-\begin{theorema}[Integrale rispetto alla misura indotta]
-	Dato $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, consideriamo lo spazio di misura indotto $\left(X,\mathcal{M},\mu_f\right)$ con
+\begin{theorema}[Integrale rispetto alla misura associata all'integrale di funzioni misurabili positive]
+	Dato $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, consideriamo lo spazio di misura associato $\left(X,\mathcal{M},\mu_f\right)$ con
 	\begin{equation*}
 		\funztot{\mu_f}{\mathcal{M}}{\left[0,+\infty\right]}{E}{\int_Efd\mu}
 	\end{equation*}
@@ -1016,7 +1025,7 @@ in altre parole, l'integrale si può rendere arbitrariamente più piccolo in mod
 \end{enumerate}
 \end{property}
 \begin{demonstration}
-	Dimostriamo l'assoluta continuità (punto 4).\\
+	Dimostriamo l'\textbf{assoluta continuità} (punto 4).\\
 	Consideriamo $\funz{f}{X}{\complexset}$ con $f\in\mathcal{L}^1\left(\mu\right)$; sappiamo che $f$ è misurabile e pertanto anche $\funz{\lvert f\rvert}{X}{\left[0,+\infty\right)}$ la è.\\
 	Consideriamo la misura
 	\begin{equation*}
@@ -1038,7 +1047,7 @@ Si ha quindi
 \subsection{Teorema della convergenza dominata}\index{teorema!della convergenza dominata}
 \begin{theorema}[Teorema della convergenza dominata]\label{thmconvergenzadominata}
 Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\complexset}$ con $n\geq 1$ tali che
-\begin{enumerate}[label=(\alph*)]
+\begin{enumerate}[label=\alph*.]
 	\item 	$f_n$ sono misurabili.
 	\item 	$\displaystyle \lim_{n\to+\infty}f_n(x)=f(x),\ \forall x\in X$
 	\item 	Esiste una funzione $g\in \mathcal{L}^{1}\left(\mu\right)$ tale per cui
@@ -1183,6 +1192,7 @@ Situazione differente si ha con l'integrale improprio di Riemann: infatti, può 
 		\item L'integrale di $f$ secondo Riemann \textit{non} converge assolutamente.
 		\item La funzione $f$ \textit{non} è integrabile secondo Lebesgue.
 	\end{enumerate}
+Vediamoli in ordine.
 \begin{enumerate}[label=\Roman*]
 	\item Integrando per parti si ha
 	\begin{align*}
@@ -1224,6 +1234,7 @@ Poiché l'integrale è minorato dalla \textit{serie armonica}, che sappiamo esse
 Poiché l'integrale improprio di Riemann \textit{non} converge assolutamente, segue che $f$ non è integrabile su $\left[\pi,+\infty\right)$ e pertanto non ammette integrale secondo Lebesgue.
 \end{enumerate}
 \end{example}
+\paragraph{Caratterizzazione delle funzioni integrabili secondo Riemann}
 Sulla base di questi risultati siamo finalmente in grado di rispondere al secondo quesito: con una certa ironia, la caratterizzazione dell'insieme dei punti di discontinuità di una funzione integrabile secondo Riemann è basata sulla \textbf{misura di Lebesgue}.
 \begin{theoremaqed}[Caratterizzazione delle funzioni integrabili secondo Riemann]
 	Sia $\funz{f}{\left[a,b\right]}{\realset}$ limitata e sia $D_f$ l'insieme delle discontinuità di $f$. Se $m_1$ è la misura  di Lebesgue unidimensionale, allora
@@ -1325,7 +1336,7 @@ Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
 	\end{enumerate}
 \end{demonstration}
 Avendo definito il concetto di proprietà quasi ovunque valida, possiamo enunciare un'altra versione dello \textit{scambio tra integrale e serie}, questo risultato che segue dal \textit{teorema della convergenza dominata}.
-\begin{theorema}[Scambio tra integrale e serie per funzioni integrabili]
+\begin{theoremaqed}[Scambio tra integrale e serie per funzioni integrabili]
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Siano $\funz{f_n}{X}{\complexset}$ integrabili. Supponiamo che
 	\begin{equation*}
 		\sum_{n=1}^{+\infty}\int_X\abs{f_n}d\mu<+\infty
@@ -1336,7 +1347,7 @@ Allora
 	\item $f\in\mathcal{L}^{1}\left(\mu\right)$
 	\item Vale lo \textit{scambio tra integrale e serie}\index{scambio tra integrale e serie}:
 	\begin{equation}
-		\int_Xfd\mu=\int_X\left(\sum_{n=1}^{+\infty}f_n\right)d\mu=\sum_{n=1}^{+\infty}\int_Xfd\mu\in\complexset
+		\int_Xfd\mu=\int_X\left(\sum_{n=1}^{+\infty}f_n\right)d\mu=\sum_{n=1}^{+\infty}\int_Xfd\mu\in\complexset\qedhere
 	\end{equation}
 \end{enumerate}
-\end{theorema}
+\end{theoremaqed}
