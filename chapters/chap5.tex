@@ -57,7 +57,7 @@ sufficientemente piccola, mentre in generale \textit{non lo è}.
 \begin{examplewt}[La funzione di Dirichlet]\label{funzionedirichlet}
 	Consideriamo la \textbf{funzione di Dirichlet}\footnote{Peter Gustav Lejeune \textbf{Dirichlet} (1805-1859) fu il primo a studiarne le proprietà.}\index{funzione!di Dirichlet}
 	\begin{equation}
-		f(x)=
+		\displaystyle f(x)=
 		\begin{cases}
 			\begin{array}{ll}
 				1&\text{se }x\in\left[0,1\right]\cap\rationalset\\
@@ -538,7 +538,7 @@ dove per parallelepipedo \textit{aperto} si intende un plurintervallo definito d
 		\end{equation}
 	\end{define}
 %NEW: riformulazione
-	Per qualsiasi insieme test $E$ insiemisticamente si ha che $E=(E\cap A) \cup (E\cap A^C)$. Si impone che $A$ è misurabile se per qualsiasi \textbf{insieme test}\index{insieme!test} arbitrario (non necessariamente misurabile!) la misura $m_n^X$ è additiva su questa decomposizione
+	Per qualsiasi insieme test $E$ insiemisticamente si ha che $E=(E\cap A) \cup \left(E\cap A^C\right)$. Si impone che $A$ è misurabile se per qualsiasi \textbf{insieme test}\index{insieme!test} arbitrario (non necessariamente misurabile!) la misura $m_n^X$ è additiva su questa decomposizione
 %OLD
 %	$E$ è un \textbf{insieme test}\index{insieme!test} arbitrario (non necessariamente misurabile!): $A$ è misurabile se decompone bene $E$ in due sottoinsiemi misurabili $E\cap A$ e $E\cap A^C$.
 	\begin{center}
@@ -587,7 +587,7 @@ In particolare:
 	\begin{equation*}
 		m_n^X(E)=m_n^X\left(E\cap A\right)+m_n^X\left(E\cap A^C\right)
 	\end{equation*}
-	Ricordiamo che $m_n^X$ è $\sigma$-subadditiva e quindi finito-subadditiva, quindi
+	Ricordiamo che $m_n^X$ è $\sigma$-subadditiva e quindi finito-subadditiva, si ha
 	\begin{equation*}
 		E=\left(E\cap A\right)\cup \left(E\cap A^C\right)\implies m_n^X(E)\leq m_n^X\left(E\cap A\right)+m_n^X\left(E\cap A^C\right)
 	\end{equation*}
@@ -605,17 +605,18 @@ In particolare:
 	\textbf{Non} tutti gli insiemi sono misurabili! Se supponiamo vero l'Assioma della Scelta, l'\textbf{insieme di Vitali} è un insieme non misurabile in $\realset$ rispetto alla misura di Lebesgue unidimensionale\footnote{Si veda pag. \pageref{vitali} per la definizione dell'insieme di Vitali e la dimostrazione di ciò.}.
 \end{attention}
 Nella teoria di Lebesgue hanno un ruolo importante gli insiemi di misura nulla: esplicitiamo il legame tra misura nulla e cardinalità.
-È noto che ogni singolo punto ha misura nulla; osserviamo che presa una famiglia di punti $\left\{x_n\right\}$ si ha
+È noto che ogni singolo punto ha misura nulla; osserviamo che presa una famiglia numerabile di punti $\left\{x_n\right\}$ siccome la misura è $\sigma$-subadditiva si ha
 \begin{equation*}
-	0\leq m_n\left(\bigcup_{n\geq 1}\left\{x_n\right\}\right)\leq \sum_{n\geq 1}m_n\left(\left\{x_n\right\}\right)=0
+	0\leq m_n\left(\bigcup_{n\geq 1}\left\{x_n\right\}\right)\leq \sum_{n\geq 1} \underbrace{m_n\left(\left\{x_n\right\}\right)}_{=0}=0
 \end{equation*}
-Ogni insieme \textbf{numerabile} è misurabile e ha misura nulla.
-\begin{example}
-	Posto $n=1$, ossia consideriamo la misura in $\realset$, si ha
+Ne segue che ogni insieme \textbf{numerabile} è misurabile e ha misura nulla.
+\begin{examplewt}[Misura dei razionali]
+	Posto $n=1$ (ossia consideriamo la misura in $\realset$) e sapendo che i razionali $\rationalset$ sono un insieme numerabile, abbiamo che la loro misura è nulla:
 	\begin{equation*}
 		m_1\left(\rationalset\right)=0,\ m_1\left(\rationalset\cap\left[0,1\right]\right)=0
 	\end{equation*}
-\end{example}
+	Abbiamo così trovato un \textit{insieme denso con misura nulla!}
+\end{examplewt}
 \subsubsection{L'insieme (ternario) di Cantor}\label{insiemecantor}
 Esistono anche insiemi di misura nulla con \textit{cardinalità del continuo}. Uno di questi è l'\textbf{insieme ternario di Cantor}, il quale possiede diverse proprietà interessanti e non particolarmente immediate. Esso si costruisce partendo dall'intervallo $\left[0,1\right]$ con il seguente procedimento iterativo:
 \begin{itemize}
@@ -640,13 +641,13 @@ Esistono anche insiemi di misura nulla con \textit{cardinalità del continuo}. U
 	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.5]{images/Cantor3.pdf}
 \end{center}
 \end{itemize}
-I punti che rimangono dopo infiniti passi è noto come \textbf{insieme di Cantor}\index{insieme!di Cantor} $C$.
+L'insieme dei punti che rimangono dopo infiniti passi è noto come \textbf{insieme di Cantor}\index{insieme!di Cantor} $C$.
 \begin{equation*}
 	C=\left[0,1\right]\setminus\bigcup_{n=0}^\infty \bigcup_{k=0}^{3^n-1} \left(\frac{3k+1}{3^{n+1}},\frac{3k+2}{3^{n+1}}\right)
 \end{equation*}
-Ci si potrebbe chiedere se ci sono ancora dei punti in questo insieme: dopotutto, abbiamo rimosso e rimosso continuamente degli intervalli. Sorprendentemente, dopo infiniti di questi passi ci sono ancora punti che rimangono, ma la peculiarità è che sono addirittura \textbf{non numerabili}!
+Ci si potrebbe chiedere se ci sono ancora dei punti in questo insieme: dopotutto, abbiamo rimosso e rimosso continuamente degli intervalli (infiniti punti). Sorprendentemente, dopo infiniti di questi passi ci sono ancora punti che rimangono, ma la peculiarità è che sono addirittura \textbf{non numerabili}!
 \begin{theorema}[Innumerabilità dell'insieme di Cantor]
-	Si denoti con $C$ l'insieme ternario di Cantor. Esiste una funzione suriettiva da $C$ in $\left[0,1\right]$; conseguentemente, $C$ ha la cardinalità del continuo.
+	Si denoti con $C$ l'insieme ternario di Cantor. Esiste una funzione suriettiva da $C$ in $\left[0,1\right]$; di conseguenza, $C$ ha la cardinalità del continuo.
 \end{theorema}
 \begin{demonstration}
 	Ricordiamo che per ogni numero $x\in [0,1]$ esiste una successione $\{i_n\}_{n\geq 1}$ di interi, con $i_n\in \{0, 1, 2\}$, tale che 
@@ -737,12 +738,15 @@ Ora enunciamo una proprietà della misura di Lebesgue, detta \textbf{regolarità
 \end{minipage}
 	\end{enumerate}
 \end{theorema}
+\begin{attention}
+	Nel teorema abbiamo usato la misura esterna $m_n^X$ perché non sappiamo ancora che gli insiemi sono misurabili.
+\end{attention}
 \begin{demonstration}
 	Dimostriamo le catene di implicazioni
 	\begin{equation*}
 		\mathbf{(i)\implies (ii)\implies (iii)\implies (i)\qquad(i)\implies (iv)\implies (v)\implies (i)}
 	\end{equation*}
-$\mathbf{(i)\implies(ii)}\quad$ Consideriamo il caso $m_n(E)<+\infty$. Per definizione di $m^{X}_n$ e di $\inf$, fissato $\epsilon >0$ $E$ è contenuto in un ricoprimento di parallelepipedi aperti tale che
+$\mathbf{(i)\implies(ii)}\quad$ Consideriamo il caso $m_n(E)<+\infty$. Per definizione di $m^{X}_n$ e di $\inf$, fissato $\epsilon >0$, $E$ è contenuto in un ricoprimento di parallelepipedi aperti tale che
 \begin{equation*}
 	\sum_{i=1}^{+\infty}V_n\left(P_i\right)<m_n(E)+\epsilon
 \end{equation*}
@@ -762,7 +766,7 @@ Sia ora $m_n(E)=+\infty$. Possiamo vederlo come la seguente unione:
 \begin{equation*}
 	E=\bigcup_{i=1}^{+\infty}\left(E\cap Q_i\right),
 \end{equation*}
-dove $Q_i$ è una famiglia di parallelepipedi privi di punti interni comuni (ossia che hanno in comune al più i bordi), la cui unione sia $\realset^n$. Dato che $m_n\left(E\cap Q_n\right)<m_n(E)<Q$, per quanto già dimostrato esistono degli $A_i\supseteq E\cap Q_i$ tali che
+dove $Q_i$ è una famiglia di parallelepipedi privi di punti interni comuni (ossia che hanno in comune al più i bordi), la cui unione sia $\realset^n$. Dato che $m_n\left(E\cap Q_i\right)<m_n(E)<m_n(Q)$, per quanto già dimostrato esistono degli $A_i\supseteq E\cap Q_i$ tali che
 \begin{equation*}
 	m_n\left(A_i\setminus\left(E\cap Q_i\right)\right)<\frac{\epsilon}{2^{i+1}},\ \forall i\in\naturalset
 \end{equation*}
@@ -802,8 +806,8 @@ $\mathbf{(i)\implies(iv)\implies(v)\implies(i)}\quad$ Queste implicazioni si dim
 	\end{equation*}
 \end{observe}
 \subsection{Confronto tra la misura di Peano-Jordan e di Lebesgue}
-Come abbiamo visto, la misura di Peano-Jordan soddisfa solo alcune proprietà della misura in senso assiomatico, essendo $\sigma$-subadditiva, mentre la misura secondo Lebesgue è a tutti gli effetti una misura assiomatica moderna. Ci si può dunque chiedere se tali concetti sono incompatibili tra di loro oppure se c'è una qualche relazione tra di esse.\\
-È già noto che non tutti gli insiemi misurabili secondo Lebesgue lo sono secondo Peano-Jordan.
+Come abbiamo visto, la misura di Peano-Jordan soddisfa solo alcune proprietà della misura in senso assiomatico, essendo $\sigma$-subadditiva, mentre la misura secondo Lebesgue è a tutti gli effetti una misura assiomatica moderna. Ci si può dunque chiedere se tali concetti sono incompatibili tra di loro oppure se c'è una qualche relazione tra di essi.\\
+È già noto che non tutti gli insiemi misurabili secondo Lebesgue lo sono secondo Peano-Jordan: i primi sono un'estensione dei secondi.
 \begin{example}
 	Consideriamo $E=\rationalset\cap\left[0,1\right]$.
 	\begin{itemize}
@@ -829,21 +833,22 @@ Il seguente teorema ci afferma un risultato importante: \textit{tutti} gli insie
 \end{theorema}
 \begin{demonstration}
 	Dimostriamo il punto 1. Sia $E\subseteq \realset^n$ e Peano-Jordan misurabile. Per provare che $E$ è misurabile secondo Lebesgue useremo il teorema di \textit{regolarità} precedentemente dimostrato.\\
-	In particolare, proviamo che $\forall \epsilon >0\ \exists A_{\epsilon}$ aperto tale che
+	In particolare, proviamo che $\forall \epsilon >0,\ \exists A_{\epsilon}$ aperto tale che
 	\begin{itemize}
 		\item $E\subseteq A_{\epsilon}$.
 		\item $m_n^{X}\left(A_{\epsilon}\setminus E\right)<\epsilon$.
 	\end{itemize}
-Sappiamo che $E$ è misurabile secondo Peano-Jordan, dunque per il criterio equivalente $\forall \epsilon >0,\ \exists A_{\epsilon},\ B_{\epsilon}$ unioni finite di parallelepipedi con $B_{\epsilon}\subseteq E\subseteq A_{\epsilon}$ tali che $m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon$. Allora l'insieme $A_{\epsilon}$ così definito è proprio quello che stavamo cercando. Noto innanzitutto che $A_{\epsilon}\setminus E\subseteq A_{\epsilon}\setminus B_{\epsilon}$, per monotonia della misura esterna otteniamo:
+Sappiamo che $E$ è misurabile secondo Peano-Jordan, dunque per il criterio equivalente possiamo approssimarlo dall'interno e dall'esterno con unioni finite di insiemi elementari: $\forall \epsilon >0,\ \exists A_{\epsilon}, B_{\epsilon}$ unioni finite di parallelepipedi con $B_{\epsilon}\subseteq E\subseteq A_{\epsilon}$ tali che $m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon$, cioé la misura dell' "intercapedine" fra i due insiemi è arbitrariamente piccola; siccome il bordo è ininfluente posso considerare $A_\epsilon$ aperto. Allora l'insieme $A_{\epsilon}$ così definito è proprio quello che stavamo cercando grazie alla seconda condizione. Noto innanzitutto che $A_{\epsilon}\setminus E\subseteq A_{\epsilon}\setminus B_{\epsilon}$, per monotonia della misura esterna otteniamo:
 \begin{equation*}
-	m_{n}^{X}\left(A_{\epsilon}\setminus E\right)<	m_{n}^{X}\left(A_{\epsilon}\setminus B_{\epsilon}\right)=m_{PJ}^X\left(A_{\epsilon}\setminus B_{\epsilon}\right)=m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon\qedhere
+	m_{n}^{X}\left(A_{\epsilon}\setminus E\right) \leq	m_{n}^{X}\left(A_{\epsilon}\setminus B_{\epsilon}\right)=m_{PJ}^X\left(A_{\epsilon}\setminus B_{\epsilon}\right) \stackrel{!}{=} m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon
 \end{equation*}
+dove l'uguaglianza (!) è dovuta al fatto che le misure di Lebesgue e Peano-Jordan coincidono su insiemi elementari.
 \end{demonstration}
 \section{Definizione assiomatica di misura}
 La definizione di misura di Lebesgue che abbiamo analizzato nella scorsa sezione non è esattamente la stessa che il matematico francese diede nella sua tesi di laurea, bensì una rielaborazione successiva con alcune modifiche; nello specifico, la trattazione moderna viene inquadrata nella teoria \textbf{assiomatica} della misura, introdotta già prima di Lebesgue da Emil \textbf{Borel} (1871-1956) in \textit{Léçons sur la théorie des fonctions (1898)}.\\
 I concetti di $\sigma$-algebra e insieme misurabile che abbiamo già affrontato si possono ricondurre proprio a Borel, così come la seguente \textit{definizione assiomatica} di misura.
 \begin{define}[Misura e spazio di misura]
-	Dato $\left(X,\mathcal{M}\right)$ uno spazio misurabile, una funzione $\funz{\mu}{\mathcal{M}}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ è detta \textbf{misura}\index{misura} se soddisfa le seguenti proprietà:
+	Dato $\left(X,\mathcal{M}\right)$ uno spazio misurabile \footnote{ricordiamo che $\mathcal{M}$ è una $\sigma$-algebra}, una funzione $\funz{\mu}{\mathcal{M}}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ è detta \textbf{misura}\index{misura} se soddisfa le seguenti proprietà:
 	\begin{itemize}
 		\item \textsc{\textbf{Non negatività:}} $\forall A\in\mathcal{M},\ \mu\left(A\right)\geq 0$.
 		\item \textsc{\textbf{Insieme vuoto nullo:}} $\mu\left(\emptyset\right)=0$.
@@ -855,13 +860,13 @@ I concetti di $\sigma$-algebra e insieme misurabile che abbiamo già affrontato 
 	In tal caso la terna $\left(X,\mathcal{M},\mu\right)$ è detta \textbf{spazio di misura}\index{spazio!di misura}.
 	\begin{itemize}
 		\item $\mu$ si dice \textbf{completa}\index{misura!completa} se $\forall S\subseteq N,\ \forall N\in\mathcal{M}\colon\mu(N)=0\implies S\in\mathcal{M}$ e $\mu(S)=0$.
-		\item $\mu$ si dice \textbf{finita}\index{misura!finita} se $\mu(x)<+\infty$.
+		\item $\mu$ si dice \textbf{finita}\index{misura!finita} se $\mu(X)<+\infty$.
 		\item $\mu$ si dice $\sigma$-\textbf{finita}\index{misura!$\sigma$-finita} se
 		\begin{itemize}
-			\item $\mu(x)=+\infty$.
-			\item $\displaystyle X=\bigcup_{n\geq 1}X_n$, con $X_n\in\mathcal{M}$ tale che $\mu\left(X_n\right)\leq +\infty$.
+			\item $\mu(X)=+\infty$.
+			\item $\displaystyle X=\bigcup_{n\geq 1}X_n$, con $X_n\in\mathcal{M}$ tale che $\mu\left(X_n\right) < +\infty$, cioé lo posso ricostruire come unione numerabile di insiemi a misura finita.
 		\end{itemize}
-	\item $\mu$ si dice \textbf{di probabilità}\index{misura!di probabilità} se $\mu(x)=1$.
+	\item $\mu$ si dice \textbf{di probabilità}\index{misura!di probabilità} se $\mu(X)=1$.
 	\end{itemize}
 \end{define}
 \begin{observe}
@@ -869,18 +874,18 @@ I concetti di $\sigma$-algebra e insieme misurabile che abbiamo già affrontato 
 \end{observe}
 \begin{exampleswt}[Spazi di misura]~{}
 	\begin{enumerate}
-		\item $\left(\realset^n,\mathcal{L}\left(\realset^n\right)\right)$ è spazio di misura con la \textbf{misura di Lebesgue}
+		\item $\left(\realset^n,\mathcal{L}\left(\realset^n\right), m_n\right)$ è spazio di misura con la \textbf{misura di Lebesgue}
 		\begin{equation}
 			\funz{m_n}{\mathcal{L}\left(\realset^n\right)}{\left[0,+\infty\right]}
 		\end{equation}
-		Osserviamo che $m_n$ è $\sigma$-finita perché $m_n\left(\realset^n\right)=+\infty$ con
+		Osserviamo che $m_n$ è $\sigma$-finita perché $m_n\left(\realset^n\right)=+\infty$ e
 		\begin{equation*}
-			\realset^n=\bigcup_{n\geq 0}B_n\left(0\right)\quad\text{con }m_n\left(B_n\left(0\right)\right)<+\infty
+			\realset^n=\bigcup_{m\geq 0}B_m\left(0\right)\quad\text{con }m_n\left(B_m\left(0\right)\right)<+\infty
 		\end{equation*}
 		Inoltre, essa è \textbf{completa}. % to do: aggiungere dim completa?
-		\item Fissato $x_0\in X$ insieme qualunque, $\left(X,\setpart{X}\right)$ è uno spazio di misura con la funzione $\delta$ \textbf{di Dirac concentrata in} $x_0$\index{Delta di Dirac}:
+		\item Fissato $x_0\in X$ insieme qualunque, $\left(X,\setpart{X}, \delta_{x_0}\right)$ è uno spazio di misura con la funzione $\delta$ \textbf{di Dirac concentrata in} $x_0$\index{Delta di Dirac}:
 		\begin{equation}
-			\funztot{\delta}{\setpart{X}}{\left[0,+\infty\right]}{E}{\begin{cases}
+			\funztot{\delta_{x_0}}{\setpart{X}}{\left[0,+\infty\right]}{E}{\begin{cases}
 					\begin{array}{ll}
 						1&\text{se }x_0\in E\\
 						0&\text{se }x_0\notin E
@@ -958,9 +963,11 @@ Concludiamo questo capitolo alcune delle più comuni \textit{famiglie di insiemi
 		Insieme delle parti                                                             & $\setpart{\realset}$               & $2^{\mathfrak{c}}$ \\ \hline
 		\begin{tabular}[c]{@{}c@{}}Insiemi misurabili\\ (secondo Lebesgue)\end{tabular} & $\mathcal{L}\left(\realset\right)$ & $2^{\mathfrak{c}}$ \\ \hline
 		Boreliani                                                                      & $\mathcal{B}\left(\realset\right)$ & $\mathfrak{c}$     \\ \hline
-		\begin{tabular}[c]{@{}c@{}}Topologia\\ (famiglia degli aperti)\end{tabular}     & $\topo$                            & $\mathfrak{c}$    
+%		\begin{tabular}[c]{@{}c@{}}Topologia\\ (famiglia degli aperti)\end{tabular}     & $\topo$                            & $\mathfrak{c}$    
 	\end{tabular}
 \end{center}
+%nutro qualche dubbio sull'inserire così la topologia, specialmente riguardo la sua cardinalità
+%	stiamo sempre parlando di topologia sui reali? è quella euclidea? messa così confonde un po'
 \begin{proposition}[Relazioni tra classi di insiemi]
 	Valgono le seguenti inclusioni:
 	\begin{equation}
@@ -988,7 +995,7 @@ Dal punto 1 segue che l'insieme delle parti dell'insieme di Cantor ha cardinalit
 \end{equation*}
 Passando alle cardinalità:
 \begin{equation*}
-	2^{\mathfrak{c}}\underset{(1)}{=}{\abs{\setpart{C}}}\leq \abs{\mathcal{L}\left(\realset\right)}\leq\abs{\setpart{\realset}}=2^{\mathfrak{c}}\implies \abs{\mathcal{\realset}}=2^{\mathfrak{c}}
+	2^{\mathfrak{c}}\underset{(1)}{=}{\abs{\setpart{C}}}\leq \abs{\mathcal{L}\left(\realset\right)}\leq\abs{\setpart{\realset}}=2^{\mathfrak{c}}\implies \abs{\mathcal{L}(\realset)}=2^{\mathfrak{c}}
 \end{equation*}
 \paragraph{Inclusione stretta di {$\mathcal{L}\left(\realset\right)$} in {$\setpart{\realset}$}}
 Il fatto che la cardinalità degli insiemi Lebesgue-misurabili in $\realset$ coincida con quella dell'insieme delle parti di $\realset$ non è sufficiente\footnote{Si veda ‘‘Brevi cenni di teoria degli insiemi'', pag. \pageref{cardinalitàugualenonimplicauguaglianzainsiemistica}.} per affermare che i due insiemi coincidano; costruiamo ora un sottoinsieme particolare di $\realset$ che risulta \textit{non misurabile}.
@@ -1006,6 +1013,10 @@ Il fatto che la cardinalità degli insiemi Lebesgue-misurabili in $\realset$ coi
 	\end{align*}
 	Scelto\footnote{Per poter fare questa operazione è necessario supporre l'\textit{Assioma di Scelta}.} un elemento che stia in $\left[0,1\right]$ da ogni classe di equivalenza, definisco l'\textbf{insieme di Vitali}\index{insieme!di Vitali} $V$ come unione di questi elementi.
 \end{define}
+\begin{attention}
+	Nella costruzione dell'insieme di Vitali è necessario utilizzare l'assioma della scelta: da una famiglia non vuota (la collezione delle classi) di insiemi non vuoti (gli elementi delle classi) stiamo scegliendo da ogni classe un rappresentante.\\
+	Notiamo inoltre che nell'insieme di Vitali così ottenuto non ci sono due rappresentanti della stessa classe, perché da ciascuna abbiamo scelto un solo elemento.
+\end{attention}
 Per costruzione $V\subseteq\left[0,1\right]$. Preso l'insieme \textit{numerabile} $\rationalset\cap\left[0,1\right]$, possiamo prendere una sua \textit{numerazione} $\left\{q_n\right\}$ e definire delle \textit{traslazioni} dell'insieme di Vitali $V$:
 \begin{equation*}
 	V_n=V+q_n\subseteq\left[-1,2\right]
@@ -1025,7 +1036,7 @@ Per costruzione $V\subseteq\left[0,1\right]$. Preso l'insieme \textit{numerabile
 	\begin{equation*}
 		y+q_n=z+q_m\iff y-z=q_m-q_n\in\rationalset
 	\end{equation*}
-	Poichè $y$ e $z$ differiscono di un razionale, essi appartengono alla stessa classe di equivalenza in $\nicefrac{\realset}{\sim}$, ma dato che nella costruzione dell'insieme di VItali abbiamo preso\footnote{In virtù dell'\textit{Assioma di Scelta}.} uno e un solo elemento da tale classe, allora segue che $y=z$. È immediato verificare che $q_m=q_n$ e, essendo elementi numerazione, allora $n=m$. In altre parole, l'intersezione non è vuota solo se $V_n=V_m$.
+	Poichè $y$ e $z$ differiscono di un razionale, essi appartengono alla stessa classe di equivalenza in $\nicefrac{\realset}{\sim}$, ma dato che nella costruzione dell'insieme di Vitali abbiamo preso\footnote{In virtù dell'\textit{Assioma di Scelta}.} uno e un solo elemento da tale classe, allora segue che $y=z$. È immediato verificare che $q_m=q_n$ e, essendo elementi di un'enumerazione, allora $n=m$. In altre parole, l'intersezione non è vuota solo se $V_n=V_m$.
 \end{demonstration}
 \begin{lemming}[Lemma 2 di Vitali - ogni numero reale in {$\left[0,1\right]$} appartiene ad un $V_n$ per un certo $n$:]
 	Dato l'insieme di Vitali $V$ vale la seguente relazione:
@@ -1034,20 +1045,22 @@ Per costruzione $V\subseteq\left[0,1\right]$. Preso l'insieme \textit{numerabile
 	\end{equation*}
 \end{lemming}
 \begin{demonstration}
-	Sia $x\in\left[0,1\right]$. Poiché la relazione $\sim$ forma una partizione di $\realset$, deve esistere $y$ tale che $x-y=q\in\rationalset$; riscrivendo tale relazione si ha $x=y+q$, ossia $x=y+q_n$ per un certo $n$.
+	Sia $x\in\left[0,1\right]$. Poiché la relazione $\sim$ forma una partizione di $\realset$, deve esistere $y\in V$ tale che $x-y=q\in\rationalset$; riscrivendo tale relazione si ha $x=y+q$, e avendo una numerazione $x=y+q_n$ per un certo $n$.
 \end{demonstration}
 Possiamo osservare alcune proprietà sulla base dei due lemmi appena mostrati:
 \begin{itemize}
 	\item \textbf{Conseguenze del lemma 1:}
 	\begin{equation*}
-		m\left(\bigcup_{n\in\naturalset}V_n\right)=\sum_{n\in\naturalset}m\left(V_n\right)=\sum_{n\in\naturalset}m\left(V\right)=\begin{cases}
+		m\left(\bigcup_{n\in\naturalset}V_n\right) \stackrel{!}{=} \sum_{n\in\naturalset}m\left(V_n\right) \stackrel{!!}{=} \sum_{n\in\naturalset}m\left(V\right)=\begin{cases}
 			\begin{array}{ll}
 				0&\text{se }m\left(V\right)=0\\
 				+\infty&\text{se }m\left(V\right)>0
 			\end{array}
 		\end{cases}
 	\end{equation*}
+	dove l'uguaglianza (!) è dovuta alla $\sigma$-additività di $m_1$ e invece (!!) è dovuta all'invarianza per traslazione di $m_1$, infatti $V=V_n + q_n$
 	\item \textbf{Conseguenze del lemma 2:}
+	Per la definizione di $m_1$ e per la sua monotonia si ha:
 	\begin{equation*}
 		1=m\left(\left[0,1\right]\right)\leq m\left(\bigcup_{n\in\naturalset}V_n\right)\leq m\left(\left[-1,2\right]\right)=3
 	\end{equation*}
@@ -1057,7 +1070,7 @@ In altre parole, si deduce che
 	1\leq \sum_{n\in\naturalset}m\left(V\right)\leq 3
 \end{equation*}
 ma poiché la somma di infinite copie di $m\left(V\right)$ o è $0$ o è $+\infty$ per la conseguenza del lemma 1, in nessuno dei due casi la somma sta in $\left[1,3\right]$. Pertanto, $V$ \textit{non} è misurabile, in quanto non possiamo associargli un valore $m\left(V\right)$.
-\paragraph{Cardinalità dei Boreliani e inclusione stretta di {$\mathcal{B}\left(\realset\right)$} in {$\mathcal{L}\left(\realset\right)$}}
+\paragraph{Cardinalità dei Boreliani e inclusione stretta di {$\mathcal{B}\left(\realset\right)$} in {$\mathcal{L}\left(\realset\right)$}}~{}\\
 Per \textit{induzione transfinita} si dimostra che i Boreliani hanno la cardinalità del continuo.
 \begin{equation}
 	\abs{\mathcal{B}\left(\realset\right)}=\abs{\realset}=\mathfrak{c}
@@ -1067,10 +1080,10 @@ Dato che utilizziamo l'induzione transfinita su insiemi costruiti sui reali, è 
 \begin{define}[Funzione di Cantor]\label{funzionecantor}
 	Si consideri l'insieme ternario di Cantor $C$. La \textbf{funzione di Cantor}\index{funzione!di Cantor} $\funz{c}{C}{C}$ è definita come
 	\begin{equation}
-		c(x) =\begin{cases} 
-			\sum_{n=1}^\infty \frac{a_n}{2^n}, &\text{se } x = \sum_{n=1}^\infty 
+		c(x) =\begin{cases} \displaystyle
+			\sum_{n=1}^\infty \frac{a_n}{2^n}, &\text{se } \displaystyle x = \sum_{n=1}^\infty 
 			\frac{2a_n}{3^n}\in C\ \mathrm{dove}\ a_n\in\{0,1\}\\
-			\sup_{y\leq x,\, y\in C} c(y), &\text{se } x\in [0,1]\setminus C.\\ \end{cases}
+			\displaystyle \sup_{y\leq x,\, y\in C} c(y), &\text{se } x\in [0,1]\setminus C.\\ \end{cases}
 	\end{equation}
 	Equivalentemente, preso $x\in\left[0,1\right]$ si può ottenere $c(x)$ con il seguente processo:
 	\begin{itemize}
