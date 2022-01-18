@@ -20,8 +20,8 @@ In questo ultimo capitolo di teoria approfondiremo alcuni concetti visti a \text
 \begin{define}[Spazio di probabilità]
 	Uno \textbf{spazio di probabilità}\index{spazio!di probabilità} $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ è una struttura matematica che fornisce un modello formale per un esperimento non deterministico. Essa costituita dai seguenti elementi:
 	\begin{enumerate}
-		\item Uno \textbf{spazio! campionario}\index{spazio! campionario} $\Omega$, l'insieme di tutti i possibili \textbf{risultati} $\omega$ dell'esperimento.
-		\item Uno \textbf{spazio!degli eventi} $\mathcal{F}$, la famiglia di tutti gli eventi dell'esperimento, dove un \textbf{evento}\index{evento} $E$ è un insieme di risultati dello spazio campionario - ossia un sottoinsieme di $\Omega$.
+		\item Uno \textbf{spazio campionario}\index{spazio! campionario} $\Omega$, l'insieme di tutti i possibili \textbf{risultati} $\omega$ dell'esperimento.
+		\item Uno \textbf{spaziodegli eventi} $\mathcal{F}$, la famiglia di tutti gli eventi dell'esperimento, dove un \textbf{evento}\index{evento} $E$ è un insieme di risultati dello spazio campionario - ossia un sottoinsieme di $\Omega$.
 		\item Una \textbf{funzione di probabilità} $\mathbb{P}$, che assegna ad ogni evento una probabilità, la quale è un numero tra 0 e 1.
 		\begin{equation}
 			\funz{\mathbb{P}}{\mathcal{F}}{\left[0,1\right]}
@@ -84,7 +84,7 @@ Si può subito osservare che lo spazio di probabilità $\left(\Omega,\mathcal{F}
 \end{define}
 In altre parole, una variabile aleatoria è una funzione misurabile da uno spazio di probabilità a $\complexset$.
 \section{Probabilità immagine}\label{probimm}
-Nel corso di \textsc{Calcolo di Probabilità} abbiamo incontrato la variabile aleatoria \textbf{normale standard} $Z$, definita come tale se
+Nel corso di \textsc{Calcolo di Probabilità} abbiamo incontrato la variabile aleatoria \textbf{normale standard} $Z$, definita come tale che
 \begin{equation}
 	\mathbb{P}\left(Z\in B\right)=\int_{B}\frac{1}{\sqrt{2\pi}}e^{-x^2/2}dm_1,\ \forall B\in\mathcal{B}\left(\realset\right)
 \end{equation}
@@ -334,7 +334,7 @@ La convergenza certa implica tutti i modi di convergenza successivi, ma \textit{
 	Consideriamo lo spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ e le variabili aleatorie $\funz{X_n,X}{\Omega}{\complexset}$
 	Si dice che $X_n$ \textbf{converge quasi certamente}\index{convergenza!quasi certa} a $X$\textbf{su} $\Omega$ ($X_n\overset{\text{q.c.}}{\to} X$) se
 	\begin{equation}
-		\mathbb{P}\left(\left\{\omega\in\Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)=X\left(\omega\right)\right\}\right)=1
+		\mathbb{P}\left(\left\{\omega\in\Omega \ \middle| \ \lim_{n\to+\infty}X_n\left(\omega\right)=X\left(\omega\right)\right\}\right)=1
 	\end{equation}
 \end{define}
 Osserviamo che in uno spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ questa convergenza è equivalente alla convergenza \textit{quasi ovunque}. Infatti:
@@ -345,15 +345,16 @@ Osserviamo che in uno spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P
 \end{align*}
 Allora affermare che
 \begin{equation*}
-	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\right)=1
+	\mathbb{P}\left(\left\{\omega\in \Omega \ \middle| \ \lim_{n\to+\infty}X_n\left(\omega\right)= X\left(\omega\right)\right\}\right)=1
 \end{equation*}
 significa affermare che
 \begin{equation*}
-	\mathbb{P}\left(\left\{\omega\in \Omega\middle|\lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}\right)=0
+	\mathbb{P}\left(\left\{\omega\in \Omega \ \middle| \ \lim_{n\to+\infty}X_n\left(\omega\right)\neq X\left(\omega\right)\right\}\right)=0
 \end{equation*}
 \begin{attention}
 	In uno spazio di misura che \textit{non} sia di probabilità questa corrispondenza non si può fare, dato che $\mu(X)$ può non essere pari ad $1$, tanto meno finito. Vale sempre la convergenza \textbf{q.o.}, ma mai quella \textbf{q.c.}.
 \end{attention}
+\newpage
 \paragraph{Convergenza in probabilità}
 \begin{define}[Convergenza in probabilità]
 	Consideriamo lo spazio di probabilità $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ e le variabili aleatorie $\funz{X_n,X}{\Omega}{\complexset}$. Si dice che	$X_n$ \textbf{converge in probabilità}\index{convergenza!in probabilità} a $X$ ($X_n\overset{\mathbb{P}}{\to} X$) se

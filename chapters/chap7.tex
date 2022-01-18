@@ -19,9 +19,9 @@ Dopo aver definito lo \textbf{spazio normato} $L^1$ di funzioni integrabili seco
 \section{Dallo spazio delle funzioni integrabili allo 1-spazio di Lebesgue}
 Ricordiamo che, dato uno spazio di misura $\left(X,\mathcal{M},\mu\right)$ si definisce lo spazio delle funzioni integrabili
 \begin{equation}
-	\mathcal{L}^{1}=\left\{\funz{f}{X}{\complexset}\text{ misurabili}\ \middle| \int_X\abs{f}d\mu<+\infty\right\}
+	\mathcal{L}^{1}=\left\{\funz{f}{X}{\complexset}\text{ misurabili}\ \middle| \ \int_X\abs{f}d\mu<+\infty\right\}
 \end{equation}
-il quale è un spazio vettoriale con le operazioni di somma di funzioni e prodotto di una funzione per uno scalare complesso.\\
+il quale è uno spazio vettoriale su $\complexset$ con le operazioni di somma di funzioni e prodotto di una funzione per uno scalare complesso.\\
 Vogliamo ora introdurre una struttura \textit{metrica} in $\mathcal{L}^1\left(\mu\right)$; nello specifico, cerchiamo una \textit{norma} - in questo modo potremo avvalerci di risultati che sono validi solo in \textit{spazi normati}. Possiamo considerare come potenziale candidata la funzione
 \begin{equation}
 	\funztot{N}{\mathcal{L}^1\left(\mu\right)}{\left[0,+\infty\right)}{f}{\int_X\abs{f}d\mu}
@@ -67,7 +67,7 @@ Come precedentemente detto, le altre proprietà sono facilmente verificabili dal
 \end{enumerate}
 Per risolvere il problema, si introduce la relazione
 \begin{equation}
-	f,g\in\mathcal{L}^{1}\left(\mu\right)\colon f\sim g\iff f=g\text{ \textbf{q.o.} in }X
+	\forall f,g\in\mathcal{L}^{1}\left(\mu\right),\ f\sim g\iff f=g\text{ \textbf{q.o.} in }X
 \end{equation}
 che si dimostra essere di equivalenza in $\mathcal{L}^{1}\left(\mu\right)$.\\
 Si definisce allora lo $1$\textbf{-spazio di Lebesgue}\index{spazio!di Lebesgue}
@@ -101,7 +101,7 @@ Questa norma è ben posta come funzione in $L^1\left(\mu\right)$ in quanto \text
 	\end{equation*}
 	In questo caso si ha
 	\begin{equation*}
-		\mathcal{L}^1\left(\mu_c\right)=\left\{\funz{f}{\naturalset}{\complexset}\mid\sum_{n=1}^{+\infty}\abs{f_n}=\int_X\abs{f}d\mu_c<+\infty\right\}
+		\mathcal{L}^1\left(\mu_c\right)=\left\{\funz{f}{\naturalset}{\complexset} \ \middle| \ \sum_{n=1}^{+\infty}\abs{f_n}=\int_X\abs{f}d\mu_c<+\infty\right\}
 	\end{equation*}
 	e quindi la norma in $L^1$ è la serie dei moduli
 	\begin{equation*}
@@ -113,15 +113,15 @@ Come sappiamo, se uno spazio normato è completo valgono diversi risultati teori
 	Lo spazio normato $\left(L^1\left(\mu\right),\norm{\cdot}_1\right)$ è completo.
 \end{theoremaqed}
 \begin{observe}
-	Se si considero lo spazio delle funzioni continue $\mathcal{C}\left(\left[a,b\right];\realset\right)$, allora in esso la funzione
+	Se si considera lo spazio delle funzioni continue $\mathcal{C}\left(\left[a,b\right];\realset\right)$, allora in esso la funzione
 	\begin{equation*}
-		\funztot{\ }{\mathcal{C}\left(\left[a,b\right];\realset\right)}{\left[0,+\infty\right]}{f}{\lvert f\rvert_1\int_{a}^{b}g(x)dx}
+		\funztot{\ }{\mathcal{C}\left(\left[a,b\right];\realset\right)}{\left[0,+\infty\right]}{f}{\lvert f\rvert_1=\int_{a}^{b}\abs{f(x)}dx}
 	\end{equation*}
 	è già una norma. Infatti
 	\begin{equation*}
 		\lvert f\rvert_1 = 0 \iff f\equiv 0\text{ \textbf{q.o.} in }\left[a,b\right]\iff f\equiv 0\text{ su }\left[a,b\right]\text{ perché continua}
 	\end{equation*}
-	Pertanto, $\mathcal{C}\left(\left[a,b\right];\realset\right)$ è normato. Lo svantaggio, tuttavia, è che esso \textit{non} è completo.Per questo motivo, nonostante ciò che comporta quozientare, conviene usare lo spazio $\left(L^1\left(\mu\right),\norm{\cdot}_1\right)$.
+	Pertanto, $\mathcal{C}\left(\left[a,b\right];\realset\right)$ è normato. Lo svantaggio, tuttavia, è che esso \textit{non} è completo. Per questo motivo, nonostante ciò comporta quozientare, conviene usare lo spazio $\left(L^1\left(\mu\right),\norm{\cdot}_1\right)$ per avere la completezza.
 \end{observe}
 \subsection{Eserciziamoci! Dallo spazio delle funzioni integrabili allo 1-spazio di Lebesgue}
 \begin{exercise}
@@ -135,7 +135,7 @@ Come sappiamo, se uno spazio normato è completo valgono diversi risultati teori
 	La riflessività e la simmetria sono banalmente verificate per definizione di uguaglianza \textbf{q.o.}.\\
 	Per dimostrare la transitività, si considerino le funzioni $f,g,h\in\mathcal{L}^{1}$ tali che $f=g$ \textbf{q.o.} e $g=h$ \textbf{q.o.}. Ciò significa che
 	\begin{equation*}
-		\mu(N_1)\coloneqq\mu\left(\{x\in X\mid f(x)\neq g(x)\}\right)=0=\mu\left(\{x\in X\mid g(x)\neq h(x)\}\right)\Coloneqq\mu(N_2)
+		\mu(N_1)\coloneqq\mu\left(\{x\in X\mid f(x)\neq g(x)\}\right)=0=\mu\left(\{x\in X\mid g(x)\neq h(x)\}\right)\coloneqq\mu(N_2)
 	\end{equation*}
 	Posto $N=N_1\cup N_2$, allora anche $N$ è misurabile con misura nulla.\\
 	Per le leggi di De Morgan si ha che $N^C=N_1^C\cap N_2^C$, cioè per ogni $x\in N^C$ si ha $f(x)=g(x)=h(x)$. Allora
@@ -179,7 +179,7 @@ Come visto in precedenza\footnote{Si veda \refChapterOnly{convergenzafunzioni}, 
 	f_n\text{ converge uniformemente a }f\text{ su }X\implies\\
 	\implies f_n\text{ converge puntualmente a }f\text{ in ogni punto di }X
 \end{multline}
-Il viceversa non è vero: abbiamo visto\footnote{Si veda nota precedente.} nella stessa sezione il caso della successione geometrica, la quale converge uniformemente solo a $f\equiv 0$ in ogni intervallo $\left[-a,a\right]\subsetneqq\left(-1,1\right),\ \forall a\in\left(0,1\right)$, mentre puntualmente in tutti i $\left(-1,1\right]$; qui di seguito riportiamo un controesempio alternativo.
+Il viceversa non è vero: abbiamo visto\footnote{Si veda nota precedente.} nella stessa sezione il caso della successione geometrica, la quale converge uniformemente solo a $f\equiv 0$ in ogni intervallo $\left[-a,a\right]\subsetneqq\left(-1,1\right),\ \forall a\in\left(0,1\right)$, mentre puntualmente in tutti i $\left[-1,1\right]$; qui di seguito riportiamo un controesempio alternativo.
 \begin{example}\label{controesempiouniformepuntuale}
 	Consideriamo la successione
 	\begin{equation*}
@@ -204,9 +204,9 @@ Il viceversa non è vero: abbiamo visto\footnote{Si veda nota precedente.} nella
 \paragraph{Convergenza quasi ovunque}
 \begin{define}[Convergenza quasi ovunque]
 	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$. Si dice che
-	$f_n$ \textbf{converge quasi ovunque}\index{convergenza!quasi ovunque} a $f$\textbf{in} $X$ ($f_n\overset{\text{q.o.}}{\to} f$) se
+	$f_n$ \textbf{converge quasi ovunque}\index{convergenza!quasi ovunque} a $f$ \textbf{in} $X$ ($f_n\overset{\text{q.o.}}{\to} f$) se
 	\begin{equation}
-		\mu\left(\left\{x\in X\mid \lim_{n\to+\infty}f_n(x)\neq f(x)\right\}\right)=0
+		\mu\left(\left\{x\in X \ \middle| \  \lim_{n\to+\infty}f_n(x)\neq f(x)\right\}\right)=0
 	\end{equation}
 \end{define}
 \paragraph{Convergenza puntuale e quasi ovunque}
@@ -240,7 +240,7 @@ Tuttavia, l'insieme dove $f_n$ \textit{non} converge a $f\equiv0$ è un singolo 
 	\begin{itemize}
 		\item Per la \textbf{convergenza monotona} è sufficiente anche solamente supporre che la successione $f_n$ sia non decrescente su $X$ tolto al più un insieme $N$ di misura nulla. In questo modo, la successione $f_n$ converge \textbf{q.o.} a $f$ su $X$ e vale il \textbf{passaggio al limite sotto segno di integrale}\index{passaggio al limite sotto segno di integrale} con la stessa dimostrazione di prima, in quanto
 		\begin{equation*}
-			\int_X f_nd\mu=\int_{X\setminus N}f_nd\mu\quad\int_X fd\mu=\int_{X\setminus N}fd\mu
+			\int_X f_nd\mu=\int_{X\setminus N}f_nd\mu\quad \text{e} \quad \int_X fd\mu=\int_{X\setminus N}fd\mu
 		\end{equation*}
 		Se la misura $\mu$ \textit{non} è completa, allora è necessario supporre che anche $f$ sia misurabile, a differenza del caso puntuale; se $\mu$ è invece completa, allora ciò non sarà necessario in quanto si può vedere che in tal caso una successione di funzioni misurabili converge \textbf{q.o.} ad una funzione misurabile\footnote{Nelle ‘‘Note aggiuntive'', a pag. \pageref{funzionimisurabiliqo} è possibile trovare la dimostrazione di questo risultato.} e dunque non è necessario aggiungere ipotesi.
 		\item Per la \textbf{convergenza monotona} la convergenza della successione $f_n$ e la dominazione da parte di $g$ possono essere considerate proprietà valide \textbf{q.o.} purché la misura sia completa o la funzione limite $f$ è una funzione misurabile che coincide \textbf{q.o.} con il limite \textbf{q.o.} della successione, per lo stesso problema di misurabilità visto con la convergenza monotona  
@@ -256,6 +256,7 @@ Tuttavia, se \textit{restringiamo} opportunamente il dominio, è possibile trova
 \end{theoremaqed}
 In altre parole, per qualunque successione $f_n$ convergente a $f$ \textbf{q.o} in $X$, se è possibile trovare un sottoinsieme $A\subseteq X$ misurabilmente finito allora $f_n$ converge anche uniformemente a $f$ in un qualunque sottoinsieme di $A$ con misura arbitrariamente vicina a quella originale. Una successione $f_n$ che converge a $f$ in questo modo è detta \textbf{convergenza quasi uniforme}\index{convergenza!quasi uniforme} - non utilizzeremo particolarmente questa nomenclatura.
 L'ipotesi di $A$ con $\mu(A)<+\infty$ è fondamentale: infatti, possiamo riutilizzare come controesempio quello visto a pagina \pageref{controesempiouniformepuntuale} per la convergenza uniforme e puntuale.
+%NOTA: non è lo stesso controesempio di prima che hai pure citato? perché riscriverlo?
 \begin{example}
 	Consideriamo la successione
 	\begin{equation*}
@@ -317,17 +318,17 @@ Questa è la differenza principale tra la convergenza uniforme/puntuale/quasi ov
 		\end{equation*}
 		Osserviamo che $f$ è dunque misurabile, in quanto la misurabilità passa al limite puntuale (e quindi al limite uniforme). Da $\circled[red]{\vardiamond}$ segue che
 		\begin{equation*}
-			\abs{f(x)}\underset{\forall n\in\naturalset}{=}\abs{f(x)-f_n(x)+f_n(x)}\leq\abs{f(x)-f_n(x)}+\abs{f_n(x)}\underset{\forall x\in X}{<}\epsilon +g(x)
+			\abs{f(x)}\underset{\forall n\in\naturalset}{=}\abs{f(x)-f_n(x)+f_n(x)}\leq\abs{f(x)-f_n(x)}+\abs{f_n(x)}\underset{\forall x\in X}{<}\epsilon +\abs{f(x)}
 		\end{equation*}
 		Posto, ad esempio, $\epsilon = 1$ e $n=N$ si ha
 		\begin{equation*}
-			\abs{f(x)}=1+\abs{f_N(x)},\ \forall x\in X
+			\abs{f(x)}<1+\abs{f_N(x)},\ \forall x\in X
 		\end{equation*}
 		Allora
 		\begin{align*}
 			\int_X\abs{f}d\mu&\leq \int_X \left(1+\abs{f_N}\right)d\mu&\text{(monotonia integrale per l'integranda)}\\
 			&=\int_{X}1d\mu+\int_X\abs{f_N}d\mu&\text{(additività dell'integranda)}\\
-			&=\mu(x)+\int_X\abs{f_N}d\mu <+\infty&
+			&=\mu(X)+\int_X\abs{f_N}d\mu <+\infty&
 		\end{align*}
 		perché $\mu(x)<+\infty$ per ipotesi e $f_n\in L^1\left(\mu\right)$.
 		\item Dobbiamo dimostrare che $\displaystyle\lim_{n\to+\infty}\norm{f_n-f}_1=0$, ossia
@@ -339,14 +340,14 @@ Questa è la differenza principale tra la convergenza uniforme/puntuale/quasi ov
 			\norm{f_n-f}_1=\int_X\abs{f_n-f}d\mu\underset{\forall n\geq N\left(\epsilon\right)}{\overset{\circled[red]{\vardiamond}}{\leq}}\int_X\epsilon d\mu=\epsilon \mu(X)<+\infty
 		\end{equation*}
 		Vale la relazione \circled[blue]{\spadesuit} ponendo $\widetilde{N}=N$.
-		\item Segue dal \textit{teorema di convergenza dominata}.
+		\item Segue dal punto $2$ come nell'ultima parte della dimostrazione del \textit{teorema di convergenza dominata}.
 	\end{enumerate}
 \end{demonstration}
 \begin{attention}
-	Se $\mu(x)=+\infty$, in generale \textit{non} vale nessuna delle tesi: come controesempi si possono prendere i tre esposti\footnote{Si veda \refChapterOnly{convergenzafunzioni}, pag. \pageref{controesempipassaggiointegrale}.} nel discorso sui problemi di integrabilità nell'ambito della teoria di Riemann.
+	Se $\mu(X)=+\infty$, in generale \textit{non} vale nessuna delle tesi: come controesempi si possono prendere i tre esposti\footnote{Si veda \refChapterOnly{convergenzafunzioni}, pag. \pageref{controesempipassaggiointegrale}.} nel discorso sui problemi di integrabilità nell'ambito della teoria di Riemann.
 \end{attention}
 In generale non vale il viceversa: dalla convergenza in $L^1$ non segue quella uniforme.
-\begin{example}
+\begin{examplewt}[Convergenza in $L^1$ non implica C.U.]
 	Consideriamo la successione
 	\begin{equation*}
 		f_n(x)=n\chi_{\left[0,\frac{1}{n^2}\right]}(x)=
@@ -365,7 +366,7 @@ In generale non vale il viceversa: dalla convergenza in $L^1$ non segue quella u
 	\begin{equation*}
 		\lim_{n\to+\infty}\left(\sup_{x\in\realset}\abs{f_n(x)-f(x)}\right)=\lim_{n\to+\infty}\left(\sup_{x\in\realset}\abs{n-0}\right)=+\infty\neq 0
 	\end{equation*}
-\end{example}
+\end{examplewt}
 \begin{observe}
 	Questo teorema ci mostra che il passaggio al limite sotto segno di integrale visto nell'ambito della teoria di Riemann, che contemplava la convergenza uniforme su intervalli limitati, è valido anche nell'ambito della Teoria di Lebesgue.
 \end{observe}
@@ -375,6 +376,7 @@ Con questo teorema abbiamo finalmente risposto in toto ad uno dei quesiti inizia
 	\item Convergenza monotona.
 	\item Convergenza dominata.
 \end{itemize}
+Esistono anche degli analoghi per lo scambio di serie ed integrale.
 \paragraph{Convergenza quasi ovunque e {$L^1$}}
 Come abbiamo detto precedentemente\footnote{Si veda pag. \pageref{indebolimentoteoremi}.} possiamo indebolire le ipotesi dei teoremi di convergenza monotona e dominata per applicarli anche alla convergenza \textbf{q.o.}, e tutti e due implicano il passaggio al limite sotto segno di integrale. Questo ci permette di affermare il seguente corollario.
 \begin{corollaryqed}[Convergenza quasi ovunque e {$L^1$}]
@@ -401,8 +403,8 @@ Purtroppo, dalla convergenza in $L^1$ a quella \textbf{q.o.} in generale non si 
 	per ogni $n\geq 0$ e con $k\in\naturalset$ tale che $2^k\leq n\leq 2^{k+1}$. Questa si può visualizzare come dei segmenti, ad altezza $1$ e larghezza $\frac{1}{2^k}$, che ‘‘marciano'' lungo l'intervallo $\left[0,1\right]$ ripetutamente. Ad ogni ‘‘ritorno a capo'' la larghezza viene dimezzata.\\
 	Si vede che $f_n$ converge alla funzione $f\equiv 0$ in $L^1$: il segmento individuato da $f_n$ tenderà a diventare un singolo punto al crescere di $n$, dunque l'area sottesa da $f_n$ è un segmento verticale ed è quindi di misura nulla; infatti,
 	\begin{align*}
-		\lim_{n\to+\infty}\norm{f_n-f}_1&=\lim_{n\to+\infty}\int_{\realset}\abs{f_n-f}d\mu=\lim_{n\to+\infty}\int_{\frac{n-2^k}{2^k}}^{\frac{n-2^k+1}{2^k}}dx=\\
-		&=\lim_{n\to+\infty}\left(\frac{n-2^k+1}{2^k}-\frac{n-2^k}{2^k}\right)=\lim_{n\to+\infty}\frac{1}{2^k}=0
+		\lim_{n\to+\infty}\norm{f_n-f}_1&=\lim_{n\to+\infty}\int_{\realset}\abs{f_n-f}d\mu = \lim_{n\to+\infty}\int_{\frac{n-2^k}{2^k}}^{\frac{n-2^k+1}{2^k}}!dx = \\
+		& = \lim_{n\to+\infty}\left(\frac{n-2^k+1}{2^k}-\frac{n-2^k}{2^k}\right) = \lim_{n\to+\infty}\frac{1}{2^k}=0
 	\end{align*}
 	Invece, $f_n$ non converge \textbf{q.o.} a $f\equiv 0$. Infatti, per qualunque scelta di $x\in\left[0,1\right]$ e per qualunque $N\in\naturalset$ si può trovare un $n>N$ con $f_n(x)=1$, quindi la sequenza non può convergere \textit{mai} a $0$.
 \end{examplewt}
@@ -418,7 +420,8 @@ Tuttavia, se consideriamo delle \textit{sottosuccessioni}, allora è sempre poss
 \begin{define}[Convergenza in misura]
 	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$; $\forall n\in\naturalset$ definiamo la funzione $g_n\coloneqq \abs{f_n-f}$. Allora, se prendiamo $\forall n\in\ \naturalset,\forall \epsilon>0$ l'insieme
 	\begin{equation*}
-		E_{n,\epsilon}\coloneqq g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)=\left\{x\in X\mid \abs{f_n(x)-f(x)}>\epsilon\right\}
+		E_{n,\epsilon}\coloneqq g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)\footnote{Siccome $f_n, f$ sono misurabili, allora anche $g$ lo è. Inoltre siccome $(\epsilon,+\infty)$ è un aperto allora $g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)\in\mathcal{M},\ \forall\epsilon >0,\ \forall n$}
+		=\left\{x\in X\mid \abs{f_n(x)-f(x)}>\epsilon\right\}
 	\end{equation*}
 	si dice che	$f_n$ \textbf{converge in misura}\index{convergenza!in misura} a $f$ ($f_n\overset{\mu}{\to} f$) se
 	\begin{equation}
@@ -441,7 +444,7 @@ Possiamo interpretare questa convergenza come un particolare tipo di convergenza
 \begin{demonstration}
 	Dobbiamo dimostrare che
 	\begin{equation*}
-		\mu\bigg(\underbrace{\left\{x\in X\middle|\abs{f_n(x)-f(x)}>\epsilon\right\}}_{\coloneqq E_{n,\epsilon}}\bigg)=0,\ \forall \epsilon>0
+		\mu\bigg(\underbrace{\left\{x\in X\ \middle| \ \abs{f_n(x)-f(x)}>\epsilon\right\}}_{\coloneqq E_{n,\epsilon}}\bigg)=0,\ \forall \epsilon>0
 	\end{equation*}
 	Si ha, per monotonia dell'integrale rispetto al dominio,
 	\begin{equation*}
