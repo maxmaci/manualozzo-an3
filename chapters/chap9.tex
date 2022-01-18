@@ -20,8 +20,8 @@ In questo ultimo capitolo di teoria approfondiremo alcuni concetti visti a \text
 \begin{define}[Spazio di probabilità]
 	Uno \textbf{spazio di probabilità}\index{spazio!di probabilità} $\left(\Omega,\mathcal{F},\mathbb{P}\right)$ è una struttura matematica che fornisce un modello formale per un esperimento non deterministico. Essa costituita dai seguenti elementi:
 	\begin{enumerate}
-		\item Uno \textbf{spazio campionario}\index{spazio! campionario} $\Omega$, l'insieme di tutti i possibili \textbf{risultati} $\omega$ dell'esperimento.
-		\item Uno \textbf{spaziodegli eventi} $\mathcal{F}$, la famiglia di tutti gli eventi dell'esperimento, dove un \textbf{evento}\index{evento} $E$ è un insieme di risultati dello spazio campionario - ossia un sottoinsieme di $\Omega$.
+		\item Uno \textbf{spazio campionario}\index{spazio!campionario} $\Omega$, l'insieme di tutti i possibili \textbf{risultati} $\omega$ dell'esperimento.
+		\item Uno \textbf{spazio degli eventi}\index{spazio!degli eventi} $\mathcal{F}$, la famiglia di tutti gli eventi dell'esperimento, dove un \textbf{evento}\index{evento} $E$ è un insieme di risultati dello spazio campionario - ossia un sottoinsieme di $\Omega$.
 		\item Una \textbf{funzione di probabilità} $\mathbb{P}$, che assegna ad ogni evento una probabilità, la quale è un numero tra 0 e 1.
 		\begin{equation}
 			\funz{\mathbb{P}}{\mathcal{F}}{\left[0,1\right]}
@@ -84,7 +84,7 @@ Si può subito osservare che lo spazio di probabilità $\left(\Omega,\mathcal{F}
 \end{define}
 In altre parole, una variabile aleatoria è una funzione misurabile da uno spazio di probabilità a $\complexset$.
 \section{Probabilità immagine}\label{probimm}
-Nel corso di \textsc{Calcolo di Probabilità} abbiamo incontrato la variabile aleatoria \textbf{normale standard} $Z$, definita come tale che
+Nel corso di \textsc{Calcolo di Probabilità} abbiamo incontrato la variabile aleatoria \textbf{normale standard} $Z$, definita come tale se la probabilità che $Z$ stia nell'evento $B$ è
 \begin{equation}
 	\mathbb{P}\left(Z\in B\right)=\int_{B}\frac{1}{\sqrt{2\pi}}e^{-x^2/2}dm_1,\ \forall B\in\mathcal{B}\left(\realset\right)
 \end{equation}

@@ -453,7 +453,7 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 	\end{examplewt}
 	In altre parole, la misura secondo Peano-Jordan è \textit{additiva}, ma non $\sigma$-additiva.
 	\begin{digression}
-		Nella letteratura italiana si è soliti parlare ‘‘misura di Peano-Jordan'', quando in realtà questa terminologia è impropria, non essendo una \textit{misura} nel senso \textit{moderno} del termine. Nell'anglosfera lo stesso concetto viene chiamato ‘‘Jordan content".
+		Nella letteratura italiana si è soliti parlare ‘‘misura di Peano-Jordan'', quando in realtà questa terminologia è impropria, non essendo una \textit{misura} nel senso \textit{moderno} del termine. Nell'anglosfera lo stesso concetto viene chiamato ‘‘Jordan content''.
 	\end{digression}
 	\section{Misura secondo Lebesgue}
 	Per quanto innovativa, la misura di Peano-Jordan presenta alcuni notevoli problemi:
@@ -499,33 +499,33 @@ Anche se questa misura coincide con quella di Peano (dopotutto, le unioni di par
 	\end{observe}
 	A differenza di Peano-Jordan, Lebesgue definisce solamente la \textbf{misura esterna} dell'insieme:
 	\begin{equation}
-		m^X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\ \middle| \ P_i\text{ parallelepipedi aperti},\ \bigcup_{i=1}^nP_i\supseteq A\right\}
+		m_n^X\left(A\right)=\inf\left\{\sum_{i=1}^{n}V_n\left(P_i\right)\ \middle| \ P_i\text{ parallelepipedi aperti},\ \bigcup_{i=1}^nP_i\supseteq A\right\}
 	\end{equation}
 dove per parallelepipedo \textit{aperto} si intende un plurintervallo definito da intervalli aperti.\\ 
 	Essa si può vedere come una funzione
 	\begin{equation}
-		\funz{m^X}{\setpart{\realset^n}}{\left[0,+\infty\right]}
+		\funz{m_n^X}{\setpart{\realset^n}}{\left[0,+\infty\right]}
 	\end{equation}
 	che gode delle seguenti proprietà:
 	\begin{itemize}
 		\item Se l'insieme è un parallelepipedo $n$-dimensionale, la misura esterna del parallelepipedo ovviamente coincide con la misura $n$-dimensionale di esso:
 		\begin{equation}
-			m^X(P)=V_n(P),\ \forall P\text{ parallelepipedo}
+			m_n^X(P)=V_n(P),\ \forall P\text{ parallelepipedo}
 		\end{equation}
 		\item È \textit{monotona}:
 		\begin{equation}
-			m^X\left(A\right)\leq m^X\left(B\right),\ \forall A\subseteq B
+			m_n^X\left(A\right)\leq m_n^X\left(B\right),\ \forall A\subseteq B
 		\end{equation}
 		\item È $\sigma$-\textit{subadditiva}:
 		\begin{equation}
-			m^X\left(\bigcup_{n\geq 1}A_n\right)\leq \sum_{n\geq 1}m^X\left(A_n\right), \forall A_n\subseteq \realset^n
+			m_n^X\left(\bigcup_{n\geq 1}A_n\right)\leq \sum_{n\geq 1}m_n^X\left(A_n\right), \forall A_n\subseteq \realset^n
 		\end{equation}
 		\item È \textit{invariante per traslazioni}:
 		\begin{equation}
-			m^X\left(A+\left\{x\right\}\right)=m^X\left(A\right),\ \forall x\in\realset^n,\ \forall A\subseteq\realset^n
+			m_n^X\left(A+\left\{x\right\}\right)=m_n^X\left(A\right),\ \forall x\in\realset^n,\ \forall A\subseteq\realset^n
 		\end{equation}
 	\end{itemize}
-	Osserviamo che per $m^X$ vale \textit{solo} la  $\sigma$-\textit{subadditività}, ma non la $\sigma$-\textit{additività}.
+	Osserviamo che per $m_n^X$ vale \textit{solo} la  $\sigma$-\textit{subadditività}, ma non la $\sigma$-\textit{additività}.
 	\begin{define}[Insieme misurabile secondo Lebesgue {{\footnotesize (Criterio di Caratheodory)}}]\index{criterio!di Caratheodory}
 		Un insieme $A\subseteq\realset^n$ è \textbf{misurabile secondo Lebesgue} se $\forall E\subseteq\realset^n$ vale
 		\begin{equation}
@@ -546,7 +546,7 @@ dove per parallelepipedo \textit{aperto} si intende un plurintervallo definito d
 	\begin{define}[Misura secondo Lebesgue]
 		La \textbf{misura secondo Lebesgue}\index{misura!secondo Lebesgue} è la restrizione della misura esterna a $\mathcal{L}\left(\realset^n\right)$:
 		\begin{equation}
-			m_n={m^X_n}_{\vert_{ \mathcal{L}\left(\realset^n\right)}}\text{ ossia }\funz{m_n}{\mathcal{L}\left(\realset^n\right)}{\left[0,+\infty\right]}
+			m_n={m_n^X}_{\vert_{ \mathcal{L}\left(\realset^n\right)}}\text{ ossia }\funz{m_n}{\mathcal{L}\left(\realset^n\right)}{\left[0,+\infty\right]}
 		\end{equation}
 	\end{define}
 \begin{observe}
@@ -573,7 +573,6 @@ In particolare:
 	\forall A\subseteq \realset^n,\ m_n^X\left(A\right)=0\implies A\in\mathcal{L}\left(\realset^n\right)\text{ e }m_n\left(A\right)=0
 \end{equation*}
 \end{itemize}
-%FINO A QUI
 \begin{demonstration}
 	Dobbiamo provare che $\forall E\subseteq \realset^n$
 	\begin{equation*}
@@ -597,13 +596,13 @@ In particolare:
 	\textbf{Non} tutti gli insiemi sono misurabili! Se supponiamo vero l'Assioma della Scelta, l'\textbf{insieme di Vitali} è un insieme non misurabile in $\realset$ rispetto alla misura di Lebesgue unidimensionale\footnote{Si veda pag. \pageref{vitali} per la definizione dell'insieme di Vitali e la dimostrazione di ciò.}.
 \end{attention}
 Nella teoria di Lebesgue hanno un ruolo importante gli insiemi di misura nulla: esplicitiamo il legame tra misura nulla e cardinalità.
-È noto che ogni singolo punto ha misura nulla; osserviamo che presa una famiglia numerabile di punti $\left\{x_n\right\}$ siccome la misura è $\sigma$-subadditiva si ha
+È noto che ogni singolo punto ha misura nulla; osserviamo che presa una famiglia numerabile di punti $\left\{x_n\right\}$, siccome la misura è $\sigma$-subadditiva, si ha
 \begin{equation*}
 	0\leq m_n\left(\bigcup_{n\geq 1}\left\{x_n\right\}\right)\leq \sum_{n\geq 1} \underbrace{m_n\left(\left\{x_n\right\}\right)}_{=0}=0
 \end{equation*}
 Ne segue che ogni insieme \textbf{numerabile} è misurabile e ha misura nulla.
 \begin{examplewt}[Misura dei razionali]
-	Posto $n=1$ (ossia consideriamo la misura in $\realset$) e sapendo che i razionali $\rationalset$ sono un insieme numerabile, abbiamo che la loro misura è nulla:
+	Posto $n=1$ (ossia consideriamo la misura in $\realset$), sapendo che i razionali $\rationalset$ sono un insieme \textit{numerabile} abbiamo che la loro misura è nulla:
 	\begin{equation*}
 		m_1\left(\rationalset\right)=0,\ m_1\left(\rationalset\cap\left[0,1\right]\right)=0
 	\end{equation*}
@@ -731,7 +730,7 @@ Ora enunciamo una proprietà della misura di Lebesgue, detta \textbf{regolarità
 	\end{enumerate}
 \end{theorema}
 \begin{attention}
-	Nel teorema abbiamo usato la misura esterna $m_n^X$ perché non sappiamo ancora che gli insiemi sono misurabili.
+	Nel teorema abbiamo usato la misura esterna $m_n^X$ perché non sappiamo a priori che gli insiemi sono misurabili secondo Lebesgue.
 \end{attention}
 \begin{demonstration}
 	Dimostriamo le catene di implicazioni
@@ -799,7 +798,7 @@ $\mathbf{(i)\implies(iv)\implies(v)\implies(i)}\quad$ Queste implicazioni si dim
 \end{observe}
 \subsection{Confronto tra la misura di Peano-Jordan e di Lebesgue}
 Come abbiamo visto, la misura di Peano-Jordan soddisfa solo alcune proprietà della misura in senso assiomatico, essendo $\sigma$-subadditiva, mentre la misura secondo Lebesgue è a tutti gli effetti una misura assiomatica moderna. Ci si può dunque chiedere se tali concetti sono incompatibili tra di loro oppure se c'è una qualche relazione tra di essi.\\
-È già noto che non tutti gli insiemi misurabili secondo Lebesgue lo sono secondo Peano-Jordan: i primi sono un'estensione dei secondi.
+È già noto che non tutti gli insiemi misurabili secondo Lebesgue lo sono secondo Peano-Jordan.
 \begin{example}
 	Consideriamo $E=\rationalset\cap\left[0,1\right]$.
 	\begin{itemize}
@@ -824,24 +823,29 @@ Il seguente teorema ci afferma un risultato importante: \textit{tutti} gli insie
 	\end{enumerate}
 \end{theorema}
 \begin{demonstration}
-	Dimostriamo il punto 1. Sia $E\subseteq \realset^n$ e Peano-Jordan misurabile. Per provare che $E$ è misurabile secondo Lebesgue useremo il teorema di \textit{regolarità} precedentemente dimostrato.\\
+	Dimostriamo il punto 1. Sia $E\subseteq \realset^n$ un insieme Peano-Jordan misurabile. Per provare che $E$ è misurabile secondo Lebesgue useremo il teorema di \textit{regolarità} precedentemente dimostrato.\\
 	In particolare, proviamo che $\forall \epsilon >0,\ \exists A_{\epsilon}$ aperto tale che
 	\begin{itemize}
 		\item $E\subseteq A_{\epsilon}$.
 		\item $m_n^{X}\left(A_{\epsilon}\setminus E\right)<\epsilon$.
 	\end{itemize}
-Sappiamo che $E$ è misurabile secondo Peano-Jordan, dunque per il criterio equivalente possiamo approssimarlo dall'interno e dall'esterno con unioni finite di insiemi elementari: $\forall \epsilon >0,\ \exists A_{\epsilon}, B_{\epsilon}$ unioni finite di parallelepipedi con $B_{\epsilon}\subseteq E\subseteq A_{\epsilon}$ tali che $m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon$, cioé la misura dell' "intercapedine" fra i due insiemi è arbitrariamente piccola; siccome il bordo è ininfluente posso considerare $A_\epsilon$ aperto. Allora l'insieme $A_{\epsilon}$ così definito è proprio quello che stavamo cercando grazie alla seconda condizione. Noto innanzitutto che $A_{\epsilon}\setminus E\subseteq A_{\epsilon}\setminus B_{\epsilon}$, per monotonia della misura esterna otteniamo:
+Sappiamo che $E$ è misurabile secondo Peano-Jordan, dunque per il criterio equivalente possiamo approssimarlo dall'interno e dall'esterno con unioni finite di insiemi elementari: $\forall \epsilon >0,\ \exists A_{\epsilon},\ B_{\epsilon}$ unioni finite di parallelepipedi con $B_{\epsilon}\subseteq E\subseteq A_{\epsilon}$ tali che
 \begin{equation*}
-	m_{n}^{X}\left(A_{\epsilon}\setminus E\right) \leq	m_{n}^{X}\left(A_{\epsilon}\setminus B_{\epsilon}\right)=m_{PJ}^X\left(A_{\epsilon}\setminus B_{\epsilon}\right) \stackrel{!}{=} m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon
+	m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon,
 \end{equation*}
-dove l'uguaglianza (!) è dovuta al fatto che le misure di Lebesgue e Peano-Jordan coincidono su insiemi elementari.
+cioé la misura dell' ‘‘intercapedine'' fra i due insiemi è arbitrariamente piccola; siccome il bordo è ininfluente posso considerare $A_\epsilon$ aperto.\\
+L'insieme $A_{\epsilon}$ così definito è proprio quello che stavamo cercando. Infatti, noto che $A_{\epsilon}\setminus E\subseteq A_{\epsilon}\setminus B_{\epsilon}$, per monotonia della misura esterna otteniamo:
+\begin{equation*}
+m_{n}^{X}\left(A_{\epsilon}\setminus E\right) \leq	m_{n}^{X}\left(A_{\epsilon}\setminus B_{\epsilon}\right) \stackrel{!}{=}m_{PJ}^X\left(A_{\epsilon}\setminus B_{\epsilon}\right) = m_{PJ}\left(A_{\epsilon}\setminus B_{\epsilon}\right)<\epsilon
+\end{equation*}
+dove l'uguaglianza (!) è dovuta al fatto che le misure di Lebesgue e Peano-Jordan (esterne) coincidono su insiemi elementari.
 \end{demonstration}
 \section{Definizione assiomatica di misura}
 La definizione di misura di Lebesgue che abbiamo analizzato nella scorsa sezione non è esattamente la stessa che il matematico francese diede nella sua tesi di laurea, bensì una rielaborazione successiva con alcune modifiche; nello specifico, la trattazione moderna viene inquadrata nella teoria \textbf{assiomatica} della misura, introdotta già prima di Lebesgue da Emil \textbf{Borel} (1871-1956) in \textit{Léçons sur la théorie des fonctions (1898)}.\\
 I concetti di $\sigma$-algebra e insieme misurabile che abbiamo già affrontato si possono ricondurre proprio a Borel, così come la seguente \textit{definizione assiomatica} di misura.
 \begin{define}[Misura e spazio di misura]
 	Sia $\left(X,\mathcal{M}\right)$ uno spazio misurabile, dove $\mathcal{M}$ è una $\sigma$-algebra su $X$. Una funzione $\funz{\mu}{\mathcal{M}}{\realset^{\ast}=\left[-\infty,+\infty\right]}$ è detta \textbf{misura}\index{misura} se soddisfa le seguenti proprietà:
-	\begin{itemize}
+	\begin{enumerate}
 		\item \textsc{\textbf{Non negatività:}} $\forall A\in\mathcal{M},\ \mu\left(A\right)\geq 0$.
 		\item \textsc{\textbf{Insieme vuoto nullo:}} $\mu\left(\emptyset\right)=0$.
 		\item $\sigma$-\textsc{\textbf{additività:}} $\forall A_n\in\mathcal{M}$ tali che $A_i\cap A_j=\emptyset\ \forall i\neq j$, allora
@@ -875,7 +879,7 @@ I concetti di $\sigma$-algebra e insieme misurabile che abbiamo già affrontato 
 		\begin{equation*}
 			\realset^n=\bigcup_{m\geq 0}B_m\left(0\right)\quad\text{con }m_n\left(B_m\left(0\right)\right)<+\infty
 		\end{equation*}
-		Inoltre, essa è \textbf{completa}. % to do: aggiungere dim completa?
+		Inoltre, essa è \textbf{completa}.
 		\item Fissato $x_0\in X$ insieme qualunque, $\left(X,\setpart{X}, \delta_{x_0}\right)$ è uno spazio di misura con la funzione $\delta$ \textbf{di Dirac concentrata in} $x_0$\index{Delta di Dirac}:
 		\begin{equation}
 			\funztot{\delta_{x_0}}{\setpart{X}}{\left[0,+\infty\right]}{E}{\begin{cases}
@@ -955,16 +959,13 @@ Concludiamo questo capitolo alcune delle più comuni \textit{famiglie di insiemi
 		\textbf{Nome}                                                                            & \textbf{Notazione}                          & \textbf{Cardinalità}        \\ \hline
 		Insieme delle parti                                                             & $\setpart{\realset}$               & $2^{\mathfrak{c}}$ \\ \hline
 		\begin{tabular}[c]{@{}c@{}}Insiemi misurabili\\ (secondo Lebesgue)\end{tabular} & $\mathcal{L}\left(\realset\right)$ & $2^{\mathfrak{c}}$ \\ \hline
-		Boreliani                                                                      & $\mathcal{B}\left(\realset\right)$ & $\mathfrak{c}$     \\ \hline
-%		\begin{tabular}[c]{@{}c@{}}Topologia\\ (famiglia degli aperti)\end{tabular}     & $\topo$                            & $\mathfrak{c}$    
+		Boreliani                                                                      & $\mathcal{B}\left(\realset\right)$ & $\mathfrak{c}$
 	\end{tabular}
 \end{center}
-%nutro qualche dubbio sull'inserire così la topologia, specialmente riguardo la sua cardinalità
-%	stiamo sempre parlando di topologia sui reali? è quella euclidea? messa così confonde un po'
 \begin{proposition}[Relazioni tra classi di insiemi]
 	Valgono le seguenti inclusioni:
 	\begin{equation}
-		\topo\subsetneqq\mathcal{B}\left(\realset\right)\subsetneqq\mathcal{L}\left(\realset\right)\subsetneqq\setpart{\realset}
+		\mathcal{B}\left(\realset\right)\subsetneqq\mathcal{L}\left(\realset\right)\subsetneqq\setpart{\realset}
 	\end{equation}
 \end{proposition}
 Mostreremo alcune di queste inclusioni in modo formale, mentre per altre daremo solo un'intuizione della dimostrazione.
@@ -1051,7 +1052,7 @@ Possiamo osservare alcune proprietà sulla base dei due lemmi appena mostrati:
 			\end{array}
 		\end{cases}
 	\end{equation*}
-	dove l'uguaglianza (!) è dovuta alla $\sigma$-additività di $m_1$ e invece (!!) è dovuta all'invarianza per traslazione di $m_1$, infatti $V=V_n + q_n$
+	dove l'uguaglianza (!) è dovuta alla $\sigma$-additività di $m_1$, mentre (!!) è dovuta all'invarianza per traslazione di $m_1$, dati che $V=V_n + q_n$.
 	\item \textbf{Conseguenze del lemma 2:}
 	Per la definizione di $m_1$ e per la sua monotonia si ha:
 	\begin{equation*}

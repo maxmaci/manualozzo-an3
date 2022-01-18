@@ -1,4 +1,4 @@
-% SVN .nfo for this file
+% SVN info for this file
 \svnidlong
 {$HeadURL$}
 {$LastChangedDate$}
@@ -179,7 +179,7 @@ Come visto in precedenza\footnote{Si veda \refChapterOnly{convergenzafunzioni}, 
 	f_n\text{ converge uniformemente a }f\text{ su }X\implies\\
 	\implies f_n\text{ converge puntualmente a }f\text{ in ogni punto di }X
 \end{multline}
-Il viceversa non è vero: abbiamo visto\footnote{Si veda nota precedente.} nella stessa sezione il caso della successione geometrica, la quale converge uniformemente solo a $f\equiv 0$ in ogni intervallo $\left[-a,a\right]\subsetneqq\left(-1,1\right),\ \forall a\in\left(0,1\right)$, mentre puntualmente in tutti i $\left[-1,1\right]$; qui di seguito riportiamo un controesempio alternativo.
+Il viceversa non è vero: abbiamo visto\footnote{Si veda nota precedente.} nella stessa sezione il caso della successione geometrica, la quale converge uniformemente solo a $f\equiv 0$ in ogni intervallo $\left[-a,a\right]\subsetneqq\left(-1,1\right),\ \forall a\in\left(0,1\right)$, mentre puntualmente in tutti i $\left(-1,1\right]$; qui di seguito riportiamo un controesempio alternativo.
 \begin{example}\label{controesempiouniformepuntuale}
 	Consideriamo la successione
 	\begin{equation*}
@@ -256,7 +256,6 @@ Tuttavia, se \textit{restringiamo} opportunamente il dominio, è possibile trova
 \end{theoremaqed}
 In altre parole, per qualunque successione $f_n$ convergente a $f$ \textbf{q.o} in $X$, se è possibile trovare un sottoinsieme $A\subseteq X$ misurabilmente finito allora $f_n$ converge anche uniformemente a $f$ in un qualunque sottoinsieme di $A$ con misura arbitrariamente vicina a quella originale. Una successione $f_n$ che converge a $f$ in questo modo è detta \textbf{convergenza quasi uniforme}\index{convergenza!quasi uniforme} - non utilizzeremo particolarmente questa nomenclatura.
 L'ipotesi di $A$ con $\mu(A)<+\infty$ è fondamentale: infatti, possiamo riutilizzare come controesempio quello visto a pagina \pageref{controesempiouniformepuntuale} per la convergenza uniforme e puntuale.
-%NOTA: non è lo stesso controesempio di prima che hai pure citato? perché riscriverlo?
 \begin{example}
 	Consideriamo la successione
 	\begin{equation*}
@@ -340,14 +339,14 @@ Questa è la differenza principale tra la convergenza uniforme/puntuale/quasi ov
 			\norm{f_n-f}_1=\int_X\abs{f_n-f}d\mu\underset{\forall n\geq N\left(\epsilon\right)}{\overset{\circled[red]{\vardiamond}}{\leq}}\int_X\epsilon d\mu=\epsilon \mu(X)<+\infty
 		\end{equation*}
 		Vale la relazione \circled[blue]{\spadesuit} ponendo $\widetilde{N}=N$.
-		\item Segue dal punto $2$ come nell'ultima parte della dimostrazione del \textit{teorema di convergenza dominata}.
+		\item Segue dal punto $II$ come nell'ultima parte della dimostrazione del \textit{teorema di convergenza dominata}.
 	\end{enumerate}
 \end{demonstration}
 \begin{attention}
 	Se $\mu(X)=+\infty$, in generale \textit{non} vale nessuna delle tesi: come controesempi si possono prendere i tre esposti\footnote{Si veda \refChapterOnly{convergenzafunzioni}, pag. \pageref{controesempipassaggiointegrale}.} nel discorso sui problemi di integrabilità nell'ambito della teoria di Riemann.
 \end{attention}
 In generale non vale il viceversa: dalla convergenza in $L^1$ non segue quella uniforme.
-\begin{examplewt}[Convergenza in $L^1$ non implica C.U.]
+\begin{examplewt}[Convergenza in $L^1$ non implica convergenza uniforme.]
 	Consideriamo la successione
 	\begin{equation*}
 		f_n(x)=n\chi_{\left[0,\frac{1}{n^2}\right]}(x)=
@@ -420,7 +419,7 @@ Tuttavia, se consideriamo delle \textit{sottosuccessioni}, allora è sempre poss
 \begin{define}[Convergenza in misura]
 	Consideriamo lo spazio di misura $\left(X,\mathcal{M},\mu\right)$ e le funzioni $\funz{f_n,f}{X}{\complexset}$ misurabili per ogni $n$; $\forall n\in\naturalset$ definiamo la funzione $g_n\coloneqq \abs{f_n-f}$. Allora, se prendiamo $\forall n\in\ \naturalset,\forall \epsilon>0$ l'insieme
 	\begin{equation*}
-		E_{n,\epsilon}\coloneqq g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)\footnote{Siccome $f_n, f$ sono misurabili, allora anche $g$ lo è. Inoltre siccome $(\epsilon,+\infty)$ è un aperto allora $g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)\in\mathcal{M},\ \forall\epsilon >0,\ \forall n$}
+		E_{n,\epsilon}\coloneqq g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)\footnote{Siccome $f_n, f$ sono misurabili, allora anche $g$ lo è. Inoltre siccome $(\epsilon,+\infty)$ è un aperto allora $g^{-1}_n\left(\left(\epsilon,+\infty\right)\right)\in\mathcal{M},\ \forall\epsilon >0,\ \forall n$.}
 		=\left\{x\in X\mid \abs{f_n(x)-f(x)}>\epsilon\right\}
 	\end{equation*}
 	si dice che	$f_n$ \textbf{converge in misura}\index{convergenza!in misura} a $f$ ($f_n\overset{\mu}{\to} f$) se

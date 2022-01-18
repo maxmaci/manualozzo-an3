@@ -37,7 +37,7 @@ Se $s$ ha l'immagine finita di cardinalità $n$, allora esistono $n$ valori dist
 \begin{equation*}
 	s(X)=\left\{\alpha_1,\ldots,\alpha_n\right\}
 \end{equation*}
-Se consideriamo $A_i=\left\{x\mid s(X)=\alpha_i\right\}=s^{-1}\left(\left\{\alpha_i\right\}\right)$, allora possiamo decomporre $s$ come ‘‘somma pesata'' delle funzioni caratteristiche degli insiemi $A_i$ nella cosiddetta \textbf{decomposizione standard di }$s$\index{decomposizione standard di una funzione semplice}:
+Se consideriamo $A_i=\left\{x\mid s(X)=\alpha_i\right\}=s^{-1}\left(\left\{\alpha_i\right\}\right)$, allora possiamo decomporre $s$ come ‘‘somma pesata'' delle funzioni caratteristiche degli insiemi $A_i$ nella cosiddetta \textbf{decomposizione standard di} $s$\index{decomposizione standard di una funzione semplice}:
 \begin{equation}
 	s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}
 \end{equation}
@@ -292,7 +292,7 @@ Allora, posto $E=\naturalset$, l'integrale sul dominio è
 	\end{enumerate}
 \end{examples}
 \begin{observe}
-	La funzione di Dirichlet è una funzione \textit{non} integrabile secondo \textit{Riemann}, ma è integrabile secondo Lebesgue: siamo così riusciti ad allargare la classe delle funzioni integrabili.
+	La funzione di Dirichlet è una funzione \textit{non} integrabile secondo \textit{Riemann}, ma è integrabile secondo Lebesgue.
 \end{observe}
 \subsection{{$\sigma$}-additività dell'integrale di funzioni semplici, misurabili, non negative rispetto al dominio}
 \begin{proposition}[{$\sigma$}-additività dell'integrale di funzioni semplici, misurabili, non negative rispetto al dominio]
@@ -308,7 +308,7 @@ Per dimostrare tale proprietà ci servirà un risultato sulle serie con \textit{
 		\begin{equation*}
 			\sum_{i=1}^{+\infty}\sum_{j=1}^{+\infty}a_{ij}=\sum_{j=1}^{+\infty}\sum_{i=1}^{+\infty}a_{ij}
 		\end{equation*}
-		\item Più in generale, se una dele due serie converge assolutamente $\displaystyle\sum_{i=1}^{+\infty}\sum_{j=1}^{+\infty}\abs{a_{ij}}<+\infty$, allora vale la relazione precedente.\qedhere
+		\item Più in generale, se una delle due serie converge assolutamente $\displaystyle\sum_{i=1}^{+\infty}\sum_{j=1}^{+\infty}\abs{a_{ij}}<+\infty$, allora vale la relazione precedente.\qedhere
 	\end{itemize}
 \end{propositionsqed}
 \begin{demonstrationwt}[della {$\sigma$}-additività dell'integrale rispetto al dominio]
@@ -328,10 +328,11 @@ Per dimostrare tale proprietà ci servirà un risultato sulle serie con \textit{
 	\begin{equation*}
 		\mu\left(A_i\cap E\right)=\sum_{j=1}^{+\infty}\mu\left(A_i\cap E_j\right)
 	\end{equation*}
-quindi scmabiano la somma nell'equazione (!) e usando la definizione di integrale in (!!)
+quindi
 \begin{equation*}
 	\squarequal \sum_{i=1}^{k}\alpha_i\sum_{j=1}^{+\infty}\mu\left(A_i\cap E_j\right)=\sum_{i=1}^{k}\sum_{j=1}^{+\infty}\underbrace{\alpha_i\mu\left(A_i\cap E_j\right)}_{\geq 0} \stackrel{!}{=} \sum_{j=1}^{+\infty}\sum_{i=1}^{k}\alpha_i\mu\left(A_i\cap E_j\right) \stackrel{!!}{=}\sum_{j=1}^{+\infty}\int_{E_j}sd\mu
 \end{equation*}
+dove in (!) si scambiano le serie, mentre in (!!) viene utilizzata la definizione di integrale.
 \end{demonstrationwt}
 Vediamo il risultato appena dimostrato da un punto di vista differente. Possiamo considerare l'integrale di Lebesgue non solo come un \textit{funzionale} che, fissato un insieme misurabile $E\in\left(X,\mathcal{M},\mu\right)$, agisce sulla funzione $s$, bensì come una \textit{funzione d'insieme} in cui $s$ è fissata, mentre la variabile è l'insieme misurabile $E$:
 \begin{equation}
@@ -361,7 +362,7 @@ ovvero stiamo approssimando dal basso con funzioni semplici\footnote{è simile a
 		\begin{equation*}
 			\left\{\int_Esd\mu\ \middle|\ \funz{s}{X}{\left[0,+\infty\right)}\text{ semplice, misurabile}\colon0\leq s\leq f\right\}\subseteq \left[0,+\infty\right]
 		\end{equation*} non è vuoto, in quanto contiene sempre $0=\int_E 0d\mu$.
-		\item $\int_Efd\mu\in\left[0,+\infty\right]$, quindi potrebbe anche essere infinito
+		\item $\displaystyle\int_Efd\mu\in\left[0,+\infty\right]$, quindi potrebbe anche essere infinito.
 		\item Se $f$ è semplice allora $\sup=\max$ e si ritrova l'integrale definito al \textit{passo 1}.
 	\end{itemize}
 \end{observe}
@@ -392,7 +393,7 @@ ovvero stiamo approssimando dal basso con funzioni semplici\footnote{è simile a
 		\begin{equation}
 			\int_Efd\mu=0
 		\end{equation}
-		\item \textbf{Trasferimento integrazione sullo spazio intero da un insieme dato:}\\
+		\item \textbf{Trasferimento dell'integrazione sullo spazio intero da un insieme dato:}\\
 		sia $\funz{f}{X}{\left[0,+\infty\right]}$ misurabile, non negativa; allora
 		\begin{equation}
 			\int_E fd\mu=c\int_Xf\chi_Ed\mu,\ \forall E\in\mathcal{M}
@@ -406,8 +407,14 @@ Abbiamo già visto\footnote{Si veda \refChapterOnly{seriefunzioni}, teorema \ref
 	Siano $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e $\funz{f_n,f}{X}{\left[0,+\infty\right]}$ con $n\geq 1$ tali che
 	\begin{enumerate}[label=\alph*.]
 		\item $f_n$ sono misurabili.
-		\item c'è convergenza puntuale: $\displaystyle\lim_{n\to+\infty}f_n(x)=f(x),\ \forall x\in X$.
-		\item la successione di funzioni è crescente: $0\leq f_n(x)\leq f_{n+1}(x),\ \forall n\geq 1,\ \forall x\in X$.
+		\item C'è convergenza puntuale:
+		\begin{equation*}
+			\lim_{n\to+\infty}f_n(x)=f(x),\ \forall x\in X
+		\end{equation*}
+		\item La successione di funzioni è crescente:
+		\begin{equation*}
+			0\leq f_n(x)\leq f_{n+1}(x),\ \forall n\geq 1,\ \forall x\in X
+		\end{equation*}
 	\end{enumerate}
 Allora
 \begin{enumerate}
@@ -820,7 +827,7 @@ Cos'è questo integrale? La risposta a tale quesito è il seguente teorema.
 	\item Consideriamo $\funz{g}{X}{\left[0,+\infty\right]}$ misurabile. È noto che esiste una successione $\funz{g_n}{X}{\left[0,+\infty\right)}$ di funzioni semplici misurabili tali
 	\begin{itemize}
 		\item $\displaystyle\lim_{n\to+\infty}g_n(x)=g(x),\ \forall x\in X$.
-		\item $g_{n+1}(x)\geq g_n(x),\ \forall x\in\ X,\ \forall n\geq 1$ (monotona crescente).
+		\item $g_{n+1}(x)\geq g_n(x),\ \forall x\in\ X,\ \forall n\geq 1$, ossia è monotona crescente.
 	\end{itemize}
 Allora
 	\begin{equation*}
@@ -903,9 +910,9 @@ Tra le misure assolutamente rispetto ad una misura $\mu$ ci sono le misure del t
 \end{equation*}
 La risposta è \textbf{no}, come si può vedere dal teorema seguente.
 \begin{theoremaqed}[Teorema di Radon-Nikodym]\index{teorema!di Radon-Nikodym}
-	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura con $\mu$ misura $\sigma$-finita e sia $\funz{\lambda}{X}{\left[0,+\infty\right]}$ una misura. Allora
+	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura con $\mu$ misura $\sigma$-finita e sia $\funz{\lambda}{\mathcal{M}}{\left[0,+\infty\right]}$ una misura. Allora
 	\begin{equation}
-		\lambda\ll\mu\iff \exists \funz{f}{\mathcal{M}}{\left[0,+\infty\right]}\colon\lambda\left(E\right)=\int_Efd\mu,\ \forall E\in\mathcal{M}
+		\lambda\ll\mu\iff \exists \funz{f}{X}{\left[0,+\infty\right]}\colon\lambda\left(E\right)=\int_Efd\mu,\ \forall E\in\mathcal{M}
 	\end{equation}
 La funzione $f$ viene detta \textbf{derivata di Radon-Nikodym} o \textbf{densità}\index{densità}.
 \end{theoremaqed}
@@ -917,7 +924,7 @@ Per proseguire, dobbiamo necessariamente considerare una classe particolare di f
 	Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura e sia $\funz{f}{X}{\complexset}$. La funzione $f$ si dice \textbf{integrabile} se
 	\begin{enumerate}
 		\item $f$ misurabile.
-		\item $\displaystyle\int_X\abs{f}d\mu<+\infty$ dove $\funz{\lvert f\rvert}{X}{\left[0,+\infty\right]}$ e l'integrale è quello del passo $2$
+		\item $\displaystyle\int_X\abs{f}d\mu<+\infty$ dove $\funz{\lvert f\rvert}{X}{\left[0,+\infty\right]}$ e l'integrale è quello del passo $2$.
 	\end{enumerate}
 Indichiamo l'insieme delle funzioni integrabili come $\mathcal{L}^{1}\left(\mu\right)$.
 \end{define}
@@ -925,7 +932,7 @@ Indichiamo l'insieme delle funzioni integrabili come $\mathcal{L}^{1}\left(\mu\r
 		Per definizione $f\in\mathcal{L}^{1}\left(\mu\right)\iff\abs{f}\in\mathcal{L}^{1}\left(\mu\right)$, cioé $f$ è integrabile secondo Lebesgue se lo è il suo modulo $\abs{f}$.
 \end{observe}
 \begin{attention}
-	 Nel caso particolare $\funz{f}{X}{\left[0,+\infty\right)=\realset\subseteq\complexset}$ (lo voglio vedere come caso particolare in $\complexset$), se $f$ è misurabile allora esiste
+	 Nel caso particolare $\funz{f}{X}{\left[0,+\infty\right)\subseteq\complexset}$, se $f$ è misurabile allora esiste
 	\begin{equation*}
 		\int_Xfd\mu
 	\end{equation*}
@@ -1291,7 +1298,7 @@ Sappiamo che $m_1\left(\left[0,1\right]\cap\rationalset\right)=0$, quindi
 \begin{equation*}
 	\left\{x\in\left[0,1\right]\mid f(x)\neq 0\right\}=\left[0,1\right]\cap \rationalset
 \end{equation*}
-ha misura nulla e pertanto la funzione di Dirichlet è \textit{quasi ovunque} la funzione identicamente \textit{nulla}, cioé $f=0$ q.o..
+ha misura nulla e pertanto la funzione di Dirichlet è \textit{quasi ovunque} la funzione identicamente \textit{nulla}, cioé $f=0$ \textbf{q.o.}.
 \end{example}
 \begin{property}[Ruolo degli insiemi di misura nulla nell'integrazione]\label{ruoloinsiemimisuranulla}
 Sia $\left(X,\mathcal{M},\mu\right)$ uno spazio di misura. Allora
@@ -1349,7 +1356,7 @@ Allora
 \begin{enumerate}
 	\item $\displaystyle f(x)=\sum_{n=1}^{+\infty}f_n(x)$ è definita \textbf{q.o.} in $X$.
 	\item $f\in\mathcal{L}^{1}\left(\mu\right)$
-	\item Vale lo \textit{scambio tra integrale e serie}\index{scambio tra integrale e serie} nei complessi (pertanto non si ha $+\infty$):
+	\item Vale lo \textit{scambio tra integrale e serie}\index{scambio tra integrale e serie} nei complessi - si osservi dunque che non si ha $+\infty$:
 	\begin{equation}
 		\int_Xfd\mu=\int_X\left(\sum_{n=1}^{+\infty}f_n\right)d\mu=\sum_{n=1}^{+\infty}\int_Xfd\mu\in\complexset\qedhere
 	\end{equation}
