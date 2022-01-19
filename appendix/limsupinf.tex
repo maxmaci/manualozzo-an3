@@ -21,8 +21,8 @@
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{N}{on} sempre le successioni reali ammettono limite: successioni oscillanti, ad esempio, non tendono ad un singolo valore all'infinito e dunque non possiamo parlare di limite in questi contesti. Ciò nonostante, ci accorgiamo che possiamo sempre estrarre delle \textit{sottosuccessioni} che convergono a dei valori nei reali \textit{estesi}. Appurato che per certe successioni non esiste limite, possiamo quanto meno studiare questi ‘‘sotto-limiti'' e chiederci quali siano il più piccolo e il più grande di questi.\\
-In questo capitolo, che per l'importanza che ha per ciò che si fa nel Capitolo 4 avremmo dovuto indicarlo come Capitolo 3.5, approfondiremo l'argomento del \textbf{massimo e minimo limite}, una sorta di generalizzazione del limite che possiamo applicare in qualunque successione reale e che ci permette di descriverne il comportamento all'infinito in modo preciso anche se la essa non ammette limite!\\
-Dopo aver dato la loro definizione attraverso \textbf{valori limiti}, cercheremo di caratterizzarli in una maniera intermedia tra quella di estremo superiore/inferiore e quella di limite vero e propria, per poi darne un'altra più insiemistica. Concludiamo trattando lo studio del massimo limite del prodotto di due successioni.
+In questo capitolo, che per l'importanza che ha per ciò che si fa nel Capitolo 4 avremmo dovuto indicarlo come Capitolo 3.5, approfondiremo l'argomento del \textbf{massimo e minimo limite}, una sorta di generalizzazione del limite che possiamo applicare in qualunque successione reale e che ci permette di descriverne il comportamento all'infinito in modo preciso anche se essa non ammette limite!\\
+Dopo aver dato la loro definizione attraverso \textbf{valori limiti}, cercheremo di caratterizzarli in una maniera intermedia tra quella di estremo superiore/inferiore e quella di limite vero e proprio, per poi darne un'altra più insiemistica. Concludiamo trattando lo studio del massimo limite del prodotto di due successioni.
 \section{La definizione di massimo e minimo limite}
 \begin{remember}
 In $\realset^{\ast}$ è definito il concetto di \textbf{convergenza}, che coincide con l'usuale concetto di convergenza quando il risultato del limite è \textit{finito}, mentre coincide con il concetto di divergenza, a più o a meno \textit{infinito}, quando il risultato del limite è più o meno infinito, rispettivamente.
@@ -70,7 +70,7 @@ L'insieme dei valori limite della successione si chiama \textbf{classe limite}\i
 	\begin{flalign*}
 		\left\{b_n\right\}=\left\{a_0,a_2,a_4\ldots\right\}\\
 		\left\{c_n\right\}=\left\{a_1,a_5,a_9,\ldots\right\}\\
-		\left\{d_n\right\}=\left\{a_3,a_7,a_11,\ldots\right\}
+		\left\{d_n\right\}=\left\{a_3,a_7,a_{11},\ldots\right\}
 	\end{flalign*}
 	per verificare che ogni elemento dell'immagine di $a_n$ è valore limite e la classe limite ha solo tre valori.
 	\item Si consideri la biezione $\funz{f}{\naturalset}{\rationalset_{\geq 0}}$ e si ponga $a_n=f\left(n\right)$: questa è una successione contenente tutti i razionali e i suoi punti di accumulazioni sono, per densità di $\rationalset$, tutti i reali. Allora la classe limite di $a_n$ è $\realset$.
@@ -81,7 +81,7 @@ La classe limite di ogni successione è un insieme chiuso in $\realset^{\ast}$.
 \end{proposition}
 \begin{demonstration}
 Sia $a_n$ una successione di numeri reali e sia $\Lambda$ la sua classe limite. Per provare che $\Lambda$ è chiuso è sufficiente provare che ogni punto di accumulazione di $\Lambda$ appartiene a  $\Lambda$.\\
-Sia quindi $\lambda^{\ast} \in \realset^{\ast}$ un punto di accumulazione di $\Lambda$; proviamo che esiste una sottosuccessione di $a_n$ convergente a $\lambda^{\ast}$. A tale fine, osserviamo che, per definizione di punto di accumulazione, per ogni $\epsilon >0$ esiste $l_0\in \Lambda,\ \lambda_0\neq \lambda^{\ast}$, tale che 
+Sia quindi $\lambda^{\ast} \in \realset^{\ast}$ un punto di accumulazione di $\Lambda$; proviamo che esiste una sottosuccessione di $a_n$ convergente a $\lambda^{\ast}$. A tale fine, osserviamo che, per definizione di punto di accumulazione, per ogni $\epsilon >0$ esiste $\lambda_0\in \Lambda,\ \lambda_0\neq \lambda^{\ast}$, tale che 
 \begin{equation*}
 	\lambda^{\ast}-\epsilon < \lambda_0<\lambda^{\ast}+\epsilon.
 \end{equation*}
@@ -103,7 +103,7 @@ Dalle relazioni (1) e (2) deduciamo che per ogni $\epsilon >0$ esiste $K\in \nat
 \end{equation*}
 e questo prova che la sottosuccessione $a_{n_k}$ converge a $\lambda^{\ast}$.
 \end{demonstration}
-Dalla proposizione e dal primo punto dell'esercizio precedente, segue che la classe limite di una qualsiasi successione è un insieme chiuso non vuota; esistono quindi in $\realset^{\ast}$ il suo massimo ed il suo minimo.
+Dalla proposizione e dal primo punto dell'esercizio precedente, segue che la classe limite di una qualsiasi successione è un insieme chiuso non vuoto; esistono quindi in $\realset^{\ast}$ il suo massimo ed il suo minimo.
 \begin{define}[Massimo e minimo limite]
 Si dice \textbf{massimo limite}\index{massimo limite} della successione $a_n$ il massimo della sua classe limite e lo si indica con 
 \begin{equation}
@@ -283,6 +283,7 @@ Mostriamo innanzitutto che, preso $A\subseteq\realset$ non vuoto, allora
 \begin{equation*}
 	\inf\left(-A\right)=-\sup\left(A\right).
 \end{equation*}
+con $-A=\{ -x\mid x\in A \}$.\\
 Chiaramente, $A$ non è limitato superiormente se e solo se $-A$ non è limitato inferiormente e quindi vale
 \begin{equation*}
 	\inf\left(-A\right)=-\infty=-\left(+\infty\right)=-\sup\left(A\right)
@@ -291,7 +292,7 @@ Supponiamo allora che $A$ sia limitato superiormente e consideriamo $a\in A$. Si
 \begin{equation*}
 	m\leq -a\iff a\leq -m
 \end{equation*}
-ossia $-m$ è un minorante per $-A$ se e solo se $m$ è maggiorante per $a$. Allora:
+ossia $-m$ è un minorante per $-A$ se e solo se $m$ è maggiorante per $A$. Allora:
 \begin{itemize}
 	\item $\inf\left(-A\right)$ è minorante di $-A$, dunque $-\inf\left(-A\right)$ è maggiorante per $A$ e pertanto
 	\begin{equation*}
