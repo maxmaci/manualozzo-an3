@@ -114,18 +114,18 @@ Valgono inoltre le seguenti proprietà, $\forall \alpha\in\complexset$:
 \end{align}
 \section{Capitolo 3: serie di funzioni}
 \subsection{Tanti criteri di Cauchy}\label{criteriodicauchy}
-Il \textbf{criterio di Cauchy}\index{criterio!di Cauchy} è un importante teorema che fornisce condizioni necessarie e sufficienti per la convergenza di una successione.
+Il \textbf{criterio di Cauchy}\index{criterio!di Cauchy} è un'importante teorema che fornisce condizioni necessarie e sufficienti per la convergenza di una successione.
 \begin{theorema}[Criterio di Cauchy per le successioni]\index{criterio!di Cauchy!per le successioni}
 		Sia $v_n$ successione in $X$ spazio metrico \textit{completo}. Allora
 	\begin{multline}
 		v_n\text{ converge in }X \iff v_n\text{ è di Cauchy}\iff\\
-		\iff\forall \epsilon >0\ \exists N=N\left(\epsilon\right)\colon\forall n,m\geq N\ \mvf{d}{v_n}{v_m}<\epsilon
+		\iff\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\colon\forall n,m\geq N,\ \mvf{d}{v_n}{v_m}<\epsilon
 	\end{multline}
 \end{theorema}
 \begin{demonstration}~{}\\
 	$\impliesdx$Supponiamo che $v_n$ converge a $v\in X$, ovvero
 	\begin{equation*}
-		\forall \epsilon>0\exists N=N\left(\epsilon\right)\colon\forall n\geq N\mvf{d}{v_n}{v}<\frac{\epsilon}{2}
+		\forall \epsilon>0,\exists N=N\left(\epsilon\right)\colon\forall n\geq N,\mvf{d}{v_n}{v}<\frac{\epsilon}{2}
 	\end{equation*}
 	Prendiamo $n,m\geq N$. Per la disuguaglianza triangolare della metrica $d$ si ha
 	\begin{equation*}
@@ -157,7 +157,7 @@ Abbiamo visto\footnote{Si veda \refChapterOnly{convergenzafunzioni}, pag. \pager
 \begin{corollary}[Criterio di Cauchy per le serie]\label{criteriodicauchyperleserie}\index{criterio!di Cauchy!per le serie}
 	Una serie $\displaystyle\sum_{n=0}^{+\infty}x_n$ in uno spazio \textit{normato completo} è convergente se e solo se
 	\begin{equation}
-		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \norm{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\epsilon
+		\forall \epsilon>0,\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset,\ \norm{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\epsilon
 	\end{equation}
 \end{corollary}
 \begin{demonstration}
@@ -171,11 +171,11 @@ Abbiamo visto\footnote{Si veda \refChapterOnly{convergenzafunzioni}, pag. \pager
 	\end{equation*}
 	converge se e solo se la successione delle ridotte converge. Poiché $X$ è uno spazio completo, questo equivale a dire che la successione delle ridotte $s_n$ è di Cauchy, ossia
 	\begin{equation*}
-		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \norm{s_m-s_n}<\epsilon
+		\forall \epsilon>0,\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset,\ \norm{s_m-s_n}<\epsilon
 	\end{equation*}
 	Senza perdita di generalità poniamo $m=n+p$: la relazione qui sopra coincide con
 	\begin{equation*}
-		\forall \epsilon>0\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset\ \norm{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\epsilon
+		\forall \epsilon>0,\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset,\ \norm{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\epsilon
 	\end{equation*}
 	e quindi segue la tesi.
 \end{demonstration}
@@ -199,7 +199,7 @@ Se la serie
 	\end{equation*}
 	converge \textit{assolutamente} e inoltre essa converge anche semplicemente.
 \paragraph{Criterio del rapporto o di d'Alembert}
-(\textit{Criterio sufficiente}, $\realset$ o $\complexset$)
+(\textit{Criterio sufficiente}, $\realset$ o $\complexset$)\\
 	Se esiste $R$ tale che
 	\begin{equation}
 		\lim_{n\to+\infty}\abs{\frac{a_{n+1}}{a_n}}=R
@@ -217,7 +217,7 @@ Sia
 (\textit{Criterio necessario e sufficiente}, $\realset$)\\
 Sia $\funz{f}{\left[1,+\infty\right)}{\realset_+}$ una funzione non-negativa e monotona decrescente tale per cui $f\left(n\right)=a_n$. Allora, posto
 	\begin{equation*}
-		\int_{1}^{+\infty}f(x)dx=\lim_{t\to\infty}\int_{1}^{t}f(x)dx
+		\int_{1}^{+\infty}f(x)dx=\lim_{t\to+\infty}\int_{1}^{t}f(x)dx
 	\end{equation*}
 	la serie $a_n$ converge se e solo se l'integrale converge.
 \paragraph{Criterio di confronto diretto}
@@ -296,12 +296,12 @@ Di seguito enunceremo alcune serie a valori reali di particolare rilevanza.
 		Osserviamo subito che per $z=1$ la serie geometrica è la somma di infiniti termini pari ad $1$ e \textit{non converge}.\\
 		Calcoliamo la ridotta per $z\neq 1$, utilizzando il seguente espediente:
 		\begin{flalign*}
-			s_n&=\sum_{k=0}^{n}z^{k}=1+z+z^2+z^3+\ldots+z^n\\
-			zs_n&=\sum_{k=1}^{n+1}z^{k}=z+z^2+z^3+z^4+\ldots+z^{n+1}\\
+			s_n&=\sum_{k=0}^{n}z^{k}=1+z+z^2+z^3+\cdots+z^n\\
+			zs_n&=\sum_{k=1}^{n+1}z^{k}=z+z^2+z^3+z^4+\cdots+z^{n+1}\\
 			s_n-zs_n&=
 			\begin{array}{lllllll}
-				1&+z&+z^2&+z^3&+\ldots&+z^n&\\
-				&-z&-z^2&-z^3&-\ldots&-z^n&-z^{n+1}
+				1&+z&+z^2&+z^3&+\cdots&+z^n&\\
+				&-z&-z^2&-z^3&-\cdots&-z^n&-z^{n+1}
 			\end{array}\\
 		&=1-z^{n+1}\\
 		s_n\left(1-z\right)&=1-z^{n+1}\\
@@ -323,7 +323,7 @@ Per $z=-1$, la ridotta risulta
 	\end{cases}
 \end{equation*}
 che non ammette limite per $n\to+\infty$.\\
-Per $\abs{z}>1$ $z^{n+1}$ diverge, dunque diverge anche la ridotta e la serie geometrica.
+Per $\abs{z}>1$, $z^{n+1}$ diverge, dunque diverge anche la ridotta e la serie geometrica.
 \end{demonstration}
 \paragraph{Serie armonica generalizzata}
 	\begin{equation}
@@ -336,6 +336,8 @@ Per $\abs{z}>1$ $z^{n+1}$ diverge, dunque diverge anche la ridotta e la serie ge
 		\sum_{n=2}^{+\infty}\frac{1}{n\left(\log n\right)^p}
 	\end{equation}
 	per ogni numero reale positivo $p$. Diverge per $p\leq 1$, ma converge per ogni $p>1$.
+
+\newpage
 \section{Capitolo 4: serie di potenze}
 \subsection{Limite e limite del modulo}
 \begin{proposition}[Limite di una successione e limite del modulo]\label{equivalenzalimiteemodulolimite}
@@ -454,6 +456,8 @@ Osserviamo che nell'esempio riportato la serie iniziale \textit{converge semplic
 	Inoltre, si supponga che \textit{almeno una} di esse converga \textit{assolutamente}.
 	Allora, la loro serie prodotto converge a $\alpha \beta$.
 \end{theoremaqed}	
+
+\newpage
 \section{Capitolo 5: teoria della misura}
 \subsection{Leggi di De Morgan}
 \begin{theorema}[Leggi di De Morgan]\label{leggidemorgan}
@@ -498,7 +502,7 @@ mentre la seconda da
 		\item Sia $ h(x)=\max\{f,g\}(x),\ \forall x\in X$. Dobbiamo provare che $h$ sia misurabile, con $\funz{h}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$. Per una proprietà equivalente alla terza caratterizzazione del teorema \ref{caratterizzazionefunzionimisurabili} delle funzioni misurabili è sufficiente dimostrare che $h^{-1}\left(\left[-\infty,\alpha\right]\right)\in\mathcal{M},\ \forall\alpha\in\realset$.
 		Si osserva che
 		\begin{equation*}
-			\max\{f(x),g(x)\}\leq\alpha \forall x\in X, \alpha\in\realset\iff f(x)\leq \alpha\wedge g(x)\leq \alpha
+			\max\{f(x),g(x)\}\leq\alpha, \forall x\in X, \alpha\in\realset\iff f(x)\leq \alpha\wedge g(x)\leq \alpha
 		\end{equation*}
 	Allora, per ogni $\alpha\in\realset$ si ha
 	\begin{align*}
@@ -517,7 +521,7 @@ mentre la seconda da
 		\item Sia $ k(x)=\min\{f,g\}(x),\ \forall x\in X$. Dobbiamo provare che $k$ sia misurabile, con $\funz{k}{\left(X,\mathcal{M}\right)}{\realset^{\ast}=\left[-\infty,+\infty\right]}$. Per la terza caratterizzazione del teorema \ref{caratterizzazionefunzionimisurabili} delle funzioni misurabili è sufficiente dimostrare che $k^{-1}\left(\left(\alpha,+\infty\right]\right)\in\mathcal{M},\ \forall\alpha\in\realset$.
 		Si osserva che
 		\begin{equation*}
-			\min\{f(x),g(x)\}>\alpha \forall x\in X, \alpha\in\realset\iff f(x)>\alpha \alpha\wedge g(x)> \alpha
+			\min\{f(x),g(x)\}>\alpha, \forall x\in X, \alpha\in\realset\iff f(x)>\alpha \wedge g(x)> \alpha
 		\end{equation*}
 		Allora, per ogni $\alpha\in\realset$ si ha
 		\begin{align*}
@@ -584,6 +588,7 @@ converge se $p<1$ e diverge per $p\geq 1$.
 	\int_{a}^{+\infty}\frac{1}{x^p},\quad a>0
 \end{equation}
 converge se $p>1$ e diverge per $p\leq 1$.
+%NOTA: a>0 è fuori posto, anche nelle sottosezioni dopo 
 \paragraph{Logaritmo}
 \begin{equation}
 	\int_{1}^{a}\frac{1}{\log^p(x)},\quad a>1
@@ -616,6 +621,7 @@ Esso invece diverse se vale una delle seguenti:
 	\item $p<1,\ \forall q\in\realset$
 	\item $p=1,\ q\leq 1$.
 \end{itemize}
+
 \section{Capitolo 7: convergenza di funzioni, parte seconda}
 \subsection{Misurabilità e convergenza quasi ovunque}
 \begin{proposition}[Teorema di misurabilità per successioni {q.o.}]\label{funzionimisurabiliqo}
@@ -627,7 +633,7 @@ Esso invece diverse se vale una delle seguenti:
 	Allora $f$ è misurabile.
 \end{proposition}
 \begin{demonstration}
-	Sia $g\coloneqq \liminf_{n\to+\infty}f_n$: sappiamo che $g$ è misurabile perché le $f_n$ lo sono; inoltre, poiché $f_n$ converge \textbf{q.o.} a $f$, allora esso coincide a $f$ \textbf{q.o.}. Ci rimane da mostrare che se $f=g$ \textbf{q.o.} e $g$ è misurabile, allora lo è anche $f$.\\
+	Sia $\displaystyle g\coloneqq \liminf_{n\to+\infty}f_n$: sappiamo che $g$ è misurabile perché le $f_n$ lo sono; inoltre, poiché $f_n$ converge \textbf{q.o.} a $f$, allora esso coincide a $f$ \textbf{q.o.}. Ci rimane da mostrare che se $f=g$ \textbf{q.o.} e $g$ è misurabile, allora lo è anche $f$.\\
 	Per definizione di proprietà \textbf{q.o.}, esiste un insieme $N$ di misura nulla in cui $f\neq g$. Osserviamo che, per un qualunque aperto $A\subseteq\complexset$, si ha
 	\begin{align*}
 		f^{-1}(A)&=\left[f^{-1}(A)\cap N^C\right]\cup\left[f^{-1}(A)\cap N\right]=\\
@@ -637,5 +643,5 @@ Esso invece diverse se vale una delle seguenti:
 \end{demonstration}
 L'ipotesi della completezza della misura $\mu$ è fondamentale, come vedremo nel breve controesempio che segue.
 \begin{example}
-	Si consideri lo spazio di misura $\left(X,\{\emptyset,X,\mu\right)$, dove $\mu(\emptyset)=0=\mu(X)$; la misura $\mu$ è banalmente non completa. In questo spazio si ha che ogni successione $\funz{f_n}{X}{\complexset}$ converge \textbf{q.o.} ad una qualunque $\funz{f}{X}{\complexset}$, ma soltanto le applicazioni costanti sono misurabili.
+	Si consideri lo spazio di misura $\left(X,\{\emptyset,X\},\mu\right)$, dove $\mu(\emptyset)=0=\mu(X)$; la misura $\mu$ è banalmente non completa. In questo spazio si ha che ogni successione $\funz{f_n}{X}{\complexset}$ converge \textbf{q.o.} ad una qualunque $\funz{f}{X}{\complexset}$, ma soltanto le applicazioni costanti sono misurabili.
 \end{example}
