@@ -31,7 +31,6 @@ Lo scopo di questo capitolo aggiuntivo è cercare di dare alcune basi di \textbf
 Dopo una premessa sugli \textit{assiomi} sui quali baseremo i nostri ragionamenti, partiremo dal definire \textit{insiemi (ben) ordinati}, necessari per introdurre gli \textit{ordinali} (finiti e infiniti); arriveremo a parlare dell'\textit{induzione transfinita} e dell'aritmetica degli ordinali.\\
 Successivamente, passeremo ai concetti di \textit{cardinalità} e \textit{numeri cardinali}, mostrando diverse proprietà (compreso lo stretto legame che li lega agli ordinali), concludendo con alcuni importanti teoremi e congetture.\\
 Per maggiori approfondimenti rimandiamo a \cite{jech:2003settheory} e \cite{andretta:2021elements}.
-%NOTA: la citazione deve apparire così a schermo? perché è letteralmente quanto scritto nel \cite, solo che è in grassetto e non è clickabile
 \section{Teoria degli insiemi di Zermelo-Fraenkel e Assioma di Scelta}
 Intuitivamente, un \textit{insieme} è una collezione di tutti gli elementi che soddisfano una certa proprietà. Potremmo dunque definire il seguente assioma...
 \begin{falseaxiom}[Assioma della comprensione]
@@ -50,8 +49,7 @@ L'insieme $S$ appartiene a $S$? Se $S$ appartiene a $S$, allora $S$ non è un el
 \end{examplewt}
 Poiché $S$ non è un insieme, dobbiamo sostituire questo assioma intuitivo ma errato. Per questo si introduce una versione debole di esso, lo \textit{Schema assiomatico\footnote{Per \textbf{schema assiomatico} si intende che c'è un assioma per ogni proprietà $P$.} di Separazione}.
 \begin{center}
-	\emph{Se $P$ è una proprietà, allora per ogni insieme $X$ esiste un insieme degli elementi di $X$ che soddisfano tale proprietà.}
-%OLD: c'erano : al fondo della frase
+{\small 	\emph{Se $P$ è una proprietà, allora per ogni insieme $X$ esiste un insieme degli elementi di $X$ che la soddisfano.}}
 \end{center}
 Osserviamo che questi assiomi \textit{non} permettono di costruire insiemi, ma solo \textit{sottoinsiemi} di altri insiemi già noti. In realtà, lo Schema assiomatico di Separazione è troppo debole per poterci costruire una teoria solo su di essi (non si può neanche definire propriamente l'unione di insiemi!), dunque abbiamo bisogno di integrare opportunamente con ulteriori assiomi.\\
 Di seguito enunciamo, senza analizzarli nel dettaglio, gli assiomi di Zermelo-Fraenkel. La teoria degli insiemi basata su questi assiomi è detta, per ovvi motivi, \textbf{teoria di Zermelo-Fraenkel}\index{teoria!di Zermelo-Fraenkel} ($\mathsf{ZF}$); denotiamo con $\mathsf{ZFC}$ la teoria $\mathsf{ZF}$ con l'Assioma della Scelta ($\mathsf{AC}$).
@@ -326,7 +324,7 @@ Con ciò che abbiamo introdotto possiamo generalizzare facilmente questa proprie
 Allora $C=\mathrm{Ord}$.
 \end{theorema}
 \begin{demonstration}
-	Se $C=\mathrm{Ord}$ abbiamo finito. Altrimenti, sia $\alpha$ il più piccolo ordinale\footnote{Possiamo farlo in quanto un ordinale è ben ordinato} che \textit{non} appartiene a $C$.
+	Se $C=\mathrm{Ord}$ abbiamo finito. Altrimenti, sia $\alpha$ il più piccolo ordinale\footnote{Possiamo farlo in quanto un ordinale è ben ordinato.} che \textit{non} appartiene a $C$.
 	\begin{itemize}
 		\item Se $\alpha=0$ si ha subito l'assurdo per l'ipotesi $1$.
 		\item Se $\alpha$ è un ordinale successore, allora sia $\beta$ l'ordinale tale per cui $\alpha=\beta+1$: per contronominale sulla ipotesi 2. si ha
@@ -627,7 +625,6 @@ Queste operazioni sono ben definite se sono indipendenti dalla scelta di $X$ e $
 		\begin{equation}
 			\kappa^{\mu}\leq \lambda^{\mu}
 		\end{equation}
-	%NOTA: are you sure about that?
 		\item Se $0<\lambda\leq \mu$, allora
 		\begin{equation}
 			\kappa^{\lambda}\leq \kappa^{\mu}
@@ -778,7 +775,7 @@ Cos'è, invece, la cardinalità dell'insieme delle parti dei reali?\label{cardin
 \abs{\setpart{\realset}}=2^{\mathfrak{c}}
 \end{equation*}
 Sappiamo che è un numero \textit{ancora più grande} della cardinalità del continuo, ma non è per nulla facile capire cos'è. \\
-Dato che ciò esenta gli scopi che ci siamo prefissi per questa appendice - che già di per sé è un esteso (e non necessario) approfondimento di teoria degli insiemi\footnote{Nel caso avessimo sbagliato in qualche punto, qualche logico ci illumini per favore} scritto per spiegare qualche termine usato nel capitolo di Teoria della Misura - lasciamo ad un eventuale lettore curioso qualche spunto a riguardo:
+Dato che ciò esenta gli scopi che ci siamo prefissi per questa appendice - che già di per sé è un esteso (e non necessario) approfondimento di teoria degli insiemi\footnote{Nel caso avessimo sbagliato in qualche punto, qualche logico ci illumini per favore, io manco ho seguito \textsc{Logica}.} scritto per spiegare qualche termine usato nel capitolo di Teoria della Misura - lasciamo ad un eventuale lettore curioso qualche spunto a riguardo:
 \begin{itemize}
 	\item \textbf{Beth number}\\ \textcolor{redill}{\url{https://en.wikipedia.org/wiki/Beth_number}}
 	\item \textbf{What is known about the power set of the real number line?}\\ \textcolor{redill}{\url{https://math.stackexchange.com/a/94000/875294}}

@@ -598,7 +598,7 @@ Esso converge se vale una delle seguenti:
 	\item $p<1,\ \forall q\in\realset$
 	\item $p=1,\ b>1$.
 \end{itemize}
-Esso invece diverse se vale una delle seguenti:
+Esso invece diverge se vale una delle seguenti:
 \begin{itemize}
 	\item $p>1,\ \forall q\in\realset$
 	\item $p=1,\ b\leq 1$.
@@ -611,7 +611,7 @@ Esso converge se vale una delle seguenti:
 	\item $p>1,\ \forall q\in\realset$
 	\item $p=1,\ q>1$.
 \end{itemize}
-Esso invece diverse se vale una delle seguenti:
+Esso invece diverge se vale una delle seguenti:
 \begin{itemize}
 	\item $p<1,\ \forall q\in\realset$
 	\item $p=1,\ q\leq 1$.
@@ -627,7 +627,7 @@ Esso invece diverse se vale una delle seguenti:
 	Allora $f$ è misurabile.
 \end{proposition}
 \begin{demonstration}
-	Sia $g\coloneqq \liminf_{n\to+\infty}f_n$: sappiamo che $g$ è misurabile perché le $f_n$ lo sono; inoltre, poiché $f_n$ converge \textbf{q.o.} a $f$, allora esso coincide a $f$ \textbf{q.o.}. Ci rimane da mostrare che se $f=g$ \textbf{q.o.} e $g$ è misurabile, allora lo è anche $f$.\\
+	Sia $\displaystyle g\coloneqq \liminf_{n\to+\infty}f_n$: sappiamo che $g$ è misurabile perché le $f_n$ lo sono; inoltre, poiché $f_n$ converge \textbf{q.o.} a $f$, allora esso coincide a $f$ \textbf{q.o.}. Ci rimane da mostrare che se $f=g$ \textbf{q.o.} e $g$ è misurabile, allora lo è anche $f$.\\
 	Per definizione di proprietà \textbf{q.o.}, esiste un insieme $N$ di misura nulla in cui $f\neq g$. Osserviamo che, per un qualunque aperto $A\subseteq\complexset$, si ha
 	\begin{align*}
 		f^{-1}(A)&=\left[f^{-1}(A)\cap N^C\right]\cup\left[f^{-1}(A)\cap N\right]=\\
